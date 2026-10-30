@@ -1,0 +1,3606 @@
+{
+  "schemaVersion": 1,
+  "policy": "Seven native producer compiler checkpoints, bound to exact source and original proof bytes. No current-global-candidate, native-behavior, SSR/resume, or release acceptance is awarded by docs.",
+  "examples": [
+    {
+      "framework": "react",
+      "sourcePath": "packages/react/examples/catalog.tsx",
+      "sourceSha256": "c632e819c3668069d082757708e3a0e371dbe894be820c3e68cda26346d10536",
+      "componentIds": [
+        "button",
+        "native-select",
+        "modal",
+        "tabs",
+        "calendar",
+        "date-input",
+        "masthead",
+        "identifier",
+        "header",
+        "footer",
+        "skip-link",
+        "main-menu",
+        "breadcrumb",
+        "side-navigation",
+        "in-page-navigation",
+        "pagination",
+        "structured-list",
+        "critical-alert",
+        "disclosure",
+        "badge",
+        "accordion",
+        "image",
+        "carousel",
+        "table",
+        "text-list",
+        "favicon",
+        "link",
+        "fab",
+        "radio-group",
+        "checkbox",
+        "tag",
+        "switch",
+        "step-indicator",
+        "spinner",
+        "help-panel",
+        "tutorial-panel",
+        "contextual-help",
+        "coach-mark",
+        "tooltip",
+        "tts",
+        "textarea",
+        "text-input",
+        "file-upload",
+        "language-switcher",
+        "resize",
+        "accessible-media",
+        "visually-hidden",
+        "range-slider",
+        "back-button",
+        "bottom-sheet",
+        "quantity-toggle",
+        "toast",
+        "snackbar",
+        "tab-bar"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/react exec tsc -p examples/tsconfig.json",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json",
+          "bytes": 1429,
+          "sha256": "eb793c6ef3368ea12be3e6bbb17c0df86c728ab087eeeb82e8947d5fc5df9d8e"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Exact current example bytes include the shared Masthead disclaimer correction. This compiler checkpoint does not accept the native source review, full behavior catalog, or final release candidate."
+      ]
+    },
+    {
+      "framework": "solid",
+      "sourcePath": "apps/fixture-solid/src/examples.tsx",
+      "sourceSha256": "243f137ee6cf7631bea2efc7716aa96a0a7091cde9e399caa06126251db92f8e",
+      "componentIds": [
+        "button",
+        "native-select",
+        "modal",
+        "tabs",
+        "calendar",
+        "date-input"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json",
+        ".superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json",
+          "bytes": 607,
+          "sha256": "430de6363a9dd6661c886b46b9894dc33d93a6574f7997bb78cf47780bb84fac"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Historical producer-build compiler checkpoint; these example bytes are unchanged. The Solid owner is repairing the native implementation and must supply the next public-build/typecheck checkpoint before a current-native-candidate claim."
+      ]
+    },
+    {
+      "framework": "solid",
+      "sourcePath": "apps/fixture-solid/src/catalog-examples.tsx",
+      "sourceSha256": "92672a7d08d81ba64f999450da0ec3355091fabfdf211bfc44175157632b739f",
+      "componentIds": [
+        "masthead",
+        "identifier",
+        "header",
+        "footer",
+        "skip-link",
+        "main-menu",
+        "breadcrumb",
+        "side-navigation",
+        "in-page-navigation",
+        "pagination",
+        "structured-list",
+        "critical-alert",
+        "disclosure",
+        "badge",
+        "accordion",
+        "image",
+        "carousel",
+        "table",
+        "text-list",
+        "favicon",
+        "link",
+        "fab",
+        "radio-group",
+        "checkbox",
+        "tag",
+        "switch",
+        "step-indicator",
+        "spinner",
+        "help-panel",
+        "tutorial-panel",
+        "contextual-help",
+        "coach-mark",
+        "tooltip",
+        "tts",
+        "textarea",
+        "text-input",
+        "file-upload",
+        "language-switcher",
+        "resize",
+        "accessible-media",
+        "visually-hidden",
+        "range-slider",
+        "back-button",
+        "bottom-sheet",
+        "quantity-toggle",
+        "toast",
+        "snackbar",
+        "tab-bar"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json",
+        ".superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json",
+          "bytes": 607,
+          "sha256": "430de6363a9dd6661c886b46b9894dc33d93a6574f7997bb78cf47780bb84fac"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Historical producer-build compiler checkpoint; these example bytes are unchanged. The Solid owner is repairing the native implementation and must supply the next public-build/typecheck checkpoint before a current-native-candidate claim."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/MastheadExample.svelte",
+      "sourceSha256": "6df9efbc6edd9549030fc41c73c54944987d560a3b0ac4639f8a889521ca9cd2",
+      "componentIds": [
+        "masthead"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/IdentifierExample.svelte",
+      "sourceSha256": "e77921b67cb2e4410197bfcb6d975adb4060f9801bf58c12cb2be194d2ee3316",
+      "componentIds": [
+        "identifier"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/HeaderExample.svelte",
+      "sourceSha256": "e838fa4ef72a748067476d3e3563742302b9b47a6e881c81aa5d233ff27d670a",
+      "componentIds": [
+        "header"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/FooterExample.svelte",
+      "sourceSha256": "684b7233cead62f93943b35607411e389cb874dfe9ec0b3da3b4c65219330d23",
+      "componentIds": [
+        "footer"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/SkipLinkExample.svelte",
+      "sourceSha256": "8128a4ccce8fad8e87ad77aea8db8204d177d281e9b7921912bdc1ba8719b0d5",
+      "componentIds": [
+        "skip-link"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/MainMenuExample.svelte",
+      "sourceSha256": "4e13b72574802115da829e5f536ac57b048c67013c6c2826ff1a044113942bd0",
+      "componentIds": [
+        "main-menu"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/BreadcrumbExample.svelte",
+      "sourceSha256": "19686c4b356eab13bca4948d1913f3f4fc9e6e619d6ad58fe151183f0508bf09",
+      "componentIds": [
+        "breadcrumb"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/SideNavigationExample.svelte",
+      "sourceSha256": "6726d1d314f23df711ac12232fdac462b1020723e94781c4fa959fe833bb5aea",
+      "componentIds": [
+        "side-navigation"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/InPageNavigationExample.svelte",
+      "sourceSha256": "a4da0b7107c3170dc080dd6f8b08704a8bd808988500e5811aa2d8fe9644f39a",
+      "componentIds": [
+        "in-page-navigation"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/PaginationExample.svelte",
+      "sourceSha256": "f82dd4067eb0a40f6365036e9e8ff8823ee4318c728c20758e2b6bbf2c084a56",
+      "componentIds": [
+        "pagination"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/StructuredListExample.svelte",
+      "sourceSha256": "d56874681350ff75d421c3c036293f7be23eccb916760210fd9f379def01c1fc",
+      "componentIds": [
+        "structured-list"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/CriticalAlertExample.svelte",
+      "sourceSha256": "94873f7ecadcb9be71794c40c5be66cf54b2850ace590004b309ce32fdff6a02",
+      "componentIds": [
+        "critical-alert"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/CalendarExample.svelte",
+      "sourceSha256": "c9853101738fff8cf7d190e6168a1a9e9582ac89697b8694915c535b9a216756",
+      "componentIds": [
+        "calendar"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/DisclosureExample.svelte",
+      "sourceSha256": "65617d5b332a4fbed9bbd1e19c89d3120e02c33f53c93e98c66b94c84ac38ee4",
+      "componentIds": [
+        "disclosure"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/ModalExample.svelte",
+      "sourceSha256": "7df84ab27e927ddfa41ae232da342d777eea98a44edbfb49576d27ac394751ff",
+      "componentIds": [
+        "modal"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/BadgeExample.svelte",
+      "sourceSha256": "3a4344a9121b1a71bb287d738c5383e753b82c88df2b83a9276d1c02b64131d8",
+      "componentIds": [
+        "badge"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/AccordionExample.svelte",
+      "sourceSha256": "de645efeca94a27c28b41b204f390eb81b1bd89b6553e57b477abc4cd25acfd8",
+      "componentIds": [
+        "accordion"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/ImageExample.svelte",
+      "sourceSha256": "3bf9f94697b8753d14f893f29286a8f94ec4c26bcde4182be27855bf6145d845",
+      "componentIds": [
+        "image"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/CarouselExample.svelte",
+      "sourceSha256": "cb00d8e33c8ec1a12b8a0b7e16714f5549c0c972bc5e7c0172cf98c5ac9f9072",
+      "componentIds": [
+        "carousel"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TabsExample.svelte",
+      "sourceSha256": "e2ffab42a47cdabb61e24cc215a3b10cd156bff1bad4a810d538ae8bff47aac1",
+      "componentIds": [
+        "tabs"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TableExample.svelte",
+      "sourceSha256": "dc525578086455b029fbc4ee71427846d600a3a06f4f38df678a82d9fe18433f",
+      "componentIds": [
+        "table"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TextListExample.svelte",
+      "sourceSha256": "fd22d06b6f0ec586c2aa9586f31630fad12a71d41d7750b357b4121c6fb675f4",
+      "componentIds": [
+        "text-list"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/FaviconExample.svelte",
+      "sourceSha256": "0416f6820888c3ae116bfb8dadf85c69ea63be5544a7ee732055d5f053f7d4a3",
+      "componentIds": [
+        "favicon"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/LinkExample.svelte",
+      "sourceSha256": "1c249b87284e5615b26b65dae4f4e002a8816160f7579e7154a13740fb9ac332",
+      "componentIds": [
+        "link"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/ButtonExample.svelte",
+      "sourceSha256": "cf9645fe83ea54f609df91cf30e94da177f472dc15d3a78227ecbd593954376a",
+      "componentIds": [
+        "button"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/FABExample.svelte",
+      "sourceSha256": "e314203f36096c3967d2042ebbe6058fd851c19f254335f4cbfaba484fb85b63",
+      "componentIds": [
+        "fab"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/RadioGroupExample.svelte",
+      "sourceSha256": "8642fd041578bef34cbbbfa5c71b0a3f99d0768aeb768343b00523f5894ab636",
+      "componentIds": [
+        "radio-group"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/CheckboxExample.svelte",
+      "sourceSha256": "9e11da4a12f61a9df647a4ff681779595a2280e85a4bc80eabd68b2f6f0ae0e3",
+      "componentIds": [
+        "checkbox"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/NativeSelectExample.svelte",
+      "sourceSha256": "c9f6e16607434aaffc9c3bf24c4c5ebdf5013a9ac36e1a0d66f3f8913564ba66",
+      "componentIds": [
+        "native-select"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TagExample.svelte",
+      "sourceSha256": "cb5cec51e7a40e3cdbae894e39328a017ee61d18c2ba38b3b2e1af4108844f03",
+      "componentIds": [
+        "tag"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/SwitchExample.svelte",
+      "sourceSha256": "22d63b1e4b7365320e6931038cf9ddcca015bbf5628d5bc5f8f0d92c2e87a5f7",
+      "componentIds": [
+        "switch"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/StepIndicatorExample.svelte",
+      "sourceSha256": "0ca32726208376a9cdb10662755a1ef06728a287a114d57ba28fa252a7169778",
+      "componentIds": [
+        "step-indicator"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/SpinnerExample.svelte",
+      "sourceSha256": "438abdcc6babda29864c1fad95506bfdf0c2cc0c604d32915fb0b8d87158efe9",
+      "componentIds": [
+        "spinner"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/HelpPanelExample.svelte",
+      "sourceSha256": "895574a712051b406315570aca044a3eb8c33462ad7408c94ba2b79bb281a2ee",
+      "componentIds": [
+        "help-panel"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TutorialPanelExample.svelte",
+      "sourceSha256": "b5267b8375a597d171bfdc9e4fb3d0a37394c8f88a705754de228b2bdb079735",
+      "componentIds": [
+        "tutorial-panel"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/ContextualHelpExample.svelte",
+      "sourceSha256": "eb999a408c81a6d001406010259f52f58f9a76bc7d91152fd119d6319e06d43a",
+      "componentIds": [
+        "contextual-help"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/CoachMarkExample.svelte",
+      "sourceSha256": "fbc8a42dc6532a0ef2993e57ba6dbad52b5e66c515f7729ba5a4f1f2c995e823",
+      "componentIds": [
+        "coach-mark"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TooltipExample.svelte",
+      "sourceSha256": "aba6ac09930ca07c283ca7f56645414a863cf742b9111dafd543dc748fb8f0d7",
+      "componentIds": [
+        "tooltip"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TTSExample.svelte",
+      "sourceSha256": "2f0106dc51fc7088da6071cf0db25a77804d8b1a7088320d5f274f07d38b8234",
+      "componentIds": [
+        "tts"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/DateInputExample.svelte",
+      "sourceSha256": "012b40366400ac99c62e3086e7a21732b203c63940f714502a5dff36b3c32b10",
+      "componentIds": [
+        "date-input"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TextareaExample.svelte",
+      "sourceSha256": "acb9bf2b33d238f1daa024a11f1c8df55933ce04b30d8c0b9611b2be6d161aab",
+      "componentIds": [
+        "textarea"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TextInputExample.svelte",
+      "sourceSha256": "7cc1ad3f7c60298b6060aaea55036230c657c92d34d3568ec6bb2c4103a96a5a",
+      "componentIds": [
+        "text-input"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/FileUploadExample.svelte",
+      "sourceSha256": "376cdb52498118c9fb8535791fc0495323166d85340001c6030b3e274c16675f",
+      "componentIds": [
+        "file-upload"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/LanguageSwitcherExample.svelte",
+      "sourceSha256": "9001984571fbabc3b02aaad418817a61b3be877e95e5e7e585986409eb2e2f22",
+      "componentIds": [
+        "language-switcher"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/ResizeExample.svelte",
+      "sourceSha256": "51fafda76351bf338e5c3dff1426cb51516bc1fb162270227d095d4705e566b4",
+      "componentIds": [
+        "resize"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/AccessibleMediaExample.svelte",
+      "sourceSha256": "3d7eba9538212f2025eb72d98c04290eb80a531d3db778b29d59403b7c26fffa",
+      "componentIds": [
+        "accessible-media"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/VisuallyHiddenExample.svelte",
+      "sourceSha256": "1402be2cf2b6d74eb7b0cabf991143bb77d5383a897d5fb0ff6e3398ba761bb2",
+      "componentIds": [
+        "visually-hidden"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/RangeSliderExample.svelte",
+      "sourceSha256": "80a26ee2c8961fc9d1103bcdfb7e8862e8e8831267f281aeda6d5b1db6bfa57e",
+      "componentIds": [
+        "range-slider"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/BackButtonExample.svelte",
+      "sourceSha256": "985f61059accfc8c6124de2d2875921840757b1fc2370d2a1af0a2dd5e1e6d21",
+      "componentIds": [
+        "back-button"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/BottomSheetExample.svelte",
+      "sourceSha256": "e52c65756551eb2d6f7d3f0447f7b037dbe71c6b90ecbf3a24ef00c837fc2465",
+      "componentIds": [
+        "bottom-sheet"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/QuantityToggleExample.svelte",
+      "sourceSha256": "70bb958f8476e6e62ad5d73529a2a5d811a152e87cd4cc68dada6aadab262a5f",
+      "componentIds": [
+        "quantity-toggle"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/ToastExample.svelte",
+      "sourceSha256": "98f5e6bc09ae7e86ddcc76678d6ec67a2d6e277edcff8a400abd5822a8fc2518",
+      "componentIds": [
+        "toast"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/SnackbarExample.svelte",
+      "sourceSha256": "192ef5bd01beeae32f0a55ca31638390c8a4992429274a2883797171f17fb42b",
+      "componentIds": [
+        "snackbar"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "svelte",
+      "sourcePath": "apps/fixture-svelte/src/public-examples/TabBarExample.svelte",
+      "sourceSha256": "2bdd49ebcc16852af08d42a5ff7af7019929df1b5e282876b5e622a163e16d5d",
+      "componentIds": [
+        "tab-bar"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+        ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
+          "bytes": 14373,
+          "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
+          "bytes": 1054,
+          "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+          "bytes": 1747,
+          "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
+          "bytes": 3405,
+          "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
+          "bytes": 729,
+          "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+          "bytes": 162,
+          "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "All 54 source bytes are unchanged. The later retained strict fixture compiler checkpoint reports zero errors and zero warnings; the original evidence also preserves an earlier unrelated initial-value-capture warning. Native source repairs, runtime/SSR evidence and final candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "vue",
+      "sourcePath": "apps/fixture-vue/src/PublicCatalogExamples.vue",
+      "sourceSha256": "4ccde4d891310f5367d4b333be2faacb057a1e8e228bff50d82f08ee316d44f7",
+      "componentIds": [
+        "accessible-media",
+        "accordion",
+        "back-button",
+        "badge",
+        "bottom-sheet",
+        "breadcrumb",
+        "carousel",
+        "checkbox",
+        "coach-mark",
+        "contextual-help",
+        "critical-alert",
+        "disclosure",
+        "fab",
+        "favicon",
+        "file-upload",
+        "footer",
+        "header",
+        "help-panel",
+        "identifier",
+        "image",
+        "in-page-navigation",
+        "language-switcher",
+        "link",
+        "main-menu",
+        "masthead",
+        "pagination",
+        "quantity-toggle",
+        "radio-group",
+        "range-slider",
+        "resize",
+        "side-navigation",
+        "skip-link",
+        "snackbar",
+        "spinner",
+        "step-indicator",
+        "structured-list",
+        "switch",
+        "tab-bar",
+        "table",
+        "tag",
+        "text-input",
+        "text-list",
+        "textarea",
+        "toast",
+        "tooltip",
+        "tts",
+        "tutorial-panel",
+        "visually-hidden"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json",
+        ".superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json",
+          "bytes": 1812,
+          "sha256": "5db745746105eeceb2f4d74a8cb5b2ff6d00b56ab03600bae7ec9af944ca73b2"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Refreshed native Vue SFC compiler checkpoint against public package exports; source bytes remain unchanged. Native behavioral and final-candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "vue",
+      "sourcePath": "apps/fixture-vue/src/ConsumerExample.vue",
+      "sourceSha256": "c7c607e17cf50712e67b7d213ae574127363098d5d41e27b5f1a9ba23af01d36",
+      "componentIds": [
+        "button",
+        "calendar",
+        "date-input",
+        "modal",
+        "native-select",
+        "tabs"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json",
+        ".superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json",
+          "bytes": 1812,
+          "sha256": "5db745746105eeceb2f4d74a8cb5b2ff6d00b56ab03600bae7ec9af944ca73b2"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Refreshed native Vue SFC compiler checkpoint against public package exports; source bytes remain unchanged. Native behavioral and final-candidate acceptance remain separate."
+      ]
+    },
+    {
+      "framework": "lit",
+      "sourcePath": "apps/fixture-lit/src/examples/catalog.ts",
+      "sourceSha256": "31eda727a5cbf37dd2c329a8d61c5fe8a4bbcc549d663e8a3bc0b0d98ee16292",
+      "componentIds": [
+        "masthead",
+        "identifier",
+        "header",
+        "footer",
+        "skip-link",
+        "main-menu",
+        "breadcrumb",
+        "side-navigation",
+        "in-page-navigation",
+        "pagination",
+        "structured-list",
+        "critical-alert",
+        "calendar",
+        "disclosure",
+        "modal",
+        "badge",
+        "accordion",
+        "image",
+        "carousel",
+        "tabs",
+        "table",
+        "text-list",
+        "favicon",
+        "link",
+        "button",
+        "fab",
+        "radio-group",
+        "checkbox",
+        "native-select",
+        "tag",
+        "switch",
+        "step-indicator",
+        "spinner",
+        "help-panel",
+        "tutorial-panel",
+        "contextual-help",
+        "coach-mark",
+        "tooltip",
+        "tts",
+        "date-input",
+        "textarea",
+        "text-input",
+        "file-upload",
+        "language-switcher",
+        "resize",
+        "accessible-media",
+        "visually-hidden",
+        "range-slider",
+        "back-button",
+        "bottom-sheet",
+        "quantity-toggle",
+        "toast",
+        "snackbar",
+        "tab-bar"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-lit typecheck",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json",
+        ".superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json",
+          "bytes": 403,
+          "sha256": "9da86845faedffb6466c64acacd853cdb5a33078e9d6148e6d48baf0d17bd1e3"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Historical producer-build compiler checkpoint; the exact typed custom-element example bytes remain unchanged. Material native source-review repairs are active; a refreshed producer build/typecheck is required before claiming the latest native candidate."
+      ]
+    },
+    {
+      "framework": "qwik",
+      "sourcePath": "apps/fixture-qwik/src/catalog-examples.tsx",
+      "sourceSha256": "5c118523600304d9f4dde9c12c99b882a7ffc42552761954f549ae2b559420e0",
+      "componentIds": [
+        "masthead",
+        "identifier",
+        "header",
+        "footer",
+        "skip-link",
+        "main-menu",
+        "breadcrumb",
+        "side-navigation",
+        "in-page-navigation",
+        "pagination",
+        "structured-list",
+        "critical-alert",
+        "calendar",
+        "disclosure",
+        "modal",
+        "badge",
+        "accordion",
+        "image",
+        "carousel",
+        "tabs",
+        "table",
+        "text-list",
+        "favicon",
+        "link",
+        "button",
+        "fab",
+        "radio-group",
+        "checkbox",
+        "native-select",
+        "tag",
+        "switch",
+        "step-indicator",
+        "spinner",
+        "help-panel",
+        "tutorial-panel",
+        "contextual-help",
+        "coach-mark",
+        "tooltip",
+        "tts",
+        "date-input",
+        "textarea",
+        "text-input",
+        "file-upload",
+        "language-switcher",
+        "resize",
+        "accessible-media",
+        "visually-hidden",
+        "range-slider",
+        "back-button",
+        "bottom-sheet",
+        "quantity-toggle",
+        "toast",
+        "snackbar",
+        "tab-bar"
+      ],
+      "status": "compiler-checked",
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik exec tsc -p tsconfig.examples.json --noEmit",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json",
+          "bytes": 1526,
+          "sha256": "b652a606672a7c8880f5b33f33e4d4fd1e838d0e2c9960e798c315f30e5a5929"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Current Masthead-disclaimer source-byte compiler checkpoint. Qwik source-review and nested-QRL repairs remain active. TypeScript success does not establish optimizer output, production serialization/resume, first-lazy-event behavior, or native acceptance."
+      ]
+    },
+    {
+      "framework": "angular",
+      "sourcePath": "apps/fixture-angular/src/public-catalog-examples.ts",
+      "sourceSha256": "d3ab112ccc88d186fdf177e25022d4cc433c5e168d595b751401e5691666d4c1",
+      "componentIds": [
+        "accessible-media",
+        "accordion",
+        "back-button",
+        "badge",
+        "bottom-sheet",
+        "breadcrumb",
+        "button",
+        "calendar",
+        "carousel",
+        "checkbox",
+        "coach-mark",
+        "contextual-help",
+        "critical-alert",
+        "date-input",
+        "disclosure",
+        "fab",
+        "favicon",
+        "file-upload",
+        "footer",
+        "header",
+        "help-panel",
+        "identifier",
+        "image",
+        "in-page-navigation",
+        "language-switcher",
+        "link",
+        "main-menu",
+        "masthead",
+        "modal",
+        "native-select",
+        "pagination",
+        "quantity-toggle",
+        "radio-group",
+        "range-slider",
+        "resize",
+        "side-navigation",
+        "skip-link",
+        "snackbar",
+        "spinner",
+        "step-indicator",
+        "structured-list",
+        "switch",
+        "tab-bar",
+        "table",
+        "tabs",
+        "tag",
+        "text-input",
+        "text-list",
+        "textarea",
+        "toast",
+        "tooltip",
+        "tts",
+        "tutorial-panel",
+        "visually-hidden"
+      ],
+      "status": "compiler-checked",
+      "command": "NG_BUILD_MAX_WORKERS=1 node tools/yarn.mjs workspace @unofficial-krds/fixture-angular build:local",
+      "evidencePaths": [
+        ".superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json",
+        ".superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log"
+      ],
+      "proofInputs": [
+        {
+          "path": ".superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json",
+          "bytes": 10444,
+          "sha256": "17053a1a1cedc821c645ffd407a9910686efc45844e4da78421fd995c9925fa1"
+        },
+        {
+          "path": ".superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log",
+          "bytes": 491,
+          "sha256": "8fa83558008d045b5d2358eb6e777ecbdb970c8cd1eaad200657bc560ff8aa29"
+        }
+      ],
+      "publicPackageConsumption": true,
+      "checkpointOnly": true,
+      "currentCandidate": false,
+      "notes": [
+        "Official Angular CLI strict AOT source-fix1 checkpoint against the sealed public partial-APF input. This does not accept native315, stories344, SSR/runtime forms, manual checks, or the final candidate."
+      ],
+      "consumedArtifact": {
+        "path": ".superpowers/sdd/PLAN/t10-angular-logs/compiler-source-fix1-consumed-apf.tgz",
+        "sha256": "6d4c55a36e9a30a3c81f07fd36e27a7a9ed2554dd8a888e2fab24d073add1bd9"
+      }
+    }
+  ]
+}

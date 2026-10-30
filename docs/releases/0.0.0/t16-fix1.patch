@@ -1,0 +1,495 @@
+diff --git a/Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/task-T16-fix1-base/tools/verify-release.mjs b/tools/verify-release.mjs
+index 1233b55..507017a 100644
+--- a/Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/task-T16-fix1-base/tools/verify-release.mjs
++++ b/tools/verify-release.mjs
+@@ -27,10 +27,10 @@ export function validateExecutedRows(rows,required){
+  for(const id of required)if(!ids.has(id))errors.push(`missing required outcome ${id}`);
+  return errors;
+ }
+-export function validateBrowserRows(rows){
++export function validateBrowserRows(rows,requiredChecks=browserChecks.native){
+  if(!Array.isArray(rows)||rows.length!==9)return ['all nine actual browser/timezone outcomes required'];
+  const errors=[];const seen=new Set();
+- for(const row of rows){const key=`${row.browser}:${row.timezoneId}`;if(seen.has(key))errors.push(`duplicate browser outcome ${key}`);seen.add(key);if(row.status!=='passed'||!nonempty(row.version)||!Array.isArray(row.checks)||!row.checks.length)errors.push(`missing actual browser outcome ${key}`);}
++ for(const row of rows){const key=`${row.browser}:${row.timezoneId}`;if(seen.has(key))errors.push(`duplicate browser outcome ${key}`);seen.add(key);if(row.status!=='passed'||row.skipped===true||row.executed===false||row.exitCode!==undefined&&row.exitCode!==0||!nonempty(row.version)||!Array.isArray(row.checks)||!row.checks.length||!requiredChecks.every(check=>row.checks.includes(check)))errors.push(`missing actual browser outcome ${key}`);}
+  for(const browser of ['chromium','firefox','webkit'])for(const timezone of ['UTC','Asia/Seoul','America/Los_Angeles'])if(!seen.has(`${browser}:${timezone}`))errors.push(`missing ${browser}:${timezone}`);
+  return errors;
+ }
+@@ -43,9 +43,11 @@ function safeFile(root,path){
+  if(resolved==='..'||resolved.startsWith('../')||!statSync(real).isFile())throw new Error(`evidence must be a repository file: ${path}`);
+  return real;
+ }
+-export function validateSnapshot(root,snapshot){
++export function validateSnapshot(root,snapshot,expected=inventorySnapshot(root)){
+  const errors=[];
+  if(!Array.isArray(snapshot?.files)||!snapshot.files.length)return ['empty/missing executed snapshot'];
++ if(!equalSet(snapshot.files.map(file=>file.path),expected.files.map(file=>file.path)))errors.push('complete snapshot inventory/path set differs from current source');
++ const normalized=files=>files.map(file=>[file.path,file.sha256,file.bytes]).sort(([a],[b])=>a.localeCompare(b));if(JSON.stringify(normalized(snapshot.files))!==JSON.stringify(normalized(expected.files)))errors.push('complete current snapshot record inventory differs from expected source/output');
+  if(hash(JSON.stringify(snapshot.files))!==snapshot.sha256)errors.push('snapshot aggregate hash mismatch');
+  const seen=new Set();
+  for(const record of snapshot.files){
+@@ -54,83 +56,160 @@ export function validateSnapshot(root,snapshot){
+  }
+  return errors;
+ }
++export function inventorySnapshot(root){
++ const records=[];
++ function visit(path){for(const entry of readdirSync(resolve(root,path),{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){if(['node_modules','.git'].includes(entry.name))continue;if(entry.isSymbolicLink())throw new Error('Source inventory symlink requires explicit producer handling');const next=path?`${path}/${entry.name}`:entry.name;if(entry.isDirectory())visit(next);else if(entry.isFile()){const bytes=readFileSync(resolve(root,next));records.push({path:next,sha256:hash(bytes),bytes:bytes.length});}}}
++ visit('');return {files:records,sha256:hash(JSON.stringify(records))};
++}
++export function inspectIndexedEvidence(_root,name,_index,_candidate){
++ // No producer-specific raw pattern/preview/CI adapter or authenticated human
++ // review/session interface has been delivered. Flags and a log digest cannot
++ // implement those interfaces. Fail closed even for apparently complete rows.
++ return {status:'blocked',details:[`${name}: no implemented producer-specific validator/trusted review-session interface; indexed assertions cannot award acceptance`]};
++}
++export function validateGitTree(root,tree,sourcePaths){
++ const expected=new Map(tree.map(entry=>[entry.path,entry.oid]));const errors=[];
++ for(const path of sourcePaths){if(!expected.has(path)){errors.push(`untracked candidate source: ${path}`);continue;}try{const bytes=readFileSync(safeFile(root,path));const oid=createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');if(oid!==expected.get(path))errors.push(`candidate bytes differ from HEAD: ${path}`);}catch{errors.push(`missing HEAD source: ${path}`);}}
++ for(const path of expected.keys())if(!sourcePaths.includes(path))errors.push(`deleted HEAD source: ${path}`);
++ return errors;
++}
++export function selectScope(packages,scope){
++ if(!['stable','preview','all'].includes(scope))throw new Error(`Unknown evidence scope ${scope}`);
++ return packages.filter(item=>scope==='all'||(scope==='stable'?item.name!=='@unofficial-krds/solid-next':['assets','contracts','fonts','styles','tokens','solid-next'].some(id=>item.name===`@unofficial-krds/${id}`)));
++}
++export async function inspectConsumerEvidence(root,report,scope,context){
++ try{
++  const {inspectConsumers}=await import('../tests/consumers/evidence.mjs');
++  if(typeof inspectConsumers!=='function')return {status:'blocked',details:['Canonical consumer producer evidence validator is not implemented']};
++  const result=await inspectConsumers(report,{scope,manifest:context.manifest,baseRoot:root});
++  return {status:'passed',details:[`${scope} canonical consumer step/resolution/lock/installed-byte evidence validated`],paths:result?.paths??[]};
++ }catch(error){return {status:error.code==='EVIDENCE_FAILED'?'failed':'blocked',details:[`Canonical ${scope} consumer evidence: ${error.message}`]};}
++}
++export function executionStatus({current,status,exitCode,skipped,executed}){
++ if(!current||skipped===true||executed===false||status==='skipped'||status==='unsupported'||status===undefined)return 'blocked';
++ if(status==='failed'||Number.isInteger(exitCode)&&exitCode!==0)return 'failed';
++ return status==='passed'&&exitCode===0?'passed':'blocked';
++}
++export function selectMatrixRun(root,kind,targets){
++ const base=`test-results/t13/${kind}-runs`;
++ if(!existsSync(join(root,base)))return {status:'blocked',details:[`Missing actual ${kind} matrix runs`]};
++ for(const name of readdirSync(join(root,base)).sort().reverse()){
++  if(!statSync(join(root,base,name)).isDirectory())continue;
++  const path=`${base}/${name}/results.json`;
++  if(!existsSync(join(root,path))){
++   const before=`${base}/${name}/source-before.json`;
++   if(existsSync(join(root,before))){try{const snapshot=JSON.parse(readFileSync(safeFile(root,before),'utf8'));const recorded=[...stable,'solid-next'].filter(id=>snapshot.files?.some(file=>file.path.startsWith(`packages/${id}/`)));if(recorded.length&&!targets.some(id=>recorded.includes(id)))continue;}catch{}}
++   return {status:'blocked',details:[`Latest relevant matrix is unfinished/missing: ${path}`]};
++  }
++  try{const report=JSON.parse(readFileSync(safeFile(root,path),'utf8'));const recorded=report.options?.frameworks??report.rows?.map(row=>row.framework);if(!Array.isArray(recorded)||!recorded.length)return {status:'blocked',details:[`Latest matrix has no target identity: ${path}`]};if(!targets.some(id=>recorded.includes(id)))continue;return {status:'selected',path,report};}
++  catch(error){return {status:'blocked',details:[`Latest matrix is unreadable: ${path}: ${error.message}`]};}
++ }
++ return {status:'blocked',details:[`No designated relevant ${kind} matrix`]};
++}
++export function scopedSnapshot(snapshot,targets){
++ const foreign=[...stable,'solid-next'].filter(id=>!targets.includes(id));
++ const files=snapshot.files.filter(file=>!foreign.some(id=>file.path.startsWith(`packages/${id}/`)||file.path.startsWith(`apps/fixture-${id}/`)));
++ return {files,sha256:hash(JSON.stringify(files))};
++}
++const browserChecks={
++ native:['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests'],
++ qwik:['production SSR serialization','cold render QRL','first action one event','SSR native node retained','first select one event','date-only form','open-modal unmount cleanup','zero page errors/remote requests'],
++ angular:['official partial APF CLI SSR','provideClientHydration node reuse','OnPush zoneless first click one event','Reactive Forms select/date controls','date-only FormData','tabs linked state','open-modal application destroy cleanup','no errors/remote requests']
++};
+ function sourceTree(root){
+  const records=[];
+  const omit=new Set(['node_modules','.git','.nx','.yarn','.angular','.svelte-kit','.vite','dist','test-results','coverage','__screenshots__','.DS_Store']);
+  function visit(path){if(!existsSync(resolve(root,path)))return;const info=statSync(resolve(root,path));if(info.isDirectory()){for(const entry of readdirSync(resolve(root,path),{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){if(omit.has(entry.name)||entry.isSymbolicLink()||path==='docs'&&['execution','releases'].includes(entry.name))continue;visit(`${path}/${entry.name}`);}}else if(info.isFile())records.push([path,hash(readFileSync(resolve(root,path)))]);}
+  for(const path of ['package.json','yarn.lock','.yarnrc.yml','nx.json','PLAN.md','packages','apps','catalog','compatibility','compliance','specs','tests','tools','docs','.github','LICENSES','LICENSE.md','ATTRIBUTION.md'])visit(path);
+- return {sha256:hash(JSON.stringify(records)),fileCount:records.length};
++ return {sha256:hash(JSON.stringify(records)),fileCount:records.length,paths:records.map(([path])=>path)};
+ }
+ export async function verifyRelease(root,{write=true}={}){
+  root=realpathSync(root);const checks=[],evidence=[];
+  const read=path=>JSON.parse(readFileSync(safeFile(root,path),'utf8'));
+  const digest=path=>hash(readFileSync(safeFile(root,path)));
+  const record=(id,milestone,status,details,paths=[])=>{checks.push({id,milestone,status,details});for(const path of paths){try{evidence.push({path:relative(root,safeFile(root,path)),sha256:digest(path)});}catch{}}};
+- async function gate(id,milestone,action){try{const result=await action();record(id,milestone,'passed',result?.details??'Validated actual evidence',result?.paths??[]);}catch(error){record(id,milestone,error.code==='ENOENT'?'blocked':error.blocked?'blocked':'failed',[error.message]);}}
++ async function gate(id,milestone,action){try{const result=await action();record(id,milestone,'passed',result?.details??'Validated actual evidence',result?.paths??[]);}catch(error){record(id,milestone,error.code==='ENOENT'||error.code==='EVIDENCE_BLOCKED'?'blocked':error.blocked?'blocked':'failed',[error.message]);}}
+  const blocked=message=>{const error=new Error(message);error.blocked=true;throw error;};
+  const toolchain=read('compatibility/toolchain.json'),identity=read('compliance/project-identity.json');
+  const sourceBefore=sourceTree(root);
+  const git=spawnSync('git',['rev-parse','--verify','HEAD'],{cwd:root,encoding:'utf8'});
+  const sourceCommit=git.status===0?git.stdout.trim():null;
+- const {fingerprint,packages,files}=await import('../tests/consumers/lib.mjs');
+- const currentFingerprint=await fingerprint();
++ const {fingerprint}=await import('../tests/consumers/lib.mjs');
++ let currentFingerprint=null;try{currentFingerprint=await fingerprint();}catch{}
+  const candidate={sourceCommit,sourceFingerprint:currentFingerprint,repositorySourceSha256:sourceBefore.sha256,repositorySourceFileCount:sourceBefore.fileCount,lockfileSha256:digest('yarn.lock'),artifactManifestSha256:existsSync(join(root,'artifacts/manifest.json'))?digest('artifacts/manifest.json'):null};
+- const publicPackages=await packages(),stableVersions=[...new Set(publicPackages.filter(item=>item.dir!=='solid-next').map(item=>item.pkg.version))];
++ const publicPackages=readdirSync(join(root,'packages')).filter(dir=>existsSync(join(root,'packages',dir,'package.json'))).map(dir=>({dir,pkg:read(`packages/${dir}/package.json`)})).filter(({pkg})=>!pkg.private);
++ const stableVersions=[...new Set(publicPackages.filter(item=>item.dir!=='solid-next').map(item=>item.pkg.version))];
+  const version=stableVersions.length===1?stableVersions[0]:'inconsistent-versions';
+  if(!/^[0-9A-Za-z.-]+$/u.test(version))throw new Error('Unsafe candidate version');
+  const releaseDir=`docs/releases/${version}`;
+  await gate('selected-toolchain','M3',()=>{if(process.versions.node!==toolchain.node.version)throw new Error(`Selected Node ${toolchain.node.version} required; received ${process.versions.node}`);if(read('package.json').packageManager!==toolchain.packageManager.packageManagerField||!/^nodeLinker: pnpm$/mu.test(readFileSync(join(root,'.yarnrc.yml'),'utf8')))throw new Error('Pinned Yarn/nodeLinker differs');return {paths:['compatibility/toolchain.json','yarn.lock','.yarnrc.yml']};});
+- await gate('candidate-commit','M3',()=>{if(!sourceCommit)blocked('HEAD is unborn: no real candidate commit. Content hashes are diagnostic only; no commit was created.');if(process.env.KRDS_RELEASE_SOURCE_SHA&&sourceCommit!==process.env.KRDS_RELEASE_SOURCE_SHA)throw new Error('Candidate differs from requested CI source SHA');return {details:[sourceCommit]};});
+- await gate('stable-catalog-native-stories-requests-behavior','M1',async()=>{const {inspectCoverage}=await import('./check-coverage.mjs');const result=inspectCoverage(root);if(result.errors.length||result.stablePairs!==378||result.acceptedPairs!==378)throw new Error(`Existing actual coverage gate: ${result.acceptedPairs}/${result.stablePairs} accepted; ${result.errors.length} gaps. ${result.errors.slice(0,12).join('; ')}`);return {details:[result],paths:['catalog/coverage.json','catalog/story-coverage.json','catalog/full-catalog-story-coverage.json']};});
+- let manifest;
++ await gate('candidate-commit','M3',()=>{if(!sourceCommit)blocked('HEAD is unborn: no real candidate commit. Content hashes are diagnostic only; no commit was created.');if(process.env.KRDS_RELEASE_SOURCE_SHA&&sourceCommit!==process.env.KRDS_RELEASE_SOURCE_SHA)throw new Error('Candidate differs from requested CI source SHA');
++  const listing=spawnSync('git',['-c','core.fsmonitor=false','ls-tree','-rz','--full-tree',sourceCommit],{cwd:root,encoding:'utf8'});if(listing.status!==0)blocked('Cannot inspect reviewed HEAD tree');
++  const tree=listing.stdout.split('\0').filter(Boolean).map(line=>{const [metadata,path]=line.split('\t');return {path,oid:metadata.split(' ')[2]};}).filter(entry=>sourceBefore.paths.includes(entry.path));
++  const relation=validateGitTree(root,tree,sourceBefore.paths);if(relation.length)blocked(`Candidate is not the reviewed clean HEAD tree; no reproducible version-plan transform is implemented: ${relation.slice(0,8).join('; ')}`);
++  const generated=path=>/^(?:docs\/releases\/|artifacts\/|test-results\/|\.nx\/|\.superpowers\/|\.agents\/|\.codex\/|\.aws\/)/u.test(path);
++  const changed=spawnSync('git',['-c','core.fsmonitor=false','diff','--name-only','--no-ext-diff',sourceCommit],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});if(changed.status!==0||changed.stdout.trim().split('\n').filter(Boolean).some(path=>!generated(path)))blocked('Candidate tracked source/worktree differs from reviewed HEAD');
++  const untracked=spawnSync('git',['-c','core.fsmonitor=false','ls-files','--others','--exclude-standard'],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});if(untracked.status!==0||untracked.stdout.trim().split('\n').filter(Boolean).some(path=>!generated(path)))blocked('Candidate has untracked source outside reviewed HEAD');
++  return {details:[`Reviewed HEAD source bytes match ${sourceCommit}`]};});
++ await gate('stable-catalog-native-stories-requests-behavior','M1',async()=>{const {inspectCoverage}=await import('./check-coverage.mjs');const result=inspectCoverage(root);if(result.errors.length||result.stablePairs!==378||result.acceptedPairs!==378)blocked(`Existing actual coverage gate lacks accepted evidence: ${result.acceptedPairs}/${result.stablePairs} accepted; ${result.errors.length} gaps. ${result.errors.slice(0,12).join('; ')}`);return {details:[result],paths:['catalog/coverage.json','catalog/story-coverage.json','catalog/full-catalog-story-coverage.json']};});
++ const manifests={};
+  async function inspectArtifacts(scope){
+-  manifest=read('artifacts/manifest.json');
++  const path=scope!=='all'&&existsSync(join(root,`artifacts/manifest-${scope}.json`))?`artifacts/manifest-${scope}.json`:'artifacts/manifest.json';
++  const manifest=read(path);
+   if(manifest.debugOnly||manifest.status==='debug-only-source-not-accepted'||manifest.releaseAuthorized!==false)throw new Error('Debug/unauthorized artifact inventory cannot satisfy acceptance');
+-  if(manifest.packages?.length!==publicPackages.length||!publicPackages.every(({pkg})=>manifest.packages.filter(item=>item.name===pkg.name&&item.version===pkg.version).length===1))throw new Error('Candidate identities/versions differ from current public manifests');
+-  const {inspect}=await import('./inspect-tarballs.mjs');const inspected=await inspect(manifest,{scope});
+-  const selected=manifest.packages.filter(item=>scope==='all'||scope==='stable'&&!item.name.endsWith('/solid-next')||scope==='preview'&&(!stable.some(id=>item.name===`@unofficial-krds/${id}`)));
++  const selectedSource=selectScope(publicPackages.map(({pkg})=>pkg),scope);const expectedNames=selectScope([...stable,'solid-next','assets','contracts','fonts','styles','tokens'].map(id=>({name:`@unofficial-krds/${id}`})),scope).map(item=>item.name);if(!equalSet(selectedSource.map(item=>item.name),expectedNames))blocked(`Missing ${scope} public source identity`);if(!Array.isArray(manifest.packages)||!selectedSource.every(pkg=>manifest.packages.filter(item=>item.name===pkg.name&&item.version===pkg.version).length===1))blocked(`Missing ${scope} candidate identities/versions`);
++  if(!manifest.scopes?.[scope])blocked(`Canonical ${scope} source/build/artifact attestation is missing; global all13 fingerprint cannot substitute`);
++  const {inspect}=await import('./inspect-tarballs.mjs');const inspected=await inspect(manifest,{scope});manifests[scope]=manifest;
++  const selected=selectScope(manifest.packages,scope);
+   if(inspected.packages.length!==selected.length)throw new Error(`Artifact inspector has not implemented required ${scope} isolation`);
+-  return {paths:['artifacts/manifest.json','artifacts/build-evidence.json',...selected.map(item=>item.tarball)],details:[`${selected.length} actual ${scope} tarballs inspected against current source/build bytes`]};
++  return {paths:[path,...(manifest.scopes[scope].buildEvidence?.path?[manifest.scopes[scope].buildEvidence.path]:[]),...selected.map(item=>item.tarball)],details:[`${selected.length} actual ${scope} tarballs inspected against current source/build bytes`]};
+  }
+  await gate('stable-actual-candidate-tarballs','M1',()=>inspectArtifacts('stable'));
+  await gate('preview-actual-candidate-tarballs','M2',()=>inspectArtifacts('preview'));
+  await gate('all-actual-candidate-tarballs','M3',()=>inspectArtifacts('all'));
+- await gate('stable-outside-tarball-consumers','M1',async()=>checkConsumers(stable.flatMap(id=>['minimum','current'].map(profile=>`${id}:${profile}`))));
+- await gate('preview-outside-tarball-consumer','M2',async()=>checkConsumers(['solid-next:exact-rc19']));
+- async function checkConsumers(required){
+-  const report=read('artifacts/consumer-results.json');if(report.debugOnly||report.scope!=='all-frameworks'||report.requiredRowCount!==15||report.executedRowCount!==15||report.rows?.length!==15||report.sourceFingerprintCurrent!==true||report.artifactManifestSha256!==candidate.artifactManifestSha256)throw new Error('Missing, debug, filtered, stale or incomplete 15-row consumer aggregate');
+-  if(!manifest||manifest.sourceFingerprint!==currentFingerprint)throw new Error('Consumers lack current real artifact manifest');
+-  const harness=hash(JSON.stringify(await Promise.all((await files(join(root,'tests/consumers'))).map(async path=>[path,digest(`tests/consumers/${path}`)]))));
+-  if(report.harnessSha256!==harness)throw new Error('Stale consumer harness');
+-  const paths=['artifacts/consumer-results.json'];
+-  for(const key of required){const rows=report.rows.filter(row=>`${row.id}:${row.profile}`===key);if(rows.length!==1)throw new Error(`Missing/duplicate ${key}`);const row=rows[0];if(row.status!=='passed-development-snapshot'||row.artifactManifestSha256!==candidate.artifactManifestSha256||row.harnessSha256!==harness||!hex(row.lockfileSha256)||!isAbsolute(row.directory)||!relative(root,row.directory).startsWith('..'))throw new Error(`Unaccepted outside candidate consumer ${key}`);for(const check of ['install','types','build','ssr','browser','candidate-bytes-and-runtime-compiler-resolution','single-css-no-fonts-and-notices'])if(row.checks?.[check]!=='passed')throw new Error(`${key}: missing actual ${check}`);if(!row.logs?.length)throw new Error(`${key}: missing execution logs`);for(const path of row.logs){if(!readFileSync(safeFile(root,path)).length)throw new Error(`${key}: empty log`);paths.push(path);}}
+-  return {details:[`${required.length} exact current candidate outside consumer rows`],paths};
++ await gate('stable-outside-tarball-consumers','M1',()=>checkConsumers('stable'));
++ await gate('preview-outside-tarball-consumer','M2',()=>checkConsumers('preview'));
++ await gate('all-outside-tarball-consumers','M3',()=>checkConsumers('all'));
++ async function checkConsumers(scope){
++  const path=scope!=='all'&&existsSync(join(root,`artifacts/consumer-results-${scope}.json`))?`artifacts/consumer-results-${scope}.json`:'artifacts/consumer-results.json';
++  const report=read(path);
++  if(!manifests[scope])blocked(`Missing accepted ${scope} artifact evidence for consumers`);
++  const result=await inspectConsumerEvidence(root,report,scope,{manifest:manifests[scope],candidate});
++  if(result.status==='failed')throw new Error(result.details.join('; '));
++  if(result.status!=='passed')blocked(result.details.join('; '));
++  return result;
+  }
+  async function matrix(kind,targets){
+-  const base=`test-results/t13/${kind}-runs`;
+-  if(!existsSync(join(root,base)))blocked(`Missing actual ${kind} matrix runs`);
+-  const paths=readdirSync(join(root,base)).sort().reverse().map(name=>`${base}/${name}/results.json`).filter(path=>existsSync(join(root,path)));
+-  if(!paths.length)blocked(`Missing actual ${kind} results`);
+-  const failures=[];
+-  for(const path of paths){try{
+-   const report=read(path),directory=dirname(path),before=read(`${directory}/source-before.json`),after=read(`${directory}/source-after.json`);
+-   if(report.sourceChangedDuringRun!==false||report.sourceBeforeSha256!==before.sha256||report.sourceAfterSha256!==after.sha256||before.sha256!==after.sha256)throw new Error('source changed/missing exact run snapshots');
+-   const drift=validateSnapshot(root,after);if(drift.length)throw new Error(`stale source snapshot: ${drift.slice(0,3).join('; ')}`);
+-   if(kind==='compatibility'){
+-    if(!/types.*build|build.*types/iu.test(report.scope??''))throw new Error('metadata-only matrix is insufficient; actual types/build required');
+-    for(const target of targets){const rows=report.rows?.filter(row=>row.framework===target);if(rows?.length!==1||rows[0].status!=='passed')throw new Error(`${target} actual compatibility row missing/failed`);for(const name of ['package-types','package-build','fixture-types','fixture-build']){const check=rows[0].checks?.find(item=>item.kind===name);if(check?.status!=='passed'||check.exitCode!==0||!check.command||!check.log||!hex(check.logSha256)||digest(check.log)!==check.logSha256)throw new Error(`${target} missing actual ${name} execution`);}}
+-   }else{
+-    if(!targets.every(target=>report.options?.frameworks?.includes(target))||!equalSet(report.options?.browsers?.split(','),['chromium','firefox','webkit'])||!equalSet(report.options?.timezones?.split(','),['UTC','Asia/Seoul','America/Los_Angeles']))throw new Error('SSR target/browser/timezone matrix incomplete');
+-    const artifacts=read(`${directory}/tested-artifacts.json`);if(report.testedArtifactsSha256!==artifacts.sha256||validateSnapshot(root,artifacts).length)throw new Error('stale tested SSR artifacts');
+-    for(const target of targets){const stages=report.stages?.filter(stage=>stage.framework===target);const names=target==='qwik'?['production-build','precise-resume','cross-browser-resume']:target==='angular'?['partial-apf-ssr','native-hydration']:['native-server-hydration'];for(const name of names){const stage=stages?.find(stage=>stage.name===name);if(stage?.status!=='passed'||stage.code!==0||!stage.command?.length||digest(stage.log)!==stage.logSha256)throw new Error(`${target}/${name} missing/failed actual execution`);}
+-     const browserStage=stages.find(stage=>stage.name===(target==='qwik'?'cross-browser-resume':target==='angular'?'native-hydration':'native-server-hydration'));
+-     const raw=readFileSync(safeFile(root,browserStage.log),'utf8').trim().split(/\r?\n/u).reverse().flatMap(line=>{try{const value=JSON.parse(line);return Array.isArray(value)?[value]:Array.isArray(value.results)?[value.results]:[];}catch{return [];}})[0];
+-     const outcomes=validateBrowserRows(raw);if(outcomes.length)throw new Error(`${target}: ${outcomes.join('; ')}`);
+-    }
++  const selected=selectMatrixRun(root,kind,targets);if(selected.status!=='selected')blocked(selected.details.join('; '));
++  const {path,report}=selected,directory=dirname(path);
++  const {snapshot}=await import('../tests/compatibility/evidence.mjs');
++  const expected=await snapshot(targets),before=read(`${directory}/source-before.json`),after=read(`${directory}/source-after.json`);
++  if(report.sourceBeforeSha256!==before.sha256||report.sourceAfterSha256!==after.sha256||hash(JSON.stringify(before.files))!==before.sha256||hash(JSON.stringify(after.files))!==after.sha256)blocked(`Selected ${kind} run lacks intact recorded snapshots: ${path}`);
++  const scopedBefore=scopedSnapshot(before,targets),scopedAfter=scopedSnapshot(after,targets);
++  if(scopedBefore.sha256!==scopedAfter.sha256)blocked(`Selected ${kind} target source changed during run: ${path}`);
++  const drift=validateSnapshot(root,scopedAfter,expected);if(drift.length)blocked(`Selected ${kind} run is stale/incomplete; no older fallback: ${drift.slice(0,4).join('; ')}`);
++  function requireExecution(execution,label,codeKey='exitCode',expectedArgs){
++   if(!execution?.command?.length||!execution.log||!hex(execution.logSha256))blocked(`Selected ${kind} execution receipt missing: ${label}`);
++   if(expectedArgs&&JSON.stringify(execution.command.slice(1))!==JSON.stringify(expectedArgs))blocked(`Selected ${kind} execution command differs: ${label}`);
++   const bytes=readFileSync(safeFile(root,execution.log));if(!bytes.length||hash(bytes)!==execution.logSha256)blocked(`Selected ${kind} execution log empty/stale: ${label}`);
++   const outcome=executionStatus({current:true,status:execution?.status,exitCode:execution?.[codeKey],skipped:execution?.skipped,executed:execution?.executed});
++   if(outcome==='failed')throw new Error(`Current actual ${kind} execution failed: ${label}`);
++   if(outcome!=='passed'||!execution.command?.length||!execution.log||!hex(execution.logSha256))blocked(`Selected ${kind} execution missing/skipped: ${label}`);
++  }
++  if(kind==='compatibility'){
++   if(report.scope!=='installed exact pins and consuming workspace types/production builds')blocked('Metadata-only compatibility audit is not actual types/build evidence');
++   for(const target of targets){const rows=report.rows?.filter(row=>row.framework===target);if(rows?.length!==1)blocked(`Selected compatibility matrix lacks ${target}`);const row=rows[0];for(const name of ['package-types','package-build','fixture-types','fixture-build']){const workspace=read(name.startsWith('package')?`packages/${target}/package.json`:`apps/fixture-${target}/package.json`).name;requireExecution(row.checks?.find(check=>check.kind===name),`${target}/${name}`,'exitCode',['tools/yarn.mjs','workspace',workspace,name.endsWith('types')?'typecheck':'build:local']);}if(row.status==='failed')throw new Error(`Current actual compatibility row failed: ${target}`);if(row.status!=='passed')blocked(`Unexecuted compatibility row: ${target}`);}
++  }else{
++   if(!targets.every(target=>report.options?.frameworks?.includes(target))||!equalSet(report.options?.browsers?.split(','),['chromium','firefox','webkit'])||!equalSet(report.options?.timezones?.split(','),['UTC','Asia/Seoul','America/Los_Angeles']))blocked('Selected SSR target/browser/timezone matrix is incomplete');
++   const artifacts=read(`${directory}/tested-artifacts.json`),expectedArtifacts=await snapshot(targets,{outputs:true});
++   if(report.testedArtifactsSha256!==artifacts.sha256||hash(JSON.stringify(artifacts.files))!==artifacts.sha256||validateSnapshot(root,scopedSnapshot(artifacts,targets),expectedArtifacts).length)blocked('Selected SSR tested output inventory is stale/incomplete');
++   for(const target of targets){const stages=report.stages?.filter(stage=>stage.framework===target);const names=target==='qwik'?['production-build','precise-resume','cross-browser-resume']:target==='angular'?['partial-apf-ssr','native-hydration']:['native-server-hydration'];for(const name of names){const args=name==='native-server-hydration'?['tests/ssr/native.mjs',target]:name==='production-build'?['tools/yarn.mjs','workspace','@unofficial-krds/fixture-qwik','build:local']:name==='precise-resume'?['tests/ssr/qwik/resume.mjs']:name==='cross-browser-resume'?['tests/ssr/qwik/cross-browser.mjs']:name==='partial-apf-ssr'?['tests/ssr/angular/verify.mjs']:['tests/ssr/angular/hydration.mjs'];requireExecution(stages?.find(stage=>stage.name===name),`${target}/${name}`,'code',args);}
++    const browserStage=stages.find(stage=>stage.name===(target==='qwik'?'cross-browser-resume':target==='angular'?'native-hydration':'native-server-hydration'));
++    const raw=readFileSync(safeFile(root,browserStage.log),'utf8').trim().split(/\r?\n/u).reverse().flatMap(line=>{try{const value=JSON.parse(line);return Array.isArray(value)?[value]:Array.isArray(value.results)?[value.results]:[];}catch{return [];}})[0];
++    const outcomes=validateBrowserRows(raw,browserChecks[target==='qwik'?'qwik':target==='angular'?'angular':'native']);if(outcomes.length)blocked(`${target} actual browser evidence invalid: ${outcomes.join('; ')}`);
+    }
+-   return {paths:[path,`${directory}/source-before.json`,`${directory}/source-after.json`,...(kind==='ssr'?[`${directory}/tested-artifacts.json`]:[])],details:[`Current exact ${kind} execution snapshots validated`,...targets]};
+-  }catch(error){failures.push(`${path}: ${error.message}`);}}
+-  throw new Error(`No current complete ${kind} matrix: ${failures.slice(0,3).join('; ')}`);
++  }
++  return {paths:[path,`${directory}/source-before.json`,`${directory}/source-after.json`,...(kind==='ssr'?[`${directory}/tested-artifacts.json`]:[])],details:[`Designated latest exact ${kind} execution and complete current inventories validated`,...targets]};
+  }
+  for(const [channel,targets]of [['M1',stable],['M2',['solid-next']]]){await gate(`${channel}-compatibility-types-build`,channel,()=>matrix('compatibility',targets));await gate(`${channel}-ssr-hydration-browser-timezones`,channel,()=>matrix('ssr',targets));}
+  await gate('preview-exact-rc-six-native-pilots','M2',()=>{const pkg=read('packages/solid-next/package.json');for(const name of ['solid-js','@solidjs/web'])if(pkg.peerDependencies?.[name]!=='2.0.0-rc.19'||pkg.devDependencies?.[name]!=='2.0.0-rc.19')throw new Error(`Preview exact RC19 runtime differs: ${name}`);for(const name of ['@solidjs/compiler','@solidjs/babel-plugin'])if(pkg.devDependencies?.[name]!=='2.0.0-rc.19')throw new Error(`Preview exact RC19 compiler differs: ${name}`);for(const id of pilots)if(!pkg.exports?.[`./${id}`])throw new Error(`Preview lacks public native pilot ${id}`);if(!/six[- ](?:pilot|component)/iu.test(readFileSync(join(root,'packages/solid-next/README.md'),'utf8')))throw new Error('Public preview six-pilot limitation absent');return {paths:['packages/solid-next/package.json','packages/solid-next/README.md','catalog/COVERAGE.md']};});
+@@ -138,16 +217,10 @@ export async function verifyRelease(root,{write=true}={}){
+  // An index alone never awards a gate: every referenced report needs actual outcomes/logs.
+  let index;
+  try{index=read(`${releaseDir}/acceptance-evidence.json`);}catch{}
+- async function indexed(name,kind,required){
+-  if(!index)blocked(`Missing same-candidate ${releaseDir}/acceptance-evidence.json (${name})`);
+-  const binding=validateBinding(index.candidate,candidate);if(binding.length)throw new Error(binding.join('; '));
+-  const ref=index.reports?.[name];if(!ref?.path||digest(ref.path)!==ref.sha256)throw new Error(`Missing/stale indexed ${name} report`);
+-  const report=read(ref.path);const errors=validateBinding(report.candidate,candidate);if(errors.length)throw new Error(`${name}: ${errors.join('; ')}`);
+-  if(report.kind!==kind||report.status!=='passed'||report.executed!==true||report.exitCode!==0||!report.command||!Array.isArray(report.rows)||!report.rows.length)throw new Error(`${name}: actual executed nonzero report required`);
+-  const rowErrors=validateExecutedRows(report.rows,required);if(rowErrors.length)throw new Error(`${name}: ${rowErrors.join('; ')}`);
+-  for(const key of required)if(!report.rows.some(row=>row.id===key&&row.status==='passed'&&row.executed===true&&row.exitCode===0&&row.observations?.length&&row.logPath&&hex(row.logSha256)&&digest(row.logPath)===row.logSha256))throw new Error(`${name}: missing actual outcome ${key}`);
+-  if(report.rows.some(row=>row.status!=='passed'||row.skipped===true||row.executed!==true))throw new Error(`${name}: skipped/unsupported/failed rows cannot pass`);
+-  return {paths:[`${releaseDir}/acceptance-evidence.json`,ref.path,...report.rows.map(row=>row.logPath)]};
++ async function indexed(name){
++  const result=inspectIndexedEvidence(root,name,index,candidate);
++  if(result.status!=='passed')blocked(result.details.join('; '));
++  return result;
+  }
+  await gate('preview-six-native-behavior-types-build-ssr','M2',()=>indexed('preview','exact-rc19-six-pilot-acceptance',pilots.flatMap(id=>['native-behavior','types','build','ssr'].map(check=>`${id}:${check}`))));
+  await gate('native-service-compositions','M1',()=>indexed('patterns','native-pattern-acceptance',stable.flatMap(id=>['application','search','consent','layout'].map(flow=>`${id}:${flow}`))));
+@@ -159,10 +232,10 @@ export async function verifyRelease(root,{write=true}={}){
+  await gate('ownership-and-independent-code-grant','M3',()=>{if(identity.scopeOwnership?.status!=='confirmed'||identity.repository?.ownershipVerified!==true)blocked('npm scope and repository ownership remain unauthenticated; user-selected names/URL are not ownership evidence');if(identity.copyright?.status!=='confirmed'||identity.copyright.independentCodeHolder!=='Lee Dogeon <dev.moreal@gmail.com>')throw new Error('Confirmed independent-code rights differ');return {paths:['compliance/project-identity.json','LICENSES/MIT.txt']};});
+  await gate('version-changelog-candidate','M3',()=>{if(stableVersions.length!==1||version==='0.0.0')blocked(`Actual release version is not prepared (${stableVersions.join(', ')})`);for(const {dir,pkg}of publicPackages){const path=`packages/${dir}/CHANGELOG.md`;if(!existsSync(join(root,path))||!readFileSync(join(root,path),'utf8').includes(pkg.version))blocked(`Missing actual version ${pkg.version} changelog: ${path}`);}return {details:publicPackages.map(({pkg})=>`${pkg.name}@${pkg.version}`)};});
+  await gate('ci-candidate-handoff','M3',()=>{const path=process.env.KRDS_RELEASE_EVIDENCE_DIRECTORY?`${process.env.KRDS_RELEASE_EVIDENCE_DIRECTORY}/candidate.json`:'test-results/ci/candidate.json';const ci=read(path);if(ci.sourceSha!==sourceCommit||!sourceCommit||ci.lockfileSha256!==candidate.lockfileSha256||ci.artifactManifestSha256!==candidate.artifactManifestSha256||ci.publicationAuthorized!==false)throw new Error('CI candidate is missing/stale/cross-source or authorizes publication');if(digest(`${dirname(path)}/candidate.tgz`)!==ci.archiveSha256)throw new Error('CI candidate archive drift');return {paths:[path]};});
+- const after=sourceTree(root);if(after.sha256!==sourceBefore.sha256)record('source-drift-during-verification','M3','failed',['Source changed while verifier inspected evidence; rerun after source freeze']);
++ const after=sourceTree(root);if(after.sha256!==sourceBefore.sha256)record('source-drift-during-verification','M3','blocked',['Source changed while verifier inspected evidence; rerun after source freeze']);
+  const result={schemaVersion:1,kind:'release-verification',status:'intermediate',createdAt:new Date().toISOString(),command:'node tools/yarn.mjs verify:release',candidate,version,packages:publicPackages.map(({pkg})=>({name:pkg.name,version:pkg.version,channel:pkg.name.endsWith('/solid-next')?'solid2-preview':'stable'})),krdsBaselineId:identity.krdsBaselineId,environment:{node:process.versions.node,yarn:toolchain.packageManager.version,platform:process.platform,arch:process.arch},...milestones(checks),checks,evidence,publicationAuthorized:false,publicationPerformed:false,limitations:['Passing this verifier prepares a reviewable candidate only; publication, pushing and tagging require separate authorization.','Unborn HEAD and content hashes never substitute for a real candidate commit.']};
+  result.status=result.M3==='passed'?'verified-candidate':'intermediate';
+- if(write){mkdirSync(join(root,releaseDir),{recursive:true});writeFileSync(join(root,releaseDir,'verification.json'),JSON.stringify(result,null,2)+'\n');writeFileSync(join(root,releaseDir,'verification.exit-code.txt'),`${result.exitCode}\n`);writeFileSync(join(root,releaseDir,'artifacts.json'),JSON.stringify({status:result.status,candidate,packages:manifest?.packages??[],evidence,publicationAuthorized:false},null,2)+'\n');writeFileSync(join(root,releaseDir,'verification.md'),`# Intermediate release verification: ${version}\n\nM1: **${result.M1}**. M2: **${result.M2}**. M3: **${result.M3}**. Exit code: **${result.exitCode}**.\n\nCandidate commit: ${sourceCommit??'unavailable (unborn HEAD)'}. Diagnostic source fingerprint: \`${currentFingerprint}\`.\n\n${checks.map(check=>`- ${check.id}: **${check.status}** — ${typeof check.details==='string'?check.details:JSON.stringify(check.details)}`).join('\n')}\n\nFull machine evidence: [verification.json](./verification.json). This intermediate report does not declare T16 or release preparation complete.\n`);}
++ if(write){mkdirSync(join(root,releaseDir),{recursive:true});writeFileSync(join(root,releaseDir,'verification.json'),JSON.stringify(result,null,2)+'\n');writeFileSync(join(root,releaseDir,'verification.exit-code.txt'),`${result.exitCode}\n`);writeFileSync(join(root,releaseDir,'artifacts.json'),JSON.stringify({status:result.status,candidate,packages:manifests.all?.packages??[],scopes:manifests,evidence,publicationAuthorized:false},null,2)+'\n');writeFileSync(join(root,releaseDir,'verification.md'),`# Intermediate release verification: ${version}\n\nM1: **${result.M1}**. M2: **${result.M2}**. M3: **${result.M3}**. Exit code: **${result.exitCode}**.\n\nCandidate commit: ${sourceCommit??'unavailable (unborn HEAD)'}. Diagnostic source fingerprint: \`${currentFingerprint}\`.\n\n${checks.map(check=>`- ${check.id}: **${check.status}** — ${typeof check.details==='string'?check.details:JSON.stringify(check.details)}`).join('\n')}\n\nFull machine evidence: [verification.json](./verification.json). This intermediate report does not declare T16 or release preparation complete.\n`);}
+  if(write){
+   const frameworks=read('compatibility/frameworks.json').frameworks;
+   writeFileSync(join(root,releaseDir,'compatibility.md'),`# Candidate compatibility — ${version}\n\nStatus: **${result.status}**. M1: **${result.M1}**; M2: **${result.M2}**. Declared pins below are targets; the actual execution gates remain authoritative in [verification.json](./verification.json).\n\n| Framework | Channel | Exact declared pins |\n| --- | --- | --- |\n${frameworks.map(row=>`| ${row.id} | ${row.id==='solid-next'?'six-pilot RC19 preview':'stable target'} | ${Object.entries(row.pins).map(([name,pin])=>`${name}@${pin}`).join(', ')} |`).join('\n')}\n\nSolid 2 covers only Button, NativeSelect, Modal, Tabs, DateInput and Calendar with exact 2.0.0-rc.19 runtime/compiler. Full stable catalog support and unsupported siheom adapters are not implied. Chromium/Firefox/WebKit and UTC/Asia/Seoul/America/Los_Angeles results require current native matrix snapshots; metadata-only audits do not pass. Authentic assistive-technology, media-equivalence, real zoom, forced-colors and visibility review remains separate.\n`);
+diff --git a/Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/task-T16-fix1-base/tools/verify-release.test.mjs b/tools/verify-release.test.mjs
+index 9594d5f..c7a966f 100644
+--- a/Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/task-T16-fix1-base/tools/verify-release.test.mjs
++++ b/tools/verify-release.test.mjs
+@@ -1,6 +1,6 @@
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+-import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';
++import {mkdtempSync,writeFileSync,rmSync,mkdirSync} from 'node:fs';
+ import {tmpdir} from 'node:os';
+ import {join} from 'node:path';
+ import {createHash} from 'node:crypto';
+@@ -50,7 +50,122 @@ test('zero, skipped, unsupported and manual-not-performed outcomes never pass',(
+ });
+ test('native browser acceptance requires all nine real engine/timezone outcomes',()=>{
+  const validate=module.validateBrowserRows;assert.equal(typeof validate,'function');
+- const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks:['first interaction observed']})));
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks:['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests']})));
+  assert.deepEqual(validate(rows),[]);
+  for(const invalid of [[],rows.slice(1),[...rows.slice(1),rows[1]],rows.map((row,i)=>i?row:{...row,status:'skipped'}),rows.map((row,i)=>i?row:{...row,checks:[]})])assert.ok(validate(invalid).length);
+ });
++// Review regressions exercise the same acceptance functions used by the CLI.
++test('F1 self-asserted indexed rows and empty hashed logs cannot award acceptance',()=>{
++ const inspect=module.inspectIndexedEvidence;assert.equal(typeof inspect,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-index-'));try{
++  writeFileSync(join(root,'empty.log'),'');
++  const report={kind:'native-pattern-acceptance',candidate,status:'passed',executed:true,exitCode:0,command:'true',rows:[{id:'solid:application',status:'passed',executed:true,exitCode:0,observations:['asserted'],logPath:'empty.log',logSha256:createHash('sha256').update('').digest('hex')}]};
++  writeFileSync(join(root,'report.json'),JSON.stringify(report));
++  const result=inspect(root,'patterns',{candidate,reports:{patterns:{path:'report.json',sha256:createHash('sha256').update(JSON.stringify(report)).digest('hex')}}},candidate);
++  assert.equal(result.status,'blocked');assert.match(result.details.join(' '),/producer|trusted|implemented/u);
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F3 adding untested native input invalidates complete snapshot inventory',()=>{
++ const root=mkdtempSync(join(tmpdir(),'krds-release-inventory-'));try{
++  const bytes=Buffer.from('old native');writeFileSync(join(root,'source.ts'),bytes);
++  const files=[{path:'source.ts',sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length}];
++  const old={files,sha256:createHash('sha256').update(JSON.stringify(files)).digest('hex')};
++  assert.deepEqual(validateSnapshot(root,old),[]);
++  writeFileSync(join(root,'new-native-source.ts'),'untested');assert.ok(validateSnapshot(root,old).some(error=>/inventory|path set/u.test(error)));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F5 dirty or untracked source cannot be attributed to the reviewed Git tree',()=>{
++ const validate=module.validateGitTree;assert.equal(typeof validate,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-tree-'));try{
++  writeFileSync(join(root,'source.ts'),'reviewed');
++  const blob=bytes=>createHash('sha1').update(`blob ${Buffer.byteLength(bytes)}\0`).update(bytes).digest('hex');
++  const tree=[{path:'source.ts',oid:blob('reviewed')}];
++  assert.deepEqual(validate(root,tree,['source.ts']),[]);
++  writeFileSync(join(root,'source.ts'),'modified');assert.ok(validate(root,tree,['source.ts']).length);
++  writeFileSync(join(root,'untracked.ts'),'new');assert.ok(validate(root,tree,['source.ts','untracked.ts']).some(error=>error.includes('untracked')));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F6 browser passed flags cannot conceal skipped, unexecuted or nonzero outcomes',()=>{
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks:['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests'],skipped:true,executed:false,exitCode:1})));
++ assert.ok(module.validateBrowserRows(rows).length);
++});
++
++test('F7 latest failed, stale or unfinished selected matrix never falls back to older pass',()=>{
++ const select=module.selectMatrixRun;assert.equal(typeof select,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-matrix-'));try{
++  const base=join(root,'test-results/t13/ssr-runs');mkdirSync(join(base,'01'),{recursive:true});mkdirSync(join(base,'02'));
++  const report=status=>({status,options:{frameworks:['react']}});
++  writeFileSync(join(base,'01/results.json'),JSON.stringify(report('passed')));
++  writeFileSync(join(base,'02/results.json'),JSON.stringify(report('failed')));
++  assert.match(select(root,'ssr',['react']).path,/02\/results/u);
++  writeFileSync(join(base,'02/results.json'),JSON.stringify({...report('passed'),sourceChangedDuringRun:true}));
++  assert.match(select(root,'ssr',['react']).path,/02\/results/u);
++  rmSync(join(base,'02/results.json'));assert.equal(select(root,'ssr',['react']).status,'blocked');
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F7 evidence absence/staleness is blocked; current actual failure is failed',()=>{
++ const classify=module.executionStatus;assert.equal(typeof classify,'function');
++ assert.equal(classify({current:false,status:'failed',exitCode:1}),'blocked');
++ assert.equal(classify({current:true,status:'passed',skipped:true,exitCode:0}),'blocked');
++ assert.equal(classify({current:true,status:'failed',exitCode:1}),'failed');
++ assert.equal(classify({current:true,status:'passed',exitCode:0}),'passed');
++});
++
++test('F6 unrelated placeholder observations cannot substitute for native producer checks',()=>{
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks:['placeholder']})));
++ assert.ok(module.validateBrowserRows(rows).length);
++});
++test('F2 legacy consumer flag strings and unrelated nonempty logs stay blocked',async()=>{
++ const inspect=module.inspectConsumerEvidence;assert.equal(typeof inspect,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-consumer-'));try{
++  writeFileSync(join(root,'unrelated.log'),'unrelated text');
++  const row={id:'react',profile:'minimum',status:'passed-development-snapshot',checks:Object.fromEntries(['install','types','build','ssr','browser','candidate-bytes-and-runtime-compiler-resolution'].map(key=>[key,'passed'])),logs:['unrelated.log'],lockfileSha256:'a'.repeat(64)};
++  const result=await inspect(root,{schemaVersion:1,rows:[row]},'stable',{});
++  assert.equal(result.status,'blocked');assert.match(result.details.join(' '),/producer|step|resolution|evidence/u);
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F4 stable evidence selection has no dependency on preview rows or package identities',()=>{
++ const select=module.selectScope;assert.equal(typeof select,'function');
++ const packages=['assets','contracts','fonts','styles','tokens','solid','react','svelte','vue','lit','qwik','angular'].map(id=>({name:`@unofficial-krds/${id}`,version:'1.0.0'}));
++ assert.equal(select(packages,'stable').length,12);assert.equal(select(packages,'preview').length,5);
++ const withPreview=[...packages,{name:'@unofficial-krds/solid-next',version:'1.0.0-next.0'}];
++ assert.deepEqual(select(withPreview,'stable'),select(packages,'stable'));
++ assert.equal(select(withPreview,'preview').length,6);assert.equal(select(withPreview,'all').length,13);
++});
++test('F3/F4 stable matrix inventory survives preview-only edits but rejects new stable/shared files',()=>{
++ const root=mkdtempSync(join(tmpdir(),'krds-release-scoped-inventory-'));try{
++  for(const id of ['react','solid-next','contracts']){mkdirSync(join(root,`packages/${id}/src`),{recursive:true});writeFileSync(join(root,`packages/${id}/src/index.ts`),id);}
++  const old=module.inventorySnapshot(root),stableOld=module.scopedSnapshot(old,['react']),previewOld=module.scopedSnapshot(old,['solid-next']);
++  writeFileSync(join(root,'packages/solid-next/src/index.ts'),'changed RC');
++  const current=module.inventorySnapshot(root);
++  assert.deepEqual(validateSnapshot(root,stableOld,module.scopedSnapshot(current,['react'])),[]);
++  assert.ok(validateSnapshot(root,previewOld,module.scopedSnapshot(current,['solid-next'])).length);
++  writeFileSync(join(root,'packages/react/src/new.ts'),'untested stable');
++  assert.ok(validateSnapshot(root,stableOld,module.scopedSnapshot(module.inventorySnapshot(root),['react'])).some(error=>error.includes('inventory')));
++  writeFileSync(join(root,'packages/contracts/src/new.ts'),'untested shared');
++  assert.ok(validateSnapshot(root,previewOld,module.scopedSnapshot(module.inventorySnapshot(root),['solid-next'])).some(error=>error.includes('inventory')));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F6 each contradictory browser execution field independently blocks acceptance',()=>{
++ const checks=['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests'];
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks})));
++ for(const contradiction of [{skipped:true},{executed:false},{exitCode:1}])assert.ok(module.validateBrowserRows(rows.map((row,index)=>index?row:{...row,...contradiction})).length);
++});
++test('F2 canonical consumer command receipts reject tampered original log bytes',async()=>{
++ const {captureStep,validateStep}=await import('../tests/consumers/evidence.mjs');
++ const {node}=await import('../tests/consumers/lib.mjs');
++ const root=mkdtempSync('/private/tmp/krds-release-real-receipt-');try{
++  const command={executable:node,args:['--version'],cwd:root};
++  const step=await captureStep('identity-probe',command,{baseRoot:root,output:join(root,'proof')});
++  await validateStep(step,{baseRoot:root,expectedCommand:command});
++  writeFileSync(join(root,step.log.path),'unrelated nonempty text');
++  await assert.rejects(validateStep(step,{baseRoot:root,expectedCommand:command}),error=>error.code==='EVIDENCE_BLOCKED');
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F3 current expected inventory hashes are compared as well as its paths',()=>{
++ const root=mkdtempSync(join(tmpdir(),'krds-release-expected-content-'));try{
++  writeFileSync(join(root,'source.ts'),'current');const actual=module.inventorySnapshot(root);
++  const wrong=structuredClone(actual);wrong.files[0].sha256='0'.repeat(64);
++  assert.ok(validateSnapshot(root,actual,wrong).some(error=>error.includes('inventory')));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
+diff --git a/Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/task-T16-fix1-base/docs/releases/0.0.0/README.md b/docs/releases/0.0.0/README.md
+index 1d1f068..5df64fc 100644
+--- a/Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/task-T16-fix1-base/docs/releases/0.0.0/README.md
++++ b/docs/releases/0.0.0/README.md
+@@ -1,54 +1,31 @@
+ # Intermediate candidate handoff
+ 
+-This directory records the actual local `0.0.0` development version. It is not a published version, a release-ready candidate or a completed T16 task. `verification.json` and `verification.exit-code.txt` are generated by the verifier; all missing/stale/manual requirements fail closed.
+-
+-Use the exact Node 24.18.0 binary from `compatibility/toolchain.json`. The repository launcher `node tools/yarn.mjs` selects that Node and vendored Yarn 4.14.1; do not install with npm or pnpm.
+-
+-Reproduction is split between producing evidence in a controller-owned frozen candidate window and accepting that evidence. The verifier performs no expensive native build or browser reruns.
+-
+-1. Prepare a real reviewed candidate commit, Nx version plans and changelogs in a disposable checkout. This session cannot create commits because its exact model identity hook is unavailable. Publication, pushing and tagging are not authorized.
+-2. Follow `.github/workflows/release-prepare.yml`: immutable install; workspace/catalog/coverage checks; actual full types/build/test/lint and Nx graph/affected/cache checks; all stable support and exact RC preview matrix/SSR/browser runs. T13 metadata-only results cannot replace executed types/build results.
+-3. Regenerate legal notices and verify them. In the serialized source-freeze window, run `node tools/yarn.mjs pack:all --build`, `node tools/yarn.mjs inspect:tarballs`, then `node tools/yarn.mjs test:consumers`. Debug and selected-framework diagnostic reports never satisfy the final 15-row aggregate.
+-4. Complete authentic manual assistive-technology/media/visibility checks and independent review against those exact source/build/artifact hashes. Keep blocked checks blocked. Populate `acceptance-evidence.json` only from actual executions using the protocol below.
+-5. Create/restore the exact CI candidate with `tools/ci/create-candidate.mjs` and `tools/ci/restore-candidate.mjs`. The final mandatory job runs `node tools/yarn.mjs verify:release`; preserve its JSON and actual exit code.
+-
+-## Additional evidence protocol
+-
+-The verifier consumes the existing native formats directly: `catalog/coverage.json` through `tools/check-coverage.mjs`; T13 `test-results/t13/{compatibility,ssr}-runs/<run>/results.json` with `source-before.json`, `source-after.json` and SSR `tested-artifacts.json`; and T14 `artifacts/manifest.json`, `artifacts/build-evidence.json`, `artifacts/consumer-results.json`. It validates current source/artifact bytes and actual command logs, not prose summaries or metadata-only runs.
+-
+-`acceptance-evidence.json` is an index for acceptance which does not yet have a producer-owned machine report. It is intentionally absent until real executions exist. Its schema is:
+-
+-```json
+-{
+-  "candidate": {
+-    "sourceCommit": "<real HEAD>",
+-    "sourceFingerprint": "<current public source and build fingerprint>",
+-    "repositorySourceSha256": "<full repository source digest from verification.json>",
+-    "lockfileSha256": "<sha256>",
+-    "artifactManifestSha256": "<sha256>"
+-  },
+-  "reports": {
+-    "patterns": {"path": "<actual report>", "sha256": "<sha256>"},
+-    "preview": {"path": "<actual report>", "sha256": "<sha256>"},
+-    "manualAccessibility": {"path": "<actual report>", "sha256": "<sha256>"},
+-    "independentReview": {"path": "<actual report>", "sha256": "<sha256>"},
+-    "ci": {"path": "<actual report>", "sha256": "<sha256>"},
+-    "documentation": {"path": "<actual report>", "sha256": "<sha256>"}
+-  }
+-}
+-```
+-
+-Angle-bracket values above describe schema fields; they are not publishable metadata or evidence. Every indexed report repeats the exact candidate object and includes `kind`, `status: "passed"`, `executed: true`, `exitCode: 0`, a real `command`, and nonempty `rows`. Each row has a unique `id`, `status: "passed"`, `executed: true`, `exitCode: 0`, nonempty real `observations`, a repository log `logPath` and its `logSha256`. Missing, skipped, unsupported or unperformed required rows fail. All references must resolve inside this repository; no shell commands from reports are executed.
+-
+-| Index | Required kind | Required row IDs |
+-| --- | --- | --- |
+-| patterns | native-pattern-acceptance | Each stable framework (`solid`, `react`, `svelte`, `vue`, `lit`, `qwik`, `angular`) × `application`, `search`, `consent`, `layout`; IDs `framework:flow` |
+-| preview | exact-rc19-six-pilot-acceptance | `button`, `native-select`, `modal`, `tabs`, `date-input`, `calendar` × `native-behavior`, `types`, `build`, `ssr`; IDs `component:check` |
+-| manualAccessibility | manual-assistive-technology | Each stable framework × `speech-output`, `keyboard`, `media-controls`, `visually-hidden`, `media-equivalence`, `zoom-200-400`, `forced-colors`, `focus-visibility`; IDs `framework:check` |
+-| independentReview | independent-release-review | `native-boundaries`, `catalog-completeness`, `actual-tarballs`, `licenses`, `ssr`, `user-flows` |
+-| ci | candidate-ci-executions | `immutable-install`, `build`, `typecheck`, `test`, `lint`, `nx-affected`, `cache-restoration`, `story-network-policy`, `required-siheom` |
+-| documentation | release-documentation-review | `installation`, `compatibility`, `license-provenance`, `known-limitations`, `extension-guide`, `version-changelog` |
+-
+-`docs/reviews/manual-gates.json` additionally remains blocking until a real screen-reader session and speech review are accepted. Synthetic audio, screenshots, CSS zoom, a present VoiceOver app or automated DOM assertions do not supply that acceptance. Original upstream sign-language/media equivalence, real zoom, forced colors and focus visibility still need authentic review.
+-
+-M1 and M2 aggregate independently; M2 failure never overwrites M1's own results. M3 requires both and every release gate. A report documenting blockers is an intermediate handoff only. A zero verifier exit never grants publication authority.
++This directory records actual local version `0.0.0`. It is not a published version, a release-ready candidate or a completed T16 task. `verification.json` and `verification.exit-code.txt` preserve actual acceptance results. Missing, stale, skipped and unsupported evidence remain nonzero.
++
++Use Node 24.18.0 and vendored Yarn 4.14.1 through `node tools/yarn.mjs`. The verifier reads producer evidence; it never launches broad native build, pack, install or browser reruns.
++
++The controller owns a source-freeze window and the full producer order in `.github/workflows/release-prepare.yml`: immutable install; actual workspace, catalog, native type/build/behavior, pilot plus full catalog story/contract and required siheom checks; Nx graph/affected/cache checks; minimum/current runtime consumers; stable SSR/hydration/resume and separate RC19 preview; notices/license checks; serialized `pack:all --build`, tarball inspection and actual outside consumers. Authentic human acceptance and independent review must refer to the same candidate. The final read-only command is `node tools/yarn.mjs verify:release`.
++
++## Source and candidate relationship
++
++A real HEAD alone is insufficient. The verifier checks current source blobs against its Git tree and rejects changed, deleted and untracked source. No uncommitted version-plan transformation is currently supported. A workflow that intentionally changes versions without a commit must provide a separately reviewed, reproducible transformation interface before M3 can pass. This session has no exact active model identity hook and cannot create a commit. It also has no authorization to publish, push or tag.
++
++M1 accepts stable/shared scope (12 packages, 14 minimum/current consumer rows). M2 accepts exact RC19 preview/shared scope (6 packages, one exact preview consumer). M3 requires the complete 13-package, 15-row candidate in addition to both milestones. Global fingerprints and global manifest file hashes are diagnostic/M3 bindings; they cannot substitute for scoped source/build/artifact receipts.
++
++## Native execution evidence
++
++The verifier uses the existing comprehensive `tools/check-coverage.mjs` gate for 54 × 7 stable coverage and its actual native public API, story/request, behavior, accessibility and review checks. Tracking rows, staged descriptors and empty suites never award coverage.
++
++T13 matrices live at `test-results/t13/{compatibility,ssr}-runs/<run>/results.json`. The newest relevant run is selected exactly once. An unfinished, missing, stale or failed new run never falls back to an older pass. Missing/stale/unperformed evidence is blocked; a proven current failed execution is failed.
++
++Recorded source-before/source-after and tested-output snapshots are compared with freshly regenerated complete canonical inventories, including path sets. Added files or outputs invalidate old evidence. An all-framework snapshot may be projected only by removing foreign adapter and fixture roots; every remaining shared, root, test and selected-framework input must exactly match the fresh scoped inventory. Thus preview-only source changes do not overwrite stable evidence. Actual command names, nonempty original log hashes and all nine browser/timezone outcomes with the producer's exact required checks are validated. Explicit skipped/unexecuted/nonzero contradictions are rejected.
++
++T14 artifact and consumer receipts must bind each scope separately to current source, build and selected artifact bytes. Consumer acceptance requires the canonical producer's reviewed validator for original command/log receipts, exact runtime/compiler resolutions, lock/config bytes, installed candidate bytes and actual SSR/browser outcomes. Legacy `checks: passed` strings and arbitrary nonempty logs are insufficient.
++
++## Pending producer and human interfaces
++
++The earlier generic `acceptance-evidence.json` row protocol is withdrawn. Hash-bound flags, arbitrary observations and arbitrary or empty logs cannot establish native execution, independent review or authentic human acceptance. There is currently no implemented trusted producer-specific validator for indexed patterns, six-pilot preview behavior, CI execution acceptance, independent review, manual sessions or documentation review. These gates stay blocked even if someone supplies apparently complete indexed JSON. Actual producer interfaces must be integrated and reviewed before they can pass.
++
++`docs/reviews/manual-gates.json` remains an explicit human-review blocker. A present VoiceOver application, screenshots, automated DOM checks, synthetic signal/media or CSS zoom cannot supply screen-reader speech review, original-media/sign-language equivalence, real browser zoom, forced-colors or focus-visibility acceptance.
++
++See [verification.json](./verification.json), [compatibility.md](./compatibility.md), [licenses.md](./licenses.md) and [release-summary.md](./release-summary.md) for current exact package versions, source/artifact hashes, limits and reproduction details. A blocker report is an intermediate handoff only. Even a zero verification exit never grants publication authority.

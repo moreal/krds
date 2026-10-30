@@ -1,0 +1,21 @@
+✔ native disabled pointer activation is suppressed; an active aria-disabled handler is rejected (338.382417ms)
+✔ semantic date is invariant in positive and negative UTC zones; timestamp shifts and mount events are rejected (5758.831459ms)
+✔ removed trigger restores exact alternate target; connected document body alone is rejected (5354.981417ms)
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (1.511875ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.145625ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.550541ms)
+✔ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (38.602833ms)
+✔ request guard refuses mutation methods even when URL is a build asset (0.147833ms)
+✔ bridge refuses renderer objects instead of silently coercing them to semantic JSON (0.133417ms)
+✔ real CLI reports invalid selection and zero canonical cases nonzero without server startup (105.081458ms)
+✔ contract summaries distinguish feature RED after health from startup failure and zero execution (0.765791ms)
+✔ built shared scenario definitions and canonical manifests cover the same non-probe pilot IDs (0.920875ms)
+✔ production request guard blocks negative fixture transports before external sending and rejects visible success (392.866917ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11984.251625

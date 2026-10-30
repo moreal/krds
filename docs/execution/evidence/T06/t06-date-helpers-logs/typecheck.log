@@ -1,0 +1,17 @@
+
+> nx run krds-contracts:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/contracts typecheck
+
+(node:4578) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran target typecheck for project krds-contracts
+
+
+  Run duration:      871ms
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     728ms (1 task)
+  Recoverable time:  <1ms

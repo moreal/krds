@@ -1,0 +1,43 @@
+{
+  "name": "@unofficial-krds/test-contracts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../../tools/tests/harness.test.mjs ../../tools/tests/contract-observations.test.mjs src/patterns/flows.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "build:local": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "typescript": "6.0.2"
+  },
+  "dependencies": {
+    "@unofficial-krds/contracts": "workspace:^"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./driver": {
+      "types": "./dist/driver.d.ts",
+      "import": "./dist/driver.js"
+    },
+    "./fixtures": {
+      "types": "./dist/fixtures/index.d.ts",
+      "import": "./dist/fixtures/index.js"
+    },
+    "./scenarios": {
+      "types": "./dist/scenarios/index.d.ts",
+      "import": "./dist/scenarios/index.js"
+    },
+    "./patterns": {
+      "types": "./dist/patterns/index.d.ts",
+      "import": "./dist/patterns/index.js"
+    }
+  }
+}

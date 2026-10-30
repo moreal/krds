@@ -1,0 +1,187 @@
+
+ NX   Running targets build, typecheck for 8 projects:
+
+- krds-contracts
+- krds-tokens
+- krds-styles
+- krds-assets
+- krds-fonts
+- krds-test-contracts
+- krds-solid
+- krds-angular
+
+
+
+> nx run krds-tokens:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/tokens build:local
+
+(node:41777) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Generated 768 tokens, CSS, types and original-key mappings.
+
+> nx run krds-contracts:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/contracts build:local
+
+(node:41776) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-styles:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/styles build:local
+
+(node:41783) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Parsed/validated 9 CSS sources; generated 10 CSS entries and identical plain strings for six component contracts.
+
+> nx run krds-contracts:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/contracts typecheck
+
+(node:41790) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-tokens:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/tokens typecheck
+
+(node:41797) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-styles:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/styles typecheck
+
+(node:41811) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-test-contracts:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/test-contracts typecheck
+
+(node:41812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-test-contracts:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/test-contracts build:local
+
+(node:41827) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-angular:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/angular typecheck
+
+(node:41836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41838) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-angular:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/angular build:local
+
+(node:41828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1m[31m(node:41832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[33mThe "@angular-devkit/build-angular:ng-packagr" builder is deprecated as part of Angular's Webpack support deprecation. Use "@angular/build:ng-packagr" instead. For more information, see https://angular.dev/tools/cli/build-system-migration.[39m[22m
+[34mBuilding Angular Package[39m
+[37m
+------------------------------------------------------------------------------[39m
+[37mBuilding entry point '@unofficial-krds/angular'[39m
+[37m------------------------------------------------------------------------------[39m
+- Compiling with Angular sources in partial compilation mode.
+[32m✔[39m Compiling with Angular sources in partial compilation mode.
+[32m✔[39m Generating FESM and DTS bundles
+- Copying assets
+[32m✔[39m Copying assets
+- Writing package manifest
+[1m[33m[33mWARNING: Found a conflicting export condition for ".". The "types" condition would be overridden by ng-packagr. Please unset it.[39m[39m[22m
+[1m[33m[33mWARNING: Found a conflicting export condition for ".". The "default" condition would be overridden by ng-packagr. Please unset it.[39m[39m[22m
+[34mℹ[39m Removing scripts section in package.json as it's considered a potential security vulnerability.
+[34mℹ[39m Removing devDependencies section in package.json.
+[32m✔[39m Writing package manifest
+[32m✔[39m Built @unofficial-krds/angular
+[32m
+------------------------------------------------------------------------------[39m
+[32mBuilt Angular Package
+- from: /Users/moreal/github/moreal/krds/packages/angular
+- to:   /Users/moreal/github/moreal/krds/packages/angular/dist[39m
+[32m------------------------------------------------------------------------------[39m
+[37m[37m
+Build at: [1m2026-10-30T02:58:06.253Z[22m - Time: [1m416[22mms
+[39m[39m
+
+> nx run krds-solid:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/solid build:local
+
+(node:41840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41843) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 11 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mcalendar.js            [0m[1;2m 0.05 kB[0m[2m │ gzip: 0.07 kB[0m
+[2mdist/[0m[36mprovider.js            [0m[1;2m 0.08 kB[0m[2m │ gzip: 0.09 kB[0m
+[2mdist/[0m[36mindex.js               [0m[1;2m 0.47 kB[0m[2m │ gzip: 0.24 kB[0m
+[2mdist/[0m[36mproviders-4LHHUrT_.js  [0m[1;2m 0.60 kB[0m[2m │ gzip: 0.32 kB[0m
+[2mdist/[0m[36mbutton.js              [0m[1;2m 2.19 kB[0m[2m │ gzip: 0.92 kB[0m
+[2mdist/[0m[36mnative-select.js       [0m[1;2m 5.16 kB[0m[2m │ gzip: 1.86 kB[0m
+[2mdist/[0m[36mtabs.js                [0m[1;2m 7.97 kB[0m[2m │ gzip: 2.91 kB[0m
+[2mdist/[0m[36mmodal.js               [0m[1;2m 9.10 kB[0m[2m │ gzip: 3.31 kB[0m
+[2mdist/[0m[36mdate-input.js          [0m[1;2m12.28 kB[0m[2m │ gzip: 4.28 kB[0m
+[2mdist/[0m[36mcalendar-16WUfTBk.js   [0m[1;2m13.01 kB[0m[2m │ gzip: 4.54 kB[0m
+
+✓ built in 204ms
+
+> nx run krds-solid:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/solid typecheck
+
+(node:41842) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-assets:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/assets build:local
+
+(node:41856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-fonts:build
+
+> node tools/yarn.mjs workspace @unofficial-krds/fonts build:local
+
+(node:41862) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-assets:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/assets typecheck
+
+(node:41868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-fonts:typecheck
+
+> node tools/yarn.mjs workspace @unofficial-krds/fonts typecheck
+
+(node:41876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran targets build, typecheck for 8 projects
+
+
+  Run duration:      8.5s
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     3.3s (2 tasks)
+  Recoverable time:  5.2s (61% of the run)

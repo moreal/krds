@@ -1,0 +1,65 @@
+
+┌  Building storybook v10.6.5
+│
+◇  Cleaning outputDir: dist
+│
+◇  Loading presets
+│
+◇  Building manager..
+│
+●  Building open services..
+│
+●  Building preview..
+│  Vite vite v8.3.5 building client environment for production...
+transforming...
+✓ 85 modules transformed.
+rendering chunks...
+computing gzip size...
+│  Vite dist/iframe.html                                18.78 kB │ gzip:
+│  5.32 kB
+│  dist/assets/iframe-oJt4Th0u.css                 61.11 kB │ gzip:
+│  7.33 kB
+│  dist/assets/iframe-B0tl7-AT.js                   0.04 kB │ gzip:
+│  0.06 kB
+│  dist/assets/providers-4LHHUrT_-DAMHsHOs.js       0.29 kB │ gzip:
+│  0.22 kB
+│  dist/assets/rolldown-runtime-Dh6celcD.js         0.62 kB │ gzip:
+│  0.41 kB
+│  dist/assets/calendar.stories-CD2SWDZc.js         1.02 kB │ gzip:
+│  0.56 kB
+│  dist/assets/preload-helper-_1ZBrL1G.js           1.64 kB │ gzip:
+│  0.87 kB
+│  dist/assets/probe.stories-DuW2-kKZ.js            1.85 kB │ gzip:
+│  0.87 kB
+│  dist/assets/button.stories-C3UFQLiI.js           2.79 kB │ gzip:
+│  1.37 kB
+│  dist/assets/native-select.stories-Csq8EnVK.js    5.32 kB │ gzip:
+│  2.21 kB
+│  dist/assets/tabs.stories-BOoyNIN8.js             7.08 kB │ gzip:
+│  2.97 kB
+│  dist/assets/modal.stories-Jg0k2Raw.js            8.42 kB │ gzip:
+│  3.47 kB
+│  dist/assets/date-input.stories-DmZS07V1.js      10.37 kB │ gzip:
+│  4.20 kB
+│  dist/assets/calendar-Cj6mdmHQ-DiX5FrHF.js       11.75 kB │ gzip:
+│  4.81 kB
+│  dist/vite-inject-mocker-entry.js                27.75 kB │ gzip:
+│  9.66 kB
+│  dist/assets/iframe-Bn7eJ6q6.js                 998.42 kB │ gzip:
+│  287.38 kB
+
+│
+▲  Vite [plugin builtin:vite-reporter]
+│  (!) Some chunks are larger than 500 kB after minification. Consider:
+│  - Using dynamic import() to code-split the application
+│  - Use build.rolldownOptions.output.codeSplitting to improve chunking:
+│  ]8;;https://rolldown.rs/reference/OutputOptions.codeSplittinghttps://rolldown.rs/reference/OutputOptions.codeSplitting]8;;
+│  - Adjust chunk size limit for this warning via
+│  build.chunkSizeWarningLimit.
+│  Vite ✓ built in 424ms
+│
+◇  Output directory:
+│  /Users/moreal/github/moreal/krds/apps/storybook-solid/dist
+│
+└  Storybook build completed successfully
+

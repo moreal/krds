@@ -1,0 +1,2 @@
+import {untrack} from 'svelte';
+export function controlOwnership<T>(read:()=>T|undefined,initialDefault:T|undefined,label:string){const controlled=untrack(()=>read()!==undefined);if(controlled&&initialDefault!==undefined)throw new TypeError(`${label}: controlled and default values cannot coexist`);function check(){if((read()!==undefined)!==controlled)throw new TypeError(`${label}: control mode cannot change`);}return{read(){check();return read();},controlled};}

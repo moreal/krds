@@ -1,0 +1,15 @@
+--- a/docs/execution/progress.md
++++ b/docs/execution/progress.md
+@@ -19,3 +19,12 @@
+ 사용자가 독립 코드 권리자 `Lee Dogeon <dev.moreal@gmail.com>`, 저장소 메타데이터 URL `https://github.com/moreal/krds`, 요청 scope `@unofficial-krds`를 확인했고 독립 MIT 허가문은 `LICENSES/MIT.txt`에 완성되었다. 현재 실제 로컬 scope는 아직 `@krds-native`이며 T01의 manifest·lock·출처 원자적 전환이 다음이다. 이 메타데이터 확인은 npm/repository 계정 소유권 인증이나 게시 권한이 아니다. 원래 KRDS·폰트·제삼자 권리는 별도로 유지하며 release 후보 검사와 T16 gate, 필요한 수동 접근성·전체 브라우저·SSR/독립 소비 검증은 남아 있다.
+ 
+ Firefox1555는 profile 시작 단계에서 실패한다. 두 임시 경로의 실제 실패를 보존했으며 T13의 전체 브라우저 행렬 검증에서 해결 또는 명확한 차단 판정이 필요하다.
++
++
++## npm scope 원자적 전환 완료 (2026-10-30)
++
++현재 32개 로컬 workspace의 npm namespace는 `@unofficial-krds`이다. 사용자 제공 저장소 메타데이터는 `https://github.com/moreal/krds`이며, 독립 코드의 2026 MIT 권리자 Lee Dogeon <dev.moreal@gmail.com>와 원래 KRDS·폰트·제삼자 권리 및 출처표시는 분리하여 유지했다. 위의 scope 전환 대기 문단은 전환 이전의 기록이다.
++
++고정 Node/Yarn으로 의도적 설치와 immutable 설치를 마쳤다. npm 산출물 1,878개, 내장 patch 5개와 기존 checksum 1,544개는 같고, 32개 workspace 식별자만 scope 치환으로 변경되었다. 기반·Solid·Angular APF 8개 프로젝트의 build/typecheck, 새 이름의 Solid fixture/Storybook 빌드·타입 검사, 경계 회귀 21개 및 canonical siheom 77개·production contract 10개·story 6개가 통과했다. T03의 실제 tarball 13개 이름/저장소/독립 MIT/고지 바이트 검사와 정상 로컬 라이선스 검증도 통과했다.
++
++이는 기존 구현의 namespace·메타데이터 전환 검증이며 카탈로그 완료 범위를 늘리지 않는다. npm/repository 계정 소유권은 인증되지 않았고 게시·push·tag 권한도 부여되지 않았다. 정식 릴리스와 후속 native 구현 검증은 별도 gate로 남는다. 상세 실행·고정 diff/hash: `.superpowers/sdd/PLAN/task-scope-integration-report.md`, T03 보완: `.superpowers/sdd/PLAN/task-scope-compliance-report.md`.

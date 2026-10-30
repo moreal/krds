@@ -1,0 +1,1037 @@
+--- pre-native/apps/fixture-react/src/FixtureApp.tsx
++++ apps/fixture-react/src/FixtureApp.tsx
+@@ -1,13 +1,14 @@
+ import { useEffect, useState } from 'react';
+ import { WorkspaceProbe } from '@unofficial-krds/react';
+ import type { FixtureBridge } from '@unofficial-krds/test-contracts';
+ import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
+ import { NativeProbe } from './NativeProbe';
++import { PilotFixture } from './PilotFixture';
+ 
+ interface FixtureRoute { componentId: string; caseId: string }
+ function currentRoute(): FixtureRoute {
+   return { componentId: decodeURIComponent(location.pathname.split('/')[2] ?? ''), caseId: new URLSearchParams(location.search).get('case') ?? '' };
+ }
+ const initialState = { count: 0, label: 'Probe increment', disabled: false };
+ 
+ export function FixtureApp(route: Partial<FixtureRoute> = {}) {
+@@ -17,16 +18,16 @@
+   useEffect(() => {
+     const channel = createFixtureBridge('react', componentId === '__probe' ? initialState : {});
+     const unsubscribe = channel.subscribe(setState);
+     setBridge(channel);
+     return () => { unsubscribe(); channel.dispose(); };
+   }, [componentId, caseId]);
+   return <main>
+     <h1>React fixture</h1>
+-    <WorkspaceProbe />
++    
+     {bridge && <div role="status" aria-label="Fixture health">ready</div>}
+     {componentId === '__probe' && caseId === 'native-state'
+       ? <NativeProbe count={Number(state.count)} label={String(state.label)} disabled={Boolean(state.disabled)}
+           onChange={(value) => { bridge?.recordEvent('change', { value }); void bridge?.setState({ count: value }); }} />
+-      : <p role="note">Component not implemented: {componentId}/{caseId}</p>}
++      : <PilotFixture componentId={componentId} caseId={caseId} state={state} bridge={bridge} />}
+   </main>;
+ }
+--- pre-native/apps/fixture-react/src/PilotFixture.tsx
++++ apps/fixture-react/src/PilotFixture.tsx
+@@ -0,0 +1,17 @@
++import { useState } from 'react';
++import { Button, Calendar, DateInput, Modal, NativeSelect, Tabs } from '@unofficial-krds/react';
++import type { FixtureBridge } from '@unofficial-krds/test-contracts';
++export function PilotFixture({ componentId, caseId, state, bridge }: { componentId: string; caseId: string; state: Record<string, unknown>; bridge?: FixtureBridge }) {
++  const [open, setOpen] = useState(false);
++  const record = (detail: { value: unknown }) => bridge?.recordEvent('valueChange', detail);
++  if (componentId === 'button') return <Button disabled={state.disabled !== false} onClick={() => bridge?.recordEvent('click', {})}>저장</Button>;
++  if (componentId === 'native-select') return <form onSubmit={event => event.preventDefault()}><NativeSelect label="지역" name="region" options={[{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }]} {...(caseId === 'controlled' ? { value: String(state.value ?? 'seoul') } : { defaultValue: 'seoul' })} onValueChange={detail => { record(detail); if (caseId === 'controlled') void bridge?.setState({ value: detail.value }); }} /><Button type="reset">초기화</Button></form>;
++  if (componentId === 'modal') return <>
++    <Button id="modal-fallback">다음 작업</Button>
++    <Modal trigger={state.triggerVisible !== false ? <Button>열기</Button> : null} open={open} title="확인" returnFocusId="modal-fallback" onOpenChange={detail => { setOpen(detail.open); bridge?.recordEvent('openChange', detail); }}>내용</Modal>
++  </>;
++  if (componentId === 'tabs') return <Tabs label="정보" defaultValue="first" items={[{ value: 'first', label: '첫 번째', panel: '첫 번째 내용' }, { value: 'second', label: '두 번째', panel: '두 번째 내용' }]} onValueChange={record} />;
++  if (componentId === 'calendar') return <Calendar label="날짜" referenceDate="2024-02-15" onValueChange={record} />;
++  if (componentId === 'date-input') return <DateInput label="날짜" name="date" referenceDate="2024-02-15" {...(caseId === 'timezone-invariance' ? { value: typeof state.value === 'string' ? state.value : null } : {})} onValueChange={record} />;
++  return <p role="note">Component not implemented: {componentId}/{caseId}</p>;
++}
+--- pre-native/apps/fixture-react/src/main.tsx
++++ apps/fixture-react/src/main.tsx
+@@ -1,3 +1,6 @@
++import '@unofficial-krds/styles/reset.css';
++import '@unofficial-krds/styles/fonts.css';
++import '@unofficial-krds/styles/all.css';
+ import { createRoot } from 'react-dom/client';
+ import { FixtureApp } from './FixtureApp';
+ createRoot(document.getElementById('app')!).render(<FixtureApp />);
+--- pre-native/apps/fixture-react/src/vite-env.d.ts
++++ apps/fixture-react/src/vite-env.d.ts
+@@ -0,0 +1 @@
++/// <reference types="vite/client" />
+--- pre-native/apps/fixture-react/tests/inspect-react.mjs
++++ apps/fixture-react/tests/inspect-react.mjs
+@@ -0,0 +1,45 @@
++import { chromium } from 'playwright';
++import { mkdir, writeFile } from 'node:fs/promises';
++import { resolve } from 'node:path';
++import { serveProduction } from '../../../tools/testing/support.mjs';
++const directory = resolve('.superpowers/sdd/PLAN/t07-react-logs/visual');
++await mkdir(directory, { recursive: true });
++const server = await serveProduction(resolve('apps/storybook-react/dist'));
++const browser = await chromium.launch();
++const results = [];
++try {
++  let page = await browser.newPage({ viewport: { width: 1280, height: 900 }, locale: 'ko-KR', reducedMotion: 'reduce' });
++  const entries = ['krds-button--default', 'krds-button--small', 'krds-button--large', 'krds-button--disabled', 'krds-native-select--invalid', 'krds-tabs--manual', 'krds-date-input--invalid', 'krds-modal--open', 'krds-calendar--selected-range'];
++  for (const id of entries) {
++    await page.goto(`${server.origin}/iframe.html?id=${id}&viewMode=story`);
++    await page.waitForSelector('[data-krds-component]');
++    await page.evaluate(() => document.fonts.ready);
++    await page.screenshot({ path: `${directory}/${id}.png`, fullPage: true });
++    results.push({ id, width: 1280, image: `${id}.png` });
++  }
++  for (const mode of ['narrow200', 'zoom200', 'forced']) {
++    await page.close();
++    page = await browser.newPage({ viewport: { width: mode === 'narrow200' ? 320 : mode === 'zoom200' ? 640 : 1280, height: mode === 'zoom200' ? 450 : 900 }, deviceScaleFactor: mode === 'zoom200' ? 2 : 1, locale: 'ko-KR', reducedMotion: 'reduce' });
++    await page.emulateMedia({ forcedColors: mode === 'forced' ? 'active' : 'none' });
++    for (const id of ['krds-button--default', 'krds-native-select--invalid', 'krds-tabs--manual', 'krds-calendar--selected-range', 'krds-date-input--invalid', 'krds-modal--open']) {
++      await page.goto(`${server.origin}/iframe.html?id=${id}&viewMode=story`);
++      await page.waitForSelector('[data-krds-component]');
++      if (mode === 'narrow200') await page.evaluate(() => { document.documentElement.style.fontSize = `${parseFloat(getComputedStyle(document.documentElement).fontSize) * 2}px`; });
++      const target = page.locator('[data-krds-part="day"]:not(:disabled),[data-krds-part="control"]:not(:disabled),[data-krds-part="close"],[data-krds-part="trigger"]:not(:disabled),button[data-krds-part="root"]:not(:disabled)').first();
++      if (await target.count()) await target.focus();
++      await page.screenshot({ path: `${directory}/${id}-${mode}.png`, fullPage: true });
++      results.push({ id, mode, image: `${id}-${mode}.png`, metrics: await page.evaluate(() => ({ viewport: innerWidth, viewportHeight: innerHeight, devicePixelRatio, rootFontSize: getComputedStyle(document.documentElement).fontSize, zoom: getComputedStyle(document.documentElement).zoom, bodyScroll: document.documentElement.scrollWidth, focus: document.activeElement?.outerHTML, tableScroll: [...document.querySelectorAll('[data-krds-internal="table-scroll"]')].map(element => ({ width: element.clientWidth, scroll: element.scrollWidth })) })) });
++      if (id === 'krds-date-input--invalid') {
++        await page.getByRole('button', { name: '달력 열기', exact: true }).click();
++        await page.getByRole('dialog').waitFor({ state: 'visible' });
++        await page.screenshot({ path: `${directory}/date-popup-${mode}.png`, fullPage: true });
++        results.push({ id: 'date-popup', mode, image: `date-popup-${mode}.png`, focus: await page.evaluate(() => document.activeElement?.outerHTML), popupPart: await page.getByRole('dialog').getAttribute('data-krds-part') });
++        const close = page.getByRole('button', { name: '닫기', exact: true });
++        await close.scrollIntoViewIfNeeded(); await close.focus();
++        await page.screenshot({ path: `${directory}/date-popup-footer-${mode}.png`, fullPage: true });
++        results.push({ id: 'date-popup-footer', mode, image: `date-popup-footer-${mode}.png`, metrics: await page.getByRole('dialog').evaluate(element => ({ scrollHeight: element.scrollHeight, clientHeight: element.clientHeight, scrollTop: element.scrollTop })) });
++      }
++    }
++  }
++  await writeFile(`${directory}/observations.json`, JSON.stringify(results, null, 2));
++} finally { await browser.close(); await server.close(); }
+--- pre-native/apps/fixture-react/tests/siheom/calendar.test.tsx
++++ apps/fixture-react/tests/siheom/calendar.test.tsx
+@@ -0,0 +1,168 @@
++import { expect, test, afterEach } from 'vitest';
++import { assertions, createReactSiheom, given, query } from '@siheom/react';
++import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
++import userEvent from '@testing-library/user-event';
++import { StrictMode, useState } from 'react';
++import { Button, Calendar, DateInput, KrdsProvider, Modal, NativeSelect, Tabs } from '@unofficial-krds/react';
++import { FixtureApp } from '../../src/FixtureApp';
++const { runSiheom } = createReactSiheom();
++afterEach(cleanup);
++
++test('calendar canonical native table, selection remains tentative until Confirm', async () => {
++  await runSiheom(given.render(<FixtureApp componentId="calendar" caseId="selection-confirm" />), assertions.visible(query.button('확인')));
++  expect(document.querySelectorAll('tbody tr')).toHaveLength(6);
++  expect(document.querySelectorAll('tbody td')).toHaveLength(42);
++  const day = screen.getByRole('button', { name: '2024년 2월 29일 목요일' });
++  await userEvent.click(day);
++  expect(window.__KRDS_FIXTURE__?.readEvents()).toEqual([]);
++  await userEvent.click(screen.getByRole('button', { name: '확인' }));
++  expect(window.__KRDS_FIXTURE__?.readEvents()).toEqual([{ name: 'valueChange', detail: { value: '2024-02-29' } }]);
++});
++
++test('native Button submits named submitter once; default button and disabled do not submit', async () => {
++  const submits: FormData[] = []; let calls = 0;
++  render(<form onSubmit={event => { event.preventDefault(); submits.push(new FormData(event.currentTarget, (event.nativeEvent as SubmitEvent).submitter)); }}><Button onClick={() => calls++}>Action</Button><Button type="submit" name="action" value="save">Save</Button><Button disabled onClick={() => calls++}>Disabled</Button></form>);
++  await userEvent.click(screen.getByText('Action')); expect(calls).toBe(1); expect(submits).toHaveLength(0);
++  await userEvent.click(screen.getByText('Save')); expect(submits[0].get('action')).toBe('save');
++  await userEvent.click(screen.getByText('Disabled')); expect(calls).toBe(1);
++});
++
++test('select rejection, explicit no-selection and reset preserve actual FormData without notifications', async () => {
++  const events: string[] = [];
++  const mounted = render(<form><NativeSelect label="Region" name="region" value="a" options={[{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }]} onValueChange={({ value }) => events.push(value)} /></form>);
++  const select = screen.getByRole('combobox') as HTMLSelectElement;
++  await userEvent.selectOptions(select, 'b'); expect(select.value).toBe('a'); expect(events).toEqual(['b']);
++  mounted.rerender(<form><NativeSelect label="Region" name="region" value="b" options={[{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }]} onValueChange={({ value }) => events.push(value)} /></form>);
++  expect(select.value).toBe('b'); expect(events).toEqual(['b']); mounted.unmount();
++  render(<form><NativeSelect label="Empty" name="empty" defaultValue="" options={[{ value: 'a', label: 'A', disabled: true }]} /><Button type="reset">Reset</Button></form>);
++  const empty = screen.getByRole('combobox') as HTMLSelectElement; expect(empty.selectedIndex).toBe(-1); expect(new FormData(empty.form!).has('empty')).toBe(false);
++  await userEvent.click(screen.getByText('Reset')); expect(empty.selectedIndex).toBe(-1);
++});
++
++test('manual tabs retain sequential stops and mounted panel state; automatic rejection emits one per gesture', async () => {
++  const events: string[] = [];
++  const items = [{ value: 'a', label: 'A', panel: <input aria-label="Local state" defaultValue="keep" /> }, { value: 'b', label: 'B', panel: 'Second' }];
++  const mounted = render(<Tabs aria-label="Sections" items={items} />);
++  const tabs = screen.getAllByRole('tab'); expect(tabs.map(tab => tab.tabIndex)).toEqual([0, 0]);
++  tabs[0].focus(); await userEvent.keyboard('{ArrowRight}'); expect(tabs[1]).toHaveFocus(); expect(tabs[0]).toHaveAttribute('aria-selected', 'true');
++  await userEvent.keyboard('{Enter}'); expect(tabs[1]).toHaveAttribute('aria-selected', 'true');
++  expect(document.querySelector('input')?.value).toBe('keep'); mounted.unmount();
++  render(<Tabs aria-label="Auto" items={items} value="a" activationMode="automatic" onValueChange={({ value }) => events.push(value)} />);
++  await userEvent.click(screen.getByRole('tab', { name: 'B' })); expect(events).toEqual(['b']); expect(screen.getByRole('tab', { name: 'A' })).toHaveAttribute('aria-selected', 'true');
++  await userEvent.click(screen.getByRole('tab', { name: 'B' })); expect(events).toEqual(['b', 'b']);
++});
++
++test('date drafts preserve IME, reject invalid leap day, commit once, reset and submit canonical range values', async () => {
++  const events: unknown[] = []; let formData: FormData | undefined;
++  const mounted = render(<form onSubmit={event => { event.preventDefault(); formData = new FormData(event.currentTarget); }}><DateInput label="Visit" name="visit" defaultValue="2024-02-28" withCalendar={false} onValueChange={detail => events.push(detail)} /><Button type="reset">Reset</Button><Button type="submit">Submit</Button></form>);
++  const input = screen.getByRole('textbox') as HTMLInputElement;
++  fireEvent.compositionStart(input); fireEvent.change(input, { target: { value: '이월' } }); fireEvent.keyDown(input, { key: 'Enter', isComposing: true }); expect(input.value).toBe('이월'); expect(events).toEqual([]); fireEvent.compositionEnd(input);
++  fireEvent.change(input, { target: { value: '2023-02-29' } }); await userEvent.keyboard('{Enter}'); input.focus(); await userEvent.keyboard('{Enter}'); expect(input).toHaveAttribute('aria-invalid', 'true'); expect(events).toEqual([]);
++  await userEvent.clear(input); await userEvent.type(input, '2024-02-29{Enter}'); expect(events).toEqual([{ value: '2024-02-29' }]);
++  await userEvent.click(screen.getByText('Submit')); expect(formData?.get('visit')).toBe('2024-02-29'); expect(events).toHaveLength(1);
++  await userEvent.click(screen.getByText('Reset')); expect(input.value).toBe('2024-02-28'); expect(events).toHaveLength(1); mounted.unmount();
++  render(<form><DateInput mode="range" label="Trip" name="trip" defaultValue={{ start: '2024-02-28', end: '2024-02-29' }} /></form>);
++  const fields = screen.getAllByRole('textbox') as HTMLInputElement[]; const data = new FormData(fields[0].form!); expect([...data]).toEqual([['trip.start', '2024-02-28'], ['trip.end', '2024-02-29']]);
++});
++
++test('controlled date rejection restores parent; prop changes emit nothing; popup Cancel preserves invalid draft', async () => {
++  const events: unknown[] = [];
++  const mounted = render(<DateInput label="Date" value="2024-02-28" referenceDate="2024-02-15" onValueChange={detail => events.push(detail)} />);
++  const input = screen.getByRole('textbox') as HTMLInputElement;
++  await userEvent.clear(input); await userEvent.type(input, '2024-02-29{Enter}'); expect(input.value).toBe('2024-02-28'); expect(events).toEqual([{ value: '2024-02-29' }]);
++  mounted.rerender(<DateInput label="Date" value="2024-03-01" referenceDate="2024-02-15" onValueChange={detail => events.push(detail)} />); expect(input.value).toBe('2024-03-01'); expect(events).toHaveLength(1);
++  await userEvent.clear(input); await userEvent.type(input, 'bad'); await userEvent.click(screen.getByRole('button', { name: '달력 열기' })); expect(screen.getByRole('dialog')).toBeVisible();
++  await userEvent.click(screen.getByRole('button', { name: '취소' })); expect(input.value).toBe('bad'); expect(screen.getByRole('button', { name: '달력 열기' })).toHaveFocus();
++});
++
++test('calendar range sorts click endpoints, rejects partial Confirm and supports additive keyboard without events', async () => {
++  const events: unknown[] = [];
++  render(<Calendar mode="range" referenceDate="2024-02-15" min="2024-02-01" max="2024-03-31" onValueChange={detail => events.push(detail)} />);
++  const first = screen.getByRole('button', { name: '2024년 2월 20일 화요일' }); await userEvent.click(first); expect(screen.getByRole('button', { name: '확인' })).toBeDisabled();
++  await userEvent.click(screen.getByRole('button', { name: '2024년 2월 12일 월요일' })); await userEvent.click(screen.getByRole('button', { name: '확인' })); expect(events).toEqual([{ value: { start: '2024-02-12', end: '2024-02-20' } }]);
++  first.focus(); await userEvent.keyboard('{ArrowRight}'); expect(document.activeElement).toHaveAttribute('data-date', '2024-02-21'); expect(events).toHaveLength(1);
++});
++
++test('StrictMode modal rejection retains isolation; actual close/unmount restores focus and existing scroll/inert states', async () => {
++  const requests: boolean[] = [];
++  function Example() { const [open, setOpen] = useState(false); return <><Button onClick={() => setOpen(true)}>Open</Button><Button onClick={() => setOpen(false)}>External</Button><Modal open={open} title="Dialog" onOpenChange={({ open }) => requests.push(open)}><button type="button">First</button></Modal></>; }
++  const oldOverflow = document.body.style.overflow; document.body.style.overflow = 'clip';
++  const mounted = render(<StrictMode><Example /></StrictMode>); const opener = screen.getByRole('button', { name: 'Open' });
++  await userEvent.click(opener); expect(screen.getByRole('dialog')).toHaveFocus(); expect(document.body.style.overflow).toBe('hidden');
++  await userEvent.keyboard('{Escape}'); expect(requests).toEqual([false]); expect(screen.getByRole('dialog')).toBeVisible(); expect(document.body.style.overflow).toBe('hidden');
++  mounted.unmount(); expect(document.body.style.overflow).toBe('clip'); expect(document.querySelector('[data-krds-component="modal"][data-krds-part="root"]')).toBeNull(); document.body.style.overflow = oldOverflow;
++});
++
++test('nested native modals let only topmost process Escape and restore the parent opener', async () => {
++  function Nested() {
++    const [outer, setOuter] = useState(false); const [inner, setInner] = useState(false);
++    return <><Button onClick={() => setOuter(true)}>Outer</Button><Modal open={outer} title="Parent" onOpenChange={({ open }) => setOuter(open)}><Button onClick={() => setInner(true)}>Inner</Button><Modal open={inner} title="Child" onOpenChange={({ open }) => setInner(open)}>Nested</Modal></Modal></>;
++  }
++  render(<Nested />); await userEvent.click(screen.getByRole('button', { name: 'Outer' })); await userEvent.click(screen.getByRole('button', { name: 'Inner' }));
++  expect(screen.getByRole('dialog', { name: 'Child' })).toHaveFocus(); expect(screen.getByRole('dialog', { name: 'Parent' }).closest('[inert]')).not.toBeNull();
++  await userEvent.keyboard('{Escape}'); expect(screen.queryByRole('dialog', { name: 'Child' })).toBeNull(); expect(screen.getByRole('button', { name: 'Inner' })).toHaveFocus();
++  await userEvent.keyboard('{Escape}'); expect(screen.getByRole('button', { name: 'Outer' })).toHaveFocus();
++});
++
++test('modal ignores handled/composing Escape and outside drags; primary backdrop gesture requests once', async () => {
++  const events: boolean[] = [];
++  render(<Modal defaultOpen title="Gesture" closeOnOutsideClick onOpenChange={({ open }) => events.push(open)}><input aria-label="Editor" onKeyDown={event => { if (event.key === 'Escape' && !event.nativeEvent.isComposing) event.preventDefault(); }} /></Modal>);
++  const editor = screen.getByRole('textbox'); editor.focus();
++  fireEvent.keyDown(editor, { key: 'Escape', isComposing: true }); fireEvent.keyDown(editor, { key: 'Escape' }); expect(events).toEqual([]);
++  const backdrop = document.querySelector('[data-krds-part="backdrop"]')!;
++  fireEvent.pointerDown(backdrop, { pointerId: 1, isPrimary: true, button: 0 }); fireEvent.pointerUp(editor, { pointerId: 1, isPrimary: true, button: 0 }); fireEvent.pointerUp(backdrop, { pointerId: 1, isPrimary: true, button: 0 }); expect(events).toEqual([]);
++  fireEvent.pointerDown(backdrop, { pointerId: 2, isPrimary: true, button: 2 }); fireEvent.pointerUp(backdrop, { pointerId: 2, isPrimary: true, button: 2 }); expect(events).toEqual([]);
++  fireEvent.pointerDown(backdrop, { pointerId: 3, isPrimary: true, button: 0 }); fireEvent.pointerUp(backdrop, { pointerId: 3, isPrimary: true, button: 0 }); expect(events).toEqual([false]);
++});
++
++test('native DateInput pending valid submit commits before FormData; rejected controlled submit is blocked', async () => {
++  let submitted: FormData | undefined; const values: unknown[] = [];
++  const mounted = render(<form onSubmit={event => { event.preventDefault(); if (!event.defaultPrevented) submitted = new FormData(event.currentTarget); }}><DateInput label="Pending" name="pending" withCalendar={false} onValueChange={detail => values.push(detail)} /><Button type="submit">Send</Button></form>);
++  const input = screen.getByRole('textbox'); fireEvent.change(input, { target: { value: '2024-02-29' } });
++  let prevented = false; input.closest('form')!.addEventListener('submit', event => { prevented = event.defaultPrevented; submitted = new FormData(input.closest('form')!); });
++  await act(async () => { input.closest('form')!.requestSubmit(); }); expect(prevented).toBe(false); expect(submitted?.get('pending')).toBe('2024-02-29'); expect(values).toEqual([{ value: '2024-02-29' }]); mounted.unmount();
++  render(<form><DateInput label="Rejected" value="2024-02-28" name="rejected" withCalendar={false} /></form>);
++  const rejected = screen.getByRole('textbox') as HTMLInputElement; fireEvent.change(rejected, { target: { value: '2024-02-29' } });
++  let blocked = false; rejected.form!.addEventListener('submit', event => { blocked = event.defaultPrevented; event.preventDefault(); });
++  await act(async () => { rejected.form!.requestSubmit(); }); expect(blocked).toBe(true); expect(rejected.value).toBe('2024-02-28');
++});
++
++test('a controlled parent accepting a pending date may submit the fresh canonical value', async () => {
++  function Accepted() { const [value, setValue] = useState<string | null>('2024-02-28'); return <form><DateInput label="Accepted" name="accepted" value={value} withCalendar={false} onValueChange={({ value }) => setValue(value)} /></form>; }
++  render(<Accepted />); const input = screen.getByRole('textbox') as HTMLInputElement;
++  fireEvent.change(input, { target: { value: '2024-02-29' } }); let blocked = true; let value: FormDataEntryValue | null = null;
++  input.form!.addEventListener('submit', event => { blocked = event.defaultPrevented; value = new FormData(input.form!).get('accepted'); event.preventDefault(); });
++  await act(async () => { input.form!.requestSubmit(); }); expect(blocked).toBe(false); expect(value).toBe('2024-02-29');
++});
++
++test('calendar month/year keyboard movement clamps focus without selecting and year edges leave empty cells', async () => {
++  const events: unknown[] = [];
++  const mounted = render(<Calendar defaultValue="2024-01-31" onValueChange={detail => events.push(detail)} />);
++  const date = screen.getByRole('button', { name: /2024년 1월 31일 수요일/ }); date.focus(); await userEvent.keyboard('{PageDown}'); expect(document.activeElement).toHaveAttribute('data-date', '2024-02-29');
++  await userEvent.keyboard('{Shift>}{PageDown}{/Shift}'); expect(document.activeElement).toHaveAttribute('data-date', '2025-02-28'); expect(events).toEqual([]); mounted.unmount();
++  render(<Calendar referenceDate="9999-12-31" />); expect(document.querySelectorAll('tbody td')).toHaveLength(42); expect(screen.getByRole('button', { name: '다음 달' })).toBeDisabled(); expect([...document.querySelectorAll('[data-date]')].every(node => /^\d{4}-\d{2}-\d{2}$/.test(node.getAttribute('data-date')!))).toBe(true);
++});
++
++test('repeated StrictMode mounts clean document listeners and preserve existing inert state', async () => {
++  const retained = document.createElement('div'); retained.inert = true; document.body.append(retained); let requests = 0;
++  for (let iteration = 0; iteration < 3; iteration++) {
++    const mounted = render(<StrictMode><Modal open title={`Repeat ${iteration}`} onOpenChange={() => requests++}>Body</Modal></StrictMode>);
++    await userEvent.keyboard('{Escape}'); expect(requests).toBe(iteration + 1); mounted.unmount();
++    fireEvent.keyDown(document.body, { key: 'Escape' }); expect(requests).toBe(iteration + 1); expect(retained.inert).toBe(true); expect(document.body.style.overflow).not.toBe('hidden');
++  }
++  retained.remove();
++});
++
++test('canceled native reset keeps DateInput and select user values without extra changes', async () => {
++  const events: unknown[] = [];
++  render(<form onReset={event => event.preventDefault()}><NativeSelect label="Selection" name="selection" defaultValue="a" options={[{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }]} onValueChange={detail => events.push(detail)} /><DateInput label="Reset date" name="reset-date" defaultValue="2024-02-28" withCalendar={false} onValueChange={detail => events.push(detail)} /><Button type="reset">Canceled reset</Button></form>);
++  const select = screen.getByRole('combobox') as HTMLSelectElement; await userEvent.selectOptions(select, 'b'); const date = screen.getByRole('textbox') as HTMLInputElement; await userEvent.clear(date); await userEvent.type(date, '2024-02-29{Enter}');
++  await userEvent.click(screen.getByText('Canceled reset')); expect(select.value).toBe('b'); expect(date.value).toBe('2024-02-29'); expect(events).toEqual([{ value: 'b' }, { value: '2024-02-29' }]);
++});
++
++test('unmounting an open nested modal tree restores document isolation and scroll once', async () => {
++  const overflow = document.body.style.overflow; document.body.style.overflow = 'clip';
++  const mounted = render(<Modal open title="Outer initial"><Modal open title="Inner initial">Nested body</Modal></Modal>);
++  expect(screen.getByRole('dialog', { name: 'Inner initial' })).toHaveFocus(); mounted.unmount();
++  expect(document.body.style.overflow).toBe('clip'); expect(document.querySelector('[data-krds-component="modal"][data-krds-part="root"]')).toBeNull(); document.body.style.overflow = overflow;
++});
+--- pre-native/apps/fixture-react/tests/siheom/modal.test.tsx
++++ apps/fixture-react/tests/siheom/modal.test.tsx
+@@ -5,10 +5,10 @@
+ const { runSiheom } = createReactSiheom();
+ test.each(['focus-return', 'trigger-removed'])('modal/%s requires the actual KRDS component', async (caseId) => {
+   await runSiheom(
+     given.render(<FixtureApp componentId="modal" caseId={caseId} />),
+     assertions.textContent(query.status('Fixture health'), 'ready'),
+   );
+   expect(window.__KRDS_FIXTURE__?.framework).toBe('react');
+   expect(window.__KRDS_FIXTURE__?.protocol).toBe(1);
+-  await runSiheom(assertions.visible(query.button('모달 열기')));
++  await runSiheom(assertions.visible(query.button('열기')));
+ });
+--- pre-native/apps/fixture-react/vitest.config.ts
++++ apps/fixture-react/vitest.config.ts
+@@ -2,20 +2,22 @@
+ import { defineConfig } from 'vitest/config';
+ import { playwright } from '@vitest/browser-playwright';
+ import react from '@vitejs/plugin-react';
+ 
+ const artifacts = resolve(import.meta.dirname, `../../test-results/t05/react-siheom-native-${Date.now()}-${process.pid}`);
+ 
+ export default defineConfig({
+   plugins: [react()],
++  resolve: { dedupe: ['react', 'react-dom'] },
++  optimizeDeps: { include: ['react', 'react-dom/client', 'react/jsx-runtime', '@siheom/react', '@testing-library/react', '@testing-library/user-event'] },
+   test: {
+     include: process.env.KRDS_TEST_MODE === 'probe'
+       ? ['tests/siheom/native-probe.test.tsx']
+-      : ['tests/siheom/{button,native-select,modal,tabs,date-input}.test.tsx'],
++      : ['tests/siheom/{button,native-select,modal,tabs,date-input,calendar}.test.tsx'],
+     setupFiles: ['tests/setup.ts'],
+     attachmentsDir: resolve(artifacts, 'attachments'),
+     passWithNoTests: false,
+     browser: {
+       enabled: true,
+       screenshotDirectory: resolve(artifacts, 'screenshots'),
+       provider: playwright({ contextOptions: { locale: 'ko-KR', timezoneId: 'Asia/Seoul', colorScheme: 'light', reducedMotion: 'reduce' } }),
+       headless: true,
+--- pre-native/apps/storybook-react/.storybook/preview.tsx
++++ apps/storybook-react/.storybook/preview.tsx
+@@ -0,0 +1,6 @@
++import '@unofficial-krds/styles/reset.css';
++import '@unofficial-krds/styles/fonts.css';
++import '@unofficial-krds/styles/all.css';
++import type { Preview } from '@storybook/react-vite';
++const preview: Preview = { decorators: [Story => <main lang="ko-KR"><h1>KRDS React</h1><Story /></main>] };
++export default preview;
+--- pre-native/apps/storybook-react/src/stories/button.stories.tsx
++++ apps/storybook-react/src/stories/button.stories.tsx
+@@ -0,0 +1,10 @@
++import type { Meta, StoryObj } from '@storybook/react-vite';
++import { Button } from '@unofficial-krds/react';
++const meta = { title: 'KRDS/Button', component: Button, args: { children: '저장' } } satisfies Meta<typeof Button>;
++export default meta;
++type Story = StoryObj<typeof meta>;
++export const Disabled: Story = { args: { disabled: true } };
++export const Default: Story = {};
++export const Small: Story = { args: { size: 'small', variant: 'secondary' } };
++export const Large: Story = { args: { size: 'large', variant: 'tertiary' } };
++export const Icon: Story = { args: { variant: 'icon', children: '+', 'aria-label': '추가' } };
+--- pre-native/apps/storybook-react/src/stories/calendar.stories.tsx
++++ apps/storybook-react/src/stories/calendar.stories.tsx
+@@ -0,0 +1,9 @@
++import type { Meta, StoryObj } from '@storybook/react-vite';
++import { Calendar } from '@unofficial-krds/react';
++const meta = { title: 'KRDS/Calendar', component: Calendar, args: { label: '날짜 선택', referenceDate: '2024-02-15' } } satisfies Meta<typeof Calendar>;
++export default meta;
++type Story = StoryObj<typeof meta>;
++export const SelectedRange: Story = { args: { mode: 'range', defaultValue: { start: '2024-02-12', end: '2024-02-18' }, today: '2024-02-15' } };
++export const Default: Story = {};
++export const Disabled: Story = { args: { disabled: true } };
++export const English: Story = { args: { locale: 'en-US', today: '2024-02-15' } };
+--- pre-native/apps/storybook-react/src/stories/date-input.stories.tsx
++++ apps/storybook-react/src/stories/date-input.stories.tsx
+@@ -0,0 +1,9 @@
++import type { Meta, StoryObj } from '@storybook/react-vite';
++import { DateInput } from '@unofficial-krds/react';
++const meta = { title: 'KRDS/Date input', component: DateInput, args: { label: '날짜', referenceDate: '2024-02-15' } } satisfies Meta<typeof DateInput>;
++export default meta;
++type Story = StoryObj<typeof meta>;
++export const Invalid: Story = { args: { invalid: true, error: 'YYYY-MM-DD 형식의 올바른 날짜를 입력하세요' } };
++export const Default: Story = {};
++export const Disabled: Story = { args: { disabled: true } };
++export const Range: Story = { args: { mode: 'range', defaultValue: { start: '2024-02-12', end: '2024-02-18' } } };
+--- pre-native/apps/storybook-react/src/stories/modal.stories.tsx
++++ apps/storybook-react/src/stories/modal.stories.tsx
+@@ -0,0 +1,7 @@
++import type { Meta, StoryObj } from '@storybook/react-vite';
++import { Button, Modal } from '@unofficial-krds/react';
++const meta = { title: 'KRDS/Modal', component: Modal, args: { title: '확인', children: '선택 내용을 확인하세요.' } } satisfies Meta<typeof Modal>;
++export default meta;
++type Story = StoryObj<typeof meta>;
++export const Open: Story = { args: { defaultOpen: true } };
++export const Trigger: Story = { args: { trigger: <Button>열기</Button>, description: '작업 결과를 확인합니다.' } };
+--- pre-native/apps/storybook-react/src/stories/native-select.stories.tsx
++++ apps/storybook-react/src/stories/native-select.stories.tsx
+@@ -0,0 +1,9 @@
++import { useState } from 'react';
++import type { Meta, StoryObj } from '@storybook/react-vite';
++import { NativeSelect } from '@unofficial-krds/react';
++const meta = { title: 'KRDS/Native select', component: NativeSelect, args: { label: '지역', options: [{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }] } } satisfies Meta<typeof NativeSelect>;
++export default meta;
++type Story = StoryObj<typeof meta>;
++export const Controlled: Story = { render: args => { const [value, setValue] = useState('seoul'); return <NativeSelect {...args} value={value} onValueChange={detail => setValue(detail.value)} />; } };
++export const Invalid: Story = { args: { invalid: true, error: '지역을 선택하세요', hint: '방문할 지역' } };
++export const Disabled: Story = { args: { disabled: true } };
+--- pre-native/apps/storybook-react/src/stories/tabs.stories.tsx
++++ apps/storybook-react/src/stories/tabs.stories.tsx
+@@ -0,0 +1,7 @@
++import type { Meta, StoryObj } from '@storybook/react-vite';
++import { Tabs } from '@unofficial-krds/react';
++const meta = { title: 'KRDS/Tabs', component: Tabs, args: { label: '정보', items: [{ value: 'first', label: '첫 번째', panel: '첫 번째 내용' }, { value: 'second', label: '두 번째', panel: <button type="button">패널 작업</button> }, { value: 'third', label: '사용 불가', panel: '숨긴 내용', disabled: true }] } } satisfies Meta<typeof Tabs>;
++export default meta;
++type Story = StoryObj<typeof meta>;
++export const Manual: Story = { args: { activationMode: 'manual' } };
++export const Automatic: Story = { args: { activationMode: 'automatic' } };
+--- pre-native/apps/storybook-react/src/vite-env.d.ts
++++ apps/storybook-react/src/vite-env.d.ts
+@@ -0,0 +1 @@
++/// <reference types="vite/client" />
+--- pre-native/docs/compatibility/react.md
++++ docs/compatibility/react.md
+@@ -0,0 +1,11 @@
++# React pilot compatibility
++
++The selected native profile uses React/React DOM 19.3.1, TypeScript 6.0.2 and Vite 8.3.5. Public peers remain React 19.3.1-compatible, with exact development copies. JSX, context, layout effects and portals are React-native; no adapter imports another adapter.
++
++All six public components are emitted as ESM with declaration files at root and component subpaths. Browser-free imports and ReactDOMServer rendering are exercised by `packages/react/tests/ssr.test.mjs`. Closed Modal and DateInput popup content are omitted during SSR; client effects attach the native portal and synchronize focus/isolation. A server-rendered open modal requires client mounting before it is interactive.
++
++`node tools/yarn.mjs workspace @unofficial-krds/react build:local` builds only this package. React fixture and Storybook builds consume public distribution entries. Native browser behavior uses the selected `@siheom/react` adapter with React Testing Library for additional observable form/lifecycle cases, separate from stories. Local Vite test deduplication prevents duplicate React module instances; it does not change dependency versions or add root resolutions.
++
++The implementation supports the six frozen pilot contracts, not the full KRDS catalog. Date values are strict Gregorian date-only strings; no time-zone conversion, host date parsing or implicit current clock is used. Calendar uses a Sunday-first 6×7 table, all enabled dates remain sequential Tab stops, and Korean visible days include `일` while full accessible date/state names follow the accepted specification.
++
++Independent package/runtime installation, full-catalog support, complete assistive-technology testing and release/publishing checks remain later gates. Firefox has the inherited environment profile-creation blocker; Chromium and WebKit results are recorded separately in the task report. Visual evidence uses actual production Storybook controls at normal width, 320px with doubled computed root font size, an effective 200% layout using a 640×450 CSS viewport at device pixel ratio 2, and emulated forced colors; this is explicitly text scaling rather than browser chrome zoom.
+--- pre-native/packages/react/README.md
++++ packages/react/README.md
+@@ -1,5 +1,49 @@
+ # @unofficial-krds/react
+ 
+-T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
++Native React 19 six-component pilot: Button, NativeSelect, Modal, Tabs, Calendar and DateInput. React owns JSX, context, portals, refs and effect cleanup. Components never render through another framework. This pilot does not establish full KRDS catalog or release readiness.
+ 
+-Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
++--- pre-native/packages/react/package.json
++++ packages/react/package.json
+@@ -1,14 +1,14 @@
+ {
+   "name": "@unofficial-krds/react",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+-    "test": "node --test ../../tools/workspace-probe.test.mjs",
++    "test": "node --test tests/ssr.test.mjs",
+     "lint": "node ../../tools/check-workspace.mjs",
+     "prepublishOnly": "node ../../tools/block-publish.mjs",
+     "build:local": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+     "typecheck": "tsc -p tsconfig.json --noEmit"
+   },
+   "devDependencies": {
+     "@types/node": "24.13.3",
+     "@types/react": "19.3.0",
+@@ -17,17 +17,17 @@
+     "@vitest/browser-playwright": "4.1.10",
+     "playwright": "1.64.1",
+     "react": "19.3.1",
+     "react-dom": "19.3.1",
+     "typescript": "6.0.2",
+     "vite": "8.3.5",
+     "vitest": "4.1.10"
+   },
+-  "description": "KRDS Native react: T01 toolchain probe only",
++  "description": "Native React KRDS six-component pilot",
+   "license": "SEE LICENSE IN LICENSE.md",
+   "files": [
+     "dist",
+     "README.md",
+     "LICENSE.md",
+     "LICENSES",
+     "ATTRIBUTION.md",
+     "THIRD-PARTY-NOTICES.md",
+@@ -36,16 +36,44 @@
+   "sideEffects": false,
+   "main": "./dist/index.js",
+   "module": "./dist/index.js",
+   "types": "./dist/index.d.ts",
+   "exports": {
+     ".": {
+       "types": "./dist/index.d.ts",
+       "import": "./dist/index.js"
++    },
++    "./button": {
++      "types": "./dist/components/button/index.d.ts",
++      "import": "./dist/button.js"
++    },
++    "./native-select": {
++      "types": "./dist/components/native-select/index.d.ts",
++      "import": "./dist/native-select.js"
++    },
++    "./modal": {
++      "types": "./dist/components/modal/index.d.ts",
++      "import": "./dist/modal.js"
++    },
++    "./tabs": {
++      "types": "./dist/components/tabs/index.d.ts",
++      "import": "./dist/tabs.js"
++    },
++    "./calendar": {
++      "types": "./dist/components/calendar/index.d.ts",
++      "import": "./dist/calendar.js"
++    },
++    "./date-input": {
++      "types": "./dist/components/date-input/index.d.ts",
++      "import": "./dist/date-input.js"
++    },
++    "./providers": {
++      "types": "./dist/providers/index.d.ts",
++      "import": "./dist/providers.js"
+     }
+   },
+   "peerDependencies": {
+     "react": "^19.3.1",
+     "react-dom": "^19.3.1"
+   },
+   "dependencies": {
+     "@ark-ui/react": "5.40.0",
+--- pre-native/packages/react/src/components/button/index.tsx
++++ packages/react/src/components/button/index.tsx
+@@ -0,0 +1,8 @@
++import { forwardRef, type ButtonHTMLAttributes } from 'react';
++export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
++  variant?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'icon';
++  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
++}
++export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ variant = 'primary', size = 'medium', type = 'button', children, ...props }, ref) {
++  return <button {...props} ref={ref} type={type} data-krds-component="button" data-krds-part="root" data-krds-variant={variant} data-krds-size={size} data-krds-state={props.disabled ? 'disabled' : undefined}><span data-krds-component="button" data-krds-part="label">{children}</span></button>;
++});
+--- pre-native/packages/react/src/components/calendar/index.tsx
++++ packages/react/src/components/calendar/index.tsx
+@@ -0,0 +1,76 @@
++import { useId, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
++import { addDays, addMonths, calendarMonthGrid, daysInMonth, formatIsoDate, parseIsoDate, weekday, type ValueChangeDetails } from '@unofficial-krds/contracts';
++import { useKrdsEnvironment, type KrdsLocale } from '../../providers/index.js';
++import { clone, configuration, dictionary, empty, equal, notify, pair, text, validate, type DateModeProps, type DateValue } from './model.js';
++export interface CalendarTranslations { previousMonth: string; nextMonth: string; today: string; clear: string; cancel: string; confirm: string; selected: string; unavailable: string; adjacentMonth: string; dateLabel: string; visibleDayLabel: string; monthLabel: string; startLabel: string; endLabel: string; weekdayNames: string[]; weekdayShortNames: string[]; monthNames: string[]; }
++const enMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
++export function calendarTranslations(locale: KrdsLocale, overrides?: Partial<CalendarTranslations>): CalendarTranslations {
++  const en = locale === 'en-US';
++  const result = dictionary({ previousMonth: en ? 'Previous month' : '이전 달', nextMonth: en ? 'Next month' : '다음 달', today: en ? 'Today' : '오늘', clear: en ? 'Clear' : '지우기', cancel: en ? 'Cancel' : '취소', confirm: en ? 'Confirm' : '확인', selected: en ? 'Selected' : '선택됨', unavailable: en ? 'Unavailable' : '선택할 수 없음', adjacentMonth: en ? 'Outside displayed month' : '다른 달', dateLabel: en ? '{weekday}, {monthName} {day}, {year}' : '{year}년 {month}월 {day}일 {weekday}', visibleDayLabel: en ? '{day}' : '{day}일', monthLabel: en ? '{monthName} {year}' : '{year}년 {month}월', startLabel: en ? 'Start date' : '시작일', endLabel: en ? 'End date' : '종료일', weekdayNames: en ? ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] : ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'], weekdayShortNames: en ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] : ['일', '월', '화', '수', '목', '금', '토'], monthNames: en ? enMonths : Array.from({ length: 12 }, (_, index) => `${index + 1}월`) }, overrides);
++  for (const [names, length] of [[result.weekdayNames, 7], [result.weekdayShortNames, 7], [result.monthNames, 12]] as const) if (names.length !== length || names.some(name => !name.trim())) throw new TypeError('Calendar name arrays must be complete.');
++  return result;
++}
++export type CalendarProps = DateModeProps & { min?: string; max?: string; referenceDate?: string; today?: string; disabled?: boolean; required?: boolean; locale?: KrdsLocale; translations?: Partial<CalendarTranslations>; label?: ReactNode; 'aria-label'?: string; 'aria-labelledby'?: string; id?: string; onConfirm?: (details: ValueChangeDetails<DateValue>) => void; onCancel?: () => void; /** Popup integration focuses a selected/first date after mount. */ autoFocus?: boolean; };
++export function Calendar(props: CalendarProps) {
++  const environment = useKrdsEnvironment(); const locale = props.locale ?? environment.locale;
++  const t = calendarTranslations(locale, props.translations); const { min, max, referenceDate } = configuration(props);
++  const range = props.mode === 'range'; const initialMode = useRef(range); if (initialMode.current !== range) throw new TypeError('Calendar mode is immutable.');
++  const [local, setLocal] = useState<DateValue>(() => clone(validate(props.defaultValue ?? empty(range), range, min, max)));
++  const committed = validate(props.value !== undefined ? props.value : local, range, min, max);
++  const firstMonth = (value: DateValue) => { const date = pair(value)[0] ?? referenceDate; return (date.slice(0, 7) < min.slice(0, 7) ? min : date.slice(0, 7) > max.slice(0, 7) ? max : date).slice(0, 7) + '-01'; };
++  const [draft, setDraft] = useState<DateValue>(() => clone(committed)); const [month, setMonth] = useState(() => firstMonth(committed));
++  const key = JSON.stringify(committed); const previous = useRef(key);
++  const root = useRef<HTMLDivElement>(null); const pendingFocus = useRef<string | null>(null); const generatedId = useId(); const id = props.id ?? generatedId;
++  useLayoutEffect(() => { if (previous.current !== key) { previous.current = key; setDraft(clone(committed)); setMonth(firstMonth(committed)); } });
++  const available = (date: string | null): date is string => date !== null && date >= min && date <= max && !props.disabled;
++  const focusDate = (date: string) => { pendingFocus.current = date; setMonth(date.slice(0, 7) + '-01'); const button = root.current?.querySelector<HTMLButtonElement>(`[data-date="${date}"]`); if (button && button.dataset.month === date.slice(0, 7)) { button.focus(); pendingFocus.current = null; } };
++  useLayoutEffect(() => { if (pendingFocus.current) { root.current?.querySelector<HTMLButtonElement>(`[data-date="${pendingFocus.current}"]`)?.focus(); pendingFocus.current = null; } });
++  useLayoutEffect(() => {
++    if (!props.autoFocus) return;
++    const selected = pair(committed)[0]; const date = selected && available(selected) ? selected : calendarMonthGrid(month).find(date => available(date) && date.slice(0, 7) === month.slice(0, 7));
++    if (date) root.current?.querySelector<HTMLButtonElement>(`[data-date="${date}"]`)?.focus();
++    else root.current?.querySelector<HTMLButtonElement>('button:not(:disabled)')?.focus();
++  }, []);
++  const monthAllowed = (date: string | null) => date !== null && date.slice(0, 7) >= min.slice(0, 7) && date.slice(0, 7) <= max.slice(0, 7);
++  const navigate = (delta: number) => { const target = addMonths(month, delta); if (target && monthAllowed(target)) setMonth(target); };
++  const [start, end] = pair(draft); const selected = (date: string) => range ? !!(start && end && date >= start && date <= end) || date === start : date === start;
++  const complete = !range || (start === null && end === null) || !!(start && end);
++  const canConfirm = !props.disabled && complete && (!props.required || !!start);
++  function keyboard(event: KeyboardEvent<HTMLButtonElement>, date: string) {
++    if (event.nativeEvent.isComposing || event.keyCode === 229 || props.disabled) return;
++    let target: string | null = null; let step = 1; let withinMonth = false; let limit: string | null = null;
++    switch (event.key) {
++      case 'ArrowLeft': target = addDays(date, -1); step = -1; break;
++      case 'ArrowRight': target = addDays(date, 1); break;
++      case 'ArrowUp': target = addDays(date, -7); step = -1; break;
++      case 'ArrowDown': target = addDays(date, 7); break;
++      case 'Home': target = addDays(date, -weekday(date)); limit = date; break;
++      case 'End': target = addDays(date, 6 - weekday(date)); step = -1; limit = date; break;
++      case 'PageUp': step = -1; target = addMonths(date, event.shiftKey ? -12 : -1); withinMonth = true; break;
++      case 'PageDown': target = addMonths(date, event.shiftKey ? 12 : 1); withinMonth = true; break;
++      default: return;
++    }
++    event.preventDefault(); const targetMonth = target?.slice(0, 7);
++    while (target && !available(target)) { target = addDays(target, step); if (withinMonth && target?.slice(0, 7) !== targetMonth || limit && target && (step > 0 ? target > limit : target < limit)) return; if (target && (step > 0 ? target > max : target < min)) return; }
++    if (target) focusDate(target);
++  }
++  const monthParts = parseIsoDate(month)!; const heading = text(t.monthLabel, { ...monthParts, monthName: t.monthNames[monthParts.month - 1] }); const grid = calendarMonthGrid(month);
++  const attrs = (part: string) => ({ 'data-krds-component': 'calendar', 'data-krds-part': part });
++  return <div {...attrs('root')} ref={root} id={id} dir={environment.direction} lang={locale}>
++    {props.label != null && <div id={`${id}-label`}>{props.label}</div>}
++    <div {...attrs('header')}><button {...attrs('previous')} type="button" disabled={props.disabled || !monthAllowed(addMonths(month, -1))} onClick={() => navigate(-1)}>{t.previousMonth}</button><h2 {...attrs('heading')} id={`${id}-heading`} aria-live="polite">{heading}</h2><button {...attrs('next')} type="button" disabled={props.disabled || !monthAllowed(addMonths(month, 1))} onClick={() => navigate(1)}>{t.nextMonth}</button></div>
++    <div data-krds-component="calendar" data-krds-internal="table-scroll"><table {...attrs('table')} aria-label={props['aria-label']} aria-labelledby={props['aria-labelledby'] ?? (props['aria-label'] ? undefined : `${id}-heading`)}><thead><tr>{t.weekdayShortNames.map((name, index) => <th {...attrs('weekday')} key={index} scope="col" aria-label={t.weekdayNames[index]}>{name}</th>)}</tr></thead><tbody>{Array.from({ length: 6 }, (_, row) => <tr key={row}>{grid.slice(row * 7, row * 7 + 7).map((date, column) => {
++      if (!date) return <td {...attrs('cell')} key={column} />;
++      const parts = parseIsoDate(date)!; const outside = date.slice(0, 7) !== month.slice(0, 7); const chosen = selected(date); const unavailable = !available(date); const isToday = date === props.today;
++      const values = { ...parts, weekday: t.weekdayNames[weekday(date)], monthName: t.monthNames[parts.month - 1] };
++      const name = [text(t.dateLabel, values), isToday && t.today, chosen && t.selected, unavailable && t.unavailable, outside && t.adjacentMonth, range && date === start && t.startLabel, range && date === end && t.endLabel].filter(Boolean).join(', ');
++      return <td {...attrs('cell')} key={date}><button {...attrs('day')} type="button" data-date={date} data-month={month.slice(0, 7)} disabled={unavailable} aria-label={name} aria-current={isToday ? 'date' : undefined} aria-pressed={chosen} data-krds-state={[isToday && 'today', chosen && 'selected', outside && 'outside-month', unavailable && 'disabled', range && date === start && 'range-start', range && date === end && 'range-end', range && chosen && 'in-range'].filter(Boolean).join(' ') || undefined} onKeyDown={event => keyboard(event, date)} onClick={() => { setDraft(range ? start && !end ? { start: date < start ? date : start, end: date < start ? start : date } : { start: date, end: null } : date); if (outside) setMonth(date.slice(0, 7) + '-01'); }}>{text(t.visibleDayLabel, parts as unknown as Record<string, number>)}</button></td>;
++    })}</tr>)}</tbody></table></div>
++    <div {...attrs('footer')}>
++      {props.today && <button {...attrs('today')} type="button" disabled={!available(props.today)} onClick={() => focusDate(props.today!)}>{t.today}</button>}
++      {!props.required && <button {...attrs('clear')} type="button" disabled={props.disabled} onClick={() => setDraft(empty(range))}>{t.clear}</button>}
++      <button {...attrs('cancel')} type="button" disabled={props.disabled} onClick={() => { setDraft(clone(committed)); props.onCancel?.(); }}>{t.cancel}</button>
++      <button {...attrs('confirm')} type="button" disabled={!canConfirm} onClick={() => { if (!equal(draft, committed)) { if (props.value === undefined) setLocal(clone(draft)); notify(props, draft); } props.onConfirm?.({ value: clone(draft) }); if (props.value !== undefined) { setDraft(clone(committed)); setMonth(firstMonth(committed)); } }}>{t.confirm}</button>
++    </div>
++  </div>;
++}
+--- pre-native/packages/react/src/components/calendar/model.ts
++++ packages/react/src/components/calendar/model.ts
+@@ -0,0 +1,30 @@
++import { parseIsoDate } from '@unofficial-krds/contracts';
++import type { DateRangeValue, ValueChangeDetails } from '@unofficial-krds/contracts';
++export type DateValue = string | null | DateRangeValue;
++export type DateModeProps = { mode?: 'single'; value?: string | null; defaultValue?: string | null; onValueChange?: (details: ValueChangeDetails<string | null>) => void } | { mode: 'range'; value?: DateRangeValue; defaultValue?: DateRangeValue; onValueChange?: (details: ValueChangeDetails<DateRangeValue>) => void };
++export const empty = (range: boolean): DateValue => range ? { start: null, end: null } : null;
++export const pair = (value: DateValue): [string | null, string | null] => value !== null && typeof value === 'object' ? [value.start, value.end] : [value, null];
++export const equal = (a: DateValue, b: DateValue) => pair(a).every((value, index) => value === pair(b)[index]);
++export const clone = (value: DateValue): DateValue => value !== null && typeof value === 'object' ? { ...value } : value;
++export function strict(value: string, name: string) { if (typeof value !== 'string' || !parseIsoDate(value)) throw new RangeError(`${name} requires YYYY-MM-DD.`); return value; }
++export function configuration(props: { min?: string; max?: string; referenceDate?: string; today?: string }) {
++  const min = strict(props.min ?? '0001-01-01', 'min'); const max = strict(props.max ?? '9999-12-31', 'max');
++  if (min > max) throw new RangeError('min exceeds max.');
++  if (props.today !== undefined) strict(props.today, 'today');
++  return { min, max, referenceDate: strict(props.referenceDate ?? '2000-01-01', 'referenceDate') };
++}
++export function validate(value: DateValue, range: boolean, min: string, max: string): DateValue {
++  if (range ? typeof value !== 'object' || value === null || !('start' in value) || !('end' in value) : value !== null && typeof value !== 'string') throw new TypeError('Date value shape does not match mode.');
++  const [start, end] = pair(value);
++  if (range && (start === null) !== (end === null)) throw new RangeError('Committed ranges must be complete.');
++  for (const date of range ? [start, end] : [start]) if (date !== null && (strict(date, 'value') < min || date > max)) throw new RangeError('Date is outside bounds.');
++  if (start && end && start > end) throw new RangeError('Range is reversed.');
++  return value;
++}
++export const notify = (props: DateModeProps, value: DateValue) => (props.onValueChange as ((details: ValueChangeDetails<DateValue>) => void) | undefined)?.({ value: clone(value) });
++export const text = (template: string, values: Record<string, string | number>) => template.replace(/\{(\w+)\}/g, (token, name: string) => String(values[name] ?? token));
++export function dictionary<T extends object>(base: T, overrides?: Partial<T>): T {
++  const result = { ...base, ...overrides };
++  if (Object.values(result).some(value => typeof value === 'string' && !value.trim())) throw new TypeError('Translations must be nonempty.');
++  return result;
++}
+--- pre-native/packages/react/src/components/date-input/index.tsx
++++ packages/react/src/components/date-input/index.tsx
+@@ -0,0 +1,81 @@
++import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
++import { flushSync } from 'react-dom';
++import { parseIsoDate } from '@unofficial-krds/contracts';
++import { useKrdsEnvironment, type KrdsLocale } from '../../providers/index.js';
++import { Calendar, type CalendarTranslations } from '../calendar/index.js';
++import { clone, configuration, dictionary, empty, equal, notify, pair, text, validate, type DateModeProps, type DateValue } from '../calendar/model.js';
++import { Modal } from '../modal/index.js';
++export interface DateInputTranslations { startLabel: string; endLabel: string; formatHint: string; openCalendar: string; calendarTitle: string; requiredError: string; formatError: string; incompleteRangeError: string; orderError: string; minError: string; maxError: string; }
++export type DateInputProps = DateModeProps & { label: ReactNode; id?: string; name?: string; required?: boolean; disabled?: boolean; form?: string; autoComplete?: string; min?: string; max?: string; referenceDate?: string; today?: string; locale?: KrdsLocale; translations?: Partial<DateInputTranslations>; calendarTranslations?: Partial<CalendarTranslations>; withCalendar?: boolean; hint?: ReactNode; error?: ReactNode; invalid?: boolean; };
++function translations(locale: KrdsLocale, overrides?: Partial<DateInputTranslations>) {
++  const en = locale === 'en-US';
++  return dictionary({ startLabel: en ? 'Start date' : '시작일', endLabel: en ? 'End date' : '종료일', formatHint: en ? 'Enter YYYY-MM-DD, for example 2024-02-29' : 'YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29', openCalendar: en ? 'Open calendar' : '달력 열기', calendarTitle: en ? 'Choose date' : '날짜 선택', requiredError: en ? 'Enter a date' : '날짜를 입력하세요', formatError: en ? 'Enter a valid date in YYYY-MM-DD format' : 'YYYY-MM-DD 형식의 올바른 날짜를 입력하세요', incompleteRangeError: en ? 'Enter both start and end dates' : '시작일과 종료일을 모두 입력하세요', orderError: en ? 'End date must not precede start date' : '종료일은 시작일보다 빠를 수 없습니다', minError: en ? 'Enter a date on or after {min}' : '{min} 이후 날짜를 입력하세요 (당일 포함)', maxError: en ? 'Enter a date on or before {max}' : '{max} 이전 날짜를 입력하세요 (당일 포함)' }, overrides);
++}
++export function DateInput(props: DateInputProps) {
++  const env = useKrdsEnvironment(); const locale = props.locale ?? env.locale; const t = translations(locale, props.translations);
++  const range = props.mode === 'range'; const originalMode = useRef(range); if (range !== originalMode.current) throw new TypeError('DateInput mode is immutable.');
++  const bounds = configuration(props); const generatedId = useId(); const id = props.id ?? generatedId;
++  const baseline = useRef<DateValue>(clone(validate(props.defaultValue ?? empty(range), range, bounds.min, bounds.max)));
++  const [local, setLocal] = useState<DateValue>(() => clone(baseline.current)); const committed = validate(props.value !== undefined ? props.value : local, range, bounds.min, bounds.max);
++  const toDraft = (value: DateValue) => pair(value).map(date => date ?? '') as [string, string];
++  const [draft, setDraft] = useState<[string, string]>(() => toDraft(committed)); const raw = useRef(draft); raw.current = draft;
++  const [error, setError] = useState(''); const [open, setOpen] = useState(false); const composing = useRef(false);
++  const inputs = useRef<Array<HTMLInputElement | null>>([]); const root = useRef<HTMLFieldSetElement>(null);
++  const current = useRef(committed); current.current = committed; const key = JSON.stringify(committed); const previous = useRef(key);
++  function validation(values: [string, string]): { value: DateValue; error: string } {
++    const [start, end] = values;
++    if ((start && !parseIsoDate(start)) || (range && end && !parseIsoDate(end))) return { value: committed, error: t.formatError };
++    if (range && !!start !== !!end) return { value: committed, error: t.incompleteRangeError };
++    if (!start && props.required) return { value: committed, error: t.requiredError };
++    if (range && start && end && start > end) return { value: committed, error: t.orderError };
++    const dates = range ? [start, end] : [start];
++    if (dates.some(date => date && date < bounds.min)) return { value: committed, error: text(t.minError, { min: bounds.min }) };
++    if (dates.some(date => date && date > bounds.max)) return { value: committed, error: text(t.maxError, { max: bounds.max }) };
++    return { value: range ? { start: start || null, end: end || null } : start || null, error: '' };
++  }
++  const validity = (values: [string, string]) => { const result = validation(values); for (const input of inputs.current) input?.setCustomValidity(composing.current ? '' : result.error); return result; };
++  const replace = (value: DateValue) => { const next = toDraft(value); raw.current = next; setDraft(next); setError(''); validity(next); };
++  useLayoutEffect(() => { if (key !== previous.current) { previous.current = key; replace(committed); } });
++  useLayoutEffect(() => { validity(raw.current); });
++  useLayoutEffect(() => { if (props.disabled) setOpen(false); }, [props.disabled]);
++  const commitValue = (next: DateValue): boolean => {
++    if (!equal(next, current.current)) { if (props.value === undefined) { current.current = clone(next); setLocal(clone(next)); } notify(props, next); }
++    if (props.value !== undefined) { replace(current.current); return equal(next, current.current); }
++    replace(next); return true;
++  };
++  function commit(): boolean { if (props.disabled || composing.current) return false; const result = validity(raw.current); setError(result.error); return !result.error && commitValue(result.value); }
++  const latest = useRef({ commit, reset: () => { replace(props.value !== undefined ? current.current : baseline.current); if (props.value === undefined) setLocal(clone(baseline.current)); setOpen(false); } });
++  latest.current = { commit, reset: () => { replace(props.value !== undefined ? current.current : baseline.current); if (props.value === undefined) setLocal(clone(baseline.current)); setOpen(false); } };
++  useLayoutEffect(() => {
++    const form = inputs.current[0]?.form; if (!form) return;
++    const reset = (event: Event) => queueMicrotask(() => { if (!event.defaultPrevented) latest.current.reset(); });
++    const submit = (event: Event) => { const desired = validation(raw.current); const allowed = !props.disabled && !composing.current; flushSync(() => { latest.current.commit(); }); const accepted = allowed && !desired.error && equal(desired.value, current.current); if (!accepted) { event.preventDefault(); inputs.current.find(input => input && !input.validity.valid)?.reportValidity(); } };
++    form.addEventListener('reset', reset); form.addEventListener('submit', submit, true);
++    return () => { form.removeEventListener('reset', reset); form.removeEventListener('submit', submit, true); };
++  });
++  const invalid = !!error || !!props.invalid || props.error != null; const describedBy = `${id}-hint${invalid ? ` ${id}-error` : ''}`;
++  const attrs = (part: string) => ({ 'data-krds-component': 'date-input', 'data-krds-part': part });
++  const field = (index: number) => <input {...attrs(range ? index ? 'end-input' : 'start-input' : 'control')} ref={node => { inputs.current[index] = node; }} id={`${id}-${index}`} type="text" inputMode="numeric" placeholder="YYYY-MM-DD" autoComplete={props.autoComplete} form={props.form} required={props.required} disabled={props.disabled} value={draft[index]} aria-describedby={describedBy} aria-invalid={invalid || undefined} data-krds-state={[invalid && 'invalid', props.disabled && 'disabled'].filter(Boolean).join(' ') || undefined}
++    onChange={event => { const next = [...raw.current] as [string, string]; next[index] = event.currentTarget.value; raw.current = next; setDraft(next); validity(next); }}
++    onCompositionStart={() => { composing.current = true; inputs.current.forEach(input => input?.setCustomValidity('')); }}
++    onCompositionEnd={event => { composing.current = false; const next = [...raw.current] as [string, string]; next[index] = event.currentTarget.value; raw.current = next; setDraft(next); }}
++    onInvalid={() => { if (!composing.current) setError(validation(raw.current).error); }}
++    onKeyDown={event => { if (event.key === 'Enter' && !composing.current && !event.nativeEvent.isComposing && event.keyCode !== 229) { event.preventDefault(); commit(); } }} />;
++  const dateMode = range ? { mode: 'range' as const, value: committed as { start: string | null; end: string | null } } : { mode: 'single' as const, value: committed as string | null };
++  return <fieldset {...attrs('root')} ref={root} dir={env.direction} lang={locale} disabled={props.disabled} onBlur={event => { if (composing.current || open) return; const next = event.relatedTarget as Node | null; if (!next || !root.current?.contains(next)) commit(); }}>
++    {range ? <legend {...attrs('label')}>{props.label}</legend> : <label {...attrs('label')} htmlFor={`${id}-0`}>{props.label}</label>}
++    {range && <label htmlFor={`${id}-0`}>{t.startLabel}</label>}{field(0)}
++    {range && <><label htmlFor={`${id}-1`}>{t.endLabel}</label>{field(1)}</>}
++    {props.name && (range ? [0, 1] : [0]).map(index => <input key={index} type="hidden" name={range ? `${props.name}.${index ? 'end' : 'start'}` : props.name} value={pair(committed)[index] ?? ''} disabled={props.disabled} form={props.form} />)}
++    {props.withCalendar !== false && <button {...attrs('trigger')} id={`${id}-trigger`} type="button" disabled={props.disabled} aria-haspopup="dialog" aria-expanded={open} aria-controls={`${id}-popup`} onPointerDown={event => event.preventDefault()} onClick={() => { if (!props.disabled && !composing.current) { inputs.current[0]?.ownerDocument.getElementById(`${id}-trigger`)?.focus(); setOpen(true); } }}>{t.openCalendar}</button>}
++    <div {...attrs('hint')} id={`${id}-hint`}>{props.hint ?? t.formatHint}</div>
++    <div {...attrs('error')} id={`${id}-error`} role="status" aria-live="polite">{error || props.error}</div>
++    <Modal locale={locale} contentAttributes={{ 'data-krds-component': 'date-input', 'data-krds-part': 'popup', style: { height: 'fit-content' } }} open={open && !props.disabled} id={`${id}-popup`} title={t.calendarTitle} returnFocusId={`${id}-trigger`} onOpenChange={({ open }) => setOpen(open)} onEntryFocus={dialog => {
++      const selected = dialog.querySelector<HTMLButtonElement>('button[data-date][aria-pressed="true"]:not(:disabled)');
++      const first = dialog.querySelector<HTMLButtonElement>('button[data-date]:not(:disabled):not([data-krds-state~="outside-month"])');
++      (selected ?? first ?? dialog.querySelector<HTMLButtonElement>('button:not(:disabled)') ?? dialog).focus();
++    }}>
++      {open && <Calendar {...dateMode} min={props.min} max={props.max} referenceDate={props.referenceDate} today={props.today} locale={locale} translations={{ ...props.calendarTranslations, startLabel: t.startLabel, endLabel: t.endLabel }} required={props.required} onConfirm={({ value }) => { commitValue(value); setOpen(false); }} onCancel={() => setOpen(false)} />}
++    </Modal>
++  </fieldset>;
++}
+--- pre-native/packages/react/src/components/modal/index.tsx
++++ packages/react/src/components/modal/index.tsx
+@@ -0,0 +1,140 @@
++import { useId, useLayoutEffect, useRef, useState, type ReactNode, type CSSProperties } from 'react';
++import { createPortal } from 'react-dom';
++import type { OpenChangeDetails } from '@unofficial-krds/contracts';
++import { useKrdsEnvironment, type KrdsLocale } from '../../providers/index.js';
++export interface ModalProps {
++  locale?: KrdsLocale;
++  /** Native popup composition may reuse the modal lifetime with its own public CSS part. */
++  contentAttributes?: { 'data-krds-component'?: string; 'data-krds-part'?: string; className?: string; style?: CSSProperties };
++  open?: boolean; defaultOpen?: boolean; onOpenChange?: (details: OpenChangeDetails) => void;
++  title: ReactNode; titleId?: string; description?: ReactNode; descriptionId?: string; children?: ReactNode;
++  actions?: ReactNode | ((close: () => void) => ReactNode); trigger?: ReactNode; closeOnOutsideClick?: boolean; showCloseButton?: boolean; closeLabel?: string; initialFocusId?: string; returnFocusId?: string; id?: string;
++  /** DateInput owns its specialized entry policy while retaining modal trapping and restoration. */ onEntryFocus?: (dialog: HTMLElement) => void;
++}
++const focusableSelector = 'button:not(:disabled),input:not(:disabled):not([type="hidden"]),select:not(:disabled),textarea:not(:disabled),a[href],[tabindex]';
++interface ModalDocumentState {
++  dialogs: HTMLElement[];
++  priorInert: Map<HTMLElement, boolean>;
++  overflow: string;
++  priority: string;
++  observer?: MutationObserver;
++}
++const documents = new WeakMap<Document, ModalDocumentState>();
++const stacks = new WeakMap<Document, HTMLElement[]>();
++function refreshIsolation(doc: Document, state: ModalDocumentState) {
++  state.priorInert.forEach((inert, node) => { node.inert = inert; });
++  state.priorInert.clear();
++  const portal = state.dialogs.at(-1)?.parentElement;
++  if (!portal) return;
++  for (const child of Array.from(doc.body.children)) {
++    if (child === portal || !(child instanceof (doc.defaultView?.HTMLElement ?? HTMLElement))) continue;
++    state.priorInert.set(child, child.inert); child.inert = true;
++  }
++}
++function acquireDocument(doc: Document, dialog: HTMLElement) {
++  let state = documents.get(doc);
++  if (!state) {
++    state = { dialogs: [], priorInert: new Map(), overflow: doc.body.style.getPropertyValue('overflow'), priority: doc.body.style.getPropertyPriority('overflow') };
++    documents.set(doc, state); stacks.set(doc, state.dialogs);
++    const owned = state;
++    state.observer = new MutationObserver(() => refreshIsolation(doc, owned));
++    state.observer.observe(doc.body, { childList: true });
++    doc.body.style.setProperty('overflow', 'hidden');
++  }
++  state.dialogs.push(dialog); refreshIsolation(doc, state);
++  const owned = state;
++  return {
++    top: () => owned.dialogs.at(-1) === dialog,
++    depth: owned.dialogs.length,
++    release() {
++      const index = owned.dialogs.indexOf(dialog); if (index < 0) return;
++      owned.dialogs.splice(index, 1); refreshIsolation(doc, owned);
++      if (!owned.dialogs.length) {
++        owned.observer?.disconnect();
++        if (owned.overflow) doc.body.style.setProperty('overflow', owned.overflow, owned.priority); else doc.body.style.removeProperty('overflow');
++        documents.delete(doc);
++      }
++    },
++  };
++}
++function usable(element: Element | null): element is HTMLElement {
++  return element !== null && 'focus' in element && element.isConnected && !element.closest('[inert],[hidden]') && !element.matches(':disabled,[aria-disabled="true"]') && element.getClientRects().length > 0 && element.ownerDocument.defaultView?.getComputedStyle(element).visibility !== 'hidden';
++}
++function focusables(element: HTMLElement) { return Array.from(element.querySelectorAll<HTMLElement>(focusableSelector)).filter(node => usable(node) && node.tabIndex >= 0); }
++function restoreFocus(doc: Document, opener: HTMLElement | null, ancestors: HTMLElement[], fallback?: string) {
++  const alternate = fallback ? doc.getElementById(fallback) : null;
++  const target = usable(opener) && opener.matches(focusableSelector) ? opener : usable(alternate) && alternate.matches(focusableSelector) ? alternate : ancestors.find(node => usable(node) && node.matches(focusableSelector));
++  if (target) target.focus(); else { const old = doc.body.getAttribute('tabindex'); doc.body.tabIndex = -1; doc.body.focus(); if (old === null) doc.body.removeAttribute('tabindex'); else doc.body.setAttribute('tabindex', old); }
++}
++export function Modal(props: ModalProps) {
++  const env = useKrdsEnvironment(); const locale = props.locale ?? env.locale; const [local, setLocal] = useState(props.defaultOpen ?? false); const open = props.open ?? local;
++  const initiallyOpen = useRef(open); const hasClosed = useRef(!open); if (!open) hasClosed.current = true;
++  const [portal, setPortal] = useState<HTMLDivElement | null>(null); const content = useRef<HTMLDivElement>(null); const gestureOpener = useRef<HTMLElement | null>(null); const activeOpen = useRef(open); activeOpen.current = open;
++  const currentProps = useRef(props); currentProps.current = props; const generatedId = useId(); const id = props.id ?? generatedId;
++  const request = (next: boolean) => { if (activeOpen.current === next) return; if (props.open === undefined) setLocal(next); props.onOpenChange?.({ open: next }); };
++  const requestRef = useRef(request); requestRef.current = request;
++  useLayoutEffect(() => { const doc = env.getDocument(); if (!doc) return; const node = doc.createElement('div'); node.dataset.krdsComponent = 'modal'; node.dataset.krdsPart = 'root'; node.dir = env.direction; node.lang = locale; doc.body.append(node); setPortal(node);
++    const rememberOpeningControl = (event: MouseEvent) => {
++      if (activeOpen.current) return;
++      const target = event.target instanceof (doc.defaultView?.Element ?? Element) ? event.target.closest(focusableSelector) : null;
++      if (!usable(target)) return;
++      gestureOpener.current = target;
++      // Safari does not focus pointer-activated buttons. Keep the actual action
++      // through React's discrete-event flush, then discard it before a later task.
++      queueMicrotask(() => queueMicrotask(() => { if (gestureOpener.current === target) gestureOpener.current = null; }));
++    };
++    doc.addEventListener('click', rememberOpeningControl, true);
++    return () => { doc.removeEventListener('click', rememberOpeningControl, true); node.remove(); }; }, [env.getDocument()]);
++  useLayoutEffect(() => { if (portal) { portal.lang = locale; portal.dir = env.direction; } }, [portal, locale, env.direction]);
++  useLayoutEffect(() => {
++    const dialog = content.current; if (!open || !portal || !dialog) return;
++    const doc = portal.ownerDocument; const noOpeningAction = initiallyOpen.current && !hasClosed.current;
++    const opener = noOpeningAction ? null : gestureOpener.current ?? (doc.activeElement instanceof (doc.defaultView?.HTMLElement ?? HTMLElement) && doc.activeElement !== doc.body ? doc.activeElement : null);
++    const ancestors: HTMLElement[] = []; for (let node = opener?.parentElement; node; node = node.parentElement) ancestors.push(node);
++    const registration = acquireDocument(doc, dialog);
++    portal.style.position = 'fixed'; portal.style.inset = '0'; portal.style.zIndex = String(1000 + registration.depth); portal.dataset.krdsState = 'open';
++    try {
++    const first = focusables(dialog)[0];
++    if (props.showCloseButton === false && !focusables(dialog).some(node => node.matches('button,[role="button"]'))) throw new TypeError('A modal needs an enabled close action.');
++    if (props.initialFocusId) { const requested = doc.getElementById(props.initialFocusId); if (requested !== dialog && requested !== first) throw new RangeError('initialFocusId must identify the dialog or its first interactive element.'); requested?.focus(); }
++    else if (props.onEntryFocus) props.onEntryFocus(dialog); else dialog.focus();
++    } catch (error) {
++      const wasTop = registration.top(); registration.release();
++      portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index'); portal.dataset.krdsState = 'closed';
++      if (wasTop) restoreFocus(doc, opener, ancestors, props.returnFocusId);
++      throw error;
++    }
++    const top = registration.top;
++    const key = (event: globalThis.KeyboardEvent) => {
++      if (!top() || event.defaultPrevented || event.isComposing || event.keyCode === 229) return;
++      if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); requestRef.current(false); }
++      if (event.key === 'Tab') { const nodes = focusables(dialog); const first = nodes[0]; const last = nodes.at(-1); if (!first) { event.preventDefault(); dialog.focus(); } else if (event.shiftKey ? doc.activeElement === first || doc.activeElement === dialog : doc.activeElement === last || doc.activeElement === dialog) { event.preventDefault(); (event.shiftKey ? last : first)?.focus(); } }
++    };
++    const focus = (event: FocusEvent) => { if (top() && !dialog.contains(event.target as Node)) dialog.focus(); };
++    const backdrop = portal.querySelector('[data-krds-part="backdrop"]');
++    let pointerId: number | null = null;
++    const cancelPointer = () => { pointerId = null; };
++    const pointerDown = (event: PointerEvent) => { pointerId = top() && event.isPrimary && event.button === 0 && event.target === backdrop ? event.pointerId : null; };
++    const pointerUp = (event: PointerEvent) => { const dismiss = pointerId === event.pointerId && event.isPrimary && event.button === 0 && event.target === backdrop; cancelPointer(); if (dismiss && top() && currentProps.current.closeOnOutsideClick) requestRef.current(false); };
++    doc.addEventListener('keydown', key); doc.addEventListener('focusin', focus);
++    doc.addEventListener('pointerdown', pointerDown, true); doc.addEventListener('pointerup', pointerUp, true); doc.addEventListener('pointercancel', cancelPointer, true); doc.addEventListener('lostpointercapture', cancelPointer, true); doc.defaultView?.addEventListener('blur', cancelPointer);
++    return () => {
++      doc.removeEventListener('pointerdown', pointerDown, true); doc.removeEventListener('pointerup', pointerUp, true); doc.removeEventListener('pointercancel', cancelPointer, true); doc.removeEventListener('lostpointercapture', cancelPointer, true); doc.defaultView?.removeEventListener('blur', cancelPointer);
++      doc.removeEventListener('keydown', key); doc.removeEventListener('focusin', focus);
++      const wasTop = registration.top(); registration.release();
++      portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index'); portal.dataset.krdsState = 'closed';
++      if (wasTop) restoreFocus(doc, opener, ancestors, currentProps.current.returnFocusId);
++    };
++  }, [open, portal]);
++  const attrs = (part: string) => ({ 'data-krds-component': 'modal', 'data-krds-part': part, 'data-krds-state': open ? 'open' : 'closed' });
++  return <>{props.trigger != null && <span {...attrs('trigger')} onClick={event => { const target = event.target instanceof HTMLElement ? event.target.closest<HTMLElement>(focusableSelector) : null; target?.focus({ preventScroll: true }); request(true); }}>{props.trigger}</span>}{open && portal && createPortal(<>
++    <div {...attrs('backdrop')} />
++    <div {...attrs('content')} {...props.contentAttributes} id={id} ref={content} role="dialog" aria-modal="true" aria-labelledby={props.titleId ?? `${id}-title`} aria-describedby={props.description != null ? props.descriptionId ?? `${id}-description` : undefined} tabIndex={-1}>
++      <h2 {...attrs('title')} id={props.titleId ?? `${id}-title`}>{props.title}</h2>
++      {props.description != null && <div {...attrs('description')} id={props.descriptionId ?? `${id}-description`}>{props.description}</div>}
++      <div {...attrs('body')}>{props.children}</div>
++      {props.actions != null && <div {...attrs('actions')}>{typeof props.actions === 'function' ? props.actions(() => request(false)) : props.actions}</div>}
++      {props.showCloseButton !== false && <button {...attrs('close')} type="button" onClick={() => request(false)}>{props.closeLabel ?? (locale === 'en-US' ? 'Close' : '닫기')}</button>}
++    </div>
++  </>, portal)}</>;
++}
+--- pre-native/packages/react/src/components/native-select/index.tsx
++++ packages/react/src/components/native-select/index.tsx
+@@ -0,0 +1,42 @@
++import { useId, useLayoutEffect, useRef, useState, type ReactNode, type SelectHTMLAttributes } from 'react';
++import type { SelectOption, ValueChangeDetails } from '@unofficial-krds/contracts';
++export interface NativeSelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' | 'multiple' | 'value' | 'defaultValue' | 'onChange' | 'children'> {
++  options: SelectOption[];
++  value?: string;
++  defaultValue?: string;
++  label?: ReactNode;
++  hint?: ReactNode;
++  error?: ReactNode;
++  invalid?: boolean;
++  size?: 'small' | 'medium' | 'large';
++  onValueChange?: (details: ValueChangeDetails<string>) => void;
++}
++export function NativeSelect({ options, value, defaultValue, label, hint, error, invalid = false, size = 'medium', onValueChange, id: suppliedId, ...native }: NativeSelectProps) {
++  const generatedId = useId(); const id = suppliedId ?? generatedId;
++  if (new Set(options.map(option => option.value)).size !== options.length) throw new TypeError('Select option values must be unique.');
++  const initial = useRef(defaultValue ?? options.find(option => !option.disabled)?.value ?? '');
++  const [local, setLocal] = useState(initial.current);
++  const current = value ?? local;
++  if (current !== '' && !options.some(option => option.value === current)) throw new RangeError('Select value must identify an option.');
++  const control = useRef<HTMLSelectElement>(null);
++  const latest = useRef(current); latest.current = current;
++  const controlled = value !== undefined;
++  const apply = (next: string) => { if (control.current) { control.current.value = next; if (!options.some(option => option.value === next)) control.current.selectedIndex = -1; } };
++  useLayoutEffect(() => { apply(current); });
++  useLayoutEffect(() => {
++    const form = control.current?.form; if (!form) return;
++    const reset = (event: Event) => { queueMicrotask(() => { if (event.defaultPrevented) return; const next = controlled ? latest.current : initial.current; if (!controlled) setLocal(next); apply(next); }); };
++    form.addEventListener('reset', reset); return () => form.removeEventListener('reset', reset);
++  });
++  const state = [native.disabled && 'disabled', invalid && 'invalid'].filter(Boolean).join(' ') || undefined;
++  const describedBy = [native['aria-describedby'], hint != null && `${id}-hint`, error != null && `${id}-error`].filter(Boolean).join(' ') || undefined;
++  return <div data-krds-component="native-select" data-krds-part="root" data-krds-state={state}>
++    {label != null && <label htmlFor={id} data-krds-component="native-select" data-krds-part="label">{label}</label>}
++    <select {...native} id={id} ref={control} value={current} aria-invalid={invalid || undefined} aria-describedby={describedBy} data-krds-component="native-select" data-krds-part="control" data-krds-size={size} data-krds-state={state} onChange={event => {
++      const next = event.currentTarget.value; if (next !== current) { if (!controlled) setLocal(next); onValueChange?.({ value: next }); }
++      if (controlled) apply(latest.current);
++    }}>{options.map(option => <option key={option.value} value={option.value} disabled={option.disabled}>{option.label}</option>)}</select>
++    {hint != null && <div id={`${id}-hint`} data-krds-component="native-select" data-krds-part="hint">{hint}</div>}
++    {error != null && <div id={`${id}-error`} data-krds-component="native-select" data-krds-part="error">{error}</div>}
++  </div>;
++}
+--- pre-native/packages/react/src/components/tabs/index.tsx
++++ packages/react/src/components/tabs/index.tsx
+@@ -0,0 +1,42 @@
++import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
++import type { ValueChangeDetails } from '@unofficial-krds/contracts';
++export interface TabItem { value: string; label: ReactNode; panel: ReactNode; disabled?: boolean; id?: string; }
++export interface TabsProps { items: TabItem[]; value?: string; defaultValue?: string; onValueChange?: (details: ValueChangeDetails<string>) => void; activationMode?: 'manual' | 'automatic'; orientation?: 'horizontal' | 'vertical'; id?: string; label?: ReactNode; 'aria-label'?: string; 'aria-labelledby'?: string; }
++export function Tabs(props: TabsProps) {
++  const generatedId = useId(); const id = props.id ?? generatedId;
++  const enabled = props.items.filter(item => !item.disabled);
++  if (props.items.some(item => !item.value) || new Set(props.items.map(item => item.value)).size !== props.items.length) throw new TypeError('Tabs require unique nonempty values.');
++  const [local, setLocal] = useState(props.defaultValue ?? enabled[0]?.value ?? '');
++  const selected = props.value ?? local;
++  if (enabled.length ? !enabled.some(item => item.value === selected) : selected !== '') throw new RangeError('Selected tab must be enabled.');
++  const root = useRef<HTMLDivElement>(null); const focusRequest = useRef<string | null>(null);
++  const orientation = props.orientation ?? 'horizontal'; const automatic = props.activationMode === 'automatic';
++  const select = (value: string) => { if (value !== selected) { if (props.value === undefined) setLocal(value); props.onValueChange?.({ value }); } };
++  useLayoutEffect(() => {
++    root.current?.querySelectorAll<HTMLElement>('[role="tabpanel"]').forEach(panel => {
++      const first = panel.firstElementChild as HTMLElement | null;
++      panel.tabIndex = first?.matches('a[href],button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled),[tabindex="0"]') ? -1 : 0;
++    });
++  });
++  return <div ref={root} data-krds-component="tabs" data-krds-part="root">
++    {props.label != null && <div id={`${id}-label`}>{props.label}</div>}
++    <div role="tablist" aria-label={props['aria-label']} aria-labelledby={props['aria-labelledby'] ?? (props.label != null ? `${id}-label` : undefined)} aria-orientation={orientation} data-krds-component="tabs" data-krds-part="list" data-krds-orientation={orientation}>
++      {props.items.map((item, index) => <button key={item.value} id={item.id ?? `${id}-tab-${index}`} type="button" role="tab" disabled={item.disabled} tabIndex={item.disabled ? -1 : 0} aria-selected={selected === item.value} aria-controls={`${id}-panel-${index}`} data-krds-component="tabs" data-krds-part="trigger" data-krds-state={[selected === item.value && 'selected', item.disabled && 'disabled'].filter(Boolean).join(' ') || undefined}
++        onFocus={() => { if (automatic) { focusRequest.current = item.value; select(item.value); } }}
++        onBlur={() => { focusRequest.current = null; }}
++        onPointerDown={() => { focusRequest.current = null; }}
++        onClick={() => { if (automatic && focusRequest.current === item.value) { focusRequest.current = null; return; } select(item.value); }}
++        onKeyDown={event => {
++          if (event.nativeEvent.isComposing || event.keyCode === 229) return;
++          const previous = orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp'; const next = orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown';
++          if (![previous, next, 'Home', 'End'].includes(event.key)) { focusRequest.current = null; return; }
++          event.preventDefault(); const currentIndex = enabled.findIndex(entry => entry.value === item.value);
++          const target = event.key === 'Home' ? enabled[0] : event.key === 'End' ? enabled.at(-1) : enabled[(currentIndex + (event.key === previous ? -1 : 1) + enabled.length) % enabled.length];
++          const targetIndex = props.items.indexOf(target!);
++          // getElementById avoids CSS escaping React's stable useId token.
++          root.current?.ownerDocument.getElementById(target?.id ?? `${id}-tab-${targetIndex}`)?.focus();
++        }}>{item.label}</button>)}
++    </div>
++    {props.items.map((item, index) => <div key={item.value} id={`${id}-panel-${index}`} role="tabpanel" aria-labelledby={item.id ?? `${id}-tab-${index}`} hidden={selected !== item.value} data-krds-component="tabs" data-krds-part="panel" data-krds-state={selected === item.value ? 'active' : 'inactive'}>{item.panel}</div>)}
++  </div>;
++}
+--- pre-native/packages/react/src/index.ts
++++ packages/react/src/index.ts
+@@ -1,2 +1,8 @@
+-/** T01 compiler probe only; no catalog coverage. */
+-export { WorkspaceProbe } from './WorkspaceProbe';
++export { WorkspaceProbe } from './WorkspaceProbe.js';
++export * from './providers/index.js';
++export * from './components/button/index.js';
++export * from './components/native-select/index.js';
++export * from './components/modal/index.js';
++export * from './components/tabs/index.js';
++export * from './components/calendar/index.js';
++export * from './components/date-input/index.js';
+--- pre-native/packages/react/src/providers/index.tsx
++++ packages/react/src/providers/index.tsx
+@@ -0,0 +1,19 @@
++import { createContext, useContext, type ReactNode } from 'react';
++
++export type KrdsLocale = 'ko-KR' | 'en-US';
++export interface KrdsProviderProps {
++  locale?: KrdsLocale;
++  direction?: 'ltr' | 'rtl';
++  ownerDocument?: Document;
++  children?: ReactNode;
++}
++const Context = createContext<Omit<KrdsProviderProps, 'children'>>({ locale: 'ko-KR', direction: 'ltr' });
++/** Context is resolved during render; importing the package never touches the DOM. */
++export function KrdsProvider({ children, ...props }: KrdsProviderProps) {
++  const parent = useContext(Context);
++  return <Context.Provider value={{ ...parent, ...props }}>{children}</Context.Provider>;
++}
++export function useKrdsEnvironment() {
++  const context = useContext(Context);
++  return { locale: context.locale ?? 'ko-KR', direction: context.direction ?? 'ltr', getDocument: () => context.ownerDocument ?? (typeof document === 'undefined' ? undefined : document) };
++}
+--- pre-native/packages/react/tests/ssr.test.mjs
++++ packages/react/tests/ssr.test.mjs
+@@ -0,0 +1,33 @@
++import { test } from 'node:test';
++import assert from 'node:assert/strict';
++import { createElement as h } from 'react';
++import { renderToString } from 'react-dom/server';
++import { Button, Calendar, DateInput, KrdsProvider, Modal, NativeSelect, Tabs } from '../dist/index.js';
++
++test('all public subpaths import in Node without browser globals', async () => {
++  assert.equal(typeof globalThis.document, 'undefined');
++  for (const name of ['button', 'native-select', 'modal', 'tabs', 'calendar', 'date-input', 'providers']) assert.ok(await import(`../dist/${name}.js`));
++});
++test('SSR emits actual native button/select/tab semantics', () => {
++  assert.match(renderToString(h(Button, { type: 'submit', name: 'save', value: 'yes' }, 'Save')), /<button[^>]*type="submit"/);
++  assert.match(renderToString(h(NativeSelect, { label: 'Region', value: 'a', options: [{ value: 'a', label: 'A' }] })), /<select/);
++  const tabs = renderToString(h(Tabs, { 'aria-label': 'Sections', items: [{ value: 'a', label: 'A', panel: 'One' }, { value: 'b', label: 'B', panel: 'Two' }] }));
++  assert.equal((tabs.match(/role="tab"/g) ?? []).length, 2); assert.match(tabs, /hidden=""/);
++});
++test('SSR date output uses canonical Gregorian text independent of host time', () => {
++  const markup = renderToString(h(DateInput, { label: 'Visit', name: 'visit', defaultValue: '2024-02-29', withCalendar: false }));
++  assert.match(markup, /type="text"/); assert.match(markup, /type="hidden"[^>]*name="visit"[^>]*value="2024-02-29"/);
++  const calendar = renderToString(h(Calendar, { referenceDate: '2024-02-15' }));
++  assert.equal((calendar.match(/<tr>/g) ?? []).length, 7); assert.equal((calendar.match(/<td /g) ?? []).length, 42); assert.match(calendar, /2024년 2월 29일 목요일/);
++});
++test('wrong date shapes, invalid dates, bounds and tab selections throw during render', () => {
++  assert.throws(() => renderToString(h(DateInput, { label: 'Date', defaultValue: '2023-02-29' })), RangeError);
++  assert.throws(() => renderToString(h(Calendar, { mode: 'range', value: '2024-02-29' })), TypeError);
++  assert.throws(() => renderToString(h(Calendar, { min: '2024-03-01', max: '2024-02-01' })), RangeError);
++  assert.throws(() => renderToString(h(Tabs, { items: [{ value: 'a', label: 'A', panel: 'A', disabled: true }], value: 'a' })), RangeError);
++});
++test('native context resolves locale without DOM access; closed Modal emits no dialog', () => {
++  const english = renderToString(h(KrdsProvider, { locale: 'en-US' }, h(Calendar, { referenceDate: '2024-02-15' })));
++  assert.match(english, /February 2024/); assert.match(english, /Thursday, February 29, 2024/);
++  assert.equal(renderToString(h(Modal, { title: 'Closed' })), '');
++});
+--- pre-native/packages/react/vite.config.ts
++++ packages/react/vite.config.ts
+@@ -1,7 +1,7 @@
+ import { defineConfig } from 'vite';
+ import react from '@vitejs/plugin-react';
+ import manifest from './package.json' with { type: 'json' };
+ export default defineConfig({
+   plugins: [react()],
+-  build: { outDir: 'dist', lib: { entry: 'src/index.ts', formats: ['es'], fileName: () => 'index.js' }, rollupOptions: { external: (id) => Object.keys({ ...manifest.peerDependencies, ...manifest.dependencies }).some((name) => id === name || id.startsWith(name + '/')) } },
++  build: { outDir: 'dist', lib: { entry: { index: 'src/index.ts', providers: 'src/providers/index.tsx', 'button': 'src/components/button/index.tsx', 'native-select': 'src/components/native-select/index.tsx', 'modal': 'src/components/modal/index.tsx', 'tabs': 'src/components/tabs/index.tsx', 'calendar': 'src/components/calendar/index.tsx', 'date-input': 'src/components/date-input/index.tsx' }, formats: ['es'], fileName: (_, entryName) => `${entryName}.js` }, rollupOptions: { external: (id) => Object.keys({ ...manifest.peerDependencies, ...manifest.dependencies }).some((name) => id === name || id.startsWith(name + '/')) } },
+ });

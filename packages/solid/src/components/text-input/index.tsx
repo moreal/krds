@@ -1,0 +1,11 @@
+import { Show, untrack, createEffect, createUniqueId, type JSX } from 'solid-js';
+import type { TextInputContract } from '@unofficial-krds/contracts';
+import { owned, stateValue, resetField } from '../../internal/catalog';
+export type TextInputProps = TextInputContract;
+export function TextInput(props: TextInputProps) { const uid = createUniqueId(); const value = stateValue(() => props.value, props.defaultValue, '', value => props.onValueChange?.({ value })); const initialValue=untrack(value.read); const invalid=()=>Boolean(props.invalid||props.status==='error');let input!: HTMLInputElement; let composing = false; let lastComposition: string | undefined; const sync = () => { const next = value.read(); if (input && !composing)
+    input.value = next; }; createEffect(sync); resetField(() => input, () => { composing = false; value.reset(); sync(); }); const commit = () => { const next = input.value; if (next !== value.read())
+    value.request(next); sync(); }; return <div data-krds-size={props.size??'medium'} data-krds-status={props.status??(props.invalid?'error':'default')} {...owned('text-input', 'root', invalid() ? 'invalid' : '')}><label {...owned('text-input', 'label')} for={props.id ?? uid}>{props.label}</label><input ref={input} id={props.id ?? uid} {...owned('text-input', 'control')} type={props.type ?? 'text'} autocomplete={props.autocomplete} inputMode={props.inputMode as JSX.HTMLAttributes<HTMLInputElement>['inputMode']} minLength={props.minLength} pattern={props.pattern} name={props.name} value={initialValue} disabled={props.disabled} required={props.required} readOnly={props.readOnly} maxLength={props.maxLength} aria-invalid={invalid() || undefined} aria-describedby={[props.helpId, invalid() ? props.errorId : undefined].filter(Boolean).join(' ') || undefined} onCompositionStart={() => { composing = true; }} onCompositionEnd={() => { composing = false; lastComposition = input.value; commit(); queueMicrotask(() => lastComposition = undefined); }} onInput={event => { if (composing || event.isComposing)
+    return; if (lastComposition === event.currentTarget.value) {
+    sync();
+    return;
+} commit(); }}/><Show when={props.iconAction}>{action => <button type="button" {...owned('text-input', 'icon-action')} disabled={props.disabled} onClick={() => action().onAction()}>{action().label}</button>}</Show></div>; }

@@ -1,0 +1,135 @@
+[
+  {
+    "check": "install",
+    "command": "node tools/yarn.mjs install",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/install.log",
+    "actualResult": "32 new-scope workspace links, no new npm artifact"
+  },
+  {
+    "check": "immutable",
+    "command": "node tools/yarn.mjs install --immutable",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/install-immutable.log",
+    "actualResult": "Exit 0; no lock mutation"
+  },
+  {
+    "check": "selected-build-typecheck",
+    "command": "node tools/yarn.mjs nx run-many -t build,typecheck --projects=krds-contracts,krds-tokens,krds-styles,krds-assets,krds-fonts,krds-test-contracts,krds-solid,krds-angular --parallel=2 --skip-nx-cache --output-style=static",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/foundations-solid-angular-build-typecheck.log",
+    "actualResult": "8 projects,16 tasks pass;8.5s,cache skipped"
+  },
+  {
+    "check": "fixture-build",
+    "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid build:local",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-fixture-build.log",
+    "actualResult": "Pass"
+  },
+  {
+    "check": "storybook-build",
+    "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid storybook-build:local",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-storybook-build.log",
+    "actualResult": "Pass"
+  },
+  {
+    "check": "fixture-types",
+    "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-fixture-typecheck.log",
+    "actualResult": "Pass"
+  },
+  {
+    "check": "story-types",
+    "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid typecheck",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-storybook-typecheck.log",
+    "actualResult": "Pass"
+  },
+  {
+    "check": "contracts",
+    "command": "node tools/yarn.mjs workspace @unofficial-krds/contracts test",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/contracts-test.log",
+    "actualResult": "154 passed"
+  },
+  {
+    "check": "tokens",
+    "command": "node tools/yarn.mjs workspace @unofficial-krds/tokens test",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/tokens-test.log",
+    "actualResult": "10 passed"
+  },
+  {
+    "check": "styles",
+    "command": "node tools/yarn.mjs workspace @unofficial-krds/styles test",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/styles-test.log",
+    "actualResult": "8 passed"
+  },
+  {
+    "check": "provider",
+    "command": "PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs workspace @unofficial-krds/solid test",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-provider-test.log",
+    "actualResult": "2 passed"
+  },
+  {
+    "check": "workspace",
+    "command": "node tools/yarn.mjs verify:workspace",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/verify-workspace.log",
+    "actualResult": "Pass"
+  },
+  {
+    "check": "workspace-regressions",
+    "command": "node tools/yarn.mjs test:workspace",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/test-workspace-green.log",
+    "actualResult": "21 passed after observed escaped-regex RED"
+  },
+  {
+    "check": "catalog",
+    "command": "node tools/yarn.mjs verify:catalog",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/verify-catalog.log",
+    "actualResult": "55 frozen records/54 web,55 upstream hashes; no coverage promotion"
+  },
+  {
+    "check": "harness",
+    "command": "PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs test:harness",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/test-harness.log",
+    "actualResult": "19 passed"
+  },
+  {
+    "check": "siheom",
+    "command": "PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs test:siheom --framework solid",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-siheom-77.log",
+    "actualResult": "77 passed,canonical"
+  },
+  {
+    "check": "contract",
+    "command": "PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs test:contract --framework solid",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-contract-10.log",
+    "actualResult": "10 passed,canonical"
+  },
+  {
+    "check": "stories",
+    "command": "PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs test:stories --framework solid",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/solid-canonical-stories-6.log",
+    "actualResult": "6 passed,canonical,axe0,forbidden requests0"
+  },
+  {
+    "check": "graph",
+    "command": "node tools/yarn.mjs nx graph --file=.superpowers/sdd/PLAN/scope-integration-logs/project-graph.json",
+    "exitCode": 0,
+    "log": ".superpowers/sdd/PLAN/scope-integration-logs/project-graph.log",
+    "actualResult": "32 real projects,new-scope workspace commands; graph only"
+  }
+]

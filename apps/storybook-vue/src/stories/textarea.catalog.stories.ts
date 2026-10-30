@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-textarea', title: 'KRDS/Catalog/Textarea', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'textarea'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {name: "default", args: {caseId: "default"}};
+export const Limited: Story = {name: "limited", args: {caseId: "limited"}};
+export const Invalid: Story = {name: "invalid", args: {caseId: "invalid"}};
+export const Disabled: Story = {name: "disabled", args: {caseId: "disabled"}};
+export const Readonly: Story = {name: "readonly", args: {caseId: "readonly"}};
+export const LongValue: Story = {name: "long-value", args: {caseId: "long-value"}};
+export const Ime: Story = {name: "ime", args: {caseId: "ime"}};
+export const FormReset: Story = {name: "form-reset", args: {caseId: "form-reset"}};

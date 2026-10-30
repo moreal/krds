@@ -1,0 +1,11 @@
+<script lang="ts">
+import type { Snippet } from 'svelte';
+import { untrack, tick, onMount, onDestroy } from 'svelte';
+import type { VisuallyHiddenContract } from '@unofficial-krds/contracts';
+import { owned, control, resetField, ignoredKey } from './catalog-state.svelte.js';
+let p: VisuallyHiddenContract & { children?:Snippet; surrogate?:Snippet } = $props();
+let root=$state<HTMLSpanElement>();
+$effect(()=>{if(p.variant!=='interactive-overlay'||!root)return;const container=root;let current:HTMLElement|null=null,previous:Record<string,string|null>={};function clear(){if(current)for(const[key,value]of Object.entries(previous)){if(value===null)current.removeAttribute(key);else current.setAttribute(key,value);}current=null;previous={};}function annotate(){const next=container.querySelector<HTMLElement>('input,button,select,textarea');if(next===current)return;clear();current=next;if(current)for(const[key,value]of Object.entries(owned('visually-hidden','overlay-control','interactive-overlay'))){previous[key]=current.getAttribute(key);current.setAttribute(key,value);}}annotate();const observer=new MutationObserver(annotate);observer.observe(container,{childList:true,subtree:true});return()=>{observer.disconnect();clear();};});
+
+</script>
+{#if p.variant==='interactive-overlay'}<span id={p.id} lang={p.lang} bind:this={root} data-krds-variant="interactive-overlay" {...owned('visually-hidden','root','interactive-overlay')} style="position:relative;display:inline-flex"><span {...owned('visually-hidden','visible-surrogate')} style="display:inline-flex;align-items:center;min-width:2rem;min-height:2rem">{#if p.surrogate}{@render p.surrogate()}{:else}{p.content}{/if}</span><span class="overlay" style="position:absolute;inset:0">{#if p.children}{@render p.children()}{/if}</span></span>{:else}<span id={p.id} lang={p.lang} {...owned('visually-hidden','root','text')} style="position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap">{p.content}{#if p.children}{@render p.children()}{/if}</span>{/if}<style>.overlay :global(input){position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0}[data-krds-part="root"]:focus-within [data-krds-part="visible-surrogate"]{outline:2px solid Highlight;outline-offset:3px}</style>

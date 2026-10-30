@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-step-indicator', title: 'KRDS/Catalog/StepIndicator', component: CatalogStory, args: {componentId: 'step-indicator'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Sequential: Story = {name: "sequential", args: {caseId: "sequential"}};
+export const Adaptive: Story = {name: "adaptive", args: {caseId: "adaptive"}};
+export const Compact: Story = {name: "compact", args: {caseId: "compact"}};
+export const OptionalSkip: Story = {name: "optional-skip", args: {caseId: "optional-skip"}};
+export const Completed: Story = {name: "completed", args: {caseId: "completed"}};

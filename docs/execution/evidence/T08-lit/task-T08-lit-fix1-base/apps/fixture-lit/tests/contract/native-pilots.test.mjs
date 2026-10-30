@@ -1,0 +1,44 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {browserPath,serveProduction} from '../../../../tools/testing/support.mjs';
+process.env.PLAYWRIGHT_BROWSERS_PATH??=browserPath;
+const {chromium,webkit}=await import('playwright');
+for(const browserName of ['chromium','webkit'])test(`Lit ${browserName} native forms, state, Shadow DOM and lifecycle`,async()=>{
+ const server=await serveProduction(new URL('../../dist',import.meta.url).pathname,{fixture:true});let browser;
+ try{
+  browser=await ({chromium,webkit})[browserName].launch();const page=await browser.newPage();const errors=[];page.on('pageerror',error=>errors.push(String(error)));
+  await page.goto(`${server.origin}/harness.html`);await page.waitForFunction(()=>customElements.get('krds-date-input'));
+  await page.evaluate(async()=>{
+   const form=document.createElement('form');form.id='native-form';form.innerHTML='<fieldset><krds-native-select name="region" label="지역"></krds-native-select><krds-date-input name="visit" label="방문일"></krds-date-input><krds-button name="action" value="save" type="submit">저장</krds-button><krds-button type="reset">초기화</krds-button><krds-button>기본 작업</krds-button></fieldset>';document.querySelector('main').append(form);
+   const select=form.querySelector('krds-native-select');select.options=[{value:'',label:'선택하세요'},{value:'seoul',label:'서울'},{value:'busan',label:'부산'}];select.defaultValue='seoul';
+   const date=form.querySelector('krds-date-input');date.defaultValue='2024-02-29';date.withCalendar=false;
+   window.submissions=[];window.resets=0;window.changes=[];form.addEventListener('submit',event=>{event.preventDefault();window.submissions.push({entries:[...new FormData(form,event.submitter)],submitter:event.submitter?.name,value:event.submitter?.value});});form.addEventListener('reset',()=>window.resets++);form.addEventListener('value-change',event=>window.changes.push(event.detail));await Promise.all([...form.querySelectorAll('krds-button,krds-date-input,krds-native-select')].map(element=>element.updateComplete));
+  });
+  assert.deepEqual(await page.evaluate(()=>[...new FormData(document.querySelector('form'))]),[['region','seoul'],['visit','2024-02-29']]);
+  await page.getByRole('button',{name:'기본 작업',exact:true}).click();assert.equal(await page.evaluate(()=>window.submissions.length),0);
+  await page.getByRole('button',{name:'저장',exact:true}).click();assert.deepEqual(await page.evaluate(()=>window.submissions),[{entries:[['region','seoul'],['visit','2024-02-29'],['action','save']],submitter:'action',value:'save'}]);
+  await page.getByRole('combobox',{name:'지역'}).selectOption('busan');await page.getByRole('textbox',{name:'방문일'}).fill('2024-03-01');await page.getByRole('textbox',{name:'방문일'}).press('Enter');
+  await page.getByRole('button',{name:'초기화'}).click();assert.equal(await page.getByRole('combobox',{name:'지역'}).inputValue(),'seoul');assert.equal(await page.getByRole('textbox',{name:'방문일'}).inputValue(),'2024-02-29');assert.equal(await page.evaluate(()=>window.resets),1);assert.equal(await page.evaluate(()=>window.changes.length),2);
+  await page.evaluate(()=>document.querySelector('fieldset').disabled=true);await page.getByRole('textbox',{name:'방문일'}).waitFor();assert.equal(await page.getByRole('textbox',{name:'방문일'}).isDisabled(),true);assert.deepEqual(await page.evaluate(()=>[...new FormData(document.querySelector('form'))]),[]);
+  await page.evaluate(()=>document.querySelector('fieldset').disabled=false);
+  await page.getByRole('textbox',{name:'방문일'}).fill('2023-02-29');await page.getByRole('button',{name:'저장',exact:true}).click();assert.equal(await page.evaluate(()=>window.submissions.length),1);assert.equal(await page.evaluate(()=>document.querySelector('krds-date-input').formControl.internals.validity.valid),false);
+  await page.getByRole('textbox',{name:'방문일'}).fill('2024-03-02');await page.getByRole('button',{name:'저장',exact:true}).click();assert.equal(await page.evaluate(()=>window.submissions.length),2);assert.deepEqual(await page.evaluate(()=>window.submissions.at(-1).entries),[['region','seoul'],['visit','2024-03-02'],['action','save']]);
+  await page.evaluate(async()=>{const select=document.querySelector('krds-native-select');select.required=true;select.formStateRestoreCallback('');await select.updateComplete;});
+  assert.equal(await page.evaluate(()=>document.querySelector('krds-native-select').formControl.internals.validity.valueMissing),true);
+  await page.evaluate(async()=>{const select=document.querySelector('krds-native-select');select.formStateRestoreCallback('busan');await select.updateComplete;const date=document.querySelector('krds-date-input');date.formStateRestoreCallback('"2024-02-28"');await date.updateComplete;});
+  assert.deepEqual(await page.evaluate(()=>[...new FormData(document.querySelector('form'))]),[['region','busan'],['visit','2024-02-28']]);
+  await page.evaluate(async()=>{const form=document.querySelector('form');form.addEventListener('reset',event=>event.preventDefault(),{once:true});form.reset();await new Promise(resolve=>setTimeout(resolve,0));});assert.equal(await page.getByRole('combobox',{name:'지역'}).inputValue(),'busan');
+  await page.evaluate(()=>{const button=[...document.querySelectorAll('krds-button')].find(element=>element.textContent==='기본 작업');window.actions=0;button.addEventListener('click',()=>window.actions++);});
+  const nativeAction=page.getByRole('button',{name:'기본 작업',exact:true});await nativeAction.press('Enter');await nativeAction.press('Space');assert.equal(await page.evaluate(()=>window.actions),2);
+  await page.evaluate(async()=>{const form=document.createElement('form');form.id='outside-form';document.querySelector('main').append(form);const select=document.createElement('krds-native-select');select.setAttribute('form','outside-form');select.label='외부 지역';select.name='external';select.options=[{value:'seoul',label:'서울'}];document.querySelector('main').append(select);await select.updateComplete;});
+  assert.deepEqual(await page.evaluate(()=>[...new FormData(document.getElementById('outside-form'))]),[['external','seoul']]);
+  // Controlled rejection must restore displayed parent state and submit canonical state once.
+  await page.evaluate(async()=>{document.querySelector('main').innerHTML='';const select=document.createElement('krds-native-select');select.label='제어 지역';select.options=[{value:'seoul',label:'서울'},{value:'busan',label:'부산'}];select.value='seoul';document.querySelector('main').append(select);window.requests=[];select.addEventListener('value-change',event=>window.requests.push(event.detail));await select.updateComplete;});
+  await page.getByRole('combobox',{name:'제어 지역'}).selectOption('busan');assert.equal(await page.getByRole('combobox',{name:'제어 지역'}).inputValue(),'seoul');assert.deepEqual(await page.evaluate(()=>window.requests),[{value:'busan'}]);
+  // Directive removes/replaces listener, property, style and attribute; reconnect restores one listener.
+  const directive=await page.evaluate(async()=>{const el=document.createElement('krds-directive-harness');document.querySelector('main').append(el);let first=0,second=0;el.props={onClick:()=>first++,title:'old',style:{color:'red','--theme-test':'red'},disabled:true,'.testProperty':'old'};await el.updateComplete;const button=el.shadowRoot.querySelector('button');el.props={onclick:()=>second++,style:{backgroundColor:'blue'}};await el.updateComplete;button.click();const removed=!button.hasAttribute('title')&&!button.disabled&&button.testProperty===undefined&&!button.style.color&&!button.style.getPropertyValue('--theme-test');el.remove();button.click();document.querySelector('main').append(el);await el.updateComplete;button.click();return{first,second,removed};});assert.deepEqual(directive,{first:0,second:2,removed:true});
+  // Official Vanilla service must stop on detach and restart on reconnect; no borrowed renderer.
+  const lifecycle=await page.evaluate(async()=>{const el=document.createElement('krds-tabs');el.label='수명주기';el.items=[{value:'a',label:'A',content:'A panel'},{value:'b',label:'B',content:'B panel'}];document.querySelector('main').append(el);await el.updateComplete;await el.updateComplete;const started=el.machine.active;let notifications=0;const stop=el.machine.subscribe(()=>notifications++);el.machine.getApi().setValue('b');await new Promise(resolve=>setTimeout(resolve,20));const value=el.selectedValue;el.remove();const stopped=!el.machine.active;document.querySelector('main').append(el);await el.updateComplete;await el.updateComplete;const restarted=el.machine.active;stop();return{started,stopped,restarted,value,notifications:notifications>0};});assert.deepEqual(lifecycle,{started:true,stopped:true,restarted:true,value:'b',notifications:true});
+  assert.deepEqual(errors,[]);
+ }finally{await browser?.close();await server.close();}
+});

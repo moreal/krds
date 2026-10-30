@@ -1,0 +1,46 @@
+
+Running 1 test using 1 worker
+
+(node:76059) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [firefox] › tools/testing/contract.spec.ts:12:29 › solid-next __probe/native-state (1ms)
+
+
+  1) [firefox] › tools/testing/contract.spec.ts:12:29 › solid-next __probe/native-state ────────────
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /private/tmp/krds-playwright-1.64.1/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/1l/wsg6qdtx5hngllzgfl6w__m40000gn/T/playwright_firefoxdev_profile-ta1pyx -juggler-pipe -silent
+    <launched> pid=76061
+    [pid=76061][err] *** You are running in headless mode.
+    [pid=76061][err] Could not find profile folder.
+    [pid=76061] <process did exit: exitCode=1, signal=null>
+    [pid=76061] starting temporary directories cleanup
+    Call log:
+      - <launching> /private/tmp/krds-playwright-1.64.1/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/1l/wsg6qdtx5hngllzgfl6w__m40000gn/T/playwright_firefoxdev_profile-ta1pyx -juggler-pipe -silent
+      - <launched> pid=76061
+      - [pid=76061][err] *** You are running in headless mode.
+      - [pid=76061][err] Could not find profile folder.
+      - [pid=76061] <process did exit: exitCode=1, signal=null>
+      - [pid=76061] starting temporary directories cleanup
+      - [pid=76061] <gracefully close start>
+      - [pid=76061] <kill>
+      - [pid=76061] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=76061] finished temporary directories cleanup
+      - [pid=76061] <gracefully close end>
+
+
+    Error Context: test-results/t05/contract-1793321569392-76033-90ebe871/solid-next/artifacts/contract-solid-next-probe-native-state-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321569392-76033-90ebe871/solid-next/artifacts/contract-solid-next-probe-native-state-firefox/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321569392-76033-90ebe871/solid-next/artifacts/contract-solid-next-probe-native-state-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [firefox] › tools/testing/contract.spec.ts:12:29 › solid-next __probe/native-state ─────────────
+Report: /Users/moreal/github/moreal/krds/test-results/t05/contract-1793321569392-76033-90ebe871/report.json

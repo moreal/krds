@@ -1,0 +1,6 @@
+[data-pattern] { max-width: 76rem; margin-inline: auto; padding: 1rem; overflow-wrap: anywhere; }
+[data-pattern] form, [data-pattern] section { margin-block: 1.5rem; }
+[data-pattern] aside { margin-block: 1rem; }
+.pattern-layout { display: grid; grid-template-columns: minmax(13rem, 1fr) minmax(0, 3fr); gap: 2rem; min-height: 55vh; }
+[data-pattern="consent-confirmation"] > section { min-height: 19rem; }
+@media (max-width: 767px) { .pattern-layout { display: block; } .pattern-layout > nav { display: none; } }

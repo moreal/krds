@@ -1,0 +1,17 @@
+node_modules/
+.yarn/cache/
+.yarn/install-state.gz
+.yarn/unplugged/
+.nx/cache/
+.nx/workspace-data/
+**/dist/
+**/coverage/
+**/playwright-report/
+**/test-results/
+**/storybook-static/
+**/.svelte-kit/
+**/.angular/
+**/.vite/
+*.tsbuildinfo
+.DS_Store
+/artifacts/

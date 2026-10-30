@@ -1,0 +1,19 @@
+/* KRDS-derived: frozen component.css lines 6972–7268; semantic guidance: specs/components/carousel.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="carousel"][data-krds-part="root"] { display: grid; gap: var(--krds-gap-5); }
+[data-krds-component="carousel"][data-krds-part="viewport"] { max-inline-size: 100%; overflow: auto; padding: var(--krds-padding-2); }
+[data-krds-component="carousel"][data-krds-part="list"] { display: flex; gap: var(--krds-gap-5); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="carousel"][data-krds-part="slide"] { flex: 0 0 100%; min-inline-size: 0; }
+[data-krds-component="carousel"][data-krds-part="slide"][hidden], [data-krds-component="carousel"][data-krds-part="slide"][data-krds-state~="hidden"] { display: none !important; }
+[data-krds-component="carousel"][data-krds-part="root"][data-krds-layout="multiple"] [data-krds-component="carousel"][data-krds-part="slide"] { flex-basis: min(24rem, 100%); }
+[data-krds-component="carousel"][data-krds-part="previous"], [data-krds-component="carousel"][data-krds-part="next"], [data-krds-component="carousel"][data-krds-part="play-pause"], [data-krds-component="carousel"][data-krds-part="stop-intent"] { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--krds-size-height-6); min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-max); background: var(--krds-light-color-surface-white); color: var(--krds-light-color-text-basic); font: inherit; cursor: pointer; }
+[data-krds-component="carousel"][data-krds-part="previous"]:disabled, [data-krds-component="carousel"][data-krds-part="next"]:disabled, [data-krds-component="carousel"][data-krds-part="stop-intent"]:disabled { color: var(--krds-light-color-text-disabled); border-style: dashed; cursor: not-allowed; }
+[data-krds-component="carousel"][data-krds-part="indicators"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--krds-gap-3); padding: var(--krds-padding-5); border-radius: var(--krds-radius-max); }
+[data-krds-component="carousel"][data-krds-part="indicator"] { min-inline-size: var(--krds-size-height-5); min-block-size: var(--krds-size-height-5); padding: var(--krds-padding-2); border: var(--krds-number-1) solid currentColor; border-radius: var(--krds-radius-max); background: var(--krds-light-color-surface-white); color: var(--krds-light-color-text-basic); font: inherit; cursor: pointer; }
+[data-krds-component="carousel"][data-krds-part="indicator"][aria-current="true"], [data-krds-component="carousel"][data-krds-part="indicator"][data-krds-state~="active"] { border: var(--krds-number-3) double currentColor; font-weight: 700; background: var(--krds-light-color-action-secondary-selected); }
+[data-krds-component="carousel"][data-krds-part="position"] { text-align: center; font-variant-numeric: tabular-nums; font-weight: 700; }
+/* Indicator=dots/fraction is renderer-selected, including the official <=1023px rule.
+ * CSS never starts/stops playback; hidden slides must also be inert in the native renderer. */
+@media (prefers-reduced-motion: reduce) { [data-krds-component="carousel"][data-krds-part="viewport"] { scroll-behavior: auto; } }
+/* The native renderer conditionally exposes stop-intent only for multi-slide
+ * playback intent while actual advancement is inhibited. CSS never invents intent. */

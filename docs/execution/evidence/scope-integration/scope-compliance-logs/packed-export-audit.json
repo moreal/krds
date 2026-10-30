@@ -1,0 +1,153 @@
+[
+  {
+    "name": "@unofficial-krds/angular",
+    "tarballSha256": "c99b9c7ec27524473d14b0be45edbfc50ed43f1a1594ac03e890a22e8fec1269",
+    "exportAndEntryTargets": [
+      "./dist/fesm2022/unofficial-krds-angular.mjs",
+      "./dist/types/unofficial-krds-angular.d.ts"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/assets",
+    "tarballSha256": "c8c8e50d06e934028f3b19eb16f29a302c4ae9a3949d10e7d98f0c88ebbbca35",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js",
+      "./icons/*"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/contracts",
+    "tarballSha256": "eadecfac6c677a2f16529fa1d38d45fbb05bcfd1ba438c6dc234bfef4f2a1514",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/fonts",
+    "tarballSha256": "6a7028c459126e42defa6cf3bab13e2da0465988e932040c53934ba36a744c9a",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js",
+      "./fonts.css",
+      "./fonts/*"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/lit",
+    "tarballSha256": "55feecf5564ead5deba45bab75f744ee6401f90e165ac6dc42da91263200a3c3",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/qwik",
+    "tarballSha256": "5ba72c673d459830d4c125c83a3ee3f3806883332ec83399aeb674db1412d3f9",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.qwik.cjs",
+      "./dist/index.qwik.mjs"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/react",
+    "tarballSha256": "d438ee48a7f5b34dcf87cc1ca2ba806f8f65ab07558dc5ac12f2b24e635bec18",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/solid",
+    "tarballSha256": "c0239e8bf951b8db80fd2ba6c375e08753d8011dc7311fb7ffff3d5618b51fa7",
+    "exportAndEntryTargets": [
+      "./dist/button.js",
+      "./dist/calendar.js",
+      "./dist/components/button/index.d.ts",
+      "./dist/components/calendar/index.d.ts",
+      "./dist/components/date-input/index.d.ts",
+      "./dist/components/modal/index.d.ts",
+      "./dist/components/native-select/index.d.ts",
+      "./dist/components/tabs/index.d.ts",
+      "./dist/date-input.js",
+      "./dist/index.d.ts",
+      "./dist/index.js",
+      "./dist/modal.js",
+      "./dist/native-select.js",
+      "./dist/provider.js",
+      "./dist/providers/index.d.ts",
+      "./dist/tabs.js"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/solid-next",
+    "tarballSha256": "92cfe535dc629fcab923400be79ffd2c732bb483c3c341b4c58cb2b96aecbb9b",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/styles",
+    "tarballSha256": "43699d4c40cf743f043dfa84e3d6b4b22ea48c06900d090211f72d139347adc5",
+    "exportAndEntryTargets": [
+      "./dist/all.css",
+      "./dist/base.css",
+      "./dist/button.css",
+      "./dist/calendar.css",
+      "./dist/date-input.css",
+      "./dist/fonts.css",
+      "./dist/index.d.ts",
+      "./dist/index.js",
+      "./dist/lit.d.ts",
+      "./dist/lit.js",
+      "./dist/modal.css",
+      "./dist/native-select.css",
+      "./dist/parts.json",
+      "./dist/reset.css",
+      "./dist/tabs.css"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/svelte",
+    "tarballSha256": "e17bd0603ce0df0e9997490a3b67887d4c973de074ca99cf63c18caec2158659",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/tokens",
+    "tarballSha256": "5de88eea45e3822defbcdd2d8257894f0c06b49114573dd996fa347693f77f6a",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js",
+      "./dist/source-map.json",
+      "./dist/tokens.css",
+      "./dist/tokens.json"
+    ],
+    "status": "passed"
+  },
+  {
+    "name": "@unofficial-krds/vue",
+    "tarballSha256": "8f4fb5dc1f9dbd052a1fdb8542b5742f20b6c34c5edb0aaf67d1462083b59b82",
+    "exportAndEntryTargets": [
+      "./dist/index.d.ts",
+      "./dist/index.js"
+    ],
+    "status": "passed"
+  }
+]

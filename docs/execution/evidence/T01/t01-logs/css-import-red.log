@@ -1,0 +1,221 @@
+▶ workspace configuration and source boundaries
+  ✔ rejects linker (157.935333ms)
+  ✔ rejects second lockfile (156.148125ms)
+  ✔ rejects nested npm lockfile (147.095875ms)
+  ✔ rejects public app (140.272416ms)
+  ✔ rejects runtime resolution (141.277917ms)
+  ✔ rejects removed boundary tags (145.106167ms)
+  ✔ rejects upward relative import (151.603625ms)
+  ✔ rejects multiline import (140.530208ms)
+  ✔ rejects foreign renderer (142.353334ms)
+  ✔ rejects native source alias (139.071667ms)
+  ✖ rejects CSS double-quoted URL (143.299458ms)
+  ✖ rejects CSS single-quoted URL (149.437542ms)
+  ✖ rejects CSS unquoted URL (142.307917ms)
+  ✖ rejects CSS URL whitespace (142.1695ms)
+  ✖ rejects Vue embedded CSS URL (148.547667ms)
+  ✖ rejects Svelte embedded CSS URL (147.498958ms)
+  ✖ rejects Lit embedded CSS URL (154.241042ms)
+  ✖ rejects Angular embedded CSS URL (147.285583ms)
+  ✖ rejects CSS permitted layer without declaration (146.460416ms)
+  ✔ permits declared shared CSS imports and retains their implicit graph edge (145.751041ms)
+✖ workspace configuration and source boundaries (2974.24675ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 11
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3045.30075
+
+✖ failing tests:
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS double-quoted URL (143.299458ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS single-quoted URL (149.437542ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS unquoted URL (142.307917ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS URL whitespace (142.1695ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Vue embedded CSS URL (148.547667ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Svelte embedded CSS URL (147.498958ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Lit embedded CSS URL (154.241042ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Angular embedded CSS URL (147.285583ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /import boundary -> packages\/react/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /import boundary -> packages\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS permitted layer without declaration (146.460416ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/fonts/. Input:
+  
+  ''
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /undeclared internal import @krds-native\/fonts/,
+    operator: 'match',
+    diff: 'simple'
+  }

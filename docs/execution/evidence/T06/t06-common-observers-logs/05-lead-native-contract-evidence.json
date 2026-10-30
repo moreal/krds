@@ -1,0 +1,29 @@
+{
+  "owner": "/root/sol_execution_resume/t06_lead",
+  "report": "test-results/t05/contract-1793325215776-6380-b59753e4/report.json",
+  "fullNativeContractTests": 10,
+  "selectedObserverResults": [
+    {
+      "title": "solid native-select/controlled",
+      "browser": "chromium",
+      "status": "passed",
+      "nativeHealth": true,
+      "classification": "passed"
+    },
+    {
+      "title": "solid native-select/form-reset",
+      "browser": "chromium",
+      "status": "passed",
+      "nativeHealth": true,
+      "classification": "passed"
+    },
+    {
+      "title": "solid calendar/selection-confirm",
+      "browser": "chromium",
+      "status": "passed",
+      "nativeHealth": true,
+      "classification": "passed"
+    }
+  ],
+  "scope": "Native execution run by lead; common owner only read the completed report."
+}

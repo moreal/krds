@@ -1,0 +1,409 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/packages/contracts
+
+ ❯ src/date.test.ts (38 tests | 23 failed) 9ms
+     × parses valid 2024-02-29 without a host timezone 4ms
+     × parses valid 2000-02-29 without a host timezone 0ms
+     × parses valid 0001-01-01 without a host timezone 0ms
+     × parses valid 9999-12-31 without a host timezone 0ms
+     × formats valid parts {"year":1,"month":1,"day":1} 1ms
+     × formats valid parts {"year":2024,"month":2,"day":29} 0ms
+     × formats valid parts {"year":9999,"month":12,"day":31} 0ms
+     × throws RangeError for invalid parts {"year":0,"month":1,"day":1} 0ms
+     × throws RangeError for invalid parts {"year":10000,"month":1,"day":1} 0ms
+     × throws RangeError for invalid parts {"year":2025,"month":2,"day":29} 0ms
+     × throws RangeError for invalid parts {"year":1900,"month":2,"day":29} 0ms
+     × throws RangeError for invalid parts {"year":2024,"month":13,"day":1} 0ms
+     × throws RangeError for invalid parts {"year":2024,"month":1,"day":0} 0ms
+     × throws RangeError for invalid parts {"year":2024.5,"month":1,"day":1} 0ms
+     × throws RangeError for invalid parts {"year":2024,"month":null,"day":1} 0ms
+     × throws RangeError for invalid parts {"year":null,"month":1,"day":1} 0ms
+     × throws RangeError for invalid parts {"year":2024,"month":1,"day":1.5} 0ms
+     × round-trips 0001-01-01 0ms
+     × round-trips 0099-12-31 0ms
+     × round-trips 1900-03-01 0ms
+     × round-trips 2000-02-29 0ms
+     × round-trips 2024-02-29 0ms
+     × round-trips 9999-12-31 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 23 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > parses valid 2024-02-29 without a host timezone
+AssertionError: expected null to deeply equal { year: 2024, month: 2, day: 29 }
+
+- Expected:
+{
+  "day": 29,
+  "month": 2,
+  "year": 2024,
+}
+
++ Received:
+null
+
+ ❯ src/date.test.ts:11:33
+      9|     ['9999-12-31', { year: 9999, month: 12, day: 31 }],
+     10|   ])('parses valid %s without a host timezone', (value, parts) => {
+     11|     expect(parseIsoDate(value)).toEqual(parts);
+       |                                 ^
+     12|   });
+     13|   it.each(['2025-02-29', '1900-02-29', '2024-13-01', '2024-2-1', '0000…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2025:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > parses valid 2000-02-29 without a host timezone
+AssertionError: expected null to deeply equal { year: 2000, month: 2, day: 29 }
+
+- Expected:
+{
+  "day": 29,
+  "month": 2,
+  "year": 2000,
+}
+
++ Received:
+null
+
+ ❯ src/date.test.ts:11:33
+      9|     ['9999-12-31', { year: 9999, month: 12, day: 31 }],
+     10|   ])('parses valid %s without a host timezone', (value, parts) => {
+     11|     expect(parseIsoDate(value)).toEqual(parts);
+       |                                 ^
+     12|   });
+     13|   it.each(['2025-02-29', '1900-02-29', '2024-13-01', '2024-2-1', '0000…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2025:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > parses valid 0001-01-01 without a host timezone
+AssertionError: expected null to deeply equal { year: 1, month: 1, day: 1 }
+
+- Expected:
+{
+  "day": 1,
+  "month": 1,
+  "year": 1,
+}
+
++ Received:
+null
+
+ ❯ src/date.test.ts:11:33
+      9|     ['9999-12-31', { year: 9999, month: 12, day: 31 }],
+     10|   ])('parses valid %s without a host timezone', (value, parts) => {
+     11|     expect(parseIsoDate(value)).toEqual(parts);
+       |                                 ^
+     12|   });
+     13|   it.each(['2025-02-29', '1900-02-29', '2024-13-01', '2024-2-1', '0000…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2025:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > parses valid 9999-12-31 without a host timezone
+AssertionError: expected null to deeply equal { year: 9999, month: 12, day: 31 }
+
+- Expected:
+{
+  "day": 31,
+  "month": 12,
+  "year": 9999,
+}
+
++ Received:
+null
+
+ ❯ src/date.test.ts:11:33
+      9|     ['9999-12-31', { year: 9999, month: 12, day: 31 }],
+     10|   ])('parses valid %s without a host timezone', (value, parts) => {
+     11|     expect(parseIsoDate(value)).toEqual(parts);
+       |                                 ^
+     12|   });
+     13|   it.each(['2025-02-29', '1900-02-29', '2024-13-01', '2024-2-1', '0000…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2025:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > formats valid parts {"year":1,"month":1,"day":1}
+AssertionError: expected '' to be '0001-01-01' // Object.is equality
+
+- Expected
++ Received
+
+- 0001-01-01
+
+ ❯ src/date.test.ts:21:79
+     19|     [{ year: 2024, month: 2, day: 29 }, '2024-02-29'],
+     20|     [{ year: 9999, month: 12, day: 31 }, '9999-12-31'],
+     21|   ])('formats valid parts %j', (parts, value) => expect(formatIsoDate(…
+       |                                                                               ^
+     22|   it.each([
+     23|     { year: 0, month: 1, day: 1 }, { year: 10000, month: 1, day: 1 },
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2025:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > formats valid parts {"year":2024,"month":2,"day":29}
+AssertionError: expected '' to be '2024-02-29' // Object.is equality
+
+- Expected
++ Received
+
+- 2024-02-29
+
+ ❯ src/date.test.ts:21:79
+     19|     [{ year: 2024, month: 2, day: 29 }, '2024-02-29'],
+     20|     [{ year: 9999, month: 12, day: 31 }, '9999-12-31'],
+     21|   ])('formats valid parts %j', (parts, value) => expect(formatIsoDate(…
+       |                                                                               ^
+     22|   it.each([
+     23|     { year: 0, month: 1, day: 1 }, { year: 10000, month: 1, day: 1 },
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2025:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > formats valid parts {"year":9999,"month":12,"day":31}
+AssertionError: expected '' to be '9999-12-31' // Object.is equality
+
+- Expected
++ Received
+
+- 9999-12-31
+
+ ❯ src/date.test.ts:21:79
+     19|     [{ year: 2024, month: 2, day: 29 }, '2024-02-29'],
+     20|     [{ year: 9999, month: 12, day: 31 }, '9999-12-31'],
+     21|   ])('formats valid parts %j', (parts, value) => expect(formatIsoDate(…
+       |                                                                               ^
+     22|   it.each([
+     23|     { year: 0, month: 1, day: 1 }, { year: 10000, month: 1, day: 1 },
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2025:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":0,"month":1,"day":1}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":10000,"month":1,"day":1}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":2025,"month":2,"day":29}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":1900,"month":2,"day":29}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":2024,"month":13,"day":1}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":2024,"month":1,"day":0}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":2024.5,"month":1,"day":1}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":2024,"month":null,"day":1}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":null,"month":1,"day":1}
+ FAIL  src/date.test.ts > date-only Gregorian values > throws RangeError for invalid parts {"year":2024,"month":1,"day":1.5}
+AssertionError: expected function to throw an error, but it didn't
+ ❯ src/date.test.ts:29:40
+     27|     { year: Infinity, month: 1, day: 1 }, { year: 2024, month: 1, day:…
+     28|   ])('throws RangeError for invalid parts %j', (parts) => {
+     29|     expect(() => formatIsoDate(parts)).toThrow(RangeError);
+       |                                        ^
+     30|   });
+     31|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > round-trips 0001-01-01
+AssertionError: expected '' to be '0001-01-01' // Object.is equality
+
+- Expected
++ Received
+
+- 0001-01-01
+
+ ❯ src/date.test.ts:32:79
+     30|   });
+     31|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+     32|     ('round-trips %s', (value) => expect(formatIsoDate(parseIsoDate(va…
+       |                                                                               ^
+     33| });
+     34|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > round-trips 0099-12-31
+AssertionError: expected '' to be '0099-12-31' // Object.is equality
+
+- Expected
++ Received
+
+- 0099-12-31
+
+ ❯ src/date.test.ts:32:79
+     30|   });
+     31|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+     32|     ('round-trips %s', (value) => expect(formatIsoDate(parseIsoDate(va…
+       |                                                                               ^
+     33| });
+     34|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > round-trips 1900-03-01
+AssertionError: expected '' to be '1900-03-01' // Object.is equality
+
+- Expected
++ Received
+
+- 1900-03-01
+
+ ❯ src/date.test.ts:32:79
+     30|   });
+     31|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+     32|     ('round-trips %s', (value) => expect(formatIsoDate(parseIsoDate(va…
+       |                                                                               ^
+     33| });
+     34|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > round-trips 2000-02-29
+AssertionError: expected '' to be '2000-02-29' // Object.is equality
+
+- Expected
++ Received
+
+- 2000-02-29
+
+ ❯ src/date.test.ts:32:79
+     30|   });
+     31|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+     32|     ('round-trips %s', (value) => expect(formatIsoDate(parseIsoDate(va…
+       |                                                                               ^
+     33| });
+     34|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > round-trips 2024-02-29
+AssertionError: expected '' to be '2024-02-29' // Object.is equality
+
+- Expected
++ Received
+
+- 2024-02-29
+
+ ❯ src/date.test.ts:32:79
+     30|   });
+     31|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+     32|     ('round-trips %s', (value) => expect(formatIsoDate(parseIsoDate(va…
+       |                                                                               ^
+     33| });
+     34|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/23]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > round-trips 9999-12-31
+AssertionError: expected '' to be '9999-12-31' // Object.is equality
+
+- Expected
++ Received
+
+- 9999-12-31
+
+ ❯ src/date.test.ts:32:79
+     30|   });
+     31|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+     32|     ('round-trips %s', (value) => expect(formatIsoDate(parseIsoDate(va…
+       |                                                                               ^
+     33| });
+     34|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/23]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  23 failed | 15 passed (38)
+   Start at  09:04:01
+   Duration  165ms (transform 15ms, setup 0ms, import 23ms, tests 9ms, environment 0ms)
+

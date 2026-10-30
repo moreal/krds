@@ -1,0 +1,226 @@
+[
+  {
+    "path": "package.json",
+    "from": "@krds-native/workspace",
+    "to": "@unofficial-krds/workspace",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "packages/angular/package.json",
+    "from": "@krds-native/angular",
+    "to": "@unofficial-krds/angular",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/assets/package.json",
+    "from": "@krds-native/assets",
+    "to": "@unofficial-krds/assets",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/contracts/package.json",
+    "from": "@krds-native/contracts",
+    "to": "@unofficial-krds/contracts",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/fonts/package.json",
+    "from": "@krds-native/fonts",
+    "to": "@unofficial-krds/fonts",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/lit/package.json",
+    "from": "@krds-native/lit",
+    "to": "@unofficial-krds/lit",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/qwik/package.json",
+    "from": "@krds-native/qwik",
+    "to": "@unofficial-krds/qwik",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/react/package.json",
+    "from": "@krds-native/react",
+    "to": "@unofficial-krds/react",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/solid/package.json",
+    "from": "@krds-native/solid",
+    "to": "@unofficial-krds/solid",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/solid-next/package.json",
+    "from": "@krds-native/solid-next",
+    "to": "@unofficial-krds/solid-next",
+    "version": "0.0.0-next.0",
+    "private": false
+  },
+  {
+    "path": "packages/styles/package.json",
+    "from": "@krds-native/styles",
+    "to": "@unofficial-krds/styles",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/svelte/package.json",
+    "from": "@krds-native/svelte",
+    "to": "@unofficial-krds/svelte",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/test-contracts/package.json",
+    "from": "@krds-native/test-contracts",
+    "to": "@unofficial-krds/test-contracts",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "packages/tokens/package.json",
+    "from": "@krds-native/tokens",
+    "to": "@unofficial-krds/tokens",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "packages/vue/package.json",
+    "from": "@krds-native/vue",
+    "to": "@unofficial-krds/vue",
+    "version": "0.0.0",
+    "private": false
+  },
+  {
+    "path": "apps/docs/package.json",
+    "from": "@krds-native/docs",
+    "to": "@unofficial-krds/docs",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-angular/package.json",
+    "from": "@krds-native/fixture-angular",
+    "to": "@unofficial-krds/fixture-angular",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-lit/package.json",
+    "from": "@krds-native/fixture-lit",
+    "to": "@unofficial-krds/fixture-lit",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-qwik/package.json",
+    "from": "@krds-native/fixture-qwik",
+    "to": "@unofficial-krds/fixture-qwik",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-react/package.json",
+    "from": "@krds-native/fixture-react",
+    "to": "@unofficial-krds/fixture-react",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-solid/package.json",
+    "from": "@krds-native/fixture-solid",
+    "to": "@unofficial-krds/fixture-solid",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-solid-next/package.json",
+    "from": "@krds-native/fixture-solid-next",
+    "to": "@unofficial-krds/fixture-solid-next",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-svelte/package.json",
+    "from": "@krds-native/fixture-svelte",
+    "to": "@unofficial-krds/fixture-svelte",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/fixture-vue/package.json",
+    "from": "@krds-native/fixture-vue",
+    "to": "@unofficial-krds/fixture-vue",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-angular/package.json",
+    "from": "@krds-native/storybook-angular",
+    "to": "@unofficial-krds/storybook-angular",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-lit/package.json",
+    "from": "@krds-native/storybook-lit",
+    "to": "@unofficial-krds/storybook-lit",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-qwik/package.json",
+    "from": "@krds-native/storybook-qwik",
+    "to": "@unofficial-krds/storybook-qwik",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-react/package.json",
+    "from": "@krds-native/storybook-react",
+    "to": "@unofficial-krds/storybook-react",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-solid/package.json",
+    "from": "@krds-native/storybook-solid",
+    "to": "@unofficial-krds/storybook-solid",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-solid-next/package.json",
+    "from": "@krds-native/storybook-solid-next",
+    "to": "@unofficial-krds/storybook-solid-next",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-svelte/package.json",
+    "from": "@krds-native/storybook-svelte",
+    "to": "@unofficial-krds/storybook-svelte",
+    "version": "0.0.0",
+    "private": true
+  },
+  {
+    "path": "apps/storybook-vue/package.json",
+    "from": "@krds-native/storybook-vue",
+    "to": "@unofficial-krds/storybook-vue",
+    "version": "0.0.0",
+    "private": true
+  }
+]

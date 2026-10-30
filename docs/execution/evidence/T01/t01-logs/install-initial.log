@@ -1,0 +1,16 @@
+➤ YN0000: · Yarn 4.14.1
+➤ YN0000: ┌ Resolution step
+➤ YN0001: │ RequestError: getaddrinfo ENOTFOUND registry.yarnpkg.com
+    at ClientRequest.<anonymous> (/Users/moreal/github/moreal/krds/.yarn/releases/yarn-4.14.1.cjs:146:14258)
+    at Object.onceWrapper (node:events:631:26)
+    at ClientRequest.emit (node:events:521:24)
+    at c.emit (/Users/moreal/github/moreal/krds/.yarn/releases/yarn-4.14.1.cjs:141:22975)
+    at emitErrorEvent (node:_http_client:109:11)
+    at TLSSocket.socketErrorListener (node:_http_client:593:5)
+    at TLSSocket.emit (node:events:509:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+➤ YN0000: └ Completed in 21s 511ms
+➤ YN0000: · Failed with errors in 21s 517ms

@@ -1,0 +1,1984 @@
+{
+  "schemaVersion": 1,
+  "application": "apps/storybook-svelte",
+  "inventory": "compliance/distribution-provenance.json",
+  "scope": "Exact local specimen assets and frozen docs text snapshots. No publication authorization or authentic speech/sign-language equivalence. Bundler/dependency output is not cleared by this scoped static inventory.",
+  "independentCopyright": "Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>",
+  "assets": [
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/captions.vtt",
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c",
+      "bytes": 71,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/captions.vtt",
+        "apps/fixture-lit/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-qwik/public/local-assets/captions.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-react/public/local-assets/captions.vtt",
+        "apps/fixture-react/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-solid/public/local-assets/captions.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-svelte/public/local-assets/captions.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-vue/public/local-assets/captions.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-lit/public/local-assets/captions.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-qwik/public/local-assets/captions.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-react/public/local-assets/captions.vtt",
+        "apps/storybook-react/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-solid/public/local-assets/captions.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-svelte/public/local-assets/captions.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-vue/public/local-assets/captions.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-angular/public/local-assets/captions.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-angular/public/local-assets/captions.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-captions.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+      "sha256": "530623193669849da9bc677cdb3c399f68417458f3fc2d6c51e684b89601b58e",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-angular/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-angular/public/local-assets/intentional-missing-image.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+      "sha256": "7ccc3d810e55708b94b5cf03d3df6ae474236b5c59ce1876685128592e7f4d8c",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing.wav",
+        "apps/fixture-qwik/public/local-assets/intentional-missing.wav",
+        "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+        "apps/fixture-svelte/public/local-assets/intentional-missing.wav",
+        "apps/fixture-vue/public/local-assets/intentional-missing.wav",
+        "apps/storybook-lit/public/local-assets/intentional-missing.wav",
+        "apps/storybook-qwik/public/local-assets/intentional-missing.wav",
+        "apps/storybook-solid/public/local-assets/intentional-missing.wav",
+        "apps/storybook-svelte/public/local-assets/intentional-missing.wav",
+        "apps/storybook-vue/public/local-assets/intentional-missing.wav",
+        "apps/fixture-angular/public/local-assets/intentional-missing.wav",
+        "apps/storybook-angular/public/local-assets/intentional-missing.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+      "sha256": "fc6bb4a2fb84602f95e075ab5352977f078be93a6fbc5adf4260067cfe47e326",
+      "bytes": 64044,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-audio.wav",
+        "apps/fixture-qwik/public/local-assets/specimen-audio.wav",
+        "apps/fixture-react/public/local-assets/specimen-audio.wav",
+        "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+        "apps/fixture-svelte/public/local-assets/specimen-audio.wav",
+        "apps/fixture-vue/public/local-assets/specimen-audio.wav",
+        "apps/storybook-lit/public/local-assets/specimen-audio.wav",
+        "apps/storybook-qwik/public/local-assets/specimen-audio.wav",
+        "apps/storybook-react/public/local-assets/specimen-audio.wav",
+        "apps/storybook-solid/public/local-assets/specimen-audio.wav",
+        "apps/storybook-svelte/public/local-assets/specimen-audio.wav",
+        "apps/storybook-vue/public/local-assets/specimen-audio.wav",
+        "apps/fixture-angular/public/local-assets/specimen-audio.wav",
+        "apps/storybook-angular/public/local-assets/specimen-audio.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+      "sha256": "c3977eb9d0e63943e868056865beeb2fb970ac8f338a3117c2344e2a043efdcd",
+      "bytes": 134,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-description.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-description.vtt",
+        "apps/fixture-react/public/local-assets/specimen-description.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-description.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-description.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-description.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-description.vtt",
+        "apps/storybook-react/public/local-assets/specimen-description.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-description.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-description.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-description.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-description.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-description.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-media.webm",
+      "sha256": "08d3ea65f53ebfe4adfc99176d3b7d8d7667370418e00638d3c1229e76d548a2",
+      "bytes": 11596,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-media.webm",
+        "apps/fixture-qwik/public/local-assets/specimen-media.webm",
+        "apps/fixture-react/public/local-assets/specimen-media.webm",
+        "apps/fixture-solid/public/local-assets/specimen-media.webm",
+        "apps/fixture-svelte/public/local-assets/specimen-media.webm",
+        "apps/fixture-vue/public/local-assets/specimen-media.webm",
+        "apps/storybook-lit/public/local-assets/specimen-media.webm",
+        "apps/storybook-qwik/public/local-assets/specimen-media.webm",
+        "apps/storybook-react/public/local-assets/specimen-media.webm",
+        "apps/storybook-solid/public/local-assets/specimen-media.webm",
+        "apps/storybook-svelte/public/local-assets/specimen-media.webm",
+        "apps/storybook-vue/public/local-assets/specimen-media.webm",
+        "apps/fixture-angular/public/local-assets/specimen-media.webm",
+        "apps/storybook-angular/public/local-assets/specimen-media.webm"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/transcript.html",
+      "sha256": "a334319b7da23949c7d9100eed1c5cf6c39526800975ca192053ebd07bea2e6b",
+      "bytes": 164,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/transcript.html",
+        "apps/fixture-qwik/public/local-assets/transcript.html",
+        "apps/fixture-solid/public/local-assets/transcript.html",
+        "apps/fixture-svelte/public/local-assets/transcript.html",
+        "apps/fixture-vue/public/local-assets/transcript.html",
+        "apps/storybook-lit/public/local-assets/transcript.html",
+        "apps/storybook-qwik/public/local-assets/transcript.html",
+        "apps/storybook-solid/public/local-assets/transcript.html",
+        "apps/storybook-svelte/public/local-assets/transcript.html",
+        "apps/storybook-vue/public/local-assets/transcript.html",
+        "apps/fixture-angular/public/local-assets/transcript.html",
+        "apps/storybook-angular/public/local-assets/transcript.html"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/service-logo.svg",
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1",
+      "bytes": 227,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/service-logo.svg",
+        "apps/fixture-qwik/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-qwik/public/local-assets/specimen-logo.svg",
+        "apps/fixture-solid/public/local-assets/service-logo.svg",
+        "apps/fixture-solid/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-solid/public/local-assets/specimen-logo.svg",
+        "apps/fixture-svelte/public/local-assets/service-logo.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-logo.svg",
+        "apps/fixture-vue/public/local-assets/service-logo.svg",
+        "apps/fixture-vue/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-vue/public/local-assets/specimen-logo.svg",
+        "apps/storybook-qwik/public/local-assets/service-logo.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-logo.svg",
+        "apps/storybook-solid/public/local-assets/service-logo.svg",
+        "apps/storybook-solid/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-solid/public/local-assets/specimen-logo.svg",
+        "apps/storybook-svelte/public/local-assets/service-logo.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-logo.svg",
+        "apps/storybook-vue/public/local-assets/service-logo.svg",
+        "apps/storybook-vue/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-vue/public/local-assets/specimen-logo.svg",
+        "apps/fixture-angular/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-angular/public/local-assets/specimen-logo.svg",
+        "apps/fixture-angular/public/local-assets/service-logo.svg",
+        "apps/storybook-angular/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-angular/public/local-assets/specimen-logo.svg",
+        "apps/storybook-angular/public/local-assets/service-logo.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-icon-dark.svg",
+      "sha256": "5c725e5b200681b826e8faa2f8c0a61081f81692ce10b42f76cef4975e17f9bd",
+      "bytes": 227,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-solid/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-vue/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-solid/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-vue/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-angular/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-angular/public/local-assets/specimen-icon-dark.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-landscape.svg",
+      "sha256": "a90eea113c99b6ac77f7ba3f316ff2ad745885e0f562243785cb1eab6a1cb8bc",
+      "bytes": 263,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-solid/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-vue/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-solid/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-vue/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-angular/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-angular/public/local-assets/specimen-landscape.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-svelte/public/local-assets/provenance.json",
+      "sha256": "e1bda442dc431d14d8a261b267aae05b9cbcf6f5f21a11cc0e16bef598883375",
+      "bytes": 4253,
+      "origin": "Owner supplied local specimen metadata (historical source labels; authoritative current paths are in this inventory)",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-svelte/public/local-assets/provenance.json",
+        "apps/storybook-svelte/public/local-assets/provenance.json"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/0/index.html",
+      "sha256": "73aba38b4a3d17fa23c9bf361ef1490f9a3985a5e929e23992a1c763b868bae2",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/0/index.html",
+        "apps/storybook-svelte/public/local/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/1/index.html",
+      "sha256": "cb853c5044586cdf31bc835e6ecda8027fdd916e60d5f5ede31353f3757876a7",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/1/index.html",
+        "apps/storybook-svelte/public/local/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/10/index.html",
+      "sha256": "58a5559331fe8a1326344b788d1c3b0d13d423dc8a1297e8eac892bcc3835606",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/10/index.html",
+        "apps/storybook-svelte/public/local/10/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/11/index.html",
+      "sha256": "d9423fe9d83e0bdb707fb54dc1717427c25ee54565bcb11016f80d7160a21b7f",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/11/index.html",
+        "apps/storybook-svelte/public/local/11/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/12/index.html",
+      "sha256": "5ddda36ca369f380024cc3749036d1b15bc3200b3dbd5e25f673af4b50f7a64f",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/12/index.html",
+        "apps/storybook-svelte/public/local/12/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/13/index.html",
+      "sha256": "1e57e4fdd34b7befa529bdb48bf9c5901aa7fca339e2e8ea727b849211822b83",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/13/index.html",
+        "apps/storybook-svelte/public/local/13/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/14/index.html",
+      "sha256": "db56fea337048cd58dba7ec06ff2ece38654b9bddb302ffb474119c54694a443",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/14/index.html",
+        "apps/storybook-svelte/public/local/14/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/15/index.html",
+      "sha256": "c892a360bc7e2b93ebabc64b75ceeca454aec671d10cd7db6905a45236de1dc7",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/15/index.html",
+        "apps/storybook-svelte/public/local/15/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/16/index.html",
+      "sha256": "2cdb903bd5b3de637b5663016e3c0465192113a769cc96b8d87d711095b43278",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/16/index.html",
+        "apps/storybook-svelte/public/local/16/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/17/index.html",
+      "sha256": "016fad0dd8a788ef9b84d486802f7cedae6620741cf874f29ed272eb994fcdb0",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/17/index.html",
+        "apps/storybook-svelte/public/local/17/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/18/index.html",
+      "sha256": "b7f2bc9f19b97dc1fe6158f0b35157e451695ef4a83679f9d4b056289aebaa36",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/18/index.html",
+        "apps/storybook-svelte/public/local/18/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/19/index.html",
+      "sha256": "072a275d847f44932838dbb4ba0192dedff9efb7d7032cf320e0bc39bd8fd92f",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/19/index.html",
+        "apps/storybook-svelte/public/local/19/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/2/index.html",
+      "sha256": "e5614aeb036edc54ada088dc38885aac51e02cc86705a999c455ecad7f07ec95",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/2/index.html",
+        "apps/storybook-svelte/public/local/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/20/index.html",
+      "sha256": "f12f4c8629beda895f789400bafc1ceb39c4c5b4bf29c7a80ef4b7127f806e1e",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/20/index.html",
+        "apps/storybook-svelte/public/local/20/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/21/index.html",
+      "sha256": "bbe3ab65566ed9f3df9add342ad0b809bf22e8a3a105bb9f70fed923edc12b30",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/21/index.html",
+        "apps/storybook-svelte/public/local/21/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/22/index.html",
+      "sha256": "b5e77674e0ac061127b253caa7383674e6f501f105768c949f68b2f29343389a",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/22/index.html",
+        "apps/storybook-svelte/public/local/22/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/23/index.html",
+      "sha256": "3dc9522e810847640784edcd7c8b3de1fd4d881ff5da36c02909ace537a0e646",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/23/index.html",
+        "apps/storybook-svelte/public/local/23/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/24/index.html",
+      "sha256": "17f98a3e6821bdc0dcd3e55ca03372c2831e058c921b3a7053258251f087156f",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/24/index.html",
+        "apps/storybook-svelte/public/local/24/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/25/index.html",
+      "sha256": "83a7a612fb08092bb70836c456c5073e55ea6d0666ddb2fb05a3a06df1eaa28f",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/25/index.html",
+        "apps/storybook-svelte/public/local/25/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/26/index.html",
+      "sha256": "52e9eaa22ee43dd7a1a14e45fbf585f2c097b38489dada7ab99d0744d29c15b6",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/26/index.html",
+        "apps/storybook-svelte/public/local/26/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/27/index.html",
+      "sha256": "0181e62c86738c7855141df5cf8241f8b53b9f7e72df976445c50706de7948c1",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/27/index.html",
+        "apps/storybook-svelte/public/local/27/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/28/index.html",
+      "sha256": "5c1cfc14b0d4031d91f0cab2ad57954a05103ca24e3be226b294031a222a9675",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/28/index.html",
+        "apps/storybook-svelte/public/local/28/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/29/index.html",
+      "sha256": "ee7a7de11818b552f67442aec197a4e49f62cffdb274ce3529f943d6893b08ba",
+      "bytes": 415,
+      "destinations": [
+        "apps/fixture-svelte/public/local/29/index.html",
+        "apps/storybook-svelte/public/local/29/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/3/index.html",
+      "sha256": "3e82da147ff36da3d2ccc84e1b69d4e776386b9fe82a7152c69b08d87a57bde4",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/3/index.html",
+        "apps/storybook-svelte/public/local/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/4/index.html",
+      "sha256": "8f818e0762ef5cd72202753ef980de3662b0a984ae70aa86c4785cdacc1e10ca",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/4/index.html",
+        "apps/storybook-svelte/public/local/4/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/5/index.html",
+      "sha256": "2c5c635a4a7f778982677b0f4c94af6a1026dee853c821f8bb317d3f3bf78ad1",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/5/index.html",
+        "apps/storybook-svelte/public/local/5/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/6/index.html",
+      "sha256": "49a87757f8cf1a67ac22f329cbbd300eac11c2813019c4784c8b3e7264822d8f",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/6/index.html",
+        "apps/storybook-svelte/public/local/6/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/7/index.html",
+      "sha256": "6ab0419786783380cceee2219d0b6d2f94220441b42985a2071938fefa49012a",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/7/index.html",
+        "apps/storybook-svelte/public/local/7/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/8/index.html",
+      "sha256": "c9d7631b8e912f7bc88ab7756ee02db5a19cf57fac4edf67f368ced33e45c012",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/8/index.html",
+        "apps/storybook-svelte/public/local/8/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/9/index.html",
+      "sha256": "1df96d13539275fa9f57477f66a7b662092b3feed710c010500f48dd55e66f46",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/9/index.html",
+        "apps/storybook-svelte/public/local/9/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/accordion-help/index.html",
+      "sha256": "e7c10cfd0bdbba08918fb6c6ed9400748728d1295e677715dc899b671422d57b",
+      "bytes": 433,
+      "destinations": [
+        "apps/fixture-svelte/public/local/accordion-help/index.html",
+        "apps/storybook-svelte/public/local/accordion-help/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/application/index.html",
+      "sha256": "dec87639af85934ae634082de6e8aac55ac26e02aab76fd4f5a6e7a7a885caa3",
+      "bytes": 410,
+      "destinations": [
+        "apps/fixture-svelte/public/local/application/index.html",
+        "apps/storybook-svelte/public/local/application/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/index.html",
+      "sha256": "80b04362228de3d3d64aca4b34801f3b6cad1d7c6854e001ff36c75fbdfc245c",
+      "bytes": 404,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/index.html",
+        "apps/storybook-svelte/public/local/apply/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-01/index.html",
+      "sha256": "d13b38692028e9458b373d218db036efa275e3a06e84c2c8f41491a74394d819",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-01/index.html",
+        "apps/storybook-svelte/public/local/apply/type-01/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-02/index.html",
+      "sha256": "b9c0da583268e85a5260015737471a59d64106fe95b191b5d8b517dd7b24f5af",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-02/index.html",
+        "apps/storybook-svelte/public/local/apply/type-02/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-03/index.html",
+      "sha256": "35b092c9b982359a89c2278c8ec34d4e301544dd470ee13a2593159c2beb9a8e",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-03/index.html",
+        "apps/storybook-svelte/public/local/apply/type-03/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-04/index.html",
+      "sha256": "b4576be9d5b7ecf681db07ebc6e68be650cb803503508a264f0490350e2cfa01",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-04/index.html",
+        "apps/storybook-svelte/public/local/apply/type-04/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-05/index.html",
+      "sha256": "9640ae95a1afdabb47d797930aa29e25d66f0739497852b878b268e05975751c",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-05/index.html",
+        "apps/storybook-svelte/public/local/apply/type-05/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-06/index.html",
+      "sha256": "c15d11eadce28c723e55bfdb06ed939dbf57db511aaada46ed0ebddfec7d6005",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-06/index.html",
+        "apps/storybook-svelte/public/local/apply/type-06/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-07/index.html",
+      "sha256": "1a56c1c95aad7fa6f9d102c7c15c9cb8584d5d58d67ccf0b4da32e00d3aa7908",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-07/index.html",
+        "apps/storybook-svelte/public/local/apply/type-07/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-08/index.html",
+      "sha256": "c7e7259241d6cbab6e438043da5e0aa0684ef9835ae7c9bb79d38c6b938e9d27",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-08/index.html",
+        "apps/storybook-svelte/public/local/apply/type-08/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-09/index.html",
+      "sha256": "bdaf88bf3aa000b06679dc2d8338c01362348643b2406b8dbedfe25771043e4a",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-09/index.html",
+        "apps/storybook-svelte/public/local/apply/type-09/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-10/index.html",
+      "sha256": "28f28b3fb188335298f426feb3394187182839bad0fd08e5995c3f6a569a7c81",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-10/index.html",
+        "apps/storybook-svelte/public/local/apply/type-10/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-11/index.html",
+      "sha256": "3548ad0084143e1cbb37b57744376dd3bf0fbbb7eca180f9da10fd26ea6fcb41",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-11/index.html",
+        "apps/storybook-svelte/public/local/apply/type-11/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-12/index.html",
+      "sha256": "7fe2975dfbd8e364d7dde4c695e4a86254efa079183d1fe7e91eb9cb48fef5a5",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-12/index.html",
+        "apps/storybook-svelte/public/local/apply/type-12/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-13/index.html",
+      "sha256": "d9e341df3889ee6dc20e665a757c523dae1f2c69f30fecda0315afb45bc72107",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-13/index.html",
+        "apps/storybook-svelte/public/local/apply/type-13/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-14/index.html",
+      "sha256": "96972bd381255971a3ced36ec590bc95b5a94b94ec8685e09a5ca359731ef8ec",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-14/index.html",
+        "apps/storybook-svelte/public/local/apply/type-14/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-15/index.html",
+      "sha256": "e493110e36bbfd48f6e5a9c918fbc98972c5a04e95c9c36263fa1b944a478816",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-15/index.html",
+        "apps/storybook-svelte/public/local/apply/type-15/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-16/index.html",
+      "sha256": "b0f1a11c9c4c2936cd38aec6fb323c7a19737b3382848df5447e7bf2cec6bb29",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-16/index.html",
+        "apps/storybook-svelte/public/local/apply/type-16/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-17/index.html",
+      "sha256": "3f478ebd69e02f1619058153867f9321979827d4e8883a6ec2defd27e050c8f8",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-17/index.html",
+        "apps/storybook-svelte/public/local/apply/type-17/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-18/index.html",
+      "sha256": "523d32bd0c033b5ac124c477d5b3b97b776d1d249940c3fc5f03d5d727c03077",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-18/index.html",
+        "apps/storybook-svelte/public/local/apply/type-18/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-19/index.html",
+      "sha256": "9c43b072515829d162871837f3def618688b1ba14ffab5e1fa98e87e7ba1cd3b",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-19/index.html",
+        "apps/storybook-svelte/public/local/apply/type-19/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-20/index.html",
+      "sha256": "89aa42e397bdcf4f3177c597c00634938e056ec6e1acf0b473319b5482e601db",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-20/index.html",
+        "apps/storybook-svelte/public/local/apply/type-20/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-21/index.html",
+      "sha256": "150f321dbafeaf28982acb4e17a5110c477ebc9eb38f32058a860e4705d1dcc0",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-21/index.html",
+        "apps/storybook-svelte/public/local/apply/type-21/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-22/index.html",
+      "sha256": "8aff48ad9078b0537011e240efba4596e0277db4c2781e5298103e9714178620",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-22/index.html",
+        "apps/storybook-svelte/public/local/apply/type-22/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-23/index.html",
+      "sha256": "cf79815639217daf6a47e648295bd572f1bb6a9ad9a5a40d0ca7993fe3b40a25",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-23/index.html",
+        "apps/storybook-svelte/public/local/apply/type-23/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-24/index.html",
+      "sha256": "a77211c1e4d8a976e7950de5ddc5404b7ac7172ff1824226835cd1ff50c01b91",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-24/index.html",
+        "apps/storybook-svelte/public/local/apply/type-24/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-25/index.html",
+      "sha256": "fb916ddd171d7870476e8d620039a7fdd5d7696f9187611f5c1a543530b79baa",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-25/index.html",
+        "apps/storybook-svelte/public/local/apply/type-25/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-26/index.html",
+      "sha256": "134d847f72a03d01f7619fc513392e56117b182383dcc794f6834c2cb27b92e4",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-26/index.html",
+        "apps/storybook-svelte/public/local/apply/type-26/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-27/index.html",
+      "sha256": "0fa740e069b4c3c2511faa5ad3cb58adfb5ac50d3b37fe7543dee91f0a95e7a8",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-27/index.html",
+        "apps/storybook-svelte/public/local/apply/type-27/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-28/index.html",
+      "sha256": "370c0539d968a5e2f2c1a83f8e55d1389f115ad660e0ae5eaf8aa717198b7e1a",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-28/index.html",
+        "apps/storybook-svelte/public/local/apply/type-28/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-29/index.html",
+      "sha256": "9182f739e3590439e6cbf6eaeb485b6f259b1299259fc1e46f803621eb5be710",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-29/index.html",
+        "apps/storybook-svelte/public/local/apply/type-29/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-30/index.html",
+      "sha256": "dab509306565053129a38e9f11a74ba59a868270d27009d0017901a691d1d1c1",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-30/index.html",
+        "apps/storybook-svelte/public/local/apply/type-30/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-31/index.html",
+      "sha256": "f6f738cb818302e5458ffefd22cc9b4bc64027a9db532d1ac7f5f7af85908c1f",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-31/index.html",
+        "apps/storybook-svelte/public/local/apply/type-31/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-32/index.html",
+      "sha256": "59e4d37aeb9bca4e0b3f00c2189f499b7491eb299756674fb149486363bcb55b",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-32/index.html",
+        "apps/storybook-svelte/public/local/apply/type-32/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-33/index.html",
+      "sha256": "2bfcabbf9dc34bf0cfb945b1690235fff2bbaa14a7ae9e548228abfa76b2d251",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-33/index.html",
+        "apps/storybook-svelte/public/local/apply/type-33/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-34/index.html",
+      "sha256": "3465092ce980f88dd588cd515c74ba58ed5c65299c9caedff870d83579b1f9a7",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-34/index.html",
+        "apps/storybook-svelte/public/local/apply/type-34/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-35/index.html",
+      "sha256": "3d16d498b5751f3b7c1044ba1d2bbf1c0b4b29fbc221576939b7c0f5d272e6d8",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-35/index.html",
+        "apps/storybook-svelte/public/local/apply/type-35/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-36/index.html",
+      "sha256": "97403b47a976935f8254fe42bd35b31dc6e7cb494cf776319b4ff1d376a93391",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-36/index.html",
+        "apps/storybook-svelte/public/local/apply/type-36/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-37/index.html",
+      "sha256": "1c92e37c9322b8cb079e20520bd29be2542d441249f95bdd8152e3852062afbe",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-37/index.html",
+        "apps/storybook-svelte/public/local/apply/type-37/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-38/index.html",
+      "sha256": "1e134df043889d524e3900ce29797755788427fa5f526b4da2358a32c429caf4",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-38/index.html",
+        "apps/storybook-svelte/public/local/apply/type-38/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-39/index.html",
+      "sha256": "44bcb043a8120a93ab1256ce3a00095c4411f034f61250ce465aa95242af0e28",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-39/index.html",
+        "apps/storybook-svelte/public/local/apply/type-39/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/apply/type-40/index.html",
+      "sha256": "62338a101c9c5b47d3de730b65428ce680f8762d7769169236493d2764955e15",
+      "bytes": 488,
+      "destinations": [
+        "apps/fixture-svelte/public/local/apply/type-40/index.html",
+        "apps/storybook-svelte/public/local/apply/type-40/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/busan/index.html",
+      "sha256": "5acf81594c43b321d21e5df55b10331043f4a55fb80abc9556b23483e31c82f3",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/busan/index.html",
+        "apps/storybook-svelte/public/local/busan/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/en/index.html",
+      "sha256": "7c8138fa542dd837aa05ca44ab3d8ab9eab4416605ab8719c5403ad1f3693534",
+      "bytes": 389,
+      "destinations": [
+        "apps/fixture-svelte/public/local/en/index.html",
+        "apps/storybook-svelte/public/local/en/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/external-specimen/index.html",
+      "sha256": "fac255eb6a219e592d7b36c3609253194ef77cb72528d032e461842f99ef027f",
+      "bytes": 430,
+      "destinations": [
+        "apps/fixture-svelte/public/local/external-specimen/index.html",
+        "apps/storybook-svelte/public/local/external-specimen/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/help/index.html",
+      "sha256": "a5d221c72a2531d131d3d1cc1add38f912d657ccb5298118e2a7528d9b99e7b8",
+      "bytes": 409,
+      "destinations": [
+        "apps/fixture-svelte/public/local/help/index.html",
+        "apps/storybook-svelte/public/local/help/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/history/index.html",
+      "sha256": "4f567e3270c8c83db2474e3d086c13c853902b1a258030f5fb44b42b3b162693",
+      "bytes": 406,
+      "destinations": [
+        "apps/fixture-svelte/public/local/history/index.html",
+        "apps/storybook-svelte/public/local/history/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/home/index.html",
+      "sha256": "a3faac92e8be82131a88937031886dd644a8b6a03cef73645640adf3a140bee0",
+      "bytes": 417,
+      "destinations": [
+        "apps/fixture-svelte/public/local/home/index.html",
+        "apps/storybook-svelte/public/local/home/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/ja/index.html",
+      "sha256": "df566f910432ab627ae69f604d6a520734ba0446a652eb7ac52199f1fb8d4307",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/ja/index.html",
+        "apps/storybook-svelte/public/local/ja/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/ko/index.html",
+      "sha256": "16f65594ff4e71bb8333d8b01296ec3641524afeec28b28ebd31515a50bdaf07",
+      "bytes": 393,
+      "destinations": [
+        "apps/fixture-svelte/public/local/ko/index.html",
+        "apps/storybook-svelte/public/local/ko/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/long/index.html",
+      "sha256": "977cc14383a9a7321a00900ea3ef33ee3964781a4cb91a038b307e37f0556314",
+      "bytes": 473,
+      "destinations": [
+        "apps/fixture-svelte/public/local/long/index.html",
+        "apps/storybook-svelte/public/local/long/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/maintenance/index.html",
+      "sha256": "fac565944bd8fdef8033652ee1568a329b6161d16d4c393021d2ecdf13b504f5",
+      "bytes": 424,
+      "destinations": [
+        "apps/fixture-svelte/public/local/maintenance/index.html",
+        "apps/storybook-svelte/public/local/maintenance/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/notice/a/index.html",
+      "sha256": "39e2a5ee743e7bcf83aa85c716bc5c4d0380ff17266ef13df47624f168464a7d",
+      "bytes": 421,
+      "destinations": [
+        "apps/fixture-svelte/public/local/notice/a/index.html",
+        "apps/storybook-svelte/public/local/notice/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/notice/b/index.html",
+      "sha256": "236af017553bec8f3a296a42ca88080c3a16713621489ff48f4a290dcb7f1486",
+      "bytes": 421,
+      "destinations": [
+        "apps/fixture-svelte/public/local/notice/b/index.html",
+        "apps/storybook-svelte/public/local/notice/b/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/parent/index.html",
+      "sha256": "b39750b3a2484c8f905224fc6a9a8b17fa6b7c809f5195e9bedf824b7de6d25b",
+      "bytes": 405,
+      "destinations": [
+        "apps/fixture-svelte/public/local/parent/index.html",
+        "apps/storybook-svelte/public/local/parent/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/policy/index.html",
+      "sha256": "1cf55f313053cb14362886c8906b2067f3c89c7201f38f73f66ab2d3afe3a897",
+      "bytes": 403,
+      "destinations": [
+        "apps/fixture-svelte/public/local/policy/index.html",
+        "apps/storybook-svelte/public/local/policy/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/privacy/index.html",
+      "sha256": "6cc3761a45f799e679e17dfc2d0ed259b996739df8e94c13a95da98fdb4487dd",
+      "bytes": 428,
+      "destinations": [
+        "apps/fixture-svelte/public/local/privacy/index.html",
+        "apps/storybook-svelte/public/local/privacy/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/process/a/index.html",
+      "sha256": "5c6cec39791917a007a955aff4d69a22d4020c9a0387d6f65aa00fbe3e85d986",
+      "bytes": 408,
+      "destinations": [
+        "apps/fixture-svelte/public/local/process/a/index.html",
+        "apps/storybook-svelte/public/local/process/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/profile/index.html",
+      "sha256": "bbaf381f1276dd95f3b22a647313b2ea0a96e027c94b13ed0c0a464de5709155",
+      "bytes": 400,
+      "destinations": [
+        "apps/fixture-svelte/public/local/profile/index.html",
+        "apps/storybook-svelte/public/local/profile/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/results/index.html",
+      "sha256": "17677bba90f6d04f41019d972764f6b6ea8b325eeac3b061bb4af6cb4165d2c8",
+      "bytes": 420,
+      "destinations": [
+        "apps/fixture-svelte/public/local/results/index.html",
+        "apps/storybook-svelte/public/local/results/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/search/index.html",
+      "sha256": "fbd1af31e4426877e25d7e924085768bdeefc0e946706fbaab33476548705a4d",
+      "bytes": 391,
+      "destinations": [
+        "apps/fixture-svelte/public/local/search/index.html",
+        "apps/storybook-svelte/public/local/search/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/seoul/index.html",
+      "sha256": "20967b73c59bc00bf34c70138708caecdea86ed7855182052365ff35f65507ac",
+      "bytes": 390,
+      "destinations": [
+        "apps/fixture-svelte/public/local/seoul/index.html",
+        "apps/storybook-svelte/public/local/seoul/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/separate-en/index.html",
+      "sha256": "e1cee4c5f129c7bea8b00f07812b028c80bcaffa256c12ffce6bb8f6c9e306f8",
+      "bytes": 398,
+      "destinations": [
+        "apps/fixture-svelte/public/local/separate-en/index.html",
+        "apps/storybook-svelte/public/local/separate-en/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/support/index.html",
+      "sha256": "64703e3fdae24954762d0a92ef3214f3b82f338d78065a504bf4adf41d5c60cd",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-svelte/public/local/support/index.html",
+        "apps/storybook-svelte/public/local/support/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/tool/0/index.html",
+      "sha256": "ce349e462865e2218d745596428eef8ede42f228aa03f81f7955490e1fca9e2e",
+      "bytes": 409,
+      "destinations": [
+        "apps/fixture-svelte/public/local/tool/0/index.html",
+        "apps/storybook-svelte/public/local/tool/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/tool/1/index.html",
+      "sha256": "efdbdf5bbce8a2d8382522a78e0b02a2a259c39c007595baae341baaa9200349",
+      "bytes": 409,
+      "destinations": [
+        "apps/fixture-svelte/public/local/tool/1/index.html",
+        "apps/storybook-svelte/public/local/tool/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/tool/2/index.html",
+      "sha256": "53df55ab1b1aed2c55d24b7a256248affe0b7434c17c08c4f9c20deb9558f4e4",
+      "bytes": 409,
+      "destinations": [
+        "apps/fixture-svelte/public/local/tool/2/index.html",
+        "apps/storybook-svelte/public/local/tool/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/tool/3/index.html",
+      "sha256": "681894bee81d9a3732060ff972dbabbf3bc990cf2b750b5de59484457b5252e0",
+      "bytes": 409,
+      "destinations": [
+        "apps/fixture-svelte/public/local/tool/3/index.html",
+        "apps/storybook-svelte/public/local/tool/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independent local test HTML authored from shared semantic href/label fixture data; no upstream KRDS markup or renderer code copied",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-svelte-logs/local-destination-inventory.json",
+        "apps/fixture-svelte/scripts/generate-local-destinations.py"
+      ],
+      "sourcePath": "apps/fixture-svelte/public/local/tool/4/index.html",
+      "sha256": "da0e8d29a0158bf539dad8a0c32371d8feadd9d89750752c516a280bb1c2fe7b",
+      "bytes": 409,
+      "destinations": [
+        "apps/fixture-svelte/public/local/tool/4/index.html",
+        "apps/storybook-svelte/public/local/tool/4/index.html"
+      ]
+    }
+  ],
+  "sourceConditions": [
+    {
+      "sourceId": "krds-resource-resources-css-common-common.css",
+      "sourceSha256": "92942dcc081821af80677645247ab4ebfedea219fac8729275368ee022e34aab",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-component-component.css",
+      "sourceSha256": "bc8df76feeb4012a6cb16a13f8702f95a67162e7d2dbf6aa5642be94daefa812",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-token-krds_tokens.css",
+      "sourceSha256": "2e06b0d8393bca671edaab1ca0c7c42ded2ae03b3d03c6ede60f763a93d81569",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-tokens-transformed_tokens.json",
+      "sourceSha256": "5eb255d593ec0b0fa41207223df1288f97295b632dfac50629e60e4e4dc0a52e",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    }
+  ],
+  "sourceConditionsNote": "Shared application stylesheet adaptations retain these existing source conditions. Exact static assets/text snapshots are enumerated here; final bundled runtime/dependency and full rendered-page source clearance remain acceptance work, not supplied by independent MIT.",
+  "termsCopies": [
+    {
+      "sourcePath": "LICENSES/MIT.txt",
+      "destination": "LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "sourcePath": "LICENSES/KRDS-copyright-en.html",
+      "destination": "LICENSES/KRDS-copyright-en.html.txt",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "sourcePath": "LICENSES/KOGL-license-policy.html",
+      "destination": "LICENSES/KOGL-license-policy.html.txt",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    }
+  ],
+  "termsHashes": {
+    "LICENSES/MIT.txt": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+    "LICENSES/KRDS-copyright-en.html": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+    "LICENSES/KOGL-license-policy.html": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+  },
+  "exclusions": [
+    {
+      "origin": "macOS System Voices / Yuna",
+      "rightsStatus": "unresolved",
+      "distributedIn": [],
+      "knownRemovedBytes": 157588,
+      "evidence": ".superpowers/sdd/PLAN/task-media-license-note.md",
+      "reason": "No public redistribution clearance. Independent MIT and KOGL do not supply Apple voice permission."
+    }
+  ]
+}

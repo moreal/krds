@@ -1,0 +1,110 @@
+{
+  "name": "@solidjs/vite-plugin",
+  "version": "3.0.0-next.53",
+  "description": "solid-js integration plugin for Vite",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "files": [
+    "dist",
+    "virtual-solid-manifest.d.ts",
+    "boundary-modules.d.ts"
+  ],
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/src/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "node": "./dist/cjs/index.cjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/cjs/index.cjs"
+    },
+    "./virtual-solid-manifest": {
+      "types": "./virtual-solid-manifest.d.ts"
+    },
+    "./boundary-modules": {
+      "types": "./boundary-modules.d.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solidjs/solid-vite-plugin.git"
+  },
+  "keywords": [
+    "vite",
+    "vite plugin",
+    "vitejs",
+    "vitejs plugin",
+    "vite-plugin",
+    "solid"
+  ],
+  "author": "Alexandre Mouton-Brady <amoutonbrady@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/solidjs/solid-vite-plugin/issues"
+  },
+  "homepage": "https://github.com/solidjs/solid-vite-plugin#readme",
+  "dependencies": {
+    "@ampproject/remapping": "^2.3.0",
+    "@babel/core": "^7.23.3",
+    "@solidjs/babel-plugin": "^2.0.0-rc.19",
+    "@solidjs/compiler": "^2.0.0-rc.19",
+    "@types/babel__core": "^7.20.4",
+    "merge-anything": "^5.1.7",
+    "vitefu": "^1.0.4"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@changesets/cli": "^2.30.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@skypack/package-check": "^0.2.2",
+    "@solidjs/diagnostics": "2.0.0-rc.19",
+    "@solidjs/start-devtools": "^1.0.0-next.3",
+    "@solidjs/web": "^2.0.0-rc.19",
+    "@types/node": "^24.0.0",
+    "cypress": "^14.0.0",
+    "cypress-visual-regression": "^5.2.2",
+    "cypress-vite": "^1.6.0",
+    "cypress-wait-until": "^3.0.2",
+    "prettier": "^3.1.0",
+    "rollup": "^4.5.0",
+    "rollup-plugin-cleaner": "^1.0.0",
+    "solid-js": "^2.0.0-rc.19",
+    "typescript": "^5.2.2",
+    "vite": "^8.2.1",
+    "vitest": "^4.1.11"
+  },
+  "peerDependencies": {
+    "@solidjs/start-devtools": "^1.0.0-next.2",
+    "@solidjs/web": "^2.0.0-rc.19",
+    "@testing-library/jest-dom": "^5.16.6 || ^5.17.0 || ^6.0.0 || ^7.0.0",
+    "solid-js": "^2.0.0-rc.19",
+    "vite": "^8.0.0 || ^9.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@solidjs/start-devtools": {
+      "optional": true
+    },
+    "@testing-library/jest-dom": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "rollup -c && tsc --emitDeclarationOnly",
+    "dev": "rollup -c -w",
+    "release": "pnpm build && changeset publish",
+    "check": "package-check",
+    "test": "node scripts/test-examples.ts",
+    "test:unit": "vitest run",
+    "test:ecosystem": "node scripts/test-ecosystem.mjs"
+  }
+}

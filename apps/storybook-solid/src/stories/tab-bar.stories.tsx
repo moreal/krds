@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-tab-bar', title: 'KRDS/tab-bar', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const ThreeItems: Story = { name: "three-items", parameters: { __id: "krds-tab-bar--three-items" }, render: () => <CatalogStory componentId="tab-bar" caseId="three-items"/> };
+export const FiveItems: Story = { name: "five-items", parameters: { __id: "krds-tab-bar--five-items" }, render: () => <CatalogStory componentId="tab-bar" caseId="five-items"/> };
+export const WithBadge: Story = { name: "with-badge", parameters: { __id: "krds-tab-bar--with-badge" }, render: () => <CatalogStory componentId="tab-bar" caseId="with-badge"/> };
+export const AllMenu: Story = { name: "all-menu", parameters: { __id: "krds-tab-bar--all-menu" }, render: () => <CatalogStory componentId="tab-bar" caseId="all-menu"/> };
+export const LongTranslatedLabel: Story = { name: "long-translated-label", parameters: { __id: "krds-tab-bar--long-translated-label" }, render: () => <CatalogStory componentId="tab-bar" caseId="long-translated-label"/> };
+export const ScrollPage: Story = { name: "scroll-page", parameters: { __id: "krds-tab-bar--scroll-page" }, render: () => <CatalogStory componentId="tab-bar" caseId="scroll-page"/> };

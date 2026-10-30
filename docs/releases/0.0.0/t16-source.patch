@@ -1,0 +1,1106 @@
+diff --git a/tools/verify-release.mjs b/tools/verify-release.mjs
+new file mode 100644
+index 0000000..05a74d2
+--- /dev/null
++++ b/tools/verify-release.mjs
+@@ -0,0 +1,271 @@
++#!/usr/bin/env node
++/** Read-only acceptance of real executions. Never builds, publishes, pushes, tags or signs. */
++import {createHash} from 'node:crypto';
++import {existsSync,readFileSync,readdirSync,realpathSync,statSync,mkdirSync,writeFileSync} from 'node:fs';
++import {resolve,relative,dirname,isAbsolute,join} from 'node:path';
++import {spawnSync} from 'node:child_process';
++import {fileURLToPath} from 'node:url';
++const stable=['solid','react','svelte','vue','lit','qwik','angular'];
++const pilots=['button','native-select','modal','tabs','date-input','calendar'];
++const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
++const hex=value=>typeof value==='string'&&/^[a-f0-9]{64}$/u.test(value);
++const nonempty=value=>typeof value==='string'&&value.trim().length>0;
++const equalSet=(actual,expected)=>Array.isArray(actual)&&actual.length===expected.length&&new Set(actual).size===actual.length&&expected.every(item=>actual.includes(item));
++export function milestones(checks){
++ const combine=rows=>!rows.length?'blocked':rows.some(row=>row.status==='failed')?'failed':rows.every(row=>row.status==='passed')?'passed':'blocked';
++ const M1=combine(checks.filter(row=>row.milestone==='M1')),M2=combine(checks.filter(row=>row.milestone==='M2'));
++ const M3=combine([...checks.filter(row=>row.milestone==='M3'),{status:M1},{status:M2}]);
++ return {M1,M2,M3,exitCode:M3==='passed'?0:1};
++}
++export function validateBinding(evidence,candidate){
++ return ['sourceCommit','sourceFingerprint','repositorySourceSha256','lockfileSha256','artifactManifestSha256'].flatMap(key=>!candidate?.[key]||evidence?.[key]!==candidate[key]?[`missing/stale candidate ${key}`]:[]);
++}
++export function validateExecutedRows(rows,required){
++ if(!Array.isArray(rows)||!rows.length)return ['zero/missing actual executed rows'];
++ const errors=[];const ids=new Set();
++ for(const row of rows){if(ids.has(row.id))errors.push(`duplicate outcome ${row.id}`);ids.add(row.id);if(row.status!=='passed'||row.executed!==true||row.exitCode!==0||row.skipped===true||!Array.isArray(row.observations)||!row.observations.length)errors.push(`missing actual passed outcome ${row.id}`);}
++ for(const id of required)if(!ids.has(id))errors.push(`missing required outcome ${id}`);
++ return errors;
++}
++export function validateBrowserRows(rows,requiredChecks=browserChecks.native){
++ if(!Array.isArray(rows)||rows.length!==9)return ['all nine actual browser/timezone outcomes required'];
++ const errors=[];const seen=new Set();
++ for(const row of rows){const key=`${row.browser}:${row.timezoneId}`;if(seen.has(key))errors.push(`duplicate browser outcome ${key}`);seen.add(key);if(row.status!=='passed'||row.skipped===true||row.executed===false||row.exitCode!==undefined&&row.exitCode!==0||!nonempty(row.version)||!Array.isArray(row.checks)||!row.checks.length||!requiredChecks.every(check=>row.checks.includes(check)))errors.push(`missing actual browser outcome ${key}`);}
++ for(const browser of ['chromium','firefox','webkit'])for(const timezone of ['UTC','Asia/Seoul','America/Los_Angeles'])if(!seen.has(`${browser}:${timezone}`))errors.push(`missing ${browser}:${timezone}`);
++ return errors;
++}
++function safeFile(root,path){
++ root=realpathSync(root);
++ if(!nonempty(path)||path.includes('\\'))throw new Error('invalid evidence path');
++ const full=resolve(root,path),rel=relative(root,full);
++ if(rel==='..'||rel.startsWith('../')||isAbsolute(rel))throw new Error(`evidence escapes repository: ${path}`);
++ const real=realpathSync(full),resolved=relative(root,real);
++ if(resolved==='..'||resolved.startsWith('../')||!statSync(real).isFile())throw new Error(`evidence must be a repository file: ${path}`);
++ return real;
++}
++export function validateSnapshot(root,snapshot,expected=inventorySnapshot(root)){
++ const errors=[];
++ if(!Array.isArray(snapshot?.files)||!snapshot.files.length)return ['empty/missing executed snapshot'];
++ if(!equalSet(snapshot.files.map(file=>file.path),expected.files.map(file=>file.path)))errors.push('complete snapshot inventory/path set differs from current source');
++ const normalized=files=>files.map(file=>[file.path,file.sha256,file.bytes]).sort(([a],[b])=>a.localeCompare(b));if(JSON.stringify(normalized(snapshot.files))!==JSON.stringify(normalized(expected.files)))errors.push('complete current snapshot record inventory differs from expected source/output');
++ if(hash(JSON.stringify(snapshot.files))!==snapshot.sha256)errors.push('snapshot aggregate hash mismatch');
++ const seen=new Set();
++ for(const record of snapshot.files){
++  try{if(seen.has(record.path))throw new Error('duplicate path');seen.add(record.path);const bytes=readFileSync(safeFile(root,record.path));if(!hex(record.sha256)||hash(bytes)!==record.sha256||record.bytes!==undefined&&record.bytes!==bytes.length)throw new Error('stale bytes');}
++  catch(error){errors.push(`${record.path}: ${error.message}`);}
++ }
++ return errors;
++}
++export function inventorySnapshot(root){
++ const records=[];
++ function visit(path){for(const entry of readdirSync(resolve(root,path),{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){if(['node_modules','.git'].includes(entry.name))continue;if(entry.isSymbolicLink())throw new Error('Source inventory symlink requires explicit producer handling');const next=path?`${path}/${entry.name}`:entry.name;if(entry.isDirectory())visit(next);else if(entry.isFile()){const bytes=readFileSync(resolve(root,next));records.push({path:next,sha256:hash(bytes),bytes:bytes.length});}}}
++ visit('');return {files:records,sha256:hash(JSON.stringify(records))};
++}
++export function canonicalArtifactHandoff(input,inspected){
++ for(const actual of inspected.packages){const original=input.packages.find(item=>item.name===actual.name);if(!original||!actual.files?.length||['files','packedManifest','sha256','normalizedContentSha256'].some(key=>JSON.stringify(original[key])!==JSON.stringify(actual[key])))throw new Error(`Tarball metadata/inventory differs from actual unpacked bytes: ${actual.name}`);}
++ return inspected;
++}
++export function validateMatrixCommand(command,args,recordedNode,selectedNode=process.versions.node){
++ const errors=[];if(process.versions.node!==selectedNode)errors.push('Verifier itself is not the selected Node');
++ try{if(!Array.isArray(command)||realpathSync(command[0])!==realpathSync(process.execPath))errors.push('Recorded executable is not the selected Node identity');}catch{errors.push('Recorded executable identity unavailable');}
++ if(JSON.stringify(command?.slice(1))!==JSON.stringify(args))errors.push('Recorded argv differs');
++ if(recordedNode!==undefined&&recordedNode!==selectedNode)errors.push('Recorded Node version differs from selected version');
++ return errors;
++}
++export async function collectRetainedStageInventory(report,directory,targets){
++ const {collectStageEvidence}=await import('../tests/compatibility/stage-evidence.mjs');const records=new Map();
++ for(const stage of report.stages??[]){if(!targets.includes(stage.framework))continue;if(!stage.artifactEvidence)throw new Error(`Missing actual retained stage evidence ${stage.framework}/${stage.name}`);
++  const actual=await collectStageEvidence(stage.framework,stage.name,join(directory,stage.framework),report.sourceBeforeSha256);
++  if(JSON.stringify(actual)!==JSON.stringify(stage.artifactEvidence))throw new Error('Recorded stage inventory differs from actual source-bound consumed artifacts');
++  for(const record of [...actual.files,...actual.metadata])records.set(record.path,record);
++ }
++ if(!records.size)throw new Error('No genuine retained stage artifact inventory');return [...records.values()].sort((a,b)=>a.path.localeCompare(b.path));
++}
++export async function inspectIndexedEvidence(root,name,index,candidate,scopes={}){
++ const {inspectReleaseEvidence}=await import('./release-evidence/producers.mjs');return inspectReleaseEvidence(root,name,index,candidate,scopes);
++}
++export function validateGitTree(root,tree,sourcePaths){
++ const expected=new Map(tree.map(entry=>[entry.path,entry.oid]));const errors=[];
++ for(const path of sourcePaths){if(!expected.has(path)){errors.push(`untracked candidate source: ${path}`);continue;}try{const bytes=readFileSync(safeFile(root,path));const oid=createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');if(oid!==expected.get(path))errors.push(`candidate bytes differ from HEAD: ${path}`);}catch{errors.push(`missing HEAD source: ${path}`);}}
++ for(const path of expected.keys())if(!sourcePaths.includes(path))errors.push(`deleted HEAD source: ${path}`);
++ return errors;
++}
++export function selectScope(packages,scope){
++ if(!['stable','preview','all'].includes(scope))throw new Error(`Unknown evidence scope ${scope}`);
++ return packages.filter(item=>scope==='all'||(scope==='stable'?item.name!=='@unofficial-krds/solid-next':['assets','contracts','fonts','styles','tokens','solid-next'].some(id=>item.name===`@unofficial-krds/${id}`)));
++}
++export async function inspectConsumerEvidence(root,report,scope,context){
++ try{
++  const {inspectConsumers}=await import('../tests/consumers/evidence.mjs');
++  if(typeof inspectConsumers!=='function')return {status:'blocked',details:['Canonical consumer producer evidence validator is not implemented']};
++  const result=await inspectConsumers(report,{scope,manifest:context.manifest,baseRoot:root});
++  return {status:'passed',details:[`${scope} canonical consumer step/resolution/lock/installed-byte evidence validated`],paths:result?.paths??[]};
++ }catch(error){return {status:error.code==='EVIDENCE_FAILED'?'failed':'blocked',details:[`Canonical ${scope} consumer evidence: ${error.message}`]};}
++}
++export function executionStatus({current,status,exitCode,skipped,executed}){
++ if(!current||skipped===true||executed===false||status==='skipped'||status==='unsupported'||status===undefined)return 'blocked';
++ if(status==='failed'||Number.isInteger(exitCode)&&exitCode!==0)return 'failed';
++ return status==='passed'&&exitCode===0?'passed':'blocked';
++}
++export function selectMatrixRun(root,kind,targets){
++ const base=`test-results/t13/${kind}-runs`;
++ if(!existsSync(join(root,base)))return {status:'blocked',details:[`Missing actual ${kind} matrix runs`]};
++ for(const name of readdirSync(join(root,base)).sort().reverse()){
++  if(!statSync(join(root,base,name)).isDirectory())continue;
++  const path=`${base}/${name}/results.json`;
++  if(!existsSync(join(root,path))){
++   const before=`${base}/${name}/source-before.json`;
++   if(existsSync(join(root,before))){try{const snapshot=JSON.parse(readFileSync(safeFile(root,before),'utf8'));const recorded=[...stable,'solid-next'].filter(id=>snapshot.files?.some(file=>file.path.startsWith(`packages/${id}/`)));if(recorded.length&&!targets.some(id=>recorded.includes(id)))continue;}catch{}}
++   return {status:'blocked',details:[`Latest relevant matrix is unfinished/missing: ${path}`]};
++  }
++  try{const report=JSON.parse(readFileSync(safeFile(root,path),'utf8'));const recorded=report.options?.frameworks??report.rows?.map(row=>row.framework);if(!Array.isArray(recorded)||!recorded.length)return {status:'blocked',details:[`Latest matrix has no target identity: ${path}`]};if(!targets.some(id=>recorded.includes(id)))continue;return {status:'selected',path,report};}
++  catch(error){return {status:'blocked',details:[`Latest matrix is unreadable: ${path}: ${error.message}`]};}
++ }
++ return {status:'blocked',details:[`No designated relevant ${kind} matrix`]};
++}
++export function scopedSnapshot(snapshot,targets){
++ const foreign=[...stable,'solid-next'].filter(id=>!targets.includes(id));
++ const files=snapshot.files.filter(file=>!foreign.some(id=>file.path.startsWith(`packages/${id}/`)||file.path.startsWith(`apps/fixture-${id}/`)));
++ return {files,sha256:hash(JSON.stringify(files))};
++}
++const browserChecks={
++ native:['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests'],
++ qwik:['production SSR serialization','cold render QRL','first action one event','SSR native node retained','first select one event','date-only form','open-modal unmount cleanup','zero page errors/remote requests'],
++ angular:['official partial APF CLI SSR','provideClientHydration node reuse','OnPush zoneless first click one event','Reactive Forms select/date controls','date-only FormData','tabs linked state','open-modal application destroy cleanup','no errors/remote requests']
++};
++function sourceTree(root){
++ const records=[];
++ const omit=new Set(['node_modules','.git','.nx','.yarn','.angular','.svelte-kit','.vite','dist','test-results','coverage','__screenshots__','.DS_Store']);
++ function visit(path){if(!existsSync(resolve(root,path)))return;const info=statSync(resolve(root,path));if(info.isDirectory()){for(const entry of readdirSync(resolve(root,path),{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){if(omit.has(entry.name)||entry.isSymbolicLink()||path==='docs'&&['execution','releases'].includes(entry.name))continue;visit(`${path}/${entry.name}`);}}else if(info.isFile())records.push([path,hash(readFileSync(resolve(root,path)))]);}
++ for(const path of ['package.json','yarn.lock','.yarnrc.yml','nx.json','PLAN.md','packages','apps','catalog','compatibility','compliance','specs','tests','tools','docs','.github','LICENSES','LICENSE.md','ATTRIBUTION.md'])visit(path);
++ return {sha256:hash(JSON.stringify(records)),fileCount:records.length,paths:records.map(([path])=>path)};
++}
++export async function verifyRelease(root,{write=true}={}){
++ root=realpathSync(root);const checks=[],evidence=[];
++ const read=path=>JSON.parse(readFileSync(safeFile(root,path),'utf8'));
++ const digest=path=>hash(readFileSync(safeFile(root,path)));
++ const record=(id,milestone,status,details,paths=[])=>{checks.push({id,milestone,status,details});for(const path of paths){try{evidence.push({path:relative(root,safeFile(root,path)),sha256:digest(path)});}catch{}}};
++ async function gate(id,milestone,action){try{const result=await action();record(id,milestone,'passed',result?.details??'Validated actual evidence',result?.paths??[]);}catch(error){record(id,milestone,error.code==='ENOENT'||error.code==='EVIDENCE_BLOCKED'?'blocked':error.blocked?'blocked':'failed',[error.message]);}}
++ const blocked=message=>{const error=new Error(message);error.blocked=true;throw error;};
++ const toolchain=read('compatibility/toolchain.json'),identity=read('compliance/project-identity.json');
++ const sourceBefore=sourceTree(root);
++ const git=spawnSync('git',['rev-parse','--verify','HEAD'],{cwd:root,encoding:'utf8'});
++ const sourceCommit=git.status===0?git.stdout.trim():null;
++ const {fingerprint}=await import('../tests/consumers/lib.mjs');
++ let currentFingerprint=null;try{currentFingerprint=await fingerprint();}catch{}
++ const candidate={sourceCommit,sourceFingerprint:currentFingerprint,repositorySourceSha256:sourceBefore.sha256,repositorySourceFileCount:sourceBefore.fileCount,lockfileSha256:digest('yarn.lock'),artifactManifestSha256:existsSync(join(root,'artifacts/manifest.json'))?digest('artifacts/manifest.json'):null};
++ const publicPackages=readdirSync(join(root,'packages')).filter(dir=>existsSync(join(root,'packages',dir,'package.json'))).map(dir=>({dir,pkg:read(`packages/${dir}/package.json`)})).filter(({pkg})=>!pkg.private);
++ const stableVersions=[...new Set(publicPackages.filter(item=>item.dir!=='solid-next').map(item=>item.pkg.version))];
++ const version=stableVersions.length===1?stableVersions[0]:'inconsistent-versions';
++ if(!/^[0-9A-Za-z.-]+$/u.test(version))throw new Error('Unsafe candidate version');
++ const releaseDir=`docs/releases/${version}`;
++ await gate('selected-toolchain','M3',()=>{if(process.versions.node!==toolchain.node.version)throw new Error(`Selected Node ${toolchain.node.version} required; received ${process.versions.node}`);if(read('package.json').packageManager!==toolchain.packageManager.packageManagerField||!/^nodeLinker: pnpm$/mu.test(readFileSync(join(root,'.yarnrc.yml'),'utf8')))throw new Error('Pinned Yarn/nodeLinker differs');return {paths:['compatibility/toolchain.json','yarn.lock','.yarnrc.yml']};});
++ await gate('candidate-commit','M3',()=>{if(!sourceCommit)blocked('HEAD is unborn: no real candidate commit. Content hashes are diagnostic only; no commit was created.');if(process.env.KRDS_RELEASE_SOURCE_SHA&&sourceCommit!==process.env.KRDS_RELEASE_SOURCE_SHA)throw new Error('Candidate differs from requested CI source SHA');
++  const listing=spawnSync('git',['-c','core.fsmonitor=false','ls-tree','-rz','--full-tree',sourceCommit],{cwd:root,encoding:'utf8'});if(listing.status!==0)blocked('Cannot inspect reviewed HEAD tree');
++  const tree=listing.stdout.split('\0').filter(Boolean).map(line=>{const [metadata,path]=line.split('\t');return {path,oid:metadata.split(' ')[2]};}).filter(entry=>sourceBefore.paths.includes(entry.path));
++  const relation=validateGitTree(root,tree,sourceBefore.paths);if(relation.length)blocked(`Candidate is not the reviewed clean HEAD tree; no reproducible version-plan transform is implemented: ${relation.slice(0,8).join('; ')}`);
++  const generated=path=>/^(?:docs\/releases\/|artifacts\/|test-results\/|\.nx\/|\.superpowers\/|\.agents\/|\.codex\/|\.aws\/)/u.test(path);
++  const changed=spawnSync('git',['-c','core.fsmonitor=false','diff','--name-only','--no-ext-diff',sourceCommit],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});if(changed.status!==0||changed.stdout.trim().split('\n').filter(Boolean).some(path=>!generated(path)))blocked('Candidate tracked source/worktree differs from reviewed HEAD');
++  const untracked=spawnSync('git',['-c','core.fsmonitor=false','ls-files','--others','--exclude-standard'],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});if(untracked.status!==0||untracked.stdout.trim().split('\n').filter(Boolean).some(path=>!generated(path)))blocked('Candidate has untracked source outside reviewed HEAD');
++  return {details:[`Reviewed HEAD source bytes match ${sourceCommit}`]};});
++ await gate('stable-catalog-native-stories-requests-behavior','M1',async()=>{const {inspectCoverage}=await import('./check-coverage.mjs');const result=inspectCoverage(root);if(result.errors.length||result.stablePairs!==378||result.acceptedPairs!==378)blocked(`Existing actual coverage gate lacks accepted evidence: ${result.acceptedPairs}/${result.stablePairs} accepted; ${result.errors.length} gaps. ${result.errors.slice(0,12).join('; ')}`);return {details:[result],paths:['catalog/coverage.json','catalog/story-coverage.json','catalog/full-catalog-story-coverage.json']};});
++ const manifests={};
++ async function inspectArtifacts(scope){
++  const path=scope!=='all'&&existsSync(join(root,`artifacts/manifest-${scope}.json`))?`artifacts/manifest-${scope}.json`:'artifacts/manifest.json';
++  const manifest=read(path);
++  if(manifest.debugOnly||manifest.status==='debug-only-source-not-accepted'||manifest.releaseAuthorized!==false)throw new Error('Debug/unauthorized artifact inventory cannot satisfy acceptance');
++  const selectedSource=selectScope(publicPackages.map(({pkg})=>pkg),scope);const expectedNames=selectScope([...stable,'solid-next','assets','contracts','fonts','styles','tokens'].map(id=>({name:`@unofficial-krds/${id}`})),scope).map(item=>item.name);if(!equalSet(selectedSource.map(item=>item.name),expectedNames))blocked(`Missing ${scope} public source identity`);if(!Array.isArray(manifest.packages)||!selectedSource.every(pkg=>manifest.packages.filter(item=>item.name===pkg.name&&item.version===pkg.version).length===1))blocked(`Missing ${scope} candidate identities/versions`);
++  if(!manifest.scopes?.[scope])blocked(`Canonical ${scope} source/build/artifact attestation is missing; global all13 fingerprint cannot substitute`);
++  const {inspect}=await import('./inspect-tarballs.mjs');const inspected=await inspect(manifest,{scope});manifests[scope]=canonicalArtifactHandoff(manifest,inspected);
++  const selected=selectScope(manifest.packages,scope);
++  if(inspected.packages.length!==selected.length)throw new Error(`Artifact inspector has not implemented required ${scope} isolation`);
++  return {paths:[path,...(manifest.scopes[scope].buildEvidence?.path?[manifest.scopes[scope].buildEvidence.path]:[]),...selected.map(item=>item.tarball)],details:[`${selected.length} actual ${scope} tarballs inspected against current source/build bytes`]};
++ }
++ await gate('stable-actual-candidate-tarballs','M1',()=>inspectArtifacts('stable'));
++ await gate('preview-actual-candidate-tarballs','M2',()=>inspectArtifacts('preview'));
++ await gate('all-actual-candidate-tarballs','M3',()=>inspectArtifacts('all'));
++ await gate('stable-outside-tarball-consumers','M1',()=>checkConsumers('stable'));
++ await gate('preview-outside-tarball-consumer','M2',()=>checkConsumers('preview'));
++ await gate('all-outside-tarball-consumers','M3',()=>checkConsumers('all'));
++ async function checkConsumers(scope){
++  const path=scope!=='all'&&existsSync(join(root,`artifacts/consumer-results-${scope}.json`))?`artifacts/consumer-results-${scope}.json`:'artifacts/consumer-results.json';
++  const report=read(path);
++  if(!manifests[scope])blocked(`Missing accepted ${scope} artifact evidence for consumers`);
++  const result=await inspectConsumerEvidence(root,report,scope,{manifest:manifests[scope],candidate});
++  if(result.status==='failed')throw new Error(result.details.join('; '));
++  if(result.status!=='passed')blocked(result.details.join('; '));
++  return result;
++ }
++ async function matrix(kind,targets){
++  const selected=selectMatrixRun(root,kind,targets);if(selected.status!=='selected')blocked(selected.details.join('; '));
++  const {path,report}=selected,directory=dirname(path);
++  const {snapshot}=await import('../tests/compatibility/evidence.mjs');
++  const expected=await snapshot(targets),before=read(`${directory}/source-before.json`),after=read(`${directory}/source-after.json`);
++  if(report.sourceBeforeSha256!==before.sha256||report.sourceAfterSha256!==after.sha256||hash(JSON.stringify(before.files))!==before.sha256||hash(JSON.stringify(after.files))!==after.sha256)blocked(`Selected ${kind} run lacks intact recorded snapshots: ${path}`);
++  const scopedBefore=scopedSnapshot(before,targets),scopedAfter=scopedSnapshot(after,targets);
++  if(scopedBefore.sha256!==scopedAfter.sha256)blocked(`Selected ${kind} target source changed during run: ${path}`);
++  const drift=validateSnapshot(root,scopedAfter,expected);if(drift.length)blocked(`Selected ${kind} run is stale/incomplete; no older fallback: ${drift.slice(0,4).join('; ')}`);
++  function requireExecution(execution,label,codeKey='exitCode',expectedArgs){
++   if(!execution?.command?.length||!execution.log||!hex(execution.logSha256))blocked(`Selected ${kind} execution receipt missing: ${label}`);
++   const identity=validateMatrixCommand(execution.command,expectedArgs,kind==='ssr'?report.node:undefined,toolchain.node.version);if(identity.length)blocked(`Selected ${kind} execution identity differs: ${label}: ${identity.join('; ')}`);
++   const bytes=readFileSync(safeFile(root,execution.log));if(!bytes.length||hash(bytes)!==execution.logSha256)blocked(`Selected ${kind} execution log empty/stale: ${label}`);
++   if(execution?.artifactError&&execution?.[codeKey]===0)blocked(`Selected ${kind} original retained evidence is incomplete: ${label}`);
++   const outcome=executionStatus({current:true,status:execution?.status,exitCode:execution?.[codeKey],skipped:execution?.skipped,executed:execution?.executed});
++   if(outcome==='failed')throw new Error(`Current actual ${kind} execution failed: ${label}`);
++   if(outcome!=='passed'||!execution.command?.length||!execution.log||!hex(execution.logSha256))blocked(`Selected ${kind} execution missing/skipped: ${label}`);
++  }
++  if(kind==='compatibility'){
++   if(report.scope!=='installed exact pins and consuming workspace types/production builds')blocked('Metadata-only compatibility audit is not actual types/build evidence');
++   for(const target of targets){const rows=report.rows?.filter(row=>row.framework===target);if(rows?.length!==1)blocked(`Selected compatibility matrix lacks ${target}`);const row=rows[0];for(const name of ['package-types','package-build','fixture-types','fixture-build']){const workspace=read(name.startsWith('package')?`packages/${target}/package.json`:`apps/fixture-${target}/package.json`).name;requireExecution(row.checks?.find(check=>check.kind===name),`${target}/${name}`,'exitCode',['tools/yarn.mjs','workspace',workspace,name.endsWith('types')?'typecheck':'build:local']);}if(row.status==='failed')throw new Error(`Current actual compatibility row failed: ${target}`);if(row.status!=='passed')blocked(`Unexecuted compatibility row: ${target}`);}
++  }else{
++   if(!targets.every(target=>report.options?.frameworks?.includes(target))||!equalSet(report.options?.browsers?.split(','),['chromium','firefox','webkit'])||!equalSet(report.options?.timezones?.split(','),['UTC','Asia/Seoul','America/Los_Angeles']))blocked('Selected SSR target/browser/timezone matrix is incomplete');
++   for(const target of targets){const stages=report.stages?.filter(stage=>stage.framework===target)??[];for(const stage of stages){const args=stage.name==='native-server-hydration'?['tests/ssr/native.mjs',target]:stage.name==='production-build'?['tools/yarn.mjs','workspace','@unofficial-krds/fixture-qwik','build:local']:stage.name==='precise-resume'?['tests/ssr/qwik/resume.mjs']:stage.name==='cross-browser-resume'?['tests/ssr/qwik/cross-browser.mjs']:stage.name==='partial-apf-ssr'?['tests/ssr/angular/verify.mjs']:['tests/ssr/angular/hydration.mjs'];requireExecution(stage,`${target}/${stage.name}`,'code',args);}}
++   const artifacts=read(`${directory}/tested-artifacts.json`);let retained;try{retained=await collectRetainedStageInventory(report,resolve(root,directory),targets);}catch(error){blocked(`Selected SSR actual retained stage evidence invalid: ${error.message}`);}
++   const expectedArtifacts=await snapshot(targets,{outputs:true,artifactRoots:retained.map(file=>file.path)});const foreign=[...stable,'solid-next'].filter(id=>!targets.includes(id));const selectedArtifacts=scopedSnapshot({...artifacts,files:artifacts.files.filter(file=>!foreign.some(id=>file.path.startsWith(`${directory}/${id}/`)))},targets);
++   if(report.testedArtifactsSha256!==artifacts.sha256||hash(JSON.stringify(artifacts.files))!==artifacts.sha256||validateSnapshot(root,selectedArtifacts,expectedArtifacts).length)blocked('Selected SSR tested output inventory is stale/incomplete');
++   for(const target of targets){const stages=report.stages?.filter(stage=>stage.framework===target);const names=target==='qwik'?['production-build','precise-resume','cross-browser-resume']:target==='angular'?['partial-apf-ssr','native-hydration']:['native-server-hydration'];for(const name of names){const args=name==='native-server-hydration'?['tests/ssr/native.mjs',target]:name==='production-build'?['tools/yarn.mjs','workspace','@unofficial-krds/fixture-qwik','build:local']:name==='precise-resume'?['tests/ssr/qwik/resume.mjs']:name==='cross-browser-resume'?['tests/ssr/qwik/cross-browser.mjs']:name==='partial-apf-ssr'?['tests/ssr/angular/verify.mjs']:['tests/ssr/angular/hydration.mjs'];requireExecution(stages?.find(stage=>stage.name===name),`${target}/${name}`,'code',args);}
++    const browserStage=stages.find(stage=>stage.name===(target==='qwik'?'cross-browser-resume':target==='angular'?'native-hydration':'native-server-hydration'));
++    const raw=readFileSync(safeFile(root,browserStage.log),'utf8').trim().split(/\r?\n/u).reverse().flatMap(line=>{try{const value=JSON.parse(line);return Array.isArray(value)?[value]:Array.isArray(value.results)?[value.results]:[];}catch{return [];}})[0];
++    const outcomes=validateBrowserRows(raw,browserChecks[target==='qwik'?'qwik':target==='angular'?'angular':'native']);if(outcomes.length)blocked(`${target} actual browser evidence invalid: ${outcomes.join('; ')}`);
++   }
++  }
++  return {paths:[path,`${directory}/source-before.json`,`${directory}/source-after.json`,...(kind==='ssr'?[`${directory}/tested-artifacts.json`]:[])],details:[`Designated latest exact ${kind} execution and complete current inventories validated`,...targets]};
++ }
++ for(const [channel,targets]of [['M1',stable],['M2',['solid-next']]]){await gate(`${channel}-compatibility-types-build`,channel,()=>matrix('compatibility',targets));await gate(`${channel}-ssr-hydration-browser-timezones`,channel,()=>matrix('ssr',targets));}
++ await gate('preview-exact-rc-six-native-pilots','M2',()=>{const pkg=read('packages/solid-next/package.json');for(const name of ['solid-js','@solidjs/web'])if(pkg.peerDependencies?.[name]!=='2.0.0-rc.19'||pkg.devDependencies?.[name]!=='2.0.0-rc.19')throw new Error(`Preview exact RC19 runtime differs: ${name}`);for(const name of ['@solidjs/compiler','@solidjs/babel-plugin'])if(pkg.devDependencies?.[name]!=='2.0.0-rc.19')throw new Error(`Preview exact RC19 compiler differs: ${name}`);for(const id of pilots)if(!pkg.exports?.[`./${id}`])throw new Error(`Preview lacks public native pilot ${id}`);if(!/six[- ](?:pilot|component)/iu.test(readFileSync(join(root,'packages/solid-next/README.md'),'utf8')))throw new Error('Public preview six-pilot limitation absent');return {paths:['packages/solid-next/package.json','packages/solid-next/README.md','catalog/COVERAGE.md']};});
++ // Additional acceptance is indexed and hash-bound only when actual producers finish.
++ // An index alone never awards a gate: every referenced report needs actual outcomes/logs.
++ let index;
++ try{index=read(`${releaseDir}/acceptance-evidence.json`);}catch{}
++ async function indexed(name){
++  const result=await inspectIndexedEvidence(root,name,index,candidate,Object.fromEntries(Object.entries(manifests).map(([scope,manifest])=>[scope,manifest.scopes[scope]])));
++  if(result.status==='failed')throw new Error(result.details.join('; '));
++  if(result.status!=='passed')blocked(result.details.join('; '));
++  return result;
++ }
++ await gate('preview-six-native-behavior-types-build-ssr','M2',()=>indexed('preview','exact-rc19-six-pilot-acceptance',pilots.flatMap(id=>['native-behavior','types','build','ssr'].map(check=>`${id}:${check}`))));
++ await gate('native-service-compositions','M1',()=>indexed('patterns','native-pattern-acceptance',stable.flatMap(id=>['application','search','consent','layout'].map(flow=>`${id}:${flow}`))));
++ await gate('manual-accessibility','M1',()=>indexed('manualAccessibility'));
++ await gate('independent-native-artifact-review','M3',()=>indexed('independentReview','independent-release-review',['native-boundaries','catalog-completeness','actual-tarballs','licenses','ssr','user-flows']));
++ await gate('candidate-ci-required-executions','M3',()=>indexed('ci','candidate-ci-executions',['immutable-install','build','typecheck','test','lint','nx-affected','cache-restoration','story-network-policy','required-siheom']));
++ await gate('documentation-and-versioning','M3',()=>indexed('documentation','release-documentation-review',['installation','compatibility','license-provenance','known-limitations','extension-guide','version-changelog']));
++ await gate('licenses-provenance-distribution','M3',async()=>{const {verify}=await import('./verify-licenses.mjs');await verify(root);return {paths:['compliance/project-identity.json','compliance/provenance.json','compliance/license-policy.json'].filter(path=>existsSync(join(root,path)))};});
++ await gate('ownership-and-independent-code-grant','M3',()=>{if(identity.scopeOwnership?.status!=='confirmed'||identity.repository?.ownershipVerified!==true)blocked('npm scope and repository ownership remain unauthenticated; user-selected names/URL are not ownership evidence');if(identity.copyright?.status!=='confirmed'||identity.copyright.independentCodeHolder!=='Lee Dogeon <dev.moreal@gmail.com>')throw new Error('Confirmed independent-code rights differ');return {paths:['compliance/project-identity.json','LICENSES/MIT.txt']};});
++ await gate('version-changelog-candidate','M3',()=>{if(stableVersions.length!==1||version==='0.0.0')blocked(`Actual release version is not prepared (${stableVersions.join(', ')})`);for(const {dir,pkg}of publicPackages){const path=`packages/${dir}/CHANGELOG.md`;if(!existsSync(join(root,path))||!readFileSync(join(root,path),'utf8').includes(pkg.version))blocked(`Missing actual version ${pkg.version} changelog: ${path}`);}return {details:publicPackages.map(({pkg})=>`${pkg.name}@${pkg.version}`)};});
++ await gate('ci-candidate-handoff','M3',()=>{const path=process.env.KRDS_RELEASE_EVIDENCE_DIRECTORY?`${process.env.KRDS_RELEASE_EVIDENCE_DIRECTORY}/candidate.json`:'test-results/ci/candidate.json';const ci=read(path);if(ci.sourceSha!==sourceCommit||!sourceCommit||ci.lockfileSha256!==candidate.lockfileSha256||ci.artifactManifestSha256!==candidate.artifactManifestSha256||ci.publicationAuthorized!==false)throw new Error('CI candidate is missing/stale/cross-source or authorizes publication');if(digest(`${dirname(path)}/candidate.tgz`)!==ci.archiveSha256)throw new Error('CI candidate archive drift');return {paths:[path]};});
++ const after=sourceTree(root);if(after.sha256!==sourceBefore.sha256)record('source-drift-during-verification','M3','blocked',['Source changed while verifier inspected evidence; rerun after source freeze']);
++ const result={schemaVersion:1,kind:'release-verification',status:'intermediate',createdAt:new Date().toISOString(),command:'node tools/yarn.mjs verify:release',candidate,version,packages:publicPackages.map(({pkg})=>({name:pkg.name,version:pkg.version,channel:pkg.name.endsWith('/solid-next')?'solid2-preview':'stable'})),krdsBaselineId:identity.krdsBaselineId,environment:{node:process.versions.node,yarn:toolchain.packageManager.version,platform:process.platform,arch:process.arch},...milestones(checks),checks,evidence,publicationAuthorized:false,publicationPerformed:false,limitations:['Passing this verifier prepares a reviewable candidate only; publication, pushing and tagging require separate authorization.','Unborn HEAD and content hashes never substitute for a real candidate commit.']};
++ result.status=result.M3==='passed'?'verified-candidate':'intermediate';
++ if(write){mkdirSync(join(root,releaseDir),{recursive:true});writeFileSync(join(root,releaseDir,'verification.json'),JSON.stringify(result,null,2)+'\n');writeFileSync(join(root,releaseDir,'verification.exit-code.txt'),`${result.exitCode}\n`);writeFileSync(join(root,releaseDir,'artifacts.json'),JSON.stringify({status:result.status,candidate,packages:manifests.all?.packages??[],scopes:manifests,evidence,publicationAuthorized:false},null,2)+'\n');writeFileSync(join(root,releaseDir,'verification.md'),`# Intermediate release verification: ${version}\n\nM1: **${result.M1}**. M2: **${result.M2}**. M3: **${result.M3}**. Exit code: **${result.exitCode}**.\n\nCandidate commit: ${sourceCommit??'unavailable (unborn HEAD)'}. Diagnostic source fingerprint: \`${currentFingerprint}\`.\n\n${checks.map(check=>`- ${check.id}: **${check.status}** — ${typeof check.details==='string'?check.details:JSON.stringify(check.details)}`).join('\n')}\n\nFull machine evidence: [verification.json](./verification.json). This intermediate report does not declare T16 or release preparation complete.\n`);}
++ if(write){
++  const frameworks=read('compatibility/frameworks.json').frameworks;
++  writeFileSync(join(root,releaseDir,'compatibility.md'),`# Candidate compatibility — ${version}\n\nStatus: **${result.status}**. M1: **${result.M1}**; M2: **${result.M2}**. Declared pins below are targets; the actual execution gates remain authoritative in [verification.json](./verification.json).\n\n| Framework | Channel | Exact declared pins |\n| --- | --- | --- |\n${frameworks.map(row=>`| ${row.id} | ${row.id==='solid-next'?'six-pilot RC19 preview':'stable target'} | ${Object.entries(row.pins).map(([name,pin])=>`${name}@${pin}`).join(', ')} |`).join('\n')}\n\nSolid 2 covers only Button, NativeSelect, Modal, Tabs, DateInput and Calendar with exact 2.0.0-rc.19 runtime/compiler. Full stable catalog support and unsupported siheom adapters are not implied. Chromium/Firefox/WebKit and UTC/Asia/Seoul/America/Los_Angeles results require current native matrix snapshots; metadata-only audits do not pass. Authentic assistive-technology, media-equivalence, real zoom, forced-colors and visibility review remains separate.\n`);
++  writeFileSync(join(root,releaseDir,'licenses.md'),`# Candidate rights and provenance — ${version}\n\nStatus: **${result.status}**. The actual license/provenance and ownership gates are preserved in [verification.json](./verification.json).\n\nIndependent project code has the completed 2026 MIT grant for Lee Dogeon <dev.moreal@gmail.com> in LICENSES/MIT.txt. It does not relicense original KRDS, derived assets or font materials. Preserve compliance/provenance.json, the compliance license policy and each actual tarball's LICENSE.md, ATTRIBUTION.md, THIRD-PARTY-NOTICES.md, LICENSES/ and provenance.json. Original KRDS provider attribution remains separate.\n\nSelected metadata scope: ${identity.localPackageScope}. Repository: ${identity.repository.releaseMetadataRepositoryUrl}. Ownership status: ${identity.scopeOwnership.status}; repository authenticated: ${identity.repository.ownershipVerified===true}. Naming intent, local notice verification and local packing do not authorize publication, pushing or tagging.\n`);
++  writeFileSync(join(root,releaseDir,'release-summary.md'),`# Candidate handoff — ${version}\n\nStatus: **${result.status}**. M1: **${result.M1}**, M2: **${result.M2}**, M3: **${result.M3}**; process exit **${result.exitCode}**. This report documents current evidence and does not make incomplete release preparation complete.\n\nCandidate commit: ${sourceCommit??'unavailable (unborn HEAD)'}. Public source/build fingerprint: ${candidate.sourceFingerprint}. Lockfile: ${candidate.lockfileSha256}. Exact candidate artifact manifest: ${candidate.artifactManifestSha256??'missing'}. KRDS baseline: ${result.krdsBaselineId}. Environment: Node ${result.environment.node}, Yarn ${result.environment.yarn}, ${result.environment.platform}/${result.environment.arch}.\n\n${result.packages.map(pkg=>`- ${pkg.name}@${pkg.version} (${pkg.channel})`).join('\n')}\n\nInstall only inspected candidate tarballs after outside consumer acceptance. Example same-framework public import: import { Button } from '@unofficial-krds/react/button'; follow that package README for CSS and optional fonts. This document does not claim registry availability. License/source locations are described in [licenses.md](./licenses.md); declared targets and limits in [compatibility.md](./compatibility.md).\n\nReproduce the frozen candidate using .github/workflows/release-prepare.yml: immutable Yarn install, actual full workspace/type/build/behavior/story/siheom and native matrix runs, regenerated notices, serialized pack:all --build, inspect:tarballs, all 15 outside consumers, authentic manual review, and candidate archive handoff. Then run node tools/yarn.mjs verify:release. The verifier inspects existing executions without repeating broad native runs.\n\nOutstanding requirements:\n\n${checks.filter(check=>check.status!=='passed').map(check=>`- ${check.id}: ${check.status} — ${JSON.stringify(check.details)}`).join('\n')}\n\nNext-version work must preserve native renderer/compiler isolation and repeat the exact current-source evidence after catalog or support changes. No publication, pushing or tagging has been performed or authorized.\n`);
++ }
++ return result;
++}
++if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
++ if(process.argv.length!==2)throw new Error('Usage: node tools/yarn.mjs verify:release (no skipped gates or execution flags)');
++ try{const result=await verifyRelease(resolve(import.meta.dirname,'..'));console.log(JSON.stringify(result,null,2));process.exitCode=result.exitCode;}catch(error){console.error(`Release verification failed before acceptance: ${error.stack}`);process.exitCode=1;}
++}
+diff --git a/tools/verify-release.test.mjs b/tools/verify-release.test.mjs
+new file mode 100644
+index 0000000..ae6a674
+--- /dev/null
++++ b/tools/verify-release.test.mjs
+@@ -0,0 +1,219 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {mkdtempSync,writeFileSync,rmSync,mkdirSync} from 'node:fs';
++import {tmpdir} from 'node:os';
++import {join} from 'node:path';
++import {createHash} from 'node:crypto';
++const module = await import('./verify-release.mjs').catch(()=>({}));
++const {milestones,validateBinding,validateSnapshot}=module;
++const candidate={sourceCommit:'a'.repeat(40),sourceFingerprint:'b'.repeat(64),repositorySourceSha256:'e'.repeat(64),lockfileSha256:'c'.repeat(64),artifactManifestSha256:'d'.repeat(64)};
++test('M1 evidence survives blocked M2 and M3 remains nonzero',()=>{
++ assert.equal(typeof milestones,'function','release milestone reducer must exist');
++ const result=milestones([{id:'stable',milestone:'M1',status:'passed'},{id:'preview',milestone:'M2',status:'blocked'},{id:'rights',milestone:'M3',status:'passed'}]);
++ assert.deepEqual(result,{M1:'passed',M2:'blocked',M3:'blocked',exitCode:1});
++});
++test('every required milestone must pass; failure takes precedence over blocked',()=>{
++ assert.equal(typeof milestones,'function');
++ for(const m1 of ['passed','failed','blocked'])for(const m2 of ['passed','failed','blocked']){
++  const result=milestones([{milestone:'M1',status:m1},{milestone:'M2',status:m2},{milestone:'M3',status:'passed'}]);
++  assert.equal(result.M1,m1);assert.equal(result.M2,m2);
++  assert.equal(result.exitCode,m1==='passed'&&m2==='passed'?0:1);
++ }
++ assert.equal(milestones([]).M3,'blocked');
++ assert.equal(milestones([{milestone:'M1',status:'blocked'},{milestone:'M1',status:'failed'}]).M1,'failed');
++});
++test('cross-candidate evidence fails even when its status says passed',()=>{
++ assert.equal(typeof validateBinding,'function');
++ assert.deepEqual(validateBinding({...candidate},candidate),[]);
++ for(const key of Object.keys(candidate)){
++  assert.ok(validateBinding({...candidate,[key]:'0'.repeat(candidate[key].length)},candidate).some(error=>error.includes(key)),key);
++  const incomplete={...candidate};delete incomplete[key];assert.ok(validateBinding(incomplete,candidate).length,key);
++ }
++});
++test('snapshot validation rejects changed bytes and forged aggregate hashes',()=>{
++ assert.equal(typeof validateSnapshot,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-test-'));try{
++  const bytes=Buffer.from('native source');writeFileSync(join(root,'source.ts'),bytes);
++  const hash=value=>createHash('sha256').update(value).digest('hex');
++  const files=[{path:'source.ts',sha256:hash(bytes),bytes:bytes.length}];const snapshot={sha256:hash(JSON.stringify(files)),files};
++  assert.deepEqual(validateSnapshot(root,snapshot),[]);
++  writeFileSync(join(root,'source.ts'),'stale');assert.ok(validateSnapshot(root,snapshot).some(error=>error.includes('source.ts')));
++  assert.ok(validateSnapshot(root,{...snapshot,sha256:'0'.repeat(64)}).some(error=>error.includes('aggregate')));
++  assert.ok(validateSnapshot(root,{sha256:hash('[]'),files:[]}).length,'zero files cannot pass');
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('zero, skipped, unsupported and manual-not-performed outcomes never pass',()=>{
++ const validate=module.validateExecutedRows;assert.equal(typeof validate,'function');
++ const row={id:'native',status:'passed',executed:true,exitCode:0,observations:['real DOM outcome']};
++ assert.deepEqual(validate([row],['native']),[]);
++ for(const rows of [[],[{...row,executed:false}],[{...row,status:'unsupported'}],[{...row,skipped:true}],[{...row,observations:[]}],[row,row]])assert.ok(validate(rows,['native']).length);
++});
++test('native browser acceptance requires all nine real engine/timezone outcomes',()=>{
++ const validate=module.validateBrowserRows;assert.equal(typeof validate,'function');
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks:['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests']})));
++ assert.deepEqual(validate(rows),[]);
++ for(const invalid of [[],rows.slice(1),[...rows.slice(1),rows[1]],rows.map((row,i)=>i?row:{...row,status:'skipped'}),rows.map((row,i)=>i?row:{...row,checks:[]})])assert.ok(validate(invalid).length);
++});
++// Review regressions exercise the same acceptance functions used by the CLI.
++test('F1 self-asserted indexed rows and empty hashed logs cannot award acceptance',async()=>{
++ const inspect=module.inspectIndexedEvidence;assert.equal(typeof inspect,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-index-'));try{
++  writeFileSync(join(root,'empty.log'),'');
++  const report={kind:'native-pattern-acceptance',candidate,status:'passed',executed:true,exitCode:0,command:'true',rows:[{id:'solid:application',status:'passed',executed:true,exitCode:0,observations:['asserted'],logPath:'empty.log',logSha256:createHash('sha256').update('').digest('hex')}]};
++  writeFileSync(join(root,'report.json'),JSON.stringify(report));
++  const result=await inspect(root,'patterns',{candidate,reports:{patterns:{path:'report.json',sha256:createHash('sha256').update(JSON.stringify(report)).digest('hex')}}},candidate);
++  assert.equal(result.status,'blocked');assert.match(result.details.join(' '),/evidence|index|producer|trusted|implemented/u);
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F3 adding untested native input invalidates complete snapshot inventory',()=>{
++ const root=mkdtempSync(join(tmpdir(),'krds-release-inventory-'));try{
++  const bytes=Buffer.from('old native');writeFileSync(join(root,'source.ts'),bytes);
++  const files=[{path:'source.ts',sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length}];
++  const old={files,sha256:createHash('sha256').update(JSON.stringify(files)).digest('hex')};
++  assert.deepEqual(validateSnapshot(root,old),[]);
++  writeFileSync(join(root,'new-native-source.ts'),'untested');assert.ok(validateSnapshot(root,old).some(error=>/inventory|path set/u.test(error)));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F5 dirty or untracked source cannot be attributed to the reviewed Git tree',()=>{
++ const validate=module.validateGitTree;assert.equal(typeof validate,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-tree-'));try{
++  writeFileSync(join(root,'source.ts'),'reviewed');
++  const blob=bytes=>createHash('sha1').update(`blob ${Buffer.byteLength(bytes)}\0`).update(bytes).digest('hex');
++  const tree=[{path:'source.ts',oid:blob('reviewed')}];
++  assert.deepEqual(validate(root,tree,['source.ts']),[]);
++  writeFileSync(join(root,'source.ts'),'modified');assert.ok(validate(root,tree,['source.ts']).length);
++  writeFileSync(join(root,'untracked.ts'),'new');assert.ok(validate(root,tree,['source.ts','untracked.ts']).some(error=>error.includes('untracked')));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F6 browser passed flags cannot conceal skipped, unexecuted or nonzero outcomes',()=>{
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks:['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests'],skipped:true,executed:false,exitCode:1})));
++ assert.ok(module.validateBrowserRows(rows).length);
++});
++
++test('F7 latest failed, stale or unfinished selected matrix never falls back to older pass',()=>{
++ const select=module.selectMatrixRun;assert.equal(typeof select,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-matrix-'));try{
++  const base=join(root,'test-results/t13/ssr-runs');mkdirSync(join(base,'01'),{recursive:true});mkdirSync(join(base,'02'));
++  const report=status=>({status,options:{frameworks:['react']}});
++  writeFileSync(join(base,'01/results.json'),JSON.stringify(report('passed')));
++  writeFileSync(join(base,'02/results.json'),JSON.stringify(report('failed')));
++  assert.match(select(root,'ssr',['react']).path,/02\/results/u);
++  writeFileSync(join(base,'02/results.json'),JSON.stringify({...report('passed'),sourceChangedDuringRun:true}));
++  assert.match(select(root,'ssr',['react']).path,/02\/results/u);
++  rmSync(join(base,'02/results.json'));assert.equal(select(root,'ssr',['react']).status,'blocked');
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F7 evidence absence/staleness is blocked; current actual failure is failed',()=>{
++ const classify=module.executionStatus;assert.equal(typeof classify,'function');
++ assert.equal(classify({current:false,status:'failed',exitCode:1}),'blocked');
++ assert.equal(classify({current:true,status:'passed',skipped:true,exitCode:0}),'blocked');
++ assert.equal(classify({current:true,status:'failed',exitCode:1}),'failed');
++ assert.equal(classify({current:true,status:'passed',exitCode:0}),'passed');
++});
++
++test('F6 unrelated placeholder observations cannot substitute for native producer checks',()=>{
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks:['placeholder']})));
++ assert.ok(module.validateBrowserRows(rows).length);
++});
++test('F2 legacy consumer flag strings and unrelated nonempty logs stay blocked',async()=>{
++ const inspect=module.inspectConsumerEvidence;assert.equal(typeof inspect,'function');
++ const root=mkdtempSync(join(tmpdir(),'krds-release-consumer-'));try{
++  writeFileSync(join(root,'unrelated.log'),'unrelated text');
++  const row={id:'react',profile:'minimum',status:'passed-development-snapshot',checks:Object.fromEntries(['install','types','build','ssr','browser','candidate-bytes-and-runtime-compiler-resolution'].map(key=>[key,'passed'])),logs:['unrelated.log'],lockfileSha256:'a'.repeat(64)};
++  const result=await inspect(root,{schemaVersion:1,rows:[row]},'stable',{});
++  assert.equal(result.status,'blocked');assert.match(result.details.join(' '),/producer|step|resolution|evidence/u);
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F4 stable evidence selection has no dependency on preview rows or package identities',()=>{
++ const select=module.selectScope;assert.equal(typeof select,'function');
++ const packages=['assets','contracts','fonts','styles','tokens','solid','react','svelte','vue','lit','qwik','angular'].map(id=>({name:`@unofficial-krds/${id}`,version:'1.0.0'}));
++ assert.equal(select(packages,'stable').length,12);assert.equal(select(packages,'preview').length,5);
++ const withPreview=[...packages,{name:'@unofficial-krds/solid-next',version:'1.0.0-next.0'}];
++ assert.deepEqual(select(withPreview,'stable'),select(packages,'stable'));
++ assert.equal(select(withPreview,'preview').length,6);assert.equal(select(withPreview,'all').length,13);
++});
++test('F3/F4 stable matrix inventory survives preview-only edits but rejects new stable/shared files',()=>{
++ const root=mkdtempSync(join(tmpdir(),'krds-release-scoped-inventory-'));try{
++  for(const id of ['react','solid-next','contracts']){mkdirSync(join(root,`packages/${id}/src`),{recursive:true});writeFileSync(join(root,`packages/${id}/src/index.ts`),id);}
++  const old=module.inventorySnapshot(root),stableOld=module.scopedSnapshot(old,['react']),previewOld=module.scopedSnapshot(old,['solid-next']);
++  writeFileSync(join(root,'packages/solid-next/src/index.ts'),'changed RC');
++  const current=module.inventorySnapshot(root);
++  assert.deepEqual(validateSnapshot(root,stableOld,module.scopedSnapshot(current,['react'])),[]);
++  assert.ok(validateSnapshot(root,previewOld,module.scopedSnapshot(current,['solid-next'])).length);
++  writeFileSync(join(root,'packages/react/src/new.ts'),'untested stable');
++  assert.ok(validateSnapshot(root,stableOld,module.scopedSnapshot(module.inventorySnapshot(root),['react'])).some(error=>error.includes('inventory')));
++  writeFileSync(join(root,'packages/contracts/src/new.ts'),'untested shared');
++  assert.ok(validateSnapshot(root,previewOld,module.scopedSnapshot(module.inventorySnapshot(root),['solid-next'])).some(error=>error.includes('inventory')));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F6 each contradictory browser execution field independently blocks acceptance',()=>{
++ const checks=['DOM-free official server rendering','SSR node reuse','first button one event','first select one event','date-only canonical form value','label/tab IDs','open-modal unmount cleanup','no page/hydration errors','no remote requests'];
++ const rows=['chromium','firefox','webkit'].flatMap(browser=>['UTC','Asia/Seoul','America/Los_Angeles'].map(timezoneId=>({browser,timezoneId,version:'1.0',status:'passed',checks})));
++ for(const contradiction of [{skipped:true},{executed:false},{exitCode:1}])assert.ok(module.validateBrowserRows(rows.map((row,index)=>index?row:{...row,...contradiction})).length);
++});
++test('F2 canonical consumer command receipts reject tampered original log bytes',async()=>{
++ const {captureStep,validateStep}=await import('../tests/consumers/evidence.mjs');
++ const {node}=await import('../tests/consumers/lib.mjs');
++ const root=mkdtempSync('/private/tmp/krds-release-real-receipt-');try{
++  const command={executable:node,args:['--version'],cwd:root};
++  const step=await captureStep('identity-probe',command,{baseRoot:root,output:join(root,'proof')});
++  await validateStep(step,{baseRoot:root,expectedCommand:command});
++  writeFileSync(join(root,step.log.path),'unrelated nonempty text');
++  await assert.rejects(validateStep(step,{baseRoot:root,expectedCommand:command}),error=>error.code==='EVIDENCE_BLOCKED');
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F3 current expected inventory hashes are compared as well as its paths',()=>{
++ const root=mkdtempSync(join(tmpdir(),'krds-release-expected-content-'));try{
++  writeFileSync(join(root,'source.ts'),'current');const actual=module.inventorySnapshot(root);
++  const wrong=structuredClone(actual);wrong.files[0].sha256='0'.repeat(64);
++  assert.ok(validateSnapshot(root,actual,wrong).some(error=>error.includes('inventory')));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('fix2 R2 rejects truncated artifact inventories and forwards only canonical inspected packages',()=>{
++ const validate=module.canonicalArtifactHandoff;assert.equal(typeof validate,'function');
++ const p={name:'@unofficial-krds/react',sha256:'c'.repeat(64),normalizedContentSha256:'d'.repeat(64),files:[{path:'dist/button.js',sha256:'a'.repeat(64),size:3}],packedManifest:{name:'@unofficial-krds/react',version:'1.0.0'}};
++ const canonical={packages:[p],scopes:{stable:{artifactSetSha256:'b'.repeat(64)}}};
++ assert.deepEqual(validate(canonical,canonical).packages,[p]);
++ assert.throws(()=>validate({...canonical,packages:[{...p,files:[]}]},canonical),/inventory|metadata/u);
++ assert.throws(()=>validate({...canonical,packages:[{...p,packedManifest:{...p.packedManifest,version:'2.0.0'}}]},canonical),/metadata/u);
++});
++test('fix2 R3 executable identity and SSR Node version cannot be replaced while preserving argv tail',()=>{
++ const validate=module.validateMatrixCommand;assert.equal(typeof validate,'function');
++ const args=['tests/ssr/native.mjs','react'];
++ assert.deepEqual(validate([process.execPath,...args],args,process.versions.node),[]);
++ assert.ok(validate(['/bin/sh',...args],args,process.versions.node).length);
++ assert.ok(validate([process.execPath,...args],args,'26.0.0').length);
++});
++test('fix2 R1 uses authentic retained stage inventories instead of a workspace-only output guess',async()=>{
++ const validate=module.collectRetainedStageInventory;assert.equal(typeof validate,'function');
++ const {captureArtifactInventory}=await import('../tests/compatibility/artifact-evidence.mjs');
++ const {collectStageEvidence}=await import('../tests/compatibility/stage-evidence.mjs');
++ const root=join(import.meta.dirname,'../test-results');mkdirSync(root,{recursive:true});const dir=mkdtempSync(join(root,'t16-artifact-contract-'));
++ try{
++  const source='a'.repeat(64);for(const path of ['client/client.js','server/server.js','server.html']){mkdirSync(join(dir,'react',path,'..'),{recursive:true});writeFileSync(join(dir,'react',path),'retained genuine-format test bytes');}
++  const ref=await captureArtifactInventory(join(dir,'react'),'before',[join(dir,'react/client'),join(dir,'react/server'),join(dir,'react/server.html')],source);
++  writeFileSync(join(dir,'react/results.json'),JSON.stringify({artifactEvidence:{sourceSha256:source,before:ref,after:ref,unchanged:true}}));
++  const evidence=await collectStageEvidence('react','native-server-hydration',join(dir,'react'),source);
++  const report={sourceBeforeSha256:source,stages:[{framework:'react',name:'native-server-hydration',status:'passed',artifactEvidence:evidence}]};
++  const files=await validate(report,dir,['react']);assert.ok(files.some(file=>file.path.endsWith('server.html')));assert.ok(files.some(file=>file.path.endsWith('results.json')));
++  writeFileSync(join(dir,'react/server.html'),'changed');await assert.rejects(validate(report,dir,['react']));
++ }finally{rmSync(dir,{recursive:true,force:true});}
++});
++
++await import('./release-evidence/producers.test.mjs');
++
++test('fix2 R2 a genuine retained tarball cannot hand off a truncated installed-byte inventory',async()=>{
++ const {unpack}=await import('./inspect-tarballs.mjs');const {readFileSync}=await import('node:fs');
++ const bytes=readFileSync(join(import.meta.dirname,'../artifacts/tarballs/contracts.tgz'));const entries=unpack(bytes),hash=value=>createHash('sha256').update(value).digest('hex');
++ const files=[...entries].sort(([a],[b])=>a.localeCompare(b)).map(([path,data])=>({path,size:data.length,sha256:hash(data)}));
++ const p={name:'@unofficial-krds/contracts',files,packedManifest:JSON.parse(entries.get('package.json')),sha256:hash(bytes),normalizedContentSha256:hash(JSON.stringify(files))};const actual={packages:[p]};
++ assert.deepEqual(module.canonicalArtifactHandoff(actual,actual).packages[0].files,files);
++ const truncated={packages:[{...p,files:files.slice(1)}]};assert.equal(truncated.packages[0].normalizedContentSha256,p.normalizedContentSha256);assert.throws(()=>module.canonicalArtifactHandoff(truncated,actual),/inventory|metadata/u);
++});
++test('fix2 R1 actual frozen Angular retained-input report is consumable without its original temporary directory',async()=>{
++ const {readFileSync}=await import('node:fs');const directory=join(import.meta.dirname,'../test-results/t13/fix1/angular-final-binding');
++ const report=JSON.parse(readFileSync(join(directory,'results.json'),'utf8'));
++ const records=await module.collectRetainedStageInventory(report,directory,['angular']);assert.ok(records.length>=150);assert.ok(records.some(row=>row.path.endsWith('linked-consumer/input/angular.tgz')));assert.ok(records.some(row=>row.path.endsWith('linked-consumer/dist/server/main.server.mjs')));
++});
++
++await import("./release-evidence/round3.test.mjs");
+diff --git a/tools/release-evidence/README.md b/tools/release-evidence/README.md
+new file mode 100644
+index 0000000..a1f28c3
+--- /dev/null
++++ b/tools/release-evidence/README.md
+@@ -0,0 +1,51 @@
++# Release evidence v3
++
++These helpers validate producer-specific facts. Parsing a historical report is diagnostic and awards no current candidate. The final verifier also requires the exact candidate commit/tree, catalog, native matrix, tarballs, installed consumers, rights, ownership and versions.
++
++`producers.mjs` implements patterns, documentation, preview, CI, independent review and manual-session evidence. It consumes current source/output inventories and the lossless selected-Node subprocess format used by T14. There are no signing keys, enrollment or new approval service.
++
++## Capture and assemble
++
++`record.mjs` describes an enumerated command unless `--execute` is supplied. Execution requires a producer-owned build/browser lease; the verifier never launches these jobs. Each output directory must be fresh. The recorder captures actual stdout, stderr, combined log, signal and exit, before/after source inventories, applicable native outputs and current raw result references. It never turns an old log into a new execution.
++
++```sh
++node tools/yarn.mjs exec node tools/release-evidence/record.mjs --recipe patterns --framework react
++# During the authorized frozen producer window only:
++node tools/yarn.mjs exec node tools/release-evidence/record.mjs --recipe patterns --framework react --candidate docs/releases/VERSION/verification.json --manifest artifacts/manifest-stable.json --output test-results/release/react-RUN --result PATH_TO_NEW_NATIVE_RESULTS --execute
++```
++
++Pattern captures force the actual production fixture root. React/Solid/Vue use their existing fifteen-case browser programs and complete raw results. All seven native adapters need the canonical case identities, zero execution/request errors, immutable fixture/package/private-contract bytes and actual independent scoped source review. Missing future native scripts fail instead of inventing support.
++
++Docs recipes are `docs-tests` and `docs-browser`. The latter wraps the actual T12 browser source, redirecting only its repository-root and evidence-output literals into a retained copy so frozen T12 reports are preserved. Every consumed local HTTP response is compared byte-for-byte with current `apps/docs/dist/`; the original and redirected producer hashes, response inventory, reports and screenshots are retained. The five-test Node stdout, two browser reports, 54 references, seven full compiler mappings, current input/download hashes and exact served artifacts are validated. Text scaling is never relabeled browser zoom. Pattern and documentation acceptance also compares the original capture’s declared artifact roots and complete before/after inventories with the submitted inventories and current bytes. Those original inventories must agree. The documentation served-response reference must be the one retained by that capture. For a diagnostic documentation run with no final artifact manifest, omit `--manifest`; absent candidate identity still prevents final acceptance.
++
++Preview recipes are `preview-types`, `preview-build` and `preview-contracts`. The raw Playwright reference must be the actual ten-case JSON, with matching inline native-health attachments. It does not replace separate RC19 SSR/browser requirements.
++
++CI recipes are `ci:install`, `ci:workspace`, `ci:catalog`, `ci:coverage`, `ci:selection`, `ci:targets`, `ci:affected`, `ci:cache`, plus `ci:contracts:FRAMEWORK:pilot|catalog`, `ci:stories:FRAMEWORK:pilot|catalog` and supported `ci:siheom:FRAMEWORK`. All required receipts are unique. Actual hosted run/source/attempt metadata is captured from the runner; static workflow checks or configuration-only tests cannot pass as CI execution. Source-before/output-after binding allows installation/builds before final tarball hashes exist: the original commit, lock and complete unchanged source input inventory must match, and the actual target job's complete output inventory must still equal the final candidate outputs. No uncommitted version transformation is inferred. Each enumerated CI capture retains the newly emitted canonical producer outputs in its own directory and binds them to its original process receipt, workflow run and source. Existing fixed outputs are preserved separately and removed before execution. Native summaries must agree with retained raw Playwright/health records, story requests and siheom results. The assembler derives these references from captures; independently supplied historical result references cannot replace them.
++
++`assemble.mjs` combines current actual `record.json` files and explicitly authored metadata/review/session records. It refuses cross-candidate captures. It writes a kind report, validates it, and writes a kind index only after substantive validation. It cannot manufacture missing rows or human performance:
++
++```sh
++node tools/yarn.mjs exec node tools/release-evidence/assemble.mjs --kind patterns --candidate docs/releases/VERSION/verification.json --manifest artifacts/manifest.json --record PATH_TO_EACH_ACTUAL_RECORD --extras PATH_TO_EXPLICIT_REVIEWS --output docs/releases/VERSION/evidence/patterns-RUN
++```
++
++The final `acceptance-evidence.json` has `schemaVersion: 3` and `reports` mapping `patterns`, `preview`, `documentation`, `ci`, `independentReview`, and `manualAccessibility` to `{path,bytes,sha256}` references to the corresponding v3 reports. Kind index fragments can be merged without changing the referenced report bytes. No such complete candidate index has been generated by this implementation session.
++
++## Review and human records
++
++`sourceBefore` and `sourceAfter` use the exact complete `inventory(root, sourceRoots(kind))` format. Use `snapshot.mjs --kind KIND [--framework FRAMEWORK] --output test-results/SUBJECT.json` to capture an unreviewed source/host-artifact subject. This read-only command explicitly records that no review or manual session was performed.
++
++Independent review records require the original scoped Markdown report, explicit person and role, a different implementer, performed date, subject, complete current source inventory, exact candidate/artifact hashes, observations and material-finding dispositions. A current request-changes review cannot be converted to acceptance by quoting historical accepted text. The full release review separately covers native boundaries, catalog completeness, actual tarballs, licenses, SSR and user flows with bound supporting references. Existing bounded T11/T12 reviews are not automatically full-release approval. Actual acceptance requires exactly one `## Current decision` section containing only a `krds-review-decision` JSON fence. Its schema is illustrated below; the decision must agree exactly with the separately identified review metadata and its finding dispositions. Source hashes must equal the submitted current review subject. Historical Markdown without this section remains diagnostic only.
++
++````md
++## Current decision
++
++```krds-review-decision
++{"schemaVersion":1,"scope":"release","subject":"reviewed candidate","current":true,"spec":"accepted","quality":"accepted","sourceInventorySha256":"ACTUAL_INVENTORY_HASH","sourceFingerprint":"ACTUAL_CANDIDATE_SOURCE_HASH","findings":[{"id":"finding-1","severity":"important","resolved":true,"disposition":"Describe the verified correction and its supporting evidence."}]}
++```
++````
++
++A rejected current decision or unresolved critical/important finding blocks approval even when the report quotes historical acceptance. An empty findings list is valid only when the reviewer actually found no issues; the recorder does not create a verdict or dispositions.
++
++Manual records are inherently attested by the named person. Each of seven native sessions requires start/end, actual OS/browser/assistive technology, performed actions, expected and actual observations, limitations, current complete source and served-host artifact inventories, and original structured session transcripts bound to that person, environment and candidate. Each required observation must be in the transcript. Real browser 200/400 percent zoom, OS high contrast and focus visibility require bound screenshots and actual methods, not CSS/emulation substitutions. Original video/audio/captions/transcript/audio-description/sign-language bytes and their source URL/retrieval/hash provenance are required for media equivalence. Synthetic signals, empty status rows, merely installed VoiceOver, placeholder logs, missing sessions and absent original media remain blocked.
++
++Manual/review import does not create `performed`, identity, observations or approvals. Those facts must be supplied by the people who did the work, with the supporting original records. Unit fixtures exercise the schema only and never supply release acceptance.
+diff --git a/tools/release-evidence/assemble.mjs b/tools/release-evidence/assemble.mjs
+new file mode 100644
+index 0000000..6314324
+--- /dev/null
++++ b/tools/release-evidence/assemble.mjs
+@@ -0,0 +1,22 @@
++#!/usr/bin/env node
++/** Assemble real captured receipts and explicitly authored review/session records. */
++import {readFile,writeFile,mkdir} from 'node:fs/promises';
++import {resolve,join,dirname} from 'node:path';
++import {fileURLToPath} from 'node:url';
++import {candidateBinding,capturedCandidateMatches,inspectReleaseEvidence,ref,stable} from './producers.mjs';
++const root=resolve(import.meta.dirname,'../..');
++export function assemble(kind,candidate,scopes,records,extras={}){
++ const first=records[0]??extras;const report={...extras,schemaVersion:3,kind,candidate:candidateBinding(kind,candidate,scopes),sourceBefore:first.sourceBefore,sourceAfter:first.sourceAfter};
++ if(kind==='patterns')report.rows=stable.map(framework=>{const row=records.find(record=>record.recipe==='patterns'&&record.framework===framework);if(!row)throw new Error(`Missing recorded native ${framework}`);return {framework,result:row.result,execution:row.execution,artifactsBefore:row.artifactsBefore,artifactsAfter:row.artifactsAfter,capture:row.captureRef,review:extras.reviews?.[framework]};});
++ else if(kind==='documentation'){const tests=records.find(record=>record.recipe==='docs-tests'),browser=records.find(record=>record.recipe==='docs-browser');if(!tests||!browser)throw new Error('Missing actual docs test/browser recordings');Object.assign(report,{testCapture:tests.captureRef,browserCapture:browser.captureRef,tests:tests.execution,browserExecution:browser.execution,browser:browser.result,served:browser.served,artifactsBefore:browser.artifactsBefore,artifactsAfter:browser.artifactsAfter});}
++ else if(kind==='ci'){report.steps=records.map(({recipe,execution,captureRef})=>({recipe,execution,capture:captureRef}));report.ci=first.ci;for(const [field,key]of Object.entries({selection:'ci:selection',targets:'ci:targets',cache:'ci:cache',affected:'ci:affected'}))report[field]=records.find(row=>row.recipe===key)?.result;report.nativeResults=records.filter(row=>row.recipe.startsWith('ci:contracts:')||row.recipe.startsWith('ci:stories:')).map(row=>{const [,tool,framework,mode]=row.recipe.split(':');return {framework,tool,mode,report:row.result};});report.siheom=records.filter(row=>row.recipe.startsWith('ci:siheom:')).map(row=>({framework:row.recipe.split(':')[2],report:row.result}));}
++ else if(kind==='preview'){const lookup=recipe=>{const record=records.find(record=>record.recipe===recipe);if(!record)throw new Error(`Missing ${recipe}`);return record;};Object.assign(report,{typeCapture:lookup('preview-types').captureRef,buildCapture:lookup('preview-build').captureRef,contractCapture:lookup('preview-contracts').captureRef,types:lookup('preview-types').execution,build:lookup('preview-build').execution,contractExecution:lookup('preview-contracts').execution,contractRaw:lookup('preview-contracts').result});}
++ for(const record of records)if(!capturedCandidateMatches(kind,record.candidate,report.candidate,report.sourceBefore)||JSON.stringify(record.sourceBefore)!==JSON.stringify(report.sourceBefore)||JSON.stringify(record.sourceAfter)!==JSON.stringify(report.sourceAfter))throw new Error('Recorded source candidates differ; cannot merge executions');
++ return report;
++}
++if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
++ const opts={records:[]};for(let i=2;i<process.argv.length;i++){const key=process.argv[i],value=process.argv[++i];if(!value||!['--kind','--candidate','--manifest','--record','--extras','--output'].includes(key))throw new Error('Usage: assemble --kind KIND --candidate verification.json --manifest manifest.json [--record receipt.json] --extras human-or-metadata.json --output docs/releases/VERSION');if(key==='--record')opts.records.push(value);else opts[key.slice(2)]=value;}
++ const read=async path=>JSON.parse(await readFile(resolve(root,path),'utf8')),candidateDocument=await read(opts.candidate),candidate=candidateDocument.candidate??candidateDocument,manifest=await read(opts.manifest),records=await Promise.all(opts.records.map(async path=>({...await read(path),captureRef:await ref(root,path)}))),extras=opts.extras?await read(opts.extras):{};
++ const report=assemble(opts.kind,candidate,manifest.scopes,records,extras),directory=resolve(root,opts.output);if(!directory.startsWith(`${root}/docs/releases/`)&&!directory.startsWith(`${root}/test-results/`))throw new Error('Output must be retained release/test evidence');await mkdir(dirname(directory),{recursive:true});await mkdir(directory);const file=join(directory,`${opts.kind}.json`);await writeFile(file,JSON.stringify(report,null,2)+'\n');
++ const index={schemaVersion:3,reports:{[opts.kind]:await ref(root,file)}};const result=await inspectReleaseEvidence(root,opts.kind,index,candidate,manifest.scopes);if(result.status!=='passed')throw new Error(result.details.join('; '));await writeFile(join(directory,`${opts.kind}.index.json`),JSON.stringify(index,null,2)+'\n');console.log(JSON.stringify({status:'validated-producer-evidence',releaseAccepted:false,index:`${opts.kind}.index.json`}));
++}
+diff --git a/tools/release-evidence/ci-outputs.mjs b/tools/release-evidence/ci-outputs.mjs
+new file mode 100644
+index 0000000..8f4139f
+--- /dev/null
++++ b/tools/release-evidence/ci-outputs.mjs
+@@ -0,0 +1,50 @@
++/** Same-invocation output retention for the enumerated CI producers. */
++import {readFile,readdir,mkdir,writeFile,rm,stat} from 'node:fs/promises';
++import {resolve,join,relative,dirname,basename} from 'node:path';
++import {blocked,bytes,ref,readRef,inventory,hash,parseNativeRunner,parsePlaywright} from './producers.mjs';
++const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
++const check=(value,message)=>{if(!value)throw blocked(message);};
++const staticOutputs={
++ 'ci:selection':['test-results/ci/selection.json'],
++ 'ci:targets':['test-results/ci/target-results.json','test-results/ci/stable-target-results.json','test-results/ci/preview-target-results.json'],
++ 'ci:affected':['test-results/ci/affected-regressions.json'],
++ 'ci:cache':['test-results/ci/cache-restoration.json','test-results/ci/cache-first.log','test-results/ci/cache-second.log']
++};
++const dynamic=recipe=>recipe.startsWith('ci:contracts:')?'contract':recipe.startsWith('ci:stories:')?'stories':recipe.startsWith('ci:siheom:')?'siheom':null;
++async function directoryNames(path){try{return (await readdir(path,{withFileTypes:true})).filter(entry=>entry.isDirectory()).map(entry=>entry.name).sort();}catch(error){if(error.code==='ENOENT')return [];throw error;}}
++export async function prepareCIOutputs(root,recipe,destination){
++ const state={schemaVersion:1,recipe,beforeDirectories:await directoryNames(join(root,'test-results/t05')),preparedOutputs:staticOutputs[recipe]??[],clearedBeforeExecution:true,backups:[]};
++ for(const path of staticOutputs[recipe]??[]){try{const value=await bytes(root,path),target=join(destination,'previous-output',basename(path));await mkdir(dirname(target),{recursive:true});await writeFile(target,value);state.backups.push({source:path,...await ref(root,target)});await rm(join(root,path));}catch(error){if(error.code!=='ENOENT')throw error;}}
++ return state;
++}
++async function copyTree(root,source,destination){await mkdir(destination,{recursive:true});for(const entry of await readdir(source,{withFileTypes:true})){check(!entry.isSymbolicLink(),'Producer output symlink is not retained evidence');const from=join(source,entry.name),to=join(destination,entry.name);if(entry.isDirectory())await copyTree(root,from,to);else if(entry.isFile())await writeFile(to,await bytes(root,from));}}
++export async function retainCIOutputs(root,recipe,destination,state,execution,candidate,ci){
++ const result={schemaVersion:1,recipe,inputBinding:candidate,ci,executionResultSha256:execution.rawResult.sha256,producerStdoutSha256:execution.stdout.sha256,producerState:state,stdout:execution.stdout,result:null,files:[]};
++ const output=join(destination,'outputs/current'),kind=dynamic(recipe);let primary;
++ if(kind){const stdout=(await readFile(join(root,execution.stdout.path))).toString(),matches=[...stdout.matchAll(/^Report: (.+)$/gmu)];check(matches.length===1,'Actual native invocation did not identify one new producer report');const original=resolve(root,matches[0][1]),directory=dirname(original),expectedRoot=resolve(root,'test-results/t05');check(dirname(directory)===expectedRoot&&basename(original)==='report.json'&&basename(directory).startsWith(`${kind}-`)&&!state.beforeDirectories.includes(basename(directory)),'Historical/foreign native output cannot become current execution evidence');await copyTree(root,directory,output);result.sourceDirectory=relative(root,directory);result.sourceResult=relative(root,original);primary=join(output,'report.json');
++ }else if(staticOutputs[recipe]){await mkdir(output,{recursive:true});for(const path of staticOutputs[recipe]){const target=join(output,basename(path));await writeFile(target,await bytes(root,path));}result.sourceResult=staticOutputs[recipe][0];primary=join(output,basename(result.sourceResult));}
++ else{result.kind='stdout-only';return result;}
++ result.kind='retained-producer-output';result.retainedDirectory=relative(root,output);result.inventory=await inventory(root,[result.retainedDirectory],{outputs:true});result.files=result.inventory.files;result.result=await ref(root,primary);return result;
++}
++export async function validateCIResultBinding(root,capture,submitted){
++ const output=capture.outputs;check(output?.schemaVersion===1&&output.recipe===capture.recipe&&same(output.inputBinding,capture.candidate)&&same(output.ci,capture.ci)&&output.executionResultSha256===capture.execution.rawResult.sha256,'Original CI output does not belong to captured source/run/process');
++ if(!dynamic(capture.recipe)&&!staticOutputs[capture.recipe]){check(output.kind==='stdout-only'&&same(output.stdout,capture.execution.stdout)&&!submitted&&!capture.result,'Unexpected substituted output for stdout-only producer');return null;}
++ check(output.kind==='retained-producer-output'&&same(output.result,capture.result)&&same(output.result,submitted),'Historical or unrelated CI result substituted for actual captured output');
++ const expected=await inventory(root,[output.retainedDirectory],{outputs:true});check(same(expected,output.inventory)&&same(expected.files,output.files),'Retained complete CI result/raw inventory changed');check(output.files.some(file=>same(file,output.result)),'Result missing from original complete output inventory');
++ if(staticOutputs[capture.recipe])check(output.sourceResult===staticOutputs[capture.recipe][0]&&output.producerState?.recipe===capture.recipe&&output.producerState.clearedBeforeExecution===true&&same(output.producerState.preparedOutputs,staticOutputs[capture.recipe]),'Wrong/non-fresh canonical CI output file');
++ else{const stdout=await bytes(root,capture.execution.stdout.path);check(hash(stdout)===capture.execution.stdout.sha256&&output.producerStdoutSha256===capture.execution.stdout.sha256,'Original native producer stdout changed');const reported=[...stdout.toString().matchAll(/^Report: (.+)$/gmu)];check(reported.length===1&&relative(root,resolve(root,reported[0][1]))===output.sourceResult,'Native output was not identified by this actual invocation');const kind=dynamic(capture.recipe),sourceDirectory=output.sourceDirectory;check(dirname(sourceDirectory)==='test-results/t05'&&basename(sourceDirectory).startsWith(`${kind}-`)&&output.sourceResult===`${sourceDirectory}/report.json`&&!output.producerState.beforeDirectories.includes(basename(sourceDirectory)),'Historical native producer directory substituted');}
++ return JSON.parse(await readRef(root,submitted));
++}
++async function retainedFile(root,output,path){check(!path.startsWith('/')&&!path.split('/').some(part=>['..','.',''].includes(part)),'Unsafe native raw output reference');const full=`${output.retainedDirectory}/${path}`,proof=output.files.find(file=>file.path===full);check(proof,'Required actual native raw output not retained');return readRef(root,proof);}
++async function servedSnapshot(root,run,framework,stories){
++ let path=`apps/${stories?'storybook':'fixture'}-${framework}/dist`;if(!stories){try{if((await stat(join(root,path,'browser/index.html'))).isFile())path+='/browser';}catch(error){if(error.code!=='ENOENT')throw error;}}
++ const actual=await inventory(root,[path],{outputs:true}),expected=actual.files.map(file=>({path:'/'+relative(path,file.path),bytes:file.bytes,sha256:file.sha256}));const ordered=files=>[...files].sort((a,b)=>a.path.localeCompare(b.path));check(run.artifactSnapshot?.stableVerified===true&&same(ordered(run.artifactSnapshot.files),ordered(expected)),'Native producer served different/currently changed fixture or story bytes');
++}
++function cleanRequests(story,snapshot){check(Array.isArray(story.requests)&&story.requests.length>0&&Array.isArray(story.violations)&&story.violations.length===0&&(!story.runtimeErrors||story.runtimeErrors.length===0),'Actual story request/runtime outcomes missing or failed');const paths=new Set(snapshot.files.map(file=>file.path));paths.add('/');for(const request of story.requests){const url=new URL(request.url);check(['127.0.0.1','localhost'].includes(url.hostname)&&paths.has(decodeURIComponent(url.pathname))&&!['websocket','eventsource'].includes(request.kind),'Forbidden actual story request');}}
++export async function validateCapturedNative(root,capture,submitted,{framework,tool,mode,count,identities}){
++ const report=await validateCIResultBinding(root,capture,submitted);parseNativeRunner(report,{framework,tool,mode,count,identities});const run=report.results.find(row=>row.framework===framework);await servedSnapshot(root,run,framework,tool==='stories');
++ if(tool==='contracts'){const raw=JSON.parse(await retainedFile(root,capture.outputs,`${framework}/playwright.json`));parsePlaywright(raw,identities);}
++ else for(const story of run.stories){cleanRequests(story,run.artifactSnapshot);check(story.axe?.violations?.length===0,'Actual story axe outcomes missing/failed');if(mode==='catalog'){check(story.requestsFile===`${story.id}.requests.json`&&story.axeFile===`${story.id}.axe.json`,'Wrong native story raw reference');const requests=JSON.parse(await retainedFile(root,capture.outputs,`${framework}/${story.requestsFile}`)),axe=JSON.parse(await retainedFile(root,capture.outputs,`${framework}/${story.axeFile}`));check(same(requests.requests,story.requests)&&same(requests.violations,story.violations)&&axe.violations?.length===0&&same(axe.violations,story.axe.violations),'Native raw request/axe result differs from summary');}const png=await retainedFile(root,capture.outputs,`${framework}/${story.screenshot??`${story.id}.png`}`);check(png.length>24&&png.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])),'Native story screenshot missing');}
++ return report;
++}
++export async function validateCapturedSiheom(root,capture,submitted,framework){const report=await validateCIResultBinding(root,capture,submitted),run=report.results?.find(row=>row.framework===framework);check(report.kind==='siheom'&&report.mode==='pilot'&&run?.status==='passed'&&run.commandExitCode===0,'Wrong actual native siheom report');const raw=JSON.parse(await retainedFile(root,capture.outputs,`${framework}-vitest.json`));check(raw.success===true&&raw.numTotalTests>0&&raw.numPassedTests===raw.numTotalTests&&raw.numFailedTests===0&&(raw.numPendingTests??0)===0,'Actual siheom tests missing/failed/skipped');const assertions=raw.testResults?.flatMap(row=>row.assertionResults??[])??[];check(assertions.length===raw.numTotalTests&&assertions.every(row=>row.status==='passed')&&run.tests===raw.numTotalTests&&run.passed===raw.numPassedTests&&run.failed===0,'Actual siheom raw assertions differ from summary');return report;}
+diff --git a/tools/release-evidence/docs-browser.mjs b/tools/release-evidence/docs-browser.mjs
+new file mode 100644
+index 0000000..ad3eb92
+--- /dev/null
++++ b/tools/release-evidence/docs-browser.mjs
+@@ -0,0 +1,21 @@
++#!/usr/bin/env node
++/** Run the actual T12 browser producer while recording exact consumed response bytes. */
++import {createRequire} from 'node:module';
++import {readFile,writeFile,mkdir} from 'node:fs/promises';
++import {resolve,dirname,relative} from 'node:path';
++import {createHash} from 'node:crypto';
++import {pathToFileURL} from 'node:url';
++import {redirectDocsProducer} from './producers.mjs';
++const root=resolve(import.meta.dirname,'../..'),dist=resolve(root,'apps/docs/dist');
++const producerOutput=process.env.KRDS_RELEASE_DOCS_OUTPUT;if(!producerOutput)throw new Error('A fresh redirected producer-output directory is required');
++const require=createRequire(resolve(root,'apps/docs/package.json'));
++const {chromium,webkit}=require('@playwright/test');const pending=[],responses=[],failures=[];const output=process.env.KRDS_RELEASE_DOCS_SERVED;
++if(!output)throw new Error('A retained served-response output path is required');
++for(const engine of [chromium,webkit]){const launch=engine.launch.bind(engine);engine.launch=async(...args)=>{const browser=await launch(...args),newContext=browser.newContext.bind(browser);browser.newContext=async(...options)=>{const context=await newContext(...options);context.on('response',response=>{pending.push((async()=>{
++ if(response.status()>=300&&response.status()<400)return;const url=new URL(response.url());if(!['localhost','127.0.0.1'].includes(url.hostname))throw new Error('Remote documentation response');if(response.status()!==200)throw new Error(`Documentation HTTP failure ${response.status()}`);
++ const path=decodeURIComponent(url.pathname);const choices=path.endsWith('/')?[`${path}index.html`]:[path,`${path}.html`,`${path}/index.html`];let file,expected;
++ for(const candidate of choices){const candidateFile=resolve(dist,`.${candidate}`);if(!candidateFile.startsWith(`${dist}/`))throw new Error('Unsafe docs response path');try{expected=await readFile(candidateFile);file=candidateFile;break;}catch(error){if(error.code!=='ENOENT')throw error;}}
++ if(!expected)throw new Error(`Response is outside current built docs ${path}`);const body=await response.body();if(!body.equals(expected))throw new Error(`Browser consumed different documentation bytes ${path}`);
++ responses.push({browser:engine.name(),url:response.url(),path:relative(root,file),bytes:body.length,sha256:createHash('sha256').update(body).digest('hex')});
++ })().catch(error=>{failures.push(error.message);}));});return context;};return browser;};}
++const source=await readFile(resolve(root,'apps/docs/tests/browser.mjs'),'utf8');const derived=redirectDocsProducer(source,root,producerOutput);const derivedPath=resolve(dirname(output),'t12-producer-redirected.mjs');await writeFile(derivedPath,derived);await import(pathToFileURL(derivedPath).href);await Promise.all(pending);if(failures.length)throw new Error(failures.join('; '));if(!responses.length)throw new Error('Zero actual docs response bytes captured');await mkdir(dirname(resolve(output)),{recursive:true});await writeFile(resolve(output),JSON.stringify({schemaVersion:1,kind:'actual-docs-responses',producerSha256:createHash('sha256').update(source).digest('hex'),redirectedProducer:{path:relative(root,derivedPath),sha256:createHash('sha256').update(derived).digest('hex'),bytes:Buffer.byteLength(derived)},producerOutput:relative(root,resolve(producerOutput)),responses},null,2)+'\n');
+diff --git a/tools/release-evidence/producers.mjs b/tools/release-evidence/producers.mjs
+new file mode 100644
+index 0000000..a273476
+--- /dev/null
++++ b/tools/release-evidence/producers.mjs
+@@ -0,0 +1,186 @@
++/** Typed acceptance of native producer data; historical parsers never award a candidate. */
++import {readFile,readdir,realpath,stat} from 'node:fs/promises';
++import {resolve,join,relative,dirname} from 'node:path';
++import {createHash} from 'node:crypto';
++import {validateStep,nodeCommand,producerEnvironment} from './receipts.mjs';
++import {validateCIResultBinding,validateCapturedNative,validateCapturedSiheom} from './ci-outputs.mjs';
++export {prepareCIOutputs,retainCIOutputs,validateCIResultBinding,validateCapturedNative,validateCapturedSiheom} from './ci-outputs.mjs';
++export const stable=['solid','react','svelte','vue','lit','qwik','angular'];
++export const hash=value=>createHash('sha256').update(value).digest('hex');
++export const blocked=message=>Object.assign(new Error(message),{code:'EVIDENCE_BLOCKED'});
++const requireFact=(value,message)=>{if(!value)throw blocked(message);};
++const nonempty=value=>typeof value==='string'&&value.trim().length>0;
++const identical=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
++const exact=(a,b)=>Array.isArray(a)&&new Set(a).size===a.length&&a.length===b.length&&b.every(value=>a.includes(value));
++export const patternCases=['form-errors/error-summary-focus','form-errors/retry-success','form-errors/reset-cancels-pending','search-results/filter-resets-page','search-results/empty-results','search-results/retry-success','search-results/query-during-loading','consent-confirmation/required-refusal','consent-confirmation/optional-refusal-success','consent-confirmation/modal-focus-return','consent-confirmation/retry-in-dialog','service-layout/skip-main','service-layout/navigate-current','service-layout/narrow-navigation','service-layout/footer-policy'];
++export const manualCases=['speech-output','keyboard','media-controls','visually-hidden','media-equivalence','zoom-200-400','forced-colors','focus-visibility'];
++export async function bytes(root,path){
++ requireFact(nonempty(path),'Missing evidence path');root=await realpath(root);const file=await realpath(resolve(root,path));requireFact(file.startsWith(`${root}/`),'Evidence escapes repository');requireFact((await stat(file)).isFile(),'Evidence is not a file');return readFile(file);
++}
++export async function readRef(root,ref){
++ requireFact(ref&&Number.isInteger(ref.bytes)&&ref.bytes>0&&/^[a-f0-9]{64}$/u.test(ref.sha256),'Missing nonempty original evidence reference');const value=await bytes(root,ref.path);requireFact(value.length===ref.bytes&&hash(value)===ref.sha256,`Changed original evidence ${ref.path}`);return value;
++}
++export async function ref(root,path){const value=await bytes(root,path);return {path:relative(await realpath(root),await realpath(resolve(root,path))),bytes:value.length,sha256:hash(value)};}
++export function parsePatterns(raw,framework){
++ requireFact([...stable,'solid-next'].includes(framework),'Unknown native framework');const rows=Array.isArray(raw)?raw:raw?.results;requireFact(Array.isArray(rows)&&rows.length>=15,'Empty/filtered native pattern execution');
++ for(const row of rows)requireFact((row.passed===true||row.ok===true||row.pass===true)&&row.skipped!==true&&row.executed!==false&&(row.exitCode===undefined||row.exitCode===0)&&!row.error&&!row.failure&&(!row.errors||row.errors.length===0)&&(!row.external||row.external.length===0),`Native pattern failed/unexecuted: ${row.id??row.name}`);
++ const cases=patternCases.map(id=>{const [pattern,name]=id.split('/');const found=rows.filter(row=>row.id===`pattern-${pattern}-${name}`||row.name===id||row.pattern===pattern&&row.id===name);requireFact(found.length===1,`Missing/duplicate actual binding case ${id}`);return id;});
++ if(raw.violations)requireFact(raw.violations.every(row=>Array.isArray(row.violations)&&row.violations.length===0),'Raw pattern axe violations');
++ return {framework,requiredCases:15,caseIds:cases,executedRows:rows.length};
++}
++export function parseNodeTests(text,expected){
++ const count=name=>{const matches=[...text.matchAll(new RegExp(`^(?:#|ℹ) ${name} (\\d+)\\s*$`,'gmu'))];requireFact(matches.length===1,`Missing/ambiguous actual test counter ${name}`);return Number(matches[0][1]);};
++ const tests=count('tests'),passed=count('pass');requireFact(tests===expected&&passed===expected&&count('fail')===0&&count('skipped')===0,'Required test executions failed/skipped/empty');
++ requireFact(!/^not ok\b/mu.test(text),'Raw failed test in stdout');return {tests,passed};
++}
++const docsChecks=['keyboard skip link reaches main','Korean local search returns Badge','54 catalog navigation rows','native semantic contract visible','local source download reachable','narrow document has no horizontal overflow','actual doubled computed text size','doubled-text navigation stays visible and opens','home and component axe violations zero','external runtime requests zero','browser errors zero'];
++export function parseDocsBrowser(raw){
++ requireFact(exact(raw?.results?.map(row=>row.browser),['chromium','webkit']),'Require two actual docs engines');
++ for(const row of raw.results){requireFact(row.status==='passed'&&row.skipped!==true&&row.executed!==false&&docsChecks.every(check=>row.assertions?.includes(check)),'Docs browser required assertions missing');requireFact(row.errors?.length===0&&row.externalRequests?.length===0&&row.axe?.home?.length===0&&row.axe?.badge?.length===0,'Docs runtime/request/raw axe failure');requireFact(row.textScaling?.factor===2&&row.textScaling.scaledFont===2*row.textScaling.normalFont&&row.overflow?.scroll<=row.overflow?.client+1,'Actual text-scaling/overflow observation missing');}
++ return {engines:2};
++}
++export function parseHumanSession(session,required){
++ requireFact(nonempty(session?.person)&&session.role==='manual-reviewer'&&session.performed===true,'Actual human identity/performed session required');
++ requireFact(Number.isFinite(Date.parse(session.startedAt))&&Date.parse(session.finishedAt)>Date.parse(session.startedAt),'Actual session start/end required');
++ requireFact(['os','browser','assistiveTechnology'].every(key=>nonempty(session.environment?.[key])),'Actual OS/browser/assistive technology required');
++ requireFact(exact(session.observations?.map(row=>row.id),required),'Actual required human observations missing/duplicate');
++ for(const row of session.observations)requireFact(row.passed===true&&row.actions?.length&&row.actions.every(nonempty)&&nonempty(row.expected)&&nonempty(row.actual)&&row.supportingArtifacts?.length&&row.supportingArtifacts.every(nonempty),'Human observation needs performed actions, expected/actual outcome and original supporting artifacts');
++ requireFact(Array.isArray(session.limitations),'Manual limitations must be explicit');return {observed:required.length,person:session.person};
++}
++export function parseReview(text,scope,metadataDecision){
++ requireFact(nonempty(text)&&/^# /mu.test(text),'Original independent review report required');const headings=[...text.matchAll(/^## Current decision[ \t]*$/gmu)];
++ if(!headings.length){requireFact(text.length>500&&/independent|independently/iu.test(text)&&new RegExp(scope==='docs'?'documentation|docs':scope,'iu').test(text),'Wrong historical review subject');requireFact(!/NOT ACCEPTED|REQUEST CHANGES/iu.test(text),'No current accepted scoped decision');return {scope,scopedOnly:true,approved:false,diagnostic:true};}
++ requireFact(headings.length===1,'Ambiguous current review decision sections');const start=headings[0].index+headings[0][0].length,tail=text.slice(start),end=tail.search(/^#{1,2} /mu),section=(end<0?tail:tail.slice(0,end)).trim();const match=section.match(/^```krds-review-decision\s*\n([\s\S]*?)\n```$/u);requireFact(match,'Current decision must be one explicit structured scoped decision, not historical prose');let decision;try{decision=JSON.parse(match[1]);}catch{throw blocked('Unreadable current review decision');}
++ requireFact(decision.schemaVersion===1&&decision.scope===scope&&decision.current===true&&nonempty(decision.subject),'Wrong current scoped review identity');requireFact(decision.spec==='accepted'&&decision.quality==='accepted','Current review rejected or requests changes');requireFact(Array.isArray(decision.findings),'Current finding dispositions missing');
++ const ids=new Set();for(const finding of decision.findings){requireFact(nonempty(finding.id)&&!ids.has(finding.id)&&['critical','important','minor','info'].includes(finding.severity)&&typeof finding.resolved==='boolean'&&nonempty(finding.disposition),'Incomplete current finding disposition');ids.add(finding.id);requireFact(finding.resolved||!['critical','important'].includes(finding.severity),'Unresolved material review finding');}
++ if(metadataDecision)requireFact(identical(decision,metadataDecision),'Current report verdict/dispositions disagree with submitted review decision');return {scope,scopedOnly:true,approved:true,decision};
++}
++function approvedReview(text,scope,review){const parsed=parseReview(text,scope,review.decision);requireFact(parsed.approved&&review.decision&&parsed.decision.subject===review.subject&&identical(parsed.decision.findings,review.findings)&&parsed.decision.sourceInventorySha256===review.sourceInventory?.sha256&&parsed.decision.sourceFingerprint===review.sourceFingerprint,'Missing or inconsistent current scoped verdict/findings/source subject');return parsed;}
++const omit=new Set(['node_modules','dist','public','.git','.nx','.angular','.vite','.svelte-kit','.cache','__screenshots__']);
++export function sourceRoots(kind,frameworks=stable){
++ requireFact(['patterns','documentation','preview','ci','manualAccessibility','independentReview'].includes(kind),'Unknown producer source kind');
++ const common=['tools','tests','packages/test-contracts','package.json','.yarnrc.yml','.yarn/releases','yarn.lock','compatibility/toolchain.json','compatibility/frameworks.json','compatibility/testing.json'];
++ if(kind==='patterns')return [...common,'packages/test-contracts/src/patterns','examples/pattern-specs','docs/patterns',...frameworks.flatMap(id=>[`packages/${id}/src`,`packages/${id}/examples/patterns`,`apps/fixture-${id}/src`,`apps/fixture-${id}/scripts`,`apps/fixture-${id}/tests`,`apps/fixture-${id}/public`,`apps/storybook-${id}/src`])];
++ if(kind==='manualAccessibility')return [...sourceRoots('patterns',frameworks),'docs/reviews','compliance/project-identity.json'];
++ if(kind==='independentReview')return [...sourceRoots('ci',frameworks),'docs/reviews'];
++ if(kind==='documentation')return [...common,'apps/docs','catalog','specs','compliance'];
++ if(kind==='preview')return [...common,'packages/solid-next','apps/fixture-solid-next','catalog/fixture-cases.json','tools/run-contract-tests.mjs','tools/testing'];
++ if(kind==='ci')return [...common,'tools/ci','.github/workflows','package.json','nx.json','packages','apps','tests','catalog','compliance'];
++ return [...common,'docs/reviews','compliance/project-identity.json'];
++}
++export async function inventory(root,roots,{outputs=false}={}){
++ const records=new Map();async function visit(path,required=false){let info;try{info=await stat(resolve(root,path));}catch(error){if(error.code==='ENOENT'&&!required)return;throw error;}if(info.isDirectory()){for(const entry of await readdir(resolve(root,path),{withFileTypes:true})){if(entry.name==='.DS_Store'||!outputs&&entry.name.endsWith('.tsbuildinfo')||omit.has(entry.name)&&!(outputs&&['dist','public'].includes(entry.name)))continue;requireFact(!entry.isSymbolicLink(),'Unexpected source/artifact symlink');await visit(`${path}/${entry.name}`);}}else if(info.isFile()){const value=await bytes(root,path);records.set(path,{path,bytes:value.length,sha256:hash(value)});}}
++ for(const path of roots)await visit(path,outputs);const files=[...records.values()].sort((a,b)=>a.path.localeCompare(b.path));requireFact(files.length>0,'Empty source/output inventory');return {roots,files,sha256:hash(JSON.stringify(files))};
++}
++export async function validateInventory(root,record,roots,options){const current=await inventory(root,roots,options);requireFact(identical(record,current),'Complete source/artifact inventory is stale or incomplete');return current;}
++export function candidateBinding(kind,candidate,scopes){
++ const scope=['patterns','manualAccessibility'].includes(kind)?'stable':kind==='preview'?'preview':'all';
++ if(scope!=='all'){requireFact(scopes?.[scope],'Missing accepted scoped source/artifact binding');return {sourceCommit:candidate.sourceCommit,lockfileSha256:candidate.lockfileSha256,scope,sourceFingerprint:scopes[scope].sourceFingerprint,artifactSetSha256:scopes[scope].artifactSetSha256};}
++ return {sourceCommit:candidate.sourceCommit,lockfileSha256:candidate.lockfileSha256,scope,sourceFingerprint:candidate.sourceFingerprint,repositorySourceSha256:candidate.repositorySourceSha256,artifactManifestSha256:candidate.artifactManifestSha256};
++}
++export async function validateEnvelope(root,report,kind,expected,frameworks){
++ requireFact(report?.schemaVersion===3&&report.kind===kind&&identical(report.candidate,expected),'Missing typed same-candidate evidence envelope');
++ requireFact(typeof expected.sourceCommit==='string'&&/^[a-f0-9]{40,64}$/u.test(expected.sourceCommit),'Evidence is diagnostic until a real source candidate exists');
++ const roots=sourceRoots(kind,frameworks);await validateInventory(root,report.sourceBefore,roots);await validateInventory(root,report.sourceAfter,roots);requireFact(identical(report.sourceBefore,report.sourceAfter),'Inputs changed during actual producer execution');
++ return report;
++}
++export function recipe(kind,framework){
++ if(kind==='patterns')return ['tools/yarn.mjs','workspace',`@unofficial-krds/fixture-${framework}`,'exec','node','scripts/patterns-browser.mjs'];
++ if(kind==='docs-tests')return ['tools/yarn.mjs','workspace','@unofficial-krds/docs','test'];
++ if(kind==='docs-browser')return ['tools/release-evidence/docs-browser.mjs'];
++ if(kind==='preview-contracts')return ['tools/yarn.mjs','test:contract','--framework','solid-next'];
++ if(kind==='preview-types')return ['tools/yarn.mjs','workspace','@unofficial-krds/solid-next','typecheck'];
++ if(kind==='preview-build')return ['tools/yarn.mjs','workspace','@unofficial-krds/solid-next','build:local'];
++ if(kind.startsWith('ci:contracts:')||kind.startsWith('ci:stories:')){const [,tool,id,mode]=kind.split(':');requireFact(stable.includes(id)&&['pilot','catalog'].includes(mode),'Unknown CI native matrix recipe');return ['tools/yarn.mjs',tool==='contracts'?'test:contract':'test:stories','--framework',id,...(mode==='catalog'?['--catalog']:[])];}
++ if(kind.startsWith('ci:siheom:')){const id=kind.split(':')[2];requireFact(stable.includes(id)&&id!=='lit','Unsupported siheom adapter');return ['tools/yarn.mjs','test:siheom','--framework',id];}
++ const ci={install:['tools/yarn.mjs','install','--immutable'],workspace:['tools/yarn.mjs','verify:workspace'],catalog:['tools/yarn.mjs','verify:catalog'],coverage:['tools/yarn.mjs','verify:coverage'],selection:['tools/ci/selection.mjs','--full'],targets:['tools/ci/run-targets.mjs'],affected:['tools/ci/check-affected.mjs'],cache:['tools/ci/verify-cache.mjs']};
++ requireFact(kind.startsWith('ci:')&&ci[kind.slice(3)],'Unknown capture recipe');return ci[kind.slice(3)];
++}
++async function step(root,receipt,kind,framework,environment={}){return validateStep(receipt,{baseRoot:root,expectedCommand:nodeCommand(root,recipe(kind,framework),{...producerEnvironment(root,kind,framework),...environment})});}
++export async function parseDocsMetadata(root,metadata){
++ requireFact(metadata.webEntryCount===54&&exact(metadata.stableFrameworks,stable)&&exact(metadata.previewFrameworks,['solid-next']),'Docs exact 54/seven/native-preview metadata missing');
++ requireFact(metadata.sourceInputs?.length>60&&metadata.distributedSources?.length>0,'Missing docs source/download inventories');
++ for(const input of metadata.sourceInputs)requireFact(hash(await bytes(root,input.path))===input.sha256,`Docs source input stale ${input.path}`);
++ for(const id of stable){const mapped=new Set(metadata.examples.filter(row=>row.framework===id&&row.status==='compiler-checked'&&row.publicPackageConsumption===true).flatMap(row=>row.componentIds));requireFact(mapped.size===54,`Docs ${id} full compiler mapping missing`);}
++ for(const example of metadata.examples)requireFact(hash(await bytes(root,example.sourcePath))===example.sourceSha256,'Docs compiler source changed');
++ for(const input of metadata.distributedSources){const path=input.outputPath?`apps/docs/public/${input.outputPath}`:input.snapshotPath??input.publicPath??input.path;requireFact(nonempty(path),'Missing actual docs distributed path');requireFact(hash(await bytes(root,path))===input.sha256,'Distributed docs snapshot changed');if(input.outputPath)requireFact(hash(await bytes(root,`apps/docs/dist/${input.outputPath}`))===input.sha256,'Served docs source download differs from metadata');}
++ return {entries:54};
++}
++export async function outputRoots(root){const roots=[];for(const parent of ['packages','apps'])for(const entry of await readdir(join(root,parent),{withFileTypes:true})){if(!entry.isDirectory())continue;try{if((await stat(join(root,parent,entry.name,'dist'))).isDirectory())roots.push(`${parent}/${entry.name}/dist`);}catch(error){if(error.code!=='ENOENT')throw error;}}try{if((await stat(join(root,'tools/dist'))).isDirectory())roots.push('tools/dist');}catch(error){if(error.code!=='ENOENT')throw error;}return roots.sort();}
++export function capturedCandidateMatches(kind,captured,expected,sourceBefore){return kind==='ci'?captured?.bindingMode==='source-before/outputs-after'&&captured.sourceCommit===expected.sourceCommit&&captured.lockfileSha256===expected.lockfileSha256&&captured.sourceInventorySha256===sourceBefore.sha256:identical(captured,expected);}
++export async function validateCapture(root,reference,report,expected,recipeName,execution,result,closure){
++ const captured=JSON.parse(await readRef(root,reference));requireFact(captured.schemaVersion===3&&captured.kind==='captured-recipe'&&captured.recipe===recipeName&&capturedCandidateMatches(report.kind,captured.candidate,expected,report.sourceBefore)&&captured.sourceUnchanged===true&&identical(captured.sourceBefore,report.sourceBefore)&&identical(captured.sourceAfter,report.sourceAfter)&&identical(captured.execution,execution),'Original recorder/candidate/source/execution receipt differs');
++ if(result)requireFact(identical(captured.result,result),'Original recorder result reference differs');
++ if(recipeName==='patterns'||recipeName==='docs-tests'||recipeName==='docs-browser'){requireFact(closure,'Submitted original artifact closure missing');const roots=recipeName==='patterns'?[`apps/fixture-${closure.framework}/dist`,`packages/${closure.framework}/dist`,'packages/test-contracts/dist']:['apps/docs/dist','apps/docs/public'];if(recipeName==='patterns')requireFact(captured.framework===closure.framework,'Captured native framework differs');requireFact(identical(captured.artifactsBefore,closure.artifactsBefore)&&identical(captured.artifactsAfter,closure.artifactsAfter)&&identical(captured.artifactsBefore,captured.artifactsAfter),'Original recorder artifacts drifted or were replaced');await validateInventory(root,captured.artifactsBefore,roots,{outputs:true});await validateInventory(root,captured.artifactsAfter,roots,{outputs:true});if(recipeName==='docs-browser')requireFact(closure.served&&identical(captured.served,closure.served),'Original captured served responses were substituted');}
++ if(report.kind==='ci'){requireFact(identical(captured.ci,report.ci),'Original CI workflow/run identity differs');if(recipeName==='ci:targets'&&execution.exitCode===0)await validateInventory(root,captured.producedArtifacts,await outputRoots(root),{outputs:true});}return captured;
++}
++async function validateManualSupport(root,observation){
++ if(['zoom-200-400','forced-colors','focus-visibility'].includes(observation.id)){requireFact(observation.screenshots?.length>0,'Authentic visibility observation needs bound screenshots');for(const proof of observation.screenshots){const value=await readRef(root,proof);requireFact(proof.mediaType==='image/png'&&value.length>=32&&value.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]))&&value.readUInt32BE(16)>0&&value.readUInt32BE(20)>0,'Visibility supporting artifact is not a screenshot');}if(observation.id==='zoom-200-400')requireFact(observation.method==='real-browser-ui'&&exact(observation.factors,[2,4]),'CSS/text scaling is not real 200/400 percent browser zoom');if(observation.id==='forced-colors')requireFact(observation.method==='operating-system-high-contrast','Emulation is not actual OS high-contrast observation');}
++ if(observation.id==='media-equivalence'){const roles=['video','audio','captions','transcript','audio-description','sign-language'];requireFact(exact(observation.originalSources?.map(row=>row.role),roles),'Original media/caption/description/sign-language equivalence sources missing');for(const source of observation.originalSources){await readRef(root,source.artifact);const provenance=JSON.parse(await readRef(root,source.provenance));const records=Array.isArray(provenance)?provenance:[provenance];requireFact(records.some(row=>row.sha256===source.artifact.sha256&&nonempty(row.upstreamUrl)&&/^https:\/\//u.test(row.upstreamUrl)&&Number.isFinite(Date.parse(row.retrievedAt))&&nonempty(row.sourceKind)&&!/synthetic|independent/iu.test(row.sourceKind)),'Original media provenance does not bind reviewed source bytes');}}
++}
++export async function inspectReleaseEvidence(root,name,index,candidate,scopes={}){
++ try{
++  requireFact(index?.schemaVersion===3&&index.reports?.[name],'Missing canonical v3 evidence index/ref');
++  const report=JSON.parse(await readRef(root,index.reports[name]));const expected=candidateBinding(name,candidate,scopes);const frameworks=name==='preview'?['solid-next']:stable;
++  await validateEnvelope(root,report,name,expected,frameworks);const paths=[index.reports[name].path];
++  if(name==='patterns'){
++   requireFact(exact(report.rows?.map(row=>row.framework),stable),'Every seven native composition producers required');
++   for(const row of report.rows){const raw=JSON.parse(await readRef(root,row.result));const parsed=parsePatterns(raw,row.framework);await validateCapture(root,row.capture,report,expected,'patterns',row.execution,row.result,{framework:row.framework,artifactsBefore:row.artifactsBefore,artifactsAfter:row.artifactsAfter});const captured=await step(root,row.execution,'patterns',row.framework);for(const id of parsed.caseIds){const [pattern,name]=id.split('/');const label=row.framework==='react'?`pattern-${pattern}-${name}`:id;requireFact(captured.stdout.split(/\r?\n/u).some(line=>line===`PASS ${label}`),`Original subprocess did not execute ${id}`);}requireFact(!/^FAIL /mu.test(captured.stdout),'Actual pattern subprocess failure');
++    const artifactRoots=[`apps/fixture-${row.framework}/dist`,`packages/${row.framework}/dist`,'packages/test-contracts/dist'];await validateInventory(root,row.artifactsBefore,artifactRoots,{outputs:true});await validateInventory(root,row.artifactsAfter,artifactRoots,{outputs:true});requireFact(identical(row.artifactsBefore,row.artifactsAfter),'Pattern served artifacts changed');
++    const text=(await readRef(root,row.review.report)).toString();approvedReview(text,row.framework,row.review);validateReviewer(row.review,`patterns:${row.framework}`);await validateInventory(root,row.review.sourceInventory,sourceRoots('patterns',[row.framework]));requireFact(row.review.sourceFingerprint===expected.sourceFingerprint&&row.review.artifactSetSha256===expected.artifactSetSha256,'Native review is not bound to this exact candidate');for(const source of row.review.sources)requireFact(hash(await bytes(root,source.path))===source.sha256,'Reviewed pattern source stale');requireFact(row.review.observations?.some(value=>nonempty(value)),'Independent native review observations missing');paths.push(row.result.path,row.review.report.path);
++   }
++  }else if(name==='documentation'){
++   await validateCapture(root,report.testCapture,report,expected,'docs-tests',report.tests,undefined,{artifactsBefore:report.artifactsBefore,artifactsAfter:report.artifactsAfter});await validateCapture(root,report.browserCapture,report,expected,'docs-browser',report.browserExecution,report.browser,{artifactsBefore:report.artifactsBefore,artifactsAfter:report.artifactsAfter,served:report.served});parseNodeTests((await step(root,report.tests,'docs-tests')).stdout,5);await step(root,report.browserExecution,'docs-browser',undefined,{KRDS_RELEASE_DOCS_SERVED:resolve(root,report.served?.path??'missing'),KRDS_RELEASE_DOCS_OUTPUT:resolve(root,dirname(report.browser?.path??'missing'))});await validateServedDocs(root,JSON.parse(await readRef(root,report.served)),{requireProducer:true});parseDocsBrowser(JSON.parse(await readRef(root,report.browser)));await parseDocsMetadata(root,JSON.parse(await readRef(root,report.metadata)));
++   await validateInventory(root,report.artifactsBefore,['apps/docs/dist','apps/docs/public'],{outputs:true});await validateInventory(root,report.artifactsAfter,['apps/docs/dist','apps/docs/public'],{outputs:true});requireFact(identical(report.artifactsBefore,report.artifactsAfter),'Docs served files changed');approvedReview((await readRef(root,report.review.report)).toString(),'docs',report.review);validateReviewer(report.review,'documentation');requireFact(identical(report.review.sourceInventory,report.sourceBefore),'Docs independent review omits current input inventory');requireFact(report.review.artifactInventorySha256===report.artifactsAfter.sha256,'Docs independent review did not inspect these served artifacts');requireFact(report.review.sourceFingerprint===expected.sourceFingerprint&&report.review.artifactManifestSha256===expected.artifactManifestSha256,'Documentation review candidate differs');paths.push(report.metadata.path,report.browser.path);
++  }else if(name==='manualAccessibility'){
++   requireFact(exact(report.sessions?.map(row=>row.framework),stable),'Actual sessions required for seven native renderers');
++   for(const session of report.sessions){parseHumanSession(session,manualCases);await validateInventory(root,session.hostArtifacts,[`apps/fixture-${session.framework}/dist`],{outputs:true});requireFact(session.sourceInventorySha256===report.sourceBefore.sha256,'Manual session did not bind current host/source inventory');for(const observation of session.observations){await validateManualSupport(root,observation);}for(const observation of session.observations)for(const path of observation.supportingArtifacts){const proof=session.artifacts?.find(ref=>ref.path===path);const value=await readRef(root,proof);requireFact(proof.mediaType==='application/json'&&proof.kind==='session-transcript','Manual acceptance needs the original structured performed-session transcript');const transcript=JSON.parse(value);requireFact(identical(transcript.candidate,expected)&&transcript.person===session.person&&transcript.framework===session.framework&&transcript.startedAt===session.startedAt&&transcript.sourceFingerprint===expected.sourceFingerprint&&transcript.artifactSetSha256===expected.artifactSetSha256&&transcript.hostArtifactSha256===session.hostArtifacts.sha256&&transcript.sourceInventorySha256===report.sourceBefore.sha256,'Manual transcript identity/environment/candidate differs');requireFact(transcript.observations?.some(row=>row.id===observation.id&&identical(row.actions,observation.actions)&&row.actual===observation.actual&&row.expected===observation.expected),'Transcript lacks actual performed observation');paths.push(path);}}
++  }else if(name==='independentReview'){
++   validateReviewer(report.review,'release');requireFact(identical(report.review.sourceInventory,report.sourceBefore),'Release independent review source inventory incomplete');requireFact(report.review.sourceFingerprint===expected.sourceFingerprint&&report.review.artifactManifestSha256===expected.artifactManifestSha256,'Independent review candidate differs');for(const source of report.review.sources)requireFact(hash(await bytes(root,source.path))===source.sha256,'Independently reviewed source changed');approvedReview((await readRef(root,report.review.report)).toString(),'release',report.review);requireFact(exact(report.checks?.map(row=>row.id),['native-boundaries','catalog-completeness','actual-tarballs','licenses','ssr','user-flows']),'Missing substantive independent release review checks');for(const row of report.checks)requireFact(row.passed===true&&row.observations?.length&&row.observations.every(nonempty)&&row.evidence?.length,'Independent review observations/artifact references missing');for(const row of report.checks)for(const proof of row.evidence)await readRef(root,proof);
++  }else if(name==='ci'){
++   requireFact(report.ci?.provider==='github-actions'&&/^[0-9]+$/u.test(report.ci.runId)&&/^[0-9]+$/u.test(report.ci.attempt)&&report.ci.sourceSha===expected.sourceCommit&&nonempty(report.ci.workflow),'Actual CI workflow/run/source identity missing');
++   const requiredRecipes=[...['install','workspace','catalog','coverage','selection','targets','affected','cache'].map(id=>`ci:${id}`),...stable.flatMap(id=>['contracts','stories'].flatMap(tool=>['pilot','catalog'].map(mode=>`ci:${tool}:${id}:${mode}`))),...stable.filter(id=>id!=='lit').map(id=>`ci:siheom:${id}`)];requireFact(exact(report.steps?.map(row=>row.recipe),requiredRecipes),'Actual CI execution recipes missing/duplicate/extra');
++   const captures=new Map();for(const item of report.steps??[]){const capture=await validateCapture(root,item.capture,report,expected,item.recipe,item.execution);await step(root,item.execution,item.recipe);captures.set(item.recipe,capture);let submitted;if(item.recipe==='ci:selection')submitted=report.selection;else if(item.recipe==='ci:targets')submitted=report.targets;else if(item.recipe==='ci:cache')submitted=report.cache;else if(item.recipe==='ci:affected')submitted=report.affected;else if(item.recipe.startsWith('ci:contracts:')||item.recipe.startsWith('ci:stories:')){const [,tool,framework,mode]=item.recipe.split(':');submitted=report.nativeResults?.find(row=>row.framework===framework&&row.tool===tool&&row.mode===mode)?.report;}else if(item.recipe.startsWith('ci:siheom:'))submitted=report.siheom?.find(row=>row.framework===item.recipe.split(':')[2])?.report;await validateCIResultBinding(root,capture,submitted);}
++   for(const id of ['install','workspace','catalog','coverage','selection','targets','affected','cache'])await step(root,report.steps?.find(row=>row.recipe===`ci:${id}`)?.execution,`ci:${id}`);
++   for(const id of stable)for(const tool of ['contracts','stories'])for(const mode of ['pilot','catalog']){const key=`ci:${tool}:${id}:${mode}`;await step(root,report.steps?.find(row=>row.recipe===key)?.execution,key);const run=report.nativeResults?.find(row=>row.framework===id&&row.tool===tool&&row.mode===mode);requireFact(run,'Missing actual native pilot/catalog result');const data=JSON.parse(await readRef(root,run.report));const count=tool==='contracts'?(mode==='pilot'?10:315):(mode==='pilot'?6:344);const catalog=JSON.parse(await bytes(root,tool==='contracts'?(mode==='pilot'?'catalog/fixture-cases.json':'catalog/full-catalog-scenarios.json'):(mode==='pilot'?'catalog/story-cases.json':'catalog/full-catalog-stories.json')));const identities=catalog.cases.map(row=>tool==='contracts'?`${id} ${row.componentId}/${row.caseId}`:row.id);await validateCapturedNative(root,captures.get(key),run.report,{framework:id,tool,mode,count,identities});}
++   for(const id of stable.filter(id=>id!=='lit')){const key=`ci:siheom:${id}`;await step(root,report.steps?.find(row=>row.recipe===key)?.execution,key);const entry=report.siheom?.find(row=>row.framework===id);requireFact(entry,'Missing actual native siheom report');await validateCapturedSiheom(root,captures.get(key),entry.report,id);}
++   const selection=JSON.parse(await readRef(root,report.selection)),results=JSON.parse(await readRef(root,report.targets));requireFact(selection.scope?.mode==='full'||selection.mode==='full'||selection.full===true,'CI selection is not full');
++   let groups=0;for(const channel of ['stable','preview'])for(const target of ['lint','typecheck','test','build','contract','siheom','storybook-build','stories']){const expected=selection.targets[target].filter(id=>selection[`${channel}Projects`].includes(id)),rows=results.filter(row=>row.channel===channel&&row.target===target);if(!expected.length){requireFact(!rows.length,'Unexpected unsupported/empty target execution');continue;}groups++;requireFact(rows.length===1&&rows[0].status==='passed'&&exact(rows[0].projects,expected),'CI actual target result/project set missing/failed');}requireFact(results.length===groups,'CI target aggregate has extra/duplicate groups');
++   const cache=JSON.parse(await readRef(root,report.cache));requireFact(cache.status==='passed'&&cache.first?.length&&identical(cache.first,cache.restored),'Actual cold/cache restoration mismatch');
++  }else if(name==='preview'){
++   await validateCapture(root,report.typeCapture,report,expected,'preview-types',report.types);await validateCapture(root,report.buildCapture,report,expected,'preview-build',report.build);await validateCapture(root,report.contractCapture,report,expected,'preview-contracts',report.contractExecution,report.contractRaw);await step(root,report.types,'preview-types');await step(root,report.build,'preview-build');await step(root,report.contractExecution,'preview-contracts');const canonical=JSON.parse(await bytes(root,'catalog/fixture-cases.json')).cases.map(row=>`solid-next ${row.componentId}/${row.caseId}`);parsePlaywright(JSON.parse(await readRef(root,report.contractRaw)),canonical);
++  }else throw blocked('Unknown required producer kind');
++  return {status:'passed',paths,details:[`${name}: typed genuine producer execution/source/artifact/review evidence validated`]};
++ }catch(error){return {status:error.code==='EVIDENCE_FAILED'?'failed':'blocked',details:[error.message]};}
++}
++export function validateReviewer(review,subject){
++ requireFact(review?.subject===subject&&review.independent===true&&nonempty(review.person)&&nonempty(review.implementer)&&review.person!==review.implementer&&nonempty(review.role)&&nonempty(review.performedAt)&&Number.isFinite(Date.parse(review.performedAt)),'Explicit independent reviewer/person/subject/time required');
++ requireFact(Array.isArray(review.sources)&&review.sources.length>0&&Array.isArray(review.findings)&&review.findings.every(row=>row.resolved===true||!['critical','important'].includes(row.severity)),'Reviewed source inventory or unresolved material findings missing');
++}
++export function parsePlaywright(raw,required){
++ requireFact(Array.isArray(required)&&required.length>0&&!raw.errors?.length,'Missing canonical Playwright obligation identities/raw errors');const tests=[];
++ function walk(suites,prefix=''){for(const suite of suites??[]){for(const spec of suite.specs??[])for(const test of spec.tests??[])tests.push({title:[prefix,suite.title,spec.title].filter(Boolean).join(' '),test});walk(suite.suites,[prefix,suite.title].filter(Boolean).join(' '));}}walk(raw.suites);
++ requireFact(tests.length===required.length,'Empty/skipped/extra Playwright tests');for(const title of required){const found=tests.filter(row=>row.title.endsWith(title));requireFact(found.length===1,'Missing/duplicate raw native case');const t=found[0].test;requireFact(t.expectedStatus==='passed'&&t.results?.length===1&&t.results[0].status==='passed'&&!t.results[0].error,'Raw native case failed/skipped/retried');const attachment=t.results[0].attachments?.find(item=>item.name==='native-health.json');requireFact(attachment?.body,'Raw native health must be captured inline');let health;try{health=JSON.parse(Buffer.from(attachment.body,'base64').toString());}catch{throw blocked('Unreadable raw native health');}const [framework,fixture]=title.split(' '),[componentId,caseId]=fixture.split('/');requireFact(health.healthy===true&&health.framework===framework&&health.fixture?.componentId===componentId&&health.fixture?.caseId===caseId,'Native health identity does not match executed public case');}return {cases:tests.length};
++}
++
++export function parseNativeRunner(raw,{framework,tool,mode,count,identities}){
++ requireFact(raw.kind===(tool==='contracts'?'contract':'stories')&&raw.mode===mode&&!raw.error,'Wrong/failed native runner kind/mode');
++ const rows=raw.results?.filter(row=>row.framework===framework);requireFact(rows?.length===1&&rows[0].status==='passed','Missing native runner actual execution');
++ const row=rows[0],cases=tool==='contracts'?row.tests:row.stories;requireFact(Array.isArray(cases)&&cases.length===count,'Native required case count differs');
++ if(tool==='contracts')requireFact(row.exitCode===0&&cases.every(item=>item.status==='passed'&&item.nativeHealth===true&&item.classification==='passed'),'Native raw behavior/health outcome missing');
++ else requireFact(cases.every(item=>item.status==='passed'&&!item.error),'Native raw stories failed/missing');
++ if(identities)requireFact(exact(cases.map(item=>tool==='contracts'?item.title:item.id),identities),'Native exact required case identities differ');
++ return {count};
++}
++
++export function redirectDocsProducer(source,root,output){
++ const rootLine="const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');",outputLine="const evidence = resolve(root, '.superpowers/sdd/PLAN/t12-docs-logs/browser');";
++ requireFact(source.split(rootLine).length===2&&source.split(outputLine).length===2,'T12 producer changed; output-only transform needs review');return source.replace(rootLine,`const root = ${JSON.stringify(root)};`).replace(outputLine,`const evidence = ${JSON.stringify(resolve(output))};`);
++}
++export async function validateServedDocs(root,raw,{requireProducer=false}={}){
++ if(requireProducer){const source=(await bytes(root,'apps/docs/tests/browser.mjs')).toString();requireFact(hash(source)===raw.producerSha256,'Original T12 producer source changed');const derived=redirectDocsProducer(source,root,resolve(root,raw.producerOutput));requireFact((await readRef(root,raw.redirectedProducer)).toString()===derived,'Producer redirect altered more than evidence destination/root');}
++ requireFact(raw?.schemaVersion===1&&raw.kind==='actual-docs-responses'&&raw.responses?.length>0,'Missing genuine served docs responses');
++ for(const browser of ['chromium','webkit'])requireFact(raw.responses.some(row=>row.browser===browser&&row.path==='apps/docs/dist/index.html')&&raw.responses.some(row=>row.browser===browser&&row.path==='apps/docs/dist/components/badge.html'),'Each engine must consume home and component built HTML');
++ for(const row of raw.responses){requireFact(row.path.startsWith('apps/docs/dist/'),'Response outside actual docs artifact');const body=await bytes(root,row.path);requireFact(body.length===row.bytes&&hash(body)===row.sha256,'Actual browser-consumed docs artifact changed');}
++ return {responses:raw.responses.length};
++}
+diff --git a/tools/release-evidence/producers.test.mjs b/tools/release-evidence/producers.test.mjs
+new file mode 100644
+index 0000000..be2691f
+--- /dev/null
++++ b/tools/release-evidence/producers.test.mjs
+@@ -0,0 +1,81 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync,mkdtempSync,writeFileSync,rmSync} from 'node:fs';
++import {join,resolve} from 'node:path';
++const api=await import('./producers.mjs').catch(()=>({}));
++const root=resolve(import.meta.dirname,'../..');
++const json=path=>JSON.parse(readFileSync(join(root,path),'utf8'));
++test('F1 parses actual React, Solid and Vue fifteen native binding results without promoting historical evidence',()=>{
++ assert.equal(typeof api.parsePatterns,'function');
++ for(const [framework,path]of [['react','.superpowers/sdd/PLAN/t11-react-logs/native-final/results.json'],['solid','.superpowers/sdd/PLAN/t11-solid-logs/browser-results.json'],['vue','.superpowers/sdd/PLAN/t11-vue-logs/31-browser-selected-cache/results.json']]){
++  const result=api.parsePatterns(json(path),framework);assert.equal(result.requiredCases,15);
++ }
++});
++test('F1 native parser rejects empty, filtered, failed, skipped and invented case identities',()=>{
++ assert.equal(typeof api.parsePatterns,'function');const raw=json('.superpowers/sdd/PLAN/t11-react-logs/native-final/results.json');
++ for(const value of [[],raw.slice(1),raw.map((row,i)=>i?row:{...row,passed:false}),raw.map((row,i)=>i?row:{...row,executed:false}),raw.map((row,i)=>i?row:{...row,external:['https://invalid.test']}),raw.map((row,i)=>i?row:{...row,id:'invented'})])assert.throws(()=>api.parsePatterns(value,'react'));
++});
++test('F1 parses real docs browser output and exact five-test Node stdout',()=>{
++ assert.equal(typeof api.parseDocsBrowser,'function');assert.equal(typeof api.parseNodeTests,'function');
++ assert.equal(api.parseDocsBrowser(json('.superpowers/sdd/PLAN/t12-docs-logs/browser/report.json')).engines,2);
++ const stdout=readFileSync(join(root,'.superpowers/sdd/PLAN/t12-docs-logs/tests-core-input-refresh.log'),'utf8');assert.equal(api.parseNodeTests(stdout,5).passed,5);
++ assert.throws(()=>api.parseNodeTests(stdout.replace('fail 0','fail 1'),5));
++ const raw=json('.superpowers/sdd/PLAN/t12-docs-logs/browser/report.json');raw.results[0].externalRequests.push('https://invalid.test');assert.throws(()=>api.parseDocsBrowser(raw));
++});
++test('F1 explicit manual identity/session/support is necessary and legitimate attestation can be validated',()=>{
++ assert.equal(typeof api.parseHumanSession,'function');
++ const session={person:'Unit fixture human',role:'manual-reviewer',performed:true,startedAt:'2026-10-30T00:00:00Z',finishedAt:'2026-10-30T00:10:00Z',environment:{os:'fixture OS',browser:'fixture browser',assistiveTechnology:'fixture speech reader'},observations:[{id:'speech-output',actions:['Focused named native input'],expected:'Name and state spoken',actual:'Name and state spoken',passed:true,supportingArtifacts:['speech.txt']}],limitations:[]};
++ assert.equal(api.parseHumanSession(session,['speech-output']).observed,1);
++ for(const value of [{...session,person:''},{...session,performed:false},{...session,observations:[]},{...session,observations:[{...session.observations[0],supportingArtifacts:[]}]}])assert.throws(()=>api.parseHumanSession(value,['speech-output']));
++});
++test('F1 actual scoped review Markdown is parsed as scoped review, not a release approval',()=>{
++ assert.equal(typeof api.parseReview,'function');
++ for(const [id,path]of [['react','task-T11-react-review.md'],['solid','task-T11-solid-review.md'],['vue','task-T11-vue-review.md'],['docs','task-T12-docs-core-review.md']])assert.equal(api.parseReview(readFileSync(join(root,'.superpowers/sdd/PLAN',path),'utf8'),id).scope,id);
++ assert.throws(()=>api.parseReview('passed','react'));
++});
++test('F1 bundle does not accept a generic all-passed index or absent current command receipts',async()=>{
++ assert.equal(typeof api.inspectReleaseEvidence,'function');
++ const result=await api.inspectReleaseEvidence(root,'patterns',{candidate:{},reports:{patterns:{status:'passed',rows:[{executed:true,observations:['true']}]}}},{},{});
++ assert.equal(result.status,'blocked');
++});
++test('F1 complete explicitly attested same-candidate manual envelope is accepted; missing transcript is blocked',async()=>{
++ const root=mkdtempSync('/private/tmp/krds-manual-protocol-unit-');try{
++  const fs=await import('node:fs');for(const dir of ['tools/release-evidence','docs/reviews','compatibility','test-results','docs/releases/1.0.0'])fs.mkdirSync(join(root,dir),{recursive:true});
++  for(const path of ['tools/release-evidence/producers.mjs','docs/reviews/session-source.txt','yarn.lock','compatibility/toolchain.json','compatibility/frameworks.json'])writeFileSync(join(root,path),'unit fixture source only');
++  const candidate={sourceCommit:'a'.repeat(40),lockfileSha256:'b'.repeat(64)},scopes={stable:{sourceFingerprint:'c'.repeat(64),artifactSetSha256:'d'.repeat(64)}};
++  const binding=api.candidateBinding('manualAccessibility',candidate,scopes);const snapshot=await api.inventory(root,api.sourceRoots('manualAccessibility'));
++  const sessions=[];for(const framework of api.stable){fs.mkdirSync(join(root,`apps/fixture-${framework}/dist`),{recursive:true});writeFileSync(join(root,`apps/fixture-${framework}/dist/index.html`),'Unit protocol artifact; no actual human review claimed');const observations=api.manualCases.map(id=>({id,actions:['Unit fixture action; no real human acceptance claimed'],expected:'Unit expected outcome',actual:'Unit performed observation',passed:true,supportingArtifacts:[`test-results/${framework}.json`]}));for(const observation of observations){if(['zoom-200-400','forced-colors','focus-visibility'].includes(observation.id)){const png=Buffer.alloc(40);Buffer.from([137,80,78,71,13,10,26,10]).copy(png);png.writeUInt32BE(100,16);png.writeUInt32BE(100,20);writeFileSync(join(root,`test-results/${framework}-${observation.id}.png`),png);observation.screenshots=[{...await api.ref(root,`test-results/${framework}-${observation.id}.png`),mediaType:'image/png'}];if(observation.id==='zoom-200-400'){observation.method='real-browser-ui';observation.factors=[2,4];}if(observation.id==='forced-colors')observation.method='operating-system-high-contrast';}if(observation.id==='media-equivalence'){observation.originalSources=[];for(const role of ['video','audio','captions','transcript','audio-description','sign-language']){const path=`test-results/${framework}-${role}.unit`;writeFileSync(join(root,path),'Unit original-source schema fixture; no real source clearance claimed');const artifact=await api.ref(root,path);const record=`${path}.json`;writeFileSync(join(root,record),JSON.stringify({sha256:artifact.sha256,sourceKind:'upstream-media',upstreamUrl:'https://example.invalid/unit-fixture',retrievedAt:'2026-10-30T00:00:00Z'}));observation.originalSources.push({role,artifact,provenance:await api.ref(root,record)});}}}const session={framework,person:'Synthetic protocol fixture',role:'manual-reviewer',performed:true,startedAt:'2026-10-30T00:00:00Z',finishedAt:'2026-10-30T00:10:00Z',environment:{os:'Fixture OS',browser:'Fixture browser',assistiveTechnology:'Fixture AT'},observations,limitations:[],sourceInventorySha256:snapshot.sha256,hostArtifacts:await api.inventory(root,[`apps/fixture-${framework}/dist`],{outputs:true})};writeFileSync(join(root,`test-results/${framework}.json`),JSON.stringify({...session,candidate:binding,sourceFingerprint:binding.sourceFingerprint,artifactSetSha256:binding.artifactSetSha256,hostArtifactSha256:session.hostArtifacts.sha256}));session.artifacts=[{...await api.ref(root,`test-results/${framework}.json`),mediaType:'application/json',kind:'session-transcript'}];sessions.push(session);}
++  const report={schemaVersion:3,kind:'manualAccessibility',candidate:binding,sourceBefore:snapshot,sourceAfter:snapshot,sessions};writeFileSync(join(root,'docs/releases/1.0.0/manual.json'),JSON.stringify(report));const index={schemaVersion:3,reports:{manualAccessibility:await api.ref(root,'docs/releases/1.0.0/manual.json')}};
++  assert.equal((await api.inspectReleaseEvidence(root,'manualAccessibility',index,candidate,scopes)).status,'passed');
++  rmSync(join(root,'test-results/react.json'));assert.equal((await api.inspectReleaseEvidence(root,'manualAccessibility',index,candidate,scopes)).status,'blocked');
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F1 native CI parser accepts a real canonical ten-case runner report and rejects missing raw health',()=>{
++ const raw=json('docs/execution/evidence/T07-vue/runners/contract-1793330785493-60282-98f51f03/report.json');
++ assert.equal(api.parseNativeRunner(raw,{framework:'vue',tool:'contracts',mode:'pilot',count:10}).count,10);
++ const damaged=structuredClone(raw);damaged.results[0].tests[0].nativeHealth=false;assert.throws(()=>api.parseNativeRunner(damaged,{framework:'vue',tool:'contracts',mode:'pilot',count:10}));
++});
++test('F1 docs consumed-response closure rejects changed built HTML while preserving claimed response hashes',async()=>{
++ const root=mkdtempSync('/private/tmp/krds-docs-response-unit-');try{
++  const fs=await import('node:fs');fs.mkdirSync(join(root,'apps/docs/dist/components'),{recursive:true});writeFileSync(join(root,'apps/docs/dist/index.html'),'Unit home fixture');writeFileSync(join(root,'apps/docs/dist/components/badge.html'),'Unit Badge fixture');
++  const responses=[];for(const browser of ['chromium','webkit'])for(const path of ['apps/docs/dist/index.html','apps/docs/dist/components/badge.html'])responses.push({browser,...await api.ref(root,path)});
++  const raw={schemaVersion:1,kind:'actual-docs-responses',responses};assert.equal((await api.validateServedDocs(root,raw)).responses,4);writeFileSync(join(root,'apps/docs/dist/components/badge.html'),'changed');await assert.rejects(api.validateServedDocs(root,raw));
++ }finally{rmSync(root,{recursive:true,force:true});}
++});
++test('F1 a current request-changes release review cannot be mistaken for historical accepted text',()=>{
++ assert.throws(()=>api.parseReview(readFileSync(join(root,'.superpowers/sdd/PLAN/task-T16-verifier-review.md'),'utf8'),'release'));
++});
++test('F1 CI source-before/output-after binding cannot relabel a different commit, lock or input inventory',()=>{
++ const source={sha256:'a'.repeat(64)},expected={sourceCommit:'b'.repeat(40),lockfileSha256:'c'.repeat(64)};const captured={bindingMode:'source-before/outputs-after',...expected,sourceInventorySha256:source.sha256};
++ assert.equal(api.capturedCandidateMatches('ci',captured,expected,source),true);
++ for(const key of ['sourceCommit','lockfileSha256','sourceInventorySha256'])assert.equal(api.capturedCandidateMatches('ci',{...captured,[key]:'wrong'},expected,source),false);
++});
++test('F1 recorder description cannot launch a job and declares the actual production roots',async()=>{
++ const {record}=await import('./record.mjs');const result=await record({recipeName:'patterns',framework:'solid'});
++ assert.equal(result.executionPerformed,false);assert.match(result.command.environment.PATTERN_STATIC_ROOT,/apps\/fixture-solid\/dist$/u);assert.equal(result.command.executable,process.execPath);
++});
++test('F1 docs producer redirect preserves every original assertion and shares the actual browser types',async()=>{
++ const source=readFileSync(join(root,'apps/docs/tests/browser.mjs'),'utf8'),output='/private/tmp/unit-docs-output';const redirected=api.redirectDocsProducer(source,root,output);
++ assert.equal(redirected.replace(`const root = ${JSON.stringify(root)};`,"const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');").replace(`const evidence = ${JSON.stringify(output)};`,"const evidence = resolve(root, '.superpowers/sdd/PLAN/t12-docs-logs/browser');"),source);
++ const {createRequire}=await import('node:module');const original=createRequire(join(root,'apps/docs/package.json'))('@playwright/test'),retained=createRequire(join(root,'test-results/redirected-producer.mjs'))('@playwright/test');assert.equal(original.chromium,retained.chromium);assert.equal(original.webkit,retained.webkit);
++});
+diff --git a/tools/release-evidence/receipts.mjs b/tools/release-evidence/receipts.mjs
+new file mode 100644
+index 0000000..0032b7e
+--- /dev/null
++++ b/tools/release-evidence/receipts.mjs
+@@ -0,0 +1,11 @@
++/** Lossless, source-bound selected-Node command receipts. */
++import {node} from '../../tests/consumers/lib.mjs';
++import {captureStep as capture,validateStep} from '../../tests/consumers/evidence.mjs';
++import {resolve} from 'node:path';
++export {validateStep};
++export function producerEnvironment(root,kind,framework){return kind==='patterns'?{PATTERN_STATIC_ROOT:resolve(root,`apps/fixture-${framework}/dist`),KRDS_PATTERN_DIST:resolve(root,`apps/fixture-${framework}/dist`)}:{};}
++export const nodeCommand=(root,args,environment={})=>({executable:node,args,cwd:root,...(Object.keys(environment).length?{environment}:{})});
++export async function captureStep(name,command,options){
++ const saved={};for(const [key,value]of Object.entries(command.environment??{})){saved[key]=process.env[key];process.env[key]=value;}
++ try{return await capture(name,command,options);}finally{for(const [key,value]of Object.entries(saved)){if(value===undefined)delete process.env[key];else process.env[key]=value;}}
++}
+diff --git a/tools/release-evidence/record-support.mjs b/tools/release-evidence/record-support.mjs
+new file mode 100644
+index 0000000..afd8c03
+--- /dev/null
++++ b/tools/release-evidence/record-support.mjs
+@@ -0,0 +1,2 @@
++export {recipe,inventory,sourceRoots,ref} from './producers.mjs';
++export const identicalSnapshot=(before,after)=>JSON.stringify(before)===JSON.stringify(after);
+diff --git a/tools/release-evidence/record.mjs b/tools/release-evidence/record.mjs
+new file mode 100644
+index 0000000..0316bb0
+--- /dev/null
++++ b/tools/release-evidence/record.mjs
+@@ -0,0 +1,27 @@
++#!/usr/bin/env node
++/** Explicit recorder. Never imports historical logs as a new execution. */
++import {readFile,writeFile,mkdir} from 'node:fs/promises';
++import {resolve,join,relative,dirname} from 'node:path';
++import {fileURLToPath} from 'node:url';
++import {recipe,inventory,sourceRoots,ref,identicalSnapshot} from './record-support.mjs';
++import {candidateBinding,outputRoots,prepareCIOutputs,retainCIOutputs} from './producers.mjs';
++import {captureStep,nodeCommand,producerEnvironment} from './receipts.mjs';
++const root=resolve(import.meta.dirname,'../..');
++export async function record({recipeName,framework,candidate,scopes,output,resultPath,execute=false}){
++ const args=recipe(recipeName,framework),kind=recipeName==='patterns'?'patterns':recipeName.startsWith('docs-')?'documentation':recipeName.startsWith('preview-')?'preview':'ci';
++ if(!execute)return {recipe:recipeName,command:nodeCommand(root,args,producerEnvironment(root,recipeName,framework)),sourceRoots:sourceRoots(kind),executionPerformed:false};
++ const destination=resolve(root,output);if(!destination.startsWith(`${root}/test-results/`)&&!destination.startsWith(`${root}/docs/releases/`))throw new Error('Recorder output must be a retained test-results or docs/releases directory');
++ let binding=kind==='ci'?null:candidateBinding(kind,candidate,scopes);await mkdir(dirname(destination),{recursive:true});await mkdir(destination);const before=await inventory(root,sourceRoots(kind));if(kind==='ci')binding={bindingMode:'source-before/outputs-after',sourceCommit:candidate?.sourceCommit,lockfileSha256:candidate?.lockfileSha256,sourceInventorySha256:before.sha256};const artifactRoots=kind==='patterns'?[`apps/fixture-${framework}/dist`,`packages/${framework}/dist`,'packages/test-contracts/dist']:kind==='documentation'?['apps/docs/dist','apps/docs/public']:[];const artifactsBefore=artifactRoots.length?await inventory(root,artifactRoots,{outputs:true}):null;
++ // The command is an enumerated native recipe, never shell text from an evidence file.
++ const environment={...producerEnvironment(root,recipeName,framework),...(recipeName==='docs-browser'?{KRDS_RELEASE_DOCS_SERVED:join(destination,'served-docs.json'),KRDS_RELEASE_DOCS_OUTPUT:join(destination,'native-output')}:{})};
++ const producerState=kind==='ci'?await prepareCIOutputs(root,recipeName,destination):null;
++ const execution=await captureStep(recipeName,nodeCommand(root,args,environment),{baseRoot:root,output:join(destination,'process')});
++ const after=await inventory(root,sourceRoots(kind));const ci=process.env.GITHUB_ACTIONS==='true'?{provider:'github-actions',runId:process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,workflow:process.env.GITHUB_WORKFLOW,sourceSha:process.env.GITHUB_SHA}:null;let outputs=null,outputError;try{if(kind==='ci')outputs=await retainCIOutputs(root,recipeName,destination,producerState,execution,binding,ci);}catch(error){outputError=error.message;}const record={schemaVersion:3,kind:'captured-recipe',recipe:recipeName,framework,candidate:binding,sourceBefore:before,sourceAfter:after,artifactsBefore,artifactsAfter:artifactRoots.length?await inventory(root,artifactRoots,{outputs:true}):null,execution,producedArtifacts:recipeName==='ci:targets'&&execution.exitCode===0?await inventory(root,await outputRoots(root),{outputs:true}):null,sourceUnchanged:identicalSnapshot(before,after),outputs,outputError,result:kind==='ci'?outputs?.result??null:recipeName==='docs-browser'?await ref(root,join(destination,'native-output/report.json')).catch(()=>null):resultPath?await ref(root,resultPath).catch(()=>null):null,served:recipeName==='docs-browser'&&execution.exitCode===0?await ref(root,join(destination,'served-docs.json')):null,ci,releaseAccepted:false};
++ await writeFile(join(destination,'record.json'),JSON.stringify(record,null,2)+'\n');return record;
++}
++if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
++ const opts={};for(let i=2;i<process.argv.length;i++){const key=process.argv[i];if(key==='--execute')opts.execute=true;else if(['--recipe','--framework','--candidate','--manifest','--output','--result'].includes(key)){const value=process.argv[++i];if(!value)throw new Error(`Missing ${key}`);opts[key.slice(2)]=value;}else throw new Error(`Unknown ${key}`);}
++ const input=opts.candidate?JSON.parse(await readFile(resolve(root,opts.candidate),'utf8')):undefined;const candidate=input?.candidate??input;
++ const scopes=opts.manifest?JSON.parse(await readFile(resolve(root,opts.manifest),'utf8')).scopes:undefined;
++ const result=await record({recipeName:opts.recipe,framework:opts.framework,candidate,scopes,output:opts.output,resultPath:opts.result,execute:opts.execute});console.log(JSON.stringify(result,null,2));if(result.execution&&(result.execution.exitCode!==0||result.execution.signal||!result.sourceUnchanged||result.outputError))process.exitCode=1;
++}
+diff --git a/tools/release-evidence/round3.test.mjs b/tools/release-evidence/round3.test.mjs
+new file mode 100644
+index 0000000..295fe5f
+--- /dev/null
++++ b/tools/release-evidence/round3.test.mjs
+@@ -0,0 +1,77 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {mkdtemp,mkdir,writeFile,readFile,rm} from 'node:fs/promises';
++import {join} from 'node:path';
++import * as api from './producers.mjs';
++const current=(decision)=>`# Independent scoped release review\n\n## Current decision\n\n\`\`\`krds-review-decision\n${JSON.stringify(decision)}\n\`\`\`\n\n## History\nHistorical Accepted text is not the current verdict.\n`;
++const decision={schemaVersion:1,scope:'release',subject:'release',current:true,spec:'accepted',quality:'accepted',findings:[]};
++test('R5 long current rejected decision cannot be promoted by historical acceptance words',()=>{
++ const text=`# Independent scoped release review\n${'Context only. '.repeat(350)}\n## Current decision\n\`\`\`krds-review-decision\n${JSON.stringify({...decision,spec:'rejected',quality:'rejected'})}\n\`\`\`\n## History\nAccepted historical component.\n`;
++ assert.throws(()=>api.parseReview(text,'release',{...decision,spec:'rejected',quality:'rejected'}));
++});
++test('R5 explicit current accepted decision and resolved dispositions validate without treating history as current',()=>{
++ const resolved={...decision,findings:[{id:'R-old',severity:'important',resolved:true,disposition:'Fixed and re-reviewed current source'}]};
++ const text=current(resolved)+'\nEarlier review was NOT ACCEPTED / REQUEST CHANGES.\n';assert.equal(api.parseReview(text,'release',resolved).approved,true);
++ assert.throws(()=>api.parseReview(current({...resolved,findings:[{...resolved.findings[0],resolved:false}]}),'release',{...resolved,findings:[{...resolved.findings[0],resolved:false}]}));
++ assert.throws(()=>api.parseReview(text,'release',{...resolved,quality:'rejected'}));
++});
++test('R6 original genuine-format fixture drift cannot be replaced by two identical current submitted snapshots',async()=>{
++ assert.equal(typeof api.validateCapture,'function');const root=await mkdtemp('/private/tmp/krds-capture-closure-unit-');try{
++  const roots=['apps/fixture-react/dist','packages/react/dist','packages/test-contracts/dist'];for(const path of roots){await mkdir(join(root,path),{recursive:true});await writeFile(join(root,path,'index.js'),'original');}
++  await mkdir(join(root,'source'));await writeFile(join(root,'source/input.ts'),'unit source');const source=await api.inventory(root,['source']),before=await api.inventory(root,roots,{outputs:true});await writeFile(join(root,roots[0],'index.js'),'changed while actual run was active');const after=await api.inventory(root,roots,{outputs:true});
++  await writeFile(join(root,'result.json'),'[]');const result=await api.ref(root,'result.json'),expected={sourceCommit:'a'.repeat(40)},execution={exitCode:0};const report={kind:'patterns',sourceBefore:source,sourceAfter:source};
++  const capture={schemaVersion:3,kind:'captured-recipe',recipe:'patterns',framework:'react',candidate:expected,sourceUnchanged:true,sourceBefore:source,sourceAfter:source,execution,result,artifactsBefore:before,artifactsAfter:after};await writeFile(join(root,'capture.json'),JSON.stringify(capture));
++  await assert.rejects(api.validateCapture(root,await api.ref(root,'capture.json'),report,expected,'patterns',execution,result,{framework:'react',artifactsBefore:after,artifactsAfter:after}));
++  capture.artifactsBefore=after;await writeFile(join(root,'capture.json'),JSON.stringify(capture));await api.validateCapture(root,await api.ref(root,'capture.json'),report,expected,'patterns',execution,result,{framework:'react',artifactsBefore:after,artifactsAfter:after});
++ }finally{await rm(root,{recursive:true,force:true});}
++});
++test('R7 actual CI adapter rejects a substituted historical result reference for the same execution receipt',async()=>{
++ assert.equal(typeof api.validateCIResultBinding,'function');const root=await mkdtemp('/private/tmp/krds-ci-result-unit-');try{
++  await mkdir(join(root,'outputs'));await writeFile(join(root,'outputs/current.json'),JSON.stringify({scope:{mode:'full'},projects:['current']}));await writeFile(join(root,'historical.json'),JSON.stringify({scope:{mode:'full'},projects:['old']}));
++  const execution={rawResult:{sha256:'c'.repeat(64)}},candidate={sourceCommit:'a'.repeat(40)},ci={provider:'github-actions',runId:'1',attempt:'1',sourceSha:candidate.sourceCommit};
++  const outputs={schemaVersion:1,recipe:'ci:selection',inputBinding:candidate,ci,executionResultSha256:execution.rawResult.sha256,kind:'retained-producer-output',producerState:{recipe:'ci:selection',clearedBeforeExecution:true,preparedOutputs:['test-results/ci/selection.json']},sourceResult:'test-results/ci/selection.json',retainedDirectory:'outputs',result:await api.ref(root,'outputs/current.json'),inventory:await api.inventory(root,['outputs'],{outputs:true}),files:[await api.ref(root,'outputs/current.json')]};const capture={recipe:'ci:selection',candidate,ci,execution,result:outputs.result,outputs};
++  await api.validateCIResultBinding(root,capture,outputs.result);
++  await assert.rejects(api.validateCIResultBinding(root,capture,await api.ref(root,'historical.json')));
++ }finally{await rm(root,{recursive:true,force:true});}
++});
++test('R6 docs served reference is bound to the original capture, not replaced with a current report',async()=>{
++ const root=await mkdtemp('/private/tmp/krds-docs-capture-unit-');try{
++  for(const path of ['apps/docs/dist','apps/docs/public','source']){await mkdir(join(root,path),{recursive:true});await writeFile(join(root,path,'index.txt'),'unit fixture');}
++  const source=await api.inventory(root,['source']),artifacts=await api.inventory(root,['apps/docs/dist','apps/docs/public'],{outputs:true});await writeFile(join(root,'result.json'),'[]');await writeFile(join(root,'served-original.json'),'original served bytes');await writeFile(join(root,'served-substitute.json'),'different current served bytes');
++  const result=await api.ref(root,'result.json'),served=await api.ref(root,'served-original.json'),expected={sourceCommit:'a'.repeat(40)},execution={exitCode:0},report={kind:'documentation',sourceBefore:source,sourceAfter:source};const capture={schemaVersion:3,kind:'captured-recipe',recipe:'docs-browser',candidate:expected,sourceUnchanged:true,sourceBefore:source,sourceAfter:source,execution,result,served,artifactsBefore:artifacts,artifactsAfter:artifacts};await writeFile(join(root,'capture.json'),JSON.stringify(capture));const captureRef=await api.ref(root,'capture.json');
++  await api.validateCapture(root,captureRef,report,expected,'docs-browser',execution,result,{artifactsBefore:artifacts,artifactsAfter:artifacts,served});
++  await assert.rejects(api.validateCapture(root,captureRef,report,expected,'docs-browser',execution,result,{artifactsBefore:artifacts,artifactsAfter:artifacts,served:await api.ref(root,'served-substitute.json')}));
++ }finally{await rm(root,{recursive:true,force:true});}
++});
++async function nativeCapture(root,tool,report,rawFiles){
++ const directory='test-results/record/outputs/current';await mkdir(join(root,directory,'vue'),{recursive:true});await writeFile(join(root,directory,'report.json'),JSON.stringify(report));for(const [path,value]of Object.entries(rawFiles))await writeFile(join(root,directory,'vue',path),Buffer.isBuffer(value)?value:JSON.stringify(value));const result=await api.ref(root,`${directory}/report.json`),candidate={sourceCommit:'a'.repeat(40)},ci={provider:'github-actions',runId:'1',attempt:'1'},execution={rawResult:{sha256:'e'.repeat(64)}},recipe=`ci:${tool}:vue:pilot`;await writeFile(join(root,'capture-stdout.log'),`Report: ${join(root,`test-results/t05/${tool==='contracts'?'contract':'stories'}-new/report.json`)}\n`);execution.stdout=await api.ref(root,'capture-stdout.log');const snapshot=await api.inventory(root,[directory],{outputs:true});return {recipe,candidate,ci,execution,result,outputs:{schemaVersion:1,kind:'retained-producer-output',recipe,inputBinding:candidate,ci,executionResultSha256:execution.rawResult.sha256,producerStdoutSha256:execution.stdout.sha256,result,sourceDirectory:`test-results/t05/${tool==='contracts'?'contract':'stories'}-new`,sourceResult:`test-results/t05/${tool==='contracts'?'contract':'stories'}-new/report.json`,producerState:{beforeDirectories:[]},retainedDirectory:directory,inventory:snapshot,files:snapshot.files}};
++}
++async function fixtureSnapshot(root,kind){const path=`apps/${kind}-vue/dist`;await mkdir(join(root,path),{recursive:true});await writeFile(join(root,path,'index.html'),'unit fixture HTML');await writeFile(join(root,path,'iframe.html'),'unit native story HTML');const inventory=await api.inventory(root,[path],{outputs:true});return {stableVerified:true,files:inventory.files.map(row=>({...row,path:row.path.slice(path.length)}))};}
++test('R7 actual CI native adapter requires raw matching health even when summary says passed',async()=>{
++ const root=await mkdtemp('/private/tmp/krds-ci-health-unit-');try{
++  const snapshot=await fixtureSnapshot(root,'fixture'),title='vue button/disabled';const report={kind:'contract',mode:'pilot',results:[{framework:'vue',status:'passed',exitCode:0,artifactSnapshot:snapshot,tests:[{title,status:'passed',classification:'passed',nativeHealth:true}]}]};const health={healthy:true,framework:'vue',fixture:{componentId:'button',caseId:'disabled'}};const raw={suites:[{specs:[{title,tests:[{expectedStatus:'passed',results:[{status:'passed',attachments:[{name:'native-health.json',body:Buffer.from(JSON.stringify(health)).toString('base64')}]}]}]}]}]};let capture=await nativeCapture(root,'contracts',report,{'playwright.json':raw});const options={framework:'vue',tool:'contracts',mode:'pilot',count:1,identities:[title]};await api.validateCapturedNative(root,capture,capture.result,options);
++  raw.suites[0].specs[0].tests[0].results[0].attachments[0].body=Buffer.from(JSON.stringify({...health,framework:'react'})).toString('base64');capture=await nativeCapture(root,'contracts',report,{'playwright.json':raw});await assert.rejects(api.validateCapturedNative(root,capture,capture.result,options));
++ }finally{await rm(root,{recursive:true,force:true});}
++});
++test('R7 actual CI story adapter rejects forbidden business requests despite passed summary strings',async()=>{
++ const root=await mkdtemp('/private/tmp/krds-ci-request-unit-');try{
++  const snapshot=await fixtureSnapshot(root,'storybook'),id='krds-button--disabled',png=Buffer.alloc(40);Buffer.from([137,80,78,71,13,10,26,10]).copy(png);const story={id,status:'passed',requests:[{url:'http://127.0.0.1:1234/iframe.html?id=example',kind:'document'}],violations:[],axe:{violations:[]}};const report={kind:'stories',mode:'pilot',results:[{framework:'vue',status:'passed',artifactSnapshot:snapshot,stories:[story]}]};let capture=await nativeCapture(root,'stories',report,{[`${id}.png`]:png});const options={framework:'vue',tool:'stories',mode:'pilot',count:1,identities:[id]};await api.validateCapturedNative(root,capture,capture.result,options);story.requests.push({url:'http://127.0.0.1:1234/api/business-state',kind:'fetch'});capture=await nativeCapture(root,'stories',report,{[`${id}.png`]:png});await assert.rejects(api.validateCapturedNative(root,capture,capture.result,options));
++ }finally{await rm(root,{recursive:true,force:true});}
++});
++test('R7 recorder removes and preserves prior fixed outputs, then retains only the newly produced result',async()=>{
++ const root=await mkdtemp('/private/tmp/krds-ci-fresh-output-unit-');try{
++  const destination=join(root,'test-results/record');await mkdir(join(root,'test-results/ci'),{recursive:true});await mkdir(destination,{recursive:true});await writeFile(join(root,'test-results/ci/selection.json'),JSON.stringify({old:true}));
++  const state=await api.prepareCIOutputs(root,'ci:selection',destination);await assert.rejects(readFile(join(root,'test-results/ci/selection.json')));assert.equal(JSON.parse((await api.readRef(root,state.backups[0])).toString()).old,true);
++  await writeFile(join(root,'test-results/ci/selection.json'),JSON.stringify({scope:{mode:'full'},projects:['new']}));const execution={rawResult:{sha256:'e'.repeat(64)},stdout:{path:'stdout.log',sha256:'f'.repeat(64)}};const candidate={sourceCommit:'a'.repeat(40)},ci={provider:'github-actions',runId:'1'};const outputs=await api.retainCIOutputs(root,'ci:selection',destination,state,execution,candidate,ci);const capture={recipe:'ci:selection',candidate,ci,execution,result:outputs.result,outputs};assert.equal((await api.validateCIResultBinding(root,capture,outputs.result)).projects[0],'new');await assert.rejects(api.validateCIResultBinding(root,capture,state.backups[0]));
++ }finally{await rm(root,{recursive:true,force:true});}
++});
++test('R5 actual independent-review adapter accepts a current complete decision and rejects its later rejected verdict',async()=>{
++ const root=await mkdtemp('/private/tmp/krds-review-current-unit-');try{
++  for(const path of ['tools','tests','packages/test-contracts','docs/reviews','compatibility','test-results'])await mkdir(join(root,path),{recursive:true});await writeFile(join(root,'tools/input.mjs'),'unit source');
++  const candidate={sourceCommit:'a'.repeat(40),lockfileSha256:'b'.repeat(64),sourceFingerprint:'c'.repeat(64),repositorySourceSha256:'d'.repeat(64),artifactManifestSha256:'e'.repeat(64)},source=await api.inventory(root,api.sourceRoots('independentReview'));
++  const d={...decision,sourceInventorySha256:source.sha256,sourceFingerprint:candidate.sourceFingerprint};await writeFile(join(root,'test-results/review.md'),current(d));await writeFile(join(root,'test-results/support.txt'),'Unit substantive observation support; no actual release approval claimed');
++  const review={subject:'release',independent:true,person:'Unit independent reviewer',implementer:'Unit implementation author',role:'independent-reviewer',performedAt:'2026-10-30T00:00:00Z',sources:source.files,findings:[],sourceInventory:source,sourceFingerprint:candidate.sourceFingerprint,artifactManifestSha256:candidate.artifactManifestSha256,decision:d,report:await api.ref(root,'test-results/review.md')};const report={schemaVersion:3,kind:'independentReview',candidate:api.candidateBinding('independentReview',candidate,{}),sourceBefore:source,sourceAfter:source,review,checks:await Promise.all(['native-boundaries','catalog-completeness','actual-tarballs','licenses','ssr','user-flows'].map(async id=>({id,passed:true,observations:['Unit performed observation, not real candidate acceptance'],evidence:[await api.ref(root,'test-results/support.txt')]})))};
++  await writeFile(join(root,'test-results/report.json'),JSON.stringify(report));let index={schemaVersion:3,reports:{independentReview:await api.ref(root,'test-results/report.json')}};assert.equal((await api.inspectReleaseEvidence(root,'independentReview',index,candidate,{})).status,'passed');
++  const rejected={...d,spec:'rejected'};await writeFile(join(root,'test-results/review.md'),current(rejected)+'\nHistorical Accepted\n');report.review.report=await api.ref(root,'test-results/review.md');await writeFile(join(root,'test-results/report.json'),JSON.stringify(report));index={schemaVersion:3,reports:{independentReview:await api.ref(root,'test-results/report.json')}};assert.equal((await api.inspectReleaseEvidence(root,'independentReview',index,candidate,{})).status,'blocked');
++ }finally{await rm(root,{recursive:true,force:true});}
++});
+diff --git a/tools/release-evidence/snapshot.mjs b/tools/release-evidence/snapshot.mjs
+new file mode 100644
+index 0000000..3f54d0c
+--- /dev/null
++++ b/tools/release-evidence/snapshot.mjs
+@@ -0,0 +1,10 @@
++#!/usr/bin/env node
++/** Read-only subject capture; never asserts that review or manual work happened. */
++import {mkdir,writeFile} from 'node:fs/promises';
++import {resolve,dirname} from 'node:path';
++import {inventory,sourceRoots,stable} from './producers.mjs';
++const root=resolve(import.meta.dirname,'../..'),options={};for(let i=2;i<process.argv.length;i++){const key=process.argv[i],value=process.argv[++i];if(!['--kind','--framework','--output'].includes(key)||!value)throw new Error('Usage: snapshot --kind KIND [--framework native] --output test-results/path.json');options[key.slice(2)]=value;}
++const frameworks=options.framework?[options.framework]:stable;if(frameworks.some(id=>![...stable,'solid-next'].includes(id)))throw new Error('Unknown native framework');
++const output=resolve(root,options.output);if(!output.startsWith(`${root}/test-results/`)&&!output.startsWith(`${root}/docs/releases/`))throw new Error('Retained output must stay in test/release evidence');
++const sourceInventory=await inventory(root,sourceRoots(options.kind,frameworks));const artifacts={};if(['manualAccessibility','patterns'].includes(options.kind))for(const framework of frameworks)artifacts[framework]=await inventory(root,[`apps/fixture-${framework}/dist`],{outputs:true});
++await mkdir(dirname(output),{recursive:true});await writeFile(output,JSON.stringify({schemaVersion:3,kind:'unreviewed-subject-snapshot',capturedAt:new Date().toISOString(),sourceInventory,artifacts,reviewPerformed:false,manualSessionPerformed:false},null,2)+'\n');console.log(JSON.stringify({captured:true,reviewPerformed:false,manualSessionPerformed:false}));

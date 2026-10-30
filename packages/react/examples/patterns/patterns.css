@@ -1,0 +1,17 @@
+.pattern-example { max-width: 80rem; margin-inline: auto; overflow-wrap: anywhere; }
+.pattern-main { padding: 1.5rem; min-width: 0; }
+.pattern-main > * + *, .pattern-main form > * + * { margin-block-start: 1.25rem; }
+.pattern-main h1 { font-size: 2rem; font-weight: 700; }
+.pattern-main h2 { font-size: 1.375rem; font-weight: 700; }
+.pattern-notice { padding: 1rem; border: 1px solid currentColor; margin: 1rem; }
+.pattern-errors { padding: 1rem; border: 2px solid currentColor; }
+.pattern-errors ol { list-style: decimal; padding-inline-start: 1.5rem; }
+.pattern-actions { display: flex; gap: 2rem; flex-wrap: wrap; }
+.pattern-consent { min-height: 18rem; padding-block: 1.5rem; border-block-end: 1px solid currentColor; }
+.pattern-consent p { margin-block: 1rem; }
+.pattern-main input:not([type="radio"]), .pattern-main select, .pattern-main textarea { max-width: 100%; }
+.pattern-service { display: flex; min-height: 100dvh; flex-direction: column; }
+.pattern-service-columns { flex: 1; display: grid; grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr); }
+.pattern-service [data-krds-component="header"][data-krds-part="identity"] img, .pattern-service [data-krds-component="footer"][data-krds-part="logo"] { max-width: 14rem; }
+@media(max-width: 48rem) { .pattern-service-columns { display: block; } .pattern-service-columns > nav { display: none; } .pattern-main { padding: 1rem; } }
+@media(forced-colors: active) { .pattern-example :focus-visible { outline: 3px solid Highlight; } }

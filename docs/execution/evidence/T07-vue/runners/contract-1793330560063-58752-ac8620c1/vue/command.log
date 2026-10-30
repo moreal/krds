@@ -1,0 +1,65 @@
+
+Running 10 tests using 1 worker
+
+(node:58762) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [webkit] › tools/testing/contract.spec.ts:13:29 › vue button/disabled (518ms)
+  ✓   2 [webkit] › tools/testing/contract.spec.ts:13:29 › vue native-select/controlled (361ms)
+  ✓   3 [webkit] › tools/testing/contract.spec.ts:13:29 › vue native-select/form-reset (358ms)
+  ✘   4 [webkit] › tools/testing/contract.spec.ts:13:29 › vue modal/focus-return (5.4s)
+(node:58800) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [webkit] › tools/testing/contract.spec.ts:13:29 › vue modal/trigger-removed (547ms)
+  ✓   6 [webkit] › tools/testing/contract.spec.ts:13:29 › vue tabs/manual-activation (346ms)
+  ✓   7 [webkit] › tools/testing/contract.spec.ts:13:29 › vue date-input/leap-year (372ms)
+  ✓   8 [webkit] › tools/testing/contract.spec.ts:13:29 › vue date-input/ime (310ms)
+  ✓   9 [webkit] › tools/testing/contract.spec.ts:13:29 › vue date-input/timezone-invariance (1.0s)
+  ✓  10 [webkit] › tools/testing/contract.spec.ts:13:29 › vue calendar/selection-confirm (866ms)
+
+
+  1) [webkit] › tools/testing/contract.spec.ts:13:29 › vue modal/focus-return › required observable behavior 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: '열기', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: '열기', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: '열기', exact: true })
+        14 × locator resolved to <button type="button" data-krds-part="root" data-krds-size="medium" data-krds-variant="primary" data-krds-component="button">…</button>
+           - unexpected value "inactive"
+
+
+       at observations.mjs:47
+
+      45 |   await expect(dialog).toHaveCount(0);
+      46 |   const target=triggerRemoved?page.getByRole('button',{name:'다음 작업',exact:true}):trigger;
+    > 47 |   await expect(target).toBeFocused();
+         |                        ^
+      48 | }
+      49 |
+      50 | /** A semantic date must survive independently healthy mounts across UTC offsets. */
+        at assertModalFocus (/Users/moreal/github/moreal/krds/tools/testing/observations.mjs:47:24)
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:46:7
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:24:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tools/testing/contract.spec.ts:13:29 › vue modal/focus-return ───────────────────────
+  9 passed (11.5s)

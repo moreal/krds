@@ -1,0 +1,336 @@
+License verification passed: 1599 source records, 13 public package notice sets.
+Release readiness gates remain unresolved: scope ownership and publish authority; published repository ownership/URL. Local verification does not authorize release.
+{
+  "schemaVersion": 1,
+  "kind": "release-verification",
+  "status": "intermediate",
+  "createdAt": "2026-10-30T09:16:07.632Z",
+  "command": "node tools/yarn.mjs verify:release",
+  "candidate": {
+    "sourceCommit": null,
+    "sourceFingerprint": "284b8e91ab059b569cbc0f5e7220a0fe1ffb17cd7bf57089fe9621ea721dd591",
+    "repositorySourceSha256": "a2519c7cb2dcb92ce4f6a4e7706e4622884c4d6d2c58767fa363c8e16fcff932",
+    "repositorySourceFileCount": 8194,
+    "lockfileSha256": "4ca243c3a03ff4df3e29c921cdb6e4bb1d5d2c034e568ff59a63a5242a8aa694",
+    "artifactManifestSha256": null
+  },
+  "version": "0.0.0",
+  "packages": [
+    {
+      "name": "@unofficial-krds/angular",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/assets",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/contracts",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/fonts",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/lit",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/qwik",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/react",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/solid",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/solid-next",
+      "version": "0.0.0-next.0",
+      "channel": "solid2-preview"
+    },
+    {
+      "name": "@unofficial-krds/styles",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/svelte",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/tokens",
+      "version": "0.0.0",
+      "channel": "stable"
+    },
+    {
+      "name": "@unofficial-krds/vue",
+      "version": "0.0.0",
+      "channel": "stable"
+    }
+  ],
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "environment": {
+    "node": "24.18.0",
+    "yarn": "4.14.1",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "M1": "blocked",
+  "M2": "blocked",
+  "M3": "blocked",
+  "exitCode": 1,
+  "checks": [
+    {
+      "id": "selected-toolchain",
+      "milestone": "M3",
+      "status": "passed",
+      "details": "Validated actual evidence"
+    },
+    {
+      "id": "candidate-commit",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "HEAD is unborn: no real candidate commit. Content hashes are diagnostic only; no commit was created."
+      ]
+    },
+    {
+      "id": "stable-catalog-native-stories-requests-behavior",
+      "milestone": "M1",
+      "status": "blocked",
+      "details": [
+        "Existing actual coverage gate lacks accepted evidence: 0/378 accepted; 378 gaps. masthead/solid: native coverage is planned, not independently verified; masthead/react: native coverage is planned, not independently verified; masthead/svelte: native coverage is planned, not independently verified; masthead/vue: native coverage is planned, not independently verified; masthead/lit: native coverage is planned, not independently verified; masthead/qwik: native coverage is planned, not independently verified; masthead/angular: native coverage is planned, not independently verified; identifier/solid: native coverage is planned, not independently verified; identifier/react: native coverage is planned, not independently verified; identifier/svelte: native coverage is planned, not independently verified; identifier/vue: native coverage is planned, not independently verified; identifier/lit: native coverage is planned, not independently verified"
+      ]
+    },
+    {
+      "id": "stable-actual-candidate-tarballs",
+      "milestone": "M1",
+      "status": "blocked",
+      "details": [
+        "ENOENT: no such file or directory, lstat '/Users/moreal/github/moreal/krds/artifacts/manifest.json'"
+      ]
+    },
+    {
+      "id": "preview-actual-candidate-tarballs",
+      "milestone": "M2",
+      "status": "blocked",
+      "details": [
+        "ENOENT: no such file or directory, lstat '/Users/moreal/github/moreal/krds/artifacts/manifest.json'"
+      ]
+    },
+    {
+      "id": "all-actual-candidate-tarballs",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "ENOENT: no such file or directory, lstat '/Users/moreal/github/moreal/krds/artifacts/manifest.json'"
+      ]
+    },
+    {
+      "id": "stable-outside-tarball-consumers",
+      "milestone": "M1",
+      "status": "blocked",
+      "details": [
+        "ENOENT: no such file or directory, lstat '/Users/moreal/github/moreal/krds/artifacts/consumer-results.json'"
+      ]
+    },
+    {
+      "id": "preview-outside-tarball-consumer",
+      "milestone": "M2",
+      "status": "blocked",
+      "details": [
+        "ENOENT: no such file or directory, lstat '/Users/moreal/github/moreal/krds/artifacts/consumer-results.json'"
+      ]
+    },
+    {
+      "id": "all-outside-tarball-consumers",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "ENOENT: no such file or directory, lstat '/Users/moreal/github/moreal/krds/artifacts/consumer-results.json'"
+      ]
+    },
+    {
+      "id": "M1-compatibility-types-build",
+      "milestone": "M1",
+      "status": "blocked",
+      "details": [
+        "Selected compatibility target source changed during run: test-results/t13/compatibility-runs/2026-10-30T05-46-16.168Z/results.json"
+      ]
+    },
+    {
+      "id": "M1-ssr-hydration-browser-timezones",
+      "milestone": "M1",
+      "status": "blocked",
+      "details": [
+        "Selected ssr target source changed during run: test-results/t13/ssr-runs/2026-10-30T05-48-48.112Z/results.json"
+      ]
+    },
+    {
+      "id": "M2-compatibility-types-build",
+      "milestone": "M2",
+      "status": "blocked",
+      "details": [
+        "Selected compatibility target source changed during run: test-results/t13/compatibility-runs/2026-10-30T05-46-16.168Z/results.json"
+      ]
+    },
+    {
+      "id": "M2-ssr-hydration-browser-timezones",
+      "milestone": "M2",
+      "status": "blocked",
+      "details": [
+        "Selected ssr target source changed during run: test-results/t13/ssr-runs/2026-10-30T05-32-21.917Z/results.json"
+      ]
+    },
+    {
+      "id": "preview-exact-rc-six-native-pilots",
+      "milestone": "M2",
+      "status": "passed",
+      "details": "Validated actual evidence"
+    },
+    {
+      "id": "preview-six-native-behavior-types-build-ssr",
+      "milestone": "M2",
+      "status": "blocked",
+      "details": [
+        "Missing canonical v3 evidence index/ref"
+      ]
+    },
+    {
+      "id": "native-service-compositions",
+      "milestone": "M1",
+      "status": "blocked",
+      "details": [
+        "Missing canonical v3 evidence index/ref"
+      ]
+    },
+    {
+      "id": "manual-accessibility",
+      "milestone": "M1",
+      "status": "blocked",
+      "details": [
+        "Missing canonical v3 evidence index/ref"
+      ]
+    },
+    {
+      "id": "independent-native-artifact-review",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "Missing canonical v3 evidence index/ref"
+      ]
+    },
+    {
+      "id": "candidate-ci-required-executions",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "Missing canonical v3 evidence index/ref"
+      ]
+    },
+    {
+      "id": "documentation-and-versioning",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "Missing canonical v3 evidence index/ref"
+      ]
+    },
+    {
+      "id": "licenses-provenance-distribution",
+      "milestone": "M3",
+      "status": "passed",
+      "details": "Validated actual evidence"
+    },
+    {
+      "id": "ownership-and-independent-code-grant",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "npm scope and repository ownership remain unauthenticated; user-selected names/URL are not ownership evidence"
+      ]
+    },
+    {
+      "id": "version-changelog-candidate",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "Actual release version is not prepared (0.0.0)"
+      ]
+    },
+    {
+      "id": "ci-candidate-handoff",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "ENOENT: no such file or directory, lstat '/Users/moreal/github/moreal/krds/test-results/ci/candidate.json'"
+      ]
+    },
+    {
+      "id": "source-drift-during-verification",
+      "milestone": "M3",
+      "status": "blocked",
+      "details": [
+        "Source changed while verifier inspected evidence; rerun after source freeze"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "compatibility/toolchain.json",
+      "sha256": "db7f1a5f81fb31e81228317f7b887d22aa7e1378b7d45598af9b4d737099bee8"
+    },
+    {
+      "path": "yarn.lock",
+      "sha256": "4ca243c3a03ff4df3e29c921cdb6e4bb1d5d2c034e568ff59a63a5242a8aa694"
+    },
+    {
+      "path": ".yarnrc.yml",
+      "sha256": "aa1a69e61ee9e317637a3fcd238c8a45855b12f8556778ab7f793a4bb0d61efc"
+    },
+    {
+      "path": "packages/solid-next/package.json",
+      "sha256": "378061d448a1e1e0161112b292472d4f67f199cfbcbe6c2a8ae47515100786e6"
+    },
+    {
+      "path": "packages/solid-next/README.md",
+      "sha256": "418d99503f6fca8f95054b561dc6cbedf5e86c8bed7d2b0ded90c27e41fbc1a2"
+    },
+    {
+      "path": "catalog/COVERAGE.md",
+      "sha256": "c43330bcc654b268465a69ad3a6b163dbb2d8e7be355602a2d421ca9c0d0cc34"
+    },
+    {
+      "path": "compliance/project-identity.json",
+      "sha256": "2ff1cc154406c85c75a307c04f3c7dae0b792ec2d6d010601e4487e6f99c43f1"
+    },
+    {
+      "path": "compliance/provenance.json",
+      "sha256": "cfa5a542717958c9024e3ff25aae444c9598d2e188176ff59506927c7ebc7609"
+    },
+    {
+      "path": "compliance/license-policy.json",
+      "sha256": "b503c300f40a756698b61bac0c99b32ceb2e2526e7ca397e82398fae83377843"
+    }
+  ],
+  "publicationAuthorized": false,
+  "publicationPerformed": false,
+  "limitations": [
+    "Passing this verifier prepares a reviewable candidate only; publication, pushing and tagging require separate authorization.",
+    "Unborn HEAD and content hashes never substitute for a real candidate commit."
+  ]
+}

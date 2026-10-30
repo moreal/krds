@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-image', title: 'KRDS/image', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Informative: Story = { name: "informative", parameters: { __id: "krds-image--informative" }, render: () => <CatalogStory componentId="image" caseId="informative"/> };
+export const Decorative: Story = { name: "decorative", parameters: { __id: "krds-image--decorative" }, render: () => <CatalogStory componentId="image" caseId="decorative"/> };
+export const ComplexDescription: Story = { name: "complex-description", parameters: { __id: "krds-image--complex-description" }, render: () => <CatalogStory componentId="image" caseId="complex-description"/> };
+export const Responsive: Story = { name: "responsive", parameters: { __id: "krds-image--responsive" }, render: () => <CatalogStory componentId="image" caseId="responsive"/> };
+export const LoadError: Story = { name: "load-error", parameters: { __id: "krds-image--load-error" }, render: () => <CatalogStory componentId="image" caseId="load-error"/> };

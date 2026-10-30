@@ -1,0 +1,16 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-radio-group', title: 'KRDS/Catalog/RadioGroup', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'radio-group'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {name: "default", args: {caseId: "default"}};
+export const Chip: Story = {name: "chip", args: {caseId: "chip"}};
+export const MediumLarge: Story = {name: "medium-large", args: {caseId: "medium-large"}};
+export const UnselectedRequired: Story = {name: "unselected-required", args: {caseId: "unselected-required"}};
+export const DisabledOption: Story = {name: "disabled-option", args: {caseId: "disabled-option"}};
+export const FormReset: Story = {name: "form-reset", args: {caseId: "form-reset"}};
+export const Controlled: Story = {name: "controlled", args: {caseId: "controlled"}};
+export const AllRadioSequentialAccess: Story = {name: "all-radio-sequential-access", args: {caseId: "all-radio-sequential-access"}};
+export const ControlledNull: Story = {name: "controlled-null", args: {caseId: "controlled-null"}};
+export const ControlledClearRejected: Story = {name: "controlled-clear-rejected", args: {caseId: "controlled-clear-rejected"}};
+export const EmptyStringOption: Story = {name: "empty-string-option", args: {caseId: "empty-string-option"}};

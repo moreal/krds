@@ -1,0 +1,16 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: TypeError: Cannot read properties of null (reading 'props')
+    at prepareContext (eval at evaluate (:370:30), <anonymous>:21706:23)
+    at _accessibleTextVirtual (eval at evaluate (:370:30), <anonymous>:21651:17)
+    at Object.accessibleText (eval at evaluate (:370:30), <anonymous>:21519:14)
+    at eval (eval at evaluate (:370:30), <anonymous>:1:50)
+    at UtilityScript.evaluate (<anonymous>:372:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at /Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/t06-calendar-axe-logs/plain-dom-variants.mjs:33:33 {
+  log: []
+}
+
+Node.js v24.18.0

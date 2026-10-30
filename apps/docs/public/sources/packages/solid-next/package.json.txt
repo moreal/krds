@@ -1,0 +1,100 @@
+{
+  "name": "@unofficial-krds/solid-next",
+  "version": "0.0.0-next.0",
+  "type": "module",
+  "scripts": {
+    "test": "node audit-versions.mjs --check && node ssr-build.mjs && node native-test.mjs && node fix1-test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "node audit-versions.mjs --check && vite build && vite build --ssr src/index.ts --outDir dist/server && tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check:versions": "node audit-versions.mjs --check"
+  },
+  "devDependencies": {
+    "@babel/core": "7.28.5",
+    "@babel/preset-typescript": "7.28.5",
+    "@solidjs/babel-plugin": "2.0.0-rc.19",
+    "@solidjs/compiler": "2.0.0-rc.19",
+    "@solidjs/vite-plugin": "3.0.0-next.53",
+    "@solidjs/web": "2.0.0-rc.19",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "playwright": "1.64.1",
+    "solid-js": "2.0.0-rc.19",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10"
+  },
+  "description": "Native KRDS six-pilot preview for exact Solid 2.0.0-rc.19",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": "./dist/server/index.js",
+      "import": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/index.d.ts",
+      "node": "./dist/server/button.js",
+      "import": "./dist/button.js"
+    },
+    "./native-select": {
+      "types": "./dist/components/native-select/index.d.ts",
+      "node": "./dist/server/native-select.js",
+      "import": "./dist/native-select.js"
+    },
+    "./modal": {
+      "types": "./dist/components/modal/index.d.ts",
+      "node": "./dist/server/modal.js",
+      "import": "./dist/modal.js"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs/index.d.ts",
+      "node": "./dist/server/tabs.js",
+      "import": "./dist/tabs.js"
+    },
+    "./calendar": {
+      "types": "./dist/components/calendar/index.d.ts",
+      "node": "./dist/server/calendar.js",
+      "import": "./dist/calendar.js"
+    },
+    "./date-input": {
+      "types": "./dist/components/date-input/index.d.ts",
+      "node": "./dist/server/date-input.js",
+      "import": "./dist/date-input.js"
+    }
+  },
+  "peerDependencies": {
+    "@solidjs/web": "2.0.0-rc.19",
+    "solid-js": "2.0.0-rc.19"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.12.4",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^",
+    "@zag-js/core": "1.47.0",
+    "@zag-js/date-picker": "1.47.0",
+    "@zag-js/dialog": "1.47.0",
+    "@zag-js/tabs": "1.47.0",
+    "@zag-js/vanilla": "1.47.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/solid-next"
+  }
+}

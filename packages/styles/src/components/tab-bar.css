@@ -1,0 +1,18 @@
+/* KRDS-derived: frozen HTML tab-bar navigation guidance; no tablist/panel semantics; semantic guidance: specs/components/tab-bar.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="tab-bar"][data-krds-part="root"] { position: fixed; inset-block-end: 0; inset-inline: 0; z-index: 50; background: var(--krds-light-color-background-white); border-block-start: var(--krds-number-1) solid var(--krds-light-color-divider-gray); padding-block-end: env(safe-area-inset-bottom, 0px); }
+[data-krds-component="tab-bar"][data-krds-part="list"] { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); align-items: stretch; margin: 0; padding: 0; list-style: none; }
+[data-krds-component="tab-bar"][data-krds-part="item"] { min-inline-size: 0; position: relative; }
+[data-krds-component="tab-bar"][data-krds-part="link"], [data-krds-component="tab-bar"][data-krds-part="menu-trigger"] { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: var(--krds-gap-2); inline-size: 100%; block-size: 100%; min-inline-size: 0; min-block-size: var(--krds-size-height-9); padding: var(--krds-padding-3); border: 0; border-block-start: var(--krds-number-3) solid transparent; background: transparent; color: var(--krds-light-color-text-subtle); text-decoration: none; font: inherit; text-align: center; }
+[data-krds-component="tab-bar"][data-krds-part="link"][aria-current] { color: var(--krds-light-color-text-primary); font-weight: 700; border-block-start: var(--krds-number-3) solid currentColor; }
+[data-krds-component="tab-bar"][data-krds-part="icon"] { inline-size: 1.5em; block-size: 1.5em; }
+[data-krds-component="tab-bar"][data-krds-part="label"] { overflow-wrap: anywhere; }
+[data-krds-component="tab-bar"][data-krds-part="indicator"] { pointer-events: none; position: absolute; inset-block-start: calc(var(--krds-number-3) * -1); inset-inline: 0; block-size: var(--krds-number-3); overflow: hidden; line-height: 0; background: currentColor; }
+[data-krds-component="tab-bar"][data-krds-part="badge"] { border: var(--krds-number-1) solid currentColor; border-radius: var(--krds-radius-max); padding-inline: var(--krds-padding-2); font-size: var(--krds-pc-font-size-label-xsmall); }
+/* The decorative owned indicator occupies the current top border instead of
+ * adding a flex row. Full icon/label content and the independent focus ring stay visible. */
+
+@media (forced-colors: active) {
+  /* Reserve geometry without painting every noncurrent item as current. */
+  [data-krds-component="tab-bar"][data-krds-part="link"]:not([aria-current]), [data-krds-component="tab-bar"][data-krds-part="menu-trigger"] { border-block-start-color: Canvas; }
+}

@@ -1,0 +1,32 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-vue
+
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/native-probe.test.ts [ tests/siheom/native-probe.test.ts ]
+Error: Failed to import test file /Users/moreal/github/moreal/krds/apps/fixture-vue/tests/setup.ts
+ ❯ runSetupFiles ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=df7d1df1:2420:4
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=df7d1df1:2450:6
+ ❯ collectTests ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=df7d1df1:2433:3
+ ❯ startTests ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=df7d1df1:3278:17
+
+Caused by: Error: Could not resolve "@vue/server-renderer" imported by "@vue/test-utils". Is it installed?
+ ❯ optional-peer-dep:__vite-optional-peer-dep:@vue/server-renderer:@vue/test-utils:1:26
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/rolldown-runtime-D7iIfMNq.js?v=df7d1df1:16:49
+ ❯ ../../node_modules/.store/@vue-test-utils-virtual-64642ecb1b/package/dist/vue-test-utils.cjs.js:12:4
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/rolldown-runtime-D7iIfMNq.js?v=df7d1df1:16:49
+ ❯ ../../node_modules/.store/@testing-library-vue-virtual-c2d30fd213/package/dist/render.js:8:4
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/rolldown-runtime-D7iIfMNq.js?v=df7d1df1:16:49
+ ❯ ../../node_modules/.store/@testing-library-vue-virtual-c2d30fd213/package/dist/index.js:29:4
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/rolldown-runtime-D7iIfMNq.js?v=df7d1df1:16:49
+ ❯ node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/deps/@testing-library_vue.js?v=df7d1df1:38628:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  09:54:27
+   Duration  1.14s (transform 0ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

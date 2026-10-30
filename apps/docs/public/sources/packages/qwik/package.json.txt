@@ -1,0 +1,389 @@
+{
+  "name": "@unofficial-krds/qwik",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/exports.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "vite build --mode lib && tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "1.20.3",
+    "@builder.io/qwik-city": "1.20.3",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "playwright": "1.64.1",
+    "typescript": "6.0.2",
+    "vite": "7.3.1",
+    "vitest": "4.1.10"
+  },
+  "description": "Native Qwik KRDS components with production SSR and resumable QRL actions",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.qwik.cjs",
+  "module": "./dist/index.qwik.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./disclosure": {
+      "types": "./dist/components/disclosure/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./contextual-help": {
+      "types": "./dist/components/contextual-help/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./pagination": {
+      "types": "./dist/components/pagination/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./footer": {
+      "types": "./dist/components/footer/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./skip-link": {
+      "types": "./dist/components/skip-link/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./tooltip": {
+      "types": "./dist/components/tooltip/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./date-input": {
+      "types": "./dist/components/date-input/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./language-switcher": {
+      "types": "./dist/components/language-switcher/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./calendar": {
+      "types": "./dist/components/calendar/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./help-panel": {
+      "types": "./dist/components/help-panel/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./tab-bar": {
+      "types": "./dist/components/tab-bar/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./native-select": {
+      "types": "./dist/components/native-select/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./range-slider": {
+      "types": "./dist/components/range-slider/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./in-page-navigation": {
+      "types": "./dist/components/in-page-navigation/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./accordion": {
+      "types": "./dist/components/accordion/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./snackbar": {
+      "types": "./dist/components/snackbar/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./back-button": {
+      "types": "./dist/components/back-button/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./tutorial-panel": {
+      "types": "./dist/components/tutorial-panel/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./toast": {
+      "types": "./dist/components/toast/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./quantity-toggle": {
+      "types": "./dist/components/quantity-toggle/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./fab": {
+      "types": "./dist/components/fab/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./coach-mark": {
+      "types": "./dist/components/coach-mark/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./checkbox": {
+      "types": "./dist/components/checkbox/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./favicon": {
+      "types": "./dist/components/favicon/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./spinner": {
+      "types": "./dist/components/spinner/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./carousel": {
+      "types": "./dist/components/carousel/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./main-menu": {
+      "types": "./dist/components/main-menu/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./image": {
+      "types": "./dist/components/image/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./textarea": {
+      "types": "./dist/components/textarea/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./button": {
+      "types": "./dist/components/button/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./identifier": {
+      "types": "./dist/components/identifier/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./link": {
+      "types": "./dist/components/link/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./table": {
+      "types": "./dist/components/table/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./visually-hidden": {
+      "types": "./dist/components/visually-hidden/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./tts": {
+      "types": "./dist/components/tts/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./switch": {
+      "types": "./dist/components/switch/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./structured-list": {
+      "types": "./dist/components/structured-list/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./bottom-sheet": {
+      "types": "./dist/components/bottom-sheet/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./critical-alert": {
+      "types": "./dist/components/critical-alert/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./radio-group": {
+      "types": "./dist/components/radio-group/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./accessible-media": {
+      "types": "./dist/components/accessible-media/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./text-list": {
+      "types": "./dist/components/text-list/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./breadcrumb": {
+      "types": "./dist/components/breadcrumb/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./side-navigation": {
+      "types": "./dist/components/side-navigation/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./modal": {
+      "types": "./dist/components/modal/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./resize": {
+      "types": "./dist/components/resize/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./tag": {
+      "types": "./dist/components/tag/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./header": {
+      "types": "./dist/components/header/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./step-indicator": {
+      "types": "./dist/components/step-indicator/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./text-input": {
+      "types": "./dist/components/text-input/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./masthead": {
+      "types": "./dist/components/masthead/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./badge": {
+      "types": "./dist/components/badge/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    },
+    "./file-upload": {
+      "types": "./dist/components/file-upload/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    }
+  },
+  "peerDependencies": {
+    "@builder.io/qwik": "^1.20.3"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.12.4",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^",
+    "@zag-js/core": "1.47.0",
+    "@zag-js/date-picker": "1.47.0",
+    "@zag-js/dialog": "1.47.0",
+    "@zag-js/tabs": "1.47.0",
+    "@zag-js/vanilla": "1.47.0"
+  },
+  "qwik": "./dist/index.qwik.mjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/qwik"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "baseline": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "independentImplementation": true,
+  "sourceRecords": [
+    {
+      "id": "component_04_03",
+      "canonicalUrl": "https://www.krds.go.kr/html/site/component/component_04_03.html",
+      "source": {
+        "localPath": "upstream/krds/raw/components/component_04_03.html",
+        "retrievedAt": "2026-10-29T23:28:03.411Z",
+        "sha256": "026a0d8bf8b8245e3633ea91edb1e891ff0fe4c1d880b1c7b3677bb51dcf7f0b",
+        "bytes": 117774,
+        "status": "retrieved"
+      }
+    },
+    {
+      "id": "component_04_05",
+      "canonicalUrl": "https://www.krds.go.kr/html/site/component/component_04_05.html",
+      "source": {
+        "localPath": "upstream/krds/raw/components/component_04_05.html",
+        "retrievedAt": "2026-10-29T23:28:03.556Z",
+        "sha256": "333c5f77e93a67c408874b067e2b0717dc0a3ad890269be35671fe1601bd3fd9",
+        "bytes": 97213,
+        "status": "retrieved"
+      }
+    },
+    {
+      "id": "component_04_10",
+      "canonicalUrl": "https://www.krds.go.kr/html/site/component/component_04_10.html",
+      "source": {
+        "localPath": "upstream/krds/raw/components/component_04_10.html",
+        "retrievedAt": "2026-10-29T23:28:03.905Z",
+        "sha256": "ee99fe206d12a4500498b5370a68d246a4572a773a295e4ef1240464af0ffc03",
+        "bytes": 84238,
+        "status": "retrieved"
+      }
+    },
+    {
+      "id": "component_05_02",
+      "canonicalUrl": "https://www.krds.go.kr/html/site/component/component_05_02.html",
+      "source": {
+        "localPath": "upstream/krds/raw/components/component_05_02.html",
+        "retrievedAt": "2026-10-29T23:28:04.249Z",
+        "sha256": "9f662175363678f870e7d6c74b44cfc4556a2dcfb57dc45e2cb541564ba6e9b9",
+        "bytes": 92416,
+        "status": "retrieved"
+      }
+    },
+    {
+      "id": "component_06_03",
+      "canonicalUrl": "https://www.krds.go.kr/html/site/component/component_06_03.html",
+      "source": {
+        "localPath": "upstream/krds/raw/components/component_06_03.html",
+        "retrievedAt": "2026-10-29T23:28:04.529Z",
+        "sha256": "3bfd47283d200276378b43ebb12767fd6ca941cd563dad65e44f6262a42d1ece",
+        "bytes": 88481,
+        "status": "retrieved"
+      }
+    },
+    {
+      "id": "component_09_01",
+      "canonicalUrl": "https://www.krds.go.kr/html/site/component/component_09_01.html",
+      "source": {
+        "localPath": "upstream/krds/raw/components/component_09_01.html",
+        "retrievedAt": "2026-10-29T23:28:05.326Z",
+        "sha256": "d9711fdb55bab5ecd6c99793ce89912c5fba6969f80f66ee30bc96a1a0852ac5",
+        "bytes": 103428,
+        "status": "retrieved"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "apps/fixture-vue/package.json",
+      "sha256": "f8fdf65e64c4bb30c2c70c9f99bc9208b47fc0679749e572ebc34f1fecb3e3ca"
+    },
+    {
+      "path": "apps/fixture-vue/src/ConsumerExample.vue",
+      "sha256": "c7c607e17cf50712e67b7d213ae574127363098d5d41e27b5f1a9ba23af01d36"
+    },
+    {
+      "path": "apps/fixture-vue/src/FixtureApp.ts",
+      "sha256": "cbe2ac307b9e6b05e0a38cebd26b04aa3fed98339ea710eed6fb3e8e503c8e50"
+    },
+    {
+      "path": "apps/fixture-vue/src/VisualMatrix.vue",
+      "sha256": "db5b569e252b290bee8f66ac17e3c95d9ff5c4c73384f1dae1341a4680222f51"
+    },
+    {
+      "path": "apps/fixture-vue/src/VuePilots.vue",
+      "sha256": "01b9fc78ff042c1c82578dcabd6985df946337019258fe7126283081abaafe36"
+    },
+    {
+      "path": "apps/fixture-vue/src/env.d.ts",
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "apps/fixture-vue/src/main.ts",
+      "sha256": "0bedb61086ab369aeed43cd3cd2ca7b682cf4b614962381ed4e02aaa3106d161"
+    },
+    {
+      "path": "apps/fixture-vue/tests/production-behavior.mjs",
+      "sha256": "d29c781f375e346f2bf8ac76d0a7328e05d70f65bd8bbe9503ad72a30ef2096c"
+    },
+    {
+      "path": "apps/fixture-vue/tests/siheom/button.test.ts",
+      "sha256": "9d01949ba3572f74717090006477afb1368050dfc6fb7c6ff45f0f2f92800560"
+    },
+    {
+      "path": "apps/fixture-vue/tests/siheom/native-behavior.test.ts",
+      "sha256": "6d36bcf0a09ae944fa58f6a594ac002d0f3ec3847cf521e22f57931af9a0f1c9"
+    },
+    {
+      "path": "apps/fixture-vue/tests/siheom/native-probe.test.ts",
+      "sha256": "41f0684135602f715acf7571d45608e245f56c7478d8ef383b8fe98330f26d86"
+    },
+    {
+      "path": "apps/fixture-vue/tests/siheom/pilots.test.ts",
+      "sha256": "e2ed7be8367ed62adc29a4864f2ad5914c727ae8e2a8b8854b3e3f0692b91a15"
+    },
+    {
+      "path": "apps/fixture-vue/tests/ssr-consumer.mjs",
+      "sha256": "33a4cf6cb1b9df3ce12c55e46d3e5b5b4ad37354c1236c54df810b799348c454"
+    },
+    {
+      "path": "apps/fixture-vue/tests/visual-inspect.mjs",
+      "sha256": "d604ac5730d5a8c77d07ec74264f3b515cf0dea5f81f02c260b06e8da6df07fc"
+    },
+    {
+      "path": "apps/fixture-vue/tsconfig.json",
+      "sha256": "1d89f859d46642e503162e5abf63469fee6fdf02fca719e23ba9a7eb1890c42e"
+    },
+    {
+      "path": "apps/storybook-vue/.storybook/preview.ts",
+      "sha256": "89dbf431bb32ad74a2864d195c547a2234df03e76527de70638a20a818af4008"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/NativeProbe.ts",
+      "sha256": "3588a0e1886f3756bdb16b0dcc86a372ff86197009c8cc4b5b1eb8333f474ea9"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/Pilots.vue",
+      "sha256": "def387552417519ef79271cfa36d4877c63a7e19c8d11c5266b94104b56afb2b"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/calendar.stories.ts",
+      "sha256": "5f79036dbff729e8f5e1bdf6d7921785258ee4b2e363559250042c866b4a4153"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/date-input.stories.ts",
+      "sha256": "164c51c451bfb4b1b8d65ba2ad1cdceb9ef4d892b8fe4a6307bae6027ad1dd02"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/modal.stories.ts",
+      "sha256": "56baa02ab092ca701462684c6cf3942ca19b9124022dac85ec851b44ec574d21"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/pilots.stories.ts",
+      "sha256": "9190a22f5c7fcee9a03251d55ce2a5ddd1634a4d135cb57cfe91e587664272cb"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/probe.stories.ts",
+      "sha256": "254fe593df21594fdcb82ba4a13d8c6e21b717ff0e3e607371924dd3701808f3"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/select.stories.ts",
+      "sha256": "9d26de81a5201647e3e9d6985128146ca474e23b5a2fff79368a488e8f44578d"
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/tabs.stories.ts",
+      "sha256": "27d1403a4abd63855b08812b58a3ea7733ab4df918163bc06e6ca233ead5d33c"
+    },
+    {
+      "path": "apps/storybook-vue/tsconfig.json",
+      "sha256": "1d89f859d46642e503162e5abf63469fee6fdf02fca719e23ba9a7eb1890c42e"
+    },
+    {
+      "path": "docs/compatibility/vue.md",
+      "sha256": "4e7a9932566287fe36a57bd6581da3a67f770bce62ae753472f0d1ae30a54950"
+    },
+    {
+      "path": "packages/vue/README.md",
+      "sha256": "012eabd12bff3f50a651323496dc07ed2e2fcc9f4cf5c2146991a65fe95143b3"
+    },
+    {
+      "path": "packages/vue/package.json",
+      "sha256": "75ecf0841693eac4c95fe4c094c0437aeb7add3131576d36e7688702672686d5"
+    },
+    {
+      "path": "packages/vue/src/components/button/Button.vue",
+      "sha256": "b31f76761a5c5bbc3cbf135e4d4f59c9613ba9f0ed9a2ab2fdc79f4a3adb1b28"
+    },
+    {
+      "path": "packages/vue/src/components/calendar/Calendar.vue",
+      "sha256": "5d26c2c6b9f6d52c70475a71426768088e1f54f36ceedaaea55621ba7d815614"
+    },
+    {
+      "path": "packages/vue/src/components/context.ts",
+      "sha256": "e3b247a53ed67e4d2e7630d7c9f6ec08f71e9cbd5db7e8ce984df1b68c8e5d73"
+    },
+    {
+      "path": "packages/vue/src/components/control.ts",
+      "sha256": "766c6fd427e735050f9967e3fa3810e8ce39750f4d9230c31b4eda5521aa1d88"
+    },
+    {
+      "path": "packages/vue/src/components/date-input/DateInput.vue",
+      "sha256": "9fb413d733620c6f022cf4d26ff33c61e5c2548c88ec04bf2dc97fca2052dab8"
+    },
+    {
+      "path": "packages/vue/src/components/date-model.ts",
+      "sha256": "55050d793ed8c232c9ab9b37e17d224e7e38c8cf3cfbe9c6c9ff8a05cc82e60a"
+    },
+    {
+      "path": "packages/vue/src/components/modal/Modal.vue",
+      "sha256": "1833f5093c368f01224300b8b3b7a5058bb2d0d533ab6bf63b4f31974eee9fe6"
+    },
+    {
+      "path": "packages/vue/src/components/modal/stack.ts",
+      "sha256": "230f89196a717f833f610576ef9fc16ab009db17dfa3b9329fb095e17bd33a53"
+    },
+    {
+      "path": "packages/vue/src/components/native-select/NativeSelect.vue",
+      "sha256": "45c9e29a500d427a167bb7f467b269d9ac001d89bdc3e9d0a4594adf0fa1adf4"
+    },
+    {
+      "path": "packages/vue/src/components/tabs/Tabs.vue",
+      "sha256": "6b30fdc5b301e21f3dd38d0b0c071ea1c4ce7f41961515d5b301baf14b7ec994"
+    },
+    {
+      "path": "packages/vue/src/components/types.ts",
+      "sha256": "33d9ec9e9e1ba778651abced19b0adecde1d3d2b9701b655254d2d8e31028283"
+    },
+    {
+      "path": "packages/vue/src/index.ts",
+      "sha256": "e69fda4f5ebba35a44e5b4e749ca045a69c3837581c5d78c3e936198f790b948"
+    },
+    {
+      "path": "packages/vue/vite.config.ts",
+      "sha256": "3755a59116205f49be0fccb622d829647e0038043df34ed83782d06349967055"
+    }
+  ],
+  "fixRound1": {
+    "sourceHashes": "fix1-source-hashes.json",
+    "priorInventory": "fix1-before-source-inventory.json"
+  }
+}

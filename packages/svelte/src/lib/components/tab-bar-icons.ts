@@ -1,0 +1,2 @@
+export const tabBarPaths={home:'M3 11L12 3l9 8v10h-6v-6H9v6H3Z',search:'M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14M15 15l6 6',person:'M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0M4 22v-3a8 8 0 0 1 16 0v3Z',document:'M5 3h10l4 4v14H5ZM8 11h8M8 15h8',help:'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20M9 8a3 3 0 1 1 4 3c-1 .5-1 1-1 3M12 17v1',information:'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20M12 10v7M12 6v1',plus:'M12 3v18M3 12h18'} as const;
+export type TabBarIconName=keyof typeof tabBarPaths;

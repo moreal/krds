@@ -1,0 +1,18 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-snackbar',title:'KRDS/snackbar',component:CatalogStory,args:{componentId:'snackbar'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Message:Story={name:"message",args:{caseId:"message"}};
+export const WithAction:Story={name:"with-action",args:{caseId:"with-action"}};
+export const WithIcon:Story={name:"with-icon",args:{caseId:"with-icon"}};
+export const UndoLocal:Story={name:"undo-local",args:{caseId:"undo-local"}};
+export const ActionError:Story={name:"action-error",args:{caseId:"action-error"}};
+export const CloseFocused:Story={name:"close-focused",args:{caseId:"close-focused"}};
+export const TimerCleanup:Story={name:"timer-cleanup",args:{caseId:"timer-cleanup"}};
+export const Narrow:Story={name:"narrow",args:{caseId:"narrow"}};
+export const NavigationLink:Story={name:"navigation-link",args:{caseId:"navigation-link"}};
+export const SameIdErrorActionUpdate:Story={name:"same-id-error-action-update",args:{caseId:"same-id-error-action-update"}};
+export const DismissalRejected:Story={name:"dismissal-rejected",args:{caseId:"dismissal-rejected"}};
+export const HostQueueReplacement:Story={name:"host-queue-replacement",args:{caseId:"host-queue-replacement"}};
+export const GenerationTimerPauses:Story={name:"generation-timer-pauses",args:{caseId:"generation-timer-pauses"}};

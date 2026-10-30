@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-range-slider', title: 'KRDS/RangeSlider', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const SingleValue: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 10, "defaultValue": 50}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const Discrete: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 25, "defaultValue": 50}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const Disabled: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 10, "defaultValue": 50, "disabled": true}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const FormReset: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 10, "defaultValue": 50}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const NarrowTouch: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 10, "defaultValue": 50}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const InputNotificationCounts: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 10, "defaultValue": 50}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const ControlledRejected: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 10, "value": 50}, "host": {"localOnly": true, "acceptChanges": false, "form": true}} };
+export const PointerCancel: Story = { args: {"componentId": "range-slider", "initialState": {"label": "예제 비율", "name": "ratio", "min": 0, "max": 100, "step": 10, "defaultValue": 50}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };

@@ -1,0 +1,80 @@
+✖ controlled native select suppresses prop events and emits one user change (0.931ms)
+✖ uncontrolled native select resets user selection to its baseline without another change event (0.141833ms)
+✖ standalone native table calendar keeps selection tentative and confirms exactly once (0.115042ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 238.732333
+
+✖ failing tests:
+
+test at tools/tests/contract-observations.test.mjs:129:1
+✖ controlled native select suppresses prop events and emits one user change (0.931ms)
+  AssertionError [ERR_ASSERTION]: controlled native select observation is not implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:130:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.start (node:internal/test_runner/test:1191:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/contract-observations.test.mjs:144:1
+✖ uncontrolled native select resets user selection to its baseline without another change event (0.141833ms)
+  AssertionError [ERR_ASSERTION]: uncontrolled reset observation is not implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:145:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/contract-observations.test.mjs:158:1
+✖ standalone native table calendar keeps selection tentative and confirms exactly once (0.115042ms)
+  AssertionError [ERR_ASSERTION]: calendar selection-confirm observation is not implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:159:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

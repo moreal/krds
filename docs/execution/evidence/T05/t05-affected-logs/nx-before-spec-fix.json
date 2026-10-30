@@ -1,0 +1,156 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "cli": {
+    "packageManager": "yarn"
+  },
+  "defaultBase": "main",
+  "namedInputs": {
+    "sharedGlobals": [
+      "{workspaceRoot}/package.json",
+      "{workspaceRoot}/yarn.lock",
+      "{workspaceRoot}/.yarnrc.yml",
+      "{workspaceRoot}/.node-version",
+      "{workspaceRoot}/tsconfig.base.json",
+      "{workspaceRoot}/compatibility/toolchain.json",
+      "{workspaceRoot}/compatibility/frameworks.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/tools/**/*",
+      "{workspaceRoot}/compliance/**/*",
+      "{workspaceRoot}/upstream/krds/manifest.json",
+      "{workspaceRoot}/LICENSE.md",
+      "{workspaceRoot}/LICENSES/**/*",
+      "{workspaceRoot}/ATTRIBUTION.md",
+      "{workspaceRoot}/THIRD-PARTY-NOTICES.md",
+      {
+        "runtime": "node tools/check-node.mjs && node --version"
+      }
+    ],
+    "default": [
+      "{projectRoot}/**/*",
+      "!{projectRoot}/dist/**/*",
+      "!{projectRoot}/node_modules/**/*",
+      "!{projectRoot}/.svelte-kit/**/*",
+      "sharedGlobals"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^default"
+      ],
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "typecheck": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^default"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^default"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^default"
+      ]
+    },
+    "contract": {
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/fixture-cases.json",
+        "{workspaceRoot}/specs/components/**/*",
+        "{workspaceRoot}/compatibility/frameworks.json",
+        "{workspaceRoot}/playwright.config.ts",
+        "{workspaceRoot}/packages/test-contracts/**/*"
+      ]
+    },
+    "siheom": {
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/fixture-cases.json",
+        "{workspaceRoot}/packages/test-contracts/**/*"
+      ]
+    },
+    "stories": {
+      "cache": false,
+      "dependsOn": [
+        "storybook-build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/catalog/story-coverage.json",
+        "{workspaceRoot}/packages/test-contracts/**/*",
+        "{workspaceRoot}/playwright.config.ts"
+      ]
+    },
+    "storybook-build": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/catalog/story-coverage.json",
+        "{workspaceRoot}/packages/test-contracts/**/*"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    }
+  },
+  "release": {
+    "projects": [
+      "krds-contracts",
+      "krds-tokens",
+      "krds-styles",
+      "krds-assets",
+      "krds-fonts",
+      "krds-react",
+      "krds-solid",
+      "krds-svelte",
+      "krds-vue",
+      "krds-lit",
+      "krds-qwik",
+      "krds-angular",
+      "krds-solid-next"
+    ],
+    "projectsRelationship": "independent",
+    "versionPlans": true
+  }
+}

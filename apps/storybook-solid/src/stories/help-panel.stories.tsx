@@ -1,0 +1,14 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-help-panel', title: 'KRDS/help-panel', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const DesktopOpen: Story = { name: "desktop-open", parameters: { __id: "krds-help-panel--desktop-open" }, render: () => <CatalogStory componentId="help-panel" caseId="desktop-open"/> };
+export const Initial: Story = { name: "initial", parameters: { __id: "krds-help-panel--initial" }, render: () => <CatalogStory componentId="help-panel" caseId="initial"/> };
+export const ContextDetail: Story = { name: "context-detail", parameters: { __id: "krds-help-panel--context-detail" }, render: () => <CatalogStory componentId="help-panel" caseId="context-detail"/> };
+export const NarrowModal: Story = { name: "narrow-modal", parameters: { __id: "krds-help-panel--narrow-modal" }, render: () => <CatalogStory componentId="help-panel" caseId="narrow-modal"/> };
+export const TopicTriggerRemoved: Story = { name: "topic-trigger-removed", parameters: { __id: "krds-help-panel--topic-trigger-removed" }, render: () => <CatalogStory componentId="help-panel" caseId="topic-trigger-removed"/> };
+export const HelpTutorialTabs: Story = { name: "help-tutorial-tabs", parameters: { __id: "krds-help-panel--help-tutorial-tabs" }, render: () => <CatalogStory componentId="help-panel" caseId="help-tutorial-tabs"/> };
+export const NarrowTopicIconReturn: Story = { name: "narrow-topic-icon-return", parameters: { __id: "krds-help-panel--narrow-topic-icon-return" }, render: () => <CatalogStory componentId="help-panel" caseId="narrow-topic-icon-return"/> };
+export const ControlledCloseRejected: Story = { name: "controlled-close-rejected", parameters: { __id: "krds-help-panel--controlled-close-rejected" }, render: () => <CatalogStory componentId="help-panel" caseId="controlled-close-rejected"/> };
+export const PanelOpenerRemoved: Story = { name: "panel-opener-removed", parameters: { __id: "krds-help-panel--panel-opener-removed" }, render: () => <CatalogStory componentId="help-panel" caseId="panel-opener-removed"/> };

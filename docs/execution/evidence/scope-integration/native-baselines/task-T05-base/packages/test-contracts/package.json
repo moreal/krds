@@ -1,0 +1,19 @@
+{
+  "name": "@krds-native/test-contracts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../../tools/workspace-probe.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "build:local": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "typescript": "6.0.2"
+  },
+  "dependencies": {
+    "@krds-native/contracts": "workspace:^"
+  }
+}

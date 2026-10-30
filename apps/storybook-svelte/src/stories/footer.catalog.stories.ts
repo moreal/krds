@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-footer', title: 'KRDS/Catalog/Footer', component: CatalogStory, args: {componentId: 'footer'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {name: "default", args: {caseId: "default"}};
+export const Narrow: Story = {name: "narrow", args: {caseId: "narrow"}};
+export const ShortPage: Story = {name: "short-page", args: {caseId: "short-page"}};
+export const CommercePolicy: Story = {name: "commerce-policy", args: {caseId: "commerce-policy"}};
+export const NavigationMirror: Story = {name: "navigation-mirror", args: {caseId: "navigation-mirror"}};

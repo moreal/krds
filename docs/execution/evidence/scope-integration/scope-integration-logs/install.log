@@ -1,0 +1,15 @@
+➤ YN0000: · Yarn 4.14.1
+➤ YN0000: ┌ Resolution step
+➤ YN0085: │ - @krds-native/angular@workspace:packages/angular, @krds-native/assets@workspace:packages/assets, @krds-native/contracts@workspace:packages/contracts, and 29 more.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Post-resolution validation
+➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: └ Completed in 0s 652ms
+➤ YN0000: ┌ Link step
+➤ YN0000: │ The pnpm linker doesn't support providing different versions to workspaces' peer dependencies
+➤ YN0004: │ nx@npm:24.0.2 [85ed1] lists build scripts, but all build scripts have been disabled.
+➤ YN0007: │ @unofficial-krds/workspace@workspace:. must be built because it never has been before or the last one failed
+➤ YN0000: └ Completed in 12s 202ms
+➤ YN0000: · Done with warnings in 13s 208ms

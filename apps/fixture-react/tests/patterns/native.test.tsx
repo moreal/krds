@@ -1,0 +1,55 @@
+import {StrictMode} from 'react';
+import {test,expect,afterEach} from 'vitest';
+import {assertions,createReactSiheom,given,query} from '@siheom/react';
+import {render,screen,cleanup,waitFor,act} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {PatternFixture} from '../../src/examples/PatternFixture';
+const {runSiheom}=createReactSiheom();
+afterEach(cleanup);
+test('siheom renders the native form composition and actual public controls',async()=>{
+ history.replaceState(null,'','/examples/form-errors?case=error-summary-focus');
+ await runSiheom(given.render(<PatternFixture/>),assertions.visible(query.button('예제 저장')));
+ expect(document.querySelector('input#example-form-title')?.getAttribute('data-krds-component')).toBe('text-input');
+});
+test('StrictMode cleanup/remount does not duplicate requests; native reset cancels pending completion',async()=>{
+ history.replaceState(null,'','/examples/form-errors?case=reset-cancels-pending');
+ const view=render(<StrictMode><PatternFixture/></StrictMode>);
+ const form=await screen.findByRole('form',{name:'예제 입력폼'}) as HTMLFormElement;
+ expect(Object.fromEntries(new FormData(form))).toEqual({title:'예제 입력폼 연습',category:'practice',detail:''});
+ await userEvent.click(screen.getByRole('button',{name:'예제 저장'}));
+ expect(window.__KRDS_FIXTURE__!.readEvents().filter(e=>e.name==='pattern:request')).toHaveLength(1);
+ const snapshot=window.__KRDS_FIXTURE__!;
+ const actionsBefore=snapshot.readEvents().filter(e=>e.name==='pattern:action'&&(e.detail as {type:string}).type==='field').length;
+ form.addEventListener('reset',event=>event.preventDefault(),{once:true});
+ await userEvent.click(screen.getByRole('button',{name:'초기화'}));
+ expect(screen.getByLabelText('예제 제목 (필수)')).toHaveValue('예제 입력폼 연습');
+ await userEvent.click(screen.getByRole('button',{name:'초기화'}));
+ await waitFor(()=>expect(screen.getByLabelText('예제 제목 (필수)')).toHaveValue(''));
+ expect(Object.fromEntries(new FormData(form))).toEqual({title:'',category:'',detail:''});
+ expect(snapshot.readEvents().filter(e=>e.name==='pattern:action'&&(e.detail as {type:string}).type==='field')).toHaveLength(actionsBefore);
+ await act(async()=>{await snapshot.setState({__patternCommand:{sequence:1,command:'settle',ok:true}});});
+ expect(screen.queryByText(/DEMO-FORM-001/)).toBeNull();
+ view.unmount();expect(window.__KRDS_FIXTURE__).toBeUndefined();expect(()=>snapshot.recordEvent('late',{})).toThrow('disposed');
+});
+test('bridge command snapshots settle once and unmount removes native Modal isolation/portal',async()=>{
+ history.replaceState(null,'','/examples/consent-confirmation?case=retry-in-dialog');
+ const view=render(<StrictMode><PatternFixture/></StrictMode>);
+ await userEvent.click(await screen.findByRole('button',{name:'확인하기'}));
+ await userEvent.click(screen.getByRole('button',{name:'예제 완료'}));
+ const bridge=window.__KRDS_FIXTURE__!;
+ await act(async()=>{await bridge.setState({__patternCommand:{sequence:1,command:'settle'}});});
+ expect(screen.getByRole('dialog')).toHaveTextContent('실패');
+ await userEvent.click(screen.getByRole('button',{name:'다시 시도'}));
+ await act(async()=>{await bridge.setState({unrelated:'replayed snapshot'});});
+ expect(screen.getByRole('dialog')).toHaveTextContent('로컬 선택 처리 중');
+ expect(screen.getByRole('button',{name:'예제 완료'})).toBeDisabled();
+ expect(bridge.readEvents().filter(e=>e.name==='pattern:request')).toHaveLength(2);
+ view.unmount();expect(document.querySelector('[data-krds-component="modal"][data-krds-part="root"]')).toBeNull();expect(document.body.style.overflow).toBe('');expect(document.querySelector('[inert]')).toBeNull();
+});
+test('canceling a pending confirmation leaves no receipt after an explicit late settle',async()=>{
+ history.replaceState(null,'','/examples/consent-confirmation?case=optional-refusal-success');render(<PatternFixture/>);
+ await userEvent.click(await screen.findByRole('button',{name:'확인하기'}));await userEvent.click(screen.getByRole('button',{name:'예제 완료'}));await userEvent.click(screen.getByRole('button',{name:'돌아가기'}));
+ await waitFor(()=>expect(screen.queryByRole('dialog')).toBeNull());expect(screen.getByRole('button',{name:'확인하기'})).toHaveFocus();
+ await act(async()=>{await window.__KRDS_FIXTURE__!.setState({__patternCommand:{sequence:1,command:'settle',ok:true}});});
+ expect(screen.queryByText(/DEMO-CONSENT-001/)).toBeNull();expect(screen.getByRole('radio',{name:'필수 동의함'})).toBeChecked();
+});

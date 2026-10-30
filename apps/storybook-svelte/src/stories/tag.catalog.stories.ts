@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-tag', title: 'KRDS/Catalog/Tag', component: CatalogStory, args: {componentId: 'tag'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Static: Story = {name: "static", args: {caseId: "static"}};
+export const Toggle: Story = {name: "toggle", args: {caseId: "toggle"}};
+export const Removable: Story = {name: "removable", args: {caseId: "removable"}};
+export const AddFilter: Story = {name: "add-filter", args: {caseId: "add-filter"}};
+export const Link: Story = {name: "link", args: {caseId: "link"}};
+export const RemoveLast: Story = {name: "remove-last", args: {caseId: "remove-last"}};
+export const Overflow: Story = {name: "overflow", args: {caseId: "overflow"}};

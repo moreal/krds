@@ -1,0 +1,42 @@
+{
+  "kind": "siheom",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "solid",
+      "canonicalSelection": true,
+      "coverageAwarded": false,
+      "files": [
+        "button.test.tsx",
+        "calendar.test.tsx",
+        "date-input.test.tsx",
+        "modal.test.tsx",
+        "native-select.test.tsx",
+        "tabs.test.tsx"
+      ],
+      "adapter": [
+        "@siheom/solid",
+        "0.3.2"
+      ],
+      "commandExitCode": 0,
+      "commandLog": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793327466349-27865-88667273/solid-command.log",
+      "tests": 77,
+      "passed": 77,
+      "failed": 0,
+      "report": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793327466349-27865-88667273/solid-vitest.json",
+      "status": "passed"
+    }
+  ],
+  "unsupported": [
+    {
+      "framework": "lit",
+      "reason": "No upstream native siheom adapter",
+      "alternative": "test:contract --framework lit"
+    },
+    {
+      "framework": "solid-next",
+      "reason": "Solid1 adapter peer does not cover exact Solid2 RC",
+      "alternative": "test:contract --framework solid-next"
+    }
+  ]
+}

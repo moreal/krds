@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-framework-qwik';
+import { PatternStory } from './story';
+const meta={id:'krds-pattern-consent-confirmation',title:'Patterns/consent-confirmation',component:PatternStory,args:{patternId:'consent-confirmation'}} satisfies Meta<typeof PatternStory>;
+export default meta;
+type Story=StoryObj<typeof PatternStory>;
+export const Editing:Story={name:'editing',args:{variant:'editing'}};
+export const Invalid:Story={name:'invalid',args:{variant:'invalid'}};
+export const Confirming:Story={name:'confirming',args:{variant:'confirming'}};
+export const Loading:Story={name:'loading',args:{variant:'loading'}};
+export const Error:Story={name:'error',args:{variant:'error'}};
+export const Success:Story={name:'success',args:{variant:'success'}};

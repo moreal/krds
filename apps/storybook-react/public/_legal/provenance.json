@@ -1,0 +1,1832 @@
+{
+  "schemaVersion": 1,
+  "application": "apps/storybook-react",
+  "inventory": "compliance/distribution-provenance.json",
+  "scope": "Exact local specimen assets and frozen docs text snapshots. No publication authorization or authentic speech/sign-language equivalence. Bundler/dependency output is not cleared by this scoped static inventory.",
+  "independentCopyright": "Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>",
+  "assets": [
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/captions.vtt",
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c",
+      "bytes": 71,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/captions.vtt",
+        "apps/fixture-lit/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-qwik/public/local-assets/captions.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-react/public/local-assets/captions.vtt",
+        "apps/fixture-react/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-solid/public/local-assets/captions.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-svelte/public/local-assets/captions.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-vue/public/local-assets/captions.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-lit/public/local-assets/captions.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-qwik/public/local-assets/captions.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-react/public/local-assets/captions.vtt",
+        "apps/storybook-react/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-solid/public/local-assets/captions.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-svelte/public/local-assets/captions.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-vue/public/local-assets/captions.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-angular/public/local-assets/captions.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-angular/public/local-assets/captions.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-captions.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+      "sha256": "fc6bb4a2fb84602f95e075ab5352977f078be93a6fbc5adf4260067cfe47e326",
+      "bytes": 64044,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-audio.wav",
+        "apps/fixture-qwik/public/local-assets/specimen-audio.wav",
+        "apps/fixture-react/public/local-assets/specimen-audio.wav",
+        "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+        "apps/fixture-svelte/public/local-assets/specimen-audio.wav",
+        "apps/fixture-vue/public/local-assets/specimen-audio.wav",
+        "apps/storybook-lit/public/local-assets/specimen-audio.wav",
+        "apps/storybook-qwik/public/local-assets/specimen-audio.wav",
+        "apps/storybook-react/public/local-assets/specimen-audio.wav",
+        "apps/storybook-solid/public/local-assets/specimen-audio.wav",
+        "apps/storybook-svelte/public/local-assets/specimen-audio.wav",
+        "apps/storybook-vue/public/local-assets/specimen-audio.wav",
+        "apps/fixture-angular/public/local-assets/specimen-audio.wav",
+        "apps/storybook-angular/public/local-assets/specimen-audio.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+      "sha256": "c3977eb9d0e63943e868056865beeb2fb970ac8f338a3117c2344e2a043efdcd",
+      "bytes": 134,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-description.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-description.vtt",
+        "apps/fixture-react/public/local-assets/specimen-description.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-description.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-description.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-description.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-description.vtt",
+        "apps/storybook-react/public/local-assets/specimen-description.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-description.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-description.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-description.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-description.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-description.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-media.webm",
+      "sha256": "08d3ea65f53ebfe4adfc99176d3b7d8d7667370418e00638d3c1229e76d548a2",
+      "bytes": 11596,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-media.webm",
+        "apps/fixture-qwik/public/local-assets/specimen-media.webm",
+        "apps/fixture-react/public/local-assets/specimen-media.webm",
+        "apps/fixture-solid/public/local-assets/specimen-media.webm",
+        "apps/fixture-svelte/public/local-assets/specimen-media.webm",
+        "apps/fixture-vue/public/local-assets/specimen-media.webm",
+        "apps/storybook-lit/public/local-assets/specimen-media.webm",
+        "apps/storybook-qwik/public/local-assets/specimen-media.webm",
+        "apps/storybook-react/public/local-assets/specimen-media.webm",
+        "apps/storybook-solid/public/local-assets/specimen-media.webm",
+        "apps/storybook-svelte/public/local-assets/specimen-media.webm",
+        "apps/storybook-vue/public/local-assets/specimen-media.webm",
+        "apps/fixture-angular/public/local-assets/specimen-media.webm",
+        "apps/storybook-angular/public/local-assets/specimen-media.webm"
+      ]
+    },
+    {
+      "origin": "Independently authored React geometric SVG/transcript replacement; previous verified shared asset reuse was also permitted",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/asset-replacement-record/inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local-assets/specimen-icon-dark.svg",
+      "sha256": "a4ede14003d22e3a407bbd19464d09690255675b0ef93e3beb73e83b3e14eb95",
+      "bytes": 276,
+      "destinations": [
+        "apps/fixture-react/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-react/public/local-assets/specimen-icon-dark.svg"
+      ]
+    },
+    {
+      "origin": "Independently authored React geometric SVG/transcript replacement; previous verified shared asset reuse was also permitted",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/asset-replacement-record/inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local-assets/specimen-icon-light.svg",
+      "sha256": "2d557874afc9e81a8ae78ecda9ec09480234bf6567a89ecc38f6d4d941e9b6f8",
+      "bytes": 270,
+      "destinations": [
+        "apps/fixture-react/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-react/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-react/public/local-assets/specimen-logo.svg",
+        "apps/storybook-react/public/local-assets/specimen-logo.svg",
+        "apps/fixture-react/public/local-assets/service-logo.svg",
+        "apps/storybook-react/public/local-assets/service-logo.svg"
+      ]
+    },
+    {
+      "origin": "Independently authored React geometric SVG/transcript replacement; previous verified shared asset reuse was also permitted",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/asset-replacement-record/inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local-assets/specimen-landscape.svg",
+      "sha256": "b791edc03ce43329a8b8ce0a4a0b2f2f801965215fb5f35d2c776bf7b90957a1",
+      "bytes": 342,
+      "destinations": [
+        "apps/fixture-react/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-react/public/local-assets/specimen-landscape.svg"
+      ]
+    },
+    {
+      "origin": "Independently authored React geometric SVG/transcript replacement; previous verified shared asset reuse was also permitted",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/asset-replacement-record/inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local-assets/transcript.html",
+      "sha256": "7dbd5931f3ee1f137e02bd7b0eb53155ad062e38dea03a48d3741bbe3970cbcc",
+      "bytes": 497,
+      "destinations": [
+        "apps/fixture-react/public/local-assets/transcript.html",
+        "apps/storybook-react/public/local-assets/transcript.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/0/index.html",
+      "sha256": "22bbe56864513e51b619d182037d5a9d0acb63dd9d42c7064b61223e1dd96380",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/0/index.html",
+        "apps/storybook-react/public/local/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/1/index.html",
+      "sha256": "c00901296be92e42bf4453f3ebc29507e5ac100c52dec7dff1d011c7ccfe1b11",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/1/index.html",
+        "apps/storybook-react/public/local/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/10/index.html",
+      "sha256": "33d3a884ae712f0d9d032e4b6d783a77ad8807413570f859552e34e4aa173262",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/10/index.html",
+        "apps/storybook-react/public/local/10/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/11/index.html",
+      "sha256": "32d979492279154b85e3a70063d5475a3899cfb249c49da5d17f02ff585b24dd",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/11/index.html",
+        "apps/storybook-react/public/local/11/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/12/index.html",
+      "sha256": "2850dc3558728239a00ead20cf1b6e1c6722bfce99579caf8ad31a41918563f9",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/12/index.html",
+        "apps/storybook-react/public/local/12/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/13/index.html",
+      "sha256": "f3025c4f62031ecaed5fcd73be8912afbe5fb94b49f2e5b4178a998afbf13067",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/13/index.html",
+        "apps/storybook-react/public/local/13/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/14/index.html",
+      "sha256": "a8ffee2efaae05173627771b56be550bd36e18499907faacb3cdeb3504662b79",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/14/index.html",
+        "apps/storybook-react/public/local/14/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/15/index.html",
+      "sha256": "7330932fbdc0fb50ec3fc7d13fd1f1dbf3c5dae8326339b4836e098e6aeb9a01",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/15/index.html",
+        "apps/storybook-react/public/local/15/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/16/index.html",
+      "sha256": "5e2a3dc417b1f65f69316569f84bf8e42206f42ea7238e0f6c51e45b4307d9e4",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/16/index.html",
+        "apps/storybook-react/public/local/16/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/17/index.html",
+      "sha256": "0d9957d24e51492dc02a3582d869aac9660df4f4812ade1013415062da1f57f4",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/17/index.html",
+        "apps/storybook-react/public/local/17/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/18/index.html",
+      "sha256": "5401d327a0e03c893b55da2deb8b07055e883c4c3e62b5ae2857ce718e93b120",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/18/index.html",
+        "apps/storybook-react/public/local/18/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/19/index.html",
+      "sha256": "f3a374029267c620a826900c7b3791480ff52fae674201843200ebb43cef7746",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/19/index.html",
+        "apps/storybook-react/public/local/19/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/2/index.html",
+      "sha256": "296d64548661527185db0959a42e961f0b683b2e3f16f39dc425b07416a88b1e",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/2/index.html",
+        "apps/storybook-react/public/local/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/20/index.html",
+      "sha256": "1c4650d325ad0ef59cb87057251b7807537c6defb7b4956e11b1c601502cd7a9",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/20/index.html",
+        "apps/storybook-react/public/local/20/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/21/index.html",
+      "sha256": "fdafb08184020bad6d57829defe1f59ece982c38db6d25dc0cbb94c92e2630be",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/21/index.html",
+        "apps/storybook-react/public/local/21/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/22/index.html",
+      "sha256": "bed545b3350409949cd39f20023e44f36c827b265cbfd729920d76dd7aac2058",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/22/index.html",
+        "apps/storybook-react/public/local/22/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/23/index.html",
+      "sha256": "23d3c6a411703dfb67e9b075ea2b926614c3c78bab7cbcf63258a6b302dbaab3",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/23/index.html",
+        "apps/storybook-react/public/local/23/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/24/index.html",
+      "sha256": "aa29c85475f390fc09972316ae77300def0bb366a8826829e42015aa30919aad",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/24/index.html",
+        "apps/storybook-react/public/local/24/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/25/index.html",
+      "sha256": "b09cb73126e03218d1dce8f865502602f38e978294185fa27470c47a0c631427",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/25/index.html",
+        "apps/storybook-react/public/local/25/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/26/index.html",
+      "sha256": "1537c4a5bb95ed899e80289942b884cb94013e9645ce62938662853ed4b17a9d",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/26/index.html",
+        "apps/storybook-react/public/local/26/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/27/index.html",
+      "sha256": "c0b9b1f55f950da0b3097cb6488af98f4b50b3d1e9cccd1c92185be70639b9fd",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/27/index.html",
+        "apps/storybook-react/public/local/27/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/28/index.html",
+      "sha256": "58f9e1b561d6ee16fadb3e812df7befa8fc39f4749a5befadc31f6635f32e1e5",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/28/index.html",
+        "apps/storybook-react/public/local/28/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/29/index.html",
+      "sha256": "bc6771cb910be3369a2f969c0cf65d39d97ea59c00b6e26c89ca42bca3a6d2d9",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/29/index.html",
+        "apps/storybook-react/public/local/29/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/3/index.html",
+      "sha256": "055f667919f7d5550fa1d4a8ecc97d0a3a385b7cf3e68465de150c6f45ab4090",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/3/index.html",
+        "apps/storybook-react/public/local/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/4/index.html",
+      "sha256": "1b9159e91d817b6ec417acd69b633cc80701f9405d721096d266d8cb3db167ce",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/4/index.html",
+        "apps/storybook-react/public/local/4/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/5/index.html",
+      "sha256": "b97089239b0b746adda1c5e3ac5a5fb895fff903dab93b4d5821b81e7c9822b8",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/5/index.html",
+        "apps/storybook-react/public/local/5/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/6/index.html",
+      "sha256": "4f25064768043cc458c2db3b0f10b4fee3d2245a05fbc799d08f761a449ab898",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/6/index.html",
+        "apps/storybook-react/public/local/6/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/7/index.html",
+      "sha256": "4a41816a05907bc3e9a7ba7cd9a384f4bee4f0e8e03c2661499081f1aec07942",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/7/index.html",
+        "apps/storybook-react/public/local/7/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/8/index.html",
+      "sha256": "cebf3087c6ed7ac69b6767f1e2387a83f15ef6beeea72197fdf2d9fe24ef76f3",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/8/index.html",
+        "apps/storybook-react/public/local/8/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/9/index.html",
+      "sha256": "8024debac5b0327fd937700a859c20d4dd21d757d8b9ece29f4e5682423364bb",
+      "bytes": 261,
+      "destinations": [
+        "apps/fixture-react/public/local/9/index.html",
+        "apps/storybook-react/public/local/9/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/accordion-help/index.html",
+      "sha256": "f21dcb1749de28c0dc74e389d0774e4f3faad579415360c7ae924f8c39647e91",
+      "bytes": 287,
+      "destinations": [
+        "apps/fixture-react/public/local/accordion-help/index.html",
+        "apps/storybook-react/public/local/accordion-help/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/application/index.html",
+      "sha256": "bad1a526d840288e4465c98924fc7aa2faefcaa194a52718f1c727fee4300463",
+      "bytes": 281,
+      "destinations": [
+        "apps/fixture-react/public/local/application/index.html",
+        "apps/storybook-react/public/local/application/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/index.html",
+      "sha256": "3c0d13a84512d7ba36b0e1d9d641e8cdac395b0e97c7cf5f74cb4d2d43c087b6",
+      "bytes": 269,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/index.html",
+        "apps/storybook-react/public/local/apply/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-01/index.html",
+      "sha256": "46ec64ea72c7db57d5d0d723a83b3edafa5ffb6ddc72f88def9e9743d9d70380",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-01/index.html",
+        "apps/storybook-react/public/local/apply/type-01/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-02/index.html",
+      "sha256": "652a55f73cbef68396bfa39394e246612d0216e016168ef60db6c4a968f9cbb9",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-02/index.html",
+        "apps/storybook-react/public/local/apply/type-02/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-03/index.html",
+      "sha256": "627e9e267ca02f4193f38147a7c1c670afc588e5f5417a8c9f006dc43239de61",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-03/index.html",
+        "apps/storybook-react/public/local/apply/type-03/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-04/index.html",
+      "sha256": "b8abb285e48969d6beddb91e9e4cc8ee46d959104569ca3ecba2b7a0cda6cc72",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-04/index.html",
+        "apps/storybook-react/public/local/apply/type-04/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-05/index.html",
+      "sha256": "adecda59df0ce0e72017b77ee67bc006a539780c4f4335a166cd3f152d52ffaa",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-05/index.html",
+        "apps/storybook-react/public/local/apply/type-05/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-06/index.html",
+      "sha256": "e90299da3416b7acb4a3bb24568d978360b09c6eb02efc973dff8b64db3ed0fb",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-06/index.html",
+        "apps/storybook-react/public/local/apply/type-06/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-07/index.html",
+      "sha256": "4f55e7487d8255b9d507c659b3e06342c4aa33f6dce185544766a61bc53a2ed3",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-07/index.html",
+        "apps/storybook-react/public/local/apply/type-07/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-08/index.html",
+      "sha256": "0f56a636a50fc16a41996b75d88e1230d0c5f6258a6d5b8ad55f1310efea2bbe",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-08/index.html",
+        "apps/storybook-react/public/local/apply/type-08/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-09/index.html",
+      "sha256": "098b0ee76c831cfb1f6205ec45737aece1520abb05e12a3ad899a52f8293e182",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-09/index.html",
+        "apps/storybook-react/public/local/apply/type-09/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-10/index.html",
+      "sha256": "fe2dc6f02493161e68155fa03d98c38391593eda6cac093730e3847a79c14162",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-10/index.html",
+        "apps/storybook-react/public/local/apply/type-10/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-11/index.html",
+      "sha256": "dfb0bdd228bfc0184cd4842c9fce270e1a111c6307e360646899ca770217eb2d",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-11/index.html",
+        "apps/storybook-react/public/local/apply/type-11/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-12/index.html",
+      "sha256": "4970511c639f7e8d564747f3f0242d1b0a6457f411d3c162c3522c6a99c092ff",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-12/index.html",
+        "apps/storybook-react/public/local/apply/type-12/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-13/index.html",
+      "sha256": "988978c4bd05d8b81fd2842cf2f38ba0811f457ba01da760f48b4c159b5fa1a3",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-13/index.html",
+        "apps/storybook-react/public/local/apply/type-13/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-14/index.html",
+      "sha256": "00f34de6d0e697010d2d321940f4d8efc1eecce8f3eb960f3c0fb817e1f71d7c",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-14/index.html",
+        "apps/storybook-react/public/local/apply/type-14/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-15/index.html",
+      "sha256": "b11b4f200a826a84122198e9c2cc950b916525e1e3d31491d9f00253ac302cb2",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-15/index.html",
+        "apps/storybook-react/public/local/apply/type-15/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-16/index.html",
+      "sha256": "1eed13724268d61ea1fe4a7dd36acce7fdc8d5bf3b42c30e37707889baae9dcf",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-16/index.html",
+        "apps/storybook-react/public/local/apply/type-16/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-17/index.html",
+      "sha256": "c9666129128a5aa454c72433dad95b770e7128bf548771d50a08a947fbc5728b",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-17/index.html",
+        "apps/storybook-react/public/local/apply/type-17/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-18/index.html",
+      "sha256": "3f998b65e189048f1abd5a8a614134ee1e0debc46352f79a68ff31919180e461",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-18/index.html",
+        "apps/storybook-react/public/local/apply/type-18/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-19/index.html",
+      "sha256": "a2ed56a26853aaadaa9c743cae7a85569465e28d944fc12b37c3c655ef8e84db",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-19/index.html",
+        "apps/storybook-react/public/local/apply/type-19/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-20/index.html",
+      "sha256": "fdd6ff0d407359947b5efb4f9dbdb61e6ec6395f558f093beef202cac023a597",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-20/index.html",
+        "apps/storybook-react/public/local/apply/type-20/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-21/index.html",
+      "sha256": "aca8d640cbc4845c107c9c4698632c08a0592c303f834da90d0a28e1f8c1c146",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-21/index.html",
+        "apps/storybook-react/public/local/apply/type-21/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-22/index.html",
+      "sha256": "e7ea0e45a70d9777cb42362f7ccaf641c94a0ee1655860464c4762b8a5cdda0c",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-22/index.html",
+        "apps/storybook-react/public/local/apply/type-22/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-23/index.html",
+      "sha256": "58dc77cccc444e8d470f018eda5394529a620e7085d16393b8189567568def27",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-23/index.html",
+        "apps/storybook-react/public/local/apply/type-23/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-24/index.html",
+      "sha256": "5e55d05bfe1181e2ad3d692c51f564afdd24c266f33ea92827c286cb8ec67674",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-24/index.html",
+        "apps/storybook-react/public/local/apply/type-24/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-25/index.html",
+      "sha256": "cf3aa1d9a3223aeae07bf76dc3940d3a93ab126a2fd77765968a1dcb917cdd20",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-25/index.html",
+        "apps/storybook-react/public/local/apply/type-25/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-26/index.html",
+      "sha256": "8ffd200577ea4e006b9a28d4d83f2a61980ce62dc14588ffd467086eb7fc4f37",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-26/index.html",
+        "apps/storybook-react/public/local/apply/type-26/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-27/index.html",
+      "sha256": "9aa19a40e09a238ac9e8ec707f838086b4df5f808824725a0ee7aeeaa524dd69",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-27/index.html",
+        "apps/storybook-react/public/local/apply/type-27/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-28/index.html",
+      "sha256": "9170d5b78eaf36e3aaf445e2d8e3e3071593a416fbaaa7cbbf1f77c020a6ee78",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-28/index.html",
+        "apps/storybook-react/public/local/apply/type-28/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-29/index.html",
+      "sha256": "59c9248bed4663d6aa1ce6724928046a0be663d8d53f4b1b3a97caec915fbbcb",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-29/index.html",
+        "apps/storybook-react/public/local/apply/type-29/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-30/index.html",
+      "sha256": "0e9826ccff5ce1da37afe8e6c28fd59254766f12fca92f70b3ff717feb728cf3",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-30/index.html",
+        "apps/storybook-react/public/local/apply/type-30/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-31/index.html",
+      "sha256": "900f897cfd123e0fc07e1d46a3bac1e380bb9f77240ef1c41bd1f1bbbab483d4",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-31/index.html",
+        "apps/storybook-react/public/local/apply/type-31/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-32/index.html",
+      "sha256": "ba3a56b706a30826d5ab9c7784167633e68ab8c29c1a6b83ad32a1851752834b",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-32/index.html",
+        "apps/storybook-react/public/local/apply/type-32/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-33/index.html",
+      "sha256": "44f935e4c08f2fbf3b03024f573f552f1aa0577e9a1b5195b68fac34ce06e26d",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-33/index.html",
+        "apps/storybook-react/public/local/apply/type-33/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-34/index.html",
+      "sha256": "8849288ae01fc44cf470a63da9a9f3af5cda36dbd55d2b5d85961daced5b8fbb",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-34/index.html",
+        "apps/storybook-react/public/local/apply/type-34/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-35/index.html",
+      "sha256": "809cce568ef136daf428c2e66d598ee9068b162c7befa5311ae4e6c9bed1338a",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-35/index.html",
+        "apps/storybook-react/public/local/apply/type-35/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-36/index.html",
+      "sha256": "b177d3226055a57eb86855637c2acb99007ff0e3321d897f61570baa3660fc7f",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-36/index.html",
+        "apps/storybook-react/public/local/apply/type-36/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-37/index.html",
+      "sha256": "0f9c2d1c3239c4528b9119adc585dd3cabbb38159ff964361fc54f3ff79fc2f3",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-37/index.html",
+        "apps/storybook-react/public/local/apply/type-37/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-38/index.html",
+      "sha256": "398f71d6ad5c313d33147937ec7efedf683dc6897b28e4a458c0ba07af202cd3",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-38/index.html",
+        "apps/storybook-react/public/local/apply/type-38/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-39/index.html",
+      "sha256": "63fef0ddcd63423c4422514a1d541d8801e41db62924c05a11434e17220d6ec1",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-39/index.html",
+        "apps/storybook-react/public/local/apply/type-39/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/apply/type-40/index.html",
+      "sha256": "b5ab109ebd29acb2e3a2abf8eb1258a518cb58c6f00ec530a6c8fee94b8736ee",
+      "bytes": 285,
+      "destinations": [
+        "apps/fixture-react/public/local/apply/type-40/index.html",
+        "apps/storybook-react/public/local/apply/type-40/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/busan/index.html",
+      "sha256": "e23796f3bf9be78aa43e9779dd0835550618420fbfe6504e5ce2e297800ff02a",
+      "bytes": 269,
+      "destinations": [
+        "apps/fixture-react/public/local/busan/index.html",
+        "apps/storybook-react/public/local/busan/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/en/index.html",
+      "sha256": "fface2df3562dfd89c7e5c21a2206c9101fdbf9ae34ede91fa6d9e0b499c77c6",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/en/index.html",
+        "apps/storybook-react/public/local/en/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/external-specimen/index.html",
+      "sha256": "948ff048819c10732623c09bd8768ceb4fee8bf00e9d0e6bac002233fbbcc460",
+      "bytes": 293,
+      "destinations": [
+        "apps/fixture-react/public/local/external-specimen/index.html",
+        "apps/storybook-react/public/local/external-specimen/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/help/index.html",
+      "sha256": "239dba210666d248726d38ad658ceab3e6cc96323387dae782053f2afc4a8f64",
+      "bytes": 267,
+      "destinations": [
+        "apps/fixture-react/public/local/help/index.html",
+        "apps/storybook-react/public/local/help/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/history/index.html",
+      "sha256": "4975381e1a8d8941639d9f10b2309d1bc5e7bc25d0477035a253dc929b6b469a",
+      "bytes": 273,
+      "destinations": [
+        "apps/fixture-react/public/local/history/index.html",
+        "apps/storybook-react/public/local/history/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/home/index.html",
+      "sha256": "140ef4bba00ef22075397517cecc9aca11bed55a4185c81eab9c40fecdfd4619",
+      "bytes": 267,
+      "destinations": [
+        "apps/fixture-react/public/local/home/index.html",
+        "apps/storybook-react/public/local/home/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/ja/index.html",
+      "sha256": "1ffb09cb110a1363de3cb52c6f76c96be8ca720f4a582a446bb8f04c594a772f",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/ja/index.html",
+        "apps/storybook-react/public/local/ja/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/ko/index.html",
+      "sha256": "4296a21f53788ace78a6560832f0392ca520ec5b152961aa68c0a33a943e64d4",
+      "bytes": 263,
+      "destinations": [
+        "apps/fixture-react/public/local/ko/index.html",
+        "apps/storybook-react/public/local/ko/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/long/index.html",
+      "sha256": "349a94cbb98245fee98bf8674973eae05846462fbac6f22796ac2e017027b80f",
+      "bytes": 267,
+      "destinations": [
+        "apps/fixture-react/public/local/long/index.html",
+        "apps/storybook-react/public/local/long/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/maintenance/index.html",
+      "sha256": "a9823e1e31833882fbabf4f97c0283b62adc5218eddde5bccc543f3d17c09105",
+      "bytes": 281,
+      "destinations": [
+        "apps/fixture-react/public/local/maintenance/index.html",
+        "apps/storybook-react/public/local/maintenance/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/notice/a/index.html",
+      "sha256": "154b658629443561d009e6eac2292ca56204c79c4487639b1582f87bf30f5646",
+      "bytes": 275,
+      "destinations": [
+        "apps/fixture-react/public/local/notice/a/index.html",
+        "apps/storybook-react/public/local/notice/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/notice/b/index.html",
+      "sha256": "b2a120207aad3786764fb72e818a6fcd9c66e71a5f8417096fc30a02ae0f628c",
+      "bytes": 275,
+      "destinations": [
+        "apps/fixture-react/public/local/notice/b/index.html",
+        "apps/storybook-react/public/local/notice/b/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/parent/index.html",
+      "sha256": "ed98c438c0dee890698b403ae3b666466180c42703298dfe5a6543867f25d28c",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/parent/index.html",
+        "apps/storybook-react/public/local/parent/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/policy/index.html",
+      "sha256": "2f0766ae14f4b838a2fa38596a35461c0651ba4a9a26a20d5f90d3ebcc5cdb25",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/policy/index.html",
+        "apps/storybook-react/public/local/policy/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/privacy/index.html",
+      "sha256": "ec5bb18524d7a4600dfc23a0d13fd106a7be4c0a6822dadf0bb15a9675a8a784",
+      "bytes": 273,
+      "destinations": [
+        "apps/fixture-react/public/local/privacy/index.html",
+        "apps/storybook-react/public/local/privacy/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/process/a/index.html",
+      "sha256": "43bf98cf4a9442fe5ddaa20c2302cf10b0a1b29b93bd4152e658c7d04fa9ba62",
+      "bytes": 277,
+      "destinations": [
+        "apps/fixture-react/public/local/process/a/index.html",
+        "apps/storybook-react/public/local/process/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/profile/index.html",
+      "sha256": "47af554aa48d6f82ee67daee7d10de63b4cadb7b0e3741713c6453912113f957",
+      "bytes": 273,
+      "destinations": [
+        "apps/fixture-react/public/local/profile/index.html",
+        "apps/storybook-react/public/local/profile/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/results/index.html",
+      "sha256": "5b33c443ccca8082c789aa630b534fa66ef79b166ece815948c3b0fa7f1144c0",
+      "bytes": 273,
+      "destinations": [
+        "apps/fixture-react/public/local/results/index.html",
+        "apps/storybook-react/public/local/results/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/review/index.html",
+      "sha256": "2d2ee5a3f93e6b0f58ecf34719ad1a21c0f04b77fff50ba5a952292b70b0e246",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/review/index.html",
+        "apps/storybook-react/public/local/review/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/search/index.html",
+      "sha256": "8e331b2c504cc87c1f63387b1907b0d2a7c787690a7cec7fc50605cd67d81282",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/search/index.html",
+        "apps/storybook-react/public/local/search/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/seoul/index.html",
+      "sha256": "56ff0f3d36479bb51604d93ccfafed66cbe1c2a1ba8914e4d690ea926b24bd13",
+      "bytes": 269,
+      "destinations": [
+        "apps/fixture-react/public/local/seoul/index.html",
+        "apps/storybook-react/public/local/seoul/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/separate-en/index.html",
+      "sha256": "0f8c1eef47c2fd299abf397dabcafbe998f5838bcd42770fe5e474aaaf64953c",
+      "bytes": 281,
+      "destinations": [
+        "apps/fixture-react/public/local/separate-en/index.html",
+        "apps/storybook-react/public/local/separate-en/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/support/index.html",
+      "sha256": "d6278d44eb4e2fb2445fd3eb27af195ece5c752f5b3f80e5370a82896d492a88",
+      "bytes": 273,
+      "destinations": [
+        "apps/fixture-react/public/local/support/index.html",
+        "apps/storybook-react/public/local/support/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/tool/0/index.html",
+      "sha256": "2c3abbcb74e722c63307ac32d82a8d8e406f145faa97494fbac7887b488ccb4b",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/tool/0/index.html",
+        "apps/storybook-react/public/local/tool/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/tool/1/index.html",
+      "sha256": "a3daab47f613b3d71fa8735e248767c7e0e7f333e74737f987e9fa77fd0cab7b",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/tool/1/index.html",
+        "apps/storybook-react/public/local/tool/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/tool/2/index.html",
+      "sha256": "703f8c312808a77e0f56c1c67338982c89ebd2c07588b0d927e9135c4f864b55",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/tool/2/index.html",
+        "apps/storybook-react/public/local/tool/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/tool/3/index.html",
+      "sha256": "6e43895e0da2e382138cecf19fed27be6eabb15b9bb83293ea9421d4f604ca04",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/tool/3/index.html",
+        "apps/storybook-react/public/local/tool/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored T10 React local destination HTML template, using exact local href path as escaped title",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local/tool/4/index.html",
+      "sha256": "25a398538ac39c636eddd2531ed00229352383ba41b14faa8678a958cd1f595c",
+      "bytes": 271,
+      "destinations": [
+        "apps/fixture-react/public/local/tool/4/index.html",
+        "apps/storybook-react/public/local/tool/4/index.html"
+      ]
+    },
+    {
+      "origin": "Independently authored invalid decoder bytes for actual native error events",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local-assets/intentional-missing-image.svg",
+      "sha256": "f9d1a8f5ce4d8fae6ec8b9e8df976fa20b702b43bff61b61df8202391c09dd92",
+      "bytes": 77,
+      "destinations": [
+        "apps/fixture-react/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-react/public/local-assets/intentional-missing-image.svg"
+      ]
+    },
+    {
+      "origin": "Independently authored invalid decoder bytes for actual native error events",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-react-logs/extra-static-assets-inventory.json"
+      ],
+      "sourcePath": "apps/fixture-react/public/local-assets/intentional-missing.wav",
+      "sha256": "e257cd92f1df116c0a569738af77c863addd8ff412c2a70322c1facf97dc35f4",
+      "bytes": 79,
+      "destinations": [
+        "apps/fixture-react/public/local-assets/intentional-missing.wav",
+        "apps/storybook-react/public/local-assets/intentional-missing.wav"
+      ]
+    },
+    {
+      "origin": "Independent React specimen SVG rasterized to180×180 PNG using browser Canvas; retains existing projectMIT conditions",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-react/tests/generate-touch-icon.mjs",
+        "apps/fixture-react/local-assets-provenance.json",
+        "apps/storybook-react/local-assets-provenance.json",
+        ".superpowers/sdd/PLAN/t10-react-logs/fixround1/touch-icon-generation.log"
+      ],
+      "sourcePath": "apps/fixture-react/public/local-assets/specimen-touch-icon.png",
+      "sha256": "db92f8d0ea6d73c02bbd5734ee1ffaf83a1fe86d5e49fb690d12e065e1fc7eec",
+      "bytes": 6691,
+      "destinations": [
+        "apps/fixture-react/public/local-assets/specimen-touch-icon.png",
+        "apps/storybook-react/public/local-assets/specimen-touch-icon.png"
+      ],
+      "derivation": {
+        "sourcePath": "apps/fixture-react/public/local-assets/specimen-icon-light.svg",
+        "sourceSha256": "2d557874afc9e81a8ae78ecda9ec09480234bf6567a89ecc38f6d4d941e9b6f8",
+        "generatorPath": "apps/fixture-react/tests/generate-touch-icon.mjs",
+        "generatorSha256": "420d5063984de89372c765044caf7594b914a0a11a869ce5f9b2c118804075be",
+        "changeSummary": "Draw the existing independent SVG into180×180 Canvas and encode PNG; no Apple/KRDS asset bytes imported"
+      }
+    }
+  ],
+  "sourceConditions": [
+    {
+      "sourceId": "krds-resource-resources-css-common-common.css",
+      "sourceSha256": "92942dcc081821af80677645247ab4ebfedea219fac8729275368ee022e34aab",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-component-component.css",
+      "sourceSha256": "bc8df76feeb4012a6cb16a13f8702f95a67162e7d2dbf6aa5642be94daefa812",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-token-krds_tokens.css",
+      "sourceSha256": "2e06b0d8393bca671edaab1ca0c7c42ded2ae03b3d03c6ede60f763a93d81569",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-tokens-transformed_tokens.json",
+      "sourceSha256": "5eb255d593ec0b0fa41207223df1288f97295b632dfac50629e60e4e4dc0a52e",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    }
+  ],
+  "sourceConditionsNote": "Shared application stylesheet adaptations retain these existing source conditions. Exact static assets/text snapshots are enumerated here; final bundled runtime/dependency and full rendered-page source clearance remain acceptance work, not supplied by independent MIT.",
+  "termsCopies": [
+    {
+      "sourcePath": "LICENSES/MIT.txt",
+      "destination": "LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "sourcePath": "LICENSES/KRDS-copyright-en.html",
+      "destination": "LICENSES/KRDS-copyright-en.html.txt",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "sourcePath": "LICENSES/KOGL-license-policy.html",
+      "destination": "LICENSES/KOGL-license-policy.html.txt",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    }
+  ],
+  "termsHashes": {
+    "LICENSES/MIT.txt": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+    "LICENSES/KRDS-copyright-en.html": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+    "LICENSES/KOGL-license-policy.html": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+  },
+  "exclusions": [
+    {
+      "origin": "macOS System Voices / Yuna",
+      "rightsStatus": "unresolved",
+      "distributedIn": [],
+      "knownRemovedBytes": 157588,
+      "evidence": ".superpowers/sdd/PLAN/task-media-license-note.md",
+      "reason": "No public redistribution clearance. Independent MIT and KOGL do not supply Apple voice permission."
+    }
+  ]
+}

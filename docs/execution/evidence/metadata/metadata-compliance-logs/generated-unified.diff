@@ -1,0 +1,1083 @@
+--- before/packages/angular/LICENSE.md
++++ after/packages/angular/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/angular
+ 
+--- before/packages/angular/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/angular/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/angular/LICENSES/README.md
++++ after/packages/angular/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/assets/ATTRIBUTION.md
++++ after/packages/assets/ATTRIBUTION.md
+@@ -1,11 +1,13 @@
+ # 출처 및 이용 조건
+ 
+-이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있습니다. 사용한 자료의 버전, 원본 경로와 변경 내용은 함께 제공하는 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-이 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관의 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 합니다. 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
++독자적으로 작성한 프로젝트 코드는 위 권리자의 MIT License를 적용합니다. 허가 조건과 면책 전문은 [LICENSES/MIT.txt](LICENSES/MIT.txt)에 있습니다. KRDS 원본과 가공 자료, 제3자 코드 및 폰트에는 각각의 원래 조건이 적용됩니다.
+ 
+-프로젝트가 독자적으로 작성하여 권리를 보유한 코드에는 MIT License를 적용할 계획이며, 실제 저작권자는 아직 확정되지 않았습니다. KRDS 원본 및 가공 자료, 제3자 코드와 폰트에는 각각 명시된 조건이 적용되며, 프로젝트의 MIT 적용 계획이 이를 대체하지 않습니다. 미확정 프로젝트 신원은 릴리스 차단 사유입니다.
++이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 공식 출처표시 예시는 행정안전부가 2024년에 작성한 범정부 UI/UX 디자인시스템(KRDS)을 식별합니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있으며, 실제 사용 자료의 버전·원본 경로·해시·변경 내용은 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다. 원문에 없는 개별 파일의 저작권 문구나 연도를 이 예시에서 추정하여 채우지 않습니다.
+ 
+-KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문의 SHA-256으로 식별합니다. 공식 정책의 출처표시 예시는 행정안전부가 2024년에 제작한 KRDS를 가리키지만, 개별 파일에 없는 저작권 연도·표시를 추정하여 생성하지 않습니다.
++정부·KRDS 자료에 대한 위 출처표시와 독자 코드의 MIT 저작권 표시는 각각의 적용 범위를 갖습니다. 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 하며, 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
+ 
+-KRDS 자료를 재배포하는 경우 이 출처 목록과 패키지의 `LICENSES/`에 보존한 정책 전문, 사용 자료의 변경 기록을 함께 전달하십시오. 이 안내는 모든 소비 앱 화면 footer에 항상 문구를 표시해야 한다는 별도 의무를 만들지 않습니다. 원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html)과 [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do)을 확인하십시오.
++KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문 SHA-256으로 식별합니다. KRDS 자료를 재배포하는 경우 출처 목록, 패키지 `LICENSES/`의 정책 전문과 변경 기록을 함께 전달하십시오. 이는 모든 소비 앱 화면 footer에 문구를 항상 표시해야 한다는 별도 의무를 만들지 않습니다.
++
++원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html), [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do) 및 [제1유형 이용약관](https://www.kogl.or.kr/info/licenseType1.do)에서 확인할 수 있습니다. 로컬 메타데이터와 패키지 준비는 계정 소유권 검증 및 실제 게시 권한과 구분합니다.
+--- before/packages/assets/LICENSE.md
++++ after/packages/assets/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/assets
+ 
+--- before/packages/assets/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/assets/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/contracts/LICENSE.md
++++ after/packages/contracts/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/contracts
+ 
+--- before/packages/contracts/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/contracts/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/contracts/LICENSES/README.md
++++ after/packages/contracts/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/fonts/LICENSE.md
++++ after/packages/fonts/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/fonts
+ 
+--- before/packages/fonts/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/fonts/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/lit/LICENSE.md
++++ after/packages/lit/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/lit
+ 
+--- before/packages/lit/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/lit/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/lit/LICENSES/README.md
++++ after/packages/lit/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/qwik/LICENSE.md
++++ after/packages/qwik/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/qwik
+ 
+--- before/packages/qwik/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/qwik/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/qwik/LICENSES/README.md
++++ after/packages/qwik/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/react/LICENSE.md
++++ after/packages/react/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/react
+ 
+--- before/packages/react/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/react/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/react/LICENSES/README.md
++++ after/packages/react/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/solid-next/LICENSE.md
++++ after/packages/solid-next/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/solid-next
+ 
+--- before/packages/solid-next/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/solid-next/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/solid-next/LICENSES/README.md
++++ after/packages/solid-next/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/solid/LICENSE.md
++++ after/packages/solid/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/solid
+ 
+--- before/packages/solid/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/solid/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/solid/LICENSES/README.md
++++ after/packages/solid/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/styles/ATTRIBUTION.md
++++ after/packages/styles/ATTRIBUTION.md
+@@ -1,11 +1,13 @@
+ # 출처 및 이용 조건
+ 
+-이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있습니다. 사용한 자료의 버전, 원본 경로와 변경 내용은 함께 제공하는 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-이 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관의 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 합니다. 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
++독자적으로 작성한 프로젝트 코드는 위 권리자의 MIT License를 적용합니다. 허가 조건과 면책 전문은 [LICENSES/MIT.txt](LICENSES/MIT.txt)에 있습니다. KRDS 원본과 가공 자료, 제3자 코드 및 폰트에는 각각의 원래 조건이 적용됩니다.
+ 
+-프로젝트가 독자적으로 작성하여 권리를 보유한 코드에는 MIT License를 적용할 계획이며, 실제 저작권자는 아직 확정되지 않았습니다. KRDS 원본 및 가공 자료, 제3자 코드와 폰트에는 각각 명시된 조건이 적용되며, 프로젝트의 MIT 적용 계획이 이를 대체하지 않습니다. 미확정 프로젝트 신원은 릴리스 차단 사유입니다.
++이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 공식 출처표시 예시는 행정안전부가 2024년에 작성한 범정부 UI/UX 디자인시스템(KRDS)을 식별합니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있으며, 실제 사용 자료의 버전·원본 경로·해시·변경 내용은 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다. 원문에 없는 개별 파일의 저작권 문구나 연도를 이 예시에서 추정하여 채우지 않습니다.
+ 
+-KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문의 SHA-256으로 식별합니다. 공식 정책의 출처표시 예시는 행정안전부가 2024년에 제작한 KRDS를 가리키지만, 개별 파일에 없는 저작권 연도·표시를 추정하여 생성하지 않습니다.
++정부·KRDS 자료에 대한 위 출처표시와 독자 코드의 MIT 저작권 표시는 각각의 적용 범위를 갖습니다. 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 하며, 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
+ 
+-KRDS 자료를 재배포하는 경우 이 출처 목록과 패키지의 `LICENSES/`에 보존한 정책 전문, 사용 자료의 변경 기록을 함께 전달하십시오. 이 안내는 모든 소비 앱 화면 footer에 항상 문구를 표시해야 한다는 별도 의무를 만들지 않습니다. 원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html)과 [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do)을 확인하십시오.
++KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문 SHA-256으로 식별합니다. KRDS 자료를 재배포하는 경우 출처 목록, 패키지 `LICENSES/`의 정책 전문과 변경 기록을 함께 전달하십시오. 이는 모든 소비 앱 화면 footer에 문구를 항상 표시해야 한다는 별도 의무를 만들지 않습니다.
++
++원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html), [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do) 및 [제1유형 이용약관](https://www.kogl.or.kr/info/licenseType1.do)에서 확인할 수 있습니다. 로컬 메타데이터와 패키지 준비는 계정 소유권 검증 및 실제 게시 권한과 구분합니다.
+--- before/packages/styles/LICENSE.md
++++ after/packages/styles/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/styles
+ 
+--- before/packages/styles/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/styles/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/svelte/LICENSE.md
++++ after/packages/svelte/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/svelte
+ 
+--- before/packages/svelte/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/svelte/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/svelte/LICENSES/README.md
++++ after/packages/svelte/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.
+--- before/packages/tokens/ATTRIBUTION.md
++++ after/packages/tokens/ATTRIBUTION.md
+@@ -1,11 +1,13 @@
+ # 출처 및 이용 조건
+ 
+-이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있습니다. 사용한 자료의 버전, 원본 경로와 변경 내용은 함께 제공하는 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-이 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관의 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 합니다. 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
++독자적으로 작성한 프로젝트 코드는 위 권리자의 MIT License를 적용합니다. 허가 조건과 면책 전문은 [LICENSES/MIT.txt](LICENSES/MIT.txt)에 있습니다. KRDS 원본과 가공 자료, 제3자 코드 및 폰트에는 각각의 원래 조건이 적용됩니다.
+ 
+-프로젝트가 독자적으로 작성하여 권리를 보유한 코드에는 MIT License를 적용할 계획이며, 실제 저작권자는 아직 확정되지 않았습니다. KRDS 원본 및 가공 자료, 제3자 코드와 폰트에는 각각 명시된 조건이 적용되며, 프로젝트의 MIT 적용 계획이 이를 대체하지 않습니다. 미확정 프로젝트 신원은 릴리스 차단 사유입니다.
++이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 공식 출처표시 예시는 행정안전부가 2024년에 작성한 범정부 UI/UX 디자인시스템(KRDS)을 식별합니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있으며, 실제 사용 자료의 버전·원본 경로·해시·변경 내용은 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다. 원문에 없는 개별 파일의 저작권 문구나 연도를 이 예시에서 추정하여 채우지 않습니다.
+ 
+-KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문의 SHA-256으로 식별합니다. 공식 정책의 출처표시 예시는 행정안전부가 2024년에 제작한 KRDS를 가리키지만, 개별 파일에 없는 저작권 연도·표시를 추정하여 생성하지 않습니다.
++정부·KRDS 자료에 대한 위 출처표시와 독자 코드의 MIT 저작권 표시는 각각의 적용 범위를 갖습니다. 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 하며, 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
+ 
+-KRDS 자료를 재배포하는 경우 이 출처 목록과 패키지의 `LICENSES/`에 보존한 정책 전문, 사용 자료의 변경 기록을 함께 전달하십시오. 이 안내는 모든 소비 앱 화면 footer에 항상 문구를 표시해야 한다는 별도 의무를 만들지 않습니다. 원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html)과 [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do)을 확인하십시오.
++KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문 SHA-256으로 식별합니다. KRDS 자료를 재배포하는 경우 출처 목록, 패키지 `LICENSES/`의 정책 전문과 변경 기록을 함께 전달하십시오. 이는 모든 소비 앱 화면 footer에 문구를 항상 표시해야 한다는 별도 의무를 만들지 않습니다.
++
++원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html), [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do) 및 [제1유형 이용약관](https://www.kogl.or.kr/info/licenseType1.do)에서 확인할 수 있습니다. 로컬 메타데이터와 패키지 준비는 계정 소유권 검증 및 실제 게시 권한과 구분합니다.
+--- before/packages/tokens/LICENSE.md
++++ after/packages/tokens/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/tokens
+ 
+--- before/packages/tokens/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/tokens/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/vue/LICENSE.md
++++ after/packages/vue/LICENSE.md
+@@ -1,14 +1,16 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+ ## Package scope: @krds-native/vue
+ 
+--- before/packages/vue/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/packages/vue/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/packages/vue/LICENSES/README.md
++++ after/packages/vue/LICENSES/README.md
+@@ -1 +1 @@
+-No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.
++No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.

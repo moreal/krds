@@ -1,0 +1,87 @@
+{
+  "kind": "contract",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "vue",
+      "origin": "http://127.0.0.1:58646",
+      "status": "passed",
+      "tests": [
+        {
+          "title": "vue button/disabled",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue native-select/controlled",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue native-select/form-reset",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue modal/focus-return",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue modal/trigger-removed",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue tabs/manual-activation",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue date-input/leap-year",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue date-input/ime",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue date-input/timezone-invariance",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue calendar/selection-confirm",
+          "browser": "chromium",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        }
+      ],
+      "exitCode": 0,
+      "evidence": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793331019458-62395-24c73092/vue",
+      "canonicalSelection": true,
+      "coverageAwarded": false
+    }
+  ]
+}

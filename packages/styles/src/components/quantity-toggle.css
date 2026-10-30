@@ -1,0 +1,14 @@
+/* KRDS-derived: frozen HTML quantity-toggle structure/boundary guidance; semantic guidance: specs/components/quantity-toggle.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="quantity-toggle"][data-krds-part="root"] { display: grid; grid-template-columns: auto minmax(3em, auto) auto; align-items: center; gap: var(--krds-gap-3); inline-size: fit-content; }
+[data-krds-component="quantity-toggle"][data-krds-part="label"] { grid-column: 1 / -1; font-weight: 700; }
+[data-krds-component="quantity-toggle"][data-krds-part="decrement"], [data-krds-component="quantity-toggle"][data-krds-part="increment"] { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--krds-size-height-7); min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-3); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-basic); font: inherit; cursor: pointer; }
+[data-krds-component="quantity-toggle"][data-krds-part="output"] { text-align: center; padding: var(--krds-padding-3); font-variant-numeric: tabular-nums; font-weight: 700; }
+[data-krds-component="quantity-toggle"][data-krds-part="decrement"][aria-disabled="true"], [data-krds-component="quantity-toggle"][data-krds-part="increment"][aria-disabled="true"] { color: var(--krds-light-color-text-disabled); border-style: dashed; cursor: not-allowed; }
+[data-krds-component="quantity-toggle"][data-krds-part="hidden-input"] { display: none; }
+@media (max-width: 24rem) {
+  [data-krds-component="quantity-toggle"][data-krds-part="root"] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  [data-krds-component="quantity-toggle"][data-krds-part="output"] { grid-column: 1 / -1; grid-row: 2; }
+  [data-krds-component="quantity-toggle"][data-krds-part="decrement"] { grid-column: 1; grid-row: 3; }
+  [data-krds-component="quantity-toggle"][data-krds-part="increment"] { grid-column: 2; grid-row: 3; }
+}

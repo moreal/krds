@@ -1,0 +1,33 @@
+
+ NX   Running target build for 2 projects:
+
+- krds-tokens
+- krds-styles
+
+
+
+> nx run krds-tokens:build
+
+> node tools/yarn.mjs workspace @krds-native/tokens build:local
+
+(node:64634) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Generated 768 tokens, CSS, types and original-key mappings.
+
+> nx run krds-styles:build
+
+> node tools/yarn.mjs workspace @krds-native/styles build:local
+
+(node:64637) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Parsed/validated 9 CSS sources; generated 10 CSS entries and identical plain strings for six component contracts.
+
+
+
+ NX   Successfully ran target build for 2 projects
+
+
+  Run duration:      1.2s
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     1.0s (2 tasks)
+  Recoverable time:  <1ms

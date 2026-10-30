@@ -1,0 +1,52 @@
+{
+  "name": "krds-styles",
+  "root": "packages/styles",
+  "sourceRoot": "packages/styles/src",
+  "projectType": "library",
+  "tags": [
+    "layer:shared"
+  ],
+  "implicitDependencies": [
+    "krds-tokens"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/styles build:local"
+      },
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/specs/components/*.md"
+      ]
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/styles typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/styles test"
+      },
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/specs/components/*.md"
+      ]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/styles lint"
+      }
+    }
+  }
+}

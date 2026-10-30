@@ -1,0 +1,1512 @@
+{
+  "schemaVersion": 1,
+  "diagnosticOnly": true,
+  "releaseAccepted": false,
+  "files": [
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/capture-identity.mjs",
+      "bytes": 1313,
+      "sha256": "443cc24823793f2e1a2a85a317942b7c0cb7d16b7eb921feb3428eb48c0dc840"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/diagnostic-scopes.json",
+      "bytes": 529183,
+      "sha256": "fc243eca0b119389cc13759d9bd989ed0f8eda3bac6caf44f336ccb4c81c715e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/identity-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/identity.log",
+      "bytes": 898,
+      "sha256": "1a769b39e4e1c0cd463e855276a4ef76529259f5a71a28fd84802c96acadd776"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/leased-input-before.json",
+      "bytes": 21215,
+      "sha256": "dc120c55b2706cb97dd9e5519964c28a0bf40b7cc130b7fbf984e2fa018e58a7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/loopback-recorder-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/loopback-recorder.log",
+      "bytes": 1173679,
+      "sha256": "b4626874e928890b766c8ff1621c4767019d2a669a24659c23e18aed89cec6de"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/readonly-verification.json",
+      "bytes": 10097,
+      "sha256": "d2cd7a099fc827713388bc7d04a60cadc075ed9fbbe11eee9f168af1c479324d"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/recorder-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/recorder.log",
+      "bytes": 1159661,
+      "sha256": "53ad9b06803ff1d2de0d1652b50cf107820d5de26336f346d35d6ba47de66293"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/_legal/LICENSES/KOGL-license-policy.html.txt",
+      "bytes": 142380,
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/_legal/LICENSES/KRDS-copyright-en.html.txt",
+      "bytes": 34235,
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/_legal/LICENSES/MIT.txt",
+      "bytes": 1090,
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/_legal/index.html",
+      "bytes": 1064,
+      "sha256": "3783fd86aa754ff257ad14dcb2f84e4f764e158bc7cb5f0773f31ef4389ea0b6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/_legal/provenance.json",
+      "bytes": 95706,
+      "sha256": "dbf59b3e8ecdf53f140a707b6a396493d063e3b823367318cff3bd38237c5f1f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/assets/index-4rQkC_4M.css",
+      "bytes": 157720,
+      "sha256": "498b166ea2d5fd0308decca13d849d0503feb7ef638622349e33376ad8874375"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/assets/index-B3mbg4P3.js",
+      "bytes": 1120556,
+      "sha256": "23ee677555a28f154b685a6d7b5ef9ee3bb17453c4d18300b88ab6668eadb5d6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/index.html",
+      "bytes": 299,
+      "sha256": "571d75df801953b6ee93789ca3821ae1ac9b4b7f79644bc1fe5b7e51d638b212"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/captions.vtt",
+      "bytes": 71,
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/intentional-missing-image.svg",
+      "bytes": 70,
+      "sha256": "530623193669849da9bc677cdb3c399f68417458f3fc2d6c51e684b89601b58e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/intentional-missing.wav",
+      "bytes": 70,
+      "sha256": "7ccc3d810e55708b94b5cf03d3df6ae474236b5c59ce1876685128592e7f4d8c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/provenance.json",
+      "bytes": 4253,
+      "sha256": "e1bda442dc431d14d8a261b267aae05b9cbcf6f5f21a11cc0e16bef598883375"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/service-logo.svg",
+      "bytes": 227,
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-audio.wav",
+      "bytes": 64044,
+      "sha256": "fc6bb4a2fb84602f95e075ab5352977f078be93a6fbc5adf4260067cfe47e326"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-captions.vtt",
+      "bytes": 71,
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-description.vtt",
+      "bytes": 134,
+      "sha256": "c3977eb9d0e63943e868056865beeb2fb970ac8f338a3117c2344e2a043efdcd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-icon-dark.svg",
+      "bytes": 227,
+      "sha256": "5c725e5b200681b826e8faa2f8c0a61081f81692ce10b42f76cef4975e17f9bd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-icon-light.svg",
+      "bytes": 227,
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-landscape.svg",
+      "bytes": 263,
+      "sha256": "a90eea113c99b6ac77f7ba3f316ff2ad745885e0f562243785cb1eab6a1cb8bc"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-logo.svg",
+      "bytes": 227,
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/specimen-media.webm",
+      "bytes": 11596,
+      "sha256": "08d3ea65f53ebfe4adfc99176d3b7d8d7667370418e00638d3c1229e76d548a2"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local-assets/transcript.html",
+      "bytes": 164,
+      "sha256": "a334319b7da23949c7d9100eed1c5cf6c39526800975ca192053ebd07bea2e6b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/0/index.html",
+      "bytes": 390,
+      "sha256": "73aba38b4a3d17fa23c9bf361ef1490f9a3985a5e929e23992a1c763b868bae2"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/1/index.html",
+      "bytes": 390,
+      "sha256": "cb853c5044586cdf31bc835e6ecda8027fdd916e60d5f5ede31353f3757876a7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/10/index.html",
+      "bytes": 393,
+      "sha256": "58a5559331fe8a1326344b788d1c3b0d13d423dc8a1297e8eac892bcc3835606"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/11/index.html",
+      "bytes": 393,
+      "sha256": "d9423fe9d83e0bdb707fb54dc1717427c25ee54565bcb11016f80d7160a21b7f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/12/index.html",
+      "bytes": 393,
+      "sha256": "5ddda36ca369f380024cc3749036d1b15bc3200b3dbd5e25f673af4b50f7a64f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/13/index.html",
+      "bytes": 393,
+      "sha256": "1e57e4fdd34b7befa529bdb48bf9c5901aa7fca339e2e8ea727b849211822b83"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/14/index.html",
+      "bytes": 393,
+      "sha256": "db56fea337048cd58dba7ec06ff2ece38654b9bddb302ffb474119c54694a443"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/15/index.html",
+      "bytes": 393,
+      "sha256": "c892a360bc7e2b93ebabc64b75ceeca454aec671d10cd7db6905a45236de1dc7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/16/index.html",
+      "bytes": 393,
+      "sha256": "2cdb903bd5b3de637b5663016e3c0465192113a769cc96b8d87d711095b43278"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/17/index.html",
+      "bytes": 393,
+      "sha256": "016fad0dd8a788ef9b84d486802f7cedae6620741cf874f29ed272eb994fcdb0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/18/index.html",
+      "bytes": 393,
+      "sha256": "b7f2bc9f19b97dc1fe6158f0b35157e451695ef4a83679f9d4b056289aebaa36"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/19/index.html",
+      "bytes": 393,
+      "sha256": "072a275d847f44932838dbb4ba0192dedff9efb7d7032cf320e0bc39bd8fd92f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/2/index.html",
+      "bytes": 390,
+      "sha256": "e5614aeb036edc54ada088dc38885aac51e02cc86705a999c455ecad7f07ec95"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/20/index.html",
+      "bytes": 415,
+      "sha256": "f12f4c8629beda895f789400bafc1ceb39c4c5b4bf29c7a80ef4b7127f806e1e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/21/index.html",
+      "bytes": 415,
+      "sha256": "bbe3ab65566ed9f3df9add342ad0b809bf22e8a3a105bb9f70fed923edc12b30"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/22/index.html",
+      "bytes": 415,
+      "sha256": "b5e77674e0ac061127b253caa7383674e6f501f105768c949f68b2f29343389a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/23/index.html",
+      "bytes": 415,
+      "sha256": "3dc9522e810847640784edcd7c8b3de1fd4d881ff5da36c02909ace537a0e646"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/24/index.html",
+      "bytes": 415,
+      "sha256": "17f98a3e6821bdc0dcd3e55ca03372c2831e058c921b3a7053258251f087156f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/25/index.html",
+      "bytes": 415,
+      "sha256": "83a7a612fb08092bb70836c456c5073e55ea6d0666ddb2fb05a3a06df1eaa28f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/26/index.html",
+      "bytes": 415,
+      "sha256": "52e9eaa22ee43dd7a1a14e45fbf585f2c097b38489dada7ab99d0744d29c15b6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/27/index.html",
+      "bytes": 415,
+      "sha256": "0181e62c86738c7855141df5cf8241f8b53b9f7e72df976445c50706de7948c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/28/index.html",
+      "bytes": 415,
+      "sha256": "5c1cfc14b0d4031d91f0cab2ad57954a05103ca24e3be226b294031a222a9675"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/29/index.html",
+      "bytes": 415,
+      "sha256": "ee7a7de11818b552f67442aec197a4e49f62cffdb274ce3529f943d6893b08ba"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/3/index.html",
+      "bytes": 390,
+      "sha256": "3e82da147ff36da3d2ccc84e1b69d4e776386b9fe82a7152c69b08d87a57bde4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/4/index.html",
+      "bytes": 390,
+      "sha256": "8f818e0762ef5cd72202753ef980de3662b0a984ae70aa86c4785cdacc1e10ca"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/5/index.html",
+      "bytes": 390,
+      "sha256": "2c5c635a4a7f778982677b0f4c94af6a1026dee853c821f8bb317d3f3bf78ad1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/6/index.html",
+      "bytes": 390,
+      "sha256": "49a87757f8cf1a67ac22f329cbbd300eac11c2813019c4784c8b3e7264822d8f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/7/index.html",
+      "bytes": 390,
+      "sha256": "6ab0419786783380cceee2219d0b6d2f94220441b42985a2071938fefa49012a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/8/index.html",
+      "bytes": 390,
+      "sha256": "c9d7631b8e912f7bc88ab7756ee02db5a19cf57fac4edf67f368ced33e45c012"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/9/index.html",
+      "bytes": 390,
+      "sha256": "1df96d13539275fa9f57477f66a7b662092b3feed710c010500f48dd55e66f46"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/accordion-help/index.html",
+      "bytes": 433,
+      "sha256": "e7c10cfd0bdbba08918fb6c6ed9400748728d1295e677715dc899b671422d57b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/application/index.html",
+      "bytes": 410,
+      "sha256": "dec87639af85934ae634082de6e8aac55ac26e02aab76fd4f5a6e7a7a885caa3"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/index.html",
+      "bytes": 404,
+      "sha256": "80b04362228de3d3d64aca4b34801f3b6cad1d7c6854e001ff36c75fbdfc245c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-01/index.html",
+      "bytes": 488,
+      "sha256": "d13b38692028e9458b373d218db036efa275e3a06e84c2c8f41491a74394d819"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-02/index.html",
+      "bytes": 488,
+      "sha256": "b9c0da583268e85a5260015737471a59d64106fe95b191b5d8b517dd7b24f5af"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-03/index.html",
+      "bytes": 488,
+      "sha256": "35b092c9b982359a89c2278c8ec34d4e301544dd470ee13a2593159c2beb9a8e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-04/index.html",
+      "bytes": 488,
+      "sha256": "b4576be9d5b7ecf681db07ebc6e68be650cb803503508a264f0490350e2cfa01"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-05/index.html",
+      "bytes": 488,
+      "sha256": "9640ae95a1afdabb47d797930aa29e25d66f0739497852b878b268e05975751c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-06/index.html",
+      "bytes": 488,
+      "sha256": "c15d11eadce28c723e55bfdb06ed939dbf57db511aaada46ed0ebddfec7d6005"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-07/index.html",
+      "bytes": 488,
+      "sha256": "1a56c1c95aad7fa6f9d102c7c15c9cb8584d5d58d67ccf0b4da32e00d3aa7908"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-08/index.html",
+      "bytes": 488,
+      "sha256": "c7e7259241d6cbab6e438043da5e0aa0684ef9835ae7c9bb79d38c6b938e9d27"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-09/index.html",
+      "bytes": 488,
+      "sha256": "bdaf88bf3aa000b06679dc2d8338c01362348643b2406b8dbedfe25771043e4a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-10/index.html",
+      "bytes": 488,
+      "sha256": "28f28b3fb188335298f426feb3394187182839bad0fd08e5995c3f6a569a7c81"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-11/index.html",
+      "bytes": 488,
+      "sha256": "3548ad0084143e1cbb37b57744376dd3bf0fbbb7eca180f9da10fd26ea6fcb41"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-12/index.html",
+      "bytes": 488,
+      "sha256": "7fe2975dfbd8e364d7dde4c695e4a86254efa079183d1fe7e91eb9cb48fef5a5"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-13/index.html",
+      "bytes": 488,
+      "sha256": "d9e341df3889ee6dc20e665a757c523dae1f2c69f30fecda0315afb45bc72107"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-14/index.html",
+      "bytes": 488,
+      "sha256": "96972bd381255971a3ced36ec590bc95b5a94b94ec8685e09a5ca359731ef8ec"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-15/index.html",
+      "bytes": 488,
+      "sha256": "e493110e36bbfd48f6e5a9c918fbc98972c5a04e95c9c36263fa1b944a478816"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-16/index.html",
+      "bytes": 488,
+      "sha256": "b0f1a11c9c4c2936cd38aec6fb323c7a19737b3382848df5447e7bf2cec6bb29"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-17/index.html",
+      "bytes": 488,
+      "sha256": "3f478ebd69e02f1619058153867f9321979827d4e8883a6ec2defd27e050c8f8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-18/index.html",
+      "bytes": 488,
+      "sha256": "523d32bd0c033b5ac124c477d5b3b97b776d1d249940c3fc5f03d5d727c03077"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-19/index.html",
+      "bytes": 488,
+      "sha256": "9c43b072515829d162871837f3def618688b1ba14ffab5e1fa98e87e7ba1cd3b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-20/index.html",
+      "bytes": 488,
+      "sha256": "89aa42e397bdcf4f3177c597c00634938e056ec6e1acf0b473319b5482e601db"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-21/index.html",
+      "bytes": 488,
+      "sha256": "150f321dbafeaf28982acb4e17a5110c477ebc9eb38f32058a860e4705d1dcc0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-22/index.html",
+      "bytes": 488,
+      "sha256": "8aff48ad9078b0537011e240efba4596e0277db4c2781e5298103e9714178620"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-23/index.html",
+      "bytes": 488,
+      "sha256": "cf79815639217daf6a47e648295bd572f1bb6a9ad9a5a40d0ca7993fe3b40a25"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-24/index.html",
+      "bytes": 488,
+      "sha256": "a77211c1e4d8a976e7950de5ddc5404b7ac7172ff1824226835cd1ff50c01b91"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-25/index.html",
+      "bytes": 488,
+      "sha256": "fb916ddd171d7870476e8d620039a7fdd5d7696f9187611f5c1a543530b79baa"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-26/index.html",
+      "bytes": 488,
+      "sha256": "134d847f72a03d01f7619fc513392e56117b182383dcc794f6834c2cb27b92e4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-27/index.html",
+      "bytes": 488,
+      "sha256": "0fa740e069b4c3c2511faa5ad3cb58adfb5ac50d3b37fe7543dee91f0a95e7a8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-28/index.html",
+      "bytes": 488,
+      "sha256": "370c0539d968a5e2f2c1a83f8e55d1389f115ad660e0ae5eaf8aa717198b7e1a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-29/index.html",
+      "bytes": 488,
+      "sha256": "9182f739e3590439e6cbf6eaeb485b6f259b1299259fc1e46f803621eb5be710"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-30/index.html",
+      "bytes": 488,
+      "sha256": "dab509306565053129a38e9f11a74ba59a868270d27009d0017901a691d1d1c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-31/index.html",
+      "bytes": 488,
+      "sha256": "f6f738cb818302e5458ffefd22cc9b4bc64027a9db532d1ac7f5f7af85908c1f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-32/index.html",
+      "bytes": 488,
+      "sha256": "59e4d37aeb9bca4e0b3f00c2189f499b7491eb299756674fb149486363bcb55b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-33/index.html",
+      "bytes": 488,
+      "sha256": "2bfcabbf9dc34bf0cfb945b1690235fff2bbaa14a7ae9e548228abfa76b2d251"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-34/index.html",
+      "bytes": 488,
+      "sha256": "3465092ce980f88dd588cd515c74ba58ed5c65299c9caedff870d83579b1f9a7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-35/index.html",
+      "bytes": 488,
+      "sha256": "3d16d498b5751f3b7c1044ba1d2bbf1c0b4b29fbc221576939b7c0f5d272e6d8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-36/index.html",
+      "bytes": 488,
+      "sha256": "97403b47a976935f8254fe42bd35b31dc6e7cb494cf776319b4ff1d376a93391"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-37/index.html",
+      "bytes": 488,
+      "sha256": "1c92e37c9322b8cb079e20520bd29be2542d441249f95bdd8152e3852062afbe"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-38/index.html",
+      "bytes": 488,
+      "sha256": "1e134df043889d524e3900ce29797755788427fa5f526b4da2358a32c429caf4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-39/index.html",
+      "bytes": 488,
+      "sha256": "44bcb043a8120a93ab1256ce3a00095c4411f034f61250ce465aa95242af0e28"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/apply/type-40/index.html",
+      "bytes": 488,
+      "sha256": "62338a101c9c5b47d3de730b65428ce680f8762d7769169236493d2764955e15"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/busan/index.html",
+      "bytes": 390,
+      "sha256": "5acf81594c43b321d21e5df55b10331043f4a55fb80abc9556b23483e31c82f3"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/en/index.html",
+      "bytes": 389,
+      "sha256": "7c8138fa542dd837aa05ca44ab3d8ab9eab4416605ab8719c5403ad1f3693534"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/external-specimen/index.html",
+      "bytes": 430,
+      "sha256": "fac255eb6a219e592d7b36c3609253194ef77cb72528d032e461842f99ef027f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/help/index.html",
+      "bytes": 409,
+      "sha256": "a5d221c72a2531d131d3d1cc1add38f912d657ccb5298118e2a7528d9b99e7b8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/history/index.html",
+      "bytes": 406,
+      "sha256": "4f567e3270c8c83db2474e3d086c13c853902b1a258030f5fb44b42b3b162693"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/home/index.html",
+      "bytes": 417,
+      "sha256": "a3faac92e8be82131a88937031886dd644a8b6a03cef73645640adf3a140bee0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/ja/index.html",
+      "bytes": 393,
+      "sha256": "df566f910432ab627ae69f604d6a520734ba0446a652eb7ac52199f1fb8d4307"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/ko/index.html",
+      "bytes": 393,
+      "sha256": "16f65594ff4e71bb8333d8b01296ec3641524afeec28b28ebd31515a50bdaf07"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/long/index.html",
+      "bytes": 473,
+      "sha256": "977cc14383a9a7321a00900ea3ef33ee3964781a4cb91a038b307e37f0556314"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/maintenance/index.html",
+      "bytes": 424,
+      "sha256": "fac565944bd8fdef8033652ee1568a329b6161d16d4c393021d2ecdf13b504f5"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/notice/a/index.html",
+      "bytes": 421,
+      "sha256": "39e2a5ee743e7bcf83aa85c716bc5c4d0380ff17266ef13df47624f168464a7d"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/notice/b/index.html",
+      "bytes": 421,
+      "sha256": "236af017553bec8f3a296a42ca88080c3a16713621489ff48f4a290dcb7f1486"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/parent/index.html",
+      "bytes": 405,
+      "sha256": "b39750b3a2484c8f905224fc6a9a8b17fa6b7c809f5195e9bedf824b7de6d25b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/policy/index.html",
+      "bytes": 403,
+      "sha256": "1cf55f313053cb14362886c8906b2067f3c89c7201f38f73f66ab2d3afe3a897"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/privacy/index.html",
+      "bytes": 428,
+      "sha256": "6cc3761a45f799e679e17dfc2d0ed259b996739df8e94c13a95da98fdb4487dd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/process/a/index.html",
+      "bytes": 408,
+      "sha256": "5c6cec39791917a007a955aff4d69a22d4020c9a0387d6f65aa00fbe3e85d986"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/profile/index.html",
+      "bytes": 400,
+      "sha256": "bbaf381f1276dd95f3b22a647313b2ea0a96e027c94b13ed0c0a464de5709155"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/results/index.html",
+      "bytes": 420,
+      "sha256": "17677bba90f6d04f41019d972764f6b6ea8b325eeac3b061bb4af6cb4165d2c8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/search/index.html",
+      "bytes": 391,
+      "sha256": "fbd1af31e4426877e25d7e924085768bdeefc0e946706fbaab33476548705a4d"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/seoul/index.html",
+      "bytes": 390,
+      "sha256": "20967b73c59bc00bf34c70138708caecdea86ed7855182052365ff35f65507ac"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/separate-en/index.html",
+      "bytes": 398,
+      "sha256": "e1cee4c5f129c7bea8b00f07812b028c80bcaffa256c12ffce6bb8f6c9e306f8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/support/index.html",
+      "bytes": 392,
+      "sha256": "64703e3fdae24954762d0a92ef3214f3b82f338d78065a504bf4adf41d5c60cd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/tool/0/index.html",
+      "bytes": 409,
+      "sha256": "ce349e462865e2218d745596428eef8ede42f228aa03f81f7955490e1fca9e2e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/tool/1/index.html",
+      "bytes": 409,
+      "sha256": "efdbdf5bbce8a2d8382522a78e0b02a2a259c39c007595baae341baaa9200349"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/tool/2/index.html",
+      "bytes": 409,
+      "sha256": "53df55ab1b1aed2c55d24b7a256248affe0b7434c17c08c4f9c20deb9558f4e4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/tool/3/index.html",
+      "bytes": 409,
+      "sha256": "681894bee81d9a3732060ff972dbabbf3bc990cf2b750b5de59484457b5252e0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/inputs/fixture/local/tool/4/index.html",
+      "bytes": 409,
+      "sha256": "da0e8d29a0158bf539dad8a0c32371d8feadd9d89750752c516a280bb1c2fe7b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-forced-colors-axe.json",
+      "bytes": 144799,
+      "sha256": "dc4e79a627983afb3c88ea69a26ebc59a48e43227dde56efb4485610a37d7dec"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-forced-colors.png",
+      "bytes": 76570,
+      "sha256": "a209a1422de92bcc63dcb5d95ca465c5f39b283255d54e7eb116f388cc37bfcc"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-narrow-axe.json",
+      "bytes": 142421,
+      "sha256": "4c1bd6f70f37bc5bc282fed296564d371ec231714513f5ca50de353c4d9c890b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-narrow.png",
+      "bytes": 67848,
+      "sha256": "5c2e587999a776a803272e36ef19540572caaffb5dc7bf9b72bc3942302ae3c9"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-normal-axe.json",
+      "bytes": 142422,
+      "sha256": "10d3cd31af72cea5edb70c83878b24cf9b8a7c26a1c26258534effa713373d44"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-normal.png",
+      "bytes": 76422,
+      "sha256": "48258770bb62d7a54c939fff380adf24303edfb279868cca50acd2b250809020"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-text200-axe.json",
+      "bytes": 143624,
+      "sha256": "23b67b42d9e96255ee8ddc3f6e6be1a71c445a55ba1c72ef07a119c86ebf7235"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/consent-confirmation-text200.png",
+      "bytes": 142462,
+      "sha256": "875770896aa466e1187e3a91d0af8de52812404e017828f88c7261274c3da03a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-forced-colors-axe.json",
+      "bytes": 120067,
+      "sha256": "946bc1014ca3e7020632331eafa0aea349b8086b58a6f15e1ea73d013fe38887"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-forced-colors.png",
+      "bytes": 46194,
+      "sha256": "1e06030a26a0c168f780095a1680db507ea0c652b31128209bac0920c8df3899"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-narrow-axe.json",
+      "bytes": 117694,
+      "sha256": "84bee39da2b62998f4ee6aea18c996dc36c06620abe0a81df1a58d9e4b91f197"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-narrow.png",
+      "bytes": 41681,
+      "sha256": "055e67ee726d79b2d2efc7f05e9100a929d09acd6d4e7518a759a87b9be55a55"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-normal-axe.json",
+      "bytes": 117695,
+      "sha256": "0663943976338a2f6a3da41c53b9f0ed0de341ae57139cecff904e3fb1c5c1e3"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-normal.png",
+      "bytes": 47117,
+      "sha256": "c7a18702f5fa77b65d85412ac57232a64556ba58fdbc9f0e289603d67151dae5"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-text200-axe.json",
+      "bytes": 118899,
+      "sha256": "03f2e34c79caa074d47fee8ae05ec320f8693b83814a97eee3734cc77f3f612d"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/form-errors-text200.png",
+      "bytes": 87893,
+      "sha256": "550fa7dc8e9ad055aa47cc3111f7dec667b59b18ec166073a5768400bd617dc7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/results.json",
+      "bytes": 2029,
+      "sha256": "2bf56721bba4a97e6d9a4bb9f7a108023ac4926e8446d92ca25f079c5322ac08"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-forced-colors-axe.json",
+      "bytes": 202507,
+      "sha256": "4e09e7a54f079c51620e22a8351e1b77d3d46523d727b5578ebe527573596344"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-forced-colors.png",
+      "bytes": 79768,
+      "sha256": "102da70a325919b05f3c89c92c72eaea9506d7c151cdeed5915dd164fde52c12"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-narrow-axe.json",
+      "bytes": 200132,
+      "sha256": "8bdd7307196350e1d97dbcd26ef1bdd57cb91131261a3d6e9ce5fb433612b947"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-narrow.png",
+      "bytes": 77893,
+      "sha256": "8c8a70e38960f7c2345277c0ca6fd2162838f7f2d3c77dc911dcac70865ab3f3"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-normal-axe.json",
+      "bytes": 200133,
+      "sha256": "124fbb62d6d322247161e953c06277e70ab2841fe562bcb99a074535503ee7bd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-normal.png",
+      "bytes": 83562,
+      "sha256": "3bcae67e3f2ba3af1d3a35e7c28bcfe9ce410b501ea8edcac3b52652802d4902"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-text200-axe.json",
+      "bytes": 201322,
+      "sha256": "9d0b19e6d7b1252e0ddfcfbe288c39740922098e6e943d2e5e102c804ef3dfc5"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/search-results-text200.png",
+      "bytes": 160183,
+      "sha256": "b78a1785915562730dd4532fc683eef530935d2506c439b3b07b35176c339153"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-forced-colors-axe.json",
+      "bytes": 220967,
+      "sha256": "10c675e06a1723b7f79397a669861f32279715a88f2c9f434120a12cfeae236e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-forced-colors.png",
+      "bytes": 63767,
+      "sha256": "9c29bdf1102922e2fb28817f0095668ce73001b2274a0f0c4498fb0e50ce57e6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-narrow-axe.json",
+      "bytes": 136221,
+      "sha256": "0b88e3e36a3058034ac1db53616a3f0f9c85af638cff45289864bc5ee9d677f6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-narrow.png",
+      "bytes": 46751,
+      "sha256": "87b52efbf4cf2547aecd46c2fb1299a0d51d1c2ce23f9c9a3dce5e33f5828473"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-normal-axe.json",
+      "bytes": 219822,
+      "sha256": "6d9d35da4f2bae0baa9c222e41ea44c7d79cd9b4d40deb77906fe34c06024c90"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-normal.png",
+      "bytes": 66634,
+      "sha256": "39a18dba3e480b4cecc86463c6a979ae0e4f086130649356790c4ba7e4f70a46"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-text200-axe.json",
+      "bytes": 221047,
+      "sha256": "7e8503a784dde49d426f9d6ec9bb5f6d4320b15289d103e8e0523cd724f82dd2"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/native-output/service-layout-text200.png",
+      "bytes": 122814,
+      "sha256": "04f6ef68b6524f943fb8c3f6ac641a8b57f24d4b0bb6f66d001507db96e9e5a9"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/process/combined.log",
+      "bytes": 1789,
+      "sha256": "9e9f26627ddb7a6adb361146eb93ef44ce31ac97cf485332d57184c61ba0bacb"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/process/result.json",
+      "bytes": 3109,
+      "sha256": "0d9fe7af058540ca5932b8357630e4633533d32c3dc00f239a9e1debd8dd7b01"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/process/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/process/stdout.log",
+      "bytes": 1789,
+      "sha256": "9e9f26627ddb7a6adb361146eb93ef44ce31ac97cf485332d57184c61ba0bacb"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte-loopback/record.json",
+      "bytes": 1173679,
+      "sha256": "b4626874e928890b766c8ff1621c4767019d2a669a24659c23e18aed89cec6de"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/_legal/LICENSES/KOGL-license-policy.html.txt",
+      "bytes": 142380,
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/_legal/LICENSES/KRDS-copyright-en.html.txt",
+      "bytes": 34235,
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/_legal/LICENSES/MIT.txt",
+      "bytes": 1090,
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/_legal/index.html",
+      "bytes": 1064,
+      "sha256": "3783fd86aa754ff257ad14dcb2f84e4f764e158bc7cb5f0773f31ef4389ea0b6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/_legal/provenance.json",
+      "bytes": 95706,
+      "sha256": "dbf59b3e8ecdf53f140a707b6a396493d063e3b823367318cff3bd38237c5f1f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/assets/index-4rQkC_4M.css",
+      "bytes": 157720,
+      "sha256": "498b166ea2d5fd0308decca13d849d0503feb7ef638622349e33376ad8874375"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/assets/index-B3mbg4P3.js",
+      "bytes": 1120556,
+      "sha256": "23ee677555a28f154b685a6d7b5ef9ee3bb17453c4d18300b88ab6668eadb5d6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/index.html",
+      "bytes": 299,
+      "sha256": "571d75df801953b6ee93789ca3821ae1ac9b4b7f79644bc1fe5b7e51d638b212"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/captions.vtt",
+      "bytes": 71,
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/intentional-missing-image.svg",
+      "bytes": 70,
+      "sha256": "530623193669849da9bc677cdb3c399f68417458f3fc2d6c51e684b89601b58e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/intentional-missing.wav",
+      "bytes": 70,
+      "sha256": "7ccc3d810e55708b94b5cf03d3df6ae474236b5c59ce1876685128592e7f4d8c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/provenance.json",
+      "bytes": 4253,
+      "sha256": "e1bda442dc431d14d8a261b267aae05b9cbcf6f5f21a11cc0e16bef598883375"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/service-logo.svg",
+      "bytes": 227,
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-audio.wav",
+      "bytes": 64044,
+      "sha256": "fc6bb4a2fb84602f95e075ab5352977f078be93a6fbc5adf4260067cfe47e326"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-captions.vtt",
+      "bytes": 71,
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-description.vtt",
+      "bytes": 134,
+      "sha256": "c3977eb9d0e63943e868056865beeb2fb970ac8f338a3117c2344e2a043efdcd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-icon-dark.svg",
+      "bytes": 227,
+      "sha256": "5c725e5b200681b826e8faa2f8c0a61081f81692ce10b42f76cef4975e17f9bd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-icon-light.svg",
+      "bytes": 227,
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-landscape.svg",
+      "bytes": 263,
+      "sha256": "a90eea113c99b6ac77f7ba3f316ff2ad745885e0f562243785cb1eab6a1cb8bc"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-logo.svg",
+      "bytes": 227,
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/specimen-media.webm",
+      "bytes": 11596,
+      "sha256": "08d3ea65f53ebfe4adfc99176d3b7d8d7667370418e00638d3c1229e76d548a2"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local-assets/transcript.html",
+      "bytes": 164,
+      "sha256": "a334319b7da23949c7d9100eed1c5cf6c39526800975ca192053ebd07bea2e6b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/0/index.html",
+      "bytes": 390,
+      "sha256": "73aba38b4a3d17fa23c9bf361ef1490f9a3985a5e929e23992a1c763b868bae2"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/1/index.html",
+      "bytes": 390,
+      "sha256": "cb853c5044586cdf31bc835e6ecda8027fdd916e60d5f5ede31353f3757876a7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/10/index.html",
+      "bytes": 393,
+      "sha256": "58a5559331fe8a1326344b788d1c3b0d13d423dc8a1297e8eac892bcc3835606"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/11/index.html",
+      "bytes": 393,
+      "sha256": "d9423fe9d83e0bdb707fb54dc1717427c25ee54565bcb11016f80d7160a21b7f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/12/index.html",
+      "bytes": 393,
+      "sha256": "5ddda36ca369f380024cc3749036d1b15bc3200b3dbd5e25f673af4b50f7a64f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/13/index.html",
+      "bytes": 393,
+      "sha256": "1e57e4fdd34b7befa529bdb48bf9c5901aa7fca339e2e8ea727b849211822b83"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/14/index.html",
+      "bytes": 393,
+      "sha256": "db56fea337048cd58dba7ec06ff2ece38654b9bddb302ffb474119c54694a443"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/15/index.html",
+      "bytes": 393,
+      "sha256": "c892a360bc7e2b93ebabc64b75ceeca454aec671d10cd7db6905a45236de1dc7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/16/index.html",
+      "bytes": 393,
+      "sha256": "2cdb903bd5b3de637b5663016e3c0465192113a769cc96b8d87d711095b43278"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/17/index.html",
+      "bytes": 393,
+      "sha256": "016fad0dd8a788ef9b84d486802f7cedae6620741cf874f29ed272eb994fcdb0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/18/index.html",
+      "bytes": 393,
+      "sha256": "b7f2bc9f19b97dc1fe6158f0b35157e451695ef4a83679f9d4b056289aebaa36"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/19/index.html",
+      "bytes": 393,
+      "sha256": "072a275d847f44932838dbb4ba0192dedff9efb7d7032cf320e0bc39bd8fd92f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/2/index.html",
+      "bytes": 390,
+      "sha256": "e5614aeb036edc54ada088dc38885aac51e02cc86705a999c455ecad7f07ec95"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/20/index.html",
+      "bytes": 415,
+      "sha256": "f12f4c8629beda895f789400bafc1ceb39c4c5b4bf29c7a80ef4b7127f806e1e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/21/index.html",
+      "bytes": 415,
+      "sha256": "bbe3ab65566ed9f3df9add342ad0b809bf22e8a3a105bb9f70fed923edc12b30"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/22/index.html",
+      "bytes": 415,
+      "sha256": "b5e77674e0ac061127b253caa7383674e6f501f105768c949f68b2f29343389a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/23/index.html",
+      "bytes": 415,
+      "sha256": "3dc9522e810847640784edcd7c8b3de1fd4d881ff5da36c02909ace537a0e646"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/24/index.html",
+      "bytes": 415,
+      "sha256": "17f98a3e6821bdc0dcd3e55ca03372c2831e058c921b3a7053258251f087156f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/25/index.html",
+      "bytes": 415,
+      "sha256": "83a7a612fb08092bb70836c456c5073e55ea6d0666ddb2fb05a3a06df1eaa28f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/26/index.html",
+      "bytes": 415,
+      "sha256": "52e9eaa22ee43dd7a1a14e45fbf585f2c097b38489dada7ab99d0744d29c15b6"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/27/index.html",
+      "bytes": 415,
+      "sha256": "0181e62c86738c7855141df5cf8241f8b53b9f7e72df976445c50706de7948c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/28/index.html",
+      "bytes": 415,
+      "sha256": "5c1cfc14b0d4031d91f0cab2ad57954a05103ca24e3be226b294031a222a9675"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/29/index.html",
+      "bytes": 415,
+      "sha256": "ee7a7de11818b552f67442aec197a4e49f62cffdb274ce3529f943d6893b08ba"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/3/index.html",
+      "bytes": 390,
+      "sha256": "3e82da147ff36da3d2ccc84e1b69d4e776386b9fe82a7152c69b08d87a57bde4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/4/index.html",
+      "bytes": 390,
+      "sha256": "8f818e0762ef5cd72202753ef980de3662b0a984ae70aa86c4785cdacc1e10ca"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/5/index.html",
+      "bytes": 390,
+      "sha256": "2c5c635a4a7f778982677b0f4c94af6a1026dee853c821f8bb317d3f3bf78ad1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/6/index.html",
+      "bytes": 390,
+      "sha256": "49a87757f8cf1a67ac22f329cbbd300eac11c2813019c4784c8b3e7264822d8f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/7/index.html",
+      "bytes": 390,
+      "sha256": "6ab0419786783380cceee2219d0b6d2f94220441b42985a2071938fefa49012a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/8/index.html",
+      "bytes": 390,
+      "sha256": "c9d7631b8e912f7bc88ab7756ee02db5a19cf57fac4edf67f368ced33e45c012"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/9/index.html",
+      "bytes": 390,
+      "sha256": "1df96d13539275fa9f57477f66a7b662092b3feed710c010500f48dd55e66f46"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/accordion-help/index.html",
+      "bytes": 433,
+      "sha256": "e7c10cfd0bdbba08918fb6c6ed9400748728d1295e677715dc899b671422d57b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/application/index.html",
+      "bytes": 410,
+      "sha256": "dec87639af85934ae634082de6e8aac55ac26e02aab76fd4f5a6e7a7a885caa3"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/index.html",
+      "bytes": 404,
+      "sha256": "80b04362228de3d3d64aca4b34801f3b6cad1d7c6854e001ff36c75fbdfc245c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-01/index.html",
+      "bytes": 488,
+      "sha256": "d13b38692028e9458b373d218db036efa275e3a06e84c2c8f41491a74394d819"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-02/index.html",
+      "bytes": 488,
+      "sha256": "b9c0da583268e85a5260015737471a59d64106fe95b191b5d8b517dd7b24f5af"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-03/index.html",
+      "bytes": 488,
+      "sha256": "35b092c9b982359a89c2278c8ec34d4e301544dd470ee13a2593159c2beb9a8e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-04/index.html",
+      "bytes": 488,
+      "sha256": "b4576be9d5b7ecf681db07ebc6e68be650cb803503508a264f0490350e2cfa01"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-05/index.html",
+      "bytes": 488,
+      "sha256": "9640ae95a1afdabb47d797930aa29e25d66f0739497852b878b268e05975751c"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-06/index.html",
+      "bytes": 488,
+      "sha256": "c15d11eadce28c723e55bfdb06ed939dbf57db511aaada46ed0ebddfec7d6005"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-07/index.html",
+      "bytes": 488,
+      "sha256": "1a56c1c95aad7fa6f9d102c7c15c9cb8584d5d58d67ccf0b4da32e00d3aa7908"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-08/index.html",
+      "bytes": 488,
+      "sha256": "c7e7259241d6cbab6e438043da5e0aa0684ef9835ae7c9bb79d38c6b938e9d27"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-09/index.html",
+      "bytes": 488,
+      "sha256": "bdaf88bf3aa000b06679dc2d8338c01362348643b2406b8dbedfe25771043e4a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-10/index.html",
+      "bytes": 488,
+      "sha256": "28f28b3fb188335298f426feb3394187182839bad0fd08e5995c3f6a569a7c81"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-11/index.html",
+      "bytes": 488,
+      "sha256": "3548ad0084143e1cbb37b57744376dd3bf0fbbb7eca180f9da10fd26ea6fcb41"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-12/index.html",
+      "bytes": 488,
+      "sha256": "7fe2975dfbd8e364d7dde4c695e4a86254efa079183d1fe7e91eb9cb48fef5a5"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-13/index.html",
+      "bytes": 488,
+      "sha256": "d9e341df3889ee6dc20e665a757c523dae1f2c69f30fecda0315afb45bc72107"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-14/index.html",
+      "bytes": 488,
+      "sha256": "96972bd381255971a3ced36ec590bc95b5a94b94ec8685e09a5ca359731ef8ec"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-15/index.html",
+      "bytes": 488,
+      "sha256": "e493110e36bbfd48f6e5a9c918fbc98972c5a04e95c9c36263fa1b944a478816"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-16/index.html",
+      "bytes": 488,
+      "sha256": "b0f1a11c9c4c2936cd38aec6fb323c7a19737b3382848df5447e7bf2cec6bb29"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-17/index.html",
+      "bytes": 488,
+      "sha256": "3f478ebd69e02f1619058153867f9321979827d4e8883a6ec2defd27e050c8f8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-18/index.html",
+      "bytes": 488,
+      "sha256": "523d32bd0c033b5ac124c477d5b3b97b776d1d249940c3fc5f03d5d727c03077"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-19/index.html",
+      "bytes": 488,
+      "sha256": "9c43b072515829d162871837f3def618688b1ba14ffab5e1fa98e87e7ba1cd3b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-20/index.html",
+      "bytes": 488,
+      "sha256": "89aa42e397bdcf4f3177c597c00634938e056ec6e1acf0b473319b5482e601db"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-21/index.html",
+      "bytes": 488,
+      "sha256": "150f321dbafeaf28982acb4e17a5110c477ebc9eb38f32058a860e4705d1dcc0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-22/index.html",
+      "bytes": 488,
+      "sha256": "8aff48ad9078b0537011e240efba4596e0277db4c2781e5298103e9714178620"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-23/index.html",
+      "bytes": 488,
+      "sha256": "cf79815639217daf6a47e648295bd572f1bb6a9ad9a5a40d0ca7993fe3b40a25"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-24/index.html",
+      "bytes": 488,
+      "sha256": "a77211c1e4d8a976e7950de5ddc5404b7ac7172ff1824226835cd1ff50c01b91"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-25/index.html",
+      "bytes": 488,
+      "sha256": "fb916ddd171d7870476e8d620039a7fdd5d7696f9187611f5c1a543530b79baa"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-26/index.html",
+      "bytes": 488,
+      "sha256": "134d847f72a03d01f7619fc513392e56117b182383dcc794f6834c2cb27b92e4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-27/index.html",
+      "bytes": 488,
+      "sha256": "0fa740e069b4c3c2511faa5ad3cb58adfb5ac50d3b37fe7543dee91f0a95e7a8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-28/index.html",
+      "bytes": 488,
+      "sha256": "370c0539d968a5e2f2c1a83f8e55d1389f115ad660e0ae5eaf8aa717198b7e1a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-29/index.html",
+      "bytes": 488,
+      "sha256": "9182f739e3590439e6cbf6eaeb485b6f259b1299259fc1e46f803621eb5be710"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-30/index.html",
+      "bytes": 488,
+      "sha256": "dab509306565053129a38e9f11a74ba59a868270d27009d0017901a691d1d1c1"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-31/index.html",
+      "bytes": 488,
+      "sha256": "f6f738cb818302e5458ffefd22cc9b4bc64027a9db532d1ac7f5f7af85908c1f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-32/index.html",
+      "bytes": 488,
+      "sha256": "59e4d37aeb9bca4e0b3f00c2189f499b7491eb299756674fb149486363bcb55b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-33/index.html",
+      "bytes": 488,
+      "sha256": "2bfcabbf9dc34bf0cfb945b1690235fff2bbaa14a7ae9e548228abfa76b2d251"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-34/index.html",
+      "bytes": 488,
+      "sha256": "3465092ce980f88dd588cd515c74ba58ed5c65299c9caedff870d83579b1f9a7"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-35/index.html",
+      "bytes": 488,
+      "sha256": "3d16d498b5751f3b7c1044ba1d2bbf1c0b4b29fbc221576939b7c0f5d272e6d8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-36/index.html",
+      "bytes": 488,
+      "sha256": "97403b47a976935f8254fe42bd35b31dc6e7cb494cf776319b4ff1d376a93391"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-37/index.html",
+      "bytes": 488,
+      "sha256": "1c92e37c9322b8cb079e20520bd29be2542d441249f95bdd8152e3852062afbe"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-38/index.html",
+      "bytes": 488,
+      "sha256": "1e134df043889d524e3900ce29797755788427fa5f526b4da2358a32c429caf4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-39/index.html",
+      "bytes": 488,
+      "sha256": "44bcb043a8120a93ab1256ce3a00095c4411f034f61250ce465aa95242af0e28"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/apply/type-40/index.html",
+      "bytes": 488,
+      "sha256": "62338a101c9c5b47d3de730b65428ce680f8762d7769169236493d2764955e15"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/busan/index.html",
+      "bytes": 390,
+      "sha256": "5acf81594c43b321d21e5df55b10331043f4a55fb80abc9556b23483e31c82f3"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/en/index.html",
+      "bytes": 389,
+      "sha256": "7c8138fa542dd837aa05ca44ab3d8ab9eab4416605ab8719c5403ad1f3693534"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/external-specimen/index.html",
+      "bytes": 430,
+      "sha256": "fac255eb6a219e592d7b36c3609253194ef77cb72528d032e461842f99ef027f"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/help/index.html",
+      "bytes": 409,
+      "sha256": "a5d221c72a2531d131d3d1cc1add38f912d657ccb5298118e2a7528d9b99e7b8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/history/index.html",
+      "bytes": 406,
+      "sha256": "4f567e3270c8c83db2474e3d086c13c853902b1a258030f5fb44b42b3b162693"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/home/index.html",
+      "bytes": 417,
+      "sha256": "a3faac92e8be82131a88937031886dd644a8b6a03cef73645640adf3a140bee0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/ja/index.html",
+      "bytes": 393,
+      "sha256": "df566f910432ab627ae69f604d6a520734ba0446a652eb7ac52199f1fb8d4307"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/ko/index.html",
+      "bytes": 393,
+      "sha256": "16f65594ff4e71bb8333d8b01296ec3641524afeec28b28ebd31515a50bdaf07"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/long/index.html",
+      "bytes": 473,
+      "sha256": "977cc14383a9a7321a00900ea3ef33ee3964781a4cb91a038b307e37f0556314"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/maintenance/index.html",
+      "bytes": 424,
+      "sha256": "fac565944bd8fdef8033652ee1568a329b6161d16d4c393021d2ecdf13b504f5"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/notice/a/index.html",
+      "bytes": 421,
+      "sha256": "39e2a5ee743e7bcf83aa85c716bc5c4d0380ff17266ef13df47624f168464a7d"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/notice/b/index.html",
+      "bytes": 421,
+      "sha256": "236af017553bec8f3a296a42ca88080c3a16713621489ff48f4a290dcb7f1486"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/parent/index.html",
+      "bytes": 405,
+      "sha256": "b39750b3a2484c8f905224fc6a9a8b17fa6b7c809f5195e9bedf824b7de6d25b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/policy/index.html",
+      "bytes": 403,
+      "sha256": "1cf55f313053cb14362886c8906b2067f3c89c7201f38f73f66ab2d3afe3a897"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/privacy/index.html",
+      "bytes": 428,
+      "sha256": "6cc3761a45f799e679e17dfc2d0ed259b996739df8e94c13a95da98fdb4487dd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/process/a/index.html",
+      "bytes": 408,
+      "sha256": "5c6cec39791917a007a955aff4d69a22d4020c9a0387d6f65aa00fbe3e85d986"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/profile/index.html",
+      "bytes": 400,
+      "sha256": "bbaf381f1276dd95f3b22a647313b2ea0a96e027c94b13ed0c0a464de5709155"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/results/index.html",
+      "bytes": 420,
+      "sha256": "17677bba90f6d04f41019d972764f6b6ea8b325eeac3b061bb4af6cb4165d2c8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/search/index.html",
+      "bytes": 391,
+      "sha256": "fbd1af31e4426877e25d7e924085768bdeefc0e946706fbaab33476548705a4d"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/seoul/index.html",
+      "bytes": 390,
+      "sha256": "20967b73c59bc00bf34c70138708caecdea86ed7855182052365ff35f65507ac"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/separate-en/index.html",
+      "bytes": 398,
+      "sha256": "e1cee4c5f129c7bea8b00f07812b028c80bcaffa256c12ffce6bb8f6c9e306f8"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/support/index.html",
+      "bytes": 392,
+      "sha256": "64703e3fdae24954762d0a92ef3214f3b82f338d78065a504bf4adf41d5c60cd"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/tool/0/index.html",
+      "bytes": 409,
+      "sha256": "ce349e462865e2218d745596428eef8ede42f228aa03f81f7955490e1fca9e2e"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/tool/1/index.html",
+      "bytes": 409,
+      "sha256": "efdbdf5bbce8a2d8382522a78e0b02a2a259c39c007595baae341baaa9200349"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/tool/2/index.html",
+      "bytes": 409,
+      "sha256": "53df55ab1b1aed2c55d24b7a256248affe0b7434c17c08c4f9c20deb9558f4e4"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/tool/3/index.html",
+      "bytes": 409,
+      "sha256": "681894bee81d9a3732060ff972dbabbf3bc990cf2b750b5de59484457b5252e0"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/inputs/fixture/local/tool/4/index.html",
+      "bytes": 409,
+      "sha256": "da0e8d29a0158bf539dad8a0c32371d8feadd9d89750752c516a280bb1c2fe7b"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/process/combined.log",
+      "bytes": 481,
+      "sha256": "4f535d1aee7c525ad241173ec48818d869bda357509a66b64289fcf4b8ee8858"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/process/result.json",
+      "bytes": 1529,
+      "sha256": "68d4582a132d72516da3587142c9adc68d68f543094e3b8875d91e23e84f7482"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/process/stderr.log",
+      "bytes": 481,
+      "sha256": "4f535d1aee7c525ad241173ec48818d869bda357509a66b64289fcf4b8ee8858"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/process/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/svelte/record.json",
+      "bytes": 1159661,
+      "sha256": "53ad9b06803ff1d2de0d1652b50cf107820d5de26336f346d35d6ba47de66293"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/validate-capture.mjs",
+      "bytes": 4133,
+      "sha256": "415a85a8ec91a76502c1da12f590d7b61f84bb6fb2cc95817b2586cbd8202564"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/validation-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/validation.json",
+      "bytes": 3010,
+      "sha256": "deecaef996e5e2321f0db0814dfeaa0c62425bb60e13c8555080f4996a902a4a"
+    },
+    {
+      "path": "test-results/release/pattern-runtime-r5-20261030/validation.log",
+      "bytes": 3010,
+      "sha256": "deecaef996e5e2321f0db0814dfeaa0c62425bb60e13c8555080f4996a902a4a"
+    }
+  ]
+}

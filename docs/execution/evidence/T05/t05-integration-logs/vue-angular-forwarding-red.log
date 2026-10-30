@@ -1,0 +1,48 @@
+Vue nested import failed: Error: Cannot find module '@vue/server-renderer/package.json'
+Require stack:
+- /Users/moreal/github/moreal/krds/node_modules/.store/@vue-test-utils-virtual-64642ecb1b/package/dist/vue-test-utils.cjs.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+    at require.resolve (node:internal/modules/helpers:171:31)
+    at file:///Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/t05-integration-logs/check-vue-angular-forwarding.mjs:16:38
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/moreal/github/moreal/krds/node_modules/.store/@vue-test-utils-virtual-64642ecb1b/package/dist/vue-test-utils.cjs.js'
+  ]
+}
+Angular preset resolver failed: Error: Cannot find module '@angular-devkit/build-angular/package.json'
+Require stack:
+- /Users/moreal/github/moreal/krds/node_modules/.store/storybook-virtual-32655f9112/package/dist/_node-chunks/chunk-VNKXU76C.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+    at require.resolve (node:internal/modules/helpers:171:31)
+    at Module.resolvePackageDir (file:///Users/moreal/github/moreal/krds/node_modules/.store/storybook-virtual-32655f9112/package/dist/_node-chunks/chunk-VNKXU76C.js:728:26)
+    at file:///Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/t05-integration-logs/check-vue-angular-forwarding.mjs:31:30 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/moreal/github/moreal/krds/node_modules/.store/storybook-virtual-32655f9112/package/dist/_node-chunks/chunk-VNKXU76C.js'
+  ]
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: All targeted nested imports/resolver calls must pass
+
+2 !== 0
+
+    at file:///Users/moreal/github/moreal/krds/.superpowers/sdd/PLAN/t05-integration-logs/check-vue-angular-forwarding.mjs:36:8 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 2,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.18.0

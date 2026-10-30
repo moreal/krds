@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-accordion', title: 'KRDS/Catalog/Accordion', component: CatalogStory, args: {componentId: 'accordion'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {name: "default", args: {caseId: "default"}};
+export const Line: Story = {name: "line", args: {caseId: "line"}};
+export const MultipleOpen: Story = {name: "multiple-open", args: {caseId: "multiple-open"}};
+export const InteractivePanel: Story = {name: "interactive-panel", args: {caseId: "interactive-panel"}};
+export const LongPanel: Story = {name: "long-panel", args: {caseId: "long-panel"}};
+export const Controlled: Story = {name: "controlled", args: {caseId: "controlled"}};

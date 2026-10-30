@@ -1,0 +1,145 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-vue
+
+12:09:53 PM [vite] (client) [console.warn] [@vue/compiler-core] decodeEntities option is passed but will be ignored in non-browser builds.
+12:09:53 PM [vite] (client) [console.warn] [@vue/compiler-core] decodeEntities option is passed but will be ignored in non-browser builds.
+stderr | tests/siheom/native-behavior.test.ts > Tabs preserve all sequential stops, manual arrows, mounted panels and rejected selection
+[@vue/compiler-core] decodeEntities option is passed but will be ignored in non-browser builds.
+stderr | tests/siheom/native-behavior.test.ts > Tabs preserve all sequential stops, manual arrows, mounted panels and rejected selection
+[@vue/compiler-core] decodeEntities option is passed but will be ignored in non-browser builds.
+ ❯ |chromium| tests/siheom/native-behavior.test.ts (7 tests | 5 failed) 735ms
+   × NativeSelect rejects controlled input, emits once and retains exact uncontrolled reset baseline 157ms
+   × Tabs preserve all sequential stops, manual arrows, mounted panels and rejected selection 136ms
+   × DateInput retains invalid draft, IME, canonical FormData and zero-event reset 115ms
+   × DateInput controlled rejected commit restores prop and never replays prop changes 143ms
+   × Modal rejected Escape stays isolated; actual close and unmount restore opener and body states 122ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > NativeSelect rejects controlled input, emits once and retains exact uncontrolled reset baseline
+ReferenceError: process is not defined
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/NativeSelect-rejects-controlled-input--emits-once-and-retains-exact-uncontrolled-reset-baseline-1.png
+
+ ❯ warnOnChangeOrInputEventCalledDirectly ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:83:2
+ ❯ fireEvent.<anonymous> ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:26:4
+ ❯ asyncGeneratorStep ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:8:103
+ ❯ _next ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:193
+ ❯ ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:363
+ ❯ fireEvent.change ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:96
+ ❯ tests/siheom/native-behavior.test.ts:20:38
+     18|   const view = render(NativeSelect, { props: { label: 'Region', option…
+     19|   const select = screen.getByRole('combobox') as HTMLSelectElement;
+     20|   select.value = 'b'; await fireEvent.change(select); await settle(); …
+       |                                      ^
+     21|   await view.rerender({ value: 'b' }); await settle(); expect(events).…
+     22| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=0a39e2bd:302:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > Tabs preserve all sequential stops, manual arrows, mounted panels and rejected selection
+ReferenceError: process is not defined
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/Tabs-preserve-all-sequential-stops--manual-arrows--mounted-panels-and-rejected-selection-1.png
+
+ ❯ warnOnChangeOrInputEventCalledDirectly ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:83:2
+ ❯ fireEvent.<anonymous> ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:26:4
+ ❯ asyncGeneratorStep ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:8:103
+ ❯ _next ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:193
+ ❯ ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:363
+ ❯ fireEvent.keyDown ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:96
+ ❯ tests/siheom/native-behavior.test.ts:27:96
+
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=0a39e2bd:302:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > DateInput retains invalid draft, IME, canonical FormData and zero-event reset
+ReferenceError: process is not defined
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/DateInput-retains-invalid-draft--IME--canonical-FormData-and-zero-event-reset-1.png
+
+ ❯ warnOnChangeOrInputEventCalledDirectly ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:83:2
+ ❯ fireEvent.<anonymous> ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:26:4
+ ❯ asyncGeneratorStep ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:8:103
+ ❯ _next ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:193
+ ❯ ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:363
+ ❯ fireEvent.input ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:96
+ ❯ fireEvent.update ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:64:27
+ ❯ tests/siheom/native-behavior.test.ts:38:18
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > DateInput controlled rejected commit restores prop and never replays prop changes
+ReferenceError: process is not defined
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/DateInput-controlled-rejected-commit-restores-prop-and-never-replays-prop-changes-1.png
+
+ ❯ warnOnChangeOrInputEventCalledDirectly ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:83:2
+ ❯ fireEvent.<anonymous> ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:26:4
+ ❯ asyncGeneratorStep ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:8:103
+ ❯ _next ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:193
+ ❯ ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:363
+ ❯ fireEvent.input ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:9:96
+ ❯ fireEvent.update ../../node_modules/.store/@testing-library-vue-virtual-fbf621728a/package/dist/fire-event.js:64:27
+ ❯ tests/siheom/native-behavior.test.ts:45:18
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > Modal rejected Escape stays isolated; actual close and unmount restore opener and body states
+TestingLibraryElementError: Unable to find an accessible element with the role "dialog"
+
+Here are the accessible roles:
+
+  button:
+
+  Name "Open":
+  <button />
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+<body>
+  
+  
+
+
+  <div>
+    <div>
+      <button>
+        Open
+      </button>
+      
+      
+      
+      
+    </div>
+  </div>
+</body>
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/Modal-rejected-Escape-stays-isolated--actual-close-and-unmount-restore-opener-and-body-states-1.png
+
+ ❯ Object.getElementError ../../node_modules/.store/@testing-library-dom-npm-9.3.4-cfb609c4fc/package/dist/@testing-library/dom.esm.js:327:18
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-9.3.4-cfb609c4fc/package/dist/@testing-library/dom.esm.js:1191:24
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-9.3.4-cfb609c4fc/package/dist/@testing-library/dom.esm.js:1170:16
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-9.3.4-cfb609c4fc/package/dist/@testing-library/dom.esm.js:1213:18
+ ❯ tests/siheom/native-behavior.test.ts:50:121
+
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=0a39e2bd:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  5 failed | 4 passed (9)
+   Start at  12:09:52
+   Duration  2.19s (transform 0ms, setup 1.75s, import 222ms, tests 804ms, environment 0ms)
+

@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-range-slider', title: 'KRDS/range-slider', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const SingleValue: Story = { name: "single-value", parameters: { __id: "krds-range-slider--single-value" }, render: () => <CatalogStory componentId="range-slider" caseId="single-value"/> };
+export const Discrete: Story = { name: "discrete", parameters: { __id: "krds-range-slider--discrete" }, render: () => <CatalogStory componentId="range-slider" caseId="discrete"/> };
+export const Disabled: Story = { name: "disabled", parameters: { __id: "krds-range-slider--disabled" }, render: () => <CatalogStory componentId="range-slider" caseId="disabled"/> };
+export const FormReset: Story = { name: "form-reset", parameters: { __id: "krds-range-slider--form-reset" }, render: () => <CatalogStory componentId="range-slider" caseId="form-reset"/> };
+export const NarrowTouch: Story = { name: "narrow-touch", parameters: { __id: "krds-range-slider--narrow-touch" }, render: () => <CatalogStory componentId="range-slider" caseId="narrow-touch"/> };
+export const InputNotificationCounts: Story = { name: "input-notification-counts", parameters: { __id: "krds-range-slider--input-notification-counts" }, render: () => <CatalogStory componentId="range-slider" caseId="input-notification-counts"/> };
+export const ControlledRejected: Story = { name: "controlled-rejected", parameters: { __id: "krds-range-slider--controlled-rejected" }, render: () => <CatalogStory componentId="range-slider" caseId="controlled-rejected"/> };
+export const PointerCancel: Story = { name: "pointer-cancel", parameters: { __id: "krds-range-slider--pointer-cancel" }, render: () => <CatalogStory componentId="range-slider" caseId="pointer-cancel"/> };

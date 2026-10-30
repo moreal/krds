@@ -1,0 +1,9 @@
+<script lang="ts">
+import type { Snippet } from 'svelte';
+import { untrack, tick, onMount, onDestroy } from 'svelte';
+import type { FABContract } from '@unofficial-krds/contracts';
+import { owned, control, resetField, ignoredKey } from './catalog-state.svelte.js';
+let p: FABContract & { style?:string } = $props();
+const uid=$props.id();function validate(){if(p.actions&&p.actions.length>3)throw new RangeError("FAB supports at most three actions");}validate();$effect(validate);const expanded=control(()=>p.expanded,untrack(()=>p.defaultExpanded),false,expanded=>p.onExpandedChange?.({expanded}));let trigger:HTMLButtonElement;function close(e:KeyboardEvent){if(!p.disabled&&!ignoredKey(e)&&e.key==='Escape'&&expanded.value){e.preventDefault();expanded.request(false);void tick().then(()=>{if(!expanded.value)trigger?.focus();});}}
+</script>
+<div style={p.style} {...owned('fab','root',expanded.value?'expanded':'collapsed',p.disabled&&'disabled')} onkeydown={close}><button bind:this={trigger} type="button" disabled={p.disabled} aria-label={p.label} aria-expanded={p.actions?expanded.value:undefined} aria-controls={p.actions?`${uid}-actions`:undefined} {...owned('fab','trigger',expanded.value?'expanded':'collapsed',p.disabled&&'disabled')} onclick={()=>p.actions?expanded.request(!expanded.value):p.onAction?.()}><svg {...owned('fab','icon')} aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2v16M2 10h16" stroke="currentColor" stroke-width="2"/></svg>{#if p.showLabel!==false}<span {...owned('fab','label')}>{p.label}</span>{/if}</button>{#if p.actions}<div id={`${uid}-actions`} hidden={!expanded.value} {...owned('fab','actions',expanded.value?'expanded':'collapsed')}>{#each p.actions as action(action.id)}<button type="button" disabled={p.disabled} {...owned('fab','action',p.disabled&&'disabled')} onclick={()=>{if(!p.disabled)action.onAction();}}>{action.label}</button>{/each}</div>{/if}</div>

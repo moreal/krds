@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:unofficial-krds:examples:payloads:v1",
+  "title": "Independent local example payloads; no network or persistence",
+  "$defs": {
+    "formValues": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "category", "detail"],
+      "properties": {
+        "title": { "type": "string", "minLength": 4, "maxLength": 60, "description": "Validate Unicode code points after trimming; preserve original draft in the view." },
+        "category": { "enum": ["practice", "feedback"] },
+        "detail": { "type": "string", "maxLength": 120 }
+      }
+    },
+    "searchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query", "category", "page"],
+      "properties": {
+        "query": { "type": "string" },
+        "category": { "enum": ["all", "guide", "example", "reference"] },
+        "page": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "consentConfirmation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requiredChoice", "optionalChoice"],
+      "properties": {
+        "requiredChoice": { "const": true },
+        "optionalChoice": { "type": "boolean" }
+      }
+    },
+    "layoutRoute": { "enum": ["overview", "form", "search", "consent", "accessibility", "privacy"] },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "category", "summary", "date"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^resource-[0-9]{2}$" },
+        "title": { "type": "string" },
+        "category": { "enum": ["guide", "example", "reference"] },
+        "summary": { "type": "string" },
+        "date": { "type": "string", "pattern": "^2024-02-[0-9]{2}$" }
+      }
+    }
+  }
+}

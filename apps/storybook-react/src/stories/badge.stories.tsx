@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-badge', title: 'KRDS/Badge', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Outline: Story = { args: {"componentId": "badge", "initialState": {"label": "진행 중", "appearance": "outline", "tone": "information", "size": "medium", "numeric": false}, "host": {"localOnly": true, "acceptChanges": true, "samples": []}} };
+export const Filled: Story = { args: {"componentId": "badge", "initialState": {"label": "진행 중", "appearance": "filled", "tone": "information", "size": "medium", "numeric": false}, "host": {"localOnly": true, "acceptChanges": true, "samples": []}} };
+export const Pastel: Story = { args: {"componentId": "badge", "initialState": {"label": "진행 중", "appearance": "pastel", "tone": "information", "size": "medium", "numeric": false}, "host": {"localOnly": true, "acceptChanges": true, "samples": []}} };
+export const Numeric: Story = { args: {"componentId": "badge", "initialState": {"label": "12", "appearance": "outline", "tone": "information", "size": "medium", "numeric": true}, "host": {"localOnly": true, "acceptChanges": true, "samples": []}} };
+export const Sizes: Story = { args: {"componentId": "badge", "initialState": {"label": "진행 중", "appearance": "outline", "tone": "information", "size": "medium", "numeric": false}, "host": {"localOnly": true, "acceptChanges": true, "samples": [{"size": "small"}, {"size": "medium"}, {"size": "large"}]}} };
+export const Tones: Story = { args: {"componentId": "badge", "initialState": {"label": "진행 중", "appearance": "outline", "tone": "information", "size": "medium", "numeric": false}, "host": {"localOnly": true, "acceptChanges": true, "samples": [{"tone": "secondary"}, {"tone": "gray"}, {"tone": "point"}, {"tone": "danger"}, {"tone": "warning"}, {"tone": "success"}, {"tone": "information"}, {"tone": "disabled"}]}} };
+export const LongLabel: Story = { args: {"componentId": "badge", "initialState": {"label": "검토 중인 매우 긴 예제 상태 표시", "appearance": "outline", "tone": "information", "size": "medium", "numeric": false}, "host": {"localOnly": true, "acceptChanges": true, "samples": []}} };

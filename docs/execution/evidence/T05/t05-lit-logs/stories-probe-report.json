@@ -1,0 +1,143 @@
+{
+  "kind": "stories",
+  "mode": "probe",
+  "results": [
+    {
+      "framework": "lit",
+      "coverage": false,
+      "stories": [
+        {
+          "id": "infrastructure-native-probe--default",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:50949/iframe.html?id=infrastructure-native-probe--default&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:50949/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/iframe-Bo-g28f7.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/iframe-RflHds-q.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/probe.stories-BOy4E_C9.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "infrastructure-native-probe--loading",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:50949/iframe.html?id=infrastructure-native-probe--loading&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:50949/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/iframe-Bo-g28f7.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/iframe-RflHds-q.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/probe.stories-BOy4E_C9.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "infrastructure-native-probe--error",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:50949/iframe.html?id=infrastructure-native-probe--error&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:50949/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/iframe-Bo-g28f7.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/iframe-RflHds-q.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50949/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:50949/assets/probe.stories-BOy4E_C9.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        }
+      ],
+      "sourceFiles": 1,
+      "status": "passed"
+    }
+  ]
+}

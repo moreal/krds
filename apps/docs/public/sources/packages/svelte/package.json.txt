@@ -1,0 +1,332 @@
+{
+  "name": "@unofficial-krds/svelte",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node ../../tools/yarn.mjs test:siheom --framework svelte",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "svelte-package -i src/lib -o dist",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "3.1.0",
+    "@sveltejs/package": "3.0.1",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "playwright": "1.64.1",
+    "svelte": "5.57.3",
+    "svelte-check": "4.7.7",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10"
+  },
+  "description": "Native Svelte 5 KRDS components with source and typed exports",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./masthead": {
+      "types": "./dist/components/Masthead.svelte.d.ts",
+      "svelte": "./dist/components/Masthead.svelte",
+      "import": "./dist/components/Masthead.svelte"
+    },
+    "./identifier": {
+      "types": "./dist/components/Identifier.svelte.d.ts",
+      "svelte": "./dist/components/Identifier.svelte",
+      "import": "./dist/components/Identifier.svelte"
+    },
+    "./header": {
+      "types": "./dist/components/Header.svelte.d.ts",
+      "svelte": "./dist/components/Header.svelte",
+      "import": "./dist/components/Header.svelte"
+    },
+    "./footer": {
+      "types": "./dist/components/Footer.svelte.d.ts",
+      "svelte": "./dist/components/Footer.svelte",
+      "import": "./dist/components/Footer.svelte"
+    },
+    "./skip-link": {
+      "types": "./dist/components/SkipLink.svelte.d.ts",
+      "svelte": "./dist/components/SkipLink.svelte",
+      "import": "./dist/components/SkipLink.svelte"
+    },
+    "./main-menu": {
+      "types": "./dist/components/MainMenu.svelte.d.ts",
+      "svelte": "./dist/components/MainMenu.svelte",
+      "import": "./dist/components/MainMenu.svelte"
+    },
+    "./breadcrumb": {
+      "types": "./dist/components/Breadcrumb.svelte.d.ts",
+      "svelte": "./dist/components/Breadcrumb.svelte",
+      "import": "./dist/components/Breadcrumb.svelte"
+    },
+    "./side-navigation": {
+      "types": "./dist/components/SideNavigation.svelte.d.ts",
+      "svelte": "./dist/components/SideNavigation.svelte",
+      "import": "./dist/components/SideNavigation.svelte"
+    },
+    "./in-page-navigation": {
+      "types": "./dist/components/InPageNavigation.svelte.d.ts",
+      "svelte": "./dist/components/InPageNavigation.svelte",
+      "import": "./dist/components/InPageNavigation.svelte"
+    },
+    "./pagination": {
+      "types": "./dist/components/Pagination.svelte.d.ts",
+      "svelte": "./dist/components/Pagination.svelte",
+      "import": "./dist/components/Pagination.svelte"
+    },
+    "./structured-list": {
+      "types": "./dist/components/StructuredList.svelte.d.ts",
+      "svelte": "./dist/components/StructuredList.svelte",
+      "import": "./dist/components/StructuredList.svelte"
+    },
+    "./critical-alert": {
+      "types": "./dist/components/CriticalAlert.svelte.d.ts",
+      "svelte": "./dist/components/CriticalAlert.svelte",
+      "import": "./dist/components/CriticalAlert.svelte"
+    },
+    "./calendar": {
+      "types": "./dist/components/Calendar.svelte.d.ts",
+      "svelte": "./dist/components/Calendar.svelte",
+      "import": "./dist/components/Calendar.svelte"
+    },
+    "./disclosure": {
+      "types": "./dist/components/Disclosure.svelte.d.ts",
+      "svelte": "./dist/components/Disclosure.svelte",
+      "import": "./dist/components/Disclosure.svelte"
+    },
+    "./modal": {
+      "types": "./dist/components/Modal.svelte.d.ts",
+      "svelte": "./dist/components/Modal.svelte",
+      "import": "./dist/components/Modal.svelte"
+    },
+    "./badge": {
+      "types": "./dist/components/Badge.svelte.d.ts",
+      "svelte": "./dist/components/Badge.svelte",
+      "import": "./dist/components/Badge.svelte"
+    },
+    "./accordion": {
+      "types": "./dist/components/Accordion.svelte.d.ts",
+      "svelte": "./dist/components/Accordion.svelte",
+      "import": "./dist/components/Accordion.svelte"
+    },
+    "./image": {
+      "types": "./dist/components/Image.svelte.d.ts",
+      "svelte": "./dist/components/Image.svelte",
+      "import": "./dist/components/Image.svelte"
+    },
+    "./carousel": {
+      "types": "./dist/components/Carousel.svelte.d.ts",
+      "svelte": "./dist/components/Carousel.svelte",
+      "import": "./dist/components/Carousel.svelte"
+    },
+    "./tabs": {
+      "types": "./dist/components/Tabs.svelte.d.ts",
+      "svelte": "./dist/components/Tabs.svelte",
+      "import": "./dist/components/Tabs.svelte"
+    },
+    "./table": {
+      "types": "./dist/components/Table.svelte.d.ts",
+      "svelte": "./dist/components/Table.svelte",
+      "import": "./dist/components/Table.svelte"
+    },
+    "./text-list": {
+      "types": "./dist/components/TextList.svelte.d.ts",
+      "svelte": "./dist/components/TextList.svelte",
+      "import": "./dist/components/TextList.svelte"
+    },
+    "./favicon": {
+      "types": "./dist/components/Favicon.svelte.d.ts",
+      "svelte": "./dist/components/Favicon.svelte",
+      "import": "./dist/components/Favicon.svelte"
+    },
+    "./link": {
+      "types": "./dist/components/Link.svelte.d.ts",
+      "svelte": "./dist/components/Link.svelte",
+      "import": "./dist/components/Link.svelte"
+    },
+    "./button": {
+      "types": "./dist/components/Button.svelte.d.ts",
+      "svelte": "./dist/components/Button.svelte",
+      "import": "./dist/components/Button.svelte"
+    },
+    "./fab": {
+      "types": "./dist/components/FAB.svelte.d.ts",
+      "svelte": "./dist/components/FAB.svelte",
+      "import": "./dist/components/FAB.svelte"
+    },
+    "./radio-group": {
+      "types": "./dist/components/RadioGroup.svelte.d.ts",
+      "svelte": "./dist/components/RadioGroup.svelte",
+      "import": "./dist/components/RadioGroup.svelte"
+    },
+    "./checkbox": {
+      "types": "./dist/components/Checkbox.svelte.d.ts",
+      "svelte": "./dist/components/Checkbox.svelte",
+      "import": "./dist/components/Checkbox.svelte"
+    },
+    "./native-select": {
+      "types": "./dist/components/NativeSelect.svelte.d.ts",
+      "svelte": "./dist/components/NativeSelect.svelte",
+      "import": "./dist/components/NativeSelect.svelte"
+    },
+    "./tag": {
+      "types": "./dist/components/Tag.svelte.d.ts",
+      "svelte": "./dist/components/Tag.svelte",
+      "import": "./dist/components/Tag.svelte"
+    },
+    "./switch": {
+      "types": "./dist/components/Switch.svelte.d.ts",
+      "svelte": "./dist/components/Switch.svelte",
+      "import": "./dist/components/Switch.svelte"
+    },
+    "./step-indicator": {
+      "types": "./dist/components/StepIndicator.svelte.d.ts",
+      "svelte": "./dist/components/StepIndicator.svelte",
+      "import": "./dist/components/StepIndicator.svelte"
+    },
+    "./spinner": {
+      "types": "./dist/components/Spinner.svelte.d.ts",
+      "svelte": "./dist/components/Spinner.svelte",
+      "import": "./dist/components/Spinner.svelte"
+    },
+    "./help-panel": {
+      "types": "./dist/components/HelpPanel.svelte.d.ts",
+      "svelte": "./dist/components/HelpPanel.svelte",
+      "import": "./dist/components/HelpPanel.svelte"
+    },
+    "./tutorial-panel": {
+      "types": "./dist/components/TutorialPanel.svelte.d.ts",
+      "svelte": "./dist/components/TutorialPanel.svelte",
+      "import": "./dist/components/TutorialPanel.svelte"
+    },
+    "./contextual-help": {
+      "types": "./dist/components/ContextualHelp.svelte.d.ts",
+      "svelte": "./dist/components/ContextualHelp.svelte",
+      "import": "./dist/components/ContextualHelp.svelte"
+    },
+    "./coach-mark": {
+      "types": "./dist/components/CoachMark.svelte.d.ts",
+      "svelte": "./dist/components/CoachMark.svelte",
+      "import": "./dist/components/CoachMark.svelte"
+    },
+    "./tooltip": {
+      "types": "./dist/components/Tooltip.svelte.d.ts",
+      "svelte": "./dist/components/Tooltip.svelte",
+      "import": "./dist/components/Tooltip.svelte"
+    },
+    "./tts": {
+      "types": "./dist/components/TTS.svelte.d.ts",
+      "svelte": "./dist/components/TTS.svelte",
+      "import": "./dist/components/TTS.svelte"
+    },
+    "./date-input": {
+      "types": "./dist/components/DateInput.svelte.d.ts",
+      "svelte": "./dist/components/DateInput.svelte",
+      "import": "./dist/components/DateInput.svelte"
+    },
+    "./textarea": {
+      "types": "./dist/components/Textarea.svelte.d.ts",
+      "svelte": "./dist/components/Textarea.svelte",
+      "import": "./dist/components/Textarea.svelte"
+    },
+    "./text-input": {
+      "types": "./dist/components/TextInput.svelte.d.ts",
+      "svelte": "./dist/components/TextInput.svelte",
+      "import": "./dist/components/TextInput.svelte"
+    },
+    "./file-upload": {
+      "types": "./dist/components/FileUpload.svelte.d.ts",
+      "svelte": "./dist/components/FileUpload.svelte",
+      "import": "./dist/components/FileUpload.svelte"
+    },
+    "./language-switcher": {
+      "types": "./dist/components/LanguageSwitcher.svelte.d.ts",
+      "svelte": "./dist/components/LanguageSwitcher.svelte",
+      "import": "./dist/components/LanguageSwitcher.svelte"
+    },
+    "./resize": {
+      "types": "./dist/components/Resize.svelte.d.ts",
+      "svelte": "./dist/components/Resize.svelte",
+      "import": "./dist/components/Resize.svelte"
+    },
+    "./accessible-media": {
+      "types": "./dist/components/AccessibleMedia.svelte.d.ts",
+      "svelte": "./dist/components/AccessibleMedia.svelte",
+      "import": "./dist/components/AccessibleMedia.svelte"
+    },
+    "./visually-hidden": {
+      "types": "./dist/components/VisuallyHidden.svelte.d.ts",
+      "svelte": "./dist/components/VisuallyHidden.svelte",
+      "import": "./dist/components/VisuallyHidden.svelte"
+    },
+    "./range-slider": {
+      "types": "./dist/components/RangeSlider.svelte.d.ts",
+      "svelte": "./dist/components/RangeSlider.svelte",
+      "import": "./dist/components/RangeSlider.svelte"
+    },
+    "./back-button": {
+      "types": "./dist/components/BackButton.svelte.d.ts",
+      "svelte": "./dist/components/BackButton.svelte",
+      "import": "./dist/components/BackButton.svelte"
+    },
+    "./bottom-sheet": {
+      "types": "./dist/components/BottomSheet.svelte.d.ts",
+      "svelte": "./dist/components/BottomSheet.svelte",
+      "import": "./dist/components/BottomSheet.svelte"
+    },
+    "./quantity-toggle": {
+      "types": "./dist/components/QuantityToggle.svelte.d.ts",
+      "svelte": "./dist/components/QuantityToggle.svelte",
+      "import": "./dist/components/QuantityToggle.svelte"
+    },
+    "./toast": {
+      "types": "./dist/components/Toast.svelte.d.ts",
+      "svelte": "./dist/components/Toast.svelte",
+      "import": "./dist/components/Toast.svelte"
+    },
+    "./snackbar": {
+      "types": "./dist/components/Snackbar.svelte.d.ts",
+      "svelte": "./dist/components/Snackbar.svelte",
+      "import": "./dist/components/Snackbar.svelte"
+    },
+    "./tab-bar": {
+      "types": "./dist/components/TabBar.svelte.d.ts",
+      "svelte": "./dist/components/TabBar.svelte",
+      "import": "./dist/components/TabBar.svelte"
+    }
+  },
+  "peerDependencies": {
+    "svelte": "^5.57.3"
+  },
+  "dependencies": {
+    "@ark-ui/svelte": "5.25.0",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^"
+  },
+  "svelte": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/svelte"
+  }
+}

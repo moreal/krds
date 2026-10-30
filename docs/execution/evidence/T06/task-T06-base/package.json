@@ -1,0 +1,43 @@
+{
+  "name": "@krds-native/workspace",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.14.1",
+  "engines": {
+    "node": "24.18.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "preinstall": "node tools/check-node.mjs",
+    "verify:workspace": "node tools/check-workspace.mjs",
+    "test:workspace": "node --test tools/check-workspace.test.mjs",
+    "verify:catalog": "node tools/check-catalog.mjs",
+    "generate:notices": "node tools/generate-notices.mjs",
+    "verify:licenses": "node tools/verify-licenses.mjs",
+    "test:notices": "node --test tools/tests/notices.test.mjs",
+    "build": "nx run-many -t build",
+    "typecheck": "nx run-many -t typecheck",
+    "test": "nx run-many -t test",
+    "lint": "nx run-many -t lint",
+    "prepublishOnly": "node tools/block-publish.mjs",
+    "test:contract": "node tools/run-contract-tests.mjs",
+    "test:siheom": "node tools/run-siheom-tests.mjs",
+    "test:stories": "node tools/run-story-tests.mjs",
+    "test:harness": "node --test tools/tests/harness.test.mjs tools/tests/story-network.test.mjs tools/tests/contract-observations.test.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@nx/js": "24.0.2",
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.13.3",
+    "corepack": "0.36.0",
+    "nx": "24.0.2",
+    "playwright": "1.64.1",
+    "playwright-core": "1.64.1",
+    "typescript": "6.0.2"
+  }
+}

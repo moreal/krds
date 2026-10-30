@@ -1,0 +1,666 @@
+{
+  "config": {
+    "argv": [
+      "/Users/moreal/.local/share/mise/installs/node/24.18.0/bin/node",
+      "/Users/moreal/github/moreal/krds/node_modules/.store/playwright-npm-1.64.1-cf8187a4bc/package/cli.js",
+      "test",
+      "--config",
+      "/Users/moreal/github/moreal/krds/playwright.config.ts",
+      "--project",
+      "webkit"
+    ],
+    "configFile": "/Users/moreal/github/moreal/krds/playwright.config.ts",
+    "rootDir": "/Users/moreal/github/moreal/krds/tools/testing",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793331032192-62855-1073f66f/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793331032192-62855-1073f66f/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793331032192-62855-1073f66f/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793331032192-62855-1073f66f/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "webkit",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "snapshotDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": "contract.spec.ts",
+        "timeout": 15000,
+        "use": {
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "locale": "ko-KR",
+          "timezoneId": "Asia/Seoul",
+          "colorScheme": "light",
+          "reducedMotion": "reduce",
+          "serviceWorkers": "block",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793331032192-62855-1073f66f/lit/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "contract.spec.ts",
+      "file": "contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "lit button/disabled",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 528,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 167
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 44
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:33.093Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiYnV0dG9uIiwiY2FzZUlkIjoiZGlzYWJsZWQiLCJkZXNjcmlwdGlvbiI6ImRpc2FibGVkIGNsaWNrIGVtaXRzIG5vIGV2ZW50Iiwic3RhdHVzIjoicmVxdWlyZWQtdW5pbXBsZW1lbnRlZCIsImVudmlyb25tZW50Ijp7ImxvY2FsZSI6ImtvLUtSIiwiZGlyZWN0aW9uIjoibHRyIiwiY29sb3JNb2RlIjoibGlnaHQiLCJub3dJc28iOiIyMDI0LTAyLTI5VDEyOjAwOjAwLjAwMFoifX19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-b379edda37dacbaff7d7",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit native-select/controlled",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 358,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 118
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 36
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:33.875Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibmF0aXZlLXNlbGVjdCIsImNhc2VJZCI6ImNvbnRyb2xsZWQiLCJkZXNjcmlwdGlvbiI6ImV4dGVybmFsIHZhbHVlIHVwZGF0ZXMgbmF0aXZlIHNlbGVjdCIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-bda58afe714fdf7a331f",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit native-select/form-reset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 379,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 95
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 85
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:34.239Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibmF0aXZlLXNlbGVjdCIsImNhc2VJZCI6ImZvcm0tcmVzZXQiLCJkZXNjcmlwdGlvbiI6ImZvcm0gcmVzZXQgcmVzdG9yZXMgaW5pdGlhbCB2YWx1ZSIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-5d28c69feb0add4610fc",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit modal/focus-return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 341,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 81
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 65
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:34.625Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibW9kYWwiLCJjYXNlSWQiOiJmb2N1cy1yZXR1cm4iLCJkZXNjcmlwdGlvbiI6ImNsb3NpbmcgZGlhbG9nIHJldHVybnMgZm9jdXMgdG8gdHJpZ2dlciIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-a488af9f69d56140fe9a",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit modal/trigger-removed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 390,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 93
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 93
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:34.971Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibW9kYWwiLCJjYXNlSWQiOiJ0cmlnZ2VyLXJlbW92ZWQiLCJkZXNjcmlwdGlvbiI6ImNsb3NpbmcgYWZ0ZXIgdHJpZ2dlciByZW1vdmFsIGZvY3VzZXMgdGhlIGFsdGVybmF0ZSBidXR0b24g64uk7J2MIOyekeyXhSIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-33ce6af4b2d311b8932d",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit tabs/manual-activation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 340,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 98
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 38
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:35.367Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoidGFicyIsImNhc2VJZCI6Im1hbnVhbC1hY3RpdmF0aW9uIiwiZGVzY3JpcHRpb24iOiJhcnJvdyBjaGFuZ2VzIGZvY3VzIHdpdGhvdXQgYWN0aXZhdGlvbiB1bnRpbCBFbnRlciIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-6302650c708a883a07cf",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit date-input/leap-year",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 102
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 39
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:35.713Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiZGF0ZS1pbnB1dCIsImNhc2VJZCI6ImxlYXAteWVhciIsImRlc2NyaXB0aW9uIjoiMjAyMy0wMi0yOSBpbnZhbGlkOyAyMDI0LTAyLTI5IHZhbGlkIiwic3RhdHVzIjoicmVxdWlyZWQtdW5pbXBsZW1lbnRlZCIsImVudmlyb25tZW50Ijp7ImxvY2FsZSI6ImtvLUtSIiwiZGlyZWN0aW9uIjoibHRyIiwiY29sb3JNb2RlIjoibGlnaHQiLCJub3dJc28iOiIyMDI0LTAyLTI5VDEyOjAwOjAwLjAwMFoifX19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-ea4b6f7077aa485140c7",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit date-input/ime",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 317,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 91
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 29
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:36.063Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiZGF0ZS1pbnB1dCIsImNhc2VJZCI6ImltZSIsImRlc2NyaXB0aW9uIjoiY29tcG9zaXRpb24gcHJlc2VydmVzIGxvY2FsIEtvcmVhbiBpbnB1dCIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-86b4ef528b8d6611eeb9",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit date-input/timezone-invariance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1002,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 100
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 700
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:36.385Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiZGF0ZS1pbnB1dCIsImNhc2VJZCI6InRpbWV6b25lLWludmFyaWFuY2UiLCJkZXNjcmlwdGlvbiI6InNlbWFudGljIGRhdGUgcmVtYWlucyB1bmNoYW5nZWQgaW4gUGFjaWZpYy9LaXJpdGltYXRpIGFuZCBBbWVyaWNhL0xvc19BbmdlbGVzIHdpdGhvdXQgdW5zb2xpY2l0ZWQgZXZlbnRzIiwic3RhdHVzIjoicmVxdWlyZWQtdW5pbXBsZW1lbnRlZCIsImVudmlyb25tZW50Ijp7ImxvY2FsZSI6ImtvLUtSIiwiZGlyZWN0aW9uIjoibHRyIiwiY29sb3JNb2RlIjoibGlnaHQiLCJub3dJc28iOiIyMDI0LTAyLTI5VDEyOjAwOjAwLjAwMFoifX19"
+                    },
+                    {
+                      "name": "native-health-Pacific-Kiritimati.json",
+                      "contentType": "application/json",
+                      "body": "eyJ0aW1lem9uZUlkIjoiUGFjaWZpYy9LaXJpdGltYXRpIiwiaGVhbHRoeSI6dHJ1ZSwiZnJhbWV3b3JrIjoibGl0IiwiZml4dHVyZSI6eyJjb21wb25lbnRJZCI6ImRhdGUtaW5wdXQiLCJjYXNlSWQiOiJ0aW1lem9uZS1pbnZhcmlhbmNlIiwiZGVzY3JpcHRpb24iOiJzZW1hbnRpYyBkYXRlIHJlbWFpbnMgdW5jaGFuZ2VkIGluIFBhY2lmaWMvS2lyaXRpbWF0aSBhbmQgQW1lcmljYS9Mb3NfQW5nZWxlcyB3aXRob3V0IHVuc29saWNpdGVkIGV2ZW50cyIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn0sImZyYW1ld29yayI6ImxpdCJ9fQ=="
+                    },
+                    {
+                      "name": "native-health-America-Los_Angeles.json",
+                      "contentType": "application/json",
+                      "body": "eyJ0aW1lem9uZUlkIjoiQW1lcmljYS9Mb3NfQW5nZWxlcyIsImhlYWx0aHkiOnRydWUsImZyYW1ld29yayI6ImxpdCIsImZpeHR1cmUiOnsiY29tcG9uZW50SWQiOiJkYXRlLWlucHV0IiwiY2FzZUlkIjoidGltZXpvbmUtaW52YXJpYW5jZSIsImRlc2NyaXB0aW9uIjoic2VtYW50aWMgZGF0ZSByZW1haW5zIHVuY2hhbmdlZCBpbiBQYWNpZmljL0tpcml0aW1hdGkgYW5kIEFtZXJpY2EvTG9zX0FuZ2VsZXMgd2l0aG91dCB1bnNvbGljaXRlZCBldmVudHMiLCJzdGF0dXMiOiJyZXF1aXJlZC11bmltcGxlbWVudGVkIiwiZW52aXJvbm1lbnQiOnsibG9jYWxlIjoia28tS1IiLCJkaXJlY3Rpb24iOiJsdHIiLCJjb2xvck1vZGUiOiJsaWdodCIsIm5vd0lzbyI6IjIwMjQtMDItMjlUMTI6MDA6MDAuMDAwWiJ9LCJmcmFtZXdvcmsiOiJsaXQifX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-273e6c9fc9240ea6de37",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        },
+        {
+          "title": "lit calendar/selection-confirm",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 910,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 94
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 615
+                    }
+                  ],
+                  "startTime": "2026-10-30T03:30:37.392Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiY2FsZW5kYXIiLCJjYXNlSWQiOiJzZWxlY3Rpb24tY29uZmlybSIsImRlc2NyaXB0aW9uIjoic3RhbmRhbG9uZSB0ZW50YXRpdmUgZGF0ZSBzZWxlY3Rpb24gZW1pdHMgb25seSBhZnRlciBDb25maXJtIiwic3RhdHVzIjoicmVxdWlyZWQiLCJzdGF0ZSI6eyJtb2RlIjoic2luZ2xlIiwidmFsdWUiOm51bGwsInJlZmVyZW5jZURhdGUiOiIyMDI0LTAyLTAxIiwibWluIjoiMjAyNC0wMi0wMSIsIm1heCI6IjIwMjQtMDMtMzEiLCJsb2NhbGUiOiJrby1LUiJ9LCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-ae6e8630982bf2ea7bbb",
+          "file": "contract.spec.ts",
+          "line": 13,
+          "column": 29
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T03:30:32.850Z",
+    "duration": 5483.715999999999,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

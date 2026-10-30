@@ -1,0 +1,12 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-tts',title:'KRDS/tts',component:CatalogStory,args:{componentId:'tts'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Page:Story={name:"page",args:{caseId:"page"}};
+export const Region:Story={name:"region",args:{caseId:"region"}};
+export const PlayPauseStopMock:Story={name:"play-pause-stop-mock",args:{caseId:"play-pause-stop-mock"}};
+export const Icon:Story={name:"icon",args:{caseId:"icon"}};
+export const Sizes:Story={name:"sizes",args:{caseId:"sizes"}};
+export const Unsupported:Story={name:"unsupported",args:{caseId:"unsupported"}};
+export const Error:Story={name:"error",args:{caseId:"error"}};

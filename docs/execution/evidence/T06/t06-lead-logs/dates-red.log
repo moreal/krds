@@ -1,0 +1,111 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/calendar.test.tsx (7 tests | 7 failed) 622ms
+   × calendar renders six native rows, full Korean names and sequential enabled dates 109ms
+   × calendar selection is tentative, confirms once and cancel restores committed selection 95ms
+   × calendar range sorts clicked endpoints, prevents partial confirmation and exposes range states 83ms
+   × calendar respects inclusive bounds and Gregorian year edges without phantom dates 81ms
+   × calendar keyboard changes focus without selecting; month/year movement clamps leap days 80ms
+   × controlled rejected confirm restores parent selection; external updates never emit 88ms
+   × disabled calendar suppresses all actions; optional clear commits empty 84ms
+ ❯ |chromium| tests/siheom/date-input.test.tsx (8 tests | 8 failed) 698ms
+   × date input retains raw draft, commits leap date once and submits canonical value 109ms
+   × invalid/non-padded drafts stay visible, expose linked errors and block stale form submission 95ms
+   × controlled rejected edit restores display and external update emits nothing 83ms
+   × range fields defer group commit, reject reversed/incomplete and apply inclusive limits 82ms
+   × composition and keycode 229 suppress validation and Enter commits until later explicit Enter 78ms
+   × native reset restores baseline without callback; canceled reset and disabled entries obey forms 89ms
+   × calendar cancel preserves invalid draft; confirm commits once and returns focus to opener 84ms
+   × required empty draft blocks validity and popup empty confirm; valid pending submit commits once 76ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 15 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/calendar.test.tsx > calendar renders six native rows, full Korean names and sequential enabled dates
+ FAIL  |chromium| tests/siheom/calendar.test.tsx > calendar selection is tentative, confirms once and cancel restores committed selection
+ FAIL  |chromium| tests/siheom/calendar.test.tsx > calendar range sorts clicked endpoints, prevents partial confirmation and exposes range states
+ FAIL  |chromium| tests/siheom/calendar.test.tsx > calendar respects inclusive bounds and Gregorian year edges without phantom dates
+ FAIL  |chromium| tests/siheom/calendar.test.tsx > calendar keyboard changes focus without selecting; month/year movement clamps leap days
+ FAIL  |chromium| tests/siheom/calendar.test.tsx > controlled rejected confirm restores parent selection; external updates never emit
+ FAIL  |chromium| tests/siheom/calendar.test.tsx > disabled calendar suppresses all actions; optional clear commits empty
+AssertionError: expected 'undefined' to be 'function' // Object.is equality
+
+Failure screenshots:
+  - test-results/siheom-3831/tests/siheom/calendar.test.tsx/calendar-renders-six-native-rows--full-Korean-names-and-sequential-enabled-dates-1.png
+  - test-results/siheom-3831/tests/siheom/calendar.test.tsx/calendar-selection-is-tentative--confirms-once-and-cancel-restores-committed-selection-1.png
+  - test-results/siheom-3831/tests/siheom/calendar.test.tsx/calendar-range-sorts-clicked-endpoints--prevents-partial-confirmation-and-exposes-range-states-1.png
+  - test-results/siheom-3831/tests/siheom/calendar.test.tsx/calendar-respects-inclusive-bounds-and-Gregorian-year-edges-without-phantom-dates-1.png
+  - test-results/siheom-3831/tests/siheom/calendar.test.tsx/calendar-keyboard-changes-focus-without-selecting--month-year-movement-clamps-leap-days-1.png
+  - test-results/siheom-3831/tests/siheom/calendar.test.tsx/controlled-rejected-confirm-restores-parent-selection--external-updates-never-emit-1.png
+  - test-results/siheom-3831/tests/siheom/calendar.test.tsx/disabled-calendar-suppresses-all-actions--optional-clear-commits-empty-1.png
+
+Expected: [32m"[7mf[27mun[7mction[27m"[39m
+Received: [31m"un[7mdefined[27m"[39m
+
+ ❯ toBe tests/siheom/calendar.test.tsx:7:41
+      5|
+      6| const Calendar = (props: any) => {
+      7|   expect(typeof (solid as any).Calendar).toBe('function');
+       |                                         ^
+      8|   return (solid as any).Calendar(props);
+      9| };
+ ❯ ../../../../../../../@solid-refresh:25:42
+ ❯ untrack ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:483:11
+ ❯ HMRComp.createMemo.name [as fn] ../../../../../../../@solid-refresh:25:28
+ ❯ runComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:753:21
+ ❯ updateComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:735:2
+ ❯ createMemo ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:275:9
+ ❯ [solid-refresh]Calendar ../../../../../../../@solid-refresh:22:20
+ ❯ ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:594:11
+ ❯ untrack ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:483:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/15]⎯
+
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > date input retains raw draft, commits leap date once and submits canonical value
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > invalid/non-padded drafts stay visible, expose linked errors and block stale form submission
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > controlled rejected edit restores display and external update emits nothing
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > range fields defer group commit, reject reversed/incomplete and apply inclusive limits
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > composition and keycode 229 suppress validation and Enter commits until later explicit Enter
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > native reset restores baseline without callback; canceled reset and disabled entries obey forms
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > calendar cancel preserves invalid draft; confirm commits once and returns focus to opener
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > required empty draft blocks validity and popup empty confirm; valid pending submit commits once
+AssertionError: expected 'undefined' to be 'function' // Object.is equality
+
+Failure screenshots:
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/date-input-retains-raw-draft--commits-leap-date-once-and-submits-canonical-value-1.png
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/invalid-non-padded-drafts-stay-visible--expose-linked-errors-and-block-stale-form-submission-1.png
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/controlled-rejected-edit-restores-display-and-external-update-emits-nothing-1.png
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/range-fields-defer-group-commit--reject-reversed-incomplete-and-apply-inclusive-limits-1.png
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/composition-and-keycode-229-suppress-validation-and-Enter-commits-until-later-explicit-Enter-1.png
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/native-reset-restores-baseline-without-callback--canceled-reset-and-disabled-entries-obey-forms-1.png
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/calendar-cancel-preserves-invalid-draft--confirm-commits-once-and-returns-focus-to-opener-1.png
+  - test-results/siheom-3831/tests/siheom/date-input.test.tsx/required-empty-draft-blocks-validity-and-popup-empty-confirm--valid-pending-submit-commits-once-1.png
+
+Expected: [32m"[7mf[27mun[7mction[27m"[39m
+Received: [31m"un[7mdefined[27m"[39m
+
+ ❯ toBe tests/siheom/date-input.test.tsx:7:42
+      5|
+      6| const DateInput = (props: any) => {
+      7|   expect(typeof (solid as any).DateInput).toBe('function');
+       |                                          ^
+      8|   return (solid as any).DateInput(props);
+      9| };
+ ❯ ../../../../../../../@solid-refresh:25:42
+ ❯ untrack ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:483:11
+ ❯ HMRComp.createMemo.name [as fn] ../../../../../../../@solid-refresh:25:28
+ ❯ runComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:753:21
+ ❯ updateComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:735:2
+ ❯ createMemo ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:275:9
+ ❯ [solid-refresh]DateInput ../../../../../../../@solid-refresh:22:20
+ ❯ ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:594:11
+ ❯ untrack ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:483:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/15]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  15 failed (15)
+   Start at  10:44:50
+   Duration  1.51s (transform 0ms, setup 119ms, import 146ms, tests 1.32s, environment 0ms)
+

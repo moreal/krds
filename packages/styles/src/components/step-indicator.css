@@ -1,0 +1,14 @@
+/* KRDS-derived: frozen component.css lines 7736–7933; semantic guidance: specs/components/step-indicator.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="step-indicator"][data-krds-part="root"] { inline-size: 100%; color: var(--krds-light-color-text-basic); }
+[data-krds-component="step-indicator"][data-krds-part="list"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-5); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="step-indicator"][data-krds-part="item"] { flex: 1 1 8em; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--krds-gap-3); position: relative; }
+[data-krds-component="step-indicator"][data-krds-part="number"] { display: inline-flex; align-items: center; justify-content: center; flex: none; min-inline-size: var(--krds-size-height-5); min-block-size: var(--krds-size-height-5); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-max); font-variant-numeric: tabular-nums; }
+[data-krds-component="step-indicator"][data-krds-part="label"] { font-weight: 700; }
+[data-krds-component="step-indicator"][data-krds-part="connector"] { grid-column: 1 / -1; block-size: var(--krds-number-2); background: var(--krds-light-color-divider-gray-light); }
+[data-krds-component="step-indicator"][data-krds-part="current-indicator"], [data-krds-component="step-indicator"][data-krds-part="complete-indicator"] { font-weight: 700; }
+[data-krds-component="step-indicator"][data-krds-part="item"][data-krds-state~="current"] [data-krds-component="step-indicator"][data-krds-part="number"] { border: var(--krds-number-3) double var(--krds-light-color-border-primary); font-weight: 700; }
+[data-krds-component="step-indicator"][data-krds-part="item"][data-krds-state~="complete"] [data-krds-component="step-indicator"][data-krds-part="number"] { border-width: var(--krds-number-2); background: var(--krds-light-color-action-secondary-selected); }
+[data-krds-component="step-indicator"][data-krds-part="item"][data-krds-state~="blocked"] { color: var(--krds-light-color-text-subtle); }
+[data-krds-component="step-indicator"][data-krds-part="item"][data-krds-state~="blocked"] [data-krds-component="step-indicator"][data-krds-part="number"] { border-style: dashed; }
+@media (max-width: 767px) { [data-krds-component="step-indicator"][data-krds-part="list"] { gap: var(--krds-gap-4); } [data-krds-component="step-indicator"][data-krds-part="item"] { flex-basis: 100%; } [data-krds-component="step-indicator"][data-krds-part="connector"] { margin-inline-start: 1em; inline-size: var(--krds-number-2); block-size: var(--krds-gap-5); } }

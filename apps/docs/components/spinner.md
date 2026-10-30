@@ -1,0 +1,123 @@
+---
+title: 'Spinner · 스피너'
+---
+
+# Spinner
+
+스피너 · `Spinner` · component
+
+[Official KRDS guidance](https://www.krds.go.kr/html/site/component/component_07_02.html) · [Full reviewed specification](/sources/specs/components/spinner.md.txt) · [Framework support](../compatibility/)
+
+## Native availability
+
+These states are copied from `catalog/coverage.json`; they are not inferred from exports, examples, or test-runner exit codes.
+
+| Framework | Package version | Recorded state | Export declaration | Native examples and stories |
+| --- | --- | --- | --- | --- |
+| react | `0.0.0` | planned | [exact subpath types](/sources/packages/react/dist/components/spinner/index.d.ts.txt) | [react sources and preview policy](../compatibility/examples#react) |
+| solid | `0.0.0` | planned | [exact subpath types](/sources/packages/solid/dist/components/spinner/index.d.ts.txt) | [solid sources and preview policy](../compatibility/examples#solid) |
+| svelte | `0.0.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/Spinner.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/examples#svelte) |
+| vue | `0.0.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/spinner/Spinner.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/examples#vue) |
+| lit | `0.0.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/spinner/index.d.ts.txt) | [lit sources and preview policy](../compatibility/examples#lit) |
+| qwik | `0.0.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/spinner/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/examples#qwik) |
+| angular | `0.0.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-spinner.d.ts.txt) | [angular sources and preview policy](../compatibility/examples#angular) |
+| solid-next (preview) | `0.0.0-next.0` | planned | [exact root types](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/examples#solid-next) |
+
+## Props, events, content and defaults
+
+The semantic contract below is shared data only. Native content, refs and event transport belong to each adapter. Callback names and detail types in the contract are exact; do not pass machine objects. Optional properties are not automatically defaulted: use the explicit defaults in the guidance below.
+
+```ts
+export interface SpinnerContract {
+    pending: boolean;
+    value?: number;
+    label: string;
+    completionMessage: string;
+    size?: Size;
+}
+
+export type Size = 'small' | 'medium' | 'large';
+```
+
+| Semantic property / callback | Required | Exact type | Role |
+| --- | --- | --- | --- |
+| `pending` | yes | `boolean` | data / state |
+| `value` | no | `number` | data / state |
+| `label` | yes | `string` | data / state |
+| `completionMessage` | yes | `string` | data / state |
+| `size` | no | `Size` | data / state |
+
+Optional values and explicit defaults are different. Defaults and native content requirements are stated in the reviewed guidance below.
+
+### Native content and event transport
+
+React and Solid use native JSX/content props; Svelte uses native snippets; Vue uses native slots; Angular uses its native inputs, outputs and content projection; Lit uses custom-element properties, slots and DOM events; Qwik uses native QRL event boundaries. Their transport is not interchangeable. Read the linked public package declaration for exact names and required content. A semantic callback below does not imply a same-named Lit DOM event.
+
+### Native structure and mandatory ordering
+
+Progress path/indicator near actual pending operation; determinate fills 0–360 clockwise from actual progress, indeterminate rotates clockwise. Not decorative; no unnecessary &lt;1s wait spinner. One region spinner except independent inline operations.
+
+### Plain semantic API
+
+Independent API: pending, value? (0–100), label, completionMessage, size=medium; value absent means indeterminate. Determinate role=progressbar with min/max/now; loading/completion polite status distinct from animated decoration. Invalid/nonfinite range is configuration error.
+
+Shared state policy follows [current pilot conventions](/sources/specs/components/README.md.txt): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+
+### Keyboard, focus and state transitions
+
+No focus move, keyboard action or focus trap. Emit no simulated progress/completion timers; host changes pending/value. Polite loading/completed messages occur once per actual lifecycle, not each animation frame.
+
+### Responsive/mobile requirements
+
+Adequate size/3:1 path/background contrast. Reduced motion replaces continuous spin with stable progress/label as independent policy; source asks loop not pause at zero, so record accessibility alternative explicitly.
+
+### Forms, reset and composition
+
+No form value/reset/IME behavior.
+
+### Asset, integration and composition completion
+
+Host owns real loading lifetime, content readiness and aria-busy on target region. Completion requires actual local operation transition and accessible start/end, not permanent animated ring.
+
+### Stable parts and states
+
+root, track, indicator, label, status; pending,complete,determinate,indeterminate.
+
+All rendered owned parts use `data-krds-component="spinner"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+
+## State examples and native checks
+
+Supported case axes: `determinate`, `indeterminate`, `inline`, `region`. These case names are independent project axes; they do not imply official KRDS type names or completed coverage.
+
+[Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
+
+Required full-catalog stories: `krds-spinner--determinate`, `krds-spinner--indeterminate`, `krds-spinner--inline`, `krds-spinner--region`, `krds-spinner--complete`, `krds-spinner--reduced-motion`.
+
+### Native stories in current built outputs
+
+The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
+
+- react: [Determinate](/native/storybook-react/?path=/story/krds-spinner--determinate) · [Indeterminate](/native/storybook-react/?path=/story/krds-spinner--indeterminate) · [Inline](/native/storybook-react/?path=/story/krds-spinner--inline) · [Region](/native/storybook-react/?path=/story/krds-spinner--region) · [Complete](/native/storybook-react/?path=/story/krds-spinner--complete) · [Reduced Motion](/native/storybook-react/?path=/story/krds-spinner--reduced-motion).
+- solid: [determinate](/native/storybook-solid/?path=/story/krds-spinner--determinate) · [indeterminate](/native/storybook-solid/?path=/story/krds-spinner--indeterminate) · [inline](/native/storybook-solid/?path=/story/krds-spinner--inline) · [region](/native/storybook-solid/?path=/story/krds-spinner--region) · [complete](/native/storybook-solid/?path=/story/krds-spinner--complete) · [reduced-motion](/native/storybook-solid/?path=/story/krds-spinner--reduced-motion).
+- svelte: [determinate](/native/storybook-svelte/?path=/story/krds-spinner--determinate) · [indeterminate](/native/storybook-svelte/?path=/story/krds-spinner--indeterminate) · [inline](/native/storybook-svelte/?path=/story/krds-spinner--inline) · [region](/native/storybook-svelte/?path=/story/krds-spinner--region) · [complete](/native/storybook-svelte/?path=/story/krds-spinner--complete) · [reduced-motion](/native/storybook-svelte/?path=/story/krds-spinner--reduced-motion).
+- vue: [determinate](/native/storybook-vue/?path=/story/krds-spinner--determinate) · [indeterminate](/native/storybook-vue/?path=/story/krds-spinner--indeterminate) · [inline](/native/storybook-vue/?path=/story/krds-spinner--inline) · [region](/native/storybook-vue/?path=/story/krds-spinner--region) · [complete](/native/storybook-vue/?path=/story/krds-spinner--complete) · [reduced-motion](/native/storybook-vue/?path=/story/krds-spinner--reduced-motion).
+- lit: [Determinate](/native/storybook-lit/?path=/story/krds-spinner--determinate) · [Indeterminate](/native/storybook-lit/?path=/story/krds-spinner--indeterminate) · [Inline](/native/storybook-lit/?path=/story/krds-spinner--inline) · [Region](/native/storybook-lit/?path=/story/krds-spinner--region) · [Complete](/native/storybook-lit/?path=/story/krds-spinner--complete) · [Reduced Motion](/native/storybook-lit/?path=/story/krds-spinner--reduced-motion).
+- qwik: [determinate](/native/storybook-qwik/?path=/story/krds-spinner--determinate) · [indeterminate](/native/storybook-qwik/?path=/story/krds-spinner--indeterminate) · [inline](/native/storybook-qwik/?path=/story/krds-spinner--inline) · [region](/native/storybook-qwik/?path=/story/krds-spinner--region) · [complete](/native/storybook-qwik/?path=/story/krds-spinner--complete) · [reduced-motion](/native/storybook-qwik/?path=/story/krds-spinner--reduced-motion).
+- angular: [determinate](/native/storybook-angular/?path=/story/krds-spinner--determinate) · [indeterminate](/native/storybook-angular/?path=/story/krds-spinner--indeterminate) · [inline](/native/storybook-angular/?path=/story/krds-spinner--inline) · [region](/native/storybook-angular/?path=/story/krds-spinner--region) · [complete](/native/storybook-angular/?path=/story/krds-spinner--complete) · [reduced-motion](/native/storybook-angular/?path=/story/krds-spinner--reduced-motion).
+- solid-next: unsupported native Storybook preview integration.
+
+Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
+
+- react: [read the checked consumer](/examples/react-1); [download exact source](/sources/packages/react/examples/catalog.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log.txt).
+- solid: [read the checked consumer](/examples/solid-3); [download exact source](/sources/apps/fixture-solid/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log.txt).
+- svelte: [read the checked consumer](/examples/svelte-36); [download exact source](/sources/apps/fixture-svelte/src/public-examples/SpinnerExample.svelte.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log.txt).
+- vue: [read the checked consumer](/examples/vue-58); [download exact source](/sources/apps/fixture-vue/src/PublicCatalogExamples.vue.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log.txt).
+- lit: [read the checked consumer](/examples/lit-60); [download exact source](/sources/apps/fixture-lit/src/examples/catalog.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log.txt).
+- qwik: [read the checked consumer](/examples/qwik-61); [download exact source](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log.txt).
+- angular: [read the checked consumer](/examples/angular-62); [download exact source](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log.txt).
+
+## Source identity and rights
+
+Baseline: `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`. Official detail snapshot retrieved `2026-10-29T23:28:04.806Z`. SHA-256: `9e6ffa72e4e23e83cef056b525264dbcd19a89cfbfeda28bfcd125c70007c422`. [Frozen component source records](/sources/catalog/components.json.txt) · [Official source](https://www.krds.go.kr/html/site/component/component_07_02.html). Raw original HTML remains reference evidence in the checkout and is not copied into this site.
+
+KRDS quoted or derived guidance retains its original terms. The independent code MIT grant does not relicense it, official assets, fonts, or third-party materials. Read [sources and rights](../legal/) before redistributing.

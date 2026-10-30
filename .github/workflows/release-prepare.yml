@@ -1,0 +1,187 @@
+name: Release preparation (mandatory gates; no publication)
+
+# Preparing: T13/T14/T16 must provide every real command checked by required-gates.mjs.
+# Missing gates fail; this workflow does not declare a candidate ready before they exist and pass.
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: Preview source version plans or verify a reviewed versioned HEAD
+        required: true
+        type: choice
+        default: prepare-versions
+        options:
+          - prepare-versions
+          - verify-candidate
+
+permissions:
+  contents: read
+
+env:
+  NX_DAEMON: 'false'
+  NX_ISOLATE_PLUGINS: 'false'
+  NX_NO_CLOUD: 'true'
+  NX_TUI: 'false'
+  NX_INTERACTIVE: 'false'
+  NG_BUILD_MAX_WORKERS: '2'
+  KRDS_RELEASE_SOURCE_SHA: ${{ github.sha }}
+  KRDS_RELEASE_CANDIDATE_MANIFEST: artifacts/manifest.json
+  KRDS_RELEASE_EVIDENCE_DIRECTORY: test-results/ci
+  KRDS_RELEASE_CHANNELS: stable,solid2-preview
+  KRDS_RELEASE_PHASE: ${{ inputs.phase }}
+
+jobs:
+  version-preview:
+    name: Version and changelog dry-run only (no candidate acceptance)
+    if: ${{ inputs.phase == 'prepare-versions' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - run: node tools/ci/check-toolchain.mjs
+      - run: node tools/yarn.mjs install --immutable
+      - run: node tools/ci/check-toolchain.mjs --installed
+      - name: Check source plans and retain the real Nx dry-run result
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p test-results/ci
+          node tools/ci/check-release-phase.mjs --phase prepare-versions 2>&1 | tee test-results/ci/version-preview-phase.log
+          node tools/ci/selection.mjs --full
+          node tools/ci/check-plans.mjs 2>&1 | tee test-results/ci/version-preview-plans.log
+          node tools/ci/prepare-release.mjs --dry-run 2>&1 | tee test-results/ci/version-preview-nx.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: version-preview-only-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            test-results/ci/version-preview-*.log
+            test-results/ci/release-phase.json
+            test-results/ci/selection.json
+          if-no-files-found: error
+          retention-days: 14
+
+  prepare:
+    name: Verify the reviewed versioned candidate at this HEAD
+    if: ${{ inputs.phase == 'verify-candidate' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - run: node tools/ci/check-toolchain.mjs
+      - run: node tools/yarn.mjs install --immutable
+      - run: node tools/ci/check-toolchain.mjs --installed
+      - name: Require exact candidate versions and unchanged reviewed HEAD source
+        run: node tools/ci/check-release-phase.mjs --phase verify-candidate
+      - name: Require all implemented release gates (preparing until present)
+        run: node tools/ci/required-gates.mjs
+      - run: node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+      - name: Rebuild and retest every stable framework and the separate exact RC preview
+        run: |
+          node tools/yarn.mjs verify:workspace
+          node tools/yarn.mjs verify:catalog
+          node tools/ci/check-affected.mjs
+          node tools/ci/selection.mjs --full
+          node tools/ci/run-targets.mjs
+          node tools/ci/verify-cache.mjs
+          node tools/yarn.mjs verify:coverage
+      - name: Require pilot 10 and catalog 315 native contracts in all three browsers
+        run: |
+          for browser in chromium firefox webkit; do
+            node tools/yarn.mjs test:contract --all-stable --browser "$browser"
+            node tools/yarn.mjs test:contract --all-stable --catalog --browser "$browser"
+          done
+      - name: Require canonical 6 and staged catalog 344 story states in all three browsers
+        run: |
+          for browser in chromium firefox webkit; do
+            node tools/yarn.mjs test:stories --all-stable --browser "$browser"
+            node tools/yarn.mjs test:stories --all-stable --catalog --browser "$browser"
+          done
+      - name: Require the full support version and browser matrix
+        run: node tools/yarn.mjs verify:compatibility
+      - name: Require native SSR, hydration and Qwik resume
+        run: node tools/yarn.mjs test:ssr
+      - name: Regenerate and verify candidate notices
+        run: |
+          node tools/yarn.mjs generate:notices
+          node tools/yarn.mjs verify:licenses
+      - name: Pack and inspect the actual versioned tarballs
+        run: |
+          node tools/yarn.mjs pack:all --build
+          node tools/yarn.mjs inspect:tarballs
+      - name: Require independent consumers against those exact tarballs
+        run: node tools/yarn.mjs test:consumers
+      - name: Preserve the exact candidate for the final mandatory job
+        run: node tools/ci/create-candidate.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prepared-candidate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            test-results/ci/candidate.tgz
+            test-results/ci/candidate.json
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: release-preparation-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            test-results/
+            artifacts/
+          if-no-files-found: error
+          retention-days: 14
+
+  verify-release:
+    name: Final mandatory T16 acceptance
+    needs: prepare
+    if: ${{ always() && inputs.phase == 'verify-candidate' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Fail if any preceding preparation gate failed or was skipped
+        env:
+          PREPARATION_RESULT: ${{ needs.prepare.result }}
+        run: test "$PREPARATION_RESULT" = success
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - uses: actions/download-artifact@v4
+        with:
+          name: prepared-candidate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/ci
+      - name: Verify and restore the exact versioned candidate
+        run: node tools/ci/restore-candidate.mjs
+      - run: node tools/yarn.mjs install --immutable
+      - run: node tools/ci/check-toolchain.mjs --installed
+      - run: node tools/ci/required-gates.mjs
+      - run: node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+      - name: Require T16 acceptance of this complete candidate
+        run: node tools/yarn.mjs verify:release
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-acceptance-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            docs/releases/
+            test-results/ci/
+          if-no-files-found: error
+          retention-days: 14

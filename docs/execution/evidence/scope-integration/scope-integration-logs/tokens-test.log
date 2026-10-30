@@ -1,0 +1,18 @@
+✔ all 768 source leaves retain exact raw values, aliases and types (7.279458ms)
+✔ each original Figma key and transformed key has a reversible output mapping (2.776625ms)
+✔ CSS matches every frozen official declaration including alias targets (4.366375ms)
+✔ every package export points to an existing output (0.256ms)
+✔ distributed derivatives retain preserved originals and explicit provenance paths (10.910375ms)
+✔ rejects alias cycles with the complete reference chain (0.885125ms)
+✔ rejects a missing alias target and identifies the referring key (0.12225ms)
+✔ rejects conflicting alias types before CSS generation (0.141333ms)
+✔ preserves source values and aliases while resolving chained references (0.502ms)
+✔ rejects CSS output name collisions rather than overwriting tokens (0.110916ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.315417

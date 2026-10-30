@@ -1,0 +1,78 @@
+name: Native CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  NX_DAEMON: 'false'
+  NX_ISOLATE_PLUGINS: 'false'
+  NX_NO_CLOUD: 'true'
+  NX_TUI: 'false'
+  NX_INTERACTIVE: 'false'
+  NG_BUILD_MAX_WORKERS: '2'
+
+jobs:
+  affected:
+    name: Exact affected native validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - name: Check exact Node and vendored Yarn
+        run: node tools/ci/check-toolchain.mjs
+      - uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+      - name: Immutable Yarn Berry installation
+        run: node tools/yarn.mjs install --immutable
+      - name: Check workspace-local Corepack
+        run: node tools/ci/check-toolchain.mjs --installed
+      - name: Install the pinned Playwright browser builds
+        run: node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+      - name: Verify workspace and catalog
+        run: |
+          node tools/yarn.mjs verify:workspace
+          node tools/yarn.mjs verify:catalog
+      - name: Check selection safety and canonical release integration
+        run: node --test tools/ci/selection.test.mjs tools/ci/release-integration.test.mjs tools/ci/release-phases.test.mjs
+      - name: Check actual affected propagation for eight change classes
+        run: node tools/ci/check-affected.mjs
+      - name: Resolve PR merge base or explicitly select the full workspace
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node tools/ci/selection.mjs
+      - name: Run selected native targets and report stable and preview separately
+        run: node tools/ci/run-targets.mjs
+      - name: Check real cache hits and restoration for selected builds
+        run: node tools/ci/verify-cache.mjs
+      - name: Check independent release config and package channels
+        run: node tools/ci/check-release-config.mjs
+      - name: Require package-specific Nx version plans
+        if: ${{ github.event_name == 'pull_request' }}
+        run: node tools/ci/check-plans.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-ci-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          if-no-files-found: error
+          retention-days: 14

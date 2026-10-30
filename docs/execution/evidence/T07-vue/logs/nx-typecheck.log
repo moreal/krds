@@ -1,0 +1,78 @@
+
+ NX   Failed to process project graph.
+
+The following projects are defined in multiple locations:
+- @krds-native/fixture-solid: 
+  - docs/execution/evidence/T06/task-T06-base/apps/fixture-solid
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-solid
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-solid
+- @krds-native/storybook-solid: 
+  - docs/execution/evidence/T06/task-T06-base/apps/storybook-solid
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-solid
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-solid
+- @krds-native/test-contracts: 
+  - docs/execution/evidence/T06/task-T06-base/packages/test-contracts
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/packages/test-contracts
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/packages/test-contracts
+- @krds-native/docs: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/docs
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/docs
+- @krds-native/fixture-angular: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-angular
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-angular
+- @krds-native/fixture-lit: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-lit
+- @krds-native/fixture-qwik: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-qwik
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-qwik
+- @krds-native/fixture-react: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-react
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-react
+- @krds-native/fixture-solid-next: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-solid-next
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-solid-next
+- @krds-native/fixture-svelte: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-svelte
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-svelte
+- @krds-native/fixture-vue: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-vue
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/fixture-vue
+- @krds-native/storybook-angular: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-angular
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-angular
+- @krds-native/storybook-lit: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-lit
+- @krds-native/storybook-qwik: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-qwik
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-qwik
+- @krds-native/storybook-react: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-react
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-react
+- @krds-native/storybook-solid-next: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-solid-next
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-solid-next
+- @krds-native/storybook-svelte: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-svelte
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-svelte
+- @krds-native/storybook-vue: 
+  - docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-vue
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/apps/storybook-vue
+- @krds-native/contracts: 
+  - docs/execution/evidence/T06/task-T06-base/packages/contracts
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/packages/contracts
+- @krds-native/solid: 
+  - docs/execution/evidence/T06/task-T06-base/packages/solid
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/packages/solid
+- @krds-native/styles: 
+  - docs/execution/evidence/T06/task-T06-style-base/packages/styles
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/packages/styles
+- @krds-native/tokens: 
+  - docs/execution/evidence/T06/task-T06-style-base/packages/tokens
+  - docs/execution/evidence/scope-integration/scope-integration-logs/before/packages/tokens
+
+To fix this, set a unique name for each project in a project.json inside the project's root. If the project does not currently have a project.json, you can create one that contains only a name.
+
+Pass --verbose to see the stacktraces.
+

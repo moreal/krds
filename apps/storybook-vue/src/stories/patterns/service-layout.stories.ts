@@ -1,0 +1,10 @@
+import {h} from 'vue';
+import {KrdsProvider} from '@unofficial-krds/vue';
+import {getPresentation} from '@unofficial-krds/test-contracts/patterns';
+import PatternPresentation from '../../../../../packages/vue/examples/patterns/PatternPresentation.vue';
+import {mapPresentation,identity} from './presentation';
+import type {Presentation} from '../../../../../packages/vue/examples/patterns/presentation';
+const pattern='service-layout';
+const render=(args:{presentation:Presentation;identity:typeof identity;hrefForPage:(page:number)=>string})=>({setup:()=>()=>h(KrdsProvider,{},()=>h(PatternPresentation,args))});
+export default {title:'krds-pattern-service-layout',component:PatternPresentation,render};
+export const Default={args:{presentation:mapPresentation(getPresentation(pattern,'default').state,'navigate-current'),identity:{...identity},hrefForPage:(page:number)=>'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})}};

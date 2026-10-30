@@ -1,0 +1,5454 @@
+{
+  "graph": {
+    "nodes": {
+      "storybook-solid-next": {
+        "name": "storybook-solid-next",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-solid-next",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "storybook build --output-dir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-solid-next",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:solid-next"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-solid-next",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-solid-next/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-solid-next",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-solid-next": {
+        "name": "fixture-solid-next",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-solid-next",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-solid-next",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:solid-next"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-solid-next",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-solid-next/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-solid-next",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-test-contracts": {
+        "name": "krds-test-contracts",
+        "type": "lib",
+        "data": {
+          "root": "packages/test-contracts",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/test-contracts build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/test-contracts typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/test-contracts test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/test-contracts lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "tsc -p tsconfig.json",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-test-contracts",
+          "tags": [
+            "npm:private",
+            "layer:test"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/test-contracts",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/test-contracts/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts"
+          ]
+        }
+      },
+      "storybook-angular": {
+        "name": "storybook-angular",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-angular",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng run storybook-angular:build-storybook",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-angular",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:angular"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-angular",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-angular/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-angular",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "storybook-svelte": {
+        "name": "storybook-svelte",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-svelte",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "storybook build --output-dir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-svelte",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:svelte"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-svelte",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-svelte/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-svelte",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-angular": {
+        "name": "fixture-angular",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-angular",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "siheom": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular siheom"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build fixture-angular",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-angular",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:angular"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-angular",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-angular/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-angular",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "storybook-react": {
+        "name": "storybook-react",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-react",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-react build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-react typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-react test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-react lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-react storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-react stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "storybook build --output-dir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-react",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:react"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-react",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-react/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-react",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "storybook-solid": {
+        "name": "storybook-solid",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-solid",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "storybook build --output-dir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-solid",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:solid"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-solid",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-solid/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-solid",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-svelte": {
+        "name": "fixture-svelte",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-svelte",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "siheom": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte siheom"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-svelte",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:svelte"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-svelte",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-svelte/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-svelte",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-solid-next": {
+        "name": "krds-solid-next",
+        "type": "lib",
+        "data": {
+          "root": "packages/solid-next",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid-next build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid-next typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid-next test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid-next lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-solid-next",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:solid-next"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native solid-next: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/solid-next",
+              "packageVersion": "0.0.0-next.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/solid-next/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "storybook-qwik": {
+        "name": "storybook-qwik",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-qwik",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "storybook build --output-dir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-qwik",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:qwik"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-qwik",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-qwik/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-qwik",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-react": {
+        "name": "fixture-react",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-react",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-react build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-react typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-react test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-react lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-react contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "siheom": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-react siheom"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-react",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:react"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-react",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-react/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-react",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-solid": {
+        "name": "fixture-solid",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-solid",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "siheom": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid siheom"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-solid",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:solid"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-solid",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-solid/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-solid",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-contracts": {
+        "name": "krds-contracts",
+        "type": "lib",
+        "data": {
+          "root": "packages/contracts",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/contracts build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/contracts typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/contracts test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/contracts lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "tsc -p tsconfig.json",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-contracts",
+          "tags": [
+            "npm:public",
+            "layer:shared"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native contracts: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/contracts",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/contracts/src",
+          "projectType": "library",
+          "implicitDependencies": []
+        }
+      },
+      "storybook-lit": {
+        "name": "storybook-lit",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-lit",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "storybook build --output-dir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-lit",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:lit"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-lit",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-lit/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-lit",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "storybook-vue": {
+        "name": "storybook-vue",
+        "type": "app",
+        "data": {
+          "root": "apps/storybook-vue",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "storybook-build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue storybook-build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "stories": {
+              "cache": false,
+              "dependsOn": [
+                "storybook-build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/story-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue stories"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "storybook build --output-dir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "storybook-vue",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:vue"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/storybook-vue",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/storybook-vue/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-vue",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-qwik": {
+        "name": "fixture-qwik",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-qwik",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "siheom": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik siheom"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-qwik",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:qwik"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-qwik",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-qwik/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-qwik",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-lit": {
+        "name": "fixture-lit",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-lit",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-lit",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:lit"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-lit",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-lit/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-lit",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "fixture-vue": {
+        "name": "fixture-vue",
+        "type": "app",
+        "data": {
+          "root": "apps/fixture-vue",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "contract": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json",
+                "{workspaceRoot}/specs/components/**/*",
+                "{workspaceRoot}/compatibility/frameworks.json",
+                "{workspaceRoot}/playwright.config.ts"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue contract"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "siheom": {
+              "cache": false,
+              "dependsOn": [
+                "build",
+                "^build"
+              ],
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/catalog/fixture-cases.json"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue siheom"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "fixture-vue",
+          "tags": [
+            "npm:private",
+            "layer:app",
+            "framework:vue"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/fixture-vue",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/fixture-vue/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "krds-vue",
+            "krds-test-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-angular": {
+        "name": "krds-angular",
+        "type": "lib",
+        "data": {
+          "root": "packages/angular",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/angular build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/angular typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/angular test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/angular lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build krds-angular --configuration production",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-angular",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:angular"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native angular: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/angular",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/types/krds-native-angular.d.ts",
+                  "default": "./dist/fesm2022/krds-native-angular.mjs"
+                }
+              },
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/angular/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-assets": {
+        "name": "krds-assets",
+        "type": "lib",
+        "data": {
+          "root": "packages/assets",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/assets build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/assets typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/assets test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/assets lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "tsc -p tsconfig.json",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-assets",
+          "tags": [
+            "npm:public",
+            "layer:shared"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native assets: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/assets",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/assets/src",
+          "projectType": "library",
+          "implicitDependencies": []
+        }
+      },
+      "krds-styles": {
+        "name": "krds-styles",
+        "type": "lib",
+        "data": {
+          "root": "packages/styles",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/styles build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/styles typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/styles test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/styles lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "tsc -p tsconfig.json",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-styles",
+          "tags": [
+            "npm:public",
+            "layer:shared"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native styles: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/styles",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/styles/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-tokens"
+          ]
+        }
+      },
+      "krds-svelte": {
+        "name": "krds-svelte",
+        "type": "lib",
+        "data": {
+          "root": "packages/svelte",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/svelte build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/svelte typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/svelte test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/svelte lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "svelte-package -i src/lib -o dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-svelte",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:svelte"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native svelte: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/svelte",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js",
+                  "svelte": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/svelte/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-tokens": {
+        "name": "krds-tokens",
+        "type": "lib",
+        "data": {
+          "root": "packages/tokens",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/tokens build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/tokens typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/tokens test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/tokens lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "tsc -p tsconfig.json",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-tokens",
+          "tags": [
+            "npm:public",
+            "layer:shared"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native tokens: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/tokens",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/tokens/src",
+          "projectType": "library",
+          "implicitDependencies": []
+        }
+      },
+      "krds-fonts": {
+        "name": "krds-fonts",
+        "type": "lib",
+        "data": {
+          "root": "packages/fonts",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fonts build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fonts typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fonts test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/fonts lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "tsc -p tsconfig.json",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-fonts",
+          "tags": [
+            "npm:public",
+            "layer:shared"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native fonts: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/fonts",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/fonts/src",
+          "projectType": "library",
+          "implicitDependencies": []
+        }
+      },
+      "krds-react": {
+        "name": "krds-react",
+        "type": "lib",
+        "data": {
+          "root": "packages/react",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/react build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/react typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/react test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/react lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-react",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:react"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native react: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/react",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/react/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-solid": {
+        "name": "krds-solid",
+        "type": "lib",
+        "data": {
+          "root": "packages/solid",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/solid lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-solid",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:solid"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native solid: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/solid",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/solid/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-qwik": {
+        "name": "krds-qwik",
+        "type": "lib",
+        "data": {
+          "root": "packages/qwik",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/qwik build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/qwik typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/qwik test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/qwik lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build --mode lib && tsc -p tsconfig.json --emitDeclarationOnly",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-qwik",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:qwik"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native qwik: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/qwik",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "qwik": "./dist/index.qwik.mjs",
+                  "import": "./dist/index.qwik.mjs",
+                  "require": "./dist/index.qwik.cjs"
+                }
+              },
+              "packageMain": "./dist/index.qwik.cjs",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/qwik/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-lit": {
+        "name": "krds-lit",
+        "type": "lib",
+        "data": {
+          "root": "packages/lit",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/lit build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/lit typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/lit test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/lit lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-lit",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:lit"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native lit: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/lit",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/lit/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-vue": {
+        "name": "krds-vue",
+        "type": "lib",
+        "data": {
+          "root": "packages/vue",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/vue build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/vue typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/vue test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/vue lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prepublishOnly": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "node ../../tools/block-publish.mjs",
+                "runCommand": "yarn prepublishOnly"
+              },
+              "options": {
+                "script": "prepublishOnly"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-vue",
+          "tags": [
+            "npm:public",
+            "layer:adapter",
+            "framework:vue"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "prepublishOnly",
+                "build:local"
+              ]
+            },
+            "description": "KRDS Native vue: T01 toolchain probe only",
+            "js": {
+              "packageName": "@krds-native/vue",
+              "packageVersion": "0.0.0",
+              "packageExports": {
+                ".": {
+                  "types": "./dist/index.d.ts",
+                  "import": "./dist/index.js"
+                }
+              },
+              "packageMain": "./dist/index.js",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "packages/vue/src",
+          "projectType": "library",
+          "implicitDependencies": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles"
+          ]
+        }
+      },
+      "krds-docs": {
+        "name": "krds-docs",
+        "type": "app",
+        "data": {
+          "root": "apps/docs",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/docs build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/docs typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/docs test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs workspace @krds-native/docs lint"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build:local": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "vitepress build . --outDir dist",
+                "runCommand": "yarn build:local"
+              },
+              "options": {
+                "script": "build:local"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-docs",
+          "tags": [
+            "npm:private",
+            "layer:app"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "build:local"
+              ]
+            },
+            "js": {
+              "packageName": "@krds-native/docs",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "sourceRoot": "apps/docs/src",
+          "projectType": "application",
+          "implicitDependencies": [
+            "fixture-react",
+            "fixture-solid",
+            "fixture-svelte",
+            "fixture-vue",
+            "fixture-lit",
+            "fixture-qwik",
+            "fixture-angular",
+            "fixture-solid-next"
+          ]
+        }
+      },
+      "krds-workspace": {
+        "name": "krds-workspace",
+        "type": "lib",
+        "data": {
+          "root": "tools",
+          "targets": {
+            "build": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "outputs": [
+                "{projectRoot}/dist"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node --check tools/check-workspace.mjs"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/yarn.mjs tsc -p tools/tsconfig.json"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "dependsOn": [
+                "^build"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node --test tools/check-workspace.test.mjs"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "inputs": [
+                "default",
+                "^default"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node tools/check-workspace.mjs"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "krds-workspace",
+          "projectType": "library",
+          "tags": [
+            "layer:tooling"
+          ],
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "storybook-solid-next": [
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-solid-next",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-solid-next",
+          "type": "static"
+        },
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-solid-next",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "fixture-solid-next": [
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-solid-next",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-solid-next",
+          "type": "static"
+        },
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-solid-next",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-test-contracts": [
+        {
+          "source": "krds-test-contracts",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-test-contracts",
+          "target": "krds-contracts",
+          "type": "static"
+        }
+      ],
+      "storybook-angular": [
+        {
+          "source": "storybook-angular",
+          "target": "krds-angular",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-angular",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-angular",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-angular",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-angular",
+          "target": "krds-angular",
+          "type": "static"
+        },
+        {
+          "source": "storybook-angular",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-angular",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-angular",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "storybook-svelte": [
+        {
+          "source": "storybook-svelte",
+          "target": "krds-svelte",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-svelte",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-svelte",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-svelte",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-svelte",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-svelte",
+          "target": "krds-svelte",
+          "type": "static"
+        },
+        {
+          "source": "storybook-svelte",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-svelte",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "fixture-angular": [
+        {
+          "source": "fixture-angular",
+          "target": "krds-angular",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-angular",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-angular",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-angular",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-angular",
+          "target": "krds-angular",
+          "type": "static"
+        },
+        {
+          "source": "fixture-angular",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-angular",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-angular",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "storybook-react": [
+        {
+          "source": "storybook-react",
+          "target": "krds-react",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-react",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-react",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-react",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-react",
+          "target": "krds-react",
+          "type": "static"
+        },
+        {
+          "source": "storybook-react",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-react",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-react",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "storybook-solid": [
+        {
+          "source": "storybook-solid",
+          "target": "krds-solid",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-solid",
+          "target": "krds-solid",
+          "type": "static"
+        },
+        {
+          "source": "storybook-solid",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-solid",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-solid",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "fixture-svelte": [
+        {
+          "source": "fixture-svelte",
+          "target": "krds-svelte",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-svelte",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-svelte",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-svelte",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-svelte",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-svelte",
+          "target": "krds-svelte",
+          "type": "static"
+        },
+        {
+          "source": "fixture-svelte",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-svelte",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-solid-next": [
+        {
+          "source": "krds-solid-next",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-solid-next",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-solid-next",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-solid-next",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-solid-next",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-solid-next",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "storybook-qwik": [
+        {
+          "source": "storybook-qwik",
+          "target": "krds-qwik",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-qwik",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-qwik",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-qwik",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-qwik",
+          "target": "krds-qwik",
+          "type": "static"
+        },
+        {
+          "source": "storybook-qwik",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-qwik",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-qwik",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "fixture-react": [
+        {
+          "source": "fixture-react",
+          "target": "krds-react",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-react",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-react",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-react",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-react",
+          "target": "krds-react",
+          "type": "static"
+        },
+        {
+          "source": "fixture-react",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-react",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-react",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "fixture-solid": [
+        {
+          "source": "fixture-solid",
+          "target": "krds-solid",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-solid",
+          "target": "krds-solid",
+          "type": "static"
+        },
+        {
+          "source": "fixture-solid",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-solid",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-solid",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-contracts": [],
+      "storybook-lit": [
+        {
+          "source": "storybook-lit",
+          "target": "krds-lit",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-lit",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-lit",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-lit",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-lit",
+          "target": "krds-lit",
+          "type": "static"
+        },
+        {
+          "source": "storybook-lit",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-lit",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-lit",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "storybook-vue": [
+        {
+          "source": "storybook-vue",
+          "target": "krds-vue",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-vue",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-vue",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-vue",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "storybook-vue",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "storybook-vue",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "storybook-vue",
+          "target": "krds-tokens",
+          "type": "static"
+        },
+        {
+          "source": "storybook-vue",
+          "target": "krds-vue",
+          "type": "static"
+        }
+      ],
+      "fixture-qwik": [
+        {
+          "source": "fixture-qwik",
+          "target": "krds-qwik",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-qwik",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-qwik",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-qwik",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-qwik",
+          "target": "krds-qwik",
+          "type": "static"
+        },
+        {
+          "source": "fixture-qwik",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-qwik",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-qwik",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "fixture-lit": [
+        {
+          "source": "fixture-lit",
+          "target": "krds-lit",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-lit",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-lit",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-lit",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-lit",
+          "target": "krds-lit",
+          "type": "static"
+        },
+        {
+          "source": "fixture-lit",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-lit",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-lit",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "fixture-vue": [
+        {
+          "source": "fixture-vue",
+          "target": "krds-vue",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-vue",
+          "target": "krds-test-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-vue",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-vue",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "fixture-vue",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "fixture-vue",
+          "target": "krds-test-contracts",
+          "type": "static"
+        },
+        {
+          "source": "fixture-vue",
+          "target": "krds-tokens",
+          "type": "static"
+        },
+        {
+          "source": "fixture-vue",
+          "target": "krds-vue",
+          "type": "static"
+        }
+      ],
+      "krds-angular": [
+        {
+          "source": "krds-angular",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-angular",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-angular",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-angular",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-angular",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-angular",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-assets": [],
+      "krds-styles": [
+        {
+          "source": "krds-styles",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-styles",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-svelte": [
+        {
+          "source": "krds-svelte",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-svelte",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-svelte",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-svelte",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-svelte",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-svelte",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-tokens": [],
+      "krds-fonts": [],
+      "krds-react": [
+        {
+          "source": "krds-react",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-react",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-react",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-react",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-react",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-react",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-solid": [
+        {
+          "source": "krds-solid",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-solid",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-solid",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-solid",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-solid",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-solid",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-qwik": [
+        {
+          "source": "krds-qwik",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-qwik",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-qwik",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-qwik",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-qwik",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-qwik",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-lit": [
+        {
+          "source": "krds-lit",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-lit",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-lit",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-lit",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-lit",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-lit",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-vue": [
+        {
+          "source": "krds-vue",
+          "target": "krds-contracts",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-vue",
+          "target": "krds-tokens",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-vue",
+          "target": "krds-styles",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-vue",
+          "target": "krds-contracts",
+          "type": "static"
+        },
+        {
+          "source": "krds-vue",
+          "target": "krds-styles",
+          "type": "static"
+        },
+        {
+          "source": "krds-vue",
+          "target": "krds-tokens",
+          "type": "static"
+        }
+      ],
+      "krds-docs": [
+        {
+          "source": "krds-docs",
+          "target": "fixture-react",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-docs",
+          "target": "fixture-solid",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-docs",
+          "target": "fixture-svelte",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-docs",
+          "target": "fixture-vue",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-docs",
+          "target": "fixture-lit",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-docs",
+          "target": "fixture-qwik",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-docs",
+          "target": "fixture-angular",
+          "type": "implicit"
+        },
+        {
+          "source": "krds-docs",
+          "target": "fixture-solid-next",
+          "type": "implicit"
+        }
+      ],
+      "krds-workspace": []
+    }
+  }
+}

@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-side-navigation', title: 'KRDS/side-navigation', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Simple: Story = { name: "simple", parameters: { __id: "krds-side-navigation--simple" }, render: () => <CatalogStory componentId="side-navigation" caseId="simple"/> };
+export const WithHeader: Story = { name: "with-header", parameters: { __id: "krds-side-navigation--with-header" }, render: () => <CatalogStory componentId="side-navigation" caseId="with-header"/> };
+export const TwoOpenBranches: Story = { name: "two-open-branches", parameters: { __id: "krds-side-navigation--two-open-branches" }, render: () => <CatalogStory componentId="side-navigation" caseId="two-open-branches"/> };
+export const DeepProgressive: Story = { name: "deep-progressive", parameters: { __id: "krds-side-navigation--deep-progressive" }, render: () => <CatalogStory componentId="side-navigation" caseId="deep-progressive"/> };
+export const MobileDropdown: Story = { name: "mobile-dropdown", parameters: { __id: "krds-side-navigation--mobile-dropdown" }, render: () => <CatalogStory componentId="side-navigation" caseId="mobile-dropdown"/> };
+export const LongMenu: Story = { name: "long-menu", parameters: { __id: "krds-side-navigation--long-menu" }, render: () => <CatalogStory componentId="side-navigation" caseId="long-menu"/> };

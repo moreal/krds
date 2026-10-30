@@ -1,0 +1,73 @@
+✖ native disabled pointer activation is suppressed; an active aria-disabled handler is rejected (5230.339084ms)
+✖ semantic date is invariant in positive and negative UTC zones; timestamp shifts and mount events are rejected (5248.219292ms)
+✖ removed trigger restores exact alternate target; connected document body alone is rejected (30209.166792ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 40963.435167
+
+✖ failing tests:
+
+test at tools/tests/contract-observations.test.mjs:50:1
+✖ native disabled pointer activation is suppressed; an active aria-disabled handler is rejected (5230.339084ms)
+  Error: expect(locator).toBeDisabled() failed
+  
+  Locator: getByRole('button', { name: '저장', exact: true })
+  Expected: disabled
+  Timeout: 5000ms
+  Error: element(s) not found
+  
+  Call log:
+    - Expect "toBeDisabled" getByRole('button', { name: '저장', exact: true }) with timeout 5000ms
+    - waiting for getByRole('button', { name: '저장', exact: true })
+  
+      at captureRawStack (/Users/moreal/github/moreal/krds/node_modules/.store/playwright-core-npm-1.64.1-d944d2b0cc/package/lib/coreBundle.js:9282:17)
+      at callMatcherAsStep (/Users/moreal/github/moreal/krds/node_modules/.store/playwright-npm-1.64.1-cf8187a4bc/package/lib/matchers/expect.js:13316:57)
+      at Object.toBeDisabled (/Users/moreal/github/moreal/krds/node_modules/.store/playwright-npm-1.64.1-cf8187a4bc/package/lib/matchers/expect.js:13308:23)
+      at Module.assertDisabledButton (/Users/moreal/github/moreal/krds/tools/testing/observations.mjs:7:24)
+      at /Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:56:26
+      at async withInspection (/Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:46:40)
+      at async TestContext.<anonymous> (/Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:52:3) {
+    matcherResult: { message: `expect(locator).toBeDisabled() failed\n\nLocator: getByRole('button', { name: '저장', exact: true })\nExpected: disabled\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect "toBeDisabled" getByRole('button', { name: '저장', exact: true }) with timeout 5000ms\n  - waiting for getByRole('button', { name: '저장', exact: true })\n`, pass: false, actual: undefined, name: 'toBeDisabled', expected: 'disabled', log: [ `  - Expect "toBeDisabled" getByRole('button', { name: '저장', exact: true }) with timeout 5000ms`, "  - waiting for getByRole('button', { name: '저장', exact: true })" ], timeout: 5000, ariaSnapshot: '- status "Fixture health": ready\n- main:\n  - button "ì €ìž¥" [disabled]' }
+  }
+
+test at tools/tests/contract-observations.test.mjs:64:1
+✖ semantic date is invariant in positive and negative UTC zones; timestamp shifts and mount events are rejected (5248.219292ms)
+  Error: expect(locator).toHaveValue(expected) failed
+  
+  Locator: getByRole('textbox', { name: '날짜', exact: true })
+  Expected: "2024-02-29"
+  Timeout: 5000ms
+  Error: element(s) not found
+  
+  Call log:
+    - Expect "toHaveValue" getByRole('textbox', { name: '날짜', exact: true }) with timeout 5000ms
+    - waiting for getByRole('textbox', { name: '날짜', exact: true })
+  
+      at captureRawStack (/Users/moreal/github/moreal/krds/node_modules/.store/playwright-core-npm-1.64.1-d944d2b0cc/package/lib/coreBundle.js:9282:17)
+      at callMatcherAsStep (/Users/moreal/github/moreal/krds/node_modules/.store/playwright-npm-1.64.1-cf8187a4bc/package/lib/matchers/expect.js:13316:57)
+      at Object.toHaveValue (/Users/moreal/github/moreal/krds/node_modules/.store/playwright-npm-1.64.1-cf8187a4bc/package/lib/matchers/expect.js:13308:23)
+      at Module.assertTimezoneInvariant (/Users/moreal/github/moreal/krds/tools/testing/observations.mjs:52:26)
+      at async file:///Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:68:18
+      at async withInspection (/Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:46:40)
+      at async TestContext.<anonymous> (/Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:66:3) {
+    matcherResult: { name: 'toHaveValue', expected: '2024-02-29', message: `expect(locator).toHaveValue(expected) failed\n\nLocator: getByRole('textbox', { name: '날짜', exact: true })\nExpected: "2024-02-29"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect "toHaveValue" getByRole('textbox', { name: '날짜', exact: true }) with timeout 5000ms\n  - waiting for getByRole('textbox', { name: '날짜', exact: true })\n`, pass: false, actual: undefined, log: [ `  - Expect "toHaveValue" getByRole('textbox', { name: '날짜', exact: true }) with timeout 5000ms`, "  - waiting for getByRole('textbox', { name: '날짜', exact: true })" ], timeout: 5000, ariaSnapshot: '- status "Fixture health": ready\n- main:\n  - text: ë‚ ì§œ\n  - textbox "ë‚ ì§œ": 2024-02-29' }
+  }
+
+test at tools/tests/contract-observations.test.mjs:79:1
+✖ removed trigger restores exact alternate target; connected document body alone is rejected (30209.166792ms)
+  locator.click: Timeout 30000ms exceeded.
+  Call log:
+  [2m  - waiting for getByRole('button', { name: '열기', exact: true })[22m
+  
+      at Module.assertModalFocus (/Users/moreal/github/moreal/krds/tools/testing/observations.mjs:18:17)
+      at /Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:85:26
+      at async withInspection (/Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:46:40)
+      at async TestContext.<anonymous> (/Users/moreal/github/moreal/krds/tools/tests/contract-observations.test.mjs:81:3) {
+    name: 'TimeoutError',
+    log: [ "  - waiting for getByRole('button', { name: '열기', exact: true })" ]
+  }

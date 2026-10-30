@@ -1,0 +1,41 @@
+{
+  "name": "krds-react",
+  "root": "packages/react",
+  "sourceRoot": "packages/react/src",
+  "projectType": "library",
+  "tags": [
+    "layer:adapter",
+    "framework:react"
+  ],
+  "implicitDependencies": [
+    "krds-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/react build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/react typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/react test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/react lint"
+      }
+    }
+  }
+}

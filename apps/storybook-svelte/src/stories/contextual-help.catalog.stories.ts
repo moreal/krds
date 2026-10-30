@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-contextual-help', title: 'KRDS/Catalog/ContextualHelp', component: CatalogStory, args: {componentId: 'contextual-help'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Information: Story = {name: "information", args: {caseId: "information"}};
+export const Help: Story = {name: "help", args: {caseId: "help"}};
+export const SixPlacements: Story = {name: "six-placements", args: {caseId: "six-placements"}};
+export const InteractiveLink: Story = {name: "interactive-link", args: {caseId: "interactive-link"}};
+export const NarrowEdge: Story = {name: "narrow-edge", args: {caseId: "narrow-edge"}};
+export const RemovedTrigger: Story = {name: "removed-trigger", args: {caseId: "removed-trigger"}};
+export const ControlledRejected: Story = {name: "controlled-rejected", args: {caseId: "controlled-rejected"}};

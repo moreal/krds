@@ -1,0 +1,9 @@
+[data-krds-component="tabs"][data-krds-part="list"] { display: flex; overflow-x: auto; gap: var(--krds-gap-2); border-block-end: var(--krds-number-1) solid var(--krds-light-color-border-gray); }
+[data-krds-component="tabs"][data-krds-part="list"][data-krds-orientation="vertical"] { flex-direction: column; }
+[data-krds-component="tabs"][data-krds-part="trigger"] { flex: 0 0 auto; padding: var(--krds-padding-4); border: 0; border-block-end: var(--krds-number-3) solid transparent; background: transparent; color: var(--krds-light-color-text-basic); cursor: pointer; }
+[data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"] { border-block-end-color: var(--krds-light-color-border-primary); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+[data-krds-component="tabs"][data-krds-part="trigger"]:disabled { color: var(--krds-light-color-text-disabled-on); text-decoration: line-through; }
+[data-krds-component="tabs"][data-krds-part="panel"] { padding-block: var(--krds-padding-6); }
+[data-krds-component="tabs"][data-krds-part="panel"][data-krds-state~="inactive"] { display: none; }
+[data-krds-component="tabs"][data-krds-part="indicator"] { pointer-events: none; }
+@media (forced-colors: active) { [data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"] { border-color: Highlight; } }

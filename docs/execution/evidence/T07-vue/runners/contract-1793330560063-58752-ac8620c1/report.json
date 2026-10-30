@@ -1,0 +1,88 @@
+{
+  "kind": "contract",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "vue",
+      "origin": "http://127.0.0.1:57246",
+      "status": "failed",
+      "tests": [
+        {
+          "title": "vue button/disabled",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue native-select/controlled",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue native-select/form-reset",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue modal/focus-return",
+          "browser": "webkit",
+          "status": "failed",
+          "nativeHealth": true,
+          "classification": "behavior-failed",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: '열기', exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByRole('button', { name: '열기', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '열기', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" data-krds-part=\"root\" data-krds-size=\"medium\" data-krds-variant=\"primary\" data-krds-component=\"button\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n"
+        },
+        {
+          "title": "vue modal/trigger-removed",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue tabs/manual-activation",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue date-input/leap-year",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue date-input/ime",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue date-input/timezone-invariance",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "vue calendar/selection-confirm",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        }
+      ],
+      "exitCode": 1,
+      "evidence": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793330560063-58752-ac8620c1/vue",
+      "canonicalSelection": true,
+      "coverageAwarded": false
+    }
+  ]
+}

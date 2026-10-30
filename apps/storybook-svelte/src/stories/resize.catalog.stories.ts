@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-resize', title: 'KRDS/Catalog/Resize', component: CatalogStory, args: {componentId: 'resize'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const FiveLevels: Story = {name: "five-levels", args: {caseId: "five-levels"}};
+export const CustomLevels: Story = {name: "custom-levels", args: {caseId: "custom-levels"}};
+export const NarrowReflow: Story = {name: "narrow-reflow", args: {caseId: "narrow-reflow"}};
+export const BrowserZoom: Story = {name: "browser-zoom", args: {caseId: "browser-zoom"}};
+export const ControlledRejected: Story = {name: "controlled-rejected", args: {caseId: "controlled-rejected"}};
+export const SharedValuePayload: Story = {name: "shared-value-payload", args: {caseId: "shared-value-payload"}};
+export const CollapsedArrowRejected: Story = {name: "collapsed-arrow-rejected", args: {caseId: "collapsed-arrow-rejected"}};

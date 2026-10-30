@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "src/**/*.ts",
+    ".vitepress/config.mts",
+    ".vitepress/theme/index.ts"
+  ]
+}

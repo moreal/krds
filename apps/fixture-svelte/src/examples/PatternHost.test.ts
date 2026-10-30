@@ -1,0 +1,41 @@
+import { expect, test } from 'vitest';
+import { assertions, given, query, runSiheom } from '@siheom/svelte';
+import { fireEvent } from '@testing-library/svelte';
+import { tick } from 'svelte';
+import PatternHost from './PatternHost.svelte';
+test('siheom renders the native composition and invalid submit focuses the real field without a request', async () => {
+    history.replaceState(null, '', '/examples/form-errors?case=error-summary-focus');
+    await runSiheom(given.render(PatternHost), assertions.textContent(query.button('예제 저장'), '예제 저장'));
+    await fireEvent.submit(document.querySelector('form')!);
+    await tick();
+    expect(document.activeElement?.id).toBe('example-form-title');
+    expect(document.querySelectorAll('#example-form-errors li')).toHaveLength(2);
+    expect(window.__KRDS_FIXTURE__!.readEvents()).toEqual([]);
+});
+test('siheom form exposes native named raw values and a noncanceled reset clears them', async () => {
+    history.replaceState(null, '', '/examples/form-errors?case=retry-success');
+    await runSiheom(given.render(PatternHost), assertions.textContent(query.button('초기화'), '초기화'));
+    const form = document.querySelector('form')!;
+    expect(new FormData(form).get('title')).toBe('예제 입력폼 연습');
+    form.reset();
+    await tick();
+    await Promise.resolve();
+    await tick();
+    await expect.poll(() => new FormData(form).get('title')).toBe('');
+    expect(window.__KRDS_FIXTURE__!.readEvents()).toEqual([]);
+});
+test('siheom consent opens the actual native dialog and cancel restores its actual opener', async () => {
+    history.replaceState(null, '', '/examples/consent-confirmation?case=optional-refusal-success');
+    await runSiheom(given.render(PatternHost), assertions.textContent(query.button('확인하기'), '확인하기'));
+    const opener = document.getElementById('example-consent-review')!;
+    opener.focus();
+    await fireEvent.click(opener);
+    await tick();
+    expect(document.activeElement?.id).toBe('example-consent-dialog');
+    expect((document.querySelector('dialog') as HTMLDialogElement).open).toBe(true);
+    await fireEvent.click(document.getElementById('example-consent-cancel')!);
+    await tick();
+    expect(document.querySelector('dialog')).toBeNull();
+    expect(document.activeElement).toBe(opener);
+    expect(window.__KRDS_FIXTURE__!.readEvents()).toEqual([]);
+});

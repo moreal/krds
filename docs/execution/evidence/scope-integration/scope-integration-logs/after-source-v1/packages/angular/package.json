@@ -1,0 +1,80 @@
+{
+  "name": "@unofficial-krds/angular",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../../tools/workspace-probe.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "ng build krds-angular --configuration production",
+    "typecheck": "ngc -p tsconfig.lib.prod.json --noEmit"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "0.2202.5",
+    "@angular-devkit/build-angular": "22.2.5",
+    "@angular-devkit/core": "22.2.5",
+    "@angular/animations": "22.2.4",
+    "@angular/build": "22.2.5",
+    "@angular/cli": "22.2.5",
+    "@angular/common": "22.2.4",
+    "@angular/compiler": "22.2.4",
+    "@angular/compiler-cli": "22.2.4",
+    "@angular/core": "22.2.4",
+    "@angular/forms": "22.2.4",
+    "@angular/platform-browser": "22.2.4",
+    "@angular/platform-browser-dynamic": "22.2.4",
+    "@angular/platform-server": "22.2.4",
+    "@angular/router": "22.2.4",
+    "@angular/ssr": "22.2.5",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "ng-packagr": "22.2.5",
+    "playwright": "1.64.1",
+    "rxjs": "7.8.2",
+    "tslib": "2.8.1",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10",
+    "zone.js": "0.16.3"
+  },
+  "description": "KRDS Native angular: T01 toolchain probe only",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/types/unofficial-krds-angular.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular.mjs"
+    }
+  },
+  "peerDependencies": {
+    "@angular/common": "^22.2.4",
+    "@angular/core": "^22.2.4",
+    "@angular/forms": "^22.2.4"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.12.4",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^",
+    "@zag-js/core": "1.47.0",
+    "@zag-js/date-picker": "1.47.0",
+    "@zag-js/dialog": "1.47.0",
+    "@zag-js/tabs": "1.47.0",
+    "@zag-js/vanilla": "1.47.0",
+    "tslib": "2.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/angular"
+  }
+}

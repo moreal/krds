@@ -1,0 +1,57 @@
+{
+  "name": "@krds-native/svelte",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../../tools/workspace-probe.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "svelte-package -i src/lib -o dist",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "3.1.0",
+    "@sveltejs/package": "3.0.1",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "playwright": "1.64.1",
+    "svelte": "5.57.3",
+    "svelte-check": "4.7.7",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10"
+  },
+  "description": "KRDS Native svelte: T01 toolchain probe only",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "svelte": "^5.57.3"
+  },
+  "dependencies": {
+    "@ark-ui/svelte": "5.25.0",
+    "@krds-native/contracts": "workspace:^",
+    "@krds-native/styles": "workspace:^",
+    "@krds-native/tokens": "workspace:^"
+  },
+  "svelte": "./dist/index.js"
+}

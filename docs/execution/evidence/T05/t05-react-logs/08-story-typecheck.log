@@ -1,0 +1,2 @@
+src/stories/native-probe.stories.tsx(20,25): error TS2351: This expression is not constructable.
+  Type 'BaseAnnotations<ReactRenderer, { count: number; label: string; disabled: boolean; errorMessage?: string | undefined; }> & { name?: string | undefined; storyName?: string | undefined; play?: PlayFunction<...> | undefined; globals?: Partial<...> | undefined; story?: Omit<...> | undefined; } & { ...; }' has no construct signatures.

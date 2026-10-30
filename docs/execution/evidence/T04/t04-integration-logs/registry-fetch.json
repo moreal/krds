@@ -1,0 +1,25 @@
+{
+  "status": "retrieved-registry-manifest",
+  "registryUrl": "https://registry.npmjs.org/postcss/8.5.32",
+  "retrievedAt": "2026-10-30T00:34:02.000538+00:00",
+  "sha256": "9a29a73945980f4c243743e34b01fac170a2679ba9e1ca42f02c39d52ac0eddc",
+  "dist": {
+    "shasum": "fbccef8388a0c77508c713bfd37728d646595803",
+    "tarball": "https://registry.npmjs.org/postcss/-/postcss-8.5.32.tgz",
+    "fileCount": 55,
+    "integrity": "sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==",
+    "signatures": [
+      {
+        "sig": "MEQCICaVEVMXfMeYkcOopkG+BDkGhayhn8dTiSZyAFJopbczAiAeq6eqQVd7X6WhLx25iGntEV54VlWv/AA92mxnkaS1Dg==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss@8.5.32",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 220843
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "scope": "Captured real visibility observations for infrastructure validator regressions; no new browser or adapter execution claim",
+  "sourceReportSha256": "7111a0a141b8695e681fe05b359eadc43ff1bdd1221654a923b08532205a7987",
+  "results": [
+    {
+      "backgroundingDefaults": true,
+      "observations": [
+        {
+          "label": "first-foreground",
+          "hidden": false,
+          "visibilityState": "visible",
+          "focused": true,
+          "events": []
+        },
+        {
+          "label": "first-behind-second-real-tab",
+          "hidden": true,
+          "visibilityState": "hidden",
+          "focused": false,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            }
+          ]
+        },
+        {
+          "label": "first-restored-real-tab",
+          "hidden": false,
+          "visibilityState": "visible",
+          "focused": true,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "label": "first-native-window-minimized",
+          "hidden": true,
+          "visibilityState": "hidden",
+          "focused": false,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            },
+            {
+              "hidden": true,
+              "state": "hidden"
+            }
+          ]
+        },
+        {
+          "label": "actual-window-bounds-minimized",
+          "bounds": {
+            "left": 22,
+            "top": 55,
+            "width": 1200,
+            "height": 1040,
+            "windowState": "minimized"
+          }
+        },
+        {
+          "label": "first-native-window-restored",
+          "hidden": false,
+          "visibilityState": "visible",
+          "focused": true,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            },
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            }
+          ]
+        }
+      ],
+      "status": "real-hidden-state-observed"
+    },
+    {
+      "backgroundingDefaults": false,
+      "observations": [
+        {
+          "label": "first-foreground",
+          "hidden": false,
+          "visibilityState": "visible",
+          "focused": true,
+          "events": []
+        },
+        {
+          "label": "first-behind-second-real-tab",
+          "hidden": true,
+          "visibilityState": "hidden",
+          "focused": false,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            }
+          ]
+        },
+        {
+          "label": "first-restored-real-tab",
+          "hidden": false,
+          "visibilityState": "visible",
+          "focused": true,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "label": "first-native-window-minimized",
+          "hidden": true,
+          "visibilityState": "hidden",
+          "focused": false,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            },
+            {
+              "hidden": true,
+              "state": "hidden"
+            }
+          ]
+        },
+        {
+          "label": "actual-window-bounds-minimized",
+          "bounds": {
+            "left": 22,
+            "top": 55,
+            "width": 1200,
+            "height": 1040,
+            "windowState": "minimized"
+          }
+        },
+        {
+          "label": "first-native-window-restored",
+          "hidden": false,
+          "visibilityState": "visible",
+          "focused": true,
+          "events": [
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            },
+            {
+              "hidden": true,
+              "state": "hidden"
+            },
+            {
+              "hidden": false,
+              "state": "visible"
+            }
+          ]
+        }
+      ],
+      "status": "real-hidden-state-observed"
+    }
+  ]
+}

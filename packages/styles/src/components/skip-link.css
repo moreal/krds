@@ -1,0 +1,8 @@
+/* KRDS-derived: frozen component.css lines 3409–3465; semantic guidance: specs/components/skip-link.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="skip-link"][data-krds-part="root"] { position: relative; z-index: 10000; }
+[data-krds-component="skip-link"][data-krds-part="list"] { margin: 0; padding: 0; list-style: none; }
+[data-krds-component="skip-link"][data-krds-part="item"] { margin: 0; }
+[data-krds-component="skip-link"][data-krds-part="link"] { display: flex; align-items: center; justify-content: center; min-block-size: var(--krds-size-height-5); padding: var(--krds-padding-3) var(--krds-padding-5); background: var(--krds-light-color-background-inverse); color: var(--krds-light-color-text-basic-inverse); text-align: center; }
+[data-krds-component="skip-link"][data-krds-part="root"]:not([data-krds-visibility="visible"]) [data-krds-component="skip-link"][data-krds-part="link"]:not(:focus) { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-krds-component="skip-link"][data-krds-part="link"]:focus { position: fixed; inset-block-start: 0; inset-inline: 0; inline-size: 100%; outline-offset: -.4rem; }

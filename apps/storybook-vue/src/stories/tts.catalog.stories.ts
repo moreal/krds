@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-tts', title: 'KRDS/Catalog/TTS', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'tts'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Page: Story = {name: "page", args: {caseId: "page"}};
+export const Region: Story = {name: "region", args: {caseId: "region"}};
+export const PlayPauseStopMock: Story = {name: "play-pause-stop-mock", args: {caseId: "play-pause-stop-mock"}};
+export const Icon: Story = {name: "icon", args: {caseId: "icon"}};
+export const Sizes: Story = {name: "sizes", args: {caseId: "sizes"}};
+export const Unsupported: Story = {name: "unsupported", args: {caseId: "unsupported"}};
+export const Error: Story = {name: "error", args: {caseId: "error"}};

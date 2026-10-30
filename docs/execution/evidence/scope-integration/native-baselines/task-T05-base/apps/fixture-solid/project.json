@@ -1,0 +1,54 @@
+{
+  "name": "fixture-solid",
+  "root": "apps/fixture-solid",
+  "sourceRoot": "apps/fixture-solid/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:solid"
+  ],
+  "implicitDependencies": [
+    "krds-solid",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid lint"
+      }
+    },
+    "contract": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid contract"
+      }
+    },
+    "siheom": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid siheom"
+      }
+    }
+  }
+}

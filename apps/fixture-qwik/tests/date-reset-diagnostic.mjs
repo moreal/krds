@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {webkit} from 'playwright';
+import {startProductionSsr} from '../server.mjs';
+const server=await startProductionSsr(),browser=await webkit.launch(),results=[];
+try{const page=await browser.newPage({locale:'ko-KR',viewport:{width:1280,height:900}});await page.addInitScript(()=>{
+ window.__dateReceipts=[];const original=EventTarget.prototype.addEventListener;EventTarget.prototype.addEventListener=function(type,callback,options){if(type==='reset'&&this instanceof HTMLFormElement)window.__dateReceipts.push({phase:'listener',id:this.id,at:performance.now()});return original.call(this,type,callback,options)};
+ const read=phase=>{const input=document.querySelector('#uncontrolled-date');const hidden=document.querySelector('input[type=hidden][name=visit]');window.__dateReceipts.push({phase,at:performance.now(),value:input?.value,defaultValue:input?.defaultValue,hidden:hidden?.value,hiddenDefault:hidden?.defaultValue})};
+ document.addEventListener('reset',event=>{read('reset-capture');queueMicrotask(()=>read('reset-microtask'));setTimeout(()=>read('reset-task'),0)},{capture:true});for(const type of ['input','keydown','focusout'])document.addEventListener(type,event=>{if(event.target?.id==='uncontrolled-date')read(type)},{capture:true});
+});
+for(let i=0;i<12;i++){await page.goto(server.origin+'/examples.html',{waitUntil:'networkidle'});const date=page.getByRole('textbox',{name:'방문일',exact:true});await date.fill('2024-03-01');await date.press('Enter');await page.waitForFunction(()=>document.querySelector('input[name=visit]').value==='2024-03-01');await date.blur();await page.getByRole('button',{name:'날짜 초기화',exact:true}).click();let error;try{await page.waitForFunction(()=>document.querySelector('#uncontrolled-date').value==='2024-02-29'&&document.querySelector('input[name=visit]').value==='2024-02-29',{},{timeout:2000})}catch(e){error=String(e)}results.push({iteration:i,error,receipt:await page.evaluate(()=>({events:window.__dateReceipts,value:document.querySelector('#uncontrolled-date').value,hidden:document.querySelector('input[name=visit]').value}))});if(error)break;}
+}finally{await browser.close();await server.close();}console.log(JSON.stringify(results,null,2));assert(results.length&&results.every(r=>!r.error));

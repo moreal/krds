@@ -1,0 +1,692 @@
+--- before/compliance/project-identity.json
++++ after/compliance/project-identity.json
+@@ -2,7 +2,7 @@
+   "schemaVersion": 1,
+   "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+   "displayName": "KRDS Native",
+-  "localPackageScope": "@krds-native",
++  "localPackageScope": "@unofficial-krds",
+   "scopeOwnership": {
+     "status": "unverified",
+     "confirmedOwner": null,
+@@ -33,7 +33,6 @@
+     "status": "metadata-confirmed-release-checks-pending",
+     "publishAllowed": false,
+     "missing": [
+-      "Atomic requested-scope integration by T01",
+       "Remaining candidate/release checks and T16 assessment of the existing ownership-related policy gates"
+     ],
+     "localImplementationAllowed": true,
+@@ -46,13 +45,13 @@
+     "providerAttribution": "행정안전부 / Ministry of the Interior and Safety — KRDS source materials under their verified original terms",
+     "governmentCoownershipOfIndependentCodeAsserted": false
+   },
+-  "checkedAt": "2026-10-30T02:30:00.251464+00:00",
++  "checkedAt": "2026-10-30T03:07:48.994341+00:00",
+   "requestedPackageScope": "@unofficial-krds",
+   "scopeNaming": {
+     "status": "confirmed-by-user",
+-    "currentLocalScope": "@krds-native",
++    "currentLocalScope": "@unofficial-krds",
+     "requestedScope": "@unofficial-krds",
+-    "integrationStatus": "pending-T01-atomic-manifest-lock-and-provenance-rename"
++    "integrationStatus": "applied-current-source-manifests-lock-provenance-notices; T01-production-rebuilds-verified"
+   },
+   "metadataReadiness": {
+     "status": "user-values-and-independent-grant-complete",
+@@ -60,7 +59,7 @@
+     "requestedScope": "@unofficial-krds",
+     "repositoryUrl": "https://github.com/moreal/krds",
+     "independentGrantPath": "LICENSES/MIT.txt",
+-    "scopeIntegration": "pending-T01; localPackageScope still describes the current actual workspace"
++    "scopeIntegration": "applied; T01 foundations, Solid, Angular APF and Solid app production rebuilds/typechecks verified"
+   },
+   "ownershipVerification": {
+     "npmScope": "not-authenticated",
+--- before/compliance/provenance-dependencies.json
++++ after/compliance/provenance-dependencies.json
+@@ -1,6 +1,6 @@
+ {
+   "schemaVersion": 1,
+-  "lockfileSha256": "136bebc1c213d0bc274b905ee291fa096beefa4dbbaece6ecf915689adadf4f4",
++  "lockfileSha256": "fb40749425ddd90ce46937551ae72c63d4bdf7caa53706edf073f4ccc69b0b58",
+   "retrievedAt": "2026-10-30T00:10:08.665961+00:00",
+   "method": "All npm resolutions in yarn.lock matched to unmodified original package manifests in the integrity-protected Yarn cache. Cache is excluded from public packages. Metadata does not establish copying/bundling.",
+   "lockResolutionCount": 1878,
+--- before/compliance/provenance.json
++++ after/compliance/provenance.json
+@@ -157,7 +157,7 @@
+     "modified": true,
+     "changeSummary": "Reworked common foundation as scoped public attributes with focus-visible, forced colors and reduced-motion rules. Separated explicit global reset and optional installed/local font selection; omitted remote assets, original scripts and global defaults from component entries. Plain CSS strings use identical source bytes. T06 native-renderer correction: decorate only nonempty errors so persistent empty polite regions remain visually empty.",
+     "distributedIn": [
+-      "@krds-native/styles"
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -202,7 +202,7 @@
+     "modified": true,
+     "changeSummary": "Adapted six pilot styles to documented public component/part/state/variant/size attributes with native semantics left to adapters; added wrapping, constrained viewport layouts and non-color state cues. Omitted original DOM-specific classes, JavaScript, icon assets and unrelated components; generated ordinary CSS and identical runtime-free strings. Calendar in-range uses a dashed border rather than outline so the independent focus-visible outline and forced-colors Highlight focus cue remain available; range endpoints retain double borders. T06 native-renderer corrections: selected Calendar dates use Canvas/ButtonText with non-color state borders in forced colors; nonwrapping digits/weekday labels and intrinsic table width scroll locally under narrow text enlargement; native DateInput popup receives explicit centered viewport-bounded sizing. Calendar table scrolling is isolated in a private native wrapper with focus-ring padding, keeping month navigation and footer actions stationary; narrow headers use separate heading/navigation rows to avoid year-arrow overlap.",
+     "distributedIn": [
+-      "@krds-native/styles"
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -242,8 +242,8 @@
+     "modified": true,
+     "changeSummary": "Preserved every original CSS custom-property name, literal value and alias in generated token declarations; added :host targeting for shadow roots and embedded declarations in component/all CSS and plain strings. No official token values re-estimated.",
+     "distributedIn": [
+-      "@krds-native/tokens",
+-      "@krds-native/styles"
++      "@unofficial-krds/tokens",
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -305,7 +305,7 @@
+     "modified": true,
+     "changeSummary": "Mapped every original Figma token key and raw alias/value to its transformed key and CSS output name; preserved original JSON unchanged as first local path.",
+     "distributedIn": [
+-      "@krds-native/tokens"
++      "@unofficial-krds/tokens"
+     ]
+   },
+   {
+@@ -350,8 +350,8 @@
+     "modified": true,
+     "changeSummary": "Normalized all 768 original keyed tokens without changing numeric/string values, raw aliases, types or descriptions; generated resolved records, CSS aliases, original-key map and public type declarations; embedded generated token CSS in standalone component/all CSS and identical plain CSS strings.",
+     "distributedIn": [
+-      "@krds-native/tokens",
+-      "@krds-native/styles"
++      "@unofficial-krds/tokens",
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -3358,7 +3358,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/fonts"
++      "@unofficial-krds/fonts"
+     ]
+   },
+   {
+@@ -3389,7 +3389,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/fonts"
++      "@unofficial-krds/fonts"
+     ]
+   },
+   {
+@@ -3420,7 +3420,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/fonts"
++      "@unofficial-krds/fonts"
+     ]
+   },
+   {
+@@ -3451,7 +3451,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -3482,7 +3482,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -3513,7 +3513,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -3544,7 +3544,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -3575,7 +3575,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -3606,7 +3606,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -3637,7 +3637,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -3668,7 +3668,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+--- before/packages/angular/ATTRIBUTION.md
++++ after/packages/angular/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/angular
++# Attribution: @unofficial-krds/angular
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/angular/LICENSE.md
++++ after/packages/angular/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/angular
++## Package scope: @unofficial-krds/angular
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/angular/THIRD-PARTY-NOTICES.md
++++ after/packages/angular/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/angular
++# Third-party notices: @unofficial-krds/angular
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/assets/LICENSE.md
++++ after/packages/assets/LICENSE.md
+@@ -12,7 +12,7 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/assets
++## Package scope: @unofficial-krds/assets
+ 
+ ## KRDS ico_close
+ 
+--- before/packages/assets/THIRD-PARTY-NOTICES.md
++++ after/packages/assets/THIRD-PARTY-NOTICES.md
+@@ -1,4 +1,4 @@
+-# Third-party notices: @krds-native/assets
++# Third-party notices: @unofficial-krds/assets
+ 
+ ## KRDS ico_close
+ 
+--- before/packages/assets/provenance.json
++++ after/packages/assets/provenance.json
+@@ -27,7 +27,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -58,7 +58,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -89,7 +89,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -120,7 +120,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -151,7 +151,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -182,7 +182,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -213,7 +213,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   },
+   {
+@@ -244,7 +244,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/assets"
++      "@unofficial-krds/assets"
+     ]
+   }
+ ]
+--- before/packages/contracts/ATTRIBUTION.md
++++ after/packages/contracts/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/contracts
++# Attribution: @unofficial-krds/contracts
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/contracts/LICENSE.md
++++ after/packages/contracts/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/contracts
++## Package scope: @unofficial-krds/contracts
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/contracts/THIRD-PARTY-NOTICES.md
++++ after/packages/contracts/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/contracts
++# Third-party notices: @unofficial-krds/contracts
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/fonts/ATTRIBUTION.md
++++ after/packages/fonts/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/fonts
++# Attribution: @unofficial-krds/fonts
+ 
+ Included materials are attributed in THIRD-PARTY-NOTICES.md.
+ 
+--- before/packages/fonts/LICENSE.md
++++ after/packages/fonts/LICENSE.md
+@@ -12,7 +12,7 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/fonts
++## Package scope: @unofficial-krds/fonts
+ 
+ ## PretendardGOV-Regular
+ 
+--- before/packages/fonts/THIRD-PARTY-NOTICES.md
++++ after/packages/fonts/THIRD-PARTY-NOTICES.md
+@@ -1,4 +1,4 @@
+-# Third-party notices: @krds-native/fonts
++# Third-party notices: @unofficial-krds/fonts
+ 
+ ## PretendardGOV-Regular
+ 
+--- before/packages/fonts/provenance.json
++++ after/packages/fonts/provenance.json
+@@ -27,7 +27,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/fonts"
++      "@unofficial-krds/fonts"
+     ]
+   },
+   {
+@@ -58,7 +58,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/fonts"
++      "@unofficial-krds/fonts"
+     ]
+   },
+   {
+@@ -89,7 +89,7 @@
+     "modified": false,
+     "changeSummary": "Original retained without changes.",
+     "distributedIn": [
+-      "@krds-native/fonts"
++      "@unofficial-krds/fonts"
+     ]
+   }
+ ]
+--- before/packages/lit/ATTRIBUTION.md
++++ after/packages/lit/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/lit
++# Attribution: @unofficial-krds/lit
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/lit/LICENSE.md
++++ after/packages/lit/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/lit
++## Package scope: @unofficial-krds/lit
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/lit/THIRD-PARTY-NOTICES.md
++++ after/packages/lit/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/lit
++# Third-party notices: @unofficial-krds/lit
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/qwik/ATTRIBUTION.md
++++ after/packages/qwik/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/qwik
++# Attribution: @unofficial-krds/qwik
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/qwik/LICENSE.md
++++ after/packages/qwik/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/qwik
++## Package scope: @unofficial-krds/qwik
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/qwik/THIRD-PARTY-NOTICES.md
++++ after/packages/qwik/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/qwik
++# Third-party notices: @unofficial-krds/qwik
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/react/ATTRIBUTION.md
++++ after/packages/react/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/react
++# Attribution: @unofficial-krds/react
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/react/LICENSE.md
++++ after/packages/react/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/react
++## Package scope: @unofficial-krds/react
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/react/THIRD-PARTY-NOTICES.md
++++ after/packages/react/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/react
++# Third-party notices: @unofficial-krds/react
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/solid/ATTRIBUTION.md
++++ after/packages/solid/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/solid
++# Attribution: @unofficial-krds/solid
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/solid/LICENSE.md
++++ after/packages/solid/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/solid
++## Package scope: @unofficial-krds/solid
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/solid/THIRD-PARTY-NOTICES.md
++++ after/packages/solid/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/solid
++# Third-party notices: @unofficial-krds/solid
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/solid-next/ATTRIBUTION.md
++++ after/packages/solid-next/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/solid-next
++# Attribution: @unofficial-krds/solid-next
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/solid-next/LICENSE.md
++++ after/packages/solid-next/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/solid-next
++## Package scope: @unofficial-krds/solid-next
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/solid-next/THIRD-PARTY-NOTICES.md
++++ after/packages/solid-next/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/solid-next
++# Third-party notices: @unofficial-krds/solid-next
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/styles/LICENSE.md
++++ after/packages/styles/LICENSE.md
+@@ -12,7 +12,7 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/styles
++## Package scope: @unofficial-krds/styles
+ 
+ ## KRDS resources/css/common/common.css
+ 
+--- before/packages/styles/THIRD-PARTY-NOTICES.md
++++ after/packages/styles/THIRD-PARTY-NOTICES.md
+@@ -1,4 +1,4 @@
+-# Third-party notices: @krds-native/styles
++# Third-party notices: @unofficial-krds/styles
+ 
+ ## KRDS resources/css/common/common.css
+ 
+--- before/packages/styles/provenance.json
++++ after/packages/styles/provenance.json
+@@ -41,7 +41,7 @@
+     "modified": true,
+     "changeSummary": "Reworked common foundation as scoped public attributes with focus-visible, forced colors and reduced-motion rules. Separated explicit global reset and optional installed/local font selection; omitted remote assets, original scripts and global defaults from component entries. Plain CSS strings use identical source bytes. T06 native-renderer correction: decorate only nonempty errors so persistent empty polite regions remain visually empty.",
+     "distributedIn": [
+-      "@krds-native/styles"
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -86,7 +86,7 @@
+     "modified": true,
+     "changeSummary": "Adapted six pilot styles to documented public component/part/state/variant/size attributes with native semantics left to adapters; added wrapping, constrained viewport layouts and non-color state cues. Omitted original DOM-specific classes, JavaScript, icon assets and unrelated components; generated ordinary CSS and identical runtime-free strings. Calendar in-range uses a dashed border rather than outline so the independent focus-visible outline and forced-colors Highlight focus cue remain available; range endpoints retain double borders. T06 native-renderer corrections: selected Calendar dates use Canvas/ButtonText with non-color state borders in forced colors; nonwrapping digits/weekday labels and intrinsic table width scroll locally under narrow text enlargement; native DateInput popup receives explicit centered viewport-bounded sizing. Calendar table scrolling is isolated in a private native wrapper with focus-ring padding, keeping month navigation and footer actions stationary; narrow headers use separate heading/navigation rows to avoid year-arrow overlap.",
+     "distributedIn": [
+-      "@krds-native/styles"
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -126,8 +126,8 @@
+     "modified": true,
+     "changeSummary": "Preserved every original CSS custom-property name, literal value and alias in generated token declarations; added :host targeting for shadow roots and embedded declarations in component/all CSS and plain strings. No official token values re-estimated.",
+     "distributedIn": [
+-      "@krds-native/tokens",
+-      "@krds-native/styles"
++      "@unofficial-krds/tokens",
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -172,8 +172,8 @@
+     "modified": true,
+     "changeSummary": "Normalized all 768 original keyed tokens without changing numeric/string values, raw aliases, types or descriptions; generated resolved records, CSS aliases, original-key map and public type declarations; embedded generated token CSS in standalone component/all CSS and identical plain CSS strings.",
+     "distributedIn": [
+-      "@krds-native/tokens",
+-      "@krds-native/styles"
++      "@unofficial-krds/tokens",
++      "@unofficial-krds/styles"
+     ]
+   }
+ ]
+--- before/packages/svelte/ATTRIBUTION.md
++++ after/packages/svelte/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/svelte
++# Attribution: @unofficial-krds/svelte
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/svelte/LICENSE.md
++++ after/packages/svelte/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/svelte
++## Package scope: @unofficial-krds/svelte
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/svelte/THIRD-PARTY-NOTICES.md
++++ after/packages/svelte/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/svelte
++# Third-party notices: @unofficial-krds/svelte
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/tokens/LICENSE.md
++++ after/packages/tokens/LICENSE.md
+@@ -12,7 +12,7 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/tokens
++## Package scope: @unofficial-krds/tokens
+ 
+ ## KRDS resources/css/token/krds_tokens.css
+ 
+--- before/packages/tokens/THIRD-PARTY-NOTICES.md
++++ after/packages/tokens/THIRD-PARTY-NOTICES.md
+@@ -1,4 +1,4 @@
+-# Third-party notices: @krds-native/tokens
++# Third-party notices: @unofficial-krds/tokens
+ 
+ ## KRDS resources/css/token/krds_tokens.css
+ 
+--- before/packages/tokens/provenance.json
++++ after/packages/tokens/provenance.json
+@@ -36,8 +36,8 @@
+     "modified": true,
+     "changeSummary": "Preserved every original CSS custom-property name, literal value and alias in generated token declarations; added :host targeting for shadow roots and embedded declarations in component/all CSS and plain strings. No official token values re-estimated.",
+     "distributedIn": [
+-      "@krds-native/tokens",
+-      "@krds-native/styles"
++      "@unofficial-krds/tokens",
++      "@unofficial-krds/styles"
+     ]
+   },
+   {
+@@ -70,7 +70,7 @@
+     "modified": true,
+     "changeSummary": "Mapped every original Figma token key and raw alias/value to its transformed key and CSS output name; preserved original JSON unchanged as first local path.",
+     "distributedIn": [
+-      "@krds-native/tokens"
++      "@unofficial-krds/tokens"
+     ]
+   },
+   {
+@@ -115,8 +115,8 @@
+     "modified": true,
+     "changeSummary": "Normalized all 768 original keyed tokens without changing numeric/string values, raw aliases, types or descriptions; generated resolved records, CSS aliases, original-key map and public type declarations; embedded generated token CSS in standalone component/all CSS and identical plain CSS strings.",
+     "distributedIn": [
+-      "@krds-native/tokens",
+-      "@krds-native/styles"
++      "@unofficial-krds/tokens",
++      "@unofficial-krds/styles"
+     ]
+   }
+ ]
+--- before/packages/vue/ATTRIBUTION.md
++++ after/packages/vue/ATTRIBUTION.md
+@@ -1,4 +1,4 @@
+-# Attribution: @krds-native/vue
++# Attribution: @unofficial-krds/vue
+ 
+ No KRDS originals or third-party assets are distributed in this package at this snapshot.
+ 
+--- before/packages/vue/LICENSE.md
++++ after/packages/vue/LICENSE.md
+@@ -12,6 +12,6 @@
+ 
+ This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+ 
+-## Package scope: @krds-native/vue
++## Package scope: @unofficial-krds/vue
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.
+--- before/packages/vue/THIRD-PARTY-NOTICES.md
++++ after/packages/vue/THIRD-PARTY-NOTICES.md
+@@ -1,3 +1,3 @@
+-# Third-party notices: @krds-native/vue
++# Third-party notices: @unofficial-krds/vue
+ 
+ No third-party material is copied or bundled in this package at this snapshot. External dependencies retain their own package notices.

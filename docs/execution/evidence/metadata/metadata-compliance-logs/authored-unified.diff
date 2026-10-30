@@ -1,0 +1,466 @@
+--- before/AGENTS.md
++++ after/AGENTS.md
+@@ -9,5 +9,5 @@
+ - Nx tags and `tools/check-workspace.mjs` enforce shared → shared, adapter → shared, test → shared, app → library dependencies. Adapters may not import each other or foreign renderers. CSS/docs dependencies must appear in `implicitDependencies`. Docs may link fixture outputs.
+ - `build` calls each workspace `build:local`; outputs belong in its own `dist/`. Probe entries are bootstrap tests, contribute no catalog coverage, and must be replaced by the owning implementation task. Empty behavioral suites must fail rather than claim success.
+ - Stories use local args/inputs/slots and pure state; no API/auth/CDN/external fonts/images. Keep story and siheom behavior files separate. Lit and Solid 2 have no supported upstream siheom adapter; do not widen peers or invent support.
+-- Track KRDS source URL, baseline, retrieval date and hashes in upstream/provenance records before incorporating source/assets. Independent MIT code does not relicense KRDS or font materials. Scope ownership, repository ownership and copyright holder are unconfirmed in `compliance/project-identity.json`; never invent holders, publish placeholders, or publish without authorization and release checks.
++- Track KRDS source URL, baseline, retrieval date and hashes in upstream/provenance records before incorporating source/assets. Independent MIT code does not relicense KRDS or font materials. Scope/account and repository ownership remain unverified in `compliance/project-identity.json`; the user-confirmed independent-code holder is Lee Dogeon <dev.moreal@gmail.com> under the completed 2026 MIT grant, separate from original KRDS and font rights. Never invent holders, publish placeholders, or publish without authorization and release checks.
+ - Do not execute original KRDS JavaScript alongside Ark/Zag controlling the same DOM. Do not add remote telemetry requirements or Nx Cloud.
+--- before/ATTRIBUTION.md
++++ after/ATTRIBUTION.md
+@@ -1,11 +1,13 @@
+ # 출처 및 이용 조건
+ 
+-이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있습니다. 사용한 자료의 버전, 원본 경로와 변경 내용은 함께 제공하는 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-이 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관의 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 합니다. 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
++독자적으로 작성한 프로젝트 코드는 위 권리자의 MIT License를 적용합니다. 허가 조건과 면책 전문은 [LICENSES/MIT.txt](LICENSES/MIT.txt)에 있습니다. KRDS 원본과 가공 자료, 제3자 코드 및 폰트에는 각각의 원래 조건이 적용됩니다.
+ 
+-프로젝트가 독자적으로 작성하여 권리를 보유한 코드에는 MIT License를 적용할 계획이며, 실제 저작권자는 아직 확정되지 않았습니다. KRDS 원본 및 가공 자료, 제3자 코드와 폰트에는 각각 명시된 조건이 적용되며, 프로젝트의 MIT 적용 계획이 이를 대체하지 않습니다. 미확정 프로젝트 신원은 릴리스 차단 사유입니다.
++이 프로젝트는 행정안전부가 공공누리 제1유형으로 제공하는 KRDS(Korea Design System)의 디자인 지침과 자료를 활용한 독립적인 구현입니다. 공식 출처표시 예시는 행정안전부가 2024년에 작성한 범정부 UI/UX 디자인시스템(KRDS)을 식별합니다. 원문과 리소스는 [KRDS 공식 홈페이지](https://www.krds.go.kr/)에서 확인할 수 있으며, 실제 사용 자료의 버전·원본 경로·해시·변경 내용은 `provenance.json`과 `THIRD-PARTY-NOTICES.md`에 기록합니다. 원문에 없는 개별 파일의 저작권 문구나 연도를 이 예시에서 추정하여 채우지 않습니다.
+ 
+-KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문의 SHA-256으로 식별합니다. 공식 정책의 출처표시 예시는 행정안전부가 2024년에 제작한 KRDS를 가리키지만, 개별 파일에 없는 저작권 연도·표시를 추정하여 생성하지 않습니다.
++정부·KRDS 자료에 대한 위 출처표시와 독자 코드의 MIT 저작권 표시는 각각의 적용 범위를 갖습니다. 프로젝트의 명칭과 배포는 정부 또는 KRDS 운영기관의 공식 배포물, 후원, 인증 또는 보증을 의미하지 않습니다. 기관 로고·명칭·공식 배너 신원은 소비자가 실제 권한과 서비스 맥락에 맞게 제공해야 하며, 이 패키지는 기관 로고나 정부 신원 자산을 제공하지 않습니다.
+ 
+-KRDS 자료를 재배포하는 경우 이 출처 목록과 패키지의 `LICENSES/`에 보존한 정책 전문, 사용 자료의 변경 기록을 함께 전달하십시오. 이 안내는 모든 소비 앱 화면 footer에 항상 문구를 표시해야 한다는 별도 의무를 만들지 않습니다. 원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html)과 [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do)을 확인하십시오.
++KRDS 기준선은 HTML Component Kit 1.1.0, commit `d6bb184c823e4757f05807ea4646a23e3133b6e6`입니다. 웹 지침은 저장소 릴리스와 별도로 2026-10-30에 수집한 원문 SHA-256으로 식별합니다. KRDS 자료를 재배포하는 경우 출처 목록, 패키지 `LICENSES/`의 정책 전문과 변경 기록을 함께 전달하십시오. 이는 모든 소비 앱 화면 footer에 문구를 항상 표시해야 한다는 별도 의무를 만들지 않습니다.
++
++원문 조건은 [KRDS 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html), [공공누리 이용 조건](https://www.kogl.or.kr/info/license.do) 및 [제1유형 이용약관](https://www.kogl.or.kr/info/licenseType1.do)에서 확인할 수 있습니다. 로컬 메타데이터와 패키지 준비는 계정 소유권 검증 및 실제 게시 권한과 구분합니다.
+--- before/LICENSE.md
++++ after/LICENSE.md
+@@ -1,11 +1,13 @@
+-# License scope and release status
++# License scope
+ 
+-KRDS Native is an independent implementation. This repository is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement.
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
+ 
+-Independent code is intended to use the MIT License after the actual copyright holder is confirmed. `compliance/project-identity.json` records that the holder, publishing authority, scope ownership and published repository ownership remain unconfirmed. `LICENSES/MIT-intended.txt` preserves the intended permission and disclaimer text; no holder or year has been invented, and it is not a completed independent-code grant. Public release remains blocked until those facts and the resulting license notices are confirmed.
++Independently authored project code is licensed under the MIT License. The complete permission, condition and disclaimer are in [LICENSES/MIT.txt](LICENSES/MIT.txt). This copyright notice identifies the independent project code holder supplied by the user.
+ 
+-KRDS originals and adaptations retain the verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. The full preserved KRDS policy and KOGL conditions are supplied with packages that distribute KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; this is recorded in `compliance/license-policy.json`. No dual-license election or universal legal priority is asserted.
++KRDS Native is an independent implementation. KRDS originals and adaptations retain their verified KRDS KOGL Type 1 attribution conditions, identified internally as `LicenseRef-KRDS-KOGL-Type-1`. This is a local reference, not an official SPDX identifier. KRDS materials are credited to 행정안전부 / Ministry of the Interior and Safety as identified by the [official KRDS copyright policy](https://www.krds.go.kr/html/eng/utility/utility_05.html). The independent-code MIT grant does not replace those original conditions or assign government coownership to independent project code. Rewriting or translating upstream material does not by itself make it independent code.
+ 
+-Distributed font files retain their applicable original license, copyright notices, and Reserved Font Names. Third-party code retains its own conditions. The independent-code MIT intent does not replace these conditions. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe the material actually distributed there. External dependencies retain their own notices; they are not represented as copied into this package.
++The full preserved KRDS and KOGL conditions accompany packages containing KRDS materials. Package `ISC` metadata and the pinned upstream README's reference to KRDS terms differ; `compliance/license-policy.json` preserves that discrepancy without asserting a dual-license election or universal legal priority.
+ 
+-Unresolved individual rights records are investigation evidence only and cannot appear in a public package's `distributedIn` list. Local generation and verification do not authorize publication.
++Distributed fonts and third-party code retain their original license, copyright notices and Reserved Font Names where applicable. Each package's `provenance.json`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `LICENSES/` describe its actual included materials. External dependencies retain their own package notices. Unresolved individual rights records are investigation evidence and cannot list a public package in `distributedIn`.
++
++This project is not an official government or KRDS distribution and does not imply sponsorship, certification or endorsement. Local metadata, packaging and candidate preparation are separate from authenticated account ownership and publication authorization; this license grant does not authorize npm publication, pushing or tagging. See `compliance/project-identity.json` for the supplied metadata and separate remaining checks.
+--- before/LICENSES/MIT-intended.txt
++++ /dev/null
+@@ -1,23 +0,0 @@
+-MIT License — intended terms for independent code only
+-
+-The independent-code copyright holder and year are unconfirmed. This is the
+-intended permission/disclaimer text, not a completed grant or a publishable
+-substitute for the actual rights-holder notice. See compliance/project-identity.json.
+-
+-Permission is hereby granted, free of charge, to any person obtaining a copy
+-of this software and associated documentation files (the "Software"), to deal
+-in the Software without restriction, including without limitation the rights
+-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-copies of the Software, and to permit persons to whom the Software is
+-furnished to do so, subject to the following conditions:
+-
+-The above copyright notice and this permission notice shall be included in all
+-copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
+--- /dev/null
++++ after/LICENSES/MIT.txt
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+--- before/compliance/license-policy.json
++++ after/compliance/license-policy.json
+@@ -3,10 +3,14 @@
+   "baselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+   "independentCode": {
+     "intent": "MIT",
+-    "holderStatus": "unconfirmed",
+-    "releaseAllowed": false,
+-    "termsPath": "LICENSES/MIT-intended.txt",
+-    "identityPath": "compliance/project-identity.json"
++    "holderStatus": "confirmed",
++    "releaseAllowed": true,
++    "termsPath": "LICENSES/MIT.txt",
++    "identityPath": "compliance/project-identity.json",
++    "grantStatus": "completed",
++    "copyrightNotice": "Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>",
++    "readinessScope": "Independent-code grant readiness only; separate from authenticated account ownership, general candidate acceptance and publication authorization.",
++    "metadataEvidencePath": "compliance/metadata-evidence.json"
+   },
+   "localLicenseReferences": {
+     "LicenseRef-KRDS-KOGL-Type-1": {
+@@ -26,7 +30,6 @@
+   },
+   "sourceDocuments": {
+     "LICENSES/KRDS-copyright-en.html": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+-    "LICENSES/MIT-intended.txt": "9382d7b6cd5cc5719ed7f0fe5ac39027685aab16d8a02c47788b6d13acc2ee31",
+     "LICENSES/Pretendard-GOV-OFL-1.1.txt": "e84395ff7ecbbaa72c7ac59a03266bebd9f489d2270d6943b08d6a60d7fc91ba",
+     "LICENSES/KOGL-license-policy.html": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+     "LICENSES/KRDS-copyright-ko.html": "33b564e430f72d63f583d63cbbbed83a4edcf9aea2bb4e9e49f9551fee057ccf",
+@@ -1624,7 +1627,8 @@
+     "LICENSES/dependencies/watchpack_2.6.3/LICENSE": "9068a8782d2fb4c6e432cfa25334efa56f722822180570802bf86e71b6003b1e",
+     "LICENSES/dependencies/isarray_2.0.5/LICENSE": "68f12f6e2c33688699249c01d8f9623c534da20aa71989c57b061b7bc1676d14",
+     "LICENSES/dependencies/dotenv_16.6.1/LICENSE": "74b629b24865e1e83c5277ee84590b7937644d6fd959d0c7bdce758676cd2ced",
+-    "LICENSES/dependencies/_babel_compat-data_8.0.5/LICENSE": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76"
++    "LICENSES/dependencies/_babel_compat-data_8.0.5/LICENSE": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76",
++    "LICENSES/MIT.txt": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+   },
+   "staticAssetRoots": [
+     "packages/assets/icons",
+--- /dev/null
++++ after/compliance/metadata-evidence.json
+@@ -0,0 +1,61 @@
++{
++  "schemaVersion": 1,
++  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
++  "recordedAt": "2026-10-30T02:30:00.251464+00:00",
++  "authorizationSource": "User metadata supplied in this execution session and relayed by the controller; controller approved the independent-code/upstream rights distinction and representation before mutation.",
++  "userSupplied": {
++    "scopeName": "unofficial-krds",
++    "repositoryUrl": "https://github.com/moreal/krds",
++    "proposedAttribution": "government and Lee Dogeon <dev.moreal@gmail.com>"
++  },
++  "decisions": {
++    "independentCodeHolder": "Lee Dogeon <dev.moreal@gmail.com>",
++    "independentCodeYear": 2026,
++    "yearBasis": "Independent project implementation authored during the 2026 execution session; no upstream copyright year was inferred.",
++    "independentGrantPath": "LICENSES/MIT.txt",
++    "independentGrantSha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
++    "krdsAttribution": "KRDS source materials are credited to 행정안전부 / Ministry of the Interior and Safety under the verified KOGL Type 1 conditions. Official example identifies KRDS work created in 2024; that example is not substituted for absent file-level copyright notices.",
++    "governmentCoownershipOfIndependentCodeAsserted": false,
++    "thirdPartyAndFontTerms": "Existing provenance, license texts, copyright and RFN are unchanged; independent MIT does not replace them.",
++    "scopeApplication": "Requested @unofficial-krds naming confirmed; actual localPackageScope remains @krds-native until T01 atomic integration.",
++    "metadataReadiness": "User-supplied values and independent MIT grant complete; requested-scope application pending.",
++    "ownershipVerification": "No npm or repository account ownership claim is made.",
++    "publicationAuthorization": "None; existing strict --release ownership/publication-related checks remain unchanged, independently of normal local pack/candidate work."
++  },
++  "officialSourceChecks": [
++    {
++      "url": "https://www.krds.go.kr/html/eng/utility/utility_05.html",
++      "checkedAt": "2026-10-30T02:25:18.836405+00:00",
++      "finalUrl": "https://www.krds.go.kr/html/eng/utility/utility_05.html",
++      "status": "retrieved",
++      "path": "LICENSES/KRDS-copyright-en.html",
++      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
++      "bytes": 34235,
++      "role": "Verified complete official KRDS English policy; fresh bytes match the preserved T03 original."
++    },
++    {
++      "url": "https://www.kogl.or.kr/info/licenseType1.do",
++      "checkedAt": "2026-10-30T02:25:18.941871+00:00",
++      "finalUrl": "https://www.kogl.or.kr/info/licenseType1.do",
++      "status": "retrieved",
++      "path": "compliance/evidence/metadata/kogl-license-type1.html",
++      "sha256": "6b40c3874cf8866f61d8d1bab95e5d4bbedae4dd11347288883a1e83cfd425a6",
++      "bytes": 7729,
++      "role": "Verified official Type 1 certificate and full terms; research evidence only, not runtime payload."
++    }
++  ],
++  "preservedPolicyEvidence": {
++    "krdsEnglishPath": "LICENSES/KRDS-copyright-en.html",
++    "krdsEnglishSha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
++    "freshKrdsEnglishMatchesPreserved": true,
++    "koglPolicyPath": "LICENSES/KOGL-license-policy.html",
++    "koglPolicySha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
++    "newCertificateRole": "Research confirmation only; no new upstream material is incorporated into runtime packages."
++  },
++  "protectedBeforeHashes": {
++    "compliance/provenance.json": "0533d3e07dd46f755d1a813198eafce30522e5bf91994ac7e1138b3d12478071",
++    "upstream/krds/manifest.json": "1b8583c883193a5eb047e60ffbca3837d17a0e7ebc11762d1d94a005e0cb2933",
++    "yarn.lock": "136bebc1c213d0bc274b905ee291fa096beefa4dbbaece6ecf915689adadf4f4"
++  },
++  "supplementalSource": "Official FAQ browser text was also checked; its newly fetched HTML is a dynamic shell and is not used as the complete licensing basis. Research fetch evidence remains in metadata-compliance-logs."
++}
+--- before/compliance/project-identity.json
++++ after/compliance/project-identity.json
+@@ -4,45 +4,73 @@
+   "displayName": "KRDS Native",
+   "localPackageScope": "@krds-native",
+   "scopeOwnership": {
+-    "status": "unconfirmed",
++    "status": "unverified",
+     "confirmedOwner": null,
+     "publishAuthorized": false,
+-    "evidence": "Working name supplied by plan; npm scope ownership and publishing authority not supplied or authenticated."
++    "evidence": "The user selected unofficial-krds as the npm scope name. This confirms naming intent only; npm account/scope ownership and publication authorization have not been authenticated or granted."
+   },
+   "repository": {
+     "observedGitRemote": "git@github.com:moreal/krds.git",
+     "observedHttpsUrl": "https://github.com/moreal/krds",
+     "observation": "git remote -v",
+-    "identityStatus": "configured-local-remote-only",
++    "identityStatus": "user-confirmed-metadata-url",
+     "ownershipVerified": false,
+-    "releaseMetadataRepositoryUrl": null
++    "releaseMetadataRepositoryUrl": "https://github.com/moreal/krds",
++    "metadataSource": "Repository URL supplied by the user; configured Git remote is retained as separate observed evidence, not proof of account ownership."
+   },
+   "copyright": {
+-    "independentCodeHolder": null,
+-    "independentCodeYear": null,
+-    "status": "unconfirmed",
+-    "plannedLicense": "MIT for independently authored code only, subject to confirmed holder; not an override for upstream materials"
++    "independentCodeHolder": "Lee Dogeon <dev.moreal@gmail.com>",
++    "independentCodeYear": 2026,
++    "status": "confirmed",
++    "plannedLicense": "MIT for independently authored project code only; completed grant in LICENSES/MIT.txt, not a replacement for KRDS originals/derivatives or third-party materials.",
++    "evidence": "User supplied Lee Dogeon <dev.moreal@gmail.com>; controller confirmed independent-code holder separately from official KRDS attribution. Year 2026 records this workspace implementation session, not an inferred upstream year."
+   },
+   "affiliation": {
+     "governmentAffiliationClaimed": false,
+     "rule": "Examples must not present the project as an official government service or claim real institutional identity."
+   },
+   "releaseMetadata": {
+-    "status": "unmet",
++    "status": "metadata-confirmed-release-checks-pending",
+     "publishAllowed": false,
+     "missing": [
+-      "Confirmed scope ownership and publishing authority",
+-      "Confirmed independent-code copyright holder",
+-      "Confirmed repository URL/ownership for published metadata",
+-      "Per-file/asset license reconciliation and font notices"
++      "Atomic requested-scope integration by T01",
++      "Remaining candidate/release checks and T16 assessment of the existing ownership-related policy gates"
+     ],
+     "localImplementationAllowed": true,
+-    "prohibited": "Do not publish placeholders, assume ownership from a Git remote, or reuse upstream authors as this project identity."
++    "prohibited": "Do not infer npm/repository account ownership or publication permission from metadata naming. Preserve original KRDS/third-party rights. Ordinary local packing and candidate preparation are separate from publication authorization."
+   },
+   "upstreamIdentity": {
+     "name": "KRDS",
+     "repositoryUrl": "https://github.com/KRDS-uiux/krds-uiux",
+-    "separateFromProject": true
++    "separateFromProject": true,
++    "providerAttribution": "행정안전부 / Ministry of the Interior and Safety — KRDS source materials under their verified original terms",
++    "governmentCoownershipOfIndependentCodeAsserted": false
+   },
+-  "checkedAt": "2026-10-29T23:35:31.019299+00:00"
++  "checkedAt": "2026-10-30T02:30:00.251464+00:00",
++  "requestedPackageScope": "@unofficial-krds",
++  "scopeNaming": {
++    "status": "confirmed-by-user",
++    "currentLocalScope": "@krds-native",
++    "requestedScope": "@unofficial-krds",
++    "integrationStatus": "pending-T01-atomic-manifest-lock-and-provenance-rename"
++  },
++  "metadataReadiness": {
++    "status": "user-values-and-independent-grant-complete",
++    "complete": true,
++    "requestedScope": "@unofficial-krds",
++    "repositoryUrl": "https://github.com/moreal/krds",
++    "independentGrantPath": "LICENSES/MIT.txt",
++    "scopeIntegration": "pending-T01; localPackageScope still describes the current actual workspace"
++  },
++  "ownershipVerification": {
++    "npmScope": "not-authenticated",
++    "repository": "not-authenticated",
++    "notImpliedByUserMetadata": true
++  },
++  "publicationAuthorization": {
++    "authorized": false,
++    "scope": "No npm publication, pushing or tagging is authorized by this metadata request."
++  },
++  "baselineCheckedAt": "2026-10-29T23:35:31.019299+00:00",
++  "metadataEvidencePath": "compliance/metadata-evidence.json"
+ }
+--- before/docs/execution/decisions.md
++++ after/docs/execution/decisions.md
+@@ -30,3 +30,14 @@
+ - 실제 Nx affected 검사에서 target input override 누락을 발견했다. root sharedGlobals의 실제 spec glob으로 모든 필수 native 검증을 선택한다. 초기에는 spec 변경 시32개 project가 affected가 되는 비용을 허용한다.
+ - Firefox profile 시작 실패는 설치 성공과 구분해 T13 blocker로 기록한다. 실제 native/SSR/IME·수동 접근성 검증을 대체하지 않는다.
+ - 실행·독립 리뷰 근거는 docs/execution/evidence에 보존한다. 원장 scratch를 지워도 완료 근거가 사라지지 않게 한다.
++
++## 2026-10-30 사용자 제공 메타데이터와 독자 코드 허가
++
++이 결정은 위 T00 시점의 “Local identity only” 행에서 보류했던 이름·저작권자·허가문 정보를 갱신한다. 당시의 원본 실행·리뷰 기록은 그대로 보존한다.
++
++- 사용자가 npm scope 이름 `unofficial-krds`와 저장소 URL `https://github.com/moreal/krds`를 제공했다. 요청 이름은 `@unofficial-krds`로 기록하고, 현재 실제 workspace scope `@krds-native`는 T01의 manifest·lock·출처 참조 원자적 변경 때 갱신한다. 이름과 URL 확인은 npm/GitHub 계정 소유권 인증을 의미하지 않는다.
++- 독자적으로 작성한 프로젝트 코드의 저작권자는 `Lee Dogeon <dev.moreal@gmail.com>`로 확인했다. 이 구현 세션의 작성 연도 2026을 사용하여 완성된 MIT 허가문을 `LICENSES/MIT.txt`에 보존한다. 정부를 독자 코드의 공동 권리자로 새로 표시하지 않는다.
++- [KRDS 공식 저작권 정책](https://www.krds.go.kr/html/eng/utility/utility_05.html)은 KRDS 자료에 공공누리 제1유형을 안내하고 행정안전부의 2024년 KRDS 자료를 출처표시 예시로 식별한다. [공공누리 제1유형 이용약관](https://www.kogl.or.kr/info/licenseType1.do)은 출처표시와 공공기관의 후원·특수 관계로 오인하게 하지 않을 조건을 설명한다. 실제 복제·가공한 KRDS 자료에는 이 원래 조건과 출처를 별도로 보존하며, 개별 원문에 없는 copyright 문구를 만들지 않는다. 폰트와 제3자 코드의 원래 조건도 유지한다.
++- 사용자 메타데이터와 독자 MIT 허가의 로컬 준비 상태, 계정 소유권 검증, 게시 승인 여부를 분리한다. 이 요청으로 npm publication·push·tag가 승인되지는 않았으며 `publishAuthorized`는 false다. 일반적인 로컬 pack 및 T16 후보 준비가 실제 게시 승인과 같다는 새 규칙을 만들지 않는다. 기존 엄격한 `--release` ownership 관련 검사의 적용은 T16에서 기존 계획과 함께 평가한다.
++
++현재 값과 공식 출처 해시는 `compliance/project-identity.json`, `compliance/metadata-evidence.json`에 있다. 작업·검증 근거는 `.superpowers/sdd/PLAN/task-metadata-compliance-report.md`에 기록한다. `docs/execution/progress.md`의 작업 상태 갱신은 controller/T06 lead 소유로 유지한다.
+--- before/packages/angular/README.md
++++ after/packages/angular/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/assets/README.md
++++ after/packages/assets/README.md
+@@ -4,4 +4,4 @@
+ 
+ Institution logos, service names, official government banners and third-party brand marks are not bundled. Consumers supply their own identity and verify their rights. `InstitutionIdentity` describes optional consumer-provided identity without inventing an institution.
+ 
+-The icons retain the recorded KRDS KOGL Type 1 conditions. See LICENSE.md, ATTRIBUTION.md, THIRD-PARTY-NOTICES.md, provenance.json and LICENSES/. Preserve these notices when redistributing the icons. Project identity and independent-code copyright remain release gates; this local package is not authorized for publication.
++The icons retain the recorded KRDS KOGL Type 1 conditions. See LICENSE.md, ATTRIBUTION.md, THIRD-PARTY-NOTICES.md, provenance.json and LICENSES/. Preserve these notices when redistributing the icons. Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under LICENSES/MIT.txt; the original material keeps its own terms. Publication is not authorized.
+--- before/packages/contracts/README.md
++++ after/packages/contracts/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/fonts/README.md
++++ after/packages/fonts/README.md
+@@ -4,4 +4,4 @@
+ 
+ The original SIL OFL 1.1, copyright notices and Reserved Font Names `Pretendard GOV`, `Source`, `Inter` and `M PLUS 1` are preserved in LICENSES/Pretendard-GOV-OFL-1.1.txt. Preserve the full text and notices with redistributed font files. OFL restricts selling fonts by themselves; embedding them in an application does not put independent UI code under OFL. Modified fonts require separate consideration of the original RFN conditions.
+ 
+-See LICENSE.md, THIRD-PARTY-NOTICES.md and provenance.json for the exact official commit, original paths and hashes. Project identity and independent-code copyright remain release gates; this local package is not authorized for publication.
++See LICENSE.md, THIRD-PARTY-NOTICES.md and provenance.json for the exact official commit, original paths and hashes. Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under LICENSES/MIT.txt; the original material keeps its own terms. Publication is not authorized.
+--- before/packages/lit/README.md
++++ after/packages/lit/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/qwik/README.md
++++ after/packages/qwik/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/react/README.md
++++ after/packages/react/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/solid-next/README.md
++++ after/packages/solid-next/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/solid/README.md
++++ after/packages/solid/README.md
+@@ -57,4 +57,4 @@
+ Storybook demonstrate their local state without APIs or external assets. Pilot verification
+ does not establish full catalog, screen-reader, release or independent-install acceptance.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/styles/README.md
++++ after/packages/styles/README.md
+@@ -12,4 +12,4 @@
+ 
+ Build parses all sources with PostCSS, rejects unknown token references, public parts/states and remote assets, and writes outputs only to `dist/`. Focus-visible, forced colors, reduced motion, wrapping and viewport rules are included. No animation is introduced. Renderer-level visual and accessibility acceptance, including 200% zoom and narrow viewport inspection, belongs to T06+; generated styles are not that evidence.
+ 
+-Derived KRDS material keeps its source terms and per-package provenance. Independent ownership remains unconfirmed; release stays blocked.
++Derived KRDS material keeps its source terms and per-package provenance. Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under LICENSES/MIT.txt; publication remains unauthorized.
+--- before/packages/svelte/README.md
++++ after/packages/svelte/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/packages/tokens/README.md
++++ after/packages/tokens/README.md
+@@ -4,4 +4,4 @@
+ 
+ `node scripts/build.mjs` validates aliases (cycles, missing references and type conflicts), rejects output-name collisions, and produces CSS, JSON and declarations in `dist/`. The generated CSS preserves every official token declaration; it also targets `:host` so the same token text can initialize shadow roots. Original KRDS rem dimensions assume its optional 62.5% root font size; importing tokens alone does not change the host application's root font size.
+ 
+-Derived KRDS materials retain their own terms: see LICENSE.md, ATTRIBUTION.md, THIRD-PARTY-NOTICES.md and provenance.json. Independent code ownership remains unconfirmed and release stays blocked. Token tests do not establish native component, visual or accessibility acceptance.
++Derived KRDS materials retain their own terms: see LICENSE.md, ATTRIBUTION.md, THIRD-PARTY-NOTICES.md and provenance.json. Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under LICENSES/MIT.txt; publication remains unauthorized. Token tests do not establish native component, visual or accessibility acceptance.
+--- before/packages/vue/README.md
++++ after/packages/vue/README.md
+@@ -2,4 +2,4 @@
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+-Publishing authority and copyright holder are unconfirmed; do not publish.
++Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+--- before/tools/README.md
++++ after/tools/README.md
+@@ -27,4 +27,4 @@
+ 
+ The environment disables dependency build scripts. Nx, Angular, Qwik and Vite native probes executed successfully using the installed platform packages; no global build-script policy was changed. The Angular application builder exited 129 at startup within the sandbox and passed outside it, with `NG_BUILD_MAX_WORKERS=2`. The full Nx verification command therefore needs that environment's local-build approval. The Angular library build uses the T00-selected official `@angular-devkit/build-angular:ng-packagr` compatibility builder; Angular 22 warns that this name is deprecated in favor of `@angular/build:ng-packagr`. It still produces partial compilation, FESM2022 and declarations. ng-packagr replaces the source workspace's `dist/` export paths with paths relative to its APF output and emits an expected override warning.
+ 
+-No package is authorized for publishing. The local manifests omit unconfirmed copyright, author and repository ownership instead of inventing them. The local license status text is deliberately not a completed MIT grant. Review `compliance/project-identity.json` and the later packaging/provenance gates before producing a release candidate.
++No package is authorized for publishing. User-confirmed independent-code metadata is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>, with the completed MIT grant in LICENSES/MIT.txt; KRDS and third-party materials retain their original conditions. The user selected scope @unofficial-krds and repository https://github.com/moreal/krds; naming metadata does not prove account ownership. Atomic scope integration and the remaining candidate checks are separate from publication authorization. See compliance/project-identity.json and compliance/metadata-evidence.json.
+--- before/tools/generate-notices.mjs
++++ after/tools/generate-notices.mjs
+@@ -144,11 +144,11 @@
+     outputs.set(join(folder, 'ATTRIBUTION.md'), selected.some((entry) => entry.licenseIdOrRef === 'LicenseRef-KRDS-KOGL-Type-1') ? attribution : `# Attribution: ${pkg.name}\n\n${selected.length ? 'Included materials are attributed in THIRD-PARTY-NOTICES.md.\n' : 'No KRDS originals or third-party assets are distributed in this package at this snapshot.\n'}\nThis independent project does not imply government affiliation, sponsorship, certification or endorsement.\n`);
+     outputs.set(join(folder, 'THIRD-PARTY-NOTICES.md'), `# Third-party notices: ${pkg.name}\n\n${body}`);
+     outputs.set(join(folder, 'provenance.json'), `${JSON.stringify(selected, null, 2)}\n`);
+-    // Preserve the declared independent-code terms; the current policy explicitly
+-    // selects the incomplete intent document, without inventing a rights holder.
++    // Preserve the declared independent-code grant separately from upstream terms.
++    // Holder evidence and publication authorization remain distinct metadata.
+     const independentTerms = state.policy.independentCode?.termsPath ?? 'LICENSES/MIT-intended.txt';
+     try { outputs.set(safePath(folder, independentTerms), await readFile(safePath(root, independentTerms))); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+-    if (!texts.length) outputs.set(join(folder, 'LICENSES/README.md'), 'No upstream code/assets copied or bundled at this snapshot. See LICENSE.md for independent-code identity gate.\n');
++    if (!texts.length) outputs.set(join(folder, 'LICENSES/README.md'), 'No upstream code/assets copied or bundled at this snapshot. See LICENSE.md and the declared independent-code grant for its terms.\n');
+     for (const text of texts) outputs.set(safePath(folder, text), await readFile(safePath(root, text)));
+   }
+   outputs.set(join(root, 'THIRD-PARTY-NOTICES.md'), `# Third-party notices\n\nGenerated from compliance/provenance.json. Only material actually distributed in public packages appears below. The complete external development/runtime dependency inventory is separate from copied/bundled material.\n\n${noticeBody(entries.filter((entry) => entry.distributedIn.length))}`);
+--- before/tools/tests/notices.test.mjs
++++ after/tools/tests/notices.test.mjs
+@@ -106,7 +106,8 @@
+   // Synthetic identity exists only in this isolated test fixture, never in project metadata.
+   const identity = { scopeOwnership: { status: 'confirmed', publishAuthorized: true }, copyright: { status: 'confirmed', independentCodeHolder: 'Fixture Rights Holder', independentCodeYear: 2026 }, repository: { ownershipVerified: true, releaseMetadataRepositoryUrl: 'https://example.org/fixture-repository' } };
+   await writeFile(join(f.dir, 'compliance/project-identity.json'), JSON.stringify(identity));
+-  const intended = await readFile(join(root, 'LICENSES/MIT-intended.txt'), 'utf8');
++  const currentGrant = await readFile(join(root, 'LICENSES/MIT.txt'), 'utf8');
++  const intended = `MIT License — incomplete fixture grant\n\nIndependent-code copyright holder is unconfirmed.\n\n${currentGrant.slice(currentGrant.indexOf('Permission is hereby granted'))}`;
+   const path = completedGrant ? 'LICENSES/MIT.txt' : 'LICENSES/MIT-intended.txt';
+   const grant = completedGrant ? `MIT License\n\nCopyright (c) 2026 Fixture Rights Holder\n\n${intended.slice(intended.indexOf('Permission is hereby granted'))}` : intended;
+   await writeFile(join(f.dir, path), grant);
+--- before/tools/verify-licenses.mjs
++++ after/tools/verify-licenses.mjs
+@@ -75,7 +75,7 @@
+   }
+   for (const { pkg } of state.packages) {
+     for (const file of noticeFiles) if (!pkg.files?.some((f) => f.replace(/\/$/u, '') === file)) throw new Error(`${pkg.name}: files whitelist must explicitly include ${file}`);
+-    if (pkg.license !== 'SEE LICENSE IN LICENSE.md') throw new Error(`${pkg.name}: unconfirmed independent-code holder requires SEE LICENSE IN LICENSE.md at this snapshot`);
++    if (pkg.license !== 'SEE LICENSE IN LICENSE.md') throw new Error(`${pkg.name}: package license metadata must use SEE LICENSE IN LICENSE.md for the recorded scope`);
+   }
+   const outputs = await expectedArtifacts(state);
+   for (const [path, expected] of outputs) {

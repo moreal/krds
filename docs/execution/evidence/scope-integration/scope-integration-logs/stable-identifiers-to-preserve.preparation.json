@@ -1,0 +1,111 @@
+[
+  {
+    "path": "apps/fixture-angular/src/fixture-app.ts",
+    "preserveBareIdentifiers": [
+      {
+        "line": 12,
+        "text": "      <krds-native-probe [count]=\"count()\" [label]=\"label()\" [disabled]=\"disabled()\" (change)=\"update($event)\" />"
+      }
+    ]
+  },
+  {
+    "path": "apps/fixture-angular/src/native-probe.ts",
+    "preserveBareIdentifiers": [
+      {
+        "line": 5,
+        "text": "  selector: 'krds-native-probe', standalone: true,"
+      }
+    ]
+  },
+  {
+    "path": "apps/fixture-angular/tests/siheom/native-probe.test.ts",
+    "preserveBareIdentifiers": [
+      {
+        "line": 12,
+        "text": "  template: `<krds-native-probe [count]=\"count()\" [label]=\"label()\" (change)=\"count.set($event)\" />`,"
+      },
+      {
+        "line": 32,
+        "text": "  expect(document.querySelector('krds-native-probe')).toBeNull();"
+      }
+    ]
+  },
+  {
+    "path": "apps/storybook-solid/src/stories/native-select.stories.tsx",
+    "preserveBareIdentifiers": [
+      {
+        "line": 7,
+        "text": "  id: 'krds-native-select',"
+      }
+    ]
+  },
+  {
+    "path": "catalog/story-cases.json",
+    "preserveBareIdentifiers": [
+      {
+        "line": 112,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      }
+    ]
+  },
+  {
+    "path": "catalog/story-coverage.json",
+    "preserveBareIdentifiers": [
+      {
+        "line": 13,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      },
+      {
+        "line": 48,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      },
+      {
+        "line": 83,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      },
+      {
+        "line": 118,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      },
+      {
+        "line": 153,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      },
+      {
+        "line": 188,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      },
+      {
+        "line": 223,
+        "text": "      \"id\": \"krds-native-select--controlled\","
+      }
+    ]
+  },
+  {
+    "path": "compliance/provenance.schema.json",
+    "preserveBareIdentifiers": [
+      {
+        "line": 3,
+        "text": "  \"$id\": \"urn:krds-native:provenance-schema:1\","
+      }
+    ]
+  },
+  {
+    "path": "docs/execution/progress.md",
+    "preserveBareIdentifiers": [
+      {
+        "line": 3,
+        "text": "\ud604\uc7ac \ube0c\ub79c\uce58\ub294 `implement/krds-native`\uc774\uba70 \ucee4\ubc0b\uc740 \uc5c6\ub2e4. T00\u2013T04\ub294 \uae30\ubc18 \uad6c\ud604 \ubc0f \ub3c5\ub9bd \ub9ac\ubdf0\ub97c \ub9c8\ucce4\uace0, T05\uc758 \uc2e4\uc81c \ub124\uc774\ud2f0\ube0c \ud14c\uc2a4\ud2b8 \uae30\ubc18\ub3c4 \ub3c5\ub9bd \ub9ac\ubdf0\ub97c \ub9c8\ucce4\ub2e4. KRDS \ucef4\ud3ec\ub10c\ud2b8 \uad6c\ud604\uc740 T06\uc5d0\uc11c \uc2dc\uc791\ud558\uba70 M0\u00b7M1\u00b7M2\u00b7M3\ub294 \uc644\ub8cc \uc0c1\ud0dc\uac00 \uc544\ub2c8\ub2e4."
+      }
+    ]
+  },
+  {
+    "path": "packages/test-contracts/src/fixtures/index.ts",
+    "preserveBareIdentifiers": [
+      {
+        "line": 10,
+        "text": "  {id:'krds-native-select--controlled',componentId:'native-select',state:{value:'seoul',options:[{value:'seoul',label:'\uc11c\uc6b8'},{value:'busan',label:'\ubd80\uc0b0'}]},environment:storyEnvironment,expected:[{role:'combobox',name:'\uc9c0\uc5ed'}]},"
+      }
+    ]
+  }
+]

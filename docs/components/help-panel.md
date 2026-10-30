@@ -1,0 +1,157 @@
+---
+title: 'Help panel · 도움 패널'
+---
+
+# Help panel
+
+도움 패널 · `HelpPanel` · composition
+
+[Official KRDS guidance](https://www.krds.go.kr/html/site/component/component_08_01.html) · [Full reviewed specification](/sources/specs/components/help-panel.md.txt) · [Framework support](../compatibility/README.md)
+
+## Native availability
+
+These states are copied from `catalog/coverage.json`; they are not inferred from exports, examples, or test-runner exit codes.
+
+| Framework | Package version | Recorded state | Export declaration | Native examples and stories |
+| --- | --- | --- | --- | --- |
+| react | `0.0.0` | planned | [exact subpath types](/sources/packages/react/dist/components/help-panel/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
+| solid | `0.0.0` | planned | [exact subpath types](/sources/packages/solid/dist/components/help-panel/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
+| svelte | `0.0.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/HelpPanel.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
+| vue | `0.0.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/help-panel/HelpPanel.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
+| lit | `0.0.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/help-panel/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
+| qwik | `0.0.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/help-panel/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
+| angular | `0.0.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-help-panel.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
+| solid-next (preview) | `0.0.0-next.0` | planned | [exact root types](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
+
+## Props, events, content and defaults
+
+The semantic contract below is shared data only. Native content, refs and event transport belong to each adapter. Callback names and detail types in the contract are exact; do not pass machine objects. Optional properties are not automatically defaulted: use the explicit defaults in the guidance below.
+
+```ts
+export interface HelpPanelContract extends ControlledOpen {
+    topics: readonly HelpTopic[];
+    selectedTopicId?: string | null;
+    defaultSelectedTopicId?: string | null;
+    onTopicChange?: (detail: {
+        id: string | null;
+    }) => void;
+    mode?: 'help' | 'tutorial';
+    fallbackFocusId?: string;
+}
+
+export interface ControlledOpen {
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (detail: OpenChangeDetails) => void;
+}
+
+export interface OpenChangeDetails {
+    open: boolean;
+}
+
+export interface HelpTopic {
+    id: string;
+    title: string;
+    content: string;
+    relatedLinks: readonly LinkData[];
+}
+
+export interface LinkData {
+    id?: string;
+    label: string;
+    href: string;
+    target?: string;
+    rel?: string;
+}
+```
+
+| Semantic property / callback | Required | Exact type | Role |
+| --- | --- | --- | --- |
+| `open` | no | `boolean` | data / state |
+| `defaultOpen` | no | `boolean` | data / state |
+| `onOpenChange` | no | `(detail: OpenChangeDetails) => void` | semantic event request |
+| `topics` | yes | `readonly HelpTopic[]` | data / state |
+| `selectedTopicId` | no | `string \| null` | data / state |
+| `defaultSelectedTopicId` | no | `string \| null` | data / state |
+| `onTopicChange` | no | `(detail: {id: string \| null}) => void` | semantic event request |
+| `mode` | no | `'help' \| 'tutorial'` | data / state |
+| `fallbackFocusId` | no | `string` | data / state |
+
+Optional values and explicit defaults are different. Defaults and native content requirements are stated in the reviewed guidance below.
+
+### Native content and event transport
+
+React and Solid use native JSX/content props; Svelte uses native snippets; Vue uses native slots; Angular uses its native inputs, outputs and content projection; Lit uses custom-element properties, slots and DOM events; Qwik uses native QRL event boundaries. Their transport is not interchangeable. Read the linked public package declaration for exact names and required content. A semantic callback below does not imply a same-named Lit DOM event.
+
+### Native structure and mandatory ordering
+
+Body followed by opener and help panel. Panel header offers optional Help/Tutorial tabs and close, content initial guidance or context-specific title/body, divider and related/help-channel footer. Context icon triggers beside related field/section have unique names; section title matches associated label.
+
+### Plain semantic API
+
+Independent API: open/defaultOpen=true on wide layout, selectedTopicId/defaultSelectedTopicId=null, onOpenChange({open}), onTopicChange({id}), topics {id,title,content,relatedLinks}[], mode=help|tutorial when composed, `fallbackFocusId?`. Closing/reopening preserves last topic; content changes only from an explicit contextual trigger. The panel opener is the separate persistent “open panel” button, not whichever contextual topic icon initiated this opening.
+
+The [pilot controlled/reset conventions](/sources/specs/components/README.md.txt) apply to each declared controlled field: props are authoritative, defaults read once, controlled/default together or mode switching invalid, one changed user request, no mount/prop/reset callbacks. A rejected controlled close retains the visible panel and its narrow-modal isolation/trap; no early return focus occurs.
+
+### Keyboard, focus and state transitions
+
+Opening focuses the panel container itself. Desktop panel permits Tab out without a trap; narrow presentation uses Modal-equivalent initial-container focus, isolation, scroll locking, topmost Escape and Tab wrapping while actually open. Links open a new window with communicated purpose.
+
+**HelpPanel is the sole restoration owner in both modes.** The official close action returns to the distinct panel-opening button ([L1265–1278](https://www.krds.go.kr/html/site/component/component_08_01.html)), even if a surviving topic icon opened the narrow panel. Reuse lower-level native isolation/trapping/entry primitives with their automatic return disabled/delegated to this composition; do not instantiate the public Modal contract and then override its saved usable opener using returnFocusId or a second focus call. The public [Modal actual-opener rule](/sources/specs/components/modal.md.txt) remains unchanged. This explicit composition adaptation preserves HelpPanel's more specific official destination alongside narrow-modal presentation ([L1004–1005](https://www.krds.go.kr/html/site/component/component_08_01.html)).
+
+On an accepted actual true→false transition, first remove this panel's isolation/scroll lock, then focus exactly once: usable panel opener; else usable fallbackFocusId; else saved initiating topic icon if usable; else nearest remaining usable focusable ancestor of that icon; else document body with temporary tabindex=-1 (restore prior tabindex). Usable means mounted, visible, enabled, focusable, same live document, and not inert. Return policy also runs on unmount of an open panel after cleanup, without synthetic change events. A rejected controlled close does none of this; focus stays inside the active narrow modal. If a Tutorial/Coach Stop transaction owns this transition, explicitly hand off restoration to that one coordinator rather than running both owners.
+
+### Responsive/mobile requirements
+
+Wide initial panel open with initial guidance; narrow initially opener-only, opens modal. Keep icons >=44px target where applicable and no essential information exclusively hidden in help.
+
+### Forms, reset and composition
+
+No aggregate form/reset; panel must not clear in-progress body inputs or steal composing keys.
+
+### Asset, integration and composition completion
+
+Recommend component→composition: includes topic triggers, stateful panel, optional Tabs/TutorialPanel, Modal on narrow and related links. Completion requires a working field/topic demo and responsive shell; host owns help content/URLs and external help channels.
+
+### Stable parts and states
+
+root, opener, topic-trigger, header, tabs, close, title, body, related; open,closed,active-topic,modal.
+
+All rendered owned parts use `data-krds-component="help-panel"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+
+## State examples and native checks
+
+Supported case axes: `desktop-open`, `narrow-modal`, `initial`, `context-detail`. These case names are independent project axes; they do not imply official KRDS type names or completed coverage.
+
+[Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
+
+Required full-catalog stories: `krds-help-panel--desktop-open`, `krds-help-panel--initial`, `krds-help-panel--context-detail`, `krds-help-panel--narrow-modal`, `krds-help-panel--topic-trigger-removed`, `krds-help-panel--help-tutorial-tabs`, `krds-help-panel--narrow-topic-icon-return`, `krds-help-panel--controlled-close-rejected`, `krds-help-panel--panel-opener-removed`.
+
+### Native stories in current built outputs
+
+The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
+
+- react: [Desktop Open](/native/storybook-react/?path=/story/krds-help-panel--desktop-open) · [Initial](/native/storybook-react/?path=/story/krds-help-panel--initial) · [Context Detail](/native/storybook-react/?path=/story/krds-help-panel--context-detail) · [Narrow Modal](/native/storybook-react/?path=/story/krds-help-panel--narrow-modal) · [Topic Trigger Removed](/native/storybook-react/?path=/story/krds-help-panel--topic-trigger-removed) · [Help Tutorial Tabs](/native/storybook-react/?path=/story/krds-help-panel--help-tutorial-tabs) · [Narrow Topic Icon Return](/native/storybook-react/?path=/story/krds-help-panel--narrow-topic-icon-return) · [Controlled Close Rejected](/native/storybook-react/?path=/story/krds-help-panel--controlled-close-rejected) · [Panel Opener Removed](/native/storybook-react/?path=/story/krds-help-panel--panel-opener-removed).
+- solid: [desktop-open](/native/storybook-solid/?path=/story/krds-help-panel--desktop-open) · [initial](/native/storybook-solid/?path=/story/krds-help-panel--initial) · [context-detail](/native/storybook-solid/?path=/story/krds-help-panel--context-detail) · [narrow-modal](/native/storybook-solid/?path=/story/krds-help-panel--narrow-modal) · [topic-trigger-removed](/native/storybook-solid/?path=/story/krds-help-panel--topic-trigger-removed) · [help-tutorial-tabs](/native/storybook-solid/?path=/story/krds-help-panel--help-tutorial-tabs) · [narrow-topic-icon-return](/native/storybook-solid/?path=/story/krds-help-panel--narrow-topic-icon-return) · [controlled-close-rejected](/native/storybook-solid/?path=/story/krds-help-panel--controlled-close-rejected) · [panel-opener-removed](/native/storybook-solid/?path=/story/krds-help-panel--panel-opener-removed).
+- svelte: [desktop-open](/native/storybook-svelte/?path=/story/krds-help-panel--desktop-open) · [initial](/native/storybook-svelte/?path=/story/krds-help-panel--initial) · [context-detail](/native/storybook-svelte/?path=/story/krds-help-panel--context-detail) · [narrow-modal](/native/storybook-svelte/?path=/story/krds-help-panel--narrow-modal) · [topic-trigger-removed](/native/storybook-svelte/?path=/story/krds-help-panel--topic-trigger-removed) · [help-tutorial-tabs](/native/storybook-svelte/?path=/story/krds-help-panel--help-tutorial-tabs) · [narrow-topic-icon-return](/native/storybook-svelte/?path=/story/krds-help-panel--narrow-topic-icon-return) · [controlled-close-rejected](/native/storybook-svelte/?path=/story/krds-help-panel--controlled-close-rejected) · [panel-opener-removed](/native/storybook-svelte/?path=/story/krds-help-panel--panel-opener-removed).
+- vue: [desktop-open](/native/storybook-vue/?path=/story/krds-help-panel--desktop-open) · [initial](/native/storybook-vue/?path=/story/krds-help-panel--initial) · [context-detail](/native/storybook-vue/?path=/story/krds-help-panel--context-detail) · [narrow-modal](/native/storybook-vue/?path=/story/krds-help-panel--narrow-modal) · [topic-trigger-removed](/native/storybook-vue/?path=/story/krds-help-panel--topic-trigger-removed) · [help-tutorial-tabs](/native/storybook-vue/?path=/story/krds-help-panel--help-tutorial-tabs) · [narrow-topic-icon-return](/native/storybook-vue/?path=/story/krds-help-panel--narrow-topic-icon-return) · [controlled-close-rejected](/native/storybook-vue/?path=/story/krds-help-panel--controlled-close-rejected) · [panel-opener-removed](/native/storybook-vue/?path=/story/krds-help-panel--panel-opener-removed).
+- lit: [Desktop Open](/native/storybook-lit/?path=/story/krds-help-panel--desktop-open) · [Initial](/native/storybook-lit/?path=/story/krds-help-panel--initial) · [Context Detail](/native/storybook-lit/?path=/story/krds-help-panel--context-detail) · [Narrow Modal](/native/storybook-lit/?path=/story/krds-help-panel--narrow-modal) · [Topic Trigger Removed](/native/storybook-lit/?path=/story/krds-help-panel--topic-trigger-removed) · [Help Tutorial Tabs](/native/storybook-lit/?path=/story/krds-help-panel--help-tutorial-tabs) · [Narrow Topic Icon Return](/native/storybook-lit/?path=/story/krds-help-panel--narrow-topic-icon-return) · [Controlled Close Rejected](/native/storybook-lit/?path=/story/krds-help-panel--controlled-close-rejected) · [Panel Opener Removed](/native/storybook-lit/?path=/story/krds-help-panel--panel-opener-removed).
+- qwik: [desktop-open](/native/storybook-qwik/?path=/story/krds-help-panel--desktop-open) · [initial](/native/storybook-qwik/?path=/story/krds-help-panel--initial) · [context-detail](/native/storybook-qwik/?path=/story/krds-help-panel--context-detail) · [narrow-modal](/native/storybook-qwik/?path=/story/krds-help-panel--narrow-modal) · [topic-trigger-removed](/native/storybook-qwik/?path=/story/krds-help-panel--topic-trigger-removed) · [help-tutorial-tabs](/native/storybook-qwik/?path=/story/krds-help-panel--help-tutorial-tabs) · [narrow-topic-icon-return](/native/storybook-qwik/?path=/story/krds-help-panel--narrow-topic-icon-return) · [controlled-close-rejected](/native/storybook-qwik/?path=/story/krds-help-panel--controlled-close-rejected) · [panel-opener-removed](/native/storybook-qwik/?path=/story/krds-help-panel--panel-opener-removed).
+- angular: [desktop-open](/native/storybook-angular/?path=/story/krds-help-panel--desktop-open) · [initial](/native/storybook-angular/?path=/story/krds-help-panel--initial) · [context-detail](/native/storybook-angular/?path=/story/krds-help-panel--context-detail) · [narrow-modal](/native/storybook-angular/?path=/story/krds-help-panel--narrow-modal) · [topic-trigger-removed](/native/storybook-angular/?path=/story/krds-help-panel--topic-trigger-removed) · [help-tutorial-tabs](/native/storybook-angular/?path=/story/krds-help-panel--help-tutorial-tabs) · [narrow-topic-icon-return](/native/storybook-angular/?path=/story/krds-help-panel--narrow-topic-icon-return) · [controlled-close-rejected](/native/storybook-angular/?path=/story/krds-help-panel--controlled-close-rejected) · [panel-opener-removed](/native/storybook-angular/?path=/story/krds-help-panel--panel-opener-removed).
+- solid-next: unsupported native Storybook preview integration.
+
+Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
+
+- react: [read the checked consumer](/examples/react-1); [download exact source](/sources/packages/react/examples/catalog.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log.txt).
+- solid: [read the checked consumer](/examples/solid-3); [download exact source](/sources/apps/fixture-solid/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log.txt).
+- svelte: [read the checked consumer](/examples/svelte-37); [download exact source](/sources/apps/fixture-svelte/src/public-examples/HelpPanelExample.svelte.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log.txt).
+- vue: [read the checked consumer](/examples/vue-58); [download exact source](/sources/apps/fixture-vue/src/PublicCatalogExamples.vue.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log.txt).
+- lit: [read the checked consumer](/examples/lit-60); [download exact source](/sources/apps/fixture-lit/src/examples/catalog.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log.txt).
+- qwik: [read the checked consumer](/examples/qwik-61); [download exact source](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log.txt).
+- angular: [read the checked consumer](/examples/angular-62); [download exact source](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log.txt).
+
+## Source identity and rights
+
+Baseline: `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`. Official detail snapshot retrieved `2026-10-29T23:28:04.876Z`. SHA-256: `c52ffcdd1637839597336232526fc7a56aa80a77de5d81a219ab4e13d3c5b346`. [Frozen component source records](/sources/catalog/components.json.txt) · [Official source](https://www.krds.go.kr/html/site/component/component_08_01.html). Raw original HTML remains reference evidence in the checkout and is not copied into this site.
+
+KRDS quoted or derived guidance retains its original terms. The independent code MIT grant does not relicense it, official assets, fonts, or third-party materials. Read [sources and rights](../legal/index.md) before redistributing.

@@ -1,0 +1,15 @@
+/* KRDS-derived: frozen component.css lines 1993–2318; semantic guidance: specs/components/help-panel.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="help-panel"][data-krds-part="root"] { position: fixed; z-index: 60; inset-block: 0; inset-inline-end: 0; inline-size: 39rem; max-inline-size: calc(100vw - 3rem); overflow: auto; padding: var(--krds-padding-10); border-inline-start: var(--krds-number-1) solid var(--krds-light-color-border-gray); background: var(--krds-light-color-surface-gray-subtler); color: var(--krds-light-color-text-basic); box-shadow: 0 .8rem 1.6rem var(--krds-light-color-alpha-shadow3); }
+[data-krds-component="help-panel"][data-krds-part="opener"] { min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-basic); font: inherit; cursor: pointer; }
+[data-krds-component="help-panel"][data-krds-part="topic-trigger"] { min-inline-size: var(--krds-size-height-5); min-block-size: var(--krds-size-height-5); padding: var(--krds-padding-2); border: 0; background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-information); font: inherit; cursor: pointer; }
+[data-krds-component="help-panel"][data-krds-part="header"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--krds-gap-4); }
+[data-krds-component="help-panel"][data-krds-part="tabs"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-3); border-block-end: var(--krds-number-1) solid var(--krds-light-color-divider-gray); }
+[data-krds-component="help-panel"][data-krds-part="title"] { margin: 0; font-size: var(--krds-pc-font-size-heading-small); font-weight: 700; }
+[data-krds-component="help-panel"][data-krds-part="body"] { padding-block: var(--krds-padding-6); }
+[data-krds-component="help-panel"][data-krds-part="related"] { display: grid; gap: var(--krds-gap-4); border-block-start: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); padding-block-start: var(--krds-padding-6); }
+[data-krds-component="help-panel"][data-krds-part="close"] { min-inline-size: var(--krds-size-height-6); min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+[data-krds-component="help-panel"][data-krds-part="root"][data-krds-layout="narrow-modal"] { max-block-size: 100dvh; }
+@media (max-width: 767px) { [data-krds-component="help-panel"][data-krds-part="root"] { padding: var(--krds-padding-6); } [data-krds-component="help-panel"][data-krds-part="title"] { font-size: var(--krds-mobile-font-size-heading-small); } }
+/* Persistent opener is rendered outside the hidden panel by the native adapter. */
+[data-krds-component="help-panel"][data-krds-part="root"][data-krds-state~="closed"] { display: none; }

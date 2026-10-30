@@ -1,0 +1,2 @@
+import {writeFileSync} from 'node:fs';
+export function evidence(){return {name:'outside-consumer-evidence',generateBundle(options,bundle){const records=Object.values(bundle).filter(entry=>entry.type==='chunk').map(entry=>({fileName:entry.fileName,modules:Object.keys(entry.modules),imports:entry.imports}));writeFileSync(options.dir?.includes('server')?'bundle-server.json':'bundle-client.json',JSON.stringify(records,null,2));}};}

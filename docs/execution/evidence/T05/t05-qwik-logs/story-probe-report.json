@@ -1,0 +1,119 @@
+{
+  "kind": "stories",
+  "mode": "probe",
+  "results": [
+    {
+      "framework": "qwik",
+      "coverage": false,
+      "stories": [
+        {
+          "id": "infrastructure-native-probe--default",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:50839/iframe.html?id=infrastructure-native-probe--default&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-DV4F__xS.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-CqmCbNEu.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-O9C_hHyz.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-DPQ5ZV0Z.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "infrastructure-native-probe--loading",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:50839/iframe.html?id=infrastructure-native-probe--loading&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-DV4F__xS.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-CqmCbNEu.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-O9C_hHyz.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-DPQ5ZV0Z.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "infrastructure-native-probe--error",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:50839/iframe.html?id=infrastructure-native-probe--error&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-DV4F__xS.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-CqmCbNEu.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-O9C_hHyz.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:50839/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:50839/build/q-DPQ5ZV0Z.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        }
+      ],
+      "sourceFiles": 1,
+      "status": "passed"
+    }
+  ]
+}

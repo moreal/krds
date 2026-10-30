@@ -1,0 +1,17 @@
+✔ unknown token references fail the build with the file name (2.12875ms)
+✔ invalid public parts are rejected (0.538125ms)
+✔ malformed CSS fails actual parsing (0.516042ms)
+Parsed/validated 9 CSS sources; generated 10 CSS entries and identical plain strings for six component contracts.
+✔ each CSS string is byte-identical to its ordinary generated CSS (18.642083ms)
+✔ exports exist and default CSS never opts into reset or fonts (0.672958ms)
+✔ a valid state on the wrong part is rejected (0.231708ms)
+✔ variant misspellings cannot silently ship an unstyled branch (0.146458ms)
+✔ all six part inventories match the pilot documents (0.979375ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.546084

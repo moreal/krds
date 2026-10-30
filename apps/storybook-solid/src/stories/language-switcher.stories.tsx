@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-language-switcher', title: 'KRDS/language-switcher', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const TwoLanguageLink: Story = { name: "two-language-link", parameters: { __id: "krds-language-switcher--two-language-link" }, render: () => <CatalogStory componentId="language-switcher" caseId="two-language-link"/> };
+export const Dropdown: Story = { name: "dropdown", parameters: { __id: "krds-language-switcher--dropdown" }, render: () => <CatalogStory componentId="language-switcher" caseId="dropdown"/> };
+export const SeparateService: Story = { name: "separate-service", parameters: { __id: "krds-language-switcher--separate-service" }, render: () => <CatalogStory componentId="language-switcher" caseId="separate-service"/> };
+export const NarrowFooter: Story = { name: "narrow-footer", parameters: { __id: "krds-language-switcher--narrow-footer" }, render: () => <CatalogStory componentId="language-switcher" caseId="narrow-footer"/> };
+export const LocalTranslationMock: Story = { name: "local-translation-mock", parameters: { __id: "krds-language-switcher--local-translation-mock" }, render: () => <CatalogStory componentId="language-switcher" caseId="local-translation-mock"/> };

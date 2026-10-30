@@ -1,0 +1,2222 @@
+{
+  "schemaVersion": 1,
+  "application": "apps/storybook-qwik",
+  "inventory": "compliance/distribution-provenance.json",
+  "scope": "Exact local specimen assets and frozen docs text snapshots. No publication authorization or authentic speech/sign-language equivalence. Bundler/dependency output is not cleared by this scoped static inventory.",
+  "independentCopyright": "Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>",
+  "assets": [
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/captions.vtt",
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c",
+      "bytes": 71,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/captions.vtt",
+        "apps/fixture-lit/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-qwik/public/local-assets/captions.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-react/public/local-assets/captions.vtt",
+        "apps/fixture-react/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-solid/public/local-assets/captions.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-svelte/public/local-assets/captions.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-vue/public/local-assets/captions.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-lit/public/local-assets/captions.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-qwik/public/local-assets/captions.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-react/public/local-assets/captions.vtt",
+        "apps/storybook-react/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-solid/public/local-assets/captions.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-svelte/public/local-assets/captions.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-vue/public/local-assets/captions.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-angular/public/local-assets/captions.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-angular/public/local-assets/captions.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-captions.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+      "sha256": "530623193669849da9bc677cdb3c399f68417458f3fc2d6c51e684b89601b58e",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-angular/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-angular/public/local-assets/intentional-missing-image.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+      "sha256": "7ccc3d810e55708b94b5cf03d3df6ae474236b5c59ce1876685128592e7f4d8c",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing.wav",
+        "apps/fixture-qwik/public/local-assets/intentional-missing.wav",
+        "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+        "apps/fixture-svelte/public/local-assets/intentional-missing.wav",
+        "apps/fixture-vue/public/local-assets/intentional-missing.wav",
+        "apps/storybook-lit/public/local-assets/intentional-missing.wav",
+        "apps/storybook-qwik/public/local-assets/intentional-missing.wav",
+        "apps/storybook-solid/public/local-assets/intentional-missing.wav",
+        "apps/storybook-svelte/public/local-assets/intentional-missing.wav",
+        "apps/storybook-vue/public/local-assets/intentional-missing.wav",
+        "apps/fixture-angular/public/local-assets/intentional-missing.wav",
+        "apps/storybook-angular/public/local-assets/intentional-missing.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+      "sha256": "fc6bb4a2fb84602f95e075ab5352977f078be93a6fbc5adf4260067cfe47e326",
+      "bytes": 64044,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-audio.wav",
+        "apps/fixture-qwik/public/local-assets/specimen-audio.wav",
+        "apps/fixture-react/public/local-assets/specimen-audio.wav",
+        "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+        "apps/fixture-svelte/public/local-assets/specimen-audio.wav",
+        "apps/fixture-vue/public/local-assets/specimen-audio.wav",
+        "apps/storybook-lit/public/local-assets/specimen-audio.wav",
+        "apps/storybook-qwik/public/local-assets/specimen-audio.wav",
+        "apps/storybook-react/public/local-assets/specimen-audio.wav",
+        "apps/storybook-solid/public/local-assets/specimen-audio.wav",
+        "apps/storybook-svelte/public/local-assets/specimen-audio.wav",
+        "apps/storybook-vue/public/local-assets/specimen-audio.wav",
+        "apps/fixture-angular/public/local-assets/specimen-audio.wav",
+        "apps/storybook-angular/public/local-assets/specimen-audio.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+      "sha256": "c3977eb9d0e63943e868056865beeb2fb970ac8f338a3117c2344e2a043efdcd",
+      "bytes": 134,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-description.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-description.vtt",
+        "apps/fixture-react/public/local-assets/specimen-description.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-description.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-description.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-description.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-description.vtt",
+        "apps/storybook-react/public/local-assets/specimen-description.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-description.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-description.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-description.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-description.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-description.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-media.webm",
+      "sha256": "08d3ea65f53ebfe4adfc99176d3b7d8d7667370418e00638d3c1229e76d548a2",
+      "bytes": 11596,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-media.webm",
+        "apps/fixture-qwik/public/local-assets/specimen-media.webm",
+        "apps/fixture-react/public/local-assets/specimen-media.webm",
+        "apps/fixture-solid/public/local-assets/specimen-media.webm",
+        "apps/fixture-svelte/public/local-assets/specimen-media.webm",
+        "apps/fixture-vue/public/local-assets/specimen-media.webm",
+        "apps/storybook-lit/public/local-assets/specimen-media.webm",
+        "apps/storybook-qwik/public/local-assets/specimen-media.webm",
+        "apps/storybook-react/public/local-assets/specimen-media.webm",
+        "apps/storybook-solid/public/local-assets/specimen-media.webm",
+        "apps/storybook-svelte/public/local-assets/specimen-media.webm",
+        "apps/storybook-vue/public/local-assets/specimen-media.webm",
+        "apps/fixture-angular/public/local-assets/specimen-media.webm",
+        "apps/storybook-angular/public/local-assets/specimen-media.webm"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/transcript.html",
+      "sha256": "a334319b7da23949c7d9100eed1c5cf6c39526800975ca192053ebd07bea2e6b",
+      "bytes": 164,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/transcript.html",
+        "apps/fixture-qwik/public/local-assets/transcript.html",
+        "apps/fixture-solid/public/local-assets/transcript.html",
+        "apps/fixture-svelte/public/local-assets/transcript.html",
+        "apps/fixture-vue/public/local-assets/transcript.html",
+        "apps/storybook-lit/public/local-assets/transcript.html",
+        "apps/storybook-qwik/public/local-assets/transcript.html",
+        "apps/storybook-solid/public/local-assets/transcript.html",
+        "apps/storybook-svelte/public/local-assets/transcript.html",
+        "apps/storybook-vue/public/local-assets/transcript.html",
+        "apps/fixture-angular/public/local-assets/transcript.html",
+        "apps/storybook-angular/public/local-assets/transcript.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/0/index.html",
+      "sha256": "850868d24cbbf9a6319b7f2332a2837a6d33787c0885ff0e4dfd648ab10377f5",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/0/index.html",
+        "apps/fixture-solid/public/local/0/index.html",
+        "apps/storybook-qwik/public/local/0/index.html",
+        "apps/storybook-solid/public/local/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/1/index.html",
+      "sha256": "807fa0bb9516f3b85b4ec8a8d7442402dc407600ea75c62ce4d9778669482ad4",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/1/index.html",
+        "apps/fixture-solid/public/local/1/index.html",
+        "apps/storybook-qwik/public/local/1/index.html",
+        "apps/storybook-solid/public/local/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/10/index.html",
+      "sha256": "4ba639777f98a90de30fc27f3736e7b2564f4b7379deb9bfc19b0637c7149f39",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/10/index.html",
+        "apps/fixture-solid/public/local/10/index.html",
+        "apps/storybook-qwik/public/local/10/index.html",
+        "apps/storybook-solid/public/local/10/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/11/index.html",
+      "sha256": "d3fc531cc8cb46de3a994d4ce48f376ff044e32442769c3e61a7609f0b890b6c",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/11/index.html",
+        "apps/fixture-solid/public/local/11/index.html",
+        "apps/storybook-qwik/public/local/11/index.html",
+        "apps/storybook-solid/public/local/11/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/12/index.html",
+      "sha256": "66cbc2bc7f6eeb6dc21eef674650d69fc7c0d9b9c6d127701f1019da06cf8ac9",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/12/index.html",
+        "apps/fixture-solid/public/local/12/index.html",
+        "apps/storybook-qwik/public/local/12/index.html",
+        "apps/storybook-solid/public/local/12/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/13/index.html",
+      "sha256": "9b1492bae0857f13755f623c212d3861d192c2dabe335efeecfc2d97d593b1f0",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/13/index.html",
+        "apps/fixture-solid/public/local/13/index.html",
+        "apps/storybook-qwik/public/local/13/index.html",
+        "apps/storybook-solid/public/local/13/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/14/index.html",
+      "sha256": "c92ad2e52992d3e167918de4ae25c35a4e90b0578570d8feb8621daa5869fe8c",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/14/index.html",
+        "apps/fixture-solid/public/local/14/index.html",
+        "apps/storybook-qwik/public/local/14/index.html",
+        "apps/storybook-solid/public/local/14/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/15/index.html",
+      "sha256": "906ffe5025f2a8a07a83963ff1b52681e8dbc947c35e4b1c1af0c75c41299625",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/15/index.html",
+        "apps/fixture-solid/public/local/15/index.html",
+        "apps/storybook-qwik/public/local/15/index.html",
+        "apps/storybook-solid/public/local/15/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/16/index.html",
+      "sha256": "63803a933a6fb46878217deb18e51961c1c5059b81c408a57393dd725678c71e",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/16/index.html",
+        "apps/fixture-solid/public/local/16/index.html",
+        "apps/storybook-qwik/public/local/16/index.html",
+        "apps/storybook-solid/public/local/16/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/17/index.html",
+      "sha256": "2e2fe2910e7c87e26f6a70d30cb0a8c07addacf15afffdc1d05a71d68dc0b512",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/17/index.html",
+        "apps/fixture-solid/public/local/17/index.html",
+        "apps/storybook-qwik/public/local/17/index.html",
+        "apps/storybook-solid/public/local/17/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/18/index.html",
+      "sha256": "7055e9d7b60b7f65343ba0f6fe5b6df56f3b0c0e94ca658d970424e8bacd65dd",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/18/index.html",
+        "apps/fixture-solid/public/local/18/index.html",
+        "apps/storybook-qwik/public/local/18/index.html",
+        "apps/storybook-solid/public/local/18/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/19/index.html",
+      "sha256": "73bc3a1392d565bf90344aa0ae58bafecde26109ebb828e4aacef4cf5d71818d",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/19/index.html",
+        "apps/fixture-solid/public/local/19/index.html",
+        "apps/storybook-qwik/public/local/19/index.html",
+        "apps/storybook-solid/public/local/19/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/2/index.html",
+      "sha256": "95b97ae47a33d74c0df612b5a3e9122b90af9b9c2e5b331f951c8389e7ac1f95",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/2/index.html",
+        "apps/fixture-solid/public/local/2/index.html",
+        "apps/storybook-qwik/public/local/2/index.html",
+        "apps/storybook-solid/public/local/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/20/index.html",
+      "sha256": "11841f50c5518fc3b296323ae3cee5267e18c86e96f7598b6e4ac81ee99d73fc",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/20/index.html",
+        "apps/fixture-solid/public/local/20/index.html",
+        "apps/storybook-qwik/public/local/20/index.html",
+        "apps/storybook-solid/public/local/20/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/21/index.html",
+      "sha256": "106a2edcd596fad88b015cf01bb7316fcc54d00b695079ad69fbf053e04afa3d",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/21/index.html",
+        "apps/fixture-solid/public/local/21/index.html",
+        "apps/storybook-qwik/public/local/21/index.html",
+        "apps/storybook-solid/public/local/21/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/22/index.html",
+      "sha256": "3e85e4c8eeb158dc2c15863b4aca5dce4cc5d4495522a6188e3be95f74d7e659",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/22/index.html",
+        "apps/fixture-solid/public/local/22/index.html",
+        "apps/storybook-qwik/public/local/22/index.html",
+        "apps/storybook-solid/public/local/22/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/23/index.html",
+      "sha256": "fcaabb8d80b43c4498f23eee31c811225c62fb69657f404bceae739d1dbac844",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/23/index.html",
+        "apps/fixture-solid/public/local/23/index.html",
+        "apps/storybook-qwik/public/local/23/index.html",
+        "apps/storybook-solid/public/local/23/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/24/index.html",
+      "sha256": "ecd2adbe421303fbd5176e5b5e57a926c50d7ab2321433a3c8d68866353ab52f",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/24/index.html",
+        "apps/fixture-solid/public/local/24/index.html",
+        "apps/storybook-qwik/public/local/24/index.html",
+        "apps/storybook-solid/public/local/24/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/25/index.html",
+      "sha256": "2d34c6b9a7516f13283e74bcaff75da86d35757751ac2f068f77d8607b3385ef",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/25/index.html",
+        "apps/fixture-solid/public/local/25/index.html",
+        "apps/storybook-qwik/public/local/25/index.html",
+        "apps/storybook-solid/public/local/25/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/26/index.html",
+      "sha256": "4556e5c62826467ac91b27b1be43c796e267d222768201d76076e4f2607af15f",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/26/index.html",
+        "apps/fixture-solid/public/local/26/index.html",
+        "apps/storybook-qwik/public/local/26/index.html",
+        "apps/storybook-solid/public/local/26/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/27/index.html",
+      "sha256": "96c3d460dc7ea286105df2d803a3e35d38ba1d1a6604b64e3d87c2083df252f1",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/27/index.html",
+        "apps/fixture-solid/public/local/27/index.html",
+        "apps/storybook-qwik/public/local/27/index.html",
+        "apps/storybook-solid/public/local/27/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/28/index.html",
+      "sha256": "4bccbd40c9a751a75fbc379866cc03f5c08bd5b00c996c0ba20164959889f14d",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/28/index.html",
+        "apps/fixture-solid/public/local/28/index.html",
+        "apps/storybook-qwik/public/local/28/index.html",
+        "apps/storybook-solid/public/local/28/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/29/index.html",
+      "sha256": "26773338d73c52492d6784bf91dcecbb580f1be165fd54bd55e87c502c3670cf",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/29/index.html",
+        "apps/fixture-solid/public/local/29/index.html",
+        "apps/storybook-qwik/public/local/29/index.html",
+        "apps/storybook-solid/public/local/29/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/3/index.html",
+      "sha256": "169f1f30476171c8b7aaf83455905e3dab6753331615aa8a9a2700d1a2eefce7",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/3/index.html",
+        "apps/fixture-solid/public/local/3/index.html",
+        "apps/storybook-qwik/public/local/3/index.html",
+        "apps/storybook-solid/public/local/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/4/index.html",
+      "sha256": "399ad6220d5e2df068944fb4a409c1b771eb67767f119545bf8279b667b0812b",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/4/index.html",
+        "apps/fixture-solid/public/local/4/index.html",
+        "apps/storybook-qwik/public/local/4/index.html",
+        "apps/storybook-solid/public/local/4/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/5/index.html",
+      "sha256": "6b9d2f707200214c796c5a983e545a734929cfd1d86fb17067d1778057ab3135",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/5/index.html",
+        "apps/fixture-solid/public/local/5/index.html",
+        "apps/storybook-qwik/public/local/5/index.html",
+        "apps/storybook-solid/public/local/5/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/6/index.html",
+      "sha256": "cc6b4edb8aeb6058d60e1b4778efd81722a697fd99d74deb578dce456c1f10b2",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/6/index.html",
+        "apps/fixture-solid/public/local/6/index.html",
+        "apps/storybook-qwik/public/local/6/index.html",
+        "apps/storybook-solid/public/local/6/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/7/index.html",
+      "sha256": "a3acc3ce5086c710d66d997b987a5f5f090b1bcfbd2212bca1b6a10980aa4d1b",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/7/index.html",
+        "apps/fixture-solid/public/local/7/index.html",
+        "apps/storybook-qwik/public/local/7/index.html",
+        "apps/storybook-solid/public/local/7/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/8/index.html",
+      "sha256": "61f7738d51d860bed42302a7998bc43dc7b3c3f0955fc5ea3b8b6fd534f7fa1e",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/8/index.html",
+        "apps/fixture-solid/public/local/8/index.html",
+        "apps/storybook-qwik/public/local/8/index.html",
+        "apps/storybook-solid/public/local/8/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/9/index.html",
+      "sha256": "436df14e8dcf8e73996a8acd6980430e689c28721f37a7587b05726ee94f803c",
+      "bytes": 501,
+      "destinations": [
+        "apps/fixture-qwik/public/local/9/index.html",
+        "apps/fixture-solid/public/local/9/index.html",
+        "apps/storybook-qwik/public/local/9/index.html",
+        "apps/storybook-solid/public/local/9/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/accordion-help/index.html",
+      "sha256": "669cb6584210a7ea4a58d552f6d36292b5ba556c4361397bc9dc669c1ea32bbc",
+      "bytes": 527,
+      "destinations": [
+        "apps/fixture-qwik/public/local/accordion-help/index.html",
+        "apps/fixture-solid/public/local/accordion-help/index.html",
+        "apps/storybook-qwik/public/local/accordion-help/index.html",
+        "apps/storybook-solid/public/local/accordion-help/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/application/index.html",
+      "sha256": "ac4506333ef747a5fff9c0cbbd10ee72c5f0146b5cdc3bcd4abd6c004821587e",
+      "bytes": 521,
+      "destinations": [
+        "apps/fixture-qwik/public/local/application/index.html",
+        "apps/fixture-solid/public/local/application/index.html",
+        "apps/storybook-qwik/public/local/application/index.html",
+        "apps/storybook-solid/public/local/application/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/index.html",
+      "sha256": "806466e0f701caaa993cc0ba3639a38874f1a8f244c96cde38cffe9fd7942342",
+      "bytes": 509,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/index.html",
+        "apps/fixture-solid/public/local/apply/index.html",
+        "apps/storybook-qwik/public/local/apply/index.html",
+        "apps/storybook-solid/public/local/apply/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-01/index.html",
+      "sha256": "a5c7e2ba1852e28fb881f483551141db0b7ea6d1ab928e4c3e748e15b2e338bc",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-01/index.html",
+        "apps/fixture-solid/public/local/apply/type-01/index.html",
+        "apps/storybook-qwik/public/local/apply/type-01/index.html",
+        "apps/storybook-solid/public/local/apply/type-01/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-02/index.html",
+      "sha256": "cf621c7a20cedc69b254ec6928ebeba1e2d58c459dcaad76d6e631b1c5bcbad0",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-02/index.html",
+        "apps/fixture-solid/public/local/apply/type-02/index.html",
+        "apps/storybook-qwik/public/local/apply/type-02/index.html",
+        "apps/storybook-solid/public/local/apply/type-02/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-03/index.html",
+      "sha256": "4e3bef775c4fe938a934c2a3b33654078fdd7c92e35856d7df04eba1a92f8c2e",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-03/index.html",
+        "apps/fixture-solid/public/local/apply/type-03/index.html",
+        "apps/storybook-qwik/public/local/apply/type-03/index.html",
+        "apps/storybook-solid/public/local/apply/type-03/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-04/index.html",
+      "sha256": "e7cc034569ba8b233fde6b3ca212e889d6e5fe866de226fccdc10ceb07295314",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-04/index.html",
+        "apps/fixture-solid/public/local/apply/type-04/index.html",
+        "apps/storybook-qwik/public/local/apply/type-04/index.html",
+        "apps/storybook-solid/public/local/apply/type-04/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-05/index.html",
+      "sha256": "fe21bac11fd965b6e22a3de926e98871ff3c20daedb2b1b9afa931c53eb48b46",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-05/index.html",
+        "apps/fixture-solid/public/local/apply/type-05/index.html",
+        "apps/storybook-qwik/public/local/apply/type-05/index.html",
+        "apps/storybook-solid/public/local/apply/type-05/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-06/index.html",
+      "sha256": "84dd72a92dd0383c07a9cc340c5e4fe992fc8175f126a8d8dab3ea2536ea29d2",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-06/index.html",
+        "apps/fixture-solid/public/local/apply/type-06/index.html",
+        "apps/storybook-qwik/public/local/apply/type-06/index.html",
+        "apps/storybook-solid/public/local/apply/type-06/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-07/index.html",
+      "sha256": "c2cefb0da2996cb9bcbca358259339f399e63efeea019daca1ce067f195f4ff3",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-07/index.html",
+        "apps/fixture-solid/public/local/apply/type-07/index.html",
+        "apps/storybook-qwik/public/local/apply/type-07/index.html",
+        "apps/storybook-solid/public/local/apply/type-07/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-08/index.html",
+      "sha256": "e03f72a63738ac569453866726e3f37555134c7ffbf28c6bc68c75810e34636d",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-08/index.html",
+        "apps/fixture-solid/public/local/apply/type-08/index.html",
+        "apps/storybook-qwik/public/local/apply/type-08/index.html",
+        "apps/storybook-solid/public/local/apply/type-08/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-09/index.html",
+      "sha256": "e47e7d55d9fd08f53fa4f99e33a462949f34e2029198335803505bc99b81aaf1",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-09/index.html",
+        "apps/fixture-solid/public/local/apply/type-09/index.html",
+        "apps/storybook-qwik/public/local/apply/type-09/index.html",
+        "apps/storybook-solid/public/local/apply/type-09/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-10/index.html",
+      "sha256": "31a47b76c7ac359f86ed5104d1598ae0169330bded252d9a01b626fd5ebd7ac6",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-10/index.html",
+        "apps/fixture-solid/public/local/apply/type-10/index.html",
+        "apps/storybook-qwik/public/local/apply/type-10/index.html",
+        "apps/storybook-solid/public/local/apply/type-10/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-11/index.html",
+      "sha256": "03736bfbbeb1ebeec2696d18269037d3427156a63a72ec9319ea17542d2a3374",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-11/index.html",
+        "apps/fixture-solid/public/local/apply/type-11/index.html",
+        "apps/storybook-qwik/public/local/apply/type-11/index.html",
+        "apps/storybook-solid/public/local/apply/type-11/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-12/index.html",
+      "sha256": "8e716ee9c3a3d3582284648c7b0299612ecb2ab602d88a77a79d00e282e6b0eb",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-12/index.html",
+        "apps/fixture-solid/public/local/apply/type-12/index.html",
+        "apps/storybook-qwik/public/local/apply/type-12/index.html",
+        "apps/storybook-solid/public/local/apply/type-12/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-13/index.html",
+      "sha256": "db06c5cb84ac4aa1d1de7d60c1b574bbdb15fbbfba7488a06fc7efb3b50c5de6",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-13/index.html",
+        "apps/fixture-solid/public/local/apply/type-13/index.html",
+        "apps/storybook-qwik/public/local/apply/type-13/index.html",
+        "apps/storybook-solid/public/local/apply/type-13/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-14/index.html",
+      "sha256": "07befce87723152f788d771f57ecb9b0013f2efdaf8bcb6206d3a3eebb7086af",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-14/index.html",
+        "apps/fixture-solid/public/local/apply/type-14/index.html",
+        "apps/storybook-qwik/public/local/apply/type-14/index.html",
+        "apps/storybook-solid/public/local/apply/type-14/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-15/index.html",
+      "sha256": "2a3dd70f6f9304dff01caae086cc215d2241d0a42477ea6cc2a275845f23e20c",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-15/index.html",
+        "apps/fixture-solid/public/local/apply/type-15/index.html",
+        "apps/storybook-qwik/public/local/apply/type-15/index.html",
+        "apps/storybook-solid/public/local/apply/type-15/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-16/index.html",
+      "sha256": "e142b612e4b0457eaa009707f31a98fb05f91b76e95a368d307eb938d5f830e6",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-16/index.html",
+        "apps/fixture-solid/public/local/apply/type-16/index.html",
+        "apps/storybook-qwik/public/local/apply/type-16/index.html",
+        "apps/storybook-solid/public/local/apply/type-16/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-17/index.html",
+      "sha256": "b793144d23f05466338f6a47fb2ab5f9245f0ea76f2923a97ec9b5eb336cf62d",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-17/index.html",
+        "apps/fixture-solid/public/local/apply/type-17/index.html",
+        "apps/storybook-qwik/public/local/apply/type-17/index.html",
+        "apps/storybook-solid/public/local/apply/type-17/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-18/index.html",
+      "sha256": "3254a77c20545d0550cf46bc570c919b7b7ec710b0bc33fb9471ae980e934336",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-18/index.html",
+        "apps/fixture-solid/public/local/apply/type-18/index.html",
+        "apps/storybook-qwik/public/local/apply/type-18/index.html",
+        "apps/storybook-solid/public/local/apply/type-18/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-19/index.html",
+      "sha256": "9d02bf6aa2e632b0bdef611da158835543a2ded8e96d90934aed3db98f1b8b61",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-19/index.html",
+        "apps/fixture-solid/public/local/apply/type-19/index.html",
+        "apps/storybook-qwik/public/local/apply/type-19/index.html",
+        "apps/storybook-solid/public/local/apply/type-19/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-20/index.html",
+      "sha256": "a7bbdcf30eadcf6b195f266d32394500126f0d96023d43ab41814c19e525aaf0",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-20/index.html",
+        "apps/fixture-solid/public/local/apply/type-20/index.html",
+        "apps/storybook-qwik/public/local/apply/type-20/index.html",
+        "apps/storybook-solid/public/local/apply/type-20/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-21/index.html",
+      "sha256": "b90ead5d638109a252fbcd7a99a085b676855e5c00ee4f547660cd9a2f0e2c0b",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-21/index.html",
+        "apps/fixture-solid/public/local/apply/type-21/index.html",
+        "apps/storybook-qwik/public/local/apply/type-21/index.html",
+        "apps/storybook-solid/public/local/apply/type-21/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-22/index.html",
+      "sha256": "a7e822e6e17ebcfbed4753e604b4a56e062dca48179dece16d451d08bf572a44",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-22/index.html",
+        "apps/fixture-solid/public/local/apply/type-22/index.html",
+        "apps/storybook-qwik/public/local/apply/type-22/index.html",
+        "apps/storybook-solid/public/local/apply/type-22/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-23/index.html",
+      "sha256": "9d759b163f967985c68b86e4af7f6a450825782b7638636a116a2fde8d55c7d1",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-23/index.html",
+        "apps/fixture-solid/public/local/apply/type-23/index.html",
+        "apps/storybook-qwik/public/local/apply/type-23/index.html",
+        "apps/storybook-solid/public/local/apply/type-23/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-24/index.html",
+      "sha256": "15ded8d7028f6a0098cf8991b557cc65b9a6ae70581df3ece893d58fcf3c0f9f",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-24/index.html",
+        "apps/fixture-solid/public/local/apply/type-24/index.html",
+        "apps/storybook-qwik/public/local/apply/type-24/index.html",
+        "apps/storybook-solid/public/local/apply/type-24/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-25/index.html",
+      "sha256": "ff9f3d46669c96b0a932eef69ef8934dc73aecf0f7244733e773883d86f096f5",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-25/index.html",
+        "apps/fixture-solid/public/local/apply/type-25/index.html",
+        "apps/storybook-qwik/public/local/apply/type-25/index.html",
+        "apps/storybook-solid/public/local/apply/type-25/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-26/index.html",
+      "sha256": "1a454e6829c684a8dac9fd3013fbbb50cc7a77048f260413d8f5e68722e17bda",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-26/index.html",
+        "apps/fixture-solid/public/local/apply/type-26/index.html",
+        "apps/storybook-qwik/public/local/apply/type-26/index.html",
+        "apps/storybook-solid/public/local/apply/type-26/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-27/index.html",
+      "sha256": "763ad0c468d4f27867840569c46022c436c2262759fd0c61ec9bff2d13020ccd",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-27/index.html",
+        "apps/fixture-solid/public/local/apply/type-27/index.html",
+        "apps/storybook-qwik/public/local/apply/type-27/index.html",
+        "apps/storybook-solid/public/local/apply/type-27/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-28/index.html",
+      "sha256": "dd72c2aca16a2ec739d1dcea7b8995686b9c874597916d13bc8d49481360edd6",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-28/index.html",
+        "apps/fixture-solid/public/local/apply/type-28/index.html",
+        "apps/storybook-qwik/public/local/apply/type-28/index.html",
+        "apps/storybook-solid/public/local/apply/type-28/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-29/index.html",
+      "sha256": "e2b069f707552ebcb975889364a43981649bc46a3fd432ee8f228c28b59b18d8",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-29/index.html",
+        "apps/fixture-solid/public/local/apply/type-29/index.html",
+        "apps/storybook-qwik/public/local/apply/type-29/index.html",
+        "apps/storybook-solid/public/local/apply/type-29/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-30/index.html",
+      "sha256": "69e2181f9be63a126364ed60851475104a12db6043c7b5bdccafb4a076536804",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-30/index.html",
+        "apps/fixture-solid/public/local/apply/type-30/index.html",
+        "apps/storybook-qwik/public/local/apply/type-30/index.html",
+        "apps/storybook-solid/public/local/apply/type-30/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-31/index.html",
+      "sha256": "8002e56f174b82bdf4385dca14e2c3a4cd5e7bf8ea71dc66ec68d083cc2a1fbc",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-31/index.html",
+        "apps/fixture-solid/public/local/apply/type-31/index.html",
+        "apps/storybook-qwik/public/local/apply/type-31/index.html",
+        "apps/storybook-solid/public/local/apply/type-31/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-32/index.html",
+      "sha256": "536c342c049c2c137f4788a66c683b190b4dc2bedf40be0d28e5a597d1b00079",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-32/index.html",
+        "apps/fixture-solid/public/local/apply/type-32/index.html",
+        "apps/storybook-qwik/public/local/apply/type-32/index.html",
+        "apps/storybook-solid/public/local/apply/type-32/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-33/index.html",
+      "sha256": "dfc402ed6b30f0b4a38c952da2c827d0bfe32cba0dc53eb9fbd29b724f2afe13",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-33/index.html",
+        "apps/fixture-solid/public/local/apply/type-33/index.html",
+        "apps/storybook-qwik/public/local/apply/type-33/index.html",
+        "apps/storybook-solid/public/local/apply/type-33/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-34/index.html",
+      "sha256": "3018450f227caf58bafa4197b7ce9023e36e0caf403a41f1d1dd24c0059421e5",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-34/index.html",
+        "apps/fixture-solid/public/local/apply/type-34/index.html",
+        "apps/storybook-qwik/public/local/apply/type-34/index.html",
+        "apps/storybook-solid/public/local/apply/type-34/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-35/index.html",
+      "sha256": "7f6548cf3d5deed11b840e2ef481edc4cc09af4bf9e6467e52c3a05e4f9473c0",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-35/index.html",
+        "apps/fixture-solid/public/local/apply/type-35/index.html",
+        "apps/storybook-qwik/public/local/apply/type-35/index.html",
+        "apps/storybook-solid/public/local/apply/type-35/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-36/index.html",
+      "sha256": "1409cc38ad9258ce5410e7acedbb3a93561401e27892710e047caadc286eba05",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-36/index.html",
+        "apps/fixture-solid/public/local/apply/type-36/index.html",
+        "apps/storybook-qwik/public/local/apply/type-36/index.html",
+        "apps/storybook-solid/public/local/apply/type-36/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-37/index.html",
+      "sha256": "78bbca5fbb12f421af626605ec9d5d094015096eaf489ef79fb888ace8fb6806",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-37/index.html",
+        "apps/fixture-solid/public/local/apply/type-37/index.html",
+        "apps/storybook-qwik/public/local/apply/type-37/index.html",
+        "apps/storybook-solid/public/local/apply/type-37/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-38/index.html",
+      "sha256": "e84dceab9e3b77711916be085182b7757416538ec997b943c3f1a311f6f58ab2",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-38/index.html",
+        "apps/fixture-solid/public/local/apply/type-38/index.html",
+        "apps/storybook-qwik/public/local/apply/type-38/index.html",
+        "apps/storybook-solid/public/local/apply/type-38/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-39/index.html",
+      "sha256": "1265e5a42c71ec3cad534497c9fcb563850cdf62b01bac104a24b20c9fab592c",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-39/index.html",
+        "apps/fixture-solid/public/local/apply/type-39/index.html",
+        "apps/storybook-qwik/public/local/apply/type-39/index.html",
+        "apps/storybook-solid/public/local/apply/type-39/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/apply/type-40/index.html",
+      "sha256": "0e116dcb19ee18717cb731a07342b4206f8da318f987b2fe23e9776abb6b17cc",
+      "bytes": 525,
+      "destinations": [
+        "apps/fixture-qwik/public/local/apply/type-40/index.html",
+        "apps/fixture-solid/public/local/apply/type-40/index.html",
+        "apps/storybook-qwik/public/local/apply/type-40/index.html",
+        "apps/storybook-solid/public/local/apply/type-40/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/busan/index.html",
+      "sha256": "ade59c23c6d4c6c64299046324ffedb0c8372c0b79b65ff5c64cd221fb838a3c",
+      "bytes": 509,
+      "destinations": [
+        "apps/fixture-qwik/public/local/busan/index.html",
+        "apps/fixture-solid/public/local/busan/index.html",
+        "apps/storybook-qwik/public/local/busan/index.html",
+        "apps/storybook-solid/public/local/busan/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/current/index.html",
+      "sha256": "792367f8b78ddc2fca046270668064a969b5c3f94cffc209d7f1c13eda691b06",
+      "bytes": 513,
+      "destinations": [
+        "apps/fixture-qwik/public/local/current/index.html",
+        "apps/fixture-solid/public/local/current/index.html",
+        "apps/storybook-qwik/public/local/current/index.html",
+        "apps/storybook-solid/public/local/current/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/en/index.html",
+      "sha256": "7d7c3cec3001eaf6cff24e93bd725b5da47ebbea24360aaffe10f2477268ebf6",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/en/index.html",
+        "apps/fixture-solid/public/local/en/index.html",
+        "apps/storybook-qwik/public/local/en/index.html",
+        "apps/storybook-solid/public/local/en/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/external-specimen/index.html",
+      "sha256": "06249708a4a2f5ce01cac1b325cd3580c225a98ad7704baebcc32470167082fb",
+      "bytes": 533,
+      "destinations": [
+        "apps/fixture-qwik/public/local/external-specimen/index.html",
+        "apps/fixture-solid/public/local/external-specimen/index.html",
+        "apps/storybook-qwik/public/local/external-specimen/index.html",
+        "apps/storybook-solid/public/local/external-specimen/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/help/index.html",
+      "sha256": "c3602b0372517f23aae4f75b7a9acdf389ce7b0b0d9f7c3fed6b137fcb0cc0bf",
+      "bytes": 507,
+      "destinations": [
+        "apps/fixture-qwik/public/local/help/index.html",
+        "apps/fixture-solid/public/local/help/index.html",
+        "apps/storybook-qwik/public/local/help/index.html",
+        "apps/storybook-solid/public/local/help/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/history/index.html",
+      "sha256": "a015aaa83afa537fc3568f81896a38de5768e8b2cad9d3efedfce5b3dadc232c",
+      "bytes": 513,
+      "destinations": [
+        "apps/fixture-qwik/public/local/history/index.html",
+        "apps/fixture-solid/public/local/history/index.html",
+        "apps/storybook-qwik/public/local/history/index.html",
+        "apps/storybook-solid/public/local/history/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/home/index.html",
+      "sha256": "2a533c24bdc4ddb7a33c455469e674a9f33a9c93bcf9f52d5a941dd244f68cee",
+      "bytes": 507,
+      "destinations": [
+        "apps/fixture-qwik/public/local/home/index.html",
+        "apps/fixture-solid/public/local/home/index.html",
+        "apps/storybook-qwik/public/local/home/index.html",
+        "apps/storybook-solid/public/local/home/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/ja/index.html",
+      "sha256": "ae419b2dc28e78283cd3d67fed51e70dfd4f77f5eb69cb7ceb610da5c2f589f2",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/ja/index.html",
+        "apps/fixture-solid/public/local/ja/index.html",
+        "apps/storybook-qwik/public/local/ja/index.html",
+        "apps/storybook-solid/public/local/ja/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/ko/index.html",
+      "sha256": "b67a87fc9e3dd83cbae586193b096decebee0baee735bc0e12bc84d0f2b69a26",
+      "bytes": 503,
+      "destinations": [
+        "apps/fixture-qwik/public/local/ko/index.html",
+        "apps/fixture-solid/public/local/ko/index.html",
+        "apps/storybook-qwik/public/local/ko/index.html",
+        "apps/storybook-solid/public/local/ko/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/long/index.html",
+      "sha256": "74dfb95908a4a57849e5337472d72026ce544c0f25b484dc5449b943a6e43723",
+      "bytes": 507,
+      "destinations": [
+        "apps/fixture-qwik/public/local/long/index.html",
+        "apps/fixture-solid/public/local/long/index.html",
+        "apps/storybook-qwik/public/local/long/index.html",
+        "apps/storybook-solid/public/local/long/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/maintenance/index.html",
+      "sha256": "eee73698500daea31fff167da508ecf0e553f11d95525832c9f3088ccfc14f2a",
+      "bytes": 521,
+      "destinations": [
+        "apps/fixture-qwik/public/local/maintenance/index.html",
+        "apps/fixture-solid/public/local/maintenance/index.html",
+        "apps/storybook-qwik/public/local/maintenance/index.html",
+        "apps/storybook-solid/public/local/maintenance/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/notice/a/index.html",
+      "sha256": "113660a54562a8c07726a003ca7a5074c3c8b854c4a250d537efb5669fbef2e7",
+      "bytes": 515,
+      "destinations": [
+        "apps/fixture-qwik/public/local/notice/a/index.html",
+        "apps/fixture-solid/public/local/notice/a/index.html",
+        "apps/storybook-qwik/public/local/notice/a/index.html",
+        "apps/storybook-solid/public/local/notice/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/notice/b/index.html",
+      "sha256": "7769bfcd940cb952de91b8dbc1647f0f860cad8f6a3e79b3247ce8fa96d875ef",
+      "bytes": 515,
+      "destinations": [
+        "apps/fixture-qwik/public/local/notice/b/index.html",
+        "apps/fixture-solid/public/local/notice/b/index.html",
+        "apps/storybook-qwik/public/local/notice/b/index.html",
+        "apps/storybook-solid/public/local/notice/b/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/notice/index.html",
+      "sha256": "d6715b61515dff28161a9468f4cd7cb991bf0aff2b137de0eddfed3b1c99a61e",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/notice/index.html",
+        "apps/fixture-solid/public/local/notice/index.html",
+        "apps/storybook-qwik/public/local/notice/index.html",
+        "apps/storybook-solid/public/local/notice/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/parent/index.html",
+      "sha256": "9ad679c238f38dbb5cf38e6cb066b5b832ca33e7c509bc52578fd17a1f32d0a1",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/parent/index.html",
+        "apps/fixture-solid/public/local/parent/index.html",
+        "apps/storybook-qwik/public/local/parent/index.html",
+        "apps/storybook-solid/public/local/parent/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/policy/index.html",
+      "sha256": "c70beb5b844008fe1155dcc532e3cf67141dac14035afe8566e2a84c81815732",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/policy/index.html",
+        "apps/fixture-solid/public/local/policy/index.html",
+        "apps/storybook-qwik/public/local/policy/index.html",
+        "apps/storybook-solid/public/local/policy/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/privacy/index.html",
+      "sha256": "0f9b7ec041cd96dc49a8c21a556d59f370b681047c90e52d5a4598234b85205c",
+      "bytes": 513,
+      "destinations": [
+        "apps/fixture-qwik/public/local/privacy/index.html",
+        "apps/fixture-solid/public/local/privacy/index.html",
+        "apps/storybook-qwik/public/local/privacy/index.html",
+        "apps/storybook-solid/public/local/privacy/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/process/a/index.html",
+      "sha256": "d028dcf69d065b2553525431e52676a8c727582d276b2e717a250e7b46dab554",
+      "bytes": 517,
+      "destinations": [
+        "apps/fixture-qwik/public/local/process/a/index.html",
+        "apps/fixture-solid/public/local/process/a/index.html",
+        "apps/storybook-qwik/public/local/process/a/index.html",
+        "apps/storybook-solid/public/local/process/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/profile/index.html",
+      "sha256": "c5de7f2de13139b88032523cdf2acb60ec99f5362dc045597a0c8c4b55c7dfe2",
+      "bytes": 513,
+      "destinations": [
+        "apps/fixture-qwik/public/local/profile/index.html",
+        "apps/fixture-solid/public/local/profile/index.html",
+        "apps/storybook-qwik/public/local/profile/index.html",
+        "apps/storybook-solid/public/local/profile/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/results/index.html",
+      "sha256": "50d0939b05dd6f1795b63bacc40c385420cf321c4ed6702df6046641ddc9fa02",
+      "bytes": 513,
+      "destinations": [
+        "apps/fixture-qwik/public/local/results/index.html",
+        "apps/fixture-solid/public/local/results/index.html",
+        "apps/storybook-qwik/public/local/results/index.html",
+        "apps/storybook-solid/public/local/results/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/review/index.html",
+      "sha256": "1e6151803cc9b79243f47d8099759c210116ecabd6a3f0d0cdd59a5304241fbf",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/review/index.html",
+        "apps/fixture-solid/public/local/review/index.html",
+        "apps/storybook-qwik/public/local/review/index.html",
+        "apps/storybook-solid/public/local/review/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/search/index.html",
+      "sha256": "2114e79fe78c0a61c05d63f5df00ccd66c37a3cd255f7042b4adc53ec46e5d85",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/search/index.html",
+        "apps/fixture-solid/public/local/search/index.html",
+        "apps/storybook-qwik/public/local/search/index.html",
+        "apps/storybook-solid/public/local/search/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/seoul/index.html",
+      "sha256": "f3d440eb39ea957ce0244a2a6195508baf39a2e4b1163b27a47b0a5cebdc09cf",
+      "bytes": 509,
+      "destinations": [
+        "apps/fixture-qwik/public/local/seoul/index.html",
+        "apps/fixture-solid/public/local/seoul/index.html",
+        "apps/storybook-qwik/public/local/seoul/index.html",
+        "apps/storybook-solid/public/local/seoul/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/separate-en/index.html",
+      "sha256": "45ce1020e9382861eab76e63591771565e5e0851f03445fb9d1da909afed8dd0",
+      "bytes": 521,
+      "destinations": [
+        "apps/fixture-qwik/public/local/separate-en/index.html",
+        "apps/fixture-solid/public/local/separate-en/index.html",
+        "apps/storybook-qwik/public/local/separate-en/index.html",
+        "apps/storybook-solid/public/local/separate-en/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/support/index.html",
+      "sha256": "26f03ba3868c0e5d6549da12f01061c7cb8fa63cd8588961585e779a1e131466",
+      "bytes": 513,
+      "destinations": [
+        "apps/fixture-qwik/public/local/support/index.html",
+        "apps/fixture-solid/public/local/support/index.html",
+        "apps/storybook-qwik/public/local/support/index.html",
+        "apps/storybook-solid/public/local/support/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/tool/0/index.html",
+      "sha256": "e332e2a99d654f4a725dec2f8bdef8cb3429e982f23ff81408d9345ee303f4e6",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/tool/0/index.html",
+        "apps/fixture-solid/public/local/tool/0/index.html",
+        "apps/storybook-qwik/public/local/tool/0/index.html",
+        "apps/storybook-solid/public/local/tool/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/tool/1/index.html",
+      "sha256": "57a74e356eae7d97f28615ab5ef3ba8d0ebc3308df63997da65f36ceee0d31cf",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/tool/1/index.html",
+        "apps/fixture-solid/public/local/tool/1/index.html",
+        "apps/storybook-qwik/public/local/tool/1/index.html",
+        "apps/storybook-solid/public/local/tool/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/tool/2/index.html",
+      "sha256": "eda87b4e7910ed8e1db8847e0214de16120853f6f9e3a40c03e724284db27ecd",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/tool/2/index.html",
+        "apps/fixture-solid/public/local/tool/2/index.html",
+        "apps/storybook-qwik/public/local/tool/2/index.html",
+        "apps/storybook-solid/public/local/tool/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/tool/3/index.html",
+      "sha256": "caa111f41578e1c82cfda383bc24a273cb7b7682c1e29b786b8e69d54ccdfe9d",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/tool/3/index.html",
+        "apps/fixture-solid/public/local/tool/3/index.html",
+        "apps/storybook-qwik/public/local/tool/3/index.html",
+        "apps/storybook-solid/public/local/tool/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-pages.mjs",
+        ".superpowers/sdd/PLAN/t10-qwik-logs/copied-assets.json"
+      ],
+      "sourcePath": "apps/fixture-solid/public/local/tool/4/index.html",
+      "sha256": "b1d13d7206a65c2fb5dc697d7441f8ac6b0a02edf704ef17fdcd5c1f09014b63",
+      "bytes": 511,
+      "destinations": [
+        "apps/fixture-qwik/public/local/tool/4/index.html",
+        "apps/fixture-solid/public/local/tool/4/index.html",
+        "apps/storybook-qwik/public/local/tool/4/index.html",
+        "apps/storybook-solid/public/local/tool/4/index.html"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/service-logo.svg",
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1",
+      "bytes": 227,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/service-logo.svg",
+        "apps/fixture-qwik/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-qwik/public/local-assets/specimen-logo.svg",
+        "apps/fixture-solid/public/local-assets/service-logo.svg",
+        "apps/fixture-solid/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-solid/public/local-assets/specimen-logo.svg",
+        "apps/fixture-svelte/public/local-assets/service-logo.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-logo.svg",
+        "apps/fixture-vue/public/local-assets/service-logo.svg",
+        "apps/fixture-vue/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-vue/public/local-assets/specimen-logo.svg",
+        "apps/storybook-qwik/public/local-assets/service-logo.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-logo.svg",
+        "apps/storybook-solid/public/local-assets/service-logo.svg",
+        "apps/storybook-solid/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-solid/public/local-assets/specimen-logo.svg",
+        "apps/storybook-svelte/public/local-assets/service-logo.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-logo.svg",
+        "apps/storybook-vue/public/local-assets/service-logo.svg",
+        "apps/storybook-vue/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-vue/public/local-assets/specimen-logo.svg",
+        "apps/fixture-angular/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-angular/public/local-assets/specimen-logo.svg",
+        "apps/fixture-angular/public/local-assets/service-logo.svg",
+        "apps/storybook-angular/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-angular/public/local-assets/specimen-logo.svg",
+        "apps/storybook-angular/public/local-assets/service-logo.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-icon-dark.svg",
+      "sha256": "5c725e5b200681b826e8faa2f8c0a61081f81692ce10b42f76cef4975e17f9bd",
+      "bytes": 227,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-solid/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-vue/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-solid/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-vue/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-angular/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-angular/public/local-assets/specimen-icon-dark.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-landscape.svg",
+      "sha256": "a90eea113c99b6ac77f7ba3f316ff2ad745885e0f562243785cb1eab6a1cb8bc",
+      "bytes": 263,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-solid/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-vue/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-solid/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-vue/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-angular/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-angular/public/local-assets/specimen-landscape.svg"
+      ]
+    }
+  ],
+  "sourceConditions": [
+    {
+      "sourceId": "krds-resource-resources-css-common-common.css",
+      "sourceSha256": "92942dcc081821af80677645247ab4ebfedea219fac8729275368ee022e34aab",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-component-component.css",
+      "sourceSha256": "bc8df76feeb4012a6cb16a13f8702f95a67162e7d2dbf6aa5642be94daefa812",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-token-krds_tokens.css",
+      "sourceSha256": "2e06b0d8393bca671edaab1ca0c7c42ded2ae03b3d03c6ede60f763a93d81569",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-tokens-transformed_tokens.json",
+      "sourceSha256": "5eb255d593ec0b0fa41207223df1288f97295b632dfac50629e60e4e4dc0a52e",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    }
+  ],
+  "sourceConditionsNote": "Shared application stylesheet adaptations retain these existing source conditions. Exact static assets/text snapshots are enumerated here; final bundled runtime/dependency and full rendered-page source clearance remain acceptance work, not supplied by independent MIT.",
+  "termsCopies": [
+    {
+      "sourcePath": "LICENSES/MIT.txt",
+      "destination": "LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "sourcePath": "LICENSES/KRDS-copyright-en.html",
+      "destination": "LICENSES/KRDS-copyright-en.html.txt",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "sourcePath": "LICENSES/KOGL-license-policy.html",
+      "destination": "LICENSES/KOGL-license-policy.html.txt",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    }
+  ],
+  "termsHashes": {
+    "LICENSES/MIT.txt": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+    "LICENSES/KRDS-copyright-en.html": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+    "LICENSES/KOGL-license-policy.html": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+  },
+  "exclusions": [
+    {
+      "origin": "macOS System Voices / Yuna",
+      "rightsStatus": "unresolved",
+      "distributedIn": [],
+      "knownRemovedBytes": 157588,
+      "evidence": ".superpowers/sdd/PLAN/task-media-license-note.md",
+      "reason": "No public redistribution clearance. Independent MIT and KOGL do not supply Apple voice permission."
+    }
+  ]
+}

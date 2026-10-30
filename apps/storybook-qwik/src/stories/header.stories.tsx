@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-header',title:'KRDS/header',component:CatalogStory,args:{componentId:'header'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const HorizontalActions:Story={name:"horizontal-actions",args:{caseId:"horizontal-actions"}};
+export const VerticalActions:Story={name:"vertical-actions",args:{caseId:"vertical-actions"}};
+export const FiveUtilities:Story={name:"five-utilities",args:{caseId:"five-utilities"}};
+export const MobileMenu:Story={name:"mobile-menu",args:{caseId:"mobile-menu"}};
+export const StickyLongPage:Story={name:"sticky-long-page",args:{caseId:"sticky-long-page"}};
+export const TranslatedLongLabels:Story={name:"translated-long-labels",args:{caseId:"translated-long-labels"}};

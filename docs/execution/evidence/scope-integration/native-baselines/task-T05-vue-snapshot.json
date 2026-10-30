@@ -1,0 +1,87 @@
+{
+  "apps/fixture-vue/package.json": {
+    "beforeSha256": "08a22e0d08699b534e95121cd2ced2b018e6831e091b4ac9be23f6357aad78ce",
+    "afterSha256": "5f1d4258652cb6cf0273f082d8142bd91f07b6add1a798d2afa83bfcfa5f2538",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/playwright.config.ts": {
+    "beforeSha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+    "afterSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "existsAfter": false
+  },
+  "apps/fixture-vue/project.json": {
+    "beforeSha256": "dfeef14f9c423338341a18e22d9a970fac44380621839d8f546fc76f1a2d802b",
+    "afterSha256": "7a9787e706bc9a337434293eefa22be4086b74f34953dc7e28f7e34061919fe7",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/src/FixtureApp.ts": {
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "afterSha256": "a5e75d284fa97bf294ae274f836e6ecba06662fa25bbd1fcfca4a36fc7b734da",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/src/main.ts": {
+    "beforeSha256": "f6565695569ddccebd9121d81fed544c54ca7653c9352fbb67f4b0774709b8be",
+    "afterSha256": "debf203614269d042c07c4ab66b766fed2481c07ba377c16332f4d7c6594ac10",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/tests/setup.ts": {
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "afterSha256": "8bae50ccc30f29f780a00ae617f30e612abf5572346d101625d19737dc928397",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/tests/siheom/button.test.ts": {
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "afterSha256": "9d01949ba3572f74717090006477afb1368050dfc6fb7c6ff45f0f2f92800560",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/tests/siheom/native-probe.test.ts": {
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "afterSha256": "41f0684135602f715acf7571d45608e245f56c7478d8ef383b8fe98330f26d86",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/tsconfig.json": {
+    "beforeSha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+    "afterSha256": "d798d7020ebf395ca3b02ac6a7d60cb86fc0b4e853ff70d217487b30706d463d",
+    "existsAfter": true
+  },
+  "apps/fixture-vue/vitest.config.ts": {
+    "beforeSha256": "884dd61a468090134969994c58cc6f262c7e7e7fd8afaca2d01232aaf7f229d5",
+    "afterSha256": "5792f81adc2d35319d57881b37b17cde6f97b143f8827f623ff16e622bc8419e",
+    "existsAfter": true
+  },
+  "apps/storybook-vue/.storybook/main.ts": {
+    "beforeSha256": "5b14696c04fe1cf760bc6d92337b73feddd6b4c72a52f26d7b46cf63be72b872",
+    "afterSha256": "598070b37a80b2af72e3a464abed12e2a165f30b0ba5c4256ad9825591bf7fdb",
+    "existsAfter": true
+  },
+  "apps/storybook-vue/package.json": {
+    "beforeSha256": "79ba3833e204221e9e32796bf65d6fec85b0b12eea51db8be33629737d6501cf",
+    "afterSha256": "a02ff788df45fe7a0c4c08efc08ec232967e5b70f0a2e2bbed239c5425267573",
+    "existsAfter": true
+  },
+  "apps/storybook-vue/playwright.config.ts": {
+    "beforeSha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+    "afterSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "existsAfter": false
+  },
+  "apps/storybook-vue/project.json": {
+    "beforeSha256": "80d6a719dc31fe1cbfc02dd1c4e7f4ed96479e93f765f895a93baa70b5ee813f",
+    "afterSha256": "19b896153a93b69ccc63e6270014d66ad90b648cfbad9b45a2dd8893ee74c9da",
+    "existsAfter": true
+  },
+  "apps/storybook-vue/src/stories/NativeProbe.ts": {
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "afterSha256": "6747d4c37c7069d6d4345b8b003a7cf68da78df46b86912208d4258a75e44059",
+    "existsAfter": true
+  },
+  "apps/storybook-vue/src/stories/probe.stories.ts": {
+    "beforeSha256": "3d807b1f0d6d8450e5dc8eb6d5b45dde8a7f1b84961815bc7dd6b4ba75325720",
+    "afterSha256": "cb48a43184288a85fdb2da905a9820cedd7116e6fae3bc7046d1271c609bbf06",
+    "existsAfter": true
+  },
+  "apps/storybook-vue/tsconfig.json": {
+    "beforeSha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+    "afterSha256": "d798d7020ebf395ca3b02ac6a7d60cb86fc0b4e853ff70d217487b30706d463d",
+    "existsAfter": true
+  }
+}

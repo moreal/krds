@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "projects": {
+    "krds-angular": {
+      "projectType": "library",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "tsconfig.lib.prod.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

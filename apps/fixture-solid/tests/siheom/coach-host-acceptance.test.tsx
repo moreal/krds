@@ -1,0 +1,22 @@
+import { afterEach, expect, test } from 'vitest';
+import { createSignal } from 'solid-js';
+import { render } from 'solid-js/web';
+import { CatalogView } from '../../src/catalog-view';
+const cleanups: (() => void)[] = [];
+afterEach(() => cleanups.splice(0).forEach(dispose => dispose()));
+test('Standalone controlled Coach host rejects Stop until actual host acceptance changes', async () => {
+  const host = document.createElement('div'); document.body.append(host);
+  const events: { name: string; detail: unknown }[] = [];
+  const [state, setState] = createSignal<Record<string, any>>({ open: true, stepId: 'one', startActionId: 'guarded-start', steps: [{ id: 'one', targetId: 'guarded-target', title: 'Guarded', instruction: 'Act' }], __host: { acceptStop: false } });
+  const patch = (change: Record<string, any>) => setState(previous => ({ ...previous, ...change }));
+  const dispose = render(() => <CatalogView componentId="coach-mark" state={state} emit={(name, detail, change) => { events.push({ name, detail }); if (change) patch(change); }} patch={patch}/>, host);
+  cleanups.push(() => { dispose(); host.remove(); });
+  await Promise.resolve(); await Promise.resolve();
+  const stop = document.querySelector<HTMLButtonElement>('[data-krds-component="coach-mark"][data-krds-part="stop"]')!;
+  stop.focus(); stop.click(); await Promise.resolve();
+  expect(state().open).toBe(true); expect(stop.isConnected).toBe(true); expect(document.activeElement).toBe(stop);
+  expect(events).toEqual([{ name: 'openChange', detail: { open: false } }]);
+  patch({ __host: { acceptStop: true } }); stop.click(); await Promise.resolve(); await Promise.resolve();
+  expect(state().open).toBe(false); expect(document.querySelector('[data-krds-component="coach-mark"][data-krds-part="root"]')).toBeNull();
+  expect(events).toEqual([{ name: 'openChange', detail: { open: false } }, { name: 'openChange', detail: { open: false } }]);
+});

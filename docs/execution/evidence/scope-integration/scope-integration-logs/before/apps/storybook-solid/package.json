@@ -1,0 +1,41 @@
+{
+  "name": "@krds-native/storybook-solid",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node ../../tools/yarn.mjs test:stories --framework solid",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:local": "storybook build --output-dir dist --disable-telemetry",
+    "storybook-build": "yarn storybook-build:local",
+    "stories": "node ../../tools/yarn.mjs test:stories --framework solid",
+    "storybook-build:local": "storybook build --output-dir dist --disable-telemetry"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@babel/core": "7.28.5",
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.13.3",
+    "@types/react": "19.3.0",
+    "@vitest/browser-playwright": "4.1.10",
+    "babel-preset-solid": "1.9.16",
+    "playwright": "1.64.1",
+    "playwright-core": "1.64.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "solid-js": "1.9.18",
+    "storybook": "10.6.5",
+    "storybook-solidjs-vite": "10.7.4",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vite-plugin-solid": "2.11.14",
+    "vitest": "4.1.10"
+  },
+  "dependencies": {
+    "@krds-native/solid": "workspace:^",
+    "@krds-native/styles": "workspace:^",
+    "@krds-native/test-contracts": "workspace:^",
+    "@krds-native/tokens": "workspace:^"
+  }
+}

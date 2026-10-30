@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-back-button', title: 'KRDS/back-button', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-back-button--default" }, render: () => <CatalogStory componentId="back-button" caseId="default"/> };
+export const DirtyConfirmation: Story = { name: "dirty-confirmation", parameters: { __id: "krds-back-button--dirty-confirmation" }, render: () => <CatalogStory componentId="back-button" caseId="dirty-confirmation"/> };
+export const CancelNavigation: Story = { name: "cancel-navigation", parameters: { __id: "krds-back-button--cancel-navigation" }, render: () => <CatalogStory componentId="back-button" caseId="cancel-navigation"/> };
+export const NoHistoryFallback: Story = { name: "no-history-fallback", parameters: { __id: "krds-back-button--no-history-fallback" }, render: () => <CatalogStory componentId="back-button" caseId="no-history-fallback"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-back-button--narrow" }, render: () => <CatalogStory componentId="back-button" caseId="narrow"/> };

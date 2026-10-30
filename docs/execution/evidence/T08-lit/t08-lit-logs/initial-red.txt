@@ -1,0 +1,15 @@
+Observed initial RED from this session, before production implementation.
+Command: node tools/yarn.mjs workspace @unofficial-krds/lit exec node --test tests/pilot-ssr.test.mjs
+Result: exit 1; tests 2; pass 0; fail 2.
+- Lit pilots expose native classes without global registration at source import: AssertionError, Button native LitElement class is required; actual 'undefined', expected 'function'.
+- Lit SSR emits declarative open Shadow DOM and actual six-pilot semantics: AssertionError, explicit registration API is required; actual 'undefined', expected 'function'.
+
+Additional native RED outcomes observed while extending behavior coverage:
+- Vanilla service disconnected correctly but did not restart on reconnect. Fixed hostConnected requestUpdate.
+- Native SSR hydration initially replaced controls because Vite evaluated element definitions before the hydration hook. Fixed dynamic import and explicit lit-html shared chunk.
+- Native normalized Zag event names were lowercase; directive initially treated them as attributes and caused SyntaxError at interaction. Fixed normalized listener handling and removed overridden native-policy handlers.
+- A detached pending Modal update tried showModal outside a Document. Fixed connected-state update guard.
+- WebKit pointer activation did not focus DateInput's opener; restoration returned to the prior input. Fixed explicit opener focus before popup activation.
+- 320px gallery overflowed through grid auto minimum sizing of the Shadow host. Fixed host minimum/maximum inline sizing.
+- Actual inherited dialog theme test exposed shared CSS token declarations on :host. Shared owner requested token-free shadow CSS export.
+These are session-observed failure summaries, not reconstructed full stdout logs.

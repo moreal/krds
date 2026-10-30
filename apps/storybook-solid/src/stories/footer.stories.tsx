@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-footer', title: 'KRDS/footer', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-footer--default" }, render: () => <CatalogStory componentId="footer" caseId="default"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-footer--narrow" }, render: () => <CatalogStory componentId="footer" caseId="narrow"/> };
+export const ShortPage: Story = { name: "short-page", parameters: { __id: "krds-footer--short-page" }, render: () => <CatalogStory componentId="footer" caseId="short-page"/> };
+export const CommercePolicy: Story = { name: "commerce-policy", parameters: { __id: "krds-footer--commerce-policy" }, render: () => <CatalogStory componentId="footer" caseId="commerce-policy"/> };
+export const NavigationMirror: Story = { name: "navigation-mirror", parameters: { __id: "krds-footer--navigation-mirror" }, render: () => <CatalogStory componentId="footer" caseId="navigation-mirror"/> };

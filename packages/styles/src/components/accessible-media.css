@@ -1,0 +1,8 @@
+/* KRDS-derived: frozen HTML accessible-media guidance; native media controls retained; semantic guidance: specs/components/accessible-media.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="accessible-media"][data-krds-part="root"] { display: grid; gap: var(--krds-gap-5); }
+[data-krds-component="accessible-media"][data-krds-part="media"] { display: block; inline-size: 100%; max-inline-size: 100%; }
+[data-krds-component="accessible-media"][data-krds-part="alternatives"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-4); }
+[data-krds-component="accessible-media"][data-krds-part="transcript"], [data-krds-component="accessible-media"][data-krds-part="description"] { max-inline-size: 100%; white-space: normal; }
+[data-krds-component="accessible-media"][data-krds-part="sign-language"] { max-inline-size: 100%; block-size: auto; }
+[data-krds-component="accessible-media"][data-krds-part="caption-track"] { /* Native track has no visual box; cues belong to the media engine. */ }

@@ -1,0 +1,16 @@
+[data-krds-component="calendar"][data-krds-part="root"] { inline-size: min(100%, 36rem); padding: var(--krds-padding-5); background: var(--krds-light-color-surface-white); color: var(--krds-light-color-text-basic); }
+[data-krds-component="calendar"][data-krds-part="header"] { display: flex; align-items: center; justify-content: space-between; gap: var(--krds-gap-2); }
+[data-krds-component="calendar"][data-krds-part="heading"] { font-weight: 700; }
+[data-krds-component="calendar"][data-krds-part="table"] { inline-size: 100%; table-layout: fixed; border-collapse: collapse; }
+[data-krds-component="calendar"]:is([data-krds-part="weekday"], [data-krds-part="cell"]) { text-align: center; padding: var(--krds-number-1); }
+[data-krds-component="calendar"][data-krds-part="day"] { inline-size: 100%; min-block-size: 2em; padding: var(--krds-number-1); border: var(--krds-number-1) solid transparent; border-radius: var(--krds-radius-small1); background: transparent; color: inherit; }
+[data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="today"] { border-color: currentColor; text-decoration: underline; }
+[data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="selected"] { background: var(--krds-light-color-button-primary-fill); color: var(--krds-light-color-text-inverse-static); font-weight: 700; border-color: currentColor; }
+[data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="in-range"] { border-style: dashed; border-color: currentColor; }
+[data-krds-component="calendar"][data-krds-part="day"]:is([data-krds-state~="range-start"], [data-krds-state~="range-end"]) { border-style: double; border-width: var(--krds-number-3); }
+[data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="outside-month"] { text-decoration: underline dotted; }
+[data-krds-component="calendar"][data-krds-part="day"]:disabled { color: var(--krds-light-color-text-disabled-on); text-decoration: line-through; }
+[data-krds-component="calendar"][data-krds-part="footer"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-2); margin-block-start: var(--krds-gap-3); }
+[data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]) { min-block-size: 2em; padding: var(--krds-padding-2); }
+@media (forced-colors: active) { [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="selected"] { background: Highlight; color: HighlightText; } }
+@media (max-width: 24rem) { [data-krds-component="calendar"][data-krds-part="root"] { padding: var(--krds-padding-2); } }

@@ -1,0 +1,6 @@
+/* KRDS-derived: frozen component.css lines 3466–3554; semantic guidance: specs/components/masthead.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="masthead"][data-krds-part="root"] { padding: var(--krds-padding-3) var(--krds-padding-6); background: var(--krds-light-color-surface-secondary-subtler); color: var(--krds-light-color-text-basic); }
+[data-krds-component="masthead"][data-krds-part="text"] { margin: 0; font-size: var(--krds-pc-font-size-body-small); }
+@media (max-width: 767px) { [data-krds-component="masthead"][data-krds-part="text"] { font-size: var(--krds-mobile-font-size-body-small); } }
+/* Government symbol is host supplied after rights/identity clearance, never synthesized here. */

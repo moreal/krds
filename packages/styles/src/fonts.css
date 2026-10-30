@@ -1,0 +1,2 @@
+/* Optional installed/local font selection only: no @font-face, URL or network request. */
+[data-krds-component] { font-family: var(--krds-typo-font-type), system-ui, sans-serif; }

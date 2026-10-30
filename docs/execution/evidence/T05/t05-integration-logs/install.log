@@ -1,0 +1,25 @@
+➤ YN0000: · Yarn 4.14.1
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Post-resolution validation
+➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: └ Completed in 0s 676ms
+➤ YN0000: ┌ Link step
+➤ YN0001: │ Error: EPERM: operation not permitted, link '/Users/moreal/.yarn/berry/index/78/784701375491309231e6d26850c410e36c246d15.dat' -> '/Users/moreal/github/moreal/krds/node_modules/.store/@axe-core-playwright-virtual-814e471410/package/LICENSE'
+➤ YN0000: └ Completed in 4s 135ms
+➤ YN0000: · Failed with errors in 5s 40ms
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+[Error: EPERM: operation not permitted, link '/Users/moreal/.yarn/berry/index/78/784701375491309231e6d26850c410e36c246d15.dat' -> '/Users/moreal/github/moreal/krds/node_modules/.store/@axe-core-playwright-virtual-814e471410/package/LICENSE'] {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'link',
+  path: '/Users/moreal/.yarn/berry/index/78/784701375491309231e6d26850c410e36c246d15.dat',
+  dest: '/Users/moreal/github/moreal/krds/node_modules/.store/@axe-core-playwright-virtual-814e471410/package/LICENSE'
+}
+
+Node.js v24.18.0

@@ -1,0 +1,185 @@
+# TutorialPanel
+
+**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+
+Semantic ID `tutorial-panel`; Korean name 따라하기 패널; export `TutorialPanel`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+
+Official detail: [component_08_02](https://www.krds.go.kr/html/site/component/component_08_02.html); preserved [HTML](../../upstream/krds/raw/components/component_08_02.html). Retrieved `2026-10-29T23:28:04.943Z`; `75137` bytes; SHA-256 `38b2ffb0d2f3655d399ef17f8e84a41b04b8d3928a395429199ee47fff7e6d6e`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+
+## Scope and completion kind
+
+Frozen source kind `composition`; accepted project completion kind `composition`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+
+Supported native cases (variant and state axes): `task-overview`, `active-step`, `suspended-panel`, `narrow-modal`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+
+## Native structure and mandatory ordering
+
+Body-following opener/panel with optional Help/Tutorial tabs, close, title, back-to-overview, task/subtask list and explicit Stop button. Subtask titles match CoachMark titles. Panel visibility is independent from active tutorial progress.
+
+## Plain semantic API
+
+Independent API: tasks {id,title,steps:{id,title,targetId,instruction}[]}[], activeTaskId, activeStepId, `running?/defaultRunning=false`, `open?/defaultOpen=true` wide, `activePanel?/defaultActivePanel=help|tutorial`, onOpenChange, `onStart({taskId,stepId})`, onTaskChange, onStepChange, onActivePanelChange({value}), `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})`, `startActionId`, `fallbackFocusId?`. Defined running/open/activePanel choose controlled ownership for their respective fields, absent fields use their read-once defaults. Controlled/default together or mode switching is invalid. Stop's returnTo is a plain exposure request, not permission to force a controlled prop.
+
+**Start transaction (independent API):** A usable explicit Start action chooses the actual requested task and step: its configured task/step, otherwise the selected task’s first step, otherwise the first real task with a real step. Empty/unavailable task data never invents IDs or a Start request. Start while already running is a no-op. When running is uncontrolled, commit its owned running=true synchronously before one optional onStart({taskId,stepId}) callback. activeTaskId/activeStepId remain host-authoritative; the local host accepts those requested IDs through this same transaction. When running is controlled, emit this one request and await actual running=true plus the requested task/step props before showing/focusing the new running step. Start never emits onTaskChange or onStepChange as duplicate/no-op secondary requests. Those callbacks remain for distinct task/step selection actions. Rejected or partially accepted controlled Start retains committed state and focus; it must not fabricate a run or focus hidden/unaccepted tutorial content. Focus may enter the actual exposed running step only after the accepted transaction is rendered. Mount, prop changes and repeated keydown/click delivery emit no extra Start request.
+
+Closing/folding the panel or switching to Help preserves running/task/step. Only an accepted explicit Stop transaction ends the running tutorial; ordinary panel visibility is independent. Props/mount/reset/focus restoration emit no user-change notifications. Each changed state request emits once; onStop is the one joint Stop request rather than competing close/restoration callbacks.
+
+## Keyboard, focus and state transitions
+
+Open focuses the panel container; ordinary close returns its usable opener through one composition owner. Native disclosure children actually expand/collapse via Click/Enter/Space and retain focus on their trigger. Wide panel is not trapped; narrow shell reuses native modal isolation/entry/trapping with restoration delegated to the relevant Tutorial or Stop coordinator, never by overriding the public Modal saved-opener rule.
+
+**Joint TutorialPanel/CoachMark Stop transaction (independent coordination policy preserving the official preferred destination):** A linked CoachMark's visible/open state is derived by the tutorial coordinator from committed running/task/target state, rather than maintained by a second independent close owner. Stop emits one `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})` transaction request to that owner; do not also emit a duplicate CoachMark onOpenChange for the same Stop. An uncontrolled coordinator commits it synchronously; controlled ownership ends the tutorial only when running=false is actually accepted and the coach presentation has actually closed/been removed. Until acceptance, retain the running UI/current focus and do not restore. The owner must commit any accepted Tutorial-tab/panel exposure together with that stop transaction; a partially accepted exposure is explicit in the resulting committed tab/open state, not guessed from timers.
+
+The request asks to select the Tutorial tab, open/expose its panel, and render/enable the preferred startActionId. After the actual stopped/closed transition and completed native panel rendering, the **single Stop restoration coordinator first resolves the actual topmost active modal**, including a narrow Help modal that remains selected after the host rejects the Tutorial-tab request. A focus candidate must be mounted, visible, enabled, focusable and non-inert; if a modal is still active it must additionally be inside that actual topmost modal. Prefer the startActionId whenever it is actually usable under those rules. Never focus through a closed modal, hidden tab, rejected panel-open state, active-modal boundary or stale target.
+
+If preferred-start exposure is declined or the start action is removed/unusable **and any modal remains actually open**, select a usable fallbackFocusId inside that modal, otherwise its first usable internal interactive target in logical DOM order, otherwise its own focusable container (tabindex=-1 with prior value preserved). The outside panel opener, saved outside initiating control/ancestor and document body are not candidates while that trap remains active, even when no named fallback was supplied. Do not remove isolation, disable the trap, force a controlled tab/open prop or invoke a second private restoration owner to manufacture an outside target. If a candidate/container is removed before focus, re-resolve the actual committed topmost modal instead of using a stale outside fallback.
+
+Only **when no modal remains actually active after committed cleanup** may the fallback use the usable persistent tutorial panel opener, then supplied fallbackFocusId, then usable saved initiating control/nearest usable ancestor, finally live document body with temporary tabindex=-1 restored afterwards. A requested but rejected modal closure never qualifies; outside focus must await actual accepted closure and cleanup. This modal-aware resolution also applies during route removal/teardown if another modal remains active. In the concrete accepted-Stop state running=false/open=true with Help still selected, hidden or removed Tutorial start and inert outside controls, focus therefore remains in that Help modal on an internal target/container, with its trap and isolation intact.
+
+The same Stop coordinator owns this one resolution and delegates modal-shell entry/return to prevent competing focus work; public Modal returnFocusId rules remain unchanged. Rejected Stop still performs no restoration. Later asynchronous tab/open changes must not replay a completed Stop restoration; any later accepted ordinary modal close uses its existing single close/restoration owner, rather than replaying this earlier Stop fallback.
+
+## Responsive/mobile requirements
+
+Narrow opener-only panel opens Modal. Preserve tutorial state through layout changes; do not cover active CoachMark target with modal panel—host can temporarily close panel while task continues.
+
+## Forms, reset and composition
+
+No form value; tutorial must not submit or reset actual user forms. Action-completion signals come from host, with no IME Enter masquerading as task completion.
+
+## Asset, integration and composition completion
+
+Completion includes working task overview→step flow, real disclosure controls, actual CoachMark targets and HelpPanel-tab persistence. Host owns validated task signals/routes/content, the committed Stop/tab/open transaction, rendering the preferred start action, and valid fallbackFocusId where body fallback would be poor. The local fixture must demonstrate fold, Help-tab switch, narrow modal, rejected controlled Stop/exposure and route-removed start action. It must visibly expose the preferred action before focus, or visibly use the documented fallback; an emitted request/log alone is insufficient. Route teardown cleans the coach and panel isolation/observers without inventing a completed task or submitting/resetting the page form.
+
+## Stable parts and states
+
+root, opener, header, tabs, close, title, back, task-list, task, step-list, stop; open,closed,running,idle,active-step.
+
+All rendered owned parts use `data-krds-component="tutorial-panel"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+
+## Required native user outcomes
+
+1. Close/reopen and Help tab switch preserve tutorial step.
+2. Accepted Stop ends the process and exposes the preferred usable start action before restoring focus, or uses the documented usable fallback.
+3. Step title equals CoachMark title.
+4. Wide panel allows Tab escape.
+5. Narrow modal leaves no body isolation after close.
+6. Removed target suspends safely and route teardown cleans presentation, with no stale focus restoration before actual closure.
+7. Stop after panel fold or Help-tab switch requests Tutorial-tab and panel exposure before focusing the now usable start action.
+8. Narrow Stop never focuses through a closed or inert modal and has one restoration owner after actual stopped and rendered state.
+9. Rejected controlled Stop retains running presentation/focus, while accepted Stop with rejected exposure or removed start action uses the documented usable fallback.
+10. Route removal cleans active presentation then restores to a live usable host target or documented document fallback.
+11. Accepted narrow Stop running=false/open=true with Help retained after rejected Tutorial-tab change and a hidden or removed start keeps focus on a usable target or container inside the actual topmost modal, preserving its isolation and trap without outside or body restoration.
+
+These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+
+## Required native stories
+
+`tutorial-panel--task-overview`, `tutorial-panel--active-step`, `tutorial-panel--suspended-panel`, `tutorial-panel--help-tab-return`, `tutorial-panel--narrow-modal`, `tutorial-panel--route-change`, `tutorial-panel--stop-after-fold`, `tutorial-panel--stop-after-help-tab`, `tutorial-panel--narrow-stop-return`, `tutorial-panel--controlled-stop-exposure-rejected`, `tutorial-panel--start-action-removed`, `tutorial-panel--stop-partial-narrow-help`.
+
+Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+
+## Official evidence, separate from independent policy
+
+The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
+
+
+### 구조
+
+- L[883–883](../../upstream/krds/raw/components/component_08_02.html:883): 구조
+- L[889–889](../../upstream/krds/raw/components/component_08_02.html:889): 1. 패널 열기 버튼 패널을 표시하는 데 사용되는 버튼. 본문 우측에 배치되며, 스크롤 동작 시 화면의 일관된 위치에 고정하여 배치됨
+- L[893–893](../../upstream/krds/raw/components/component_08_02.html:893): a. 패널 선택 탭 도움 패널과 따라하기 패널을 전환하는 데 사용됨
+- L[894–894](../../upstream/krds/raw/components/component_08_02.html:894): b. 패널 닫기 버튼 패널을 닫고 패널 활성화 버튼을 표시하는 데 사용됨
+- L[890–896](../../upstream/krds/raw/components/component_08_02.html:890): 2. 헤더 a. 패널 선택 탭 도움 패널과 따라하기 패널을 전환하는 데 사용됨 b. 패널 닫기 버튼 패널을 닫고 패널 활성화 버튼을 표시하는 데 사용됨
+- L[897–897](../../upstream/krds/raw/components/component_08_02.html:897): 3. 섹션 제목 따라하기 패널 자체의 제목 또는 현재 진행 중인 과업 단계의 텍스트가 제공됨
+- L[898–898](../../upstream/krds/raw/components/component_08_02.html:898): 4. 뒤로 가기 버튼 기본 내용 화면으로 전환하기 위한 버튼
+- L[902–902](../../upstream/krds/raw/components/component_08_02.html:902): a. 기본 따라하기 패널을 실행하였을 때 최초에 제공되는 기본 콘텐츠로 실습에 포함된 과업 목록과 세부 과업을 확인할 수 있음
+- L[903–903](../../upstream/krds/raw/components/component_08_02.html:903): b. 실습 단계 기본 콘텐츠에 명시된 과업 목록 하위의 세부 과업 목록. 각 세부 과업의 제목은 코치마크의 제목과 동일함
+- L[899–905](../../upstream/krds/raw/components/component_08_02.html:899): 3. 본문 따라하기 패널의 용도를 안내하고 사용을 유도하기 위한 초기 상태와 단계별 상세 안내 정보를 제공하는 두 가지 상태로 구성됨 a. 기본 따라하기 패널을 실행하였을 때 최초에 제공되는 기본 콘텐츠로 실습에 포함된 과업 목록과 세부 과업을 확인할 수 있음 b. 실습 단계 기본 콘텐츠에 명시된 과업 목록 하위의 세부 과업 목록. 각 세부 과업의 제목은 코치마크의 제목과 동일함
+- L[906–906](../../upstream/krds/raw/components/component_08_02.html:906): 6. 중단 버튼 진행 중인 따라하기 과정을 중단하는 데 사용되는 버튼
+
+### 용례
+
+- L[914–914](../../upstream/krds/raw/components/component_08_02.html:914): 용례
+- L[916–916](../../upstream/krds/raw/components/component_08_02.html:916): 사용하기 적합한 경우
+- L[918–918](../../upstream/krds/raw/components/component_08_02.html:918): 여러 세부 단계를 거쳐야 하거나 복잡한 입력이 필요한 경우
+- L[922–922](../../upstream/krds/raw/components/component_08_02.html:922): 사용하기 적합하지 않은 경우
+- L[927–927](../../upstream/krds/raw/components/component_08_02.html:927): 맥락적 도움말 컴포넌트를 사용하는 것이 적합하다.
+- L[924–929](../../upstream/krds/raw/components/component_08_02.html:924): 안내/도움 정보가 간단한 경우 맥락적 도움말 컴포넌트를 사용하는 것이 적합하다.
+
+### 사용성 가이드라인
+
+- L[937–937](../../upstream/krds/raw/components/component_08_02.html:937): 사용성 가이드라인
+- L[940–940](../../upstream/krds/raw/components/component_08_02.html:940): 사용자가 중단하기 버튼을 누르기 전까지 콘텐츠가 변경되지 않아야 한다.
+- L[941–941](../../upstream/krds/raw/components/component_08_02.html:941): 사용자가 패널을 닫거나 도움 패널로 전환하였다 따라하기 패널을 다시 실행하더라도 본문은 사용자가 가장 마지막에 확인한 따라하기 콘텐츠를 표시해야 한다.
+- L[944–944](../../upstream/krds/raw/components/component_08_02.html:944): 사용자가 중단하기 버튼을 누르기 전까지 따라하기 프로세스가 중단되지 않아야 한다.
+- L[945–945](../../upstream/krds/raw/components/component_08_02.html:945): 사용자는 본문과 코치마크에 집중하기 위해 패널을 일시적으로 접은 상태에서 서비스를 이용할 수 있다. 패널 닫기 동작을 수행하였다고 하여 사용자의 의도와 상관없이 따라하기 절차가 중단되면 사용자는 이용 맥락을 잃어버리게 된다.
+- L[948–948](../../upstream/krds/raw/components/component_08_02.html:948): 콘텐츠를 간결하게 유지한다.
+- L[949–949](../../upstream/krds/raw/components/component_08_02.html:949): 가능한 한 사용자가 패널 영역을 스크롤 하지 않고 정보를 훑어볼 수 있도록 필요한 내용을 간결한 문장으로 작성한다.
+- L[952–952](../../upstream/krds/raw/components/component_08_02.html:952): 패널에서 제공하는 웹페이지 링크는 새 창으로 실행한다.
+- L[953–953](../../upstream/krds/raw/components/component_08_02.html:953): 패널에 웹페이지 링크가 포함되어 있는 경우에는 항상 새 창으로 링크를 실행시켜 사용자의 현재 과업 맥락이 중단되지 않도록 한다.
+
+### 플랫폼에 대한 고려 사항
+
+- L[961–961](../../upstream/krds/raw/components/component_08_02.html:961): 플랫폼에 대한 고려 사항
+- L[964–964](../../upstream/krds/raw/components/component_08_02.html:964): 화면 너비가 충분하지 않을 때 따라하기 패널은 패널 열기 버튼으로 축약하여 제공한다.
+- L[965–965](../../upstream/krds/raw/components/component_08_02.html:965): 화면 너비가 충분하지 않을 경우, 사용자가 본문 콘텐츠에 우선적으로 접근하고 본문의 과업에 집중할 수 있도록 패널 열기 버튼을 제공한다. 패널 열기 버튼을 눌렀을 때 패널은 모달 형식으로 제공하면 된다.
+
+### 접근성 가이드라인
+
+- L[1072–1072](../../upstream/krds/raw/components/component_08_02.html:1072): 접근성 가이드라인
+- L[1075–1075](../../upstream/krds/raw/components/component_08_02.html:1075): 키보드 초점은 논리적인 순서로 이동해야 한다.
+- L[1076–1076](../../upstream/krds/raw/components/component_08_02.html:1076): 패널이 실행되면 키보드 초점은 패널 영역 자체로 이동해야 한다. 패널 내부에서 키보드 함정이 발생하지 않아야 한다.
+- L[1084–1084](../../upstream/krds/raw/components/component_08_02.html:1084): 패널 열기 버튼과 패널은 본문 바로 다음 요소로 제공한다.
+- L[1085–1085](../../upstream/krds/raw/components/component_08_02.html:1085): 키보드, 스크린 리더 사용자가 우선 본문의 다양한 정보와 컨트롤 요소에 대한 개요를 파악한 후 도움 패널의 사용 여부를 결정할 수 있도록 본문 다음 요소로 제공한다.
+
+### 상호작용 가이드라인
+
+- L[1098–1098](../../upstream/krds/raw/components/component_08_02.html:1098): 상호작용 가이드라인
+- L[1100–1100](../../upstream/krds/raw/components/component_08_02.html:1100): 패널 실행
+- L[1118–1124](../../upstream/krds/raw/components/component_08_02.html:1118): Click 패널 열기 버튼 또는 아이콘 버튼을 Click 하면 도움 패널이 표시된다. 패널 표시 후, 키보드 초점은 도움 패널 자체로 이동한다.
+- L[1125–1131](../../upstream/krds/raw/components/component_08_02.html:1125): Enter, Space 패널 열기 버튼 또는 아이콘 버튼이 초점을 가진 상태에서 Enter 또는 Space 키를 누르면 도움 패널이 표시된다. 패널 표시 후, 키보드 초점은 도움 패널 자체로 이동한다.
+- L[1138–1138](../../upstream/krds/raw/components/component_08_02.html:1138): 패널 내부 콘텐츠 탐색
+- L[1156–1159](../../upstream/krds/raw/components/component_08_02.html:1156): Tab 패널이 활성화된 상태에서 내부 링크 요소를 순차적으로 탐색한다.
+- L[1160–1163](../../upstream/krds/raw/components/component_08_02.html:1160): Click 패널 내부의 확장 가능한 영역을 펼치거나 접는다.
+- L[1164–1167](../../upstream/krds/raw/components/component_08_02.html:1164): Enter, Space 패널 내부의 확장 가능한 영역을 펼치거나 접는다. 초점은 확장 가능한 영역을 활성화하는 데 사용되는 버튼에 유지된다.
+- L[1174–1174](../../upstream/krds/raw/components/component_08_02.html:1174): 패널 비활성화
+- L[1192–1198](../../upstream/krds/raw/components/component_08_02.html:1192): Click 패널 닫기 버튼을 Click 하면 도움 패널이 닫히고 패널 열기 버튼이 표시된다. 키보드 초점은 패널 열기 버튼으로 이동한다.
+- L[1199–1205](../../upstream/krds/raw/components/component_08_02.html:1199): Enter, Space 패널 닫기 버튼이 초점을 가진 상태에서 Enter 또는 Space 키를 누르면 도움 패널이 닫히고 패널 열기 버튼이 표시된다. 키보드 초점은 관련된 패널 열기 버튼으로 이동한다.
+
+### 예시
+
+- L[1224–1224](../../upstream/krds/raw/components/component_08_02.html:1224): 예시
+
+### 마크업 가이드
+
+- L[1259–1259](../../upstream/krds/raw/components/component_08_02.html:1259): 마크업 가이드
+- L[1262–1262](../../upstream/krds/raw/components/component_08_02.html:1262): CSS 선택자
+- L[1282–1287](../../upstream/krds/raw/components/component_08_02.html:1282): 전체영역 .krds-help-panel 영역 전개 .expand
+- L[1288–1291](../../upstream/krds/raw/components/component_08_02.html:1288): 패널 제어 버튼 .btn-help-panel
+- L[1292–1295](../../upstream/krds/raw/components/component_08_02.html:1292): 패널 본문 .help-conts
+- L[1296–1299](../../upstream/krds/raw/components/component_08_02.html:1296): 중단 버튼 .help-panel-action
+- L[1309–1309](../../upstream/krds/raw/components/component_08_02.html:1309): JS
+- L[1328–1332](../../upstream/krds/raw/components/component_08_02.html:1328): krds_helpPanel init() 초기화 및 주요 이벤트 실행
+- L[1333–1336](../../upstream/krds/raw/components/component_08_02.html:1333): setupHelpButtons() 도움 패널 버튼 설정
+- L[1337–1340](../../upstream/krds/raw/components/component_08_02.html:1337): toggleHelpPanel() 도움 패널 토글
+
+Inline preserved example markup (reference, not the public native API): No inline sample-view markup in this detail.
+
+Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+
+## Evidence limitations and recorded policy
+
+- Stop/exposure/fallback ordering is now concrete independent policy; the official start action remains preferred after it is actually exposed. Composition kind is accepted; actual host transaction/render wiring still requires native evidence and independent implementation review. Modal-aware fallback now uses the actual topmost modal’s usable internal target/container whenever it remains open; outside fallback is permitted only after actual accepted closure/cleanup leaves no active modal.
+- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1355 `../../../resources/js/examples/krds_helpPanel.js`. Do not infer unseen contents.
+- 1 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
+- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+
+## Accepted independent resolution
+
+Composition kind is accepted. Stop/exposure and topmost-modal-aware focus are frozen independent policy; native host wiring and actual accepted-state evidence remain required.
+
+## Shared implementation handoff
+
+The exact semantic interface is `TutorialPanelContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+
+Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.

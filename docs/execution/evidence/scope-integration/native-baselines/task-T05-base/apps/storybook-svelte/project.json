@@ -1,0 +1,54 @@
+{
+  "name": "storybook-svelte",
+  "root": "apps/storybook-svelte",
+  "sourceRoot": "apps/storybook-svelte/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:svelte"
+  ],
+  "implicitDependencies": [
+    "krds-svelte",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte lint"
+      }
+    },
+    "storybook-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte storybook-build"
+      }
+    },
+    "stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte stories"
+      }
+    }
+  }
+}

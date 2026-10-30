@@ -1,0 +1,7 @@
+import {NativeIcon} from '../../native-icon.js';
+import type { TabBarContract } from '@unofficial-krds/contracts';
+import { part, unique } from '../../catalog-utils.js';
+import { Badge } from '../badge/index.js';
+export type TabBarProps = TabBarContract;
+export function TabBar({ items, currentId, menuAction }: TabBarProps) { unique(items.map(i => i.id), 'TabBar'); if (items.length + (menuAction ? 1 : 0) > 5 || !items.some(i => i.id === currentId))
+    throw new RangeError('TabBar needs a current item and at most five controls.'); return <nav {...part('tab-bar', 'root', 'current')} aria-label="하단 탐색" style={{position:'fixed',insetInline:0,bottom:0,zIndex:50}}><ul {...part('tab-bar', 'list')}>{items.map(item => <li {...part('tab-bar', 'item', item.id === currentId ? 'current' : '')} key={item.id}><a {...part('tab-bar', 'link', item.id === currentId ? 'current' : '')} href={item.href} aria-current={item.id === currentId ? 'page' : undefined}><span {...part('tab-bar', 'icon')} aria-hidden="true"><NativeIcon name={item.id===currentId?item.currentIcon??item.icon:item.icon}/></span><span {...part('tab-bar', 'label')}>{item.label}</span>{item.id === currentId && <span {...part('tab-bar', 'indicator', 'current')} aria-hidden="true">●</span>}{item.badge !== undefined && <span {...part('tab-bar', 'badge')}><Badge label={String(item.badge)} numeric/></span>}</a></li>)}{menuAction && <li {...part('tab-bar','item')}><button {...part('tab-bar', 'menu-trigger')} type="button" onClick={menuAction.onRequest}>{menuAction.label}</button></li>}</ul></nav>; }

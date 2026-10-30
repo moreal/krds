@@ -1,0 +1,352 @@
+--- reviewed-before/packages/vue/src/components/modal/stack.ts
++++ fix1-after/packages/vue/src/components/modal/stack.ts
+@@ -15,11 +15,19 @@
+   if (element.closest('[inert],[hidden]') || element.matches(':disabled')) return false;
+   return element.getClientRects().length > 0 && getComputedStyle(element).visibility !== 'hidden';
+ }
++const focusCandidateSelector = 'button,input,select,textarea,a[href],summary,[tabindex],[contenteditable="true"]';
++
+ export function canFocus(element: Element | null | undefined): element is HTMLElement {
+-  return usable(element) && element.matches('button,input,select,textarea,a[href],[tabindex],[contenteditable="true"]');
++  if (!usable(element) || !element.matches(focusCandidateSelector)) return false;
++  if (element.matches('summary') && !element.hasAttribute('tabindex')) {
++    const disclosure = element.parentElement;
++    if (!disclosure?.matches('details')) return false;
++    return Array.from(disclosure.children).find(child => child.matches('summary')) === element;
++  }
++  return true;
+ }
+ export function focusables(root: HTMLElement) {
+-  return Array.from(root.querySelectorAll<HTMLElement>('button,input,select,textarea,a[href],[tabindex],[contenteditable="true"]'))
++  return Array.from(root.querySelectorAll<HTMLElement>(focusCandidateSelector))
+     .filter(element => canFocus(element) && element.tabIndex >= 0);
+ }
+ export function top(doc: Document, entry: ModalEntry) {
+--- reviewed-before/packages/vue/src/components/native-select/NativeSelect.vue
++++ fix1-after/packages/vue/src/components/native-select/NativeSelect.vue
+@@ -51,12 +51,22 @@
+     emit('update:modelValue', next);
+     emit('valueChange', { value: next });
+ } void nextTick(sync); }
+-function reset(e: Event) { queueMicrotask(() => { if (e.defaultPrevented)
+-    return; if (!controlled.value)
+-    local.value = initial; sync(); }); }
+-let form: HTMLFormElement | null = null;
+-onMounted(() => { sync(); form = control.value?.form ?? null; form?.addEventListener('reset', reset); });
+-onUnmounted(() => form?.removeEventListener('reset', reset));
++function reset(event: Event) {
++  if (event.target !== control.value?.form) return;
++  queueMicrotask(() => {
++    if (event.defaultPrevented || event.target !== control.value?.form) return;
++    if (!controlled.value) local.value = initial;
++    sync();
++  });
++}
++let ownerDocument: Document | null = null;
++onMounted(() => {
++  sync();
++  ownerDocument = control.value?.ownerDocument ?? null;
++  // Native form ownership can change independently of Vue props or component mounting.
++  ownerDocument?.addEventListener('reset', reset, true);
++});
++onUnmounted(() => ownerDocument?.removeEventListener('reset', reset, true));
+ </script>
+ <template>
+ <div data-krds-component="native-select" data-krds-part="root" :dir="context.direction.value" :data-krds-state="[disabled?'disabled':'',invalid?'invalid':''].filter(Boolean).join(' ')" :data-krds-size="size">
+--- reviewed-before/packages/vue/src/components/date-input/DateInput.vue
++++ fix1-after/packages/vue/src/components/date-input/DateInput.vue
+@@ -122,33 +122,52 @@
+ function confirmed(detail: {
+     value: DateValue;
+ }) { notify(detail.value); popup.value = false; void nextTick(display); }
+-function reset(e: Event) { queueMicrotask(() => { if (e.defaultPrevented)
+-    return; if (!controlled.value)
+-    local.value = copy(baseline); popup.value = false; display(); }); }
+-function submit(e: Event) { if (p.disabled)
+-    return; const result = parsed(); if (result.error || result.value === undefined) {
+-    e.preventDefault();
++function reset(event: Event) {
++  if (event.target !== fields.value[0]?.form) return;
++  queueMicrotask(() => {
++    if (event.defaultPrevented || event.target !== fields.value[0]?.form) return;
++    if (!controlled.value) local.value = copy(baseline);
++    popup.value = false;
++    display();
++  });
++}
++function submit(event: Event) {
++  if (event.target !== fields.value[0]?.form || p.disabled) return;
++  const result = parsed();
++  if (result.error || result.value === undefined) {
++    event.preventDefault();
+     error.value = result.error;
+     announced.value = result.error;
+     validity();
+     fields.value[result.index ?? 0]?.reportValidity();
+     return;
+-} if (!equal(result.value, committed.value)) {
++  }
++  if (!equal(result.value, committed.value)) {
+     notify(result.value);
+     if (!controlled.value) syncCanonical(result.value);
+     if (controlled.value) {
+-        e.preventDefault();
+-        void nextTick(display);
++      event.preventDefault();
++      void nextTick(display);
+     }
+-} }
++  }
++}
+ function beforeInvalid() { if (!composing.value) {
+     const result = parsed();
+     error.value = result.error;
+     announced.value = result.error;
+ } }
+-let form: HTMLFormElement | null = null;
+-onMounted(() => { display(); form = fields.value[0]?.form ?? null; form?.addEventListener('reset', reset); form?.addEventListener('submit', submit, true); });
+-onUnmounted(() => { form?.removeEventListener('reset', reset); form?.removeEventListener('submit', submit, true); });
++let ownerDocument: Document | null = null;
++onMounted(() => {
++  display();
++  ownerDocument = fields.value[0]?.ownerDocument ?? null;
++  // Filter each native event against the current owner, including external form reassociation.
++  ownerDocument?.addEventListener('reset', reset, true);
++  ownerDocument?.addEventListener('submit', submit, true);
++});
++onUnmounted(() => {
++  ownerDocument?.removeEventListener('reset', reset, true);
++  ownerDocument?.removeEventListener('submit', submit, true);
++});
+ const described = computed(() => `${id}-hint${error.value || p.error || slots.error ? ` ${id}-error` : ''}`);
+ const bad = computed(() => !!error.value || !!p.error || !!slots.error || p.invalid);
+ const canonical = computed(() => ends(committed.value));
+--- reviewed-before/apps/fixture-vue/tests/siheom/native-behavior.test.ts
++++ fix1-after/apps/fixture-vue/tests/siheom/native-behavior.test.ts
+@@ -1,4 +1,5 @@
+-import { test, expect } from 'vitest';
++import { test, expect, vi } from 'vitest';
++import { userEvent } from 'vitest/browser';
+ import { defineComponent, h, nextTick, ref } from 'vue';
+ import { render, screen } from '@testing-library/vue';
+ import { Button, NativeSelect, Modal, Tabs, Calendar, DateInput, KrdsProvider } from '@unofficial-krds/vue';
+@@ -149,3 +150,219 @@
+   expect(screen.getByRole('button',{name:'Close'})).toBeTruthy();expect(screen.getByRole('heading',{name:'February 2024'})).toBeTruthy();expect(screen.getByRole('dialog').closest('[data-krds-part="root"]')?.getAttribute('dir')).toBe('rtl');
+   locale.value='ko-KR';direction.value='ltr';await settle();expect(screen.getByRole('button',{name:'닫기'})).toBeTruthy();expect(screen.getByRole('heading',{name:'2024년 2월'})).toBeTruthy();expect(screen.getByRole('dialog').closest('[data-krds-part="root"]')?.getAttribute('dir')).toBe('ltr');
+ });
++
++test('fix1 Modal reaches native summary in both Tab directions and activates its disclosure', async () => {
++  render(Modal, {
++    props: { title: 'Disclosure', defaultOpen: true },
++    slots: { default: () => [
++      h('div', { hidden: true }, [h('button', {}, 'Hidden action')]),
++      h('div', { inert: true }, [h('button', {}, 'Inert action')]),
++      h('details', {}, [
++        h('summary', { id: 'disclosure-summary' }, 'More information'),
++        h('input', { 'aria-label': 'Disclosure note' }),
++      ]),
++    ] },
++  });
++  await settle();
++  const summary = document.querySelector('summary')!;
++  const details = summary.parentElement as HTMLDetailsElement;
++  const close = screen.getByRole('button', { name: '닫기' });
++  await userEvent.keyboard('{Tab}');
++  expect(document.activeElement).toBe(summary);
++  await userEvent.keyboard('{Enter}');
++  expect(details.open).toBe(true);
++  await userEvent.keyboard('{Tab}');
++  expect(document.activeElement).toBe(screen.getByRole('textbox', { name: 'Disclosure note' }));
++  close.focus();
++  await userEvent.keyboard('{Tab}');
++  expect(document.activeElement).toBe(summary);
++  await userEvent.keyboard('{Shift>}{Tab}{/Shift}');
++  expect(document.activeElement).toBe(close);
++});
++
++test('fix1 Modal accepts its first native summary as the explicit initial focus target', async () => {
++  render(Modal, {
++    props: { title: 'Initial disclosure', defaultOpen: true, initialFocusId: 'first-summary' },
++    slots: { default: () => h('details', {}, [
++      h('summary', { id: 'first-summary' }, 'First disclosure'),
++      h('button', {}, 'Closed disclosure action'),
++    ]) },
++  });
++  await settle();
++  expect(document.activeElement).toBe(document.getElementById('first-summary'));
++});
++
++test('fix1 NativeSelect follows current external form for reset and isolates the old owner', async () => {
++  const association = ref('select-old');
++  const events: unknown[] = [];
++  const view = render(defineComponent({ setup: () => () => h('div', [
++    h('form', { id: 'select-old' }),
++    h('form', { id: 'select-new' }),
++    h(NativeSelect, {
++      form: association.value,
++      label: 'Reassociated region',
++      name: 'region',
++      defaultValue: 'b',
++      options: [{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }],
++      onValueChange: (detail: unknown) => events.push(detail),
++    }),
++  ]) }));
++  const select = screen.getByRole('combobox') as HTMLSelectElement;
++  const oldForm = document.getElementById('select-old') as HTMLFormElement;
++  const newForm = document.getElementById('select-new') as HTMLFormElement;
++  select.value = 'a';
++  await fireEvent.change(select);
++  association.value = 'select-new';
++  await settle();
++  expect(select.form).toBe(newForm);
++  oldForm.reset();
++  await settle();
++  expect(select.value).toBe('a');
++  expect(new FormData(oldForm).has('region')).toBe(false);
++  expect(new FormData(newForm).get('region')).toBe('a');
++  newForm.addEventListener('reset', event => event.preventDefault(), { once: true });
++  newForm.reset();
++  await settle();
++  expect(select.value).toBe('a');
++  newForm.reset();
++  await settle();
++  expect(select.value).toBe('b');
++  expect(events).toEqual([{ value: 'a' }]);
++  view.unmount();
++  oldForm.reset();
++  newForm.reset();
++  await settle();
++  expect(events).toEqual([{ value: 'a' }]);
++});
++
++test('fix1 DateInput submits a pending draft through its new native form and resets only there', async () => {
++  const association = ref('date-old');
++  const events: unknown[] = [];
++  const submitted: string[] = [];
++  const view = render(defineComponent({ setup: () => () => h('div', [
++    h('form', { id: 'date-old' }),
++    h('form', { id: 'date-new', onSubmit: (event: SubmitEvent) => {
++      if (!event.defaultPrevented) submitted.push(String(new FormData(event.currentTarget as HTMLFormElement).get('visit')));
++      event.preventDefault();
++    } }),
++    h(DateInput, {
++      form: association.value,
++      label: 'Reassociated visit',
++      name: 'visit',
++      defaultValue: '2024-02-29',
++      referenceDate: '2024-02-15',
++      onValueChange: (detail: unknown) => events.push(detail),
++    }),
++  ]) }));
++  const field = screen.getByRole('textbox', { name: 'Reassociated visit' }) as HTMLInputElement;
++  const oldForm = document.getElementById('date-old') as HTMLFormElement;
++  const newForm = document.getElementById('date-new') as HTMLFormElement;
++  association.value = 'date-new';
++  await settle();
++  expect(field.form).toBe(newForm);
++  field.focus();
++  await fireEvent.update(field, '2024-03-01');
++  newForm.requestSubmit();
++  await settle();
++  expect(submitted).toEqual(['2024-03-01']);
++  expect(events).toEqual([{ value: '2024-03-01' }]);
++  expect(new FormData(oldForm).has('visit')).toBe(false);
++  expect(new FormData(newForm).get('visit')).toBe('2024-03-01');
++  await fireEvent.update(field, 'bad draft');
++  await fireEvent.keyDown(field, { key: 'Enter' });
++  oldForm.reset();
++  await settle();
++  expect(field.value).toBe('bad draft');
++  expect(field.getAttribute('aria-invalid')).toBe('true');
++  newForm.addEventListener('reset', event => event.preventDefault(), { once: true });
++  newForm.reset();
++  await settle();
++  expect(field.value).toBe('bad draft');
++  screen.getByRole('button', { name: '달력 열기' }).click();
++  await settle();
++  expect(screen.getByRole('dialog')).toBeTruthy();
++  newForm.reset();
++  await settle();
++  expect(screen.queryByRole('dialog')).toBeNull();
++  expect(field.value).toBe('2024-02-29');
++  expect(field.getAttribute('aria-invalid')).toBeNull();
++  expect(new FormData(newForm).get('visit')).toBe('2024-02-29');
++  expect(events).toEqual([{ value: '2024-03-01' }]);
++  view.unmount();
++  oldForm.reset();
++  newForm.reset();
++  await settle();
++  expect(events).toHaveLength(1);
++});
++
++test('fix1 DateInput blocks a rejected pending controlled draft on the new native form', async () => {
++  const association = ref('controlled-old');
++  const events: unknown[] = [];
++  const submitted: boolean[] = [];
++  render(defineComponent({ setup: () => () => h('div', [
++    h('form', { id: 'controlled-old' }),
++    h('form', { id: 'controlled-new', onSubmit: (event: SubmitEvent) => {
++      submitted.push(event.defaultPrevented);
++      event.preventDefault();
++    } }),
++    h(DateInput, {
++      form: association.value,
++      label: 'Controlled reassociation',
++      name: 'visit',
++      value: '2024-02-29',
++      withCalendar: false,
++      onValueChange: (detail: unknown) => events.push(detail),
++    }),
++  ]) }));
++  const field = screen.getByRole('textbox') as HTMLInputElement;
++  association.value = 'controlled-new';
++  await settle();
++  field.focus();
++  await fireEvent.update(field, '2024-03-01');
++  const newForm = document.getElementById('controlled-new') as HTMLFormElement;
++  newForm.requestSubmit();
++  await settle();
++  expect(submitted).toEqual([true]);
++  expect(events).toEqual([{ value: '2024-03-01' }]);
++  expect(field.value).toBe('2024-02-29');
++  expect(new FormData(newForm).get('visit')).toBe('2024-02-29');
++});
++
++test('fix1 form-control unmount removes its native reset and submit observers', async () => {
++  const form = document.createElement('form');
++  form.id = 'cleanup-owner';
++  document.body.append(form);
++  const added = vi.spyOn(document, 'addEventListener');
++  const removed = vi.spyOn(document, 'removeEventListener');
++  const events: unknown[] = [];
++  try {
++    for (let iteration = 0; iteration < 2; iteration++) {
++      const view = render(defineComponent({ setup: () => () => h('div', [
++        h(NativeSelect, {
++          form: form.id, label: 'Cleanup select', name: 'region',
++          options: [{ value: 'a', label: 'A' }],
++          onValueChange: (detail: unknown) => events.push(detail),
++        }),
++        h(DateInput, {
++          form: form.id, label: 'Cleanup date', name: 'visit', withCalendar: false,
++          onValueChange: (detail: unknown) => events.push(detail),
++        }),
++      ]) }));
++      await settle();
++      view.unmount();
++      await settle();
++      form.reset();
++    }
++    const registrations = added.mock.calls.filter(([name]) => name === 'reset' || name === 'submit');
++    expect(registrations.length).toBeGreaterThan(0);
++    for (const [name, listener, options] of registrations) {
++      expect(removed.mock.calls.some(([removedName, removedListener, removedOptions]) =>
++        removedName === name && removedListener === listener && removedOptions === options)).toBe(true);
++    }
++    expect(events).toEqual([]);
++  } finally {
++    added.mockRestore();
++    removed.mockRestore();
++    form.remove();
++  }
++});

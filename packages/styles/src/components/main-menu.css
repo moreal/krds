@@ -1,0 +1,50 @@
+/* KRDS-derived: frozen component.css lines 3854–5185; semantic guidance: specs/components/main-menu.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="main-menu"][data-krds-part="root"] { position: relative; color: var(--krds-light-color-text-basic); }
+[data-krds-component="main-menu"][data-krds-part="list"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-3); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="main-menu"][data-krds-part="item"] { min-inline-size: 0; }
+[data-krds-component="main-menu"][data-krds-part="trigger"], [data-krds-component="main-menu"][data-krds-part="link"] { display: flex; align-items: center; justify-content: space-between; gap: var(--krds-gap-3); min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-4) var(--krds-padding-6); border: 0; border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-action-secondary); color: inherit; text-decoration: none; font: inherit; text-align: start; cursor: pointer; }
+[data-krds-component="main-menu"][data-krds-part="trigger"]:hover, [data-krds-component="main-menu"][data-krds-part="link"]:hover { background: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="main-menu"][data-krds-part="trigger"][aria-expanded="true"] { background: var(--krds-light-color-action-secondary-selected); border-block-end: var(--krds-number-3) solid var(--krds-light-color-border-primary); font-weight: 700; }
+[data-krds-component="main-menu"][data-krds-part="link"][aria-current] { color: var(--krds-light-color-text-primary); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+[data-krds-component="main-menu"][data-krds-part="indicator"] { flex: none; inline-size: 1em; block-size: 1em; }
+[data-krds-component="main-menu"][data-krds-part="submenu"] { display: grid; gap: var(--krds-gap-4); padding: var(--krds-padding-8); background: var(--krds-light-color-surface-gray-subtler); border-block-end: var(--krds-number-1) solid var(--krds-light-color-divider-gray); }
+[data-krds-component="main-menu"][data-krds-part="submenu-title"] { margin: 0; font-size: var(--krds-pc-font-size-heading-small); font-weight: 700; }
+[data-krds-component="main-menu"][data-krds-part="description"] { margin: 0; color: var(--krds-light-color-text-subtle); }
+[data-krds-component="main-menu"][data-krds-part="utilities"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-4); padding: var(--krds-padding-6); }
+[data-krds-component="main-menu"][data-krds-part="mobile-trigger"], [data-krds-component="main-menu"][data-krds-part="back"], [data-krds-component="main-menu"][data-krds-part="close"] { min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); font: inherit; background: var(--krds-light-color-action-secondary); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); cursor: pointer; }
+[data-krds-component="main-menu"][data-krds-part="mobile-content"] { position: fixed; inset: 0; z-index: 70; overflow: auto; padding: var(--krds-padding-6); background: var(--krds-light-color-background-white); color: var(--krds-light-color-text-basic); }
+/* A public Modal already owns the layer and scroll boundary. Its menu body
+ * must contribute normal flow height instead of covering the dialog controls. */
+[data-krds-component="modal"][data-krds-part="body"] > [data-krds-component="main-menu"][data-krds-part="mobile-content"] {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  overflow: visible;
+}
+[data-krds-component="main-menu"][data-krds-part="search"] { inline-size: 100%; min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-4); border: var(--krds-number-1) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium2); font: inherit; }
+[data-krds-component="main-menu"][data-krds-part="root"][data-krds-layout="mobile"] [data-krds-component="main-menu"][data-krds-part="list"] { flex-direction: column; }
+[data-krds-component="main-menu"][data-krds-part="root"][data-krds-layout="mobile"] [data-krds-component="main-menu"][data-krds-part="submenu"] { padding: var(--krds-padding-6); }
+@media (max-width: 767px) { [data-krds-component="main-menu"][data-krds-part="submenu"] { padding: var(--krds-padding-6); } [data-krds-component="main-menu"][data-krds-part="submenu-title"] { font-size: var(--krds-mobile-font-size-heading-small); } }
+[data-krds-component="main-menu"][data-krds-part="submenu"][data-krds-state~="collapsed"] { display: none; }
+
+/* A desktop dropdown scrolls locally, independently of the mobile dialog. */
+[data-krds-component="main-menu"][data-krds-part="root"]:not([data-krds-layout="mobile"]) [data-krds-component="main-menu"][data-krds-part="submenu"] {
+  max-block-size: 70vh;
+  overflow-y: auto;
+  overscroll-behavior-block: contain;
+  scroll-padding-block: var(--krds-number-4);
+}
+
+/* Mobile branches already expose their context through headings and controls.
+ * Browser list indentation and repeated panel gutters must not consume the
+ * reading width again at every nested level, especially with enlarged text. */
+[data-krds-component="modal"][data-krds-part="body"] > [data-krds-component="main-menu"][data-krds-part="mobile-content"] > ul,
+[data-krds-component="modal"][data-krds-part="body"] > [data-krds-component="main-menu"][data-krds-part="mobile-content"] [data-krds-component="main-menu"][data-krds-part="submenu"] > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[data-krds-component="modal"][data-krds-part="body"] > [data-krds-component="main-menu"][data-krds-part="mobile-content"] [data-krds-component="main-menu"][data-krds-part="submenu"] {
+  padding-inline: 0;
+}

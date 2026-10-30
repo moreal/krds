@@ -1,0 +1,273 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+10:44:34 AM [vite] (client) dependency optimized: @testing-library/user-event
+10:44:34 AM [vite] (client) optimized dependencies changed. reloading
+
+[vitest] Vite unexpectedly reloaded a test. This may cause tests to fail, lead to flaky behaviour or duplicated test runs.
+For a stable experience, please add mentioned dependencies to your config's `optimizeDeps.include` field manually.
+
+
+ ❯ |chromium| tests/siheom/tabs.test.tsx (6 tests | 6 failed) 519ms
+   × tabs preserve sequential access and manual selection while arrows skip disabled tabs 103ms
+   × tabs retain hidden panel state, stable relationships and emit no programmatic changes 77ms
+   × automatic controlled rejection emits once per focus-click gesture and retries later clicks 84ms
+   × tabs support vertical keyboard policy, unique instance ids and empty/all-disabled state 83ms
+   × tabs reject duplicate values and invalid selected values as configuration errors 88ms
+   × tabs dynamic items preserve valid selection and defaultValue is read once 83ms
+ ❯ |chromium| tests/siheom/modal.test.tsx (8 tests | 8 failed) 681ms
+   × modal has native dialog semantics, final close control and default contextual focus 108ms
+   × modal rejected controlled Escape retains isolation until prop close and restores usable opener first 77ms
+   × modal cycles Tab and Shift+Tab and ignores composing/handled Escape 84ms
+   × modal removes opener safely, restores supplied fallback and cleans up on unmount without events 83ms
+   × modal honors first interactive initial focus and only complete primary backdrop gestures dismiss 88ms
+   × modal nested topmost isolation, Escape and focus restoration preserve parent 83ms
+   × modal preserves previous inert and scroll states and defaults backdrop to no dismissal 79ms
+   × modal rejects controlled/default conflict and later initial focus target 79ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal has native dialog semantics, final close control and default contextual focus
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-has-native-dialog-semantics--final-close-control-and-default-contextual-focus-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:28:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal rejected controlled Escape retains isolation until prop close and restores usable opener first
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-rejected-controlled-Escape-retains-isolation-until-prop-close-and-restores-usable-opener-first-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:49:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal cycles Tab and Shift+Tab and ignores composing/handled Escape
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-cycles-Tab-and-Shift-Tab-and-ignores-composing-handled-Escape-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:96:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal removes opener safely, restores supplied fallback and cleans up on unmount without events
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-removes-opener-safely--restores-supplied-fallback-and-cleans-up-on-unmount-without-events-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:133:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal honors first interactive initial focus and only complete primary backdrop gestures dismiss
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-honors-first-interactive-initial-focus-and-only-complete-primary-backdrop-gestures-dismiss-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:184:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal nested topmost isolation, Escape and focus restoration preserve parent
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-nested-topmost-isolation--Escape-and-focus-restoration-preserve-parent-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:217:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal preserves previous inert and scroll states and defaults backdrop to no dismissal
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-preserves-previous-inert-and-scroll-states-and-defaults-backdrop-to-no-dismissal-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:250:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal rejects controlled/default conflict and later initial focus target
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Modal"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/modal.test.tsx/modal-rejects-controlled-default-conflict-and-later-initial-focus-target-1.png
+
+ ❯ modal tests/siheom/modal.test.tsx:17:17
+ ❯ tests/siheom/modal.test.tsx:274:16
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tabs preserve sequential access and manual selection while arrows skip disabled tabs
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Tabs"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/tabs.test.tsx/tabs-preserve-sequential-access-and-manual-selection-while-arrows-skip-disabled-tabs-1.png
+
+ ❯ tabs tests/siheom/tabs.test.tsx:12:17
+ ❯ tests/siheom/tabs.test.tsx:40:15
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/14]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tabs retain hidden panel state, stable relationships and emit no programmatic changes
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Tabs"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/tabs.test.tsx/tabs-retain-hidden-panel-state--stable-relationships-and-emit-no-programmatic-changes-1.png
+
+ ❯ tabs tests/siheom/tabs.test.tsx:12:17
+ ❯ tests/siheom/tabs.test.tsx:74:15
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/14]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > automatic controlled rejection emits once per focus-click gesture and retries later clicks
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Tabs"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/tabs.test.tsx/automatic-controlled-rejection-emits-once-per-focus-click-gesture-and-retries-later-clicks-1.png
+
+ ❯ tabs tests/siheom/tabs.test.tsx:12:17
+ ❯ tests/siheom/tabs.test.tsx:107:15
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/14]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tabs support vertical keyboard policy, unique instance ids and empty/all-disabled state
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Tabs"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/tabs.test.tsx/tabs-support-vertical-keyboard-policy--unique-instance-ids-and-empty-all-disabled-state-1.png
+
+ ❯ tabs tests/siheom/tabs.test.tsx:12:17
+ ❯ tests/siheom/tabs.test.tsx:129:15
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/14]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tabs reject duplicate values and invalid selected values as configuration errors
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Tabs"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/tabs.test.tsx/tabs-reject-duplicate-values-and-invalid-selected-values-as-configuration-errors-1.png
+
+ ❯ tabs tests/siheom/tabs.test.tsx:12:17
+ ❯ tests/siheom/tabs.test.tsx:170:15
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/14]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tabs dynamic items preserve valid selection and defaultValue is read once
+AssertionError: expected { KrdsProvider: [Function i], …(1), …(1) } to have property "Tabs"
+
+Failure screenshot:
+  - test-results/siheom-3561/tests/siheom/tabs.test.tsx/tabs-dynamic-items-preserve-valid-selection-and-defaultValue-is-read-once-1.png
+
+ ❯ tabs tests/siheom/tabs.test.tsx:12:17
+ ❯ tests/siheom/tabs.test.tsx:194:15
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/14]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  14 failed (14)
+   Start at  10:44:33
+   Duration  1.66s (transform 0ms, setup 119ms, import 542ms, tests 1.20s, environment 0ms)
+

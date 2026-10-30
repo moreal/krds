@@ -1,0 +1,65 @@
+{
+  "name": "storybook-angular",
+  "root": "apps/storybook-angular",
+  "sourceRoot": "apps/storybook-angular/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:angular"
+  ],
+  "implicitDependencies": [
+    "krds-angular",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular lint"
+      }
+    },
+    "storybook-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular storybook-build:local"
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs test:stories --framework angular"
+      },
+      "cache": false,
+      "dependsOn": [
+        "storybook-build",
+        "^build"
+      ]
+    }
+  }
+}

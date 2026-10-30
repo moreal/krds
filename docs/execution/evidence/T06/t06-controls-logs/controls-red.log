@@ -1,0 +1,109 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/button.test.tsx (5 tests | 5 failed) 462ms
+   × canonical disabled button uses native disabled semantics 127ms
+   × default button never submits and pointer, Enter, Space activate exactly once 90ms
+   × explicit submit supplies the submitter and reset uses the cancelable native algorithm 80ms
+   × reactive disabled suppresses actions and form data while icon names stay accessible 85ms
+   × invalid presentation options and missing accessible action names are configuration errors 80ms
+ ❯ |chromium| tests/siheom/native-select.test.tsx (10 tests | 10 failed) 819ms
+   × canonical native-select/controlled exposes the real select 126ms
+   × canonical native-select/form-reset exposes the real select 90ms
+   × first enabled option initializes native FormData without a callback or submission 80ms
+   × controlled requests restore a declined value even when its prop never changes 85ms
+   × disabled option changes are ignored and required empty placeholder blocks form validity 80ms
+   × hint and visible error remain associated with an explicitly identified label 77ms
+   × reset restores captured uncontrolled default and honors cancellation without notifying 65ms
+   × controlled reset reapplies the current prop and external form association works 69ms
+   × no enabled options preserve absent selection across reset with no successful value 71ms
+   × invalid values, duplicate options, absent names and conflicting modes are configuration errors 76ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 15 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/button.test.tsx > canonical disabled button uses native disabled semantics
+ FAIL  |chromium| tests/siheom/button.test.tsx > default button never submits and pointer, Enter, Space activate exactly once
+ FAIL  |chromium| tests/siheom/button.test.tsx > explicit submit supplies the submitter and reset uses the cancelable native algorithm
+ FAIL  |chromium| tests/siheom/button.test.tsx > reactive disabled suppresses actions and form data while icon names stay accessible
+ FAIL  |chromium| tests/siheom/button.test.tsx > invalid presentation options and missing accessible action names are configuration errors
+AssertionError: public native Solid Button: expected undefined to be type of 'function'
+
+Failure screenshots:
+  - test-results/siheom-3467/tests/siheom/button.test.tsx/canonical-disabled-button-uses-native-disabled-semantics-1.png
+  - test-results/siheom-3467/tests/siheom/button.test.tsx/default-button-never-submits-and-pointer--Enter--Space-activate-exactly-once-1.png
+  - test-results/siheom-3467/tests/siheom/button.test.tsx/explicit-submit-supplies-the-submitter-and-reset-uses-the-cancelable-native-algorithm-1.png
+  - test-results/siheom-3467/tests/siheom/button.test.tsx/reactive-disabled-suppresses-actions-and-form-data-while-icon-names-stay-accessible-1.png
+  - test-results/siheom-3467/tests/siheom/button.test.tsx/invalid-presentation-options-and-missing-accessible-action-names-are-configuration-errors-1.png
+
+Expected: [32m"[7mf[27mun[7mction[27m"[39m
+Received: [31m"un[7mdefined[27m"[39m
+
+ ❯ toBeTypeOf tests/siheom/button.test.tsx:11:62
+      9| type TestButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {…
+     10| const Button = Reflect.get(Krds, 'Button') as Component<TestButtonProp…
+     11| beforeEach(() => expect(Button, 'public native Solid Button').toBeType…
+       |                                                              ^
+     12|
+     13| test('canonical disabled button uses native disabled semantics', async…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ wrapper ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:722:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2621:52
+ ❯ run ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1150:20
+ ❯ limiterFn ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1162:59
+ ❯ runHook ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2620:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/15]⎯
+
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > canonical native-select/controlled exposes the real select
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > canonical native-select/form-reset exposes the real select
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > first enabled option initializes native FormData without a callback or submission
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > controlled requests restore a declined value even when its prop never changes
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > disabled option changes are ignored and required empty placeholder blocks form validity
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > hint and visible error remain associated with an explicitly identified label
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > reset restores captured uncontrolled default and honors cancellation without notifying
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > controlled reset reapplies the current prop and external form association works
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > no enabled options preserve absent selection across reset with no successful value
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > invalid values, duplicate options, absent names and conflicting modes are configuration errors
+AssertionError: public native Solid NativeSelect: expected undefined to be type of 'function'
+
+Failure screenshots:
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/canonical-native-select-controlled-exposes-the-real-select-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/canonical-native-select-form-reset-exposes-the-real-select-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/first-enabled-option-initializes-native-FormData-without-a-callback-or-submission-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/controlled-requests-restore-a-declined-value-even-when-its-prop-never-changes-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/disabled-option-changes-are-ignored-and-required-empty-placeholder-blocks-form-validity-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/hint-and-visible-error-remain-associated-with-an-explicitly-identified-label-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/reset-restores-captured-uncontrolled-default-and-honors-cancellation-without-notifying-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/controlled-reset-reapplies-the-current-prop-and-external-form-association-works-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/no-enabled-options-preserve-absent-selection-across-reset-with-no-successful-value-1.png
+  - test-results/siheom-3467/tests/siheom/native-select.test.tsx/invalid-values--duplicate-options--absent-names-and-conflicting-modes-are-configuration-errors-1.png
+
+Expected: [32m"[7mf[27mun[7mction[27m"[39m
+Received: [31m"un[7mdefined[27m"[39m
+
+ ❯ toBeTypeOf tests/siheom/native-select.test.tsx:17:74
+     15| function change(select: HTMLSelectElement, value: string) { select.val…
+     16| const settleReset = () => new Promise<void>(resolve => queueMicrotask(…
+     17| beforeEach(() => expect(NativeSelect, 'public native Solid NativeSelec…
+       |                                                                          ^
+     18|
+     19| test.each(['controlled', 'form-reset'])('canonical native-select/%s ex…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:302:11
+ ❯ wrapper ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:722:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2621:52
+ ❯ run ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1150:20
+ ❯ limiterFn ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:1162:59
+ ❯ runHook ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=1ad56f42:2620:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/15]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  15 failed (15)
+   Start at  10:44:15
+   Duration  1.64s (transform 0ms, setup 121ms, import 213ms, tests 1.28s, environment 0ms)
+

@@ -1,0 +1,22 @@
+/* KRDS-derived: frozen component.css lines 7934–8477; semantic guidance: specs/components/badge.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="badge"][data-krds-part="root"] { --krds-badge-fill: var(--krds-light-color-element-secondary); --krds-badge-pastel: var(--krds-light-color-element-secondary-lighter); --krds-badge-text: var(--krds-light-color-text-secondary); display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--krds-size-height-4); padding: var(--krds-padding-2) var(--krds-padding-3); border: var(--krds-number-1) solid var(--krds-badge-fill); border-radius: var(--krds-radius-small2); color: var(--krds-badge-text); background: var(--krds-light-color-background-white); font-size: var(--krds-pc-font-size-label-small); }
+[data-krds-component="badge"][data-krds-part="label"] { white-space: normal; }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-appearance="filled"] { background: var(--krds-badge-fill); color: var(--krds-light-color-text-inverse-static); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-appearance="pastel"] { background: var(--krds-badge-pastel); border-color: transparent; }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="gray"] { --krds-badge-fill: var(--krds-light-color-element-gray); --krds-badge-pastel: var(--krds-light-color-element-gray-light); --krds-badge-text: var(--krds-light-color-text-subtle); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="point"] { --krds-badge-fill: var(--krds-light-color-element-point); --krds-badge-pastel: var(--krds-light-color-element-point-lighter); --krds-badge-text: var(--krds-light-color-text-point); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="danger"] { --krds-badge-fill: var(--krds-light-color-element-danger); --krds-badge-pastel: var(--krds-light-color-element-danger-lighter); --krds-badge-text: var(--krds-light-color-text-danger); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="warning"] { --krds-badge-fill: var(--krds-light-color-element-warning); --krds-badge-pastel: var(--krds-light-color-element-warning-lighter); --krds-badge-text: var(--krds-light-color-text-warning); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="success"] { --krds-badge-fill: var(--krds-light-color-element-success); --krds-badge-pastel: var(--krds-light-color-element-success-lighter); --krds-badge-text: var(--krds-light-color-text-success); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="information"] { --krds-badge-fill: var(--krds-light-color-element-information); --krds-badge-pastel: var(--krds-light-color-element-information-lighter); --krds-badge-text: var(--krds-light-color-text-information); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="disabled"] { --krds-badge-fill: var(--krds-light-color-element-disabled-dark); --krds-badge-pastel: var(--krds-light-color-element-disabled-light); --krds-badge-text: var(--krds-light-color-text-subtle); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="warning"][data-krds-appearance="filled"] { color: var(--krds-light-color-text-static); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-size="small"] { min-block-size: var(--krds-size-height-3); }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-size="large"] { min-block-size: var(--krds-size-height-5); font-size: var(--krds-pc-font-size-label-medium); }
+@media (max-width: 767px) { [data-krds-component="badge"][data-krds-part="root"] { font-size: var(--krds-mobile-font-size-label-small); } [data-krds-component="badge"][data-krds-part="root"][data-krds-size="large"] { font-size: var(--krds-mobile-font-size-label-medium); } }
+@media (forced-colors: active) { [data-krds-component="badge"][data-krds-part="root"] { border-color: CanvasText; color: CanvasText; background: Canvas; } }
+[data-krds-component="badge"][data-krds-part="root"][data-krds-state~="numeric"] { min-inline-size: var(--krds-size-height-3); border-radius: var(--krds-radius-max); font-variant-numeric: tabular-nums; }
+
+/* Disabled is an informational tone, not a contrast-exempt disabled control. */
+[data-krds-component="badge"][data-krds-part="root"][data-krds-tone="disabled"][data-krds-appearance="filled"] { color: var(--krds-light-color-text-basic); }

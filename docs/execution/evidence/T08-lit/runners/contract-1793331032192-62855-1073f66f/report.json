@@ -1,0 +1,87 @@
+{
+  "kind": "contract",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "lit",
+      "origin": "http://127.0.0.1:58685",
+      "status": "passed",
+      "tests": [
+        {
+          "title": "lit button/disabled",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit native-select/controlled",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit native-select/form-reset",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit modal/focus-return",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit modal/trigger-removed",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit tabs/manual-activation",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit date-input/leap-year",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit date-input/ime",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit date-input/timezone-invariance",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        },
+        {
+          "title": "lit calendar/selection-confirm",
+          "browser": "webkit",
+          "status": "passed",
+          "nativeHealth": true,
+          "classification": "passed"
+        }
+      ],
+      "exitCode": 0,
+      "evidence": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793331032192-62855-1073f66f/lit",
+      "canonicalSelection": true,
+      "coverageAwarded": false
+    }
+  ]
+}

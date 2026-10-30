@@ -1,0 +1,1632 @@
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -5070,814 +5070,6 @@
+   languageName: node
+   linkType: hard
+ 
+-"@krds-native/angular@workspace:^, @krds-native/angular@workspace:packages/angular":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/angular@workspace:packages/angular"
+-  dependencies:
+-    "@angular-devkit/architect": "npm:0.2202.5"
+-    "@angular-devkit/build-angular": "npm:22.2.5"
+-    "@angular-devkit/core": "npm:22.2.5"
+-    "@angular/animations": "npm:22.2.4"
+-    "@angular/build": "npm:22.2.5"
+-    "@angular/cli": "npm:22.2.5"
+-    "@angular/common": "npm:22.2.4"
+-    "@angular/compiler": "npm:22.2.4"
+-    "@angular/compiler-cli": "npm:22.2.4"
+-    "@angular/core": "npm:22.2.4"
+-    "@angular/forms": "npm:22.2.4"
+-    "@angular/platform-browser": "npm:22.2.4"
+-    "@angular/platform-browser-dynamic": "npm:22.2.4"
+-    "@angular/platform-server": "npm:22.2.4"
+-    "@angular/router": "npm:22.2.4"
+-    "@angular/ssr": "npm:22.2.5"
+-    "@internationalized/date": "npm:3.12.4"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    "@zag-js/core": "npm:1.47.0"
+-    "@zag-js/date-picker": "npm:1.47.0"
+-    "@zag-js/dialog": "npm:1.47.0"
+-    "@zag-js/tabs": "npm:1.47.0"
+-    "@zag-js/vanilla": "npm:1.47.0"
+-    ng-packagr: "npm:22.2.5"
+-    playwright: "npm:1.64.1"
+-    rxjs: "npm:7.8.2"
+-    tslib: "npm:2.8.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-    zone.js: "npm:0.16.3"
+-  peerDependencies:
+-    "@angular/common": ^22.2.4
+-    "@angular/core": ^22.2.4
+-    "@angular/forms": ^22.2.4
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/assets@workspace:packages/assets":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/assets@workspace:packages/assets"
+-  dependencies:
+-    "@types/node": "npm:24.13.3"
+-    typescript: "npm:6.0.2"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/contracts@workspace:^, @krds-native/contracts@workspace:packages/contracts":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/contracts@workspace:packages/contracts"
+-  dependencies:
+-    "@types/node": "npm:24.13.3"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/docs@workspace:apps/docs":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/docs@workspace:apps/docs"
+-  dependencies:
+-    "@types/node": "npm:24.13.3"
+-    typescript: "npm:6.0.2"
+-    vitepress: "npm:1.6.4"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-angular@workspace:apps/fixture-angular":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-angular@workspace:apps/fixture-angular"
+-  dependencies:
+-    "@angular-devkit/architect": "npm:0.2202.5"
+-    "@angular-devkit/build-angular": "npm:22.2.5"
+-    "@angular-devkit/core": "npm:22.2.5"
+-    "@angular/animations": "npm:22.2.4"
+-    "@angular/build": "npm:22.2.5"
+-    "@angular/cli": "npm:22.2.5"
+-    "@angular/common": "npm:22.2.4"
+-    "@angular/compiler": "npm:22.2.4"
+-    "@angular/compiler-cli": "npm:22.2.4"
+-    "@angular/core": "npm:22.2.4"
+-    "@angular/forms": "npm:22.2.4"
+-    "@angular/platform-browser": "npm:22.2.4"
+-    "@angular/platform-browser-dynamic": "npm:22.2.4"
+-    "@angular/platform-server": "npm:22.2.4"
+-    "@angular/router": "npm:22.2.4"
+-    "@angular/ssr": "npm:22.2.5"
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/angular": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@siheom/angular": "npm:0.3.2"
+-    "@siheom/core": "npm:0.4.1"
+-    "@testing-library/angular": "npm:19.6.0"
+-    "@testing-library/dom": "npm:10.4.2"
+-    "@testing-library/jest-dom": "npm:7.0.1"
+-    "@testing-library/user-event": "npm:14.6.8"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    ng-packagr: "npm:22.2.5"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    rxjs: "npm:7.8.2"
+-    tslib: "npm:2.8.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-    zone.js: "npm:0.16.3"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-lit@workspace:apps/fixture-lit":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-lit@workspace:apps/fixture-lit"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/lit": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@lit-labs/ssr": "npm:4.1.0"
+-    "@lit-labs/ssr-client": "npm:1.1.8"
+-    "@playwright/test": "npm:1.64.1"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    lit: "npm:3.3.3"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-qwik@workspace:apps/fixture-qwik":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-qwik@workspace:apps/fixture-qwik"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@builder.io/qwik": "npm:1.20.3"
+-    "@builder.io/qwik-city": "npm:1.20.3"
+-    "@krds-native/qwik": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@noma.to/qwik-testing-library": "npm:1.7.1"
+-    "@playwright/test": "npm:1.64.1"
+-    "@siheom/core": "npm:0.4.1"
+-    "@siheom/qwik": "npm:0.3.2"
+-    "@testing-library/dom": "npm:10.4.2"
+-    "@testing-library/jest-dom": "npm:7.0.1"
+-    "@testing-library/user-event": "npm:14.6.8"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:7.3.1"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-react@workspace:apps/fixture-react":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-react@workspace:apps/fixture-react"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/react": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@siheom/core": "npm:0.4.1"
+-    "@siheom/react": "npm:0.4.1"
+-    "@testing-library/dom": "npm:10.4.2"
+-    "@testing-library/jest-dom": "npm:7.0.1"
+-    "@testing-library/react": "npm:16.3.3"
+-    "@testing-library/user-event": "npm:14.6.8"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@types/react-dom": "npm:19.3.0"
+-    "@vitejs/plugin-react": "npm:6.1.2"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-solid-next@workspace:apps/fixture-solid-next":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-solid-next@workspace:apps/fixture-solid-next"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@babel/core": "npm:7.28.5"
+-    "@babel/preset-typescript": "npm:7.28.5"
+-    "@krds-native/solid-next": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@solidjs/babel-plugin": "npm:2.0.0-rc.19"
+-    "@solidjs/compiler": "npm:2.0.0-rc.19"
+-    "@solidjs/vite-plugin": "npm:3.0.0-next.53"
+-    "@solidjs/web": "npm:2.0.0-rc.19"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    solid-js: "npm:2.0.0-rc.19"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-solid@workspace:apps/fixture-solid":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-solid@workspace:apps/fixture-solid"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@babel/core": "npm:7.28.5"
+-    "@krds-native/solid": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@siheom/core": "npm:0.4.1"
+-    "@siheom/solid": "npm:0.3.2"
+-    "@solidjs/router": "npm:1.0.0"
+-    "@solidjs/testing-library": "npm:0.8.10"
+-    "@testing-library/dom": "npm:10.4.2"
+-    "@testing-library/jest-dom": "npm:7.0.1"
+-    "@testing-library/user-event": "npm:14.6.8"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    babel-preset-solid: "npm:1.9.16"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    solid-js: "npm:1.9.18"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vite-plugin-solid: "npm:2.11.14"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-svelte@workspace:apps/fixture-svelte":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-svelte@workspace:apps/fixture-svelte"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/svelte": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@siheom/core": "npm:0.4.1"
+-    "@siheom/svelte": "npm:0.3.2"
+-    "@sveltejs/kit": "npm:3.1.0"
+-    "@sveltejs/package": "npm:3.0.1"
+-    "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
+-    "@testing-library/dom": "npm:10.4.2"
+-    "@testing-library/jest-dom": "npm:7.0.1"
+-    "@testing-library/svelte": "npm:5.4.2"
+-    "@testing-library/user-event": "npm:14.6.8"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    svelte: "npm:5.57.3"
+-    svelte-check: "npm:4.7.7"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fixture-vue@workspace:apps/fixture-vue":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fixture-vue@workspace:apps/fixture-vue"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@krds-native/vue": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@siheom/core": "npm:0.4.1"
+-    "@siheom/vue": "npm:0.3.2"
+-    "@testing-library/dom": "npm:10.4.2"
+-    "@testing-library/jest-dom": "npm:7.0.1"
+-    "@testing-library/user-event": "npm:14.6.8"
+-    "@testing-library/vue": "npm:8.1.0"
+-    "@types/node": "npm:24.13.3"
+-    "@vitejs/plugin-vue": "npm:6.0.10"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    "@vue/compiler-dom": "npm:3.5.44"
+-    "@vue/compiler-sfc": "npm:3.5.44"
+-    "@vue/server-renderer": "npm:3.5.44"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-    vue: "npm:3.5.44"
+-    vue-tsc: "npm:3.3.14"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/fonts@workspace:packages/fonts":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/fonts@workspace:packages/fonts"
+-  dependencies:
+-    "@types/node": "npm:24.13.3"
+-    typescript: "npm:6.0.2"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/lit@workspace:^, @krds-native/lit@workspace:packages/lit":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/lit@workspace:packages/lit"
+-  dependencies:
+-    "@internationalized/date": "npm:3.12.4"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@lit-labs/ssr": "npm:4.1.0"
+-    "@lit-labs/ssr-client": "npm:1.1.8"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    "@zag-js/core": "npm:1.47.0"
+-    "@zag-js/date-picker": "npm:1.47.0"
+-    "@zag-js/dialog": "npm:1.47.0"
+-    "@zag-js/tabs": "npm:1.47.0"
+-    "@zag-js/vanilla": "npm:1.47.0"
+-    lit: "npm:3.3.3"
+-    playwright: "npm:1.64.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  peerDependencies:
+-    lit: ^3.3.3
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/qwik@workspace:^, @krds-native/qwik@workspace:packages/qwik":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/qwik@workspace:packages/qwik"
+-  dependencies:
+-    "@builder.io/qwik": "npm:1.20.3"
+-    "@builder.io/qwik-city": "npm:1.20.3"
+-    "@internationalized/date": "npm:3.12.4"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    "@zag-js/core": "npm:1.47.0"
+-    "@zag-js/date-picker": "npm:1.47.0"
+-    "@zag-js/dialog": "npm:1.47.0"
+-    "@zag-js/tabs": "npm:1.47.0"
+-    "@zag-js/vanilla": "npm:1.47.0"
+-    playwright: "npm:1.64.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:7.3.1"
+-    vitest: "npm:4.1.10"
+-  peerDependencies:
+-    "@builder.io/qwik": ^1.20.3
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/react@workspace:^, @krds-native/react@workspace:packages/react":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/react@workspace:packages/react"
+-  dependencies:
+-    "@ark-ui/react": "npm:5.40.0"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@types/react-dom": "npm:19.3.0"
+-    "@vitejs/plugin-react": "npm:6.1.2"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  peerDependencies:
+-    react: ^19.3.1
+-    react-dom: ^19.3.1
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/solid-next@workspace:^, @krds-native/solid-next@workspace:packages/solid-next":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/solid-next@workspace:packages/solid-next"
+-  dependencies:
+-    "@babel/core": "npm:7.28.5"
+-    "@babel/preset-typescript": "npm:7.28.5"
+-    "@internationalized/date": "npm:3.12.4"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@solidjs/babel-plugin": "npm:2.0.0-rc.19"
+-    "@solidjs/compiler": "npm:2.0.0-rc.19"
+-    "@solidjs/vite-plugin": "npm:3.0.0-next.53"
+-    "@solidjs/web": "npm:2.0.0-rc.19"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    "@zag-js/core": "npm:1.47.0"
+-    "@zag-js/date-picker": "npm:1.47.0"
+-    "@zag-js/dialog": "npm:1.47.0"
+-    "@zag-js/tabs": "npm:1.47.0"
+-    "@zag-js/vanilla": "npm:1.47.0"
+-    playwright: "npm:1.64.1"
+-    solid-js: "npm:2.0.0-rc.19"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  peerDependencies:
+-    "@solidjs/web": 2.0.0-rc.19
+-    solid-js: 2.0.0-rc.19
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/solid@workspace:^, @krds-native/solid@workspace:packages/solid":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/solid@workspace:packages/solid"
+-  dependencies:
+-    "@ark-ui/solid": "npm:5.40.0"
+-    "@babel/core": "npm:7.28.5"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    babel-preset-solid: "npm:1.9.16"
+-    playwright: "npm:1.64.1"
+-    solid-js: "npm:1.9.18"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vite-plugin-solid: "npm:2.11.14"
+-    vitest: "npm:4.1.10"
+-  peerDependencies:
+-    solid-js: ^1.9.18
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-angular@workspace:apps/storybook-angular":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-angular@workspace:apps/storybook-angular"
+-  dependencies:
+-    "@angular-devkit/architect": "npm:0.2202.5"
+-    "@angular-devkit/build-angular": "npm:22.2.5"
+-    "@angular-devkit/core": "npm:22.2.5"
+-    "@angular/animations": "npm:22.2.4"
+-    "@angular/build": "npm:22.2.5"
+-    "@angular/cli": "npm:22.2.5"
+-    "@angular/common": "npm:22.2.4"
+-    "@angular/compiler": "npm:22.2.4"
+-    "@angular/compiler-cli": "npm:22.2.4"
+-    "@angular/core": "npm:22.2.4"
+-    "@angular/forms": "npm:22.2.4"
+-    "@angular/platform-browser": "npm:22.2.4"
+-    "@angular/platform-browser-dynamic": "npm:22.2.4"
+-    "@angular/platform-server": "npm:22.2.4"
+-    "@angular/router": "npm:22.2.4"
+-    "@angular/ssr": "npm:22.2.5"
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/angular": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@storybook/angular": "npm:10.6.5"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    ng-packagr: "npm:22.2.5"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    rxjs: "npm:7.8.2"
+-    storybook: "npm:10.6.5"
+-    tslib: "npm:2.8.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-    zone.js: "npm:0.16.3"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-lit@workspace:apps/storybook-lit":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-lit@workspace:apps/storybook-lit"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/lit": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@lit-labs/ssr": "npm:4.1.0"
+-    "@lit-labs/ssr-client": "npm:1.1.8"
+-    "@playwright/test": "npm:1.64.1"
+-    "@storybook/web-components-vite": "npm:10.6.5"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    lit: "npm:3.3.3"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    storybook: "npm:10.6.5"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-qwik@workspace:apps/storybook-qwik":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-qwik@workspace:apps/storybook-qwik"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@builder.io/qwik": "npm:1.20.3"
+-    "@builder.io/qwik-city": "npm:1.20.3"
+-    "@krds-native/qwik": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    storybook: "npm:10.6.5"
+-    storybook-framework-qwik: "npm:0.6.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:7.3.1"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-react@workspace:apps/storybook-react":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-react@workspace:apps/storybook-react"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/react": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@storybook/react-vite": "npm:10.6.5"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@types/react-dom": "npm:19.3.0"
+-    "@vitejs/plugin-react": "npm:6.1.2"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    storybook: "npm:10.6.5"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-solid-next@workspace:apps/storybook-solid-next":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-solid-next@workspace:apps/storybook-solid-next"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@babel/core": "npm:7.28.5"
+-    "@babel/preset-typescript": "npm:7.28.5"
+-    "@krds-native/solid-next": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@solidjs/babel-plugin": "npm:2.0.0-rc.19"
+-    "@solidjs/compiler": "npm:2.0.0-rc.19"
+-    "@solidjs/vite-plugin": "npm:3.0.0-next.53"
+-    "@solidjs/web": "npm:2.0.0-rc.19"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    solid-js: "npm:2.0.0-rc.19"
+-    storybook: "npm:10.6.5"
+-    storybook-solidjs-vite: "npm:10.7.4"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vite-plugin-solid: "npm:@solidjs/vite-plugin@3.0.0-next.53"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-solid@workspace:apps/storybook-solid":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-solid@workspace:apps/storybook-solid"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@babel/core": "npm:7.28.5"
+-    "@krds-native/solid": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    babel-preset-solid: "npm:1.9.16"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    solid-js: "npm:1.9.18"
+-    storybook: "npm:10.6.5"
+-    storybook-solidjs-vite: "npm:10.7.4"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vite-plugin-solid: "npm:2.11.14"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-svelte@workspace:apps/storybook-svelte":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-svelte@workspace:apps/storybook-svelte"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/svelte": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@storybook/svelte-vite": "npm:10.6.5"
+-    "@sveltejs/kit": "npm:3.1.0"
+-    "@sveltejs/package": "npm:3.0.1"
+-    "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    storybook: "npm:10.6.5"
+-    svelte: "npm:5.57.3"
+-    svelte-check: "npm:4.7.7"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/storybook-vue@workspace:apps/storybook-vue":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/storybook-vue@workspace:apps/storybook-vue"
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/test-contracts": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@krds-native/vue": "workspace:^"
+-    "@playwright/test": "npm:1.64.1"
+-    "@storybook/vue3-vite": "npm:10.6.5"
+-    "@types/node": "npm:24.13.3"
+-    "@types/react": "npm:19.3.0"
+-    "@vitejs/plugin-vue": "npm:6.0.10"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    "@vue/compiler-sfc": "npm:3.5.44"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    react: "npm:19.3.1"
+-    react-dom: "npm:19.3.1"
+-    storybook: "npm:10.6.5"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-    vue: "npm:3.5.44"
+-    vue-tsc: "npm:3.3.14"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/styles@workspace:^, @krds-native/styles@workspace:packages/styles":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/styles@workspace:packages/styles"
+-  dependencies:
+-    "@krds-native/tokens": "workspace:^"
+-    "@types/node": "npm:24.13.3"
+-    postcss: "npm:8.5.32"
+-    typescript: "npm:6.0.2"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/svelte@workspace:^, @krds-native/svelte@workspace:packages/svelte":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/svelte@workspace:packages/svelte"
+-  dependencies:
+-    "@ark-ui/svelte": "npm:5.25.0"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@sveltejs/kit": "npm:3.1.0"
+-    "@sveltejs/package": "npm:3.0.1"
+-    "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
+-    "@types/node": "npm:24.13.3"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    playwright: "npm:1.64.1"
+-    svelte: "npm:5.57.3"
+-    svelte-check: "npm:4.7.7"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-  peerDependencies:
+-    svelte: ^5.57.3
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/test-contracts@workspace:^, @krds-native/test-contracts@workspace:packages/test-contracts":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/test-contracts@workspace:packages/test-contracts"
+-  dependencies:
+-    "@krds-native/contracts": "workspace:^"
+-    "@types/node": "npm:24.13.3"
+-    typescript: "npm:6.0.2"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/tokens@workspace:^, @krds-native/tokens@workspace:packages/tokens":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/tokens@workspace:packages/tokens"
+-  dependencies:
+-    "@types/node": "npm:24.13.3"
+-    typescript: "npm:6.0.2"
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/vue@workspace:^, @krds-native/vue@workspace:packages/vue":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/vue@workspace:packages/vue"
+-  dependencies:
+-    "@ark-ui/vue": "npm:5.40.0"
+-    "@krds-native/contracts": "workspace:^"
+-    "@krds-native/styles": "workspace:^"
+-    "@krds-native/tokens": "workspace:^"
+-    "@types/node": "npm:24.13.3"
+-    "@vitejs/plugin-vue": "npm:6.0.10"
+-    "@vitest/browser-playwright": "npm:4.1.10"
+-    "@vue/compiler-sfc": "npm:3.5.44"
+-    playwright: "npm:1.64.1"
+-    typescript: "npm:6.0.2"
+-    vite: "npm:8.3.5"
+-    vitest: "npm:4.1.10"
+-    vue: "npm:3.5.44"
+-    vue-tsc: "npm:3.3.14"
+-  peerDependencies:
+-    vue: ^3.5.44
+-  languageName: unknown
+-  linkType: soft
+-
+-"@krds-native/workspace@workspace:.":
+-  version: 0.0.0-use.local
+-  resolution: "@krds-native/workspace@workspace:."
+-  dependencies:
+-    "@axe-core/playwright": "npm:4.14.0"
+-    "@nx/js": "npm:24.0.2"
+-    "@playwright/test": "npm:1.64.1"
+-    "@types/node": "npm:24.13.3"
+-    corepack: "npm:0.36.0"
+-    nx: "npm:24.0.2"
+-    playwright: "npm:1.64.1"
+-    playwright-core: "npm:1.64.1"
+-    typescript: "npm:6.0.2"
+-  languageName: unknown
+-  linkType: soft
+-
+ "@leichtgewicht/ip-codec@npm:^2.0.1":
+   version: 2.0.5
+   resolution: "@leichtgewicht/ip-codec@npm:2.0.5"
+@@ -9089,6 +8281,814 @@
+   checksum: 10c0/be74a389850d02901c836c07f10c1070d7604dab4070ba3c4b77c91665b90b4175d9f186189a02a399cf054fc051d3251418238564a4491d0164969e05c802a2
+   languageName: node
+   linkType: hard
++
++"@unofficial-krds/angular@workspace:^, @unofficial-krds/angular@workspace:packages/angular":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/angular@workspace:packages/angular"
++  dependencies:
++    "@angular-devkit/architect": "npm:0.2202.5"
++    "@angular-devkit/build-angular": "npm:22.2.5"
++    "@angular-devkit/core": "npm:22.2.5"
++    "@angular/animations": "npm:22.2.4"
++    "@angular/build": "npm:22.2.5"
++    "@angular/cli": "npm:22.2.5"
++    "@angular/common": "npm:22.2.4"
++    "@angular/compiler": "npm:22.2.4"
++    "@angular/compiler-cli": "npm:22.2.4"
++    "@angular/core": "npm:22.2.4"
++    "@angular/forms": "npm:22.2.4"
++    "@angular/platform-browser": "npm:22.2.4"
++    "@angular/platform-browser-dynamic": "npm:22.2.4"
++    "@angular/platform-server": "npm:22.2.4"
++    "@angular/router": "npm:22.2.4"
++    "@angular/ssr": "npm:22.2.5"
++    "@internationalized/date": "npm:3.12.4"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    "@zag-js/core": "npm:1.47.0"
++    "@zag-js/date-picker": "npm:1.47.0"
++    "@zag-js/dialog": "npm:1.47.0"
++    "@zag-js/tabs": "npm:1.47.0"
++    "@zag-js/vanilla": "npm:1.47.0"
++    ng-packagr: "npm:22.2.5"
++    playwright: "npm:1.64.1"
++    rxjs: "npm:7.8.2"
++    tslib: "npm:2.8.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++    zone.js: "npm:0.16.3"
++  peerDependencies:
++    "@angular/common": ^22.2.4
++    "@angular/core": ^22.2.4
++    "@angular/forms": ^22.2.4
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/assets@workspace:packages/assets":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/assets@workspace:packages/assets"
++  dependencies:
++    "@types/node": "npm:24.13.3"
++    typescript: "npm:6.0.2"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/contracts@workspace:^, @unofficial-krds/contracts@workspace:packages/contracts":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/contracts@workspace:packages/contracts"
++  dependencies:
++    "@types/node": "npm:24.13.3"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/docs@workspace:apps/docs":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/docs@workspace:apps/docs"
++  dependencies:
++    "@types/node": "npm:24.13.3"
++    typescript: "npm:6.0.2"
++    vitepress: "npm:1.6.4"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-angular@workspace:apps/fixture-angular":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-angular@workspace:apps/fixture-angular"
++  dependencies:
++    "@angular-devkit/architect": "npm:0.2202.5"
++    "@angular-devkit/build-angular": "npm:22.2.5"
++    "@angular-devkit/core": "npm:22.2.5"
++    "@angular/animations": "npm:22.2.4"
++    "@angular/build": "npm:22.2.5"
++    "@angular/cli": "npm:22.2.5"
++    "@angular/common": "npm:22.2.4"
++    "@angular/compiler": "npm:22.2.4"
++    "@angular/compiler-cli": "npm:22.2.4"
++    "@angular/core": "npm:22.2.4"
++    "@angular/forms": "npm:22.2.4"
++    "@angular/platform-browser": "npm:22.2.4"
++    "@angular/platform-browser-dynamic": "npm:22.2.4"
++    "@angular/platform-server": "npm:22.2.4"
++    "@angular/router": "npm:22.2.4"
++    "@angular/ssr": "npm:22.2.5"
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@siheom/angular": "npm:0.3.2"
++    "@siheom/core": "npm:0.4.1"
++    "@testing-library/angular": "npm:19.6.0"
++    "@testing-library/dom": "npm:10.4.2"
++    "@testing-library/jest-dom": "npm:7.0.1"
++    "@testing-library/user-event": "npm:14.6.8"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/angular": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    ng-packagr: "npm:22.2.5"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    rxjs: "npm:7.8.2"
++    tslib: "npm:2.8.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++    zone.js: "npm:0.16.3"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-lit@workspace:apps/fixture-lit":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-lit@workspace:apps/fixture-lit"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@lit-labs/ssr": "npm:4.1.0"
++    "@lit-labs/ssr-client": "npm:1.1.8"
++    "@playwright/test": "npm:1.64.1"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/lit": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    lit: "npm:3.3.3"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-qwik@workspace:apps/fixture-qwik":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-qwik@workspace:apps/fixture-qwik"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@builder.io/qwik": "npm:1.20.3"
++    "@builder.io/qwik-city": "npm:1.20.3"
++    "@noma.to/qwik-testing-library": "npm:1.7.1"
++    "@playwright/test": "npm:1.64.1"
++    "@siheom/core": "npm:0.4.1"
++    "@siheom/qwik": "npm:0.3.2"
++    "@testing-library/dom": "npm:10.4.2"
++    "@testing-library/jest-dom": "npm:7.0.1"
++    "@testing-library/user-event": "npm:14.6.8"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/qwik": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:7.3.1"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-react@workspace:apps/fixture-react":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-react@workspace:apps/fixture-react"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@siheom/core": "npm:0.4.1"
++    "@siheom/react": "npm:0.4.1"
++    "@testing-library/dom": "npm:10.4.2"
++    "@testing-library/jest-dom": "npm:7.0.1"
++    "@testing-library/react": "npm:16.3.3"
++    "@testing-library/user-event": "npm:14.6.8"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@types/react-dom": "npm:19.3.0"
++    "@unofficial-krds/react": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitejs/plugin-react": "npm:6.1.2"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-solid-next@workspace:apps/fixture-solid-next":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-solid-next@workspace:apps/fixture-solid-next"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@babel/core": "npm:7.28.5"
++    "@babel/preset-typescript": "npm:7.28.5"
++    "@playwright/test": "npm:1.64.1"
++    "@solidjs/babel-plugin": "npm:2.0.0-rc.19"
++    "@solidjs/compiler": "npm:2.0.0-rc.19"
++    "@solidjs/vite-plugin": "npm:3.0.0-next.53"
++    "@solidjs/web": "npm:2.0.0-rc.19"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/solid-next": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    solid-js: "npm:2.0.0-rc.19"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-solid@workspace:apps/fixture-solid":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-solid@workspace:apps/fixture-solid"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@babel/core": "npm:7.28.5"
++    "@playwright/test": "npm:1.64.1"
++    "@siheom/core": "npm:0.4.1"
++    "@siheom/solid": "npm:0.3.2"
++    "@solidjs/router": "npm:1.0.0"
++    "@solidjs/testing-library": "npm:0.8.10"
++    "@testing-library/dom": "npm:10.4.2"
++    "@testing-library/jest-dom": "npm:7.0.1"
++    "@testing-library/user-event": "npm:14.6.8"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/solid": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    babel-preset-solid: "npm:1.9.16"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    solid-js: "npm:1.9.18"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vite-plugin-solid: "npm:2.11.14"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-svelte@workspace:apps/fixture-svelte":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-svelte@workspace:apps/fixture-svelte"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@siheom/core": "npm:0.4.1"
++    "@siheom/svelte": "npm:0.3.2"
++    "@sveltejs/kit": "npm:3.1.0"
++    "@sveltejs/package": "npm:3.0.1"
++    "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
++    "@testing-library/dom": "npm:10.4.2"
++    "@testing-library/jest-dom": "npm:7.0.1"
++    "@testing-library/svelte": "npm:5.4.2"
++    "@testing-library/user-event": "npm:14.6.8"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/svelte": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    svelte: "npm:5.57.3"
++    svelte-check: "npm:4.7.7"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fixture-vue@workspace:apps/fixture-vue":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fixture-vue@workspace:apps/fixture-vue"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@siheom/core": "npm:0.4.1"
++    "@siheom/vue": "npm:0.3.2"
++    "@testing-library/dom": "npm:10.4.2"
++    "@testing-library/jest-dom": "npm:7.0.1"
++    "@testing-library/user-event": "npm:14.6.8"
++    "@testing-library/vue": "npm:8.1.0"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@unofficial-krds/vue": "workspace:^"
++    "@vitejs/plugin-vue": "npm:6.0.10"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    "@vue/compiler-dom": "npm:3.5.44"
++    "@vue/compiler-sfc": "npm:3.5.44"
++    "@vue/server-renderer": "npm:3.5.44"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++    vue: "npm:3.5.44"
++    vue-tsc: "npm:3.3.14"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/fonts@workspace:packages/fonts":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/fonts@workspace:packages/fonts"
++  dependencies:
++    "@types/node": "npm:24.13.3"
++    typescript: "npm:6.0.2"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/lit@workspace:^, @unofficial-krds/lit@workspace:packages/lit":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/lit@workspace:packages/lit"
++  dependencies:
++    "@internationalized/date": "npm:3.12.4"
++    "@lit-labs/ssr": "npm:4.1.0"
++    "@lit-labs/ssr-client": "npm:1.1.8"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    "@zag-js/core": "npm:1.47.0"
++    "@zag-js/date-picker": "npm:1.47.0"
++    "@zag-js/dialog": "npm:1.47.0"
++    "@zag-js/tabs": "npm:1.47.0"
++    "@zag-js/vanilla": "npm:1.47.0"
++    lit: "npm:3.3.3"
++    playwright: "npm:1.64.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  peerDependencies:
++    lit: ^3.3.3
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/qwik@workspace:^, @unofficial-krds/qwik@workspace:packages/qwik":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/qwik@workspace:packages/qwik"
++  dependencies:
++    "@builder.io/qwik": "npm:1.20.3"
++    "@builder.io/qwik-city": "npm:1.20.3"
++    "@internationalized/date": "npm:3.12.4"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    "@zag-js/core": "npm:1.47.0"
++    "@zag-js/date-picker": "npm:1.47.0"
++    "@zag-js/dialog": "npm:1.47.0"
++    "@zag-js/tabs": "npm:1.47.0"
++    "@zag-js/vanilla": "npm:1.47.0"
++    playwright: "npm:1.64.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:7.3.1"
++    vitest: "npm:4.1.10"
++  peerDependencies:
++    "@builder.io/qwik": ^1.20.3
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/react@workspace:^, @unofficial-krds/react@workspace:packages/react":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/react@workspace:packages/react"
++  dependencies:
++    "@ark-ui/react": "npm:5.40.0"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@types/react-dom": "npm:19.3.0"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitejs/plugin-react": "npm:6.1.2"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  peerDependencies:
++    react: ^19.3.1
++    react-dom: ^19.3.1
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/solid-next@workspace:^, @unofficial-krds/solid-next@workspace:packages/solid-next":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/solid-next@workspace:packages/solid-next"
++  dependencies:
++    "@babel/core": "npm:7.28.5"
++    "@babel/preset-typescript": "npm:7.28.5"
++    "@internationalized/date": "npm:3.12.4"
++    "@solidjs/babel-plugin": "npm:2.0.0-rc.19"
++    "@solidjs/compiler": "npm:2.0.0-rc.19"
++    "@solidjs/vite-plugin": "npm:3.0.0-next.53"
++    "@solidjs/web": "npm:2.0.0-rc.19"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    "@zag-js/core": "npm:1.47.0"
++    "@zag-js/date-picker": "npm:1.47.0"
++    "@zag-js/dialog": "npm:1.47.0"
++    "@zag-js/tabs": "npm:1.47.0"
++    "@zag-js/vanilla": "npm:1.47.0"
++    playwright: "npm:1.64.1"
++    solid-js: "npm:2.0.0-rc.19"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  peerDependencies:
++    "@solidjs/web": 2.0.0-rc.19
++    solid-js: 2.0.0-rc.19
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/solid@workspace:^, @unofficial-krds/solid@workspace:packages/solid":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/solid@workspace:packages/solid"
++  dependencies:
++    "@ark-ui/solid": "npm:5.40.0"
++    "@babel/core": "npm:7.28.5"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    babel-preset-solid: "npm:1.9.16"
++    playwright: "npm:1.64.1"
++    solid-js: "npm:1.9.18"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vite-plugin-solid: "npm:2.11.14"
++    vitest: "npm:4.1.10"
++  peerDependencies:
++    solid-js: ^1.9.18
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-angular@workspace:apps/storybook-angular":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-angular@workspace:apps/storybook-angular"
++  dependencies:
++    "@angular-devkit/architect": "npm:0.2202.5"
++    "@angular-devkit/build-angular": "npm:22.2.5"
++    "@angular-devkit/core": "npm:22.2.5"
++    "@angular/animations": "npm:22.2.4"
++    "@angular/build": "npm:22.2.5"
++    "@angular/cli": "npm:22.2.5"
++    "@angular/common": "npm:22.2.4"
++    "@angular/compiler": "npm:22.2.4"
++    "@angular/compiler-cli": "npm:22.2.4"
++    "@angular/core": "npm:22.2.4"
++    "@angular/forms": "npm:22.2.4"
++    "@angular/platform-browser": "npm:22.2.4"
++    "@angular/platform-browser-dynamic": "npm:22.2.4"
++    "@angular/platform-server": "npm:22.2.4"
++    "@angular/router": "npm:22.2.4"
++    "@angular/ssr": "npm:22.2.5"
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@storybook/angular": "npm:10.6.5"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@unofficial-krds/angular": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    ng-packagr: "npm:22.2.5"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    rxjs: "npm:7.8.2"
++    storybook: "npm:10.6.5"
++    tslib: "npm:2.8.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++    zone.js: "npm:0.16.3"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-lit@workspace:apps/storybook-lit":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-lit@workspace:apps/storybook-lit"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@lit-labs/ssr": "npm:4.1.0"
++    "@lit-labs/ssr-client": "npm:1.1.8"
++    "@playwright/test": "npm:1.64.1"
++    "@storybook/web-components-vite": "npm:10.6.5"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@unofficial-krds/lit": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    lit: "npm:3.3.3"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    storybook: "npm:10.6.5"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-qwik@workspace:apps/storybook-qwik":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-qwik@workspace:apps/storybook-qwik"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@builder.io/qwik": "npm:1.20.3"
++    "@builder.io/qwik-city": "npm:1.20.3"
++    "@playwright/test": "npm:1.64.1"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@unofficial-krds/qwik": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    storybook: "npm:10.6.5"
++    storybook-framework-qwik: "npm:0.6.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:7.3.1"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-react@workspace:apps/storybook-react":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-react@workspace:apps/storybook-react"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@storybook/react-vite": "npm:10.6.5"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@types/react-dom": "npm:19.3.0"
++    "@unofficial-krds/react": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitejs/plugin-react": "npm:6.1.2"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    storybook: "npm:10.6.5"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-solid-next@workspace:apps/storybook-solid-next":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-solid-next@workspace:apps/storybook-solid-next"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@babel/core": "npm:7.28.5"
++    "@babel/preset-typescript": "npm:7.28.5"
++    "@playwright/test": "npm:1.64.1"
++    "@solidjs/babel-plugin": "npm:2.0.0-rc.19"
++    "@solidjs/compiler": "npm:2.0.0-rc.19"
++    "@solidjs/vite-plugin": "npm:3.0.0-next.53"
++    "@solidjs/web": "npm:2.0.0-rc.19"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@unofficial-krds/solid-next": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    solid-js: "npm:2.0.0-rc.19"
++    storybook: "npm:10.6.5"
++    storybook-solidjs-vite: "npm:10.7.4"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vite-plugin-solid: "npm:@solidjs/vite-plugin@3.0.0-next.53"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-solid@workspace:apps/storybook-solid":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-solid@workspace:apps/storybook-solid"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@babel/core": "npm:7.28.5"
++    "@playwright/test": "npm:1.64.1"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@unofficial-krds/solid": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    babel-preset-solid: "npm:1.9.16"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    solid-js: "npm:1.9.18"
++    storybook: "npm:10.6.5"
++    storybook-solidjs-vite: "npm:10.7.4"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vite-plugin-solid: "npm:2.11.14"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-svelte@workspace:apps/storybook-svelte":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-svelte@workspace:apps/storybook-svelte"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@storybook/svelte-vite": "npm:10.6.5"
++    "@sveltejs/kit": "npm:3.1.0"
++    "@sveltejs/package": "npm:3.0.1"
++    "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/svelte": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    storybook: "npm:10.6.5"
++    svelte: "npm:5.57.3"
++    svelte-check: "npm:4.7.7"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/storybook-vue@workspace:apps/storybook-vue":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/storybook-vue@workspace:apps/storybook-vue"
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@playwright/test": "npm:1.64.1"
++    "@storybook/vue3-vite": "npm:10.6.5"
++    "@types/node": "npm:24.13.3"
++    "@types/react": "npm:19.3.0"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/test-contracts": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@unofficial-krds/vue": "workspace:^"
++    "@vitejs/plugin-vue": "npm:6.0.10"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    "@vue/compiler-sfc": "npm:3.5.44"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    react: "npm:19.3.1"
++    react-dom: "npm:19.3.1"
++    storybook: "npm:10.6.5"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++    vue: "npm:3.5.44"
++    vue-tsc: "npm:3.3.14"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/styles@workspace:^, @unofficial-krds/styles@workspace:packages/styles":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/styles@workspace:packages/styles"
++  dependencies:
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/tokens": "workspace:^"
++    postcss: "npm:8.5.32"
++    typescript: "npm:6.0.2"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/svelte@workspace:^, @unofficial-krds/svelte@workspace:packages/svelte":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/svelte@workspace:packages/svelte"
++  dependencies:
++    "@ark-ui/svelte": "npm:5.25.0"
++    "@sveltejs/kit": "npm:3.1.0"
++    "@sveltejs/package": "npm:3.0.1"
++    "@sveltejs/vite-plugin-svelte": "npm:7.3.1"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    playwright: "npm:1.64.1"
++    svelte: "npm:5.57.3"
++    svelte-check: "npm:4.7.7"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++  peerDependencies:
++    svelte: ^5.57.3
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/test-contracts@workspace:^, @unofficial-krds/test-contracts@workspace:packages/test-contracts":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/test-contracts@workspace:packages/test-contracts"
++  dependencies:
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    typescript: "npm:6.0.2"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/tokens@workspace:^, @unofficial-krds/tokens@workspace:packages/tokens":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/tokens@workspace:packages/tokens"
++  dependencies:
++    "@types/node": "npm:24.13.3"
++    typescript: "npm:6.0.2"
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/vue@workspace:^, @unofficial-krds/vue@workspace:packages/vue":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/vue@workspace:packages/vue"
++  dependencies:
++    "@ark-ui/vue": "npm:5.40.0"
++    "@types/node": "npm:24.13.3"
++    "@unofficial-krds/contracts": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++    "@vitejs/plugin-vue": "npm:6.0.10"
++    "@vitest/browser-playwright": "npm:4.1.10"
++    "@vue/compiler-sfc": "npm:3.5.44"
++    playwright: "npm:1.64.1"
++    typescript: "npm:6.0.2"
++    vite: "npm:8.3.5"
++    vitest: "npm:4.1.10"
++    vue: "npm:3.5.44"
++    vue-tsc: "npm:3.3.14"
++  peerDependencies:
++    vue: ^3.5.44
++  languageName: unknown
++  linkType: soft
++
++"@unofficial-krds/workspace@workspace:.":
++  version: 0.0.0-use.local
++  resolution: "@unofficial-krds/workspace@workspace:."
++  dependencies:
++    "@axe-core/playwright": "npm:4.14.0"
++    "@nx/js": "npm:24.0.2"
++    "@playwright/test": "npm:1.64.1"
++    "@types/node": "npm:24.13.3"
++    corepack: "npm:0.36.0"
++    nx: "npm:24.0.2"
++    playwright: "npm:1.64.1"
++    playwright-core: "npm:1.64.1"
++    typescript: "npm:6.0.2"
++  languageName: unknown
++  linkType: soft
+ 
+ "@vitejs/plugin-basic-ssl@npm:2.3.0":
+   version: 2.3.0

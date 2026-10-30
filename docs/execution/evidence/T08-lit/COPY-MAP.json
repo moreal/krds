@@ -1,0 +1,713 @@
+{
+  "method": "Byte-preserving copy of retained reports, logs, runner results and frozen source inventories only; no test/build/browser/capture or moving-source hash operation",
+  "copiedFiles": [
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-brief.md",
+      "archive": "task-T08-brief.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/native-pilot-common-handoff.md",
+      "archive": "native-pilot-common-handoff.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-report.md",
+      "archive": "task-T08-lit-report.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-review.md",
+      "archive": "task-T08-lit-review.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-review-package.md",
+      "archive": "task-T08-lit-review-package.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-snapshot.json",
+      "archive": "task-T08-lit-snapshot.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base-hashes.json",
+      "archive": "task-T10-lit-base-hashes.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/build-fixture.log",
+      "archive": "t08-lit-logs/build-fixture.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/build-lit.log",
+      "archive": "t08-lit-logs/build-lit.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/build-storybook.log",
+      "archive": "t08-lit-logs/build-storybook.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/contract-report.json",
+      "archive": "t08-lit-logs/contract-report.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/contract-webkit-report.json",
+      "archive": "t08-lit-logs/contract-webkit-report.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/contract-webkit.log",
+      "archive": "t08-lit-logs/contract-webkit.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/contract.log",
+      "archive": "t08-lit-logs/contract.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/build-fixture.log",
+      "archive": "t08-lit-logs/fix1/build-fixture.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/build-lit.log",
+      "archive": "t08-lit-logs/fix1/build-lit.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/build-storybook.log",
+      "archive": "t08-lit-logs/fix1/build-storybook.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/diff.patch",
+      "archive": "t08-lit-logs/fix1/diff.patch"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/green-affected-browser.log",
+      "archive": "t08-lit-logs/fix1/green-affected-browser.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/green-browser.log",
+      "archive": "t08-lit-logs/fix1/green-browser.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/green-ssr.log",
+      "archive": "t08-lit-logs/fix1/green-ssr.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/inventory.json",
+      "archive": "t08-lit-logs/fix1/inventory.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/package-tests.log",
+      "archive": "t08-lit-logs/fix1/package-tests.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/red-browser.log",
+      "archive": "t08-lit-logs/fix1/red-browser.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/red-ssr.log",
+      "archive": "t08-lit-logs/fix1/red-ssr.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/typecheck-fixture.log",
+      "archive": "t08-lit-logs/fix1/typecheck-fixture.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/typecheck-lit.log",
+      "archive": "t08-lit-logs/fix1/typecheck-lit.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/fix1/typecheck-storybook.log",
+      "archive": "t08-lit-logs/fix1/typecheck-storybook.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/initial-red.txt",
+      "archive": "t08-lit-logs/initial-red.txt"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/raw-axe-summary.json",
+      "archive": "t08-lit-logs/raw-axe-summary.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/research.md",
+      "archive": "t08-lit-logs/research.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/siheom-unsupported.log",
+      "archive": "t08-lit-logs/siheom-unsupported.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/source-inventory.txt",
+      "archive": "t08-lit-logs/source-inventory.txt"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/stories-report.json",
+      "archive": "t08-lit-logs/stories-report.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/stories.log",
+      "archive": "t08-lit-logs/stories.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/test-lit.log",
+      "archive": "t08-lit-logs/test-lit.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/test-native.log",
+      "archive": "t08-lit-logs/test-native.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/typecheck-fixture.log",
+      "archive": "t08-lit-logs/typecheck-fixture.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/typecheck-lit.log",
+      "archive": "t08-lit-logs/typecheck-lit.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/typecheck-storybook.log",
+      "archive": "t08-lit-logs/typecheck-storybook.log"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/visuals/desktop.png",
+      "archive": "t08-lit-logs/visuals/desktop.png"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/visuals/forced-colors.png",
+      "archive": "t08-lit-logs/visuals/forced-colors.png"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/visuals/metrics.json",
+      "archive": "t08-lit-logs/visuals/metrics.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/visuals/modal-shadow-theme.png",
+      "archive": "t08-lit-logs/visuals/modal-shadow-theme.png"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/visuals/narrow.png",
+      "archive": "t08-lit-logs/visuals/narrow.png"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/t08-lit-logs/visuals/zoom-200.png",
+      "archive": "t08-lit-logs/visuals/zoom-200.png"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/harness.html",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/harness.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/hydrate.html",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/hydrate.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/package.json",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/src/assets.d.ts",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/src/assets.d.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/src/harness.ts",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/src/harness.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/src/hydrate.ts",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/src/hydrate.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/src/main.ts",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/src/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/hydration.test.mjs",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/hydration.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/interactions.test.mjs",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/interactions.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/native-pilots.test.mjs",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/native-pilots.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/visuals.test.mjs",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/tests/contract/visuals.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/fixture-lit/vite.config.ts",
+      "archive": "task-T08-lit-fix1-base/apps/fixture-lit/vite.config.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/.storybook/preview.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/.storybook/preview.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/package.json",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/assets.d.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/assets.d.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/main.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/stories/button.stories.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/stories/button.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/stories/calendar.stories.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/stories/calendar.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/stories/date-input.stories.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/stories/date-input.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/stories/modal.stories.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/stories/modal.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/stories/native-select.stories.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/stories/native-select.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/apps/storybook-lit/src/stories/tabs.stories.ts",
+      "archive": "task-T08-lit-fix1-base/apps/storybook-lit/src/stories/tabs.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/docs/compatibility/lit.md",
+      "archive": "task-T08-lit-fix1-base/docs/compatibility/lit.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/README.md",
+      "archive": "task-T08-lit-fix1-base/packages/lit/README.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/package.json",
+      "archive": "task-T08-lit-fix1-base/packages/lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/base.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/base.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/button/index.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/button/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/calendar/index.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/calendar/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/calendar/model.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/calendar/model.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/date-input/index.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/date-input/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/modal/index.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/modal/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/native-select/index.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/native-select/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/components/tabs/index.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/components/tabs/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/controllers/form-control-controller.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/controllers/form-control-controller.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/controllers/zag-controller.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/controllers/zag-controller.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/directives/machine-props.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/directives/machine-props.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/index.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/src/register.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/src/register.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/tests/pilot-ssr.test.mjs",
+      "archive": "task-T08-lit-fix1-base/packages/lit/tests/pilot-ssr.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/packages/lit/vite.config.ts",
+      "archive": "task-T08-lit-fix1-base/packages/lit/vite.config.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T08-lit-fix1-base/tests/ssr/lit/README.md",
+      "archive": "task-T08-lit-fix1-base/tests/ssr/lit/README.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/harness.html",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/harness.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/hydrate.html",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/hydrate.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/index.html",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/index.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/package.json",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/project.json",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/project.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/src/assets.d.ts",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/src/assets.d.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/src/harness.ts",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/src/harness.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/src/hydrate.ts",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/src/hydrate.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/src/main.ts",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/src/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/tests/contract/hydration.test.mjs",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/tests/contract/hydration.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/tests/contract/interactions.test.mjs",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/tests/contract/interactions.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/tests/contract/native-pilots.test.mjs",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/tests/contract/native-pilots.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/tests/contract/review-fix1.test.mjs",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/tests/contract/review-fix1.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/tests/contract/visuals.test.mjs",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/tests/contract/visuals.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/tsconfig.json",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/tsconfig.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/fixture-lit/vite.config.ts",
+      "archive": "accepted-pre-T10-source/apps/fixture-lit/vite.config.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/.storybook/main.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/.storybook/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/.storybook/preview.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/.storybook/preview.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/index.html",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/index.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/package.json",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/project.json",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/project.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/assets.d.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/assets.d.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/main.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/stories/button.stories.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/stories/button.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/stories/calendar.stories.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/stories/calendar.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/stories/date-input.stories.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/stories/date-input.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/stories/modal.stories.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/stories/modal.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/stories/native-select.stories.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/stories/native-select.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/src/stories/tabs.stories.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/src/stories/tabs.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/tsconfig.json",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/tsconfig.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/apps/storybook-lit/vite.config.ts",
+      "archive": "accepted-pre-T10-source/apps/storybook-lit/vite.config.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/docs/compatibility/lit.md",
+      "archive": "accepted-pre-T10-source/docs/compatibility/lit.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/ATTRIBUTION.md",
+      "archive": "accepted-pre-T10-source/packages/lit/ATTRIBUTION.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/LICENSE.md",
+      "archive": "accepted-pre-T10-source/packages/lit/LICENSE.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/LICENSES/MIT.txt",
+      "archive": "accepted-pre-T10-source/packages/lit/LICENSES/MIT.txt"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/LICENSES/README.md",
+      "archive": "accepted-pre-T10-source/packages/lit/LICENSES/README.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/README.md",
+      "archive": "accepted-pre-T10-source/packages/lit/README.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/THIRD-PARTY-NOTICES.md",
+      "archive": "accepted-pre-T10-source/packages/lit/THIRD-PARTY-NOTICES.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/package.json",
+      "archive": "accepted-pre-T10-source/packages/lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/project.json",
+      "archive": "accepted-pre-T10-source/packages/lit/project.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/provenance.json",
+      "archive": "accepted-pre-T10-source/packages/lit/provenance.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/base.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/base.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/button/index.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/button/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/calendar/index.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/calendar/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/calendar/model.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/calendar/model.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/date-input/index.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/date-input/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/modal/index.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/modal/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/native-select/index.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/native-select/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/components/tabs/index.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/components/tabs/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/controllers/form-control-controller.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/controllers/form-control-controller.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/controllers/zag-controller.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/controllers/zag-controller.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/directives/machine-props.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/directives/machine-props.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/index.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/src/register.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/src/register.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/tests/pilot-ssr.test.mjs",
+      "archive": "accepted-pre-T10-source/packages/lit/tests/pilot-ssr.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/tests/review-fix1.test.mjs",
+      "archive": "accepted-pre-T10-source/packages/lit/tests/review-fix1.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/tsconfig.json",
+      "archive": "accepted-pre-T10-source/packages/lit/tsconfig.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/packages/lit/vite.config.ts",
+      "archive": "accepted-pre-T10-source/packages/lit/vite.config.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-T10-lit-base/tests/ssr/lit/README.md",
+      "archive": "accepted-pre-T10-source/tests/ssr/lit/README.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/index.html",
+      "archive": "pre-native-baseline/apps/fixture-lit/index.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/package.json",
+      "archive": "pre-native-baseline/apps/fixture-lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/project.json",
+      "archive": "pre-native-baseline/apps/fixture-lit/project.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/src/main.ts",
+      "archive": "pre-native-baseline/apps/fixture-lit/src/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/tests/contract/native-probe.test.mjs",
+      "archive": "pre-native-baseline/apps/fixture-lit/tests/contract/native-probe.test.mjs"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/tsconfig.json",
+      "archive": "pre-native-baseline/apps/fixture-lit/tsconfig.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/vite.config.ts",
+      "archive": "pre-native-baseline/apps/fixture-lit/vite.config.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/.storybook/main.ts",
+      "archive": "pre-native-baseline/apps/storybook-lit/.storybook/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/.storybook/preview.ts",
+      "archive": "pre-native-baseline/apps/storybook-lit/.storybook/preview.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/index.html",
+      "archive": "pre-native-baseline/apps/storybook-lit/index.html"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/package.json",
+      "archive": "pre-native-baseline/apps/storybook-lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/project.json",
+      "archive": "pre-native-baseline/apps/storybook-lit/project.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/src/main.ts",
+      "archive": "pre-native-baseline/apps/storybook-lit/src/main.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/src/stories/probe.stories.ts",
+      "archive": "pre-native-baseline/apps/storybook-lit/src/stories/probe.stories.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/tsconfig.json",
+      "archive": "pre-native-baseline/apps/storybook-lit/tsconfig.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/vite.config.ts",
+      "archive": "pre-native-baseline/apps/storybook-lit/vite.config.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/README.md",
+      "archive": "pre-native-baseline/packages/lit/README.md"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/package.json",
+      "archive": "pre-native-baseline/packages/lit/package.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/project.json",
+      "archive": "pre-native-baseline/packages/lit/project.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/src/index.ts",
+      "archive": "pre-native-baseline/packages/lit/src/index.ts"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/tsconfig.json",
+      "archive": "pre-native-baseline/packages/lit/tsconfig.json"
+    },
+    {
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/vite.config.ts",
+      "archive": "pre-native-baseline/packages/lit/vite.config.ts"
+    },
+    {
+      "source": "test-results/t05/contract-1793330976561-61995-ac20a265/lit/artifacts/.last-run.json",
+      "archive": "runners/contract-1793330976561-61995-ac20a265/lit/artifacts/.last-run.json"
+    },
+    {
+      "source": "test-results/t05/contract-1793330976561-61995-ac20a265/lit/command.log",
+      "archive": "runners/contract-1793330976561-61995-ac20a265/lit/command.log"
+    },
+    {
+      "source": "test-results/t05/contract-1793330976561-61995-ac20a265/lit/playwright.json",
+      "archive": "runners/contract-1793330976561-61995-ac20a265/lit/playwright.json"
+    },
+    {
+      "source": "test-results/t05/contract-1793330976561-61995-ac20a265/report.json",
+      "archive": "runners/contract-1793330976561-61995-ac20a265/report.json"
+    },
+    {
+      "source": "test-results/t05/contract-1793331032192-62855-1073f66f/lit/artifacts/.last-run.json",
+      "archive": "runners/contract-1793331032192-62855-1073f66f/lit/artifacts/.last-run.json"
+    },
+    {
+      "source": "test-results/t05/contract-1793331032192-62855-1073f66f/lit/command.log",
+      "archive": "runners/contract-1793331032192-62855-1073f66f/lit/command.log"
+    },
+    {
+      "source": "test-results/t05/contract-1793331032192-62855-1073f66f/lit/playwright.json",
+      "archive": "runners/contract-1793331032192-62855-1073f66f/lit/playwright.json"
+    },
+    {
+      "source": "test-results/t05/contract-1793331032192-62855-1073f66f/report.json",
+      "archive": "runners/contract-1793331032192-62855-1073f66f/report.json"
+    },
+    {
+      "source": "test-results/t05/stories-1793331005984-62323-5f9c8db4/report.json",
+      "archive": "runners/stories-1793331005984-62323-5f9c8db4/report.json"
+    }
+  ]
+}

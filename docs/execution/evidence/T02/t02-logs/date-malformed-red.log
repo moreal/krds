@@ -1,0 +1,71 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/packages/contracts
+
+ ❯ src/date.test.ts (42 tests | 2 failed) 7ms
+     × reports RangeError for malformed JavaScript date parts null 2ms
+     × reports RangeError for malformed JavaScript date parts undefined 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > reports RangeError for malformed JavaScript date parts null
+AssertionError: expected error to be instance of RangeError
+
+- Expected:
+[Function RangeError]
+
++ Received:
+TypeError {
+  "message": "Cannot destructure property 'year' of 'object null' as it is null.",
+}
+
+ ❯ src/date.test.ts:33:87
+     31|   it.each([null, undefined, {}, { year: '2024', month: 2, day: 29 }])
+     32|     ('reports RangeError for malformed JavaScript date parts %j', (par…
+     33|       expect(() => formatIsoDate(parts as unknown as import('./types.j…
+       |                                                                                       ^
+     34|     });
+     35|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/date.test.ts > date-only Gregorian values > reports RangeError for malformed JavaScript date parts undefined
+AssertionError: expected error to be instance of RangeError
+
+- Expected:
+[Function RangeError]
+
++ Received:
+TypeError {
+  "message": "Cannot destructure property 'year' of 'undefined' as it is undefined.",
+}
+
+ ❯ src/date.test.ts:33:87
+     31|   it.each([null, undefined, {}, { year: '2024', month: 2, day: 29 }])
+     32|     ('reports RangeError for malformed JavaScript date parts %j', (par…
+     33|       expect(() => formatIsoDate(parts as unknown as import('./types.j…
+       |                                                                                       ^
+     34|     });
+     35|   it.each(['0001-01-01', '0099-12-31', '1900-03-01', '2000-02-29', '20…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 40 passed (42)
+   Start at  09:10:47
+   Duration  145ms (transform 17ms, setup 0ms, import 25ms, tests 7ms, environment 0ms)
+

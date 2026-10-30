@@ -1,0 +1,30 @@
+▶ workspace configuration and source boundaries
+  ✔ rejects linker (167.261ms)
+  ✔ rejects second lockfile (159.059166ms)
+  ✔ rejects nested npm lockfile (155.387459ms)
+  ✔ rejects public app (152.394ms)
+  ✔ rejects runtime resolution (165.550875ms)
+  ✔ rejects removed boundary tags (166.074458ms)
+  ✔ rejects upward relative import (157.451125ms)
+  ✔ rejects multiline import (139.09925ms)
+  ✔ rejects foreign renderer (145.31525ms)
+  ✔ rejects native source alias (141.150459ms)
+  ✔ rejects CSS double-quoted URL (144.964584ms)
+  ✔ rejects CSS single-quoted URL (141.050667ms)
+  ✔ rejects CSS unquoted URL (146.595292ms)
+  ✔ rejects CSS URL whitespace (137.651042ms)
+  ✔ rejects Vue embedded CSS URL (137.498416ms)
+  ✔ rejects Svelte embedded CSS URL (147.568375ms)
+  ✔ rejects Lit embedded CSS URL (139.948041ms)
+  ✔ rejects Angular embedded CSS URL (143.404792ms)
+  ✔ rejects CSS permitted layer without declaration (138.67375ms)
+  ✔ permits declared shared CSS imports and retains their implicit graph edge (142.890792ms)
+✔ workspace configuration and source boundaries (3014.600541ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3069.885125

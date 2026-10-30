@@ -1,0 +1,10 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-critical-alert',title:'KRDS/critical-alert',component:CatalogStory,args:{componentId:'critical-alert'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const HighUrgency:Story={name:"high-urgency",args:{caseId:"high-urgency"}};
+export const MediumUrgency:Story={name:"medium-urgency",args:{caseId:"medium-urgency"}};
+export const LowUrgency:Story={name:"low-urgency",args:{caseId:"low-urgency"}};
+export const Narrow:Story={name:"narrow",args:{caseId:"narrow"}};
+export const PagePlacement:Story={name:"page-placement",args:{caseId:"page-placement"}};

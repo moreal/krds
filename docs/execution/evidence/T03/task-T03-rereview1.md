@@ -1,0 +1,11 @@
+# T03 fix1 scoped re-review
+
+**Finding 1: ADDRESSED.** `tools/verify-licenses.mjs:28` now checks independent-code policy readiness, a source-hashed complete MIT grant with the confirmed holder/year, and consistent root/package license and attribution notices. Confirmed identity alone or policy flags alone cannot clear the incomplete grant; explicit incomplete notices and a different holder also block readiness. `tools/generate-notices.mjs:149` selects and copies the policy-selected independent-code terms into each package. The positive isolated fixture demonstrates that complete, matching metadata/notices can pass local readiness without changing actual project identity or granting publication permission.
+
+**Finding 2: ADDRESSED.** `tools/generate-notices.mjs:116` rejects unsupported glob, extglob and negation syntax with the package, offending pattern and a literal-root alternative. Both generation and verification share this check. This closes the prior silent skip without adding a second interpretation of Yarn packing semantics; existing literal-root scanning remains intact.
+
+**New breakage in the fix diff: none found. Quality: Approved.** Both original Important findings are closed; the T03 review's spec blocker is resolved. Actual release remains blocked by the unchanged identity, policy, grant and notices.
+
+Reviewed only the exact three-source fix diff and the final fix1 report/inventory/evidence. Read the regression cases for incomplete policy/grant, incomplete notices, holder mismatch, valid local readiness and four glob/extglob patterns. The recorded RED → GREEN evidence shows 20 passing tests, successful local generation/verification for 1,599 records and 13 package notice sets, and the expected current `--release` failure including the added readiness gates. No concrete unanswered doubt required rerunning those tests.
+
+Actual policy, identity, grant, assets, manifests and generated notices are recorded byte-identical to the previously reviewed package snapshot. The prior 13 actual pack inspections therefore remain the applicable payload evidence; no new package-selection syntax was enabled. No broad review, pack repetition, source edit, Git command or subagent was used. Only this re-review artifact was added.

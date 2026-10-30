@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-text-list', title: 'KRDS/TextList', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const UnorderedDot: Story = { args: {"componentId": "text-list", "initialState": {"ordered": false, "marker": "dot", "items": [{"id": "one", "content": "신청 조건 확인"}, {"id": "two", "content": "제출 서류 준비"}]}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const UnorderedDash: Story = { args: {"componentId": "text-list", "initialState": {"ordered": false, "marker": "dash", "items": [{"id": "one", "content": "신청 조건 확인"}, {"id": "two", "content": "제출 서류 준비"}]}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const UnorderedHollow: Story = { args: {"componentId": "text-list", "initialState": {"ordered": false, "marker": "hollow", "items": [{"id": "one", "content": "신청 조건 확인"}, {"id": "two", "content": "제출 서류 준비"}]}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const Ordered: Story = { args: {"componentId": "text-list", "initialState": {"ordered": true, "marker": "dot", "items": [{"id": "one", "content": "신청 조건 확인"}, {"id": "two", "content": "제출 서류 준비"}]}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const ThreeLevel: Story = { args: {"componentId": "text-list", "initialState": {"ordered": false, "marker": "dot", "items": [{"id": "a", "content": "신청 단계", "children": [{"id": "b", "content": "자료 준비", "children": [{"id": "c", "content": "파일 확인"}]}]}]}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const Narrow: Story = { args: {"componentId": "text-list", "initialState": {"ordered": false, "marker": "dot", "items": [{"id": "one", "content": "신청 조건 확인"}, {"id": "two", "content": "제출 서류 준비"}]}, "host": {"localOnly": true, "acceptChanges": true}} };

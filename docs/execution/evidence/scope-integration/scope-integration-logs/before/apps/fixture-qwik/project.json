@@ -1,0 +1,92 @@
+{
+  "name": "fixture-qwik",
+  "root": "apps/fixture-qwik",
+  "sourceRoot": "apps/fixture-qwik/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:qwik"
+  ],
+  "implicitDependencies": [
+    "krds-qwik",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik test"
+      },
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik lint"
+      }
+    },
+    "contract": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs test:contract --framework qwik"
+      },
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/fixture-cases.json",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/compatibility/testing.json",
+        "{workspaceRoot}/tools/run-contract-tests.mjs",
+        "{workspaceRoot}/tools/run-siheom-tests.mjs",
+        "{workspaceRoot}/tools/run-story-tests.mjs",
+        "{workspaceRoot}/playwright.config.ts",
+        "{workspaceRoot}/tools/testing/**/*"
+      ]
+    },
+    "siheom": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs test:siheom --framework qwik"
+      },
+      "cache": false,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/fixture-cases.json",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/compatibility/testing.json",
+        "{workspaceRoot}/tools/run-contract-tests.mjs",
+        "{workspaceRoot}/tools/run-siheom-tests.mjs",
+        "{workspaceRoot}/tools/run-story-tests.mjs",
+        "{workspaceRoot}/playwright.config.ts",
+        "{workspaceRoot}/tools/testing/**/*"
+      ]
+    }
+  }
+}

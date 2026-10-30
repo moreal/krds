@@ -1,0 +1,54 @@
+{
+  "name": "storybook-lit",
+  "root": "apps/storybook-lit",
+  "sourceRoot": "apps/storybook-lit/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:lit"
+  ],
+  "implicitDependencies": [
+    "krds-lit",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit lint"
+      }
+    },
+    "storybook-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit storybook-build"
+      }
+    },
+    "stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit stories"
+      }
+    }
+  }
+}

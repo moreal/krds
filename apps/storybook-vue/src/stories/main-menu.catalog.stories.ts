@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-main-menu', title: 'KRDS/Catalog/MainMenu', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'main-menu'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const DesktopLinks: Story = {name: "desktop-links", args: {caseId: "desktop-links"}};
+export const DesktopDropdown: Story = {name: "desktop-dropdown", args: {caseId: "desktop-dropdown"}};
+export const DesktopDescribed: Story = {name: "desktop-described", args: {caseId: "desktop-described"}};
+export const LargeMenuOverflow: Story = {name: "large-menu-overflow", args: {caseId: "large-menu-overflow"}};
+export const MobileSimple: Story = {name: "mobile-simple", args: {caseId: "mobile-simple"}};
+export const MobileSections: Story = {name: "mobile-sections", args: {caseId: "mobile-sections"}};
+export const MobileDrilldown: Story = {name: "mobile-drilldown", args: {caseId: "mobile-drilldown"}};
+export const LocalSearch: Story = {name: "local-search", args: {caseId: "local-search"}};

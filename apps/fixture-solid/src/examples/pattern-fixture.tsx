@@ -1,0 +1,33 @@
+import { createSignal, onCleanup, onMount } from 'solid-js';
+import { KrdsProvider } from '@unofficial-krds/solid';
+import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
+import { createLocalDriver, createPatternState,searchResources,resourceCategories,transition, patternScenarios, layoutSections, type PatternId, type PatternAction, type PatternFixtureCommand, type PatternEffect,type PatternState,type Category } from '@unofficial-krds/test-contracts/patterns';
+import { PatternPresentation, patternHref } from './presentation';
+
+/** Local-only integration host. Presentation stories never instantiate this driver/bridge. */
+export function PatternFixture(props:{patternId:string;caseId:string}) {
+ const scenario=patternScenarios.find(item=>item.patternId===props.patternId&&item.caseId===props.caseId);
+ if(!scenario) return <main><h1>예제 경로를 찾을 수 없습니다</h1></main>;
+ const id=scenario.patternId;
+ const initialize=()=>{const url=new URLSearchParams(location.search);let initialState:PatternState=createPatternState(id,props.caseId);if(initialState.patternId==='search-results'){const query=url.get('query')??initialState.query;const rawCategory=url.get('category');const category=(resourceCategories.some(item=>item.value===rawCategory)?rawCategory:initialState.category) as Category;const rawPage=url.has('page')?Number(url.get('page')):initialState.page;const page=Number.isSafeInteger(rawPage)&&rawPage>0?rawPage:1;initialState={...initialState,query,appliedQuery:query,category,...searchResources({query,category,page})};}if(initialState.patternId==='service-layout'){const section=url.get('section');if(section&&Object.hasOwn(layoutSections,section))initialState=transition(initialState,{type:'navigate',id:section as keyof typeof layoutSections}).state;}const next=createLocalDriver(id,{caseId:props.caseId,seed:scenario.seed,initialState});for(const action of scenario.initialActions)next.dispatch(action);return next;};
+ let driver=initialize();
+ const [state,setState]=createSignal(driver.getState());
+ const bridge=createFixtureBridge('solid',{patternId:id,caseId:props.caseId});
+ let disposed=false,sequence=0,focusGeneration=0,restorePagination=false,savedScroll:{x:number;y:number}|undefined;
+ const applyEffects=(effects:PatternEffect[])=>{for(const effect of effects){if(effect.type==='request'){bridge.recordEvent('pattern:request',{operation:effect.operation,requestId:effect.requestId,payload:effect.payload});}else{if(id==='consent-confirmation'&&effect.targetId==='example-consent-review')continue;const generation=++focusGeneration;queueMicrotask(()=>{if(!disposed&&generation===focusGeneration)document.getElementById(effect.targetId)?.focus({preventScroll:true});});}}};
+ let unsubscribe=driver.subscribe(next=>setState(next));
+ const consume=bridge.subscribe(next=>{const command=next.__patternCommand as PatternFixtureCommand|undefined;if(command?.command==='settle'&&Number.isSafeInteger(command.sequence)&&command.sequence>sequence){sequence=command.sequence;const before=state();const wasOpen=before.patternId==='consent-confirmation'&&before.modalOpen;applyEffects(driver.settle(command.ok===undefined?{}:{ok:command.ok}).effects);restoreScroll(wasOpen);if(restorePagination){restorePagination=false;const next=state();const target=next.phase==='error'?'#example-search-retry':'[data-krds-component="pagination"] [aria-current="page"]';queueMicrotask(()=>{if(disposed||document.activeElement!==document.body)return;const control=document.querySelector<HTMLElement>(target);if(control){control.tabIndex=-1;control.focus({preventScroll:true});control.addEventListener('blur',()=>control.removeAttribute('tabindex'),{once:true});}});}}});
+ function restoreScroll(wasOpen:boolean) {const next=state();if(wasOpen&&next.patternId==='consent-confirmation'&&!next.modalOpen&&savedScroll){const saved=savedScroll;requestAnimationFrame(()=>{if(!disposed)window.scrollTo({left:saved.x,top:saved.y,behavior:'instant'});});}}
+ function syncUrl(replace=false){const value=state();let href:string|undefined;if(value.patternId==='service-layout')href=patternHref(id,props.caseId,{section:value.currentId});if(value.patternId==='search-results'&&value.phase==='success')href=patternHref(id,props.caseId,{query:value.appliedQuery,category:value.category,page:value.page});if(href&&`${location.pathname}${location.search}`!==href)history[replace?'replaceState':'pushState'](null,'',href);}
+ function action(action:PatternAction){restorePagination=action.type==='page'&&Boolean(document.activeElement?.closest('[data-krds-component="pagination"]'));const previous=state();const wasOpen=previous.patternId==='consent-confirmation'&&previous.modalOpen;if(action.type==='review'&&!wasOpen)savedScroll={x:window.scrollX,y:window.scrollY};const output=driver.dispatch(action);applyEffects(output.effects);restoreScroll(wasOpen);if(action.type==='navigate'&&previous.patternId==='service-layout'&&output.state.patternId==='service-layout'&&previous.currentId!==output.state.currentId)bridge.recordEvent('pattern:navigate',{id:output.state.currentId});syncUrl();}
+ let urlUnsubscribe=driver.subscribe(next=>{if(next.patternId==='search-results'&&next.phase==='success')syncUrl();});
+ onMount(()=>{
+   syncUrl(true);
+   const navigate=(event:MouseEvent)=>{if(id!=='service-layout'||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey)return;const anchor=(event.target as Element).closest<HTMLAnchorElement>('a[href]');if(!anchor)return;const url=new URL(anchor.href,location.href);const section=url.searchParams.get('section');if(url.origin===location.origin&&url.pathname===location.pathname&&section&&Object.hasOwn(layoutSections,section)){event.preventDefault();action({type:'navigate',id:section as keyof typeof layoutSections});}};
+   const pop=()=>{unsubscribe();urlUnsubscribe();driver.dispose();driver=initialize();setState(driver.getState());unsubscribe=driver.subscribe(next=>setState(next));urlUnsubscribe=driver.subscribe(next=>{if(next.patternId==='search-results'&&next.phase==='success')syncUrl();});if(id==='service-layout')applyEffects([{type:'focus',targetId:'example-main-heading'}]);};
+   document.addEventListener('click',navigate);window.addEventListener('popstate',pop);
+   onCleanup(()=>{document.removeEventListener('click',navigate);window.removeEventListener('popstate',pop);});
+ });
+ onCleanup(()=>{disposed=true;focusGeneration++;unsubscribe();consume();urlUnsubscribe();driver.dispose();bridge.dispose();});
+ return <KrdsProvider locale="ko-KR"><PatternPresentation state={state()} onAction={action} caseId={props.caseId}/></KrdsProvider>;
+}

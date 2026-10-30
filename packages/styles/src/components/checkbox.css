@@ -1,0 +1,15 @@
+/* KRDS-derived: frozen component.css lines 9937–10976; semantic guidance: specs/components/checkbox.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="checkbox"][data-krds-part="root"] { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--krds-gap-3); position: relative; }
+[data-krds-component="checkbox"][data-krds-part="control"] { position: relative; margin: .2em 0 0; inline-size: 1.5em; block-size: 1.5em; accent-color: var(--krds-light-color-element-primary); cursor: pointer; }
+[data-krds-component="checkbox"][data-krds-part="label"] { min-block-size: 1.5em; cursor: pointer; }
+[data-krds-component="checkbox"][data-krds-part="legend"] { font-weight: 700; }
+[data-krds-component="checkbox"][data-krds-part="indicator"] { pointer-events: none; }
+[data-krds-component="checkbox"][data-krds-part="help"], [data-krds-component="checkbox"][data-krds-part="error"] { grid-column: 2; margin: 0; }
+[data-krds-component="checkbox"][data-krds-part="help"] { color: var(--krds-light-color-text-subtle); }
+[data-krds-component="checkbox"][data-krds-part="control"]:disabled ~ [data-krds-component="checkbox"][data-krds-part="label"] { color: var(--krds-light-color-text-disabled); cursor: not-allowed; }
+[data-krds-component="checkbox"][data-krds-part="control"][aria-invalid="true"] { border: var(--krds-number-3) double var(--krds-light-color-input-border-error); }
+[data-krds-component="checkbox"][data-krds-part="root"][data-krds-appearance="chip"] { display: inline-grid; padding: var(--krds-padding-4) var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-medium2); }
+[data-krds-component="checkbox"][data-krds-part="root"][data-krds-appearance="chip"]:has([data-krds-component="checkbox"][data-krds-part="control"]:checked) { border: var(--krds-number-3) double var(--krds-light-color-element-primary); background: var(--krds-light-color-action-secondary-selected); }
+[data-krds-component="checkbox"][data-krds-part="root"][data-krds-size="large"] [data-krds-component="checkbox"][data-krds-part="control"] { inline-size: 1.75em; block-size: 1.75em; }
+@media (forced-colors: active) { [data-krds-component="checkbox"][data-krds-part="control"] { accent-color: auto; } }

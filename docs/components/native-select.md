@@ -1,0 +1,91 @@
+---
+title: 'Select · 셀렉트'
+---
+
+# Select
+
+셀렉트 · `NativeSelect` · component
+
+[Official KRDS guidance](https://www.krds.go.kr/html/site/component/component_06_03.html) · [Full reviewed specification](/sources/specs/components/native-select.md.txt) · [Framework support](../compatibility/README.md)
+
+## Native availability
+
+These states are copied from `catalog/coverage.json`; they are not inferred from exports, examples, or test-runner exit codes.
+
+| Framework | Package version | Recorded state | Export declaration | Native examples and stories |
+| --- | --- | --- | --- | --- |
+| react | `0.0.0` | planned | [exact subpath types](/sources/packages/react/dist/components/native-select/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
+| solid | `0.0.0` | implemented | [exact subpath types](/sources/packages/solid/dist/components/native-select/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
+| svelte | `0.0.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/NativeSelect.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
+| vue | `0.0.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/native-select/NativeSelect.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
+| lit | `0.0.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/native-select/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
+| qwik | `0.0.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/native-select/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
+| angular | `0.0.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-native-select.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
+| solid-next (preview) | `0.0.0-next.0` | planned | [exact subpath types](/sources/packages/solid-next/dist/components/native-select/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
+
+## Props, events, content and defaults
+
+The semantic contract below is shared data only. Native content, refs and event transport belong to each adapter. Callback names and detail types in the contract are exact; do not pass machine objects. Optional properties are not automatically defaulted: use the explicit defaults in the guidance below.
+
+The public API is defined in the reviewed guidance below and each native public declaration. [Shared event and date types](/sources/packages/contracts/src/types.ts.txt).
+
+### Native content and event transport
+
+React and Solid use native JSX/content props; Svelte uses native snippets; Vue uses native slots; Angular uses its native inputs, outputs and content projection; Lit uses custom-element properties, slots and DOM events; Qwik uses native QRL event boundaries. Their transport is not interchangeable. Read the linked public package declaration for exact names and required content. A semantic callback below does not imply a same-named Lit DOM event.
+
+### Official requirements
+
+KRDS identifies this as the platform's native single-selection control, requires a label/accessible name, keyboard access, and no form submission solely from changing a selection. Multiple choice belongs to another component. Platform-native popup navigation, opening, closing and typeahead remain browser/OS behavior.
+
+### Project API and defaults
+
+Options: `options: SelectOption[]` (required, unique string values), `value?: string`, `defaultValue?: string`, `name?: string`, `required: boolean` (false), `disabled: boolean` (false), `invalid: boolean` (false), `size: 'small' | 'medium' | 'large'` (medium), `id`, label content, hint/error content and `onValueChange(ValueChangeDetails<string>)`. Native naming attributes and `form` are supported. No `multiple`, custom listbox, synthetic popup or renderer substitution.
+
+Render a real `select` containing real `option` elements in source order. Associate a visible label with its id; `aria-label`/`aria-labelledby` is the explicit alternative when visible context makes its purpose clear. Hint and visible error IDs appear in `aria-describedby`; invalid sets `aria-invalid=true` without hiding the hint. Each option uses its label as text and native disabled state. User selection of a disabled option is impossible; an explicitly supplied controlled disabled-option value may still display, matching native select behavior.
+
+Uncontrolled initialization uses defaultValue when supplied, otherwise the first non-disabled option; when no enabled option exists the selection is absent and the committed semantic value is `''`. Use an explicit enabled empty-valued placeholder option when a required unselected state is wanted. Nonempty values absent from options are configuration errors; `''` may represent no selection when no matching option exists (`selectedIndex=-1`). An empty-valued option is never silently inserted. Form reset restores this exact initial selection, including no selection, with zero change callbacks. The adapter restores the initial baseline even when native defaultSelected alone cannot represent it. Controlled reset re-applies the current value.
+
+A native committed change to a different value emits once with `{value}`. It never submits, navigates or focuses another field. Controlled attempts are requests; if declined, reapply the current prop after the change handler. Clicking an already selected option or reapplying a prop emits zero. Do not duplicate notifications from native input and change.
+
+### Keyboard, form and structure
+
+Tab/Shift+Tab visit the select unless disabled. Browser/OS owns arrow keys, Enter/Space, Escape, popup focus and typeahead; do not intercept them to imitate a custom select. Do not require the same popup key sequence across operating systems.
+
+Native name/value, required validity, disabled omission and form association apply. Empty required values block native submission. A select with no selection contributes no successful value; an empty-valued selected option contributes the empty string. Disabled state on the whole select omits it from form data. Prop changes and reset emit zero public value events.
+
+Parts: `root`, `label`, `control`, `hint`, `error`, optional decorative `icon`. Root/control states: `disabled`, `invalid`; option disabled semantics stay native. Content order: label, control, hint/error. Acceptance: real select inspection, FormData, disabled options, required empty selection, controlled parent rejection, reset to initial default, no submit-on-change and exactly one notification per committed change.
+
+## State examples and native checks
+
+Supported case axes: `small`, `medium`, `large`, `invalid`, `disabled`. These case names are independent project axes; they do not imply official KRDS type names or completed coverage.
+
+[Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
+
+### Native stories in current built outputs
+
+The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
+
+- react: [Controlled](/native/storybook-react/?path=/story/krds-native-select--controlled) · [Invalid](/native/storybook-react/?path=/story/krds-native-select--invalid) · [Disabled](/native/storybook-react/?path=/story/krds-native-select--disabled).
+- solid: [Default](/native/storybook-solid/?path=/story/krds-native-select--default) · [Controlled](/native/storybook-solid/?path=/story/krds-native-select--controlled) · [Rejected Change](/native/storybook-solid/?path=/story/krds-native-select--rejected-change) · [Selected](/native/storybook-solid/?path=/story/krds-native-select--selected) · [Disabled](/native/storybook-solid/?path=/story/krds-native-select--disabled) · [Invalid](/native/storybook-solid/?path=/story/krds-native-select--invalid) · [Form Reset](/native/storybook-solid/?path=/story/krds-native-select--form-reset).
+- svelte: [Controlled](/native/storybook-svelte/?path=/story/krds-native-select--controlled).
+- vue: [Controlled](/native/storybook-vue/?path=/story/krds-native-select--controlled).
+- lit: [Controlled](/native/storybook-lit/?path=/story/krds-native-select--controlled).
+- qwik: [Controlled](/native/storybook-qwik/?path=/story/krds-native-select--controlled).
+- angular: [Controlled](/native/storybook-angular/?path=/story/krds-native-select--controlled) · [Disabled](/native/storybook-angular/?path=/story/krds-native-select--disabled) · [Invalid](/native/storybook-angular/?path=/story/krds-native-select--invalid).
+- solid-next: unsupported native Storybook preview integration.
+
+Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
+
+- react: [read the checked consumer](/examples/react-1); [download exact source](/sources/packages/react/examples/catalog.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log.txt).
+- solid: [read the checked consumer](/examples/solid-2); [download exact source](/sources/apps/fixture-solid/src/examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log.txt).
+- svelte: [read the checked consumer](/examples/svelte-32); [download exact source](/sources/apps/fixture-svelte/src/public-examples/NativeSelectExample.svelte.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log.txt).
+- vue: [read the checked consumer](/examples/vue-59); [download exact source](/sources/apps/fixture-vue/src/ConsumerExample.vue.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log.txt).
+- lit: [read the checked consumer](/examples/lit-60); [download exact source](/sources/apps/fixture-lit/src/examples/catalog.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log.txt).
+- qwik: [read the checked consumer](/examples/qwik-61); [download exact source](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log.txt).
+- angular: [read the checked consumer](/examples/angular-62); [download exact source](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log.txt).
+
+## Source identity and rights
+
+Baseline: `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`. Official detail snapshot retrieved `2026-10-29T23:28:04.529Z`. SHA-256: `3bfd47283d200276378b43ebb12767fd6ca941cd563dad65e44f6262a42d1ece`. [Frozen component source records](/sources/catalog/components.json.txt) · [Official source](https://www.krds.go.kr/html/site/component/component_06_03.html). Raw original HTML remains reference evidence in the checkout and is not copied into this site.
+
+KRDS quoted or derived guidance retains its original terms. The independent code MIT grant does not relicense it, official assets, fonts, or third-party materials. Read [sources and rights](../legal/index.md) before redistributing.

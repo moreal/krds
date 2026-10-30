@@ -1,0 +1,11 @@
+import {moduleMetadata,type Meta,type StoryObj} from '@storybook/angular';
+import {getPresentation} from '@unofficial-krds/test-contracts/patterns';
+import {PatternPresentation} from '../../../../../packages/angular/examples/patterns/presentation';
+import {content,urls} from './presentation-content';
+const meta:Meta<PatternPresentation>={id:'krds-pattern-search-results',title:'KRDS patterns/search-results',decorators:[moduleMetadata({imports:[PatternPresentation]})],render:args=>({props:{...args,content,urls},template:`<krds-pattern-presentation [view]="view" [content]="content" [urls]="urls"/>`})};
+export default meta;
+type Story=StoryObj<PatternPresentation>;
+export const Success:Story={args:{view:structuredClone(getPresentation('search-results','success').state)}};
+export const Loading:Story={args:{view:structuredClone(getPresentation('search-results','loading').state)}};
+export const Error:Story={args:{view:structuredClone(getPresentation('search-results','error').state)}};
+export const Empty:Story={args:{view:structuredClone(getPresentation('search-results','empty').state)}};

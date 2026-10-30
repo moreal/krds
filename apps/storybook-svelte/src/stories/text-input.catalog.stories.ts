@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-text-input', title: 'KRDS/Catalog/TextInput', component: CatalogStory, args: {componentId: 'text-input'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {name: "default", args: {caseId: "default"}};
+export const Error: Story = {name: "error", args: {caseId: "error"}};
+export const Success: Story = {name: "success", args: {caseId: "success"}};
+export const Sizes: Story = {name: "sizes", args: {caseId: "sizes"}};
+export const IconAction: Story = {name: "icon-action", args: {caseId: "icon-action"}};
+export const DisabledReadonly: Story = {name: "disabled-readonly", args: {caseId: "disabled-readonly"}};
+export const Ime: Story = {name: "ime", args: {caseId: "ime"}};
+export const FormReset: Story = {name: "form-reset", args: {caseId: "form-reset"}};

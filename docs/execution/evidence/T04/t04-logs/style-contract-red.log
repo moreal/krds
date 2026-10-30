@@ -1,0 +1,98 @@
+✔ unknown token references fail the build with the file name (1.806667ms)
+✔ invalid public parts are rejected (0.416375ms)
+✔ malformed CSS fails actual parsing (0.444083ms)
+Parsed/validated 9 CSS sources; generated 10 CSS entries and identical plain strings for six component contracts.
+✔ each CSS string is byte-identical to its ordinary generated CSS (17.289167ms)
+✔ exports exist and default CSS never opts into reset or fonts (0.571709ms)
+✖ a valid state on the wrong part is rejected (0.424042ms)
+✖ variant misspellings cannot silently ship an unstyled branch (0.109625ms)
+✖ all six part inventories match the pilot documents (1.313167ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 5
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 111.050916
+
+✖ failing tests:
+
+test at src/build.test.ts:29:1
+✖ a valid state on the wrong part is rejected (0.424042ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /panel.*selected/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at src/build.test.ts:32:1
+✖ variant misspellings cannot silently ship an unstyled branch (0.109625ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:33:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /unknown.*variant.*primray/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at src/build.test.ts:35:1
+✖ all six part inventories match the pilot documents (1.313167ms)
+  AssertionError [ERR_ASSERTION]: date-input
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      'root',
+      'label',
+      'control',
+      'start-input',
+  ...
+      'popup',
+  -   'control'
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:41:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'root',      'label',
+      'control',   'start-input',
+      'end-input', 'trigger',
+      'hint',      'error',
+      'popup'
+    ],
+    expected: [
+      'root',      'label',
+      'control',   'start-input',
+      'end-input', 'trigger',
+      'hint',      'error',
+      'popup',     'control'
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

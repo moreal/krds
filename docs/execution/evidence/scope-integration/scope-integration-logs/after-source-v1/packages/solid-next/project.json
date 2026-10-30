@@ -1,0 +1,41 @@
+{
+  "name": "krds-solid-next",
+  "root": "packages/solid-next",
+  "sourceRoot": "packages/solid-next/src",
+  "projectType": "library",
+  "tags": [
+    "layer:adapter",
+    "framework:solid-next"
+  ],
+  "implicitDependencies": [
+    "krds-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next lint"
+      }
+    }
+  }
+}

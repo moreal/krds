@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-tag', title: 'KRDS/tag', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Static: Story = { name: "static", parameters: { __id: "krds-tag--static" }, render: () => <CatalogStory componentId="tag" caseId="static"/> };
+export const Toggle: Story = { name: "toggle", parameters: { __id: "krds-tag--toggle" }, render: () => <CatalogStory componentId="tag" caseId="toggle"/> };
+export const Removable: Story = { name: "removable", parameters: { __id: "krds-tag--removable" }, render: () => <CatalogStory componentId="tag" caseId="removable"/> };
+export const AddFilter: Story = { name: "add-filter", parameters: { __id: "krds-tag--add-filter" }, render: () => <CatalogStory componentId="tag" caseId="add-filter"/> };
+export const Link: Story = { name: "link", parameters: { __id: "krds-tag--link" }, render: () => <CatalogStory componentId="tag" caseId="link"/> };
+export const RemoveLast: Story = { name: "remove-last", parameters: { __id: "krds-tag--remove-last" }, render: () => <CatalogStory componentId="tag" caseId="remove-last"/> };
+export const Overflow: Story = { name: "overflow", parameters: { __id: "krds-tag--overflow" }, render: () => <CatalogStory componentId="tag" caseId="overflow"/> };

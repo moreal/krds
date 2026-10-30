@@ -1,0 +1,695 @@
+{
+  "screenshots": [
+    "button-focus",
+    "button-size-xsmall",
+    "button-size-small",
+    "button-size-medium",
+    "button-size-large",
+    "button-size-xlarge",
+    "button-disabled",
+    "native-select-default",
+    "native-select-size-small",
+    "native-select-size-medium",
+    "native-select-size-large",
+    "native-select-disabled",
+    "native-select-invalid",
+    "native-select-narrow",
+    "modal-open",
+    "modal-close-focus",
+    "modal-narrow",
+    "tabs-manual-focus",
+    "tabs-selected",
+    "tabs-narrow",
+    "date-input-default",
+    "date-input-invalid",
+    "date-input-narrow",
+    "date-input-calendar-popup",
+    "date-input-popup-narrow",
+    "date-input-popup-narrow-text-200",
+    "date-input-popup-narrow-text-200-footer-focus",
+    "date-input-popup-narrow-text-200-close-focus",
+    "calendar-range",
+    "calendar-in-range-focus",
+    "calendar-in-range-focus-forced",
+    "calendar-range-start-focus",
+    "calendar-range-start-focus-forced",
+    "calendar-range-end-focus",
+    "calendar-range-end-focus-forced",
+    "calendar-both-endpoints-focus",
+    "calendar-both-endpoints-focus-forced",
+    "calendar-disabled",
+    "calendar-narrow",
+    "calendar-narrow-text-200",
+    "calendar-narrow-text-200-last-column"
+  ],
+  "checks": [
+    {
+      "name": "trusted-modal-consecutive-pointer-gestures",
+      "passed": true
+    },
+    {
+      "name": "trusted-tabs-abandoned-pointer-keyboard-retry",
+      "passed": true
+    },
+    {
+      "name": "trusted-date-popup-topmost-escape",
+      "passed": true
+    },
+    {
+      "name": "button-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button>"
+    },
+    {
+      "name": "button",
+      "axeViolations": []
+    },
+    {
+      "name": "button-size-xsmall",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"xsmall\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button>"
+    },
+    {
+      "name": "button-size-small",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"small\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button>"
+    },
+    {
+      "name": "button-size-medium",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button>"
+    },
+    {
+      "name": "button-size-large",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"large\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button>"
+    },
+    {
+      "name": "button-size-xlarge",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"xlarge\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button>"
+    },
+    {
+      "name": "button-disabled",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS button</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"disabled\" data-krds-variant=\"primary\" data-krds-size=\"medium\" disabled=\"\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button></main></div>\n</body>"
+    },
+    {
+      "name": "native-select-default",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS native-select</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"\" data-krds-size=\"medium\"><optio"
+    },
+    {
+      "name": "native-select-size-small",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS native-select</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"\" data-krds-size=\"small\"><option"
+    },
+    {
+      "name": "native-select-size-medium",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS native-select</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"\" data-krds-size=\"medium\"><optio"
+    },
+    {
+      "name": "native-select-size-large",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS native-select</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"\" data-krds-size=\"large\"><option"
+    },
+    {
+      "name": "native-select-disabled",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS native-select</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"disabled\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"disabled\" data-krds-size"
+    },
+    {
+      "name": "native-select-invalid",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS native-select</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"invalid\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint solid-region-error\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"invali"
+    },
+    {
+      "name": "native-select",
+      "axeViolations": []
+    },
+    {
+      "name": "native-select-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<body><div id=\"app\"><main><h1>KRDS native-select</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"invalid\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint solid-region-error\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"invali"
+    },
+    {
+      "name": "modal-open",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<div id=\"solid-confirmation\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"solid-confirmation-title\" aria-describedby=\"solid-confirmation-description\" tabindex=\"-1\" data-krds-component=\"modal\" data-krds-part=\"content\" data-krds-state=\"open\"><h2 data-krds-component=\"modal\" data-krds-part=\"title\" data-krds-state=\"\" id=\"solid-confirmation-title\">확인</h2><div data-krds-component=\"modal\" data-krds-part=\"description\" data-krds-state=\"\" id=\"solid-confirmation-description\">진행할 내용을 확인하세요</div><div data"
+    },
+    {
+      "name": "modal",
+      "axeViolations": []
+    },
+    {
+      "name": "modal-close-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"modal\" data-krds-part=\"close\" data-krds-state=\"\" aria-label=\"닫기\"><span aria-hidden=\"true\">×</span></button>"
+    },
+    {
+      "name": "modal-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" data-krds-component=\"modal\" data-krds-part=\"close\" data-krds-state=\"\" aria-label=\"닫기\"><span aria-hidden=\"true\">×</span></button>"
+    },
+    {
+      "name": "tabs-manual-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" role=\"tab\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" id=\"krds-tabs-cl-0-item-2\" tabindex=\"0\" aria-selected=\"false\" aria-controls=\"krds-tabs-cl-0-item-2-panel\" data-krds-state=\"\">두 번째</button>"
+    },
+    {
+      "name": "tabs",
+      "axeViolations": []
+    },
+    {
+      "name": "tabs-selected",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" role=\"tab\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" id=\"krds-tabs-cl-0-item-2\" tabindex=\"0\" aria-selected=\"true\" aria-controls=\"krds-tabs-cl-0-item-2-panel\" data-krds-state=\"selected\">두 번째</button>"
+    },
+    {
+      "name": "tabs-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" role=\"tab\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" id=\"krds-tabs-cl-0-item-2\" tabindex=\"0\" aria-selected=\"true\" aria-controls=\"krds-tabs-cl-0-item-2-panel\" data-krds-state=\"selected\">두 번째</button>"
+    },
+    {
+      "name": "date-input-default",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS date-input</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div dir=\"ltr\" data-krds-component=\"date-input\" data-krds-part=\"root\" data-krds-state=\"\"><label for=\"solid-date\" data-krds-component=\"date-input\" data-krds-part=\"label\" data-krds-state=\"\">날짜</label><input type=\"text\" inputmode=\"numeric\" placeholder=\"YYYY-MM-DD\" id=\"solid-date\" aria-describedby=\"solid-date-hint\" data-krds-component=\"date-input\" data-krds-part=\"control\" data-krds-state",
+      "error": {
+        "text": "",
+        "before": "none"
+      }
+    },
+    {
+      "name": "date-input-invalid",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button id=\"solid-next-task\" type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">다음 작업</span></button>",
+      "error": {
+        "text": "YYYY-MM-DD 형식의 올바른 날짜를 입력하세요",
+        "before": "\"! \""
+      }
+    },
+    {
+      "name": "date-input-invalid",
+      "axeViolations": []
+    },
+    {
+      "name": "date-input-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button id=\"solid-next-task\" type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">다음 작업</span></button>",
+      "error": {
+        "text": "YYYY-MM-DD 형식의 올바른 날짜를 입력하세요",
+        "before": "\"! \""
+      }
+    },
+    {
+      "name": "date-input-calendar-popup",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-29\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected\" aria-label=\"2024년 2월 29일 목요일, 선택됨\" aria-pressed=\"true\">29일</button>",
+      "popup": {
+        "x": 440,
+        "y": 113.4375,
+        "width": 400,
+        "height": 573.125
+      },
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      },
+      "error": {
+        "text": "",
+        "before": "none"
+      }
+    },
+    {
+      "name": "date-input-popup",
+      "axeViolations": []
+    },
+    {
+      "name": "date-input-popup-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" data-date=\"2024-02-29\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected\" aria-label=\"2024년 2월 29일 목요일, 선택됨\" aria-pressed=\"true\">29일</button>",
+      "popup": {
+        "x": 8,
+        "y": 20.6875,
+        "width": 304,
+        "height": 598.625
+      },
+      "calendar": {
+        "clientWidth": 270,
+        "scrollWidth": 270,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 262,
+        "scrollWidth": 320,
+        "scrollLeft": 0
+      },
+      "error": {
+        "text": "",
+        "before": "none"
+      }
+    },
+    {
+      "name": "date-input-popup-narrow-text-200",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" data-date=\"2024-02-29\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected\" aria-label=\"2024년 2월 29일 목요일, 선택됨\" aria-pressed=\"true\">29일</button>",
+      "popup": {
+        "x": 16,
+        "y": 16,
+        "width": 288,
+        "height": 608
+      },
+      "calendar": {
+        "clientWidth": 220,
+        "scrollWidth": 220,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 204,
+        "scrollWidth": 639,
+        "scrollLeft": 0
+      },
+      "error": {
+        "text": "",
+        "before": "none"
+      }
+    },
+    {
+      "name": "popup-narrow-200-heading-no-overlap",
+      "title": {
+        "x": 73.78125,
+        "y": 320.484375,
+        "right": 246.21875,
+        "bottom": 456.984375
+      },
+      "next": {
+        "x": 227.921875,
+        "y": 515.8125,
+        "right": 262,
+        "bottom": 586.8125
+      },
+      "noOverlap": true
+    },
+    {
+      "name": "date-input-popup-narrow-text-200-footer-focus",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"confirm\" data-krds-state=\"\">확인</button>",
+      "popup": {
+        "x": 16,
+        "y": 16,
+        "width": 288,
+        "height": 608
+      },
+      "calendar": {
+        "clientWidth": 220,
+        "scrollWidth": 220,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 204,
+        "scrollWidth": 639,
+        "scrollLeft": 0
+      },
+      "error": {
+        "text": "",
+        "before": "none"
+      }
+    },
+    {
+      "name": "date-input-popup-narrow-text-200-close-focus",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\">닫기</button>",
+      "popup": {
+        "x": 16,
+        "y": 16,
+        "width": 288,
+        "height": 608
+      },
+      "calendar": {
+        "clientWidth": 220,
+        "scrollWidth": 220,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 204,
+        "scrollWidth": 639,
+        "scrollLeft": 0
+      },
+      "error": {
+        "text": "",
+        "before": "none"
+      }
+    },
+    {
+      "name": "calendar-range",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS calendar</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds-state=\"",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar",
+      "axeViolations": []
+    },
+    {
+      "name": "calendar-in-range-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected in-range\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨\" aria-current=\"date\" aria-pressed=\"true\">15일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-in-range-normal",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "dashed",
+      "borderWidth": "1px",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(37, 110, 244)",
+      "whiteSpace": "nowrap",
+      "state": "today selected in-range"
+    },
+    {
+      "name": "calendar-in-range-forced",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "dashed",
+      "borderWidth": "1px",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)",
+      "whiteSpace": "nowrap",
+      "state": "today selected in-range"
+    },
+    {
+      "name": "calendar-in-range-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected in-range\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨\" aria-current=\"date\" aria-pressed=\"true\">15일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-range-start-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-12\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-start\" aria-label=\"2024년 2월 12일 월요일, 선택됨, 시작일\" aria-pressed=\"true\">12일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-range-start-normal",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(37, 110, 244)",
+      "whiteSpace": "nowrap",
+      "state": "selected range-start"
+    },
+    {
+      "name": "calendar-range-start-forced",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)",
+      "whiteSpace": "nowrap",
+      "state": "selected range-start"
+    },
+    {
+      "name": "calendar-range-start-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-12\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-start\" aria-label=\"2024년 2월 12일 월요일, 선택됨, 시작일\" aria-pressed=\"true\">12일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-range-end-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-18\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-end\" aria-label=\"2024년 2월 18일 일요일, 선택됨, 종료일\" aria-pressed=\"true\">18일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-range-end-normal",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(37, 110, 244)",
+      "whiteSpace": "nowrap",
+      "state": "selected range-end"
+    },
+    {
+      "name": "calendar-range-end-forced",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)",
+      "whiteSpace": "nowrap",
+      "state": "selected range-end"
+    },
+    {
+      "name": "calendar-range-end-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-18\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-end\" aria-label=\"2024년 2월 18일 일요일, 선택됨, 종료일\" aria-pressed=\"true\">18일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-both-endpoints-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected range-start range-end\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨, 시작일, 종료일\" aria-current=\"date\" aria-pressed=\"true\">15일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-both-endpoints-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected range-start range-end\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨, 시작일, 종료일\" aria-current=\"date\" aria-pressed=\"true\">15일</button>",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-both-endpoints-forced",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)",
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px"
+    },
+    {
+      "name": "calendar-disabled",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><h1>KRDS calendar</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"disabled\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds",
+      "calendar": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 336,
+        "scrollWidth": 336,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<body><div id=\"app\"><main><h1>KRDS calendar</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds-state=\"",
+      "calendar": {
+        "clientWidth": 288,
+        "scrollWidth": 288,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 280,
+        "scrollWidth": 324,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-narrow-text-200",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<body><div id=\"app\"><main><h1>KRDS calendar</h1><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds-state=\"",
+      "calendar": {
+        "clientWidth": 256,
+        "scrollWidth": 256,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 240,
+        "scrollWidth": 648,
+        "scrollLeft": 0
+      }
+    },
+    {
+      "name": "calendar-narrow-text-200-last-column",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" data-date=\"2024-02-17\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 17일 토요일\" aria-pressed=\"false\">17일</button>",
+      "calendar": {
+        "clientWidth": 256,
+        "scrollWidth": 256,
+        "scrollLeft": 0
+      },
+      "tableScroll": {
+        "clientWidth": 240,
+        "scrollWidth": 648,
+        "scrollLeft": 408
+      }
+    },
+    {
+      "name": "calendar-narrow-200-static-context",
+      "chrome": [
+        {
+          "part": "header",
+          "left": 40,
+          "right": 280,
+          "rootLeft": 32,
+          "rootRight": 288,
+          "staysVisible": true
+        },
+        {
+          "part": "footer",
+          "left": 40,
+          "right": 280,
+          "rootLeft": 32,
+          "rootRight": 288,
+          "staysVisible": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

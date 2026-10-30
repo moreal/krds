@@ -1,0 +1,10 @@
+12:33:35 PM [vite] (client) [console.warn] [@vue/compiler-core] decodeEntities option is passed but will be ignored in non-browser builds.
+12:33:35 PM [vite] (client) [console.warn] [@vue/compiler-core] decodeEntities option is passed but will be ignored in non-browser builds.
+12:33:36 PM [vite] (client) [console.warn] [Vue warn]: Component is missing template or render function:  { __name: "Calendar", props: { mode: { default: "single" }, value: {}, modelValue: {}, defaultValue: {}, min: {}, max: {}, disabled: { type: [Function: Boolean], default: false }, required: { type: [Function: Boolean], default: false }, locale: {}, translations: {}, referenceDate: { default: "2000-01-01" }, today: {}, label: {}, id: {} }, emits: [ "update:modelValue", "valueChange", "confirm", "cancel" ], setup: [Function: setup], components: {} } 
+  at <Calendar value="2023-02-29" ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+12:33:36 PM [vite] (client) [console.warn] [Vue warn]: Component is missing template or render function:  { __name: "DateInput", props: { mode: { default: "single" }, value: {}, modelValue: {}, defaultValue: {}, id: {}, name: {}, form: {}, autocomplete: {}, label: {}, hint: {}, error: {}, invalid: { type: [Function: Boolean] }, required: { type: [Function: Boolean], default: false }, disabled: { type: [Function: Boolean], default: false }, min: {}, max: {}, locale: {}, translations: {}, calendarTranslations: {}, withCalendar: { type: [Function: Boolean], default: true }, referenceDate: { default: "2000-01-01" }, today: {} }, emits: [ "update:modelValue", "valueChange" ], setup: [Function: setup], components: {} } 
+  at <DateInput label="Range" mode="range" value="2024-02-29"  ... > 
+  at <VTUROOT>
+JSON report written to /Users/moreal/github/moreal/krds/test-results/t05/siheom-1793331213102-63846-e7ffc79d/vue-vitest.json
+Report: /Users/moreal/github/moreal/krds/test-results/t05/siheom-1793331213102-63846-e7ffc79d/report.json

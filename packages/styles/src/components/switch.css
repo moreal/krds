@@ -1,0 +1,14 @@
+/* KRDS-derived: frozen component.css lines 10977–11182; semantic guidance: specs/components/switch.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="switch"][data-krds-part="root"] { display: inline-grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--krds-gap-3); position: relative; }
+[data-krds-component="switch"][data-krds-part="control"] { appearance: none; inline-size: 3.2rem; min-inline-size: 3.2rem; block-size: var(--krds-size-height-3); border: var(--krds-number-2) solid var(--krds-light-color-element-gray); border-radius: var(--krds-radius-max); background: var(--krds-light-color-element-gray); margin: 0; cursor: pointer; position: relative; }
+[data-krds-component="switch"][data-krds-part="control"]::before { content: ""; display: block; inline-size: calc(var(--krds-size-height-3) - .4rem); block-size: calc(var(--krds-size-height-3) - .4rem); border-radius: var(--krds-radius-max); background: var(--krds-light-color-element-inverse); border: var(--krds-number-1) solid currentColor; }
+[data-krds-component="switch"][data-krds-part="control"]:checked { background: var(--krds-light-color-element-primary); border-color: var(--krds-light-color-element-primary); }
+[data-krds-component="switch"][data-krds-part="control"]:checked::before { margin-inline-start: auto; }
+[data-krds-component="switch"][data-krds-part="track"], [data-krds-component="switch"][data-krds-part="handle"], [data-krds-component="switch"][data-krds-part="state-icon"] { pointer-events: none; }
+[data-krds-component="switch"][data-krds-part="label"] { cursor: pointer; }
+[data-krds-component="switch"][data-krds-part="help"] { grid-column: 2; color: var(--krds-light-color-text-subtle); }
+[data-krds-component="switch"][data-krds-part="control"]:disabled { background: var(--krds-light-color-element-disabled-light); border-color: var(--krds-light-color-element-disabled-dark); cursor: not-allowed; }
+[data-krds-component="switch"][data-krds-part="root"][data-krds-size="large"] [data-krds-component="switch"][data-krds-part="control"] { inline-size: 4rem; min-inline-size: 4rem; block-size: var(--krds-size-height-4); }
+[data-krds-component="switch"][data-krds-part="root"][data-krds-size="large"] [data-krds-component="switch"][data-krds-part="control"]::before { inline-size: calc(var(--krds-size-height-4) - .4rem); block-size: calc(var(--krds-size-height-4) - .4rem); }
+@media (forced-colors: active) { [data-krds-component="switch"][data-krds-part="control"] { background: Canvas; border-color: ButtonText; } [data-krds-component="switch"][data-krds-part="control"]::before { background: ButtonText; } [data-krds-component="switch"][data-krds-part="control"]:checked { background: Canvas; border-style: double; } }

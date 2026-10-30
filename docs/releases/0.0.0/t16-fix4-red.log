@@ -1,0 +1,56 @@
+✖ R4 records exact bytes delivered for Chromium prefetch and drains a delayed response before browser close (0.970583ms)
+✖ R4 WebKit delivered-body validation rejects a same-path server substitution (0.181459ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 248.541541
+
+✖ failing tests:
+
+test at tools/release-evidence/docs-responses.test.mjs:14:1
+✖ R4 records exact bytes delivered for Chromium prefetch and drains a delayed response before browser close (0.970583ms)
+  AssertionError [ERR_ASSERTION]: actual browser response monitor must be available
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/docs-responses.test.mjs:15:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.start (node:internal/test_runner/test:1191:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/release-evidence/docs-responses.test.mjs:37:1
+✖ R4 WebKit delivered-body validation rejects a same-path server substitution (0.181459ms)
+  AssertionError [ERR_ASSERTION]: actual browser response monitor must be available
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/docs-responses.test.mjs:38:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

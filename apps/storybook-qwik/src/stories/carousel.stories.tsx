@@ -1,0 +1,17 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-carousel',title:'KRDS/carousel',component:CatalogStory,args:{componentId:'carousel'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Single:Story={name:"single",args:{caseId:"single"}};
+export const Multiple:Story={name:"multiple",args:{caseId:"multiple"}};
+export const Manual:Story={name:"manual",args:{caseId:"manual"}};
+export const Autoplay:Story={name:"autoplay",args:{caseId:"autoplay"}};
+export const PausedOnFocus:Story={name:"paused-on-focus",args:{caseId:"paused-on-focus"}};
+export const SingleItem:Story={name:"single-item",args:{caseId:"single-item"}};
+export const NarrowFraction:Story={name:"narrow-fraction",args:{caseId:"narrow-fraction"}};
+export const ReducedMotion:Story={name:"reduced-motion",args:{caseId:"reduced-motion"}};
+export const ControlledInhibition:Story={name:"controlled-inhibition",args:{caseId:"controlled-inhibition"}};
+export const PlayWhileFocusedHovered:Story={name:"play-while-focused-hovered",args:{caseId:"play-while-focused-hovered"}};
+export const ControlledStopRejected:Story={name:"controlled-stop-rejected",args:{caseId:"controlled-stop-rejected"}};
+export const TimerRequestRejected:Story={name:"timer-request-rejected",args:{caseId:"timer-request-rejected"}};

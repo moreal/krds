@@ -1,0 +1,11 @@
+import {readdirSync} from 'node:fs';
+import {assertNode, readJson, root, yarn} from './common.mjs';
+import {loadGraph} from './selection.mjs';
+assertNode();
+const plans = readdirSync(`${root}/.nx/version-plans`).filter(file => file.endsWith('.md'));
+if (!plans.length) throw new Error('Release preparation is pending: no reviewed Nx version plans. Create real package-specific bump intent; .gitkeep is not a version plan.');
+const scope = readJson('test-results/ci/selection.json').scope;
+const graph = loadGraph();
+const files = Object.values(graph.nodes).filter(node => node.data.tags?.includes('npm-public')).map(node => `${node.data.root}/package.json`);
+const range = scope.mode === 'affected' ? [`--base=${scope.base}`, `--head=${scope.head}`] : [`--files=${files.join(',')}`];
+yarn(['nx', 'release', 'plan:check', ...range], {stdio: 'inherit'});

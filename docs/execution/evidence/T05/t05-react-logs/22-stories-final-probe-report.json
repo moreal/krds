@@ -1,0 +1,131 @@
+{
+  "kind": "stories",
+  "mode": "probe",
+  "results": [
+    {
+      "framework": "react",
+      "coverage": false,
+      "stories": [
+        {
+          "id": "infrastructure-native-probe--default",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:51514/iframe.html?id=infrastructure-native-probe--default&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/iframe-BJM2YfBS.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/rolldown-runtime-sJBDdmOt.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/iframe-D_fJrueP.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/native-probe.stories-DkNmaV6Q.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/react-18-B5rA9lGr.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "infrastructure-native-probe--loading",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:51514/iframe.html?id=infrastructure-native-probe--loading&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/iframe-BJM2YfBS.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/rolldown-runtime-sJBDdmOt.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/iframe-D_fJrueP.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/native-probe.stories-DkNmaV6Q.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/react-18-B5rA9lGr.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "infrastructure-native-probe--error",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:51514/iframe.html?id=infrastructure-native-probe--error&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/iframe-BJM2YfBS.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/rolldown-runtime-sJBDdmOt.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/iframe-D_fJrueP.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/native-probe.stories-DkNmaV6Q.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:51514/assets/react-18-B5rA9lGr.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        }
+      ],
+      "sourceFiles": 1,
+      "status": "passed"
+    }
+  ]
+}

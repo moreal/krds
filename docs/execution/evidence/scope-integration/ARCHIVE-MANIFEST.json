@@ -1,0 +1,3661 @@
+{
+  "archivedAt": "2026-10-30T03:22:51.050899+00:00",
+  "boundary": "immutable captured reports/snapshots/logs/tarballs only; no moving native-source read",
+  "files": [
+    {
+      "path": "CAPTURE-PATH-MAP.json",
+      "sha256": "5f7a0c885cc9b4d130f31b007a5314643e54e05933a5994bbb4c0afb90b9f715",
+      "bytes": 238714
+    },
+    {
+      "path": "README.md",
+      "sha256": "df1ee4e72758721fb519fea14e619a54153179fb1775483f45d9c29a8a50d65d",
+      "bytes": 3224
+    },
+    {
+      "path": "RUNTIME-REPORT-PATH-MAP.json",
+      "sha256": "a4a21acb75ffe55f710a07afc12f9d841e271526085181d06b4826abcca531bc",
+      "bytes": 1149
+    },
+    {
+      "path": "native-baselines/README.md",
+      "sha256": "5906f42932607d053a85d804a534a436bd69b5e49c837708c8efc27d907d64d4",
+      "bytes": 1457
+    },
+    {
+      "path": "native-baselines/native-baseline-map.json",
+      "sha256": "d430f0ef63de84bbf32a4c4f1547ed515926c799e7d4bccc120883b69c16fd7e",
+      "bytes": 33047
+    },
+    {
+      "path": "native-baselines/task-T01-rereview1.md",
+      "sha256": "addd3feb81b67f64ccf11d49ae2f9b9be8704f09ceca659f53b8afaa53cc3855",
+      "bytes": 1488
+    },
+    {
+      "path": "native-baselines/task-T01-review-package.md",
+      "sha256": "6df6fc2657626678df8eaef2f56a94330a13d78889d9d5f6a4d2686ca90760bf",
+      "bytes": 209407
+    },
+    {
+      "path": "native-baselines/task-T01-review.md",
+      "sha256": "c09def57d570d318a32d61cc25cb42a94039e3bbbdb3789bd98df28353c16db0",
+      "bytes": 3609
+    },
+    {
+      "path": "native-baselines/task-T01-snapshot.json",
+      "sha256": "7b0e7037265676bab7f8280002dcb117d5c04adaa753db13a2b72d6df17cbb04",
+      "bytes": 38412
+    },
+    {
+      "path": "native-baselines/task-T05-angular-review-package.md",
+      "sha256": "27a700de399b7bd758165d2c26b53815d6f6213c9b75a782af9ad33b653a6f29",
+      "bytes": 22348
+    },
+    {
+      "path": "native-baselines/task-T05-angular-review.md",
+      "sha256": "ed80e0e2e9c19647cbe22e1d60f88ac105befff16f33cb6a9a33e893b98dd785",
+      "bytes": 5961
+    },
+    {
+      "path": "native-baselines/task-T05-angular-snapshot.json",
+      "sha256": "a3337413ab0e16e59fe6ea632251cf02f9fe5992d94419476fb42865c945a68b",
+      "bytes": 6089
+    },
+    {
+      "path": "native-baselines/task-T05-base/.yarnrc.yml",
+      "sha256": "effa9e77e236072340d9d0c92df7f438c557f428cbfe4aaede7a1c47f2a8d200",
+      "bytes": 874
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/docs/index.md",
+      "sha256": "dae166bad52c78b9ce24a44f25a1c2cc805582a15eb61725e5096eb31657e81f",
+      "bytes": 165
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/docs/package.json",
+      "sha256": "3d8bba4a5ce448b5daede869beb56a35e26c3f0b865b29fcd6085f3beb8f03a1",
+      "bytes": 444
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/docs/project.json",
+      "sha256": "f189b4a18a49e66c4f31b232740e67385afdb3d8b9a63ac49a63e03789da2989",
+      "bytes": 1023
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/docs/src/index.ts",
+      "sha256": "9371ab8e59cbf30dede40890159b6e84055beec64c442f0435bf052d39de473d",
+      "bytes": 38
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/docs/tsconfig.json",
+      "sha256": "5bf09598d5de707420b7d3461f5203e6c925458d7d28dfcbb7f18d914f8af792",
+      "bytes": 82
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/angular.json",
+      "sha256": "d3fc001a759610721453a3130590e30f81a66d641b29e441241c853d7c9dd476",
+      "bytes": 539
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/index.html",
+      "sha256": "56d88193bf85b71fcd3bcd23aa39c65dbcbb473a9af6288942cadb14b1f0d58e",
+      "bytes": 166
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/package.json",
+      "sha256": "c98983cac4ad22aaf950d65f51849e3719aaf3f53d910795f87c4eef0665c81d",
+      "bytes": 1856
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/project.json",
+      "sha256": "45ac7a115ec8c3b999db7e220380de796b87e9f1835fac31bc306e16452727d3",
+      "bytes": 1386
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/src/main.ts",
+      "sha256": "986f4173a697e14f76c68ef217fe526333a7c05583d70745f6f790afbe92462f",
+      "bytes": 248
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/tsconfig.json",
+      "sha256": "6e90fa9ad598de3557f9a222ef04210d8b76ba11f763ab3f68cfa17ec933f61c",
+      "bytes": 220
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-angular/vitest.config.ts",
+      "sha256": "a750dcd4e4371a0889a023826246fff558275f294d301ad32a58b832ecec0f5b",
+      "bytes": 313
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-lit/index.html",
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+      "bytes": 191
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-lit/package.json",
+      "sha256": "78f6f937117b7a5b86e0e65893d39a9c6776f2ba64553cec89e44fd58e4a461e",
+      "bytes": 945
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-lit/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-lit/project.json",
+      "sha256": "a1ef2ee8718a05ba0ab3ff3c4d5109417300df85a97de6dc361ed714a5573e7f",
+      "bytes": 1172
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-lit/src/main.ts",
+      "sha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb",
+      "bytes": 258
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-lit/tsconfig.json",
+      "sha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+      "bytes": 184
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-lit/vite.config.ts",
+      "sha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0",
+      "bytes": 110
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/package.json",
+      "sha256": "02228774454c1798070ffa887e5219ed3c0e31a654f06a7d4bcf0da5e1aa5019",
+      "bytes": 1216
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/project.json",
+      "sha256": "5f191ed351786c09ef17652697346df41ed0e921a4341cc75aa9888140609afb",
+      "bytes": 1353
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/src/entry.dev.tsx",
+      "sha256": "eabc01927736bb6db6358d7ac2f6dc1a8966ff26d1176eaa58746b899d5e347a",
+      "bytes": 181
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/src/entry.ssr.tsx",
+      "sha256": "ea741b81eb2312c7b3d0cfc3563cdbdf1d7afb64985a65d4db575f0a1f40bb06",
+      "bytes": 210
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/src/main.tsx",
+      "sha256": "562a2ddda502cee251108f5f97cd119e1b2696c1159239e1519d9d64bc8852ce",
+      "bytes": 194
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/src/root.tsx",
+      "sha256": "f610368b28b185227f92ea86bc22e874067a9fb63a1f1e7ed93c4a2352af68ec",
+      "bytes": 215
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/tsconfig.json",
+      "sha256": "7eac91af39c42c20bbb0f49b577f4b98fb03318cf5b137a0b3933ae979105804",
+      "bytes": 251
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/vite.config.ts",
+      "sha256": "e96600381d37cd6070fa4dd60d27b0b4945081e99aaf7452dc9d2f97b9b0eff7",
+      "bytes": 175
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-qwik/vitest.config.ts",
+      "sha256": "20d0e565505408dc852c2ab4486ef4d989a8347f2c5eb8b4d706b79e323a8214",
+      "bytes": 378
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/package.json",
+      "sha256": "6419338c5a7ecf40651ab152f185735f53b910a2d33b60673badaa927240127c",
+      "bytes": 1291
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/project.json",
+      "sha256": "126e83aa2997270d5a89d25a2c2718d58cab743e094785bd370b2cc43136c299",
+      "bytes": 1364
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/src/main.tsx",
+      "sha256": "933c4803a9a85291a6675f188a5de4300b1343725ab09491052510e8f128b4a9",
+      "bytes": 228
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/tsconfig.json",
+      "sha256": "2ef12151c928ff4aeabef95faca15b641953e7f303e73eb43c62af1da439df0b",
+      "bytes": 208
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/vite.config.ts",
+      "sha256": "c688bbccbb01af74f753931f0d63a4b4d5acc46dd8ba370018b3bd74e0f9a14f",
+      "bytes": 159
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-react/vitest.config.ts",
+      "sha256": "9edcceee7b0f99a41d9247338b92ffbc48b5f09b7a2584ec00373c61fa51128a",
+      "bytes": 362
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/package.json",
+      "sha256": "cce81f8852b38c6dbc9e1278eb321fdeac908d4f5305c8858a79cac215d594cc",
+      "bytes": 1301
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/project.json",
+      "sha256": "c9c6bfe9bb1201cfcab23cbfa05b3f4f70a3360c4c3c65db76476daf6137c96c",
+      "bytes": 1364
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/src/main.tsx",
+      "sha256": "2a3000a4f5c7924c8c3eb5c4d36b19c94543955ce210bdb6734f1f3e04060f7e",
+      "bytes": 215
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/tsconfig.json",
+      "sha256": "9a4ebf3d69ee146ec184be07ce68af2a6b9b1c0432ca15c07fd48e1fc782f3c1",
+      "bytes": 242
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/vite.config.ts",
+      "sha256": "599d0a962c8adc71e29e75a16566f68c12a6d8365d1adde42aa3b1b6ab73be4a",
+      "bytes": 156
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid/vitest.config.ts",
+      "sha256": "92ad12da7def9bde67b7d52c0547fa643c2c25a66647709fd499c7fe7ee99b27",
+      "bytes": 359
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid-next/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid-next/package.json",
+      "sha256": "36d12fc5b343d6b2fe61ea49ba4606579cf918cd91f1315f11e0745f3f71014a",
+      "bytes": 1138
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid-next/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid-next/project.json",
+      "sha256": "c9fae011efd33e6cd20e7770fc799242e5fd8a881ee1e414928c534a0dd028f5",
+      "bytes": 1242
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid-next/src/main.tsx",
+      "sha256": "76267c9eaafbad644044d8d1bd7d18e84ea132c33233b2f4a1ddc09e729f20ad",
+      "bytes": 220
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid-next/tsconfig.json",
+      "sha256": "5ec51bb182bebe56517bbb2829755fc9b66adba60c409673547b4fd98358a49e",
+      "bytes": 246
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-solid-next/vite.config.ts",
+      "sha256": "a198bfbf4fc60dc61d219dd45621c7fc02c4cdfe14e2eb39c92a30640996c9dd",
+      "bytes": 159
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/index.html",
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+      "bytes": 191
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/package.json",
+      "sha256": "17562cfa67bb5cb7eba67adf1e0ce87838167cd383cb5b76eea75e03b8c650fa",
+      "bytes": 1315
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/project.json",
+      "sha256": "ae7b680a114790152cd31890826322deeb18329383c8ee78109702c81fb20102",
+      "bytes": 1375
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/src/App.svelte",
+      "sha256": "0a62f4ff8dae7126e66c1ee91bd1a9c98b591e7acfc11e0ea4e1d6017820b35a",
+      "bytes": 154
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/src/main.ts",
+      "sha256": "f317ed3579e9b87140b8af51ca074fcb9a316194282143baeeafe12d92d5c868",
+      "bytes": 153
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/svelte.config.js",
+      "sha256": "450f0af4f4c1ecc4c7180f2e364c8a59bfed69dd350fb6b47bce8641c2a37786",
+      "bytes": 19
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/tsconfig.json",
+      "sha256": "e8e69acc9549e3a9381620fe584309fe6b974d606d0413fd36a688acf700bde2",
+      "bytes": 207
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/vite.config.ts",
+      "sha256": "16a94398bdd927734695ec478fb4a257d02f3f04ba0ba2a545d50bfffed44c98",
+      "bytes": 173
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-svelte/vitest.config.ts",
+      "sha256": "f2d839d03143d6316c965b0e587110ee0a003f952262539e81a3172ec12b0024",
+      "bytes": 376
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/index.html",
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+      "bytes": 191
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/package.json",
+      "sha256": "08a22e0d08699b534e95121cd2ced2b018e6831e091b4ac9be23f6357aad78ce",
+      "bytes": 1283
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/playwright.config.ts",
+      "sha256": "be81b90f27959aad2d2055fed5b8dd002f915ad2e4fec8ea5c1df6b953254e9d",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/project.json",
+      "sha256": "dfeef14f9c423338341a18e22d9a970fac44380621839d8f546fc76f1a2d802b",
+      "bytes": 1342
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/src/main.ts",
+      "sha256": "f6565695569ddccebd9121d81fed544c54ca7653c9352fbb67f4b0774709b8be",
+      "bytes": 181
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/tsconfig.json",
+      "sha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+      "bytes": 184
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/vite.config.ts",
+      "sha256": "c2c2d88bba74475f45aefe37ed01e62cc126d6ea59227d5723b11cab975d9031",
+      "bytes": 153
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/fixture-vue/vitest.config.ts",
+      "sha256": "884dd61a468090134969994c58cc6f262c7e7e7fd8afaca2d01232aaf7f229d5",
+      "bytes": 356
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/.storybook/main.ts",
+      "sha256": "5be8369d4e005a2b5422739c5ded291a53b5fb2ce17ed5f102de03b42b5c4de4",
+      "bytes": 150
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/angular.json",
+      "sha256": "9ef7264b62b58b26a748d5fd06507542c33ae4bae721c9a6917104a1eff59888",
+      "bytes": 802
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/index.html",
+      "sha256": "56d88193bf85b71fcd3bcd23aa39c65dbcbb473a9af6288942cadb14b1f0d58e",
+      "bytes": 166
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/package.json",
+      "sha256": "a1d0aaddb2174a1c254779f5a7edbcdd300156b2eec4a5d8002400f99d9c4c74",
+      "bytes": 1801
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/project.json",
+      "sha256": "d41024d349e00a647fc9bdcd5eb62f41b54833ab7dbfb50465a1093d3d0b9505",
+      "bytes": 1420
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/src/main.ts",
+      "sha256": "986f4173a697e14f76c68ef217fe526333a7c05583d70745f6f790afbe92462f",
+      "bytes": 248
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/src/stories/probe.stories.ts",
+      "sha256": "5f98a50af3e3c17244ee47d62038a81a07d41fa7de5d2e0addc0991512b2175b",
+      "bytes": 233
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-angular/tsconfig.json",
+      "sha256": "6e90fa9ad598de3557f9a222ef04210d8b76ba11f763ab3f68cfa17ec933f61c",
+      "bytes": 220
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/.storybook/main.ts",
+      "sha256": "6d61ff13cc54f44eee62270efc7652c3b95677d54a8850f69be485efea657087",
+      "bytes": 162
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/index.html",
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+      "bytes": 191
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/package.json",
+      "sha256": "0e67f4866e6fde43eb1ba102944453b3ab6bdea830dbe670531cddebb3f69cea",
+      "bytes": 1184
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/project.json",
+      "sha256": "01a334b333ff05120095834e06a36d4965e6184e94648d87c6bf39aa839c35f6",
+      "bytes": 1376
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/src/main.ts",
+      "sha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb",
+      "bytes": 258
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/src/stories/probe.stories.ts",
+      "sha256": "e7cc4f0fc30d013cab5c177be087f1832e9224854b3ea6a90f1acc88bee569b2",
+      "bytes": 409
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/tsconfig.json",
+      "sha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+      "bytes": 184
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-lit/vite.config.ts",
+      "sha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0",
+      "bytes": 110
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/.storybook/main.ts",
+      "sha256": "57d417111c7d29cf0f85a88b52a53e6d13680072da7ea35d08c7150bf9430082",
+      "bytes": 156
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/package.json",
+      "sha256": "b406c1925f2664a52a116358797b2b8b1c0d92619c5e1059bed80b93c4b8a7e0",
+      "bytes": 1165
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/project.json",
+      "sha256": "691fc52d0cf92cb6fedb11f21f5f68749008e344ace581bf8ca5ecaba34e80fc",
+      "bytes": 1387
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/src/entry.dev.tsx",
+      "sha256": "eabc01927736bb6db6358d7ac2f6dc1a8966ff26d1176eaa58746b899d5e347a",
+      "bytes": 181
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/src/entry.ssr.tsx",
+      "sha256": "ea741b81eb2312c7b3d0cfc3563cdbdf1d7afb64985a65d4db575f0a1f40bb06",
+      "bytes": 210
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/src/main.tsx",
+      "sha256": "562a2ddda502cee251108f5f97cd119e1b2696c1159239e1519d9d64bc8852ce",
+      "bytes": 194
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/src/root.tsx",
+      "sha256": "f610368b28b185227f92ea86bc22e874067a9fb63a1f1e7ed93c4a2352af68ec",
+      "bytes": 215
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/src/stories/probe.stories.tsx",
+      "sha256": "033b2f103fc992566e2f6e1dc9316aba7b8418e490eeb5f3f70a91e6b5db7a36",
+      "bytes": 264
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/tsconfig.json",
+      "sha256": "7eac91af39c42c20bbb0f49b577f4b98fb03318cf5b137a0b3933ae979105804",
+      "bytes": 251
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-qwik/vite.config.ts",
+      "sha256": "e96600381d37cd6070fa4dd60d27b0b4945081e99aaf7452dc9d2f97b9b0eff7",
+      "bytes": 175
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/.storybook/main.ts",
+      "sha256": "9fe58fe1864394735f7693aa1e3b849de5f910109b1c1fd725e194dab5975a32",
+      "bytes": 153
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/package.json",
+      "sha256": "b0088c8ccfd5f3205f0a5e1d5d1115e75ab4183f1886e02933bf6bdff54ca263",
+      "bytes": 1163
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/project.json",
+      "sha256": "87bf50dc51cb0f74a8261a5db3e0621004d59ef6035f8a1ec6cd2120bdadf094",
+      "bytes": 1398
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/src/main.tsx",
+      "sha256": "933c4803a9a85291a6675f188a5de4300b1343725ab09491052510e8f128b4a9",
+      "bytes": 228
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/src/stories/probe.stories.ts",
+      "sha256": "5275fdca0071bca6ee6ff14c2834e03b94ef9a127b5801ed9758eb065f6d1166",
+      "bytes": 231
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/tsconfig.json",
+      "sha256": "2ef12151c928ff4aeabef95faca15b641953e7f303e73eb43c62af1da439df0b",
+      "bytes": 208
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-react/vite.config.ts",
+      "sha256": "c688bbccbb01af74f753931f0d63a4b4d5acc46dd8ba370018b3bd74e0f9a14f",
+      "bytes": 159
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/.storybook/main.ts",
+      "sha256": "3ea64382e1cb9eb36d69c22cf5888b3ec7e9a71cbfbdebd8365e6b3fec61b43c",
+      "bytes": 154
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/package.json",
+      "sha256": "59413b2984d7f4c86f19eae6333f4db6f2eddc31ce46f40aa626e2d9f77849bf",
+      "bytes": 1220
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/project.json",
+      "sha256": "bebc5c5c737120266ede8ef29222e713d15bff855f3d865746f80fc51811e1ed",
+      "bytes": 1398
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/src/main.tsx",
+      "sha256": "2a3000a4f5c7924c8c3eb5c4d36b19c94543955ce210bdb6734f1f3e04060f7e",
+      "bytes": 215
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/src/stories/probe.stories.ts",
+      "sha256": "bfbd85339392e0031ef44131b9e7e79bd2d43f757cb92014d38b5506b202bc0b",
+      "bytes": 231
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/tsconfig.json",
+      "sha256": "9a4ebf3d69ee146ec184be07ce68af2a6b9b1c0432ca15c07fd48e1fc782f3c1",
+      "bytes": 242
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid/vite.config.ts",
+      "sha256": "599d0a962c8adc71e29e75a16566f68c12a6d8365d1adde42aa3b1b6ab73be4a",
+      "bytes": 156
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/.storybook/main.ts",
+      "sha256": "3ea64382e1cb9eb36d69c22cf5888b3ec7e9a71cbfbdebd8365e6b3fec61b43c",
+      "bytes": 154
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/index.html",
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00",
+      "bytes": 192
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/package.json",
+      "sha256": "23423b79f171a53c08630446ae5c59b6ebac865fbb828e80e9555b5fdb4e1956",
+      "bytes": 1436
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/project.json",
+      "sha256": "fb5f6921e89b8ec1a23e138ae5c7ca48b768e8c67109de5d690eff0619092f80",
+      "bytes": 1453
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/src/main.tsx",
+      "sha256": "76267c9eaafbad644044d8d1bd7d18e84ea132c33233b2f4a1ddc09e729f20ad",
+      "bytes": 220
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/src/stories/probe.stories.ts",
+      "sha256": "2c926ed3509b3160dc91c6d392d8b900bbbb1677ff32e3058ed0b9f0b7d04f48",
+      "bytes": 236
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/tsconfig.json",
+      "sha256": "5ec51bb182bebe56517bbb2829755fc9b66adba60c409673547b4fd98358a49e",
+      "bytes": 246
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-solid-next/vite.config.ts",
+      "sha256": "a198bfbf4fc60dc61d219dd45621c7fc02c4cdfe14e2eb39c92a30640996c9dd",
+      "bytes": 159
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/.storybook/main.ts",
+      "sha256": "5ced03eda966b655634d4a8d375015968a14a4fbbc96829ce35f725be00d2bef",
+      "bytes": 154
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/index.html",
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+      "bytes": 191
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/package.json",
+      "sha256": "ffa4d22baf9e8b9179a8d3bb63d03223151f558583d5d335587bb0a0577f7924",
+      "bytes": 1267
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/project.json",
+      "sha256": "5c49d9c93878e9f41bdf2e39709bb3321e8160677a28db0fc1ae2fc4987e6df2",
+      "bytes": 1409
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/src/App.svelte",
+      "sha256": "0a62f4ff8dae7126e66c1ee91bd1a9c98b591e7acfc11e0ea4e1d6017820b35a",
+      "bytes": 154
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/src/main.ts",
+      "sha256": "f317ed3579e9b87140b8af51ca074fcb9a316194282143baeeafe12d92d5c868",
+      "bytes": 153
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/src/stories/probe.stories.ts",
+      "sha256": "ee292da2963d5900c1b3c80d6ec714c4d9f5f210b4f9962e6b205e759ac2f40a",
+      "bytes": 232
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/svelte.config.js",
+      "sha256": "450f0af4f4c1ecc4c7180f2e364c8a59bfed69dd350fb6b47bce8641c2a37786",
+      "bytes": 19
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/tsconfig.json",
+      "sha256": "e8e69acc9549e3a9381620fe584309fe6b974d606d0413fd36a688acf700bde2",
+      "bytes": 207
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-svelte/vite.config.ts",
+      "sha256": "16a94398bdd927734695ec478fb4a257d02f3f04ba0ba2a545d50bfffed44c98",
+      "bytes": 173
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/.storybook/main.ts",
+      "sha256": "5b14696c04fe1cf760bc6d92337b73feddd6b4c72a52f26d7b46cf63be72b872",
+      "bytes": 152
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/index.html",
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+      "bytes": 191
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/package.json",
+      "sha256": "79ba3833e204221e9e32796bf65d6fec85b0b12eea51db8be33629737d6501cf",
+      "bytes": 1204
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/playwright.config.ts",
+      "sha256": "8e80c92a829fdeefed001def4b7d71c04db90786edfc0f112d5a6cf2a211ec08",
+      "bytes": 108
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/project.json",
+      "sha256": "80d6a719dc31fe1cbfc02dd1c4e7f4ed96479e93f765f895a93baa70b5ee813f",
+      "bytes": 1376
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/src/main.ts",
+      "sha256": "f6565695569ddccebd9121d81fed544c54ca7653c9352fbb67f4b0774709b8be",
+      "bytes": 181
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/src/stories/probe.stories.ts",
+      "sha256": "3d807b1f0d6d8450e5dc8eb6d5b45dde8a7f1b84961815bc7dd6b4ba75325720",
+      "bytes": 229
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/tsconfig.json",
+      "sha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+      "bytes": 184
+    },
+    {
+      "path": "native-baselines/task-T05-base/apps/storybook-vue/vite.config.ts",
+      "sha256": "c2c2d88bba74475f45aefe37ed01e62cc126d6ea59227d5723b11cab975d9031",
+      "bytes": 153
+    },
+    {
+      "path": "native-baselines/task-T05-base/compatibility/testing.json",
+      "sha256": "2acd7d3a3ab45530c3c0b0ae5e1e1d759ed70226ef2481cdcff14cbd55f31fa5",
+      "bytes": 22989
+    },
+    {
+      "path": "native-baselines/task-T05-base/compliance/provenance-dependencies.json",
+      "sha256": "bb9dc073259b22c987f9c476122afbeba9b2f78d9ea7dae91754b993572f9d72",
+      "bytes": 1229742
+    },
+    {
+      "path": "native-baselines/task-T05-base/inventory.json",
+      "sha256": "dfd60e578bed254bda4e7118ff7fc766d95919ff68d7b81d12f7c89a890d0256",
+      "bytes": 16873
+    },
+    {
+      "path": "native-baselines/task-T05-base/nx.json",
+      "sha256": "a3f1dc25863e09a5bfde333fbc49898b3ca9b6df82b22d15e9265a7a98f2f701",
+      "bytes": 3239
+    },
+    {
+      "path": "native-baselines/task-T05-base/package.json",
+      "sha256": "31db0fa50220fb302b5a528b3eff482aa12b7a1e1ddcd2ee68f45708f0185930",
+      "bytes": 1017
+    },
+    {
+      "path": "native-baselines/task-T05-base/packages/test-contracts/package.json",
+      "sha256": "f516f34364b9f276f03dacc5b4291ca3fae92a833f0a491a3de5f823d59e4f74",
+      "bytes": 486
+    },
+    {
+      "path": "native-baselines/task-T05-base/packages/test-contracts/project.json",
+      "sha256": "e182865c7a70685228b4ef5ee603ac03f1be5dd4a24c19ff962cdd7e9ca91ccd",
+      "bytes": 949
+    },
+    {
+      "path": "native-baselines/task-T05-base/packages/test-contracts/src/index.ts",
+      "sha256": "a07873857b39a98a89b0c1a84a5065e8b2e14e05afd5c26127367b00710c82ac",
+      "bytes": 127
+    },
+    {
+      "path": "native-baselines/task-T05-base/packages/test-contracts/tsconfig.json",
+      "sha256": "57e9cd1b17d45522f5b17ab268cad387d3c98ee4b74ce6156f4087aa0e919f0c",
+      "bytes": 249
+    },
+    {
+      "path": "native-baselines/task-T05-base/yarn.lock",
+      "sha256": "3e5cd9db6ab945332185dac797415a87e7a4426b8c873b3e8558612be56e7e0b",
+      "bytes": 772126
+    },
+    {
+      "path": "native-baselines/task-T05-lit-review-package.md",
+      "sha256": "26f9f8504bc7a36e2fbdd45a9abc6c11497b4f7c5bffdf8d533352374cf52d26",
+      "bytes": 17108
+    },
+    {
+      "path": "native-baselines/task-T05-lit-review.md",
+      "sha256": "90da70c0bd34a3806dbaae860a2190c61f6aeabcfe5c3aab26a3e4b0eb50fafa",
+      "bytes": 3503
+    },
+    {
+      "path": "native-baselines/task-T05-lit-snapshot.json",
+      "sha256": "a3997f43e7a1fe5167078b3b996bafbc8eb463f5825d77c4baade3282a057161",
+      "bytes": 3221
+    },
+    {
+      "path": "native-baselines/task-T05-qwik-review-package.md",
+      "sha256": "c5d842af03b5bc886d9dbdeba2f51ef11f141a5fc2b0db7cc623c3ebc1fb73d3",
+      "bytes": 20260
+    },
+    {
+      "path": "native-baselines/task-T05-qwik-review.md",
+      "sha256": "6efeb5c6130188d261a6ebdf70cc16d54588124dde478980395eb076abb68725",
+      "bytes": 4400
+    },
+    {
+      "path": "native-baselines/task-T05-qwik-snapshot.json",
+      "sha256": "3298dcb80454d0b93f3ec09bc63db98e1377e95ed584e2c9c415acb815147fa0",
+      "bytes": 4473
+    },
+    {
+      "path": "native-baselines/task-T05-react-review-package.md",
+      "sha256": "8300d86daa24ce7c1091faa35fc83b21b8ff89d4aad617c935dd16b9f94e017b",
+      "bytes": 25177
+    },
+    {
+      "path": "native-baselines/task-T05-react-review.md",
+      "sha256": "3feb3eee695ae5549947b62cb7f5bb0da14b98a43008a3837a9eb6675a679317",
+      "bytes": 4789
+    },
+    {
+      "path": "native-baselines/task-T05-react-snapshot.json",
+      "sha256": "3213508aa9a9a262916a516c69f77bbc854ef7c97bed3a8d2ba2e25e18ed0d96",
+      "bytes": 6297
+    },
+    {
+      "path": "native-baselines/task-T05-solid-next-review-package.md",
+      "sha256": "6bb212b2e885029233e121a59201d447b7a2a58bcd7ac77d75f4f4ef04696de6",
+      "bytes": 10921
+    },
+    {
+      "path": "native-baselines/task-T05-solid-next-review.md",
+      "sha256": "86279720598633620192aa48349299579630fb9ff205336a411d84adf7047073",
+      "bytes": 3362
+    },
+    {
+      "path": "native-baselines/task-T05-solid-next-snapshot.json",
+      "sha256": "90dc73c8e9b48a7d4670331c186c8b24bc74be59c43ed249d31bf767e1602b18",
+      "bytes": 1511
+    },
+    {
+      "path": "native-baselines/task-T05-svelte-review-package.md",
+      "sha256": "1cd2159525de3649f57768f0651a91bf952efd9989b4ff773657ce67b288bcd7",
+      "bytes": 17107
+    },
+    {
+      "path": "native-baselines/task-T05-svelte-review.md",
+      "sha256": "4b4c7a10c25a42a4aa9048dd0647931027f9208852425c2ca79790e968604b83",
+      "bytes": 5046
+    },
+    {
+      "path": "native-baselines/task-T05-svelte-snapshot.json",
+      "sha256": "3a3728e25d1ab72288d8cc60acf811b073c1bddc5af300b59aafa6295b3e5f2f",
+      "bytes": 3517
+    },
+    {
+      "path": "native-baselines/task-T05-vue-review-package.md",
+      "sha256": "a13ca4b402025d3f56382db60fbb8a7a0f3f502ce0a50e0b5179ce503b805109",
+      "bytes": 18738
+    },
+    {
+      "path": "native-baselines/task-T05-vue-review.md",
+      "sha256": "d822ad555de9d7349f11fa66b198c0502f5876f6160357b8de68242c245ee07a",
+      "bytes": 5286
+    },
+    {
+      "path": "native-baselines/task-T05-vue-snapshot.json",
+      "sha256": "abb830abda67f0094d57d8f0ecb5a1118a480738f5faee57efef0716441a194d",
+      "bytes": 4216
+    },
+    {
+      "path": "pack-artifacts/angular.tgz",
+      "sha256": "c99b9c7ec27524473d14b0be45edbfc50ed43f1a1594ac03e890a22e8fec1269",
+      "bytes": 3951
+    },
+    {
+      "path": "pack-artifacts/assets.tgz",
+      "sha256": "c8c8e50d06e934028f3b19eb16f29a302c4ae9a3949d10e7d98f0c88ebbbca35",
+      "bytes": 41195
+    },
+    {
+      "path": "pack-artifacts/contracts.tgz",
+      "sha256": "eadecfac6c677a2f16529fa1d38d45fbb05bcfd1ba438c6dc234bfef4f2a1514",
+      "bytes": 11802
+    },
+    {
+      "path": "pack-artifacts/fonts.tgz",
+      "sha256": "6a7028c459126e42defa6cf3bab13e2da0465988e932040c53934ba36a744c9a",
+      "bytes": 6209420
+    },
+    {
+      "path": "pack-artifacts/index.json",
+      "sha256": "5b35dd6a42a5708506462ed86300d08aecf5eac5f4629aa0cf49eee2ca32a4da",
+      "bytes": 3968
+    },
+    {
+      "path": "pack-artifacts/lit.tgz",
+      "sha256": "55feecf5564ead5deba45bab75f744ee6401f90e165ac6dc42da91263200a3c3",
+      "bytes": 3337
+    },
+    {
+      "path": "pack-artifacts/qwik.tgz",
+      "sha256": "5ba72c673d459830d4c125c83a3ee3f3806883332ec83399aeb674db1412d3f9",
+      "bytes": 3551
+    },
+    {
+      "path": "pack-artifacts/react.tgz",
+      "sha256": "d438ee48a7f5b34dcf87cc1ca2ba806f8f65ab07558dc5ac12f2b24e635bec18",
+      "bytes": 3363
+    },
+    {
+      "path": "pack-artifacts/solid-next.tgz",
+      "sha256": "92cfe535dc629fcab923400be79ffd2c732bb483c3c341b4c58cb2b96aecbb9b",
+      "bytes": 3450
+    },
+    {
+      "path": "pack-artifacts/solid.tgz",
+      "sha256": "c0239e8bf951b8db80fd2ba6c375e08753d8011dc7311fb7ffff3d5618b51fa7",
+      "bytes": 24829
+    },
+    {
+      "path": "pack-artifacts/styles.tgz",
+      "sha256": "43699d4c40cf743f043dfa84e3d6b4b22ea48c06900d090211f72d139347adc5",
+      "bytes": 132313
+    },
+    {
+      "path": "pack-artifacts/svelte.tgz",
+      "sha256": "e17bd0603ce0df0e9997490a3b67887d4c973de074ca99cf63c18caec2158659",
+      "bytes": 3659
+    },
+    {
+      "path": "pack-artifacts/tokens.tgz",
+      "sha256": "5de88eea45e3822defbcdd2d8257894f0c06b49114573dd996fa347693f77f6a",
+      "bytes": 87758
+    },
+    {
+      "path": "pack-artifacts/vue.tgz",
+      "sha256": "8f4fb5dc1f9dbd052a1fdb8542b5742f20b6c34c5edb0aaf67d1462083b59b82",
+      "bytes": 3608
+    },
+    {
+      "path": "scope-compliance-logs/after/THIRD-PARTY-NOTICES.md",
+      "sha256": "b0f3c80581ad74b5a185bd871d05e033a3a5a0a0047d315afbd9bbd288d6bfba",
+      "bytes": 24088
+    },
+    {
+      "path": "scope-compliance-logs/after/compliance/project-identity.json",
+      "sha256": "2ff1cc154406c85c75a307c04f3c7dae0b792ec2d6d010601e4487e6f99c43f1",
+      "bytes": 3806
+    },
+    {
+      "path": "scope-compliance-logs/after/compliance/provenance-dependencies.json",
+      "sha256": "f7c3865fa196345290545720a1632ea6d4c47be68ed9876d8a51c2e1c1633744",
+      "bytes": 1229742
+    },
+    {
+      "path": "scope-compliance-logs/after/compliance/provenance.json",
+      "sha256": "c814142df9c89e5b440c01307dfb6b5fab80fcff1073f1cf7769bad7963ee03a",
+      "bytes": 2029740
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/angular/ATTRIBUTION.md",
+      "sha256": "5815afe66febefc46a2539cb403327f6184884805df7bd7d872adee28fd6365b",
+      "bytes": 239
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/angular/LICENSE.md",
+      "sha256": "c809c9f0ba3a944c94ca0dcc90df185f5f201d1983c69131733e6010e77241fb",
+      "bytes": 2364
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/angular/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/angular/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/angular/THIRD-PARTY-NOTICES.md",
+      "sha256": "a9dac38f94dc3e747bc33896d2369150b37c9bc29cfa2c0b78ebc5fc4deee23a",
+      "bytes": 184
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/angular/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/assets/ATTRIBUTION.md",
+      "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
+      "bytes": 2409
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/assets/LICENSE.md",
+      "sha256": "4de40d4f3c5cac9cdb2d9a5259a55102cfb8850635960a4bcca97379e19ae455",
+      "bytes": 11343
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/assets/LICENSES/KOGL-license-policy.html",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+      "bytes": 142380
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/assets/LICENSES/KRDS-copyright-en.html",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+      "bytes": 34235
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/assets/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/assets/THIRD-PARTY-NOTICES.md",
+      "sha256": "2fa7069c5245814bb635b54180e4c61f45f5df526f70f6cd42f02a1f8fca11d4",
+      "bytes": 9163
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/assets/provenance.json",
+      "sha256": "6de0fee6af8b3a1761f0d5b05fa110f74a1fe7abab3a7d9100f05ffd4c2fb564",
+      "bytes": 11831
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/contracts/ATTRIBUTION.md",
+      "sha256": "154c90942c7e02569003d48083e63493fffd176acb587ebbc4a544394870991f",
+      "bytes": 241
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/contracts/LICENSE.md",
+      "sha256": "0cf58827fbb28fe77c1f95c31e96c2f4cdcfddf0194e4724819ccb7b195f5e6b",
+      "bytes": 2366
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/contracts/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/contracts/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/contracts/THIRD-PARTY-NOTICES.md",
+      "sha256": "1d202801cfca998497a547095bb24e14ece41fe89209f7955832976b16604989",
+      "bytes": 186
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/contracts/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/fonts/ATTRIBUTION.md",
+      "sha256": "f2a5753d4cec5e9c56d73568be6942f5f769948ebc1f5bba125890a18358b9e3",
+      "bytes": 208
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/fonts/LICENSE.md",
+      "sha256": "3c8f7471d93b7fd11cec7e63f565e0abce26581750c3bd8ecae4bfb0cadd22ce",
+      "bytes": 7336
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/fonts/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/fonts/LICENSES/Pretendard-GOV-OFL-1.1.txt",
+      "sha256": "e84395ff7ecbbaa72c7ac59a03266bebd9f489d2270d6943b08d6a60d7fc91ba",
+      "bytes": 4820
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/fonts/THIRD-PARTY-NOTICES.md",
+      "sha256": "e9ab4c5a19457922fbd8e6254f8a96ddcd2f0e839aa594804e4d0cd1649e4c4b",
+      "bytes": 5156
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/fonts/provenance.json",
+      "sha256": "da62e050700b5023fa91b295e41f1cdc1422904117121d441856050598891287",
+      "bytes": 6768
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/lit/ATTRIBUTION.md",
+      "sha256": "5f8d2fccf7169aeefa6fa9a2f53005585192af7a5772812ef3ba9ad249a01016",
+      "bytes": 235
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/lit/LICENSE.md",
+      "sha256": "9709ff753cefb8fd1d563789e788f69e93c57a0dbb306946a25fde8eff1ee6e8",
+      "bytes": 2360
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/lit/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/lit/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/lit/THIRD-PARTY-NOTICES.md",
+      "sha256": "2f98f81aaca9da83ff0557bb4f3b843783c1f2a5243c094cae17e6fa977ca373",
+      "bytes": 180
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/lit/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/qwik/ATTRIBUTION.md",
+      "sha256": "8b74d92f81777471d36f2c67eea99c3f67b6d3a31e168fa66de6dda8a87440ec",
+      "bytes": 236
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/qwik/LICENSE.md",
+      "sha256": "0eba5f41f54f8748522ccc3b7e47ad4f30e044bcd1283a2499cb71096d06314d",
+      "bytes": 2361
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/qwik/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/qwik/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/qwik/THIRD-PARTY-NOTICES.md",
+      "sha256": "4bfc4d61dbe78602d083f84af31e15cd7fc21bed7b43cdbf304744222d97a183",
+      "bytes": 181
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/qwik/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/react/ATTRIBUTION.md",
+      "sha256": "0eb6a56caa2927ee07416c124bc3bb321762bb523c1eb5a41037ea00c9983f54",
+      "bytes": 237
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/react/LICENSE.md",
+      "sha256": "950495642dcd72e7a07898b4f07804f3e63104254075d8712e0ccd92330cf598",
+      "bytes": 2362
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/react/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/react/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/react/THIRD-PARTY-NOTICES.md",
+      "sha256": "14619d9d084e42fbba923cb71f28eb1ebf483d8b3d8de9c840cb500c60ea5c42",
+      "bytes": 182
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/react/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid/ATTRIBUTION.md",
+      "sha256": "224c5c62d4bdf57dde7c71ef9a0d437632b1f46999befe4e54d58a00d62a038f",
+      "bytes": 237
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid/LICENSE.md",
+      "sha256": "d82d6048f8d4e841020049add742264479ae8a05342ea2b88220dca5ff57b90b",
+      "bytes": 2362
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid/THIRD-PARTY-NOTICES.md",
+      "sha256": "bf55bfac2a2297a3a188adbaf99ade76fdffea7fa47a06b1aa6a7528da99f1aa",
+      "bytes": 182
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid-next/ATTRIBUTION.md",
+      "sha256": "6011778685584e9cdb73a45b43f2deed9e3b13fa0db3b79ed6d170833989d037",
+      "bytes": 242
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid-next/LICENSE.md",
+      "sha256": "d3e8af0d96c9a90a8460a8032f77db8eef8046d8d6526e3050abe88aa4346e80",
+      "bytes": 2367
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid-next/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid-next/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid-next/THIRD-PARTY-NOTICES.md",
+      "sha256": "4755a8a9bbba3df7d9790c15438d95451f712e19de19fae41be39fa9bff0f24c",
+      "bytes": 187
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/solid-next/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/styles/ATTRIBUTION.md",
+      "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
+      "bytes": 2409
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/styles/LICENSE.md",
+      "sha256": "24e8ac06dfa18df340822e3a5184b875693a594f181d509545a91562ca7df47f",
+      "bytes": 10564
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/styles/LICENSES/KOGL-license-policy.html",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+      "bytes": 142380
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/styles/LICENSES/KRDS-copyright-en.html",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+      "bytes": 34235
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/styles/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/styles/THIRD-PARTY-NOTICES.md",
+      "sha256": "7611dd385358430c07f02ebfed4f5b678984e5379a52a8452c7cabc6204676a2",
+      "bytes": 8384
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/styles/provenance.json",
+      "sha256": "f4343be9f6bf8208fc5277bcc76d840279b7c018a163256dde0072ee2f0c6af4",
+      "bytes": 10272
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/svelte/ATTRIBUTION.md",
+      "sha256": "b278168e84fab49c8c2f553ee0327db9d83637e1f6fdd9a5af596a5982cb0ce4",
+      "bytes": 238
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/svelte/LICENSE.md",
+      "sha256": "8e852b1137410cdb5ba824c5ccd41ce7dce55b28f022ae2293bb8e35ba466d34",
+      "bytes": 2363
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/svelte/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/svelte/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/svelte/THIRD-PARTY-NOTICES.md",
+      "sha256": "013f57bdd37955eb6d96b3248d3ffb367c4722401c4b3ade1b82c48775a0bf1b",
+      "bytes": 183
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/svelte/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/tokens/ATTRIBUTION.md",
+      "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
+      "bytes": 2409
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/tokens/LICENSE.md",
+      "sha256": "e94d8f7ad54029a3da7d85d92b3a91ba45006c1034ab9bf9ec07a5a2c33d6ef3",
+      "bytes": 7075
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/tokens/LICENSES/KOGL-license-policy.html",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+      "bytes": 142380
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/tokens/LICENSES/KRDS-copyright-en.html",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+      "bytes": 34235
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/tokens/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/tokens/THIRD-PARTY-NOTICES.md",
+      "sha256": "d2684bde8aa415d32c89ce4fa0752e28955049ad033fcd3d0af881b36bf255fd",
+      "bytes": 4895
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/tokens/provenance.json",
+      "sha256": "d3e396a217f2c13b4c68d54ebaf46624e098d98154313fbb47fb19089fbaa954",
+      "bytes": 6237
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/vue/ATTRIBUTION.md",
+      "sha256": "e7a2791d02dea8ab0890f79f643e190f431a234e3db59cbc408bb52528a26f0d",
+      "bytes": 235
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/vue/LICENSE.md",
+      "sha256": "5d85de6132fa5c46ca63a42e8d9fe7c1ab88fd05108ac054befc305488812c05",
+      "bytes": 2360
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/vue/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/vue/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/vue/THIRD-PARTY-NOTICES.md",
+      "sha256": "36de76156e4d8af0da87c8971b39ac0b727e414cc42875e8d079959aa760f035",
+      "bytes": 180
+    },
+    {
+      "path": "scope-compliance-logs/after/packages/vue/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/apply-scope-compliance.log",
+      "sha256": "09c16c98be88c70c61b7e4af21637a8700dd26558ef59a4f3450597168f898d5",
+      "bytes": 819
+    },
+    {
+      "path": "scope-compliance-logs/apply-scope-compliance.py",
+      "sha256": "6baec158c017f4e762d2924a6dc9aacbab593a894aa72027e134f2ae72726fed",
+      "bytes": 5434
+    },
+    {
+      "path": "scope-compliance-logs/before/THIRD-PARTY-NOTICES.md",
+      "sha256": "b0f3c80581ad74b5a185bd871d05e033a3a5a0a0047d315afbd9bbd288d6bfba",
+      "bytes": 24088
+    },
+    {
+      "path": "scope-compliance-logs/before/compliance/project-identity.json",
+      "sha256": "10d73e952a94ce4ac21d1556c7ef38cc8e5e8fe84c4cd76a5d316b3793a2781a",
+      "bytes": 3790
+    },
+    {
+      "path": "scope-compliance-logs/before/compliance/provenance-dependencies.json",
+      "sha256": "3e6d1e8c7321110cf407e29ede7a94e9bb75cb328d41a68918e88923fdf0a2fb",
+      "bytes": 1229742
+    },
+    {
+      "path": "scope-compliance-logs/before/compliance/provenance.json",
+      "sha256": "0533d3e07dd46f755d1a813198eafce30522e5bf91994ac7e1138b3d12478071",
+      "bytes": 2029668
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/angular/ATTRIBUTION.md",
+      "sha256": "05fe145842f74a19d8a0058d07770146cd92a9332ae96af5a9d4c33dd25bb379",
+      "bytes": 235
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/angular/LICENSE.md",
+      "sha256": "05bd1001e76b70dbe057ef128fbec4e35a25b2ac006b5864bcdc8e460611a0b5",
+      "bytes": 2360
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/angular/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/angular/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/angular/THIRD-PARTY-NOTICES.md",
+      "sha256": "44dcef47f8ccbe9efb2dc6e4aea19a663db7d8c446f2c8201d40b66a1e3e5f08",
+      "bytes": 180
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/angular/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/assets/ATTRIBUTION.md",
+      "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
+      "bytes": 2409
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/assets/LICENSE.md",
+      "sha256": "4a623800c271e3710c09386ab49b833fc6d39613940595ed44cb67601f21617d",
+      "bytes": 11339
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/assets/LICENSES/KOGL-license-policy.html",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+      "bytes": 142380
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/assets/LICENSES/KRDS-copyright-en.html",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+      "bytes": 34235
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/assets/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/assets/THIRD-PARTY-NOTICES.md",
+      "sha256": "c703d6491c5fcc4f6e63888ab30f324ac3c4cc90dfa1206250b9efb78baa71b5",
+      "bytes": 9159
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/assets/provenance.json",
+      "sha256": "cf1d1bb0d789908910c5b704ff80e0c5556c7d0fa79f2e9506174c91ddceb9fe",
+      "bytes": 11799
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/contracts/ATTRIBUTION.md",
+      "sha256": "b40353617991ae30ca7ebe15005a321b5fa9e0fe8167a5f4920c425bbe50a031",
+      "bytes": 237
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/contracts/LICENSE.md",
+      "sha256": "6ae58bf1719830ed5969e093751f149c2f5e3edca9ceeba6e5d9cfd9fc661aaf",
+      "bytes": 2362
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/contracts/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/contracts/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/contracts/THIRD-PARTY-NOTICES.md",
+      "sha256": "082476c97bc91beef04cf4f10855ff56876916511359374e805dc1dbe88156df",
+      "bytes": 182
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/contracts/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/fonts/ATTRIBUTION.md",
+      "sha256": "06d3682b68305f2e164fbe09707df4651eac7f0f0785e772ca6f2bcbf2e30f6b",
+      "bytes": 204
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/fonts/LICENSE.md",
+      "sha256": "3a9b9257e352753c9965bb36f773f50316e3880564a8e5499e263b87dacc5f1a",
+      "bytes": 7332
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/fonts/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/fonts/LICENSES/Pretendard-GOV-OFL-1.1.txt",
+      "sha256": "e84395ff7ecbbaa72c7ac59a03266bebd9f489d2270d6943b08d6a60d7fc91ba",
+      "bytes": 4820
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/fonts/THIRD-PARTY-NOTICES.md",
+      "sha256": "e4501d2f65350883e7cd66ab7d19c13f969bb04f78876d37fd1d7f73ab31dfd8",
+      "bytes": 5152
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/fonts/provenance.json",
+      "sha256": "e28c5866c108ff84959e465d909458922b839b35c8656360617a6e4c0d1d7652",
+      "bytes": 6756
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/lit/ATTRIBUTION.md",
+      "sha256": "665dd3f180a4aa8eabb118050f6e75a26ca97b41ab7552dfa5fec85160ebf8b1",
+      "bytes": 231
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/lit/LICENSE.md",
+      "sha256": "aa52f2464f2127e318cfa723102cae46829ccdc623dd5a586921b2242d42f18b",
+      "bytes": 2356
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/lit/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/lit/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/lit/THIRD-PARTY-NOTICES.md",
+      "sha256": "e260c563d97583e117c3411ac6d37c29e79430c08254daf07a7b1015acbf3bd4",
+      "bytes": 176
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/lit/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/qwik/ATTRIBUTION.md",
+      "sha256": "44f5c73053ef7831f27c19e75f63245c5010e62e6c44f9d9779cc1c3db77cd47",
+      "bytes": 232
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/qwik/LICENSE.md",
+      "sha256": "b25be91d6be0e4ef6745cc56c32c6b4f2ee9defd0abda3f662dde78698c3cab7",
+      "bytes": 2357
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/qwik/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/qwik/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/qwik/THIRD-PARTY-NOTICES.md",
+      "sha256": "b0f983a8879ae2592e6ae44f16d63d235b432db647e85d169e49ac1ae1d16a34",
+      "bytes": 177
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/qwik/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/react/ATTRIBUTION.md",
+      "sha256": "72223dd15b4d2e6b93579ef33f458398b213a8f0af440a2967f1233f6d16520e",
+      "bytes": 233
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/react/LICENSE.md",
+      "sha256": "6ba85736999c3969114307ae2d8c8bcf74c85cf7fd847872c804c8125b32e46d",
+      "bytes": 2358
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/react/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/react/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/react/THIRD-PARTY-NOTICES.md",
+      "sha256": "e8cf14bf74bd450dad62fb7a34467251e58f38966c0e0c754f9a736715c48e03",
+      "bytes": 178
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/react/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid/ATTRIBUTION.md",
+      "sha256": "5458847b0a8f10a9bc97b187989bae3a717983e198e7d2506446d327cd21f3e4",
+      "bytes": 233
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid/LICENSE.md",
+      "sha256": "e84319a635134d42e19469b42a389a6241e922c11717f6a87c124fef15eb2631",
+      "bytes": 2358
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid/THIRD-PARTY-NOTICES.md",
+      "sha256": "b13cd7fe1373a32bd5b459bdd818317c421a34ddba6c09ecee3ebd963aa9fde4",
+      "bytes": 178
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid-next/ATTRIBUTION.md",
+      "sha256": "e68e108144660f36b3002a989f04d647978c2df873b35fe339aac1d3f0e00c52",
+      "bytes": 238
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid-next/LICENSE.md",
+      "sha256": "18ac6d1bcb4d084ab2052bc6cf86b7937de32b02980dd86964971fe7292e76c2",
+      "bytes": 2363
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid-next/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid-next/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid-next/THIRD-PARTY-NOTICES.md",
+      "sha256": "021b4af1c1844076be2a865d7ba8d52fdb91568394a831159144a5878e28ed22",
+      "bytes": 183
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/solid-next/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/styles/ATTRIBUTION.md",
+      "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
+      "bytes": 2409
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/styles/LICENSE.md",
+      "sha256": "01d0ac04a3379f9edf6cb81a1409605ccea5c31c6a0ca4eac4aef3d2cb9a821c",
+      "bytes": 10560
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/styles/LICENSES/KOGL-license-policy.html",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+      "bytes": 142380
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/styles/LICENSES/KRDS-copyright-en.html",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+      "bytes": 34235
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/styles/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/styles/THIRD-PARTY-NOTICES.md",
+      "sha256": "99b7e6abb1689408c58da4eb46fa5dabdb5549b467b6ae7a91b014e4a79c0be8",
+      "bytes": 8380
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/styles/provenance.json",
+      "sha256": "33ab60e51dc0b2b4f8dc4ef5cb55d6fbc2b0cacc03631677d35997d8947c2c1a",
+      "bytes": 10248
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/svelte/ATTRIBUTION.md",
+      "sha256": "9ab4e489a6bdb6c25bfe96e7d121db6b03c4ddffb93fa5b95ddd6ad20c7c6481",
+      "bytes": 234
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/svelte/LICENSE.md",
+      "sha256": "3c3554b06e90405d63660050910b6c88898c29cfb0da297cef2cfb6eb0b6f63c",
+      "bytes": 2359
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/svelte/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/svelte/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/svelte/THIRD-PARTY-NOTICES.md",
+      "sha256": "979810e15d263f10e911fca89a3c82765abf9aa9100f0eb4fb8617c5ca6ab1f6",
+      "bytes": 179
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/svelte/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/tokens/ATTRIBUTION.md",
+      "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
+      "bytes": 2409
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/tokens/LICENSE.md",
+      "sha256": "1acfbda09bbd13b4569f9154a32c00862ba9a7780619a2a63205983e83e1aa2c",
+      "bytes": 7071
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/tokens/LICENSES/KOGL-license-policy.html",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+      "bytes": 142380
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/tokens/LICENSES/KRDS-copyright-en.html",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+      "bytes": 34235
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/tokens/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/tokens/THIRD-PARTY-NOTICES.md",
+      "sha256": "02d8a0c8e7c2e23f5b05716a88be0119210ef6ace2c0833968630c6c370d10cc",
+      "bytes": 4891
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/tokens/provenance.json",
+      "sha256": "0c748a4e2c688d972a515e5f5e48978294a210fe43a6cbf708cc382c092e359e",
+      "bytes": 6217
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/vue/ATTRIBUTION.md",
+      "sha256": "d2e074d362f47cf954a4a40f44a2381bf297c19939984d4a764d9df50c816543",
+      "bytes": 231
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/vue/LICENSE.md",
+      "sha256": "ee388ee3cbc4e76579ca3478c4da0d3a7309c3822f5d1b72d959452365c2ca9c",
+      "bytes": 2356
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/vue/LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+      "bytes": 1090
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/vue/LICENSES/README.md",
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba",
+      "bytes": 130
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/vue/THIRD-PARTY-NOTICES.md",
+      "sha256": "6094df9f463a80dec7ffaf4ee9633bb64ae5aaae20beb1ba6557d66eb466cd68",
+      "bytes": 176
+    },
+    {
+      "path": "scope-compliance-logs/before/packages/vue/provenance.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "scope-compliance-logs/before-index.json",
+      "sha256": "bd096097c9a57dbdbdd127e01e8d93cbf3274c2d63265990e3b128685fe56f71",
+      "bytes": 13380
+    },
+    {
+      "path": "scope-compliance-logs/changed-owned-inventory.json",
+      "sha256": "624b99e300f094f22c94a0ab8340faeb5be35381edf13ad15224aff5120a90e4",
+      "bytes": 10496
+    },
+    {
+      "path": "scope-compliance-logs/current-owned-and-package-inventory.json",
+      "sha256": "619cf272e288f053213f0a822e50f4577c92e9e24dc2f6b38cd14fc9caf590ae",
+      "bytes": 16107
+    },
+    {
+      "path": "scope-compliance-logs/generate-notices.log",
+      "sha256": "eb712d84ef5863024fe2426c1362d3658e262fb551c37fb70a9c52f8f4f5fc7d",
+      "bytes": 71
+    },
+    {
+      "path": "scope-compliance-logs/identity-before.json",
+      "sha256": "10d73e952a94ce4ac21d1556c7ef38cc8e5e8fe84c4cd76a5d316b3793a2781a",
+      "bytes": 3790
+    },
+    {
+      "path": "scope-compliance-logs/identity-in-progress.json",
+      "sha256": "75461ff4213563624de459a17e34f4f893ca079d8e96b4b244b43cf08490d162",
+      "bytes": 3836
+    },
+    {
+      "path": "scope-compliance-logs/owned-unified.diff",
+      "sha256": "b7568b592006dca0de6fd50be232fafea8bc16fb2d8ad7a95471db870d58e710",
+      "bytes": 31153
+    },
+    {
+      "path": "scope-compliance-logs/pack-current.log",
+      "sha256": "864b7e3d1be7b57db107e157604222b23e1a1fb29d267dd7d769893f22050a24",
+      "bytes": 1129
+    },
+    {
+      "path": "scope-compliance-logs/pack-current.py",
+      "sha256": "e915b221d41fa3a4c5d931bbfcee9847f9395d64ef6d2118be429051f059e0f8",
+      "bytes": 2924
+    },
+    {
+      "path": "scope-compliance-logs/pack-results.json",
+      "sha256": "153b6c78df6b1eeb1c4c616be91966f35c7285919bdefd9e54a7719fcd40a93c",
+      "bytes": 8579
+    },
+    {
+      "path": "scope-compliance-logs/packed-export-audit.json",
+      "sha256": "2b3b18a0d9a3bdbcb43fa30b9c54542540c3a576fc91cbc3f2e877437b5645e1",
+      "bytes": 4331
+    },
+    {
+      "path": "scope-compliance-logs/packed-export-audit.log",
+      "sha256": "9e10687bb4c3aa50490d1fa071a807158fabc45fd607ad6fa83b961120627cea",
+      "bytes": 850
+    },
+    {
+      "path": "scope-compliance-logs/protected-hashes.json",
+      "sha256": "5e020d8e0fd5fd261420e6a87f520c5cd6c37e3c946a9be0168a0ee872f12d03",
+      "bytes": 301
+    },
+    {
+      "path": "scope-compliance-logs/scope-comparison.json",
+      "sha256": "09c16c98be88c70c61b7e4af21637a8700dd26558ef59a4f3450597168f898d5",
+      "bytes": 819
+    },
+    {
+      "path": "scope-compliance-logs/verify-licenses-built.log",
+      "sha256": "2c41e6c086841b0f12296cd77c881b5a7321f0de811ddf11f876bc4e49152dd2",
+      "bytes": 246
+    },
+    {
+      "path": "scope-integration-logs/PLAN-scope-v2.diff",
+      "sha256": "5b8a7d8773b5e81aba12427777e06b0ac18ed469e0c5a963e4865858a91431b7",
+      "bytes": 5622
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/AGENTS.md",
+      "sha256": "5fefe1f88587c6feeb151735440dd7fd4e401101ba2caa5b4220dc85556f38e0",
+      "bytes": 3119
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/docs/package.json",
+      "sha256": "6f8ef44d1748fc1c9f0085bd3aa60ac9b63216370b8efaeeda02f6cfc9cef172",
+      "bytes": 448
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/docs/project.json",
+      "sha256": "885ae4a48f2c6cd0b116d544c2e1424abcbef5450c997a1850067a9fee0d1591",
+      "bytes": 1039
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-angular/package.json",
+      "sha256": "3c24f79f3bf68b7dda3c445066829636232dd44548147e08bc70eba9e2f14220",
+      "bytes": 2006
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-angular/project.json",
+      "sha256": "c0926b983fb9cfd57f27eecc04054c36edc167dc1569649684f18c13fb732e12",
+      "bytes": 1546
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-angular/src/fixture-app.ts",
+      "sha256": "a5d490105307115db545646b4fd5e7e25c1f7d3387987cc52d6926c23ae7f537",
+      "bytes": 1706
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-lit/package.json",
+      "sha256": "87a5c851712e9e55dd63811147872f63084fc100b25249720ff412260dcafe9c",
+      "bytes": 1005
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-lit/project.json",
+      "sha256": "621e0b4503643a401a04c7069dc5f0e46a618d8f56c7141a2fa8a882fce29f42",
+      "bytes": 1672
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-lit/src/main.ts",
+      "sha256": "d7c62792d97dc462de5f85fae4820df6bd35cd01d76a7ec6c5b4666d21988ef9",
+      "bytes": 2215
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-qwik/package.json",
+      "sha256": "49df37afc8db7507a1e865064739f8979ebf1a05179cc15397244021ff24d9e4",
+      "bytes": 1343
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-qwik/project.json",
+      "sha256": "9ae5e29c53d62a4050b63f175a3082d660a5d9df4192c9ce7f2cf262a89c1d4d",
+      "bytes": 2546
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-qwik/src/root.tsx",
+      "sha256": "eaee276745b73acdd6878cc984b13598cd25d6956e4c001fac5c3d922ea39244",
+      "bytes": 1939
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-react/package.json",
+      "sha256": "a3d179be15676db4a2806412ad356eecc7e0b65de47198564588b821791e043e",
+      "bytes": 1439
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-react/project.json",
+      "sha256": "c573d5577662f792bd8a0b9c0aee34279a9fe5cc3f3d9d530907d6e48539f411",
+      "bytes": 2688
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-react/src/FixtureApp.tsx",
+      "sha256": "9b472b7e21619a2ab94bf67026e4c58dac2875d1f7e80ebdc86cf102f07df95d",
+      "bytes": 1699
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/package.json",
+      "sha256": "ee7cdd8d2682c1ed4e2e2499e108bd47a79db66929690822bd5fe658b45367b6",
+      "bytes": 1430
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/project.json",
+      "sha256": "644c5b77dba705cf38fa66d76ebd898934a5dec9e985b37551b3524d7039f9f4",
+      "bytes": 2832
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/src/examples.tsx",
+      "sha256": "243f137ee6cf7631bea2efc7716aa96a0a7091cde9e399caa06126251db92f8e",
+      "bytes": 1621
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/src/fixture-app.tsx",
+      "sha256": "cc4f4cef24f786a6c1d380300164f105f3b867906c790a9e45d3d07ac9877dbc",
+      "bytes": 8623
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/src/main.tsx",
+      "sha256": "53679ca79c7c8ca1c9fa2c34b256c0438bcc7730286d54eeac41fd46311c160f",
+      "bytes": 701
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/tests/setup.ts",
+      "sha256": "88e6d26453f101eab52658763fe7503351a34a9fe07312621212d07f5be7b50c",
+      "bytes": 260
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/tests/siheom/button.test.tsx",
+      "sha256": "6ad63ffbc7a8916c389a24c5efd0b2f70078487f2817c190a8ff67dad9094a44",
+      "bytes": 5399
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/tests/siheom/calendar.test.tsx",
+      "sha256": "361c958d1ee392899cf9c55eea1d618b8566a7e51246f011d802ea419cb65aca",
+      "bytes": 7142
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/tests/siheom/date-input.test.tsx",
+      "sha256": "99a112ff922deeb0b8f75ae8af88a5043fcaba38dc84650f4eeafedda7b7d2ed",
+      "bytes": 9802
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/tests/siheom/modal.test.tsx",
+      "sha256": "9ca68b1e8cd6f8160542950d36bea4f1910bb9ecdfed994de94f96406df49fe4",
+      "bytes": 11430
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/tests/siheom/native-select.test.tsx",
+      "sha256": "7d9f14c5b8c2b5aa2a2a8e38123a334147b84dd6a78a543115ea1d44ddd97089",
+      "bytes": 10924
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid/tests/siheom/tabs.test.tsx",
+      "sha256": "ba7ec79c7afcdd658270bdd3b7e3ecebd3cbd388538ffe7c2a4ec1391dbef8d2",
+      "bytes": 10796
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid-next/package.json",
+      "sha256": "29c0613c50da79052f82d181594c83ab6e2049c02e9de350f6ac2bcf1928ffc1",
+      "bytes": 1263
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid-next/project.json",
+      "sha256": "df1f830c83cecd1420e24741d1c8ed71091791707803c8e3432fc6e6b09d538f",
+      "bytes": 1368
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid-next/src/main.tsx",
+      "sha256": "8dbba8e24ef68bfe2121bd0e75b8cfd0c3599d6763ca1f0b46794180081c4171",
+      "bytes": 2058
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-solid-next/tests/native-probe.spec.ts",
+      "sha256": "9991a8ef90480fac6d3108ca2fff7001d33664a3e154274a54fa35da40ea5ff3",
+      "bytes": 4233
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-svelte/package.json",
+      "sha256": "77e8c50e264a7ed63e9af513988d649cf2ca259095f0a98c2d586defded11a29",
+      "bytes": 1466
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-svelte/project.json",
+      "sha256": "f63adcf6e94b3830addc294f64998c4ac858171f2680937831992b0fa9bf31cc",
+      "bytes": 2153
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-svelte/src/App.svelte",
+      "sha256": "00313d658060d48770bfaefe1e0f566520ffc69e1c19cc84797affb3b6e74773",
+      "bytes": 1623
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-vue/package.json",
+      "sha256": "9dc900deafc131a81f6b8a5157211af464f0263b27c074bca392e5c5ba25b7ab",
+      "bytes": 1431
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-vue/project.json",
+      "sha256": "dcf13a657feb00071996ed4c8ac9461c132b9fd5dde929733c97f64cb2ddfcb7",
+      "bytes": 2256
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/fixture-vue/src/FixtureApp.ts",
+      "sha256": "0a06c0c8d8f0cd965a34cb8a76d637687722b0b0539e0d2360fff879ffdd2702",
+      "bytes": 1729
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-angular/package.json",
+      "sha256": "79e76e2d93749216351938a11611b81f7b06eee2c0fe4cc64d8e3e34634af445",
+      "bytes": 1935
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-angular/project.json",
+      "sha256": "d8cd86ec1adf43afc67ac167002da6ad2054694bec8fd312bad4278a693c67b2",
+      "bytes": 1630
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-angular/src/main.ts",
+      "sha256": "6038621b1ccfd4fe2b447197ad0aa674b2dfa46814074906cf5c84052d7d3d99",
+      "bytes": 252
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-angular/src/stories/probe.stories.ts",
+      "sha256": "1c1e8cedafca804f5f4c03cf857555388a35413d1a55bb07e1786a047478e4ec",
+      "bytes": 885
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-lit/package.json",
+      "sha256": "d3eff6112a4ebf5b234d0b3223d45a57ab9d4c490b91a67c7426eb1fbd08d0cc",
+      "bytes": 1319
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-lit/project.json",
+      "sha256": "4c03f30a6f1a9c2aec97a9a02c59133fddd2858f1a50122a5b399f3086ff4358",
+      "bytes": 1930
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-lit/src/main.ts",
+      "sha256": "cae3d6f6eb02cb0b41d528d4cbf57e9f291bc1b7d7b60fcae0a57da71899e6d9",
+      "bytes": 262
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-lit/src/stories/probe.stories.ts",
+      "sha256": "a9ad4427a0e785c48738bbb8adbc0d6eb7d4fb932aed3a1c4f70fa10779ee125",
+      "bytes": 2386
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-qwik/package.json",
+      "sha256": "aa866152926c6f9a3134d8dc227495097cf2f29a603bbb44333d792e50a24e65",
+      "bytes": 1294
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-qwik/project.json",
+      "sha256": "0da4e75341d7e83b9894337ef6ddff5666b1d4fc5d61f8503a1f003947c175ad",
+      "bytes": 2071
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-qwik/src/main.tsx",
+      "sha256": "61345ab5f46d3422fe1ce4b8354d5bf251f3cd68edcc94f8b652a2430678bb04",
+      "bytes": 198
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-qwik/src/root.tsx",
+      "sha256": "8ba53cbe09b72e27499b0d2e2cea3a6cf5fc8337d30a53b15544fcd61e84e24d",
+      "bytes": 219
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-qwik/src/stories/probe.stories.tsx",
+      "sha256": "821bb3fc2f190207ece9ac760fcbbe092d68ec873aac94265c4f81e2628cfff2",
+      "bytes": 1130
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-react/package.json",
+      "sha256": "b2616ddeec5affff10605f35665700b5e52af69f266f0e97eef52c3df0deca26",
+      "bytes": 1300
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-react/project.json",
+      "sha256": "f69430c2f449929bc8329c5b009caa46af0e09294902fd07a6aaf7314b962351",
+      "bytes": 2233
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-react/src/stories/native-probe.stories.tsx",
+      "sha256": "e8d60df326a9a546cd4cb50ffaed8cf99d73cbf8101153fcd1008e539d7c48f7",
+      "bytes": 1907
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/.storybook/preview.ts",
+      "sha256": "11475d61df5ac184f690f264e582c39426da792a3e37891ffaf6a643b9a4c93b",
+      "bytes": 262
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/package.json",
+      "sha256": "7f8f4b941da0329f758a9d9192b73a33764c8be7c1be3d0b70706d8d81fbee9c",
+      "bytes": 1388
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/project.json",
+      "sha256": "0698ff6224a30bf92966b85f6af0d01fc3491636049e8384c5dd21a243cd7eaa",
+      "bytes": 2710
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/src/stories/button.stories.tsx",
+      "sha256": "4aa5b4d864bea60de4e5a60b40dd0b21b60ee89689fccb2a2426a8a97bb25b27",
+      "bytes": 1321
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/src/stories/calendar.stories.tsx",
+      "sha256": "e46ab1c5b4ae40d64d3a3adc7f4edbbb5819b3d7aab5e5f3ea65c93c84bde563",
+      "bytes": 1054
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/src/stories/date-input.stories.tsx",
+      "sha256": "777bf6fd906b7191408752a434b77fa6787c8206925c187703d963c7bf1efbf0",
+      "bytes": 1092
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/src/stories/modal.stories.tsx",
+      "sha256": "fef27e325632630dc392c54ca4fb41dd5855542486738e5bf5964ad80605e270",
+      "bytes": 1361
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/src/stories/native-select.stories.tsx",
+      "sha256": "8e67203195a6c2939fc3754588231578d699faa7ad99c2e03e1c0a788765b4f1",
+      "bytes": 1708
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/src/stories/probe.stories.tsx",
+      "sha256": "175c0a28a1430ebbab0e9538fecb2e5c9cb3dba4b48ad2e2c4bfc1f1f7a720ec",
+      "bytes": 1026
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid/src/stories/tabs.stories.tsx",
+      "sha256": "e32738cc697c9ab4499271f7d8bfedd931da24a594ef46bca8bec84b64522ee1",
+      "bytes": 1192
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid-next/package.json",
+      "sha256": "efe08c4ca15db4fbbc9ba9548f8442fb4945731caad6b65b6ed9a384a81d79d6",
+      "bytes": 1456
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid-next/project.json",
+      "sha256": "ad50c7288612a11e85bc83a8b11fabbef4e38b761bf62187d49637cdf0beb1f6",
+      "bytes": 1477
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid-next/src/main.tsx",
+      "sha256": "784c715d1fd54ce9de365fc0016832b6fdb1a801a1c7effc987c4f8eb79031bd",
+      "bytes": 224
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-solid-next/src/stories/probe.stories.ts",
+      "sha256": "f0f32d8cef5b855644ec5f973c09ed387ee74ce886331b37758fafdd7b7dc53f",
+      "bytes": 240
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-svelte/package.json",
+      "sha256": "57e3845248a78f7fc408a4d22f108b2244c181cbb111be7a3aa7bcb0b9e2d2d0",
+      "bytes": 1404
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-svelte/project.json",
+      "sha256": "9f31e57cca9846738b74256761e597d527825e4d6ae5b3c45dd6be97b6022ab6",
+      "bytes": 2050
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-svelte/src/App.svelte",
+      "sha256": "9f618c3e2b059589d53a434012e4f3fa311dd33277ce1ac7071a1b90c1071f70",
+      "bytes": 158
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-svelte/src/stories/NativeProbe.svelte",
+      "sha256": "356f26a03361990197e875946c7d7908355d8adbe657a3d5ba103e32b44d7583",
+      "bytes": 611
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-svelte/src/stories/probe.stories.ts",
+      "sha256": "c079e2241a24aea05d1a4558b5b25b064d8f6608b7e907d019b36972b099150c",
+      "bytes": 1197
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-vue/package.json",
+      "sha256": "9b018c07cbba73195d83ada6f0e88b72d10cf8666033f31901c9f1d41c2e1fd5",
+      "bytes": 1301
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-vue/project.json",
+      "sha256": "d07d549bdfdf4f248e8a074e6274fb8e4911643a9039b9cd5a5eeb9a19e88170",
+      "bytes": 1911
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-vue/src/main.ts",
+      "sha256": "2d24717976966092428cde54f88507e5edcb495047b7f1069710617f45c5062b",
+      "bytes": 185
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "sha256": "82eea0adbb07448b2ede293e0b404f153f84477b6301680b47d471cc8132cc17",
+      "bytes": 942
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/apps/storybook-vue/src/stories/probe.stories.ts",
+      "sha256": "254fe593df21594fdcb82ba4a13d8c6e21b717ff0e3e607371924dd3701808f3",
+      "bytes": 1221
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/package.json",
+      "sha256": "5ab532641eb040b1e6396265eebdc472b913249b88d866266eaef8b48fe8a723",
+      "bytes": 1548
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/angular/README.md",
+      "sha256": "08f330228c2bd418f6d7c461865509cca168671ea720dfae6e2e6e8e8c087193",
+      "bytes": 456
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/angular/ng-package.json",
+      "sha256": "2a61988082b354b78b39a7a709a233b402d428e5a7af02a693fa3e8eeeba4c57",
+      "bytes": 321
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/angular/package.json",
+      "sha256": "f44c069006f7efd60ae13cd9bb52a074249145fc8ca3edc3abfbeb802152b631",
+      "bytes": 2390
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/angular/project.json",
+      "sha256": "c4a688e117df377b12cddcea4d8a9f22673fec231e2cd48812e10dffe9879e21",
+      "bytes": 982
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/assets/README.md",
+      "sha256": "f72090d58b96de1f7209b2ab5116ae0d6fbc71879ec87db97bda905a59b2c7d4",
+      "bytes": 963
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/assets/package.json",
+      "sha256": "ea5dc8cef30634a67dcf9da54d95cad781ceb70de5b86c90b3d4875ffe90b752",
+      "bytes": 1105
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/assets/project.json",
+      "sha256": "4abf4504d0c02de4b39e04080350eae00953ea98c774f012900c40f6a582e4df",
+      "bytes": 887
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/contracts/README.md",
+      "sha256": "80c8cbeba3960b79c432af3cd07fbaa5dd24730e9ff5fca793c1230778eb604a",
+      "bytes": 458
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/contracts/package.json",
+      "sha256": "22cb84e0c772f32cfbd1fcf6e4bf88488c08f68f5e1a060cf5be816c18b970e6",
+      "bytes": 1077
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/contracts/project.json",
+      "sha256": "346f36adf9e807c5e2de693ca774fc909ff8e2c5a963585268f4b829b54020f8",
+      "bytes": 908
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/fonts/README.md",
+      "sha256": "7c970c37634334dc552025535742caa50a18da6f6a1a82765ad8700e4518e899",
+      "bytes": 1160
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/fonts/package.json",
+      "sha256": "2817608c03a1b9edcda40dbce79fc846dad8d5e937617117fa3bd0084e8a258d",
+      "bytes": 1186
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/fonts/project.json",
+      "sha256": "196fa6decc5da5d45124fc766859eca293ac145bfb5ccd07476b2865ea8abf67",
+      "bytes": 880
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/fonts/src/index.ts",
+      "sha256": "9a7510a6ddd9c45fbc50a41452025fec6c3771adc890393f1baa529a026bfdd7",
+      "bytes": 542
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/lit/README.md",
+      "sha256": "92d89a7d1cc85959a9358cf27074308b289bca7dd3b2e06b2ad85c60d7c9d4cb",
+      "bytes": 452
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/lit/package.json",
+      "sha256": "217f7feaf843cbccf0c654c1f454634d9b96cf435efb9b47fcd8443abe51447d",
+      "bytes": 1709
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/lit/project.json",
+      "sha256": "51e8a7502901d5c4e8c7a704573a9894151ac83633363954c52054030ff468cc",
+      "bytes": 950
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/qwik/README.md",
+      "sha256": "3d59c5131eda6b1bfe20bf6578b4ecd4e2c41574f749b28d422532239f2f2409",
+      "bytes": 453
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/qwik/package.json",
+      "sha256": "efdfb5ad0b06f98e3bfefb72af1a9edf2bc52dce575472697d7f806e4613bfaa",
+      "bytes": 1857
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/qwik/project.json",
+      "sha256": "8c58509b626b5ea28689252600420e7f0165d0c77ba8b53c9b093f4386465179",
+      "bytes": 958
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/react/README.md",
+      "sha256": "99c8479e0b1d8b5c53e94992251618ef8f51233b4be7a7d48f1f49c56c6d03c7",
+      "bytes": 454
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/react/package.json",
+      "sha256": "34e384d914bf171254e11e64320cc7614508d037c0e21265b43d514a4103ad88",
+      "bytes": 1638
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/react/project.json",
+      "sha256": "85dd5a975a4fd322c2d1966ecdf621f2052ed36bd3c390998a8189ab7d7a3159",
+      "bytes": 966
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/README.md",
+      "sha256": "f3b3e236e74afa5f854db7abf2475e5da661bbda1799f0d5102ac49a7ef7aed8",
+      "bytes": 3147
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/package.json",
+      "sha256": "28cd5b672c1e9a0127ece0fc5b3bfcbae166a6c9945331da98c17387ac601352",
+      "bytes": 2432
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/project.json",
+      "sha256": "1777b41228f2af76f8c5b09f012756079e6fbff9ef585b012f255867e58ca8d4",
+      "bytes": 966
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/src/components/calendar/index.tsx",
+      "sha256": "e88d927cef14086834a1747f408f15b83079b0b31ce64b6051a9bca5499427ce",
+      "bytes": 13497
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/src/components/calendar/model.ts",
+      "sha256": "2d0aab297c06bbd0f4d73ab58b0045379496c5ff7633627eec863398b775862c",
+      "bytes": 3420
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/src/components/date-input/index.tsx",
+      "sha256": "6d2d196dfe6f161ca9adde6a9067f4990937a3fe2b4170e24a5100fffca4099c",
+      "bytes": 15436
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/src/components/modal/index.tsx",
+      "sha256": "6f3fa54f35f996ab24e0a8a90322c45a47bfd8a8ae9ecc8a624bf352b858967d",
+      "bytes": 12501
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/src/components/native-select/index.tsx",
+      "sha256": "cda01f0cdb8ef4aa9dbfe226c3c0e1fadbe82736c3e8d7adbcbf96c2ecf50c8f",
+      "bytes": 6649
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid/src/components/tabs/index.tsx",
+      "sha256": "fb8cd6285f8147f9d5f7c836c9f264a5ca6a973d36dfde58e6489ca245a78fc2",
+      "bytes": 9735
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid-next/README.md",
+      "sha256": "0a72bcc59c47a60f6ecb71652424cb0ee0531d9962e1cd48971d00cc5a6dcd00",
+      "bytes": 459
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid-next/package.json",
+      "sha256": "3fa20c6cb44551203a089b38169913a9756fcdd51bbdb32e4ba4fab7e1c050da",
+      "bytes": 1961
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/solid-next/project.json",
+      "sha256": "3a8c8455f4c936c097d1aed3880d1312863c80a33c01a1ec5794c1e040fb7feb",
+      "bytes": 1006
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/styles/README.md",
+      "sha256": "d492603a1ec994f97af30f0811faf6b2cf54fca130adcef704d6114746dcce37",
+      "bytes": 2780
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/styles/package.json",
+      "sha256": "77787fe71e6c259a2581d96a55f37aff86fee649111dd806904c12a7da177b55",
+      "bytes": 1725
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/styles/project.json",
+      "sha256": "1e4903d9c99c0d0f55b5f495dc5b6e0ef843cce8d75438df72bf4af8d616585b",
+      "bytes": 1200
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/svelte/README.md",
+      "sha256": "298d743a3231d0d0e6971d8727872ace2ebc82c8a5523793bcbdf3c7713e3ca8",
+      "bytes": 455
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/svelte/package.json",
+      "sha256": "aa0f089c5d87e6ec83f0039e9aa2322209087f4575ef4448e9c128e0af49822d",
+      "bytes": 1679
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/svelte/project.json",
+      "sha256": "c7cba002e80cbf8781bcb10afecc5d447ea6e43fedd72dab86fdf6955674ccd2",
+      "bytes": 974
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/test-contracts/README.md",
+      "sha256": "82864a4941cff5e73823361b221a8dd1e9d594da8771f9511529fc6028be3c1c",
+      "bytes": 2430
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/test-contracts/package.json",
+      "sha256": "10d73355a2b5ae52964c894085aba6f3534cd9a9e8d0761f83217b4311d96a55",
+      "bytes": 1039
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/test-contracts/project.json",
+      "sha256": "09021c2f206699865ce362725c9eb9aa84b8e39ebce438b928f27cc6746de139",
+      "bytes": 965
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/test-contracts/src/types.ts",
+      "sha256": "162e33ed5312cd1a822a2e48168a79c96d9f9b9862b301b8d5176fddfde49518",
+      "bytes": 922
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/tokens/README.md",
+      "sha256": "c301d1152033d78a8a05b59d3046467573d1960038b22cd8bbedfbd391486c98",
+      "bytes": 1262
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/tokens/package.json",
+      "sha256": "dd658af4eac820862a9f50d95b5d332cf372e452beb56819f6b463348c8234dc",
+      "bytes": 1212
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/tokens/project.json",
+      "sha256": "5c100c989bb99a5e51d8d8b599fe0aec8fba298a6bc6fbf68605240fc40f3014",
+      "bytes": 1377
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/tokens/src/outputs.test.ts",
+      "sha256": "8cb8d366690339b9512c1d5cf76103da8633c7290f665d178aa4537a86dede57",
+      "bytes": 3240
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/vue/README.md",
+      "sha256": "47060de6c36b989f822ee939cd7d68968c6e57acf501b6658ffd74158fe459dd",
+      "bytes": 452
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/vue/package.json",
+      "sha256": "8d40e7c7492d8ff67ccdd8944133e013b32e61bb642e179f0d8c03a66e660694",
+      "bytes": 1574
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/packages/vue/project.json",
+      "sha256": "bd2f564170cf147adb71488dcc0047a8fe15f4b2a610eb79b1501e621c0b40fb",
+      "bytes": 950
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/specs/components/README.md",
+      "sha256": "c1bbd9b4cd3ac40335f16c90ccc5b601a3b026b82cf20e68e843079e67b2b40f",
+      "bytes": 5153
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/tools/check-workspace.test.mjs",
+      "sha256": "690a8089187a82e4ba106803b5eaabcd23a2bed64eb213f03dff831b84eeccca",
+      "bytes": 5343
+    },
+    {
+      "path": "scope-integration-logs/after-source-v1/tools/run-siheom-tests.mjs",
+      "sha256": "dd2002f0342d0bde463544004b0c3490301eb73ef24bb5ee5f5410b62fc7aad7",
+      "bytes": 3009
+    },
+    {
+      "path": "scope-integration-logs/after-source-v2/PLAN.md",
+      "sha256": "ddafd287391720a74a1ff65d7a38a89d33d2be69ed829fc6c425432c08d707d9",
+      "bytes": 155200
+    },
+    {
+      "path": "scope-integration-logs/after-source-v2/docs/execution/progress.md",
+      "sha256": "651673ae2377d9ded4913775cd7e154cfee2c184cadee70ebf33243a1ff8b864",
+      "bytes": 5572
+    },
+    {
+      "path": "scope-integration-logs/after-source-v2/tools/check-workspace.test.mjs",
+      "sha256": "17c7b0785e3c715cc45ea4ee2381d66cb8477e5f7b20a2a26ad6e47d8dc3cd0b",
+      "bytes": 5351
+    },
+    {
+      "path": "scope-integration-logs/apply-scope-rename.py",
+      "sha256": "e9cb2133d4eb6e4b1620b2ccc4fd4f3c285e9d4a073f487e0a47420399955b2b",
+      "bytes": 4704
+    },
+    {
+      "path": "scope-integration-logs/authored-full-final.diff",
+      "sha256": "897b8d452bf7ce6e4314dbbf112dae3d5e4f1226a0d8bc4cd402bb46afb85a73",
+      "bytes": 118003
+    },
+    {
+      "path": "scope-integration-logs/authored-imports-and-config.diff",
+      "sha256": "37e54a51d34ceefab1d0da8b1d2013124c7051cb264019c7fa15a13b877cc450",
+      "bytes": 86921
+    },
+    {
+      "path": "scope-integration-logs/authored-source-snapshot-v1.json",
+      "sha256": "eec507f1655301003666285b5b63d6ac014dbd2d8ff5fa5e433fbd6df702e9cb",
+      "bytes": 65429
+    },
+    {
+      "path": "scope-integration-logs/authored-source-snapshot-v2-final.json",
+      "sha256": "0c5fafe7db9e08759b771adb8b454b96215a5dd0fae376634420c115ce5c617a",
+      "bytes": 66697
+    },
+    {
+      "path": "scope-integration-logs/authored-source-snapshot-v2-plan.json",
+      "sha256": "3319126937e706c4ad3ceed87c24defb59e9c5d39a61976e1c829d2cbeada16f",
+      "bytes": 66098
+    },
+    {
+      "path": "scope-integration-logs/authored-source-snapshot-v2.json",
+      "sha256": "8bb5117c73be3b06d6056cd083923624faa11c577b2aef14a7cd19b06fec1743",
+      "bytes": 65572
+    },
+    {
+      "path": "scope-integration-logs/authored-v1-to-v2.diff",
+      "sha256": "e0db876e44fcaecefac387a745b1c59cba40cb8afa27643f4e311a70423eccf3",
+      "bytes": 1445
+    },
+    {
+      "path": "scope-integration-logs/authored-v2-supplement.diff",
+      "sha256": "5144ca057f285f6d2ac6e4f53f14479b055d88a775d9e0cbbd403d624457a23a",
+      "bytes": 9540
+    },
+    {
+      "path": "scope-integration-logs/before/AGENTS.md",
+      "sha256": "fa966ef61eab41cbeafc7c52f17b56f6ba70380a0783ba3ff15f0c173a9933fb",
+      "bytes": 2738
+    },
+    {
+      "path": "scope-integration-logs/before/PLAN.md",
+      "sha256": "6cca9d0ca5c5e426568ae9b4b2acb305e25464eeafa54ae3c7acd1035851b683",
+      "bytes": 155164
+    },
+    {
+      "path": "scope-integration-logs/before/apps/docs/package.json",
+      "sha256": "3d8bba4a5ce448b5daede869beb56a35e26c3f0b865b29fcd6085f3beb8f03a1",
+      "bytes": 444
+    },
+    {
+      "path": "scope-integration-logs/before/apps/docs/project.json",
+      "sha256": "f189b4a18a49e66c4f31b232740e67385afdb3d8b9a63ac49a63e03789da2989",
+      "bytes": 1023
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-angular/package.json",
+      "sha256": "b85493a5c18d40e1bb0274d851d9ae48f89cb3fad5fbdba93ae978ad34699b02",
+      "bytes": 1986
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-angular/project.json",
+      "sha256": "4d0a2dfc971da287b95c6645a11a402405f8b92abb696c828a924a8b7e22df03",
+      "bytes": 1530
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-angular/src/fixture-app.ts",
+      "sha256": "8ee0ec6e8cfecf5c41d891ee3eabce5066f94f75795e11330844acabeb8eda96",
+      "bytes": 1698
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-lit/package.json",
+      "sha256": "af7b38d47e34de5d3b2bdb6289b8c0f77df399f78477603bb7dbd84d1b6a33c3",
+      "bytes": 985
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-lit/project.json",
+      "sha256": "043e89e88a784efa4d3218ad04768b92c9371af463c0908c41eace418a2bc04a",
+      "bytes": 1656
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-lit/src/main.ts",
+      "sha256": "779a5d41a8738dec03fd739803d622d7094552bf91e4ebcf880ac4723d268ba5",
+      "bytes": 2203
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-qwik/package.json",
+      "sha256": "756aed7a528fb35f51abef414fa53dbc2941f8cca3bb1999a37c69219f1c9325",
+      "bytes": 1323
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-qwik/project.json",
+      "sha256": "f8e249ea7649be7782f8695224be66872032823e082da7c075ad73d93c1faa25",
+      "bytes": 2530
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-qwik/src/root.tsx",
+      "sha256": "80023317ec949a12927cb2d82292dddfda5071270530fcb99732fe614f587b17",
+      "bytes": 1931
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-react/package.json",
+      "sha256": "29f023c6bce0446e015e612fa72309821cddda2682724dfc624e67a8345b6199",
+      "bytes": 1419
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-react/project.json",
+      "sha256": "c2adf13fe0d15c719b97927c5507553c4c42118a4d59f5e27bee6cf09ac59451",
+      "bytes": 2672
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-react/src/FixtureApp.tsx",
+      "sha256": "0829f3a568f5a0c0350477d312a3986ab4a96d601eeab0db14e9a1d66248c849",
+      "bytes": 1687
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/package.json",
+      "sha256": "1718b461486d7dee16b3281b7d44351ca2f24d625ccd1fbc6061f5c012fbe8dd",
+      "bytes": 1410
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/project.json",
+      "sha256": "336b1a5486b2fccd8606b8db731bbb7eb22fbc8d7323aa3069dc1194c92db0dd",
+      "bytes": 2816
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/src/examples.tsx",
+      "sha256": "404a5358251bf9dee61e1dd19d05b1d0cd4ecf989df539b34242c6895b19e70b",
+      "bytes": 1617
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/src/fixture-app.tsx",
+      "sha256": "f282d51e7251b3ae2d3800a65fdbe25d081a441267e724181a181ddd8ba3b7b5",
+      "bytes": 8611
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/src/main.tsx",
+      "sha256": "113f7577b67469a3bc96ee45735340c90360c748a6386134347b79ac96c068c4",
+      "bytes": 689
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/tests/setup.ts",
+      "sha256": "c31ea8e8011de0f7a0bac630cd4a87c7fe47296a48e06c9a96a79e228d8d0a8d",
+      "bytes": 256
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/tests/siheom/button.test.tsx",
+      "sha256": "2ada2f5c30289c1b9b0eed2dbdcf51f875eecfb063aaeacc88ba33d7f1393ff9",
+      "bytes": 5395
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/tests/siheom/calendar.test.tsx",
+      "sha256": "3dbd9959feab777d391cd04b2ba1310281083ca912a403fbb212e764fa346695",
+      "bytes": 7138
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/tests/siheom/date-input.test.tsx",
+      "sha256": "d175f4fb685c78a22ca9ab7d318e791412ff3f80884f2e2c299a6dc391b73340",
+      "bytes": 9798
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/tests/siheom/modal.test.tsx",
+      "sha256": "514ad0cfae8a0b6af81b48e8493f0b99dd2819b5808667c6e202feafa00e5ed8",
+      "bytes": 11426
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/tests/siheom/native-select.test.tsx",
+      "sha256": "c1fc63fdfeb70a4406aac51e334d44b338eac4ef60ec2bf140898fba75b6ce3b",
+      "bytes": 10920
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid/tests/siheom/tabs.test.tsx",
+      "sha256": "ab013a43df9c2ac77187f002be9d9dd7b7a8b097feb77ccddb99d0e1116f32d7",
+      "bytes": 10792
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid-next/package.json",
+      "sha256": "1877b6ac6b2e018d526465a8bec2099f3520f050a36a9b5c529b48483adb869d",
+      "bytes": 1243
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid-next/project.json",
+      "sha256": "60db5d9981e92eec8f79c7140c2cba620d4debbef080822991b61ea0a2a6a6a3",
+      "bytes": 1352
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid-next/src/main.tsx",
+      "sha256": "2f97076afc75e8ae433a3c2acb988480b54607113ef71e5ed7652d5ece3b5797",
+      "bytes": 2050
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-solid-next/tests/native-probe.spec.ts",
+      "sha256": "539704c7f384d19a225788c03d0f0bc7ed538c47711b10023c0b624fe0f3f384",
+      "bytes": 4229
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-svelte/package.json",
+      "sha256": "db382e3ef0de30a4bee0494ebbb11de996e9e7219394ff2fee24fab3365408e9",
+      "bytes": 1446
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-svelte/project.json",
+      "sha256": "a7615bb81610ff4e16cdf6094e5c7b561ecf548e2d4a850c57a55579b6b28f71",
+      "bytes": 2129
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-svelte/src/App.svelte",
+      "sha256": "e2df95d0014eae65488a338036c5e3f75e08d01bab06522aaca8fcaa3966073d",
+      "bytes": 1611
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-vue/package.json",
+      "sha256": "5f1d4258652cb6cf0273f082d8142bd91f07b6add1a798d2afa83bfcfa5f2538",
+      "bytes": 1411
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-vue/project.json",
+      "sha256": "7a9787e706bc9a337434293eefa22be4086b74f34953dc7e28f7e34061919fe7",
+      "bytes": 2240
+    },
+    {
+      "path": "scope-integration-logs/before/apps/fixture-vue/src/FixtureApp.ts",
+      "sha256": "a5e75d284fa97bf294ae274f836e6ecba06662fa25bbd1fcfca4a36fc7b734da",
+      "bytes": 1721
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-angular/package.json",
+      "sha256": "264eea06196b65fd0075bc2b4bdb128f2fffb5eacea40414ad0f7ef08296f202",
+      "bytes": 1915
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-angular/project.json",
+      "sha256": "c02d2a5846fdcc53541085459de131abc986611c5acbafb0e47d5c7c4ff18f06",
+      "bytes": 1610
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-angular/src/main.ts",
+      "sha256": "986f4173a697e14f76c68ef217fe526333a7c05583d70745f6f790afbe92462f",
+      "bytes": 248
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-angular/src/stories/probe.stories.ts",
+      "sha256": "72b214b5bac855af3c45a28755864752209a40d3265313c5c21bd16d71376c40",
+      "bytes": 877
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-lit/package.json",
+      "sha256": "99ad3c1b2c67dba632852d64dea06cc3c0fae0e7d0123ac3082ecc450b245542",
+      "bytes": 1299
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-lit/project.json",
+      "sha256": "91827eb9c45c40b8347b4f61f75b3a1f44d034ae9bd19ff1959bec6cca70e0e3",
+      "bytes": 1910
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-lit/src/main.ts",
+      "sha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb",
+      "bytes": 258
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-lit/src/stories/probe.stories.ts",
+      "sha256": "35fe82ee3a5fb6e63ba36501784590356f3ae79b2868c1b816bf4c2954f6fcdc",
+      "bytes": 2374
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-qwik/package.json",
+      "sha256": "7670ee75ed3516b625a5dfde558515b26a33b3e4d985833dcff6f2eea3a29d58",
+      "bytes": 1274
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-qwik/project.json",
+      "sha256": "fe58578262fab94edf4efa91a9f63d2a808d282bdd278b7854ea00a509cb4c4f",
+      "bytes": 2051
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-qwik/src/main.tsx",
+      "sha256": "562a2ddda502cee251108f5f97cd119e1b2696c1159239e1519d9d64bc8852ce",
+      "bytes": 194
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-qwik/src/root.tsx",
+      "sha256": "f610368b28b185227f92ea86bc22e874067a9fb63a1f1e7ed93c4a2352af68ec",
+      "bytes": 215
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-qwik/src/stories/probe.stories.tsx",
+      "sha256": "b8eddd098bac39c2c321ea49d540e2984a9283a5e6eeb0637a91b37f36fa95e2",
+      "bytes": 1122
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-react/package.json",
+      "sha256": "fdf4f2cc7eec1b075827566915d3c4de7e5ff8eeb301f288b89196fc50a9476a",
+      "bytes": 1280
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-react/project.json",
+      "sha256": "d76e5b3b5c224697fd5b22584c7af7475f055bf8a915e1e8328e5a37379248ee",
+      "bytes": 2213
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-react/src/stories/native-probe.stories.tsx",
+      "sha256": "8ba2dd38e0ee39c3250be000d70676ab51144725974323822bcea56f8e64acd5",
+      "bytes": 1895
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/.storybook/preview.ts",
+      "sha256": "31424cfe271a61b1a5561fe2ceffd76d878b46d95fadc7f09cdee40091342e26",
+      "bytes": 250
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/package.json",
+      "sha256": "e2ea00fe5e67b786aa3065960db79dda21700a96f4d239fbba12e63eb40feb17",
+      "bytes": 1368
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/project.json",
+      "sha256": "efca3397451b1d079bfaf5a5f7a62a7dccf7c73b6db240a12b6eb3c5247c535c",
+      "bytes": 2690
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/src/stories/button.stories.tsx",
+      "sha256": "9b6a9ad1cb970f3d04e4d4af968eab8619747227539361407b02fbc0a7a771a3",
+      "bytes": 1317
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/src/stories/calendar.stories.tsx",
+      "sha256": "90e5c66d1904c71992409ddf6eea08c0dca2c6f263acd2df1612c635362bdc71",
+      "bytes": 1050
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/src/stories/date-input.stories.tsx",
+      "sha256": "936d4abb4ef95abe514fcd6ae94f40dd596096bf6e816f681e3ada4c195228ff",
+      "bytes": 1088
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/src/stories/modal.stories.tsx",
+      "sha256": "b3557151a76d99010febabaabc6a082a524b02750e218f9518f93f2f85c41b58",
+      "bytes": 1357
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/src/stories/native-select.stories.tsx",
+      "sha256": "edc8c1a3c5811f972c3a456a827876fa100166882ec331f6bf1ff519266d36cd",
+      "bytes": 1704
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/src/stories/probe.stories.tsx",
+      "sha256": "afafaf15074ddc18e923e2fd0f29530cc541174485aa3a7abe8422dd22418f53",
+      "bytes": 1018
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid/src/stories/tabs.stories.tsx",
+      "sha256": "264f2057a99d812bdac50aa2ab9f5e95fd2d89a8e756ead5beed441ed7e4afbb",
+      "bytes": 1188
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid-next/package.json",
+      "sha256": "23423b79f171a53c08630446ae5c59b6ebac865fbb828e80e9555b5fdb4e1956",
+      "bytes": 1436
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid-next/project.json",
+      "sha256": "fb5f6921e89b8ec1a23e138ae5c7ca48b768e8c67109de5d690eff0619092f80",
+      "bytes": 1453
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid-next/src/main.tsx",
+      "sha256": "76267c9eaafbad644044d8d1bd7d18e84ea132c33233b2f4a1ddc09e729f20ad",
+      "bytes": 220
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-solid-next/src/stories/probe.stories.ts",
+      "sha256": "2c926ed3509b3160dc91c6d392d8b900bbbb1677ff32e3058ed0b9f0b7d04f48",
+      "bytes": 236
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-svelte/package.json",
+      "sha256": "57b39db422397dc10401296ab7e434383713e7950b9bc1e1f180ee19038500b3",
+      "bytes": 1384
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-svelte/project.json",
+      "sha256": "ec5f69baa2bf5378c147fc907b9330628814d1af42f5d556b108c474f0427d2c",
+      "bytes": 2026
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-svelte/src/App.svelte",
+      "sha256": "0a62f4ff8dae7126e66c1ee91bd1a9c98b591e7acfc11e0ea4e1d6017820b35a",
+      "bytes": 154
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-svelte/src/stories/NativeProbe.svelte",
+      "sha256": "3200d9243139e7437a1837cbcb756d6d294b47590ab05f6dc85d09982312d690",
+      "bytes": 607
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-svelte/src/stories/probe.stories.ts",
+      "sha256": "163043690ab3355f470c882c0024d5dd630c7b3d340b87ad826dcaa4e0ae5a9e",
+      "bytes": 1189
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-vue/package.json",
+      "sha256": "a02ff788df45fe7a0c4c08efc08ec232967e5b70f0a2e2bbed239c5425267573",
+      "bytes": 1281
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-vue/project.json",
+      "sha256": "19b896153a93b69ccc63e6270014d66ad90b648cfbad9b45a2dd8893ee74c9da",
+      "bytes": 1891
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-vue/src/main.ts",
+      "sha256": "f6565695569ddccebd9121d81fed544c54ca7653c9352fbb67f4b0774709b8be",
+      "bytes": 181
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "sha256": "6747d4c37c7069d6d4345b8b003a7cf68da78df46b86912208d4258a75e44059",
+      "bytes": 938
+    },
+    {
+      "path": "scope-integration-logs/before/apps/storybook-vue/src/stories/probe.stories.ts",
+      "sha256": "cb48a43184288a85fdb2da905a9820cedd7116e6fae3bc7046d1271c609bbf06",
+      "bytes": 1213
+    },
+    {
+      "path": "scope-integration-logs/before/docs/execution/progress.md",
+      "sha256": "7a5caaed625b9b30a0c5b32a33c6dcd864727c9f4feb36330380ce7e47fded99",
+      "bytes": 4077
+    },
+    {
+      "path": "scope-integration-logs/before/package.json",
+      "sha256": "8b256cb9392202a4bfc911471320299fc7afe81a0e0be03af27567d493b300bf",
+      "bytes": 1458
+    },
+    {
+      "path": "scope-integration-logs/before/packages/angular/README.md",
+      "sha256": "3dc95a02018aed64f9ed552d50595b1dd7ac9d56ec04c430c17252cbbdd84eaa",
+      "bytes": 452
+    },
+    {
+      "path": "scope-integration-logs/before/packages/angular/ng-package.json",
+      "sha256": "7d6e21a2b1853ed34e1cb636fe6adbd474f5ec2523f5f8c5700faf9bb108a16f",
+      "bytes": 309
+    },
+    {
+      "path": "scope-integration-logs/before/packages/angular/package.json",
+      "sha256": "a452b87c4035bf23196c8618cadd67d85189685901f8cd0c602f5f674490eada",
+      "bytes": 2243
+    },
+    {
+      "path": "scope-integration-logs/before/packages/angular/project.json",
+      "sha256": "e5acea33fd0bd501d7ea7b528a160f05021dc69229d7d69823d78676ddfd48a2",
+      "bytes": 966
+    },
+    {
+      "path": "scope-integration-logs/before/packages/assets/README.md",
+      "sha256": "b15a8b83450d1a138fa2751f3740965af0b471410ac18cc8339d36ab5a77c313",
+      "bytes": 955
+    },
+    {
+      "path": "scope-integration-logs/before/packages/assets/package.json",
+      "sha256": "b3f4cf98901d08441772e0f246195058d0615c5544bda2d479e4353bceb28e8f",
+      "bytes": 979
+    },
+    {
+      "path": "scope-integration-logs/before/packages/assets/project.json",
+      "sha256": "3e17e5005f96110c564547586e47d4e261dd64a25e1ef2726d893f811446f202",
+      "bytes": 871
+    },
+    {
+      "path": "scope-integration-logs/before/packages/contracts/README.md",
+      "sha256": "0abf76fc7c6f9d162eec09c22b617e78e47df8d5f809ad3ee216a756a0fed548",
+      "bytes": 454
+    },
+    {
+      "path": "scope-integration-logs/before/packages/contracts/package.json",
+      "sha256": "4447494832a20fa805a081d908683855f64cbd2ed77a5a1d215b657ffecb6cd5",
+      "bytes": 948
+    },
+    {
+      "path": "scope-integration-logs/before/packages/contracts/project.json",
+      "sha256": "5ff9c0d3ff21815d3fa813e12d6911b1fe4fced79d7dde9aee22578cb476c403",
+      "bytes": 892
+    },
+    {
+      "path": "scope-integration-logs/before/packages/fonts/README.md",
+      "sha256": "f3d541203f0e71c57dc60ebdbc8fb175f6b50eb9116427988b9ba504dd865c28",
+      "bytes": 1152
+    },
+    {
+      "path": "scope-integration-logs/before/packages/fonts/package.json",
+      "sha256": "176498a2257b7fdb79186e33a6b8ee4babd07fdc3fc838d83e645f914d769bcb",
+      "bytes": 1061
+    },
+    {
+      "path": "scope-integration-logs/before/packages/fonts/project.json",
+      "sha256": "99ec9d9c000cdece8ba027fe2bcd6b4aebf7b2e1f7fe40de59d62812fe5f605e",
+      "bytes": 864
+    },
+    {
+      "path": "scope-integration-logs/before/packages/fonts/src/index.ts",
+      "sha256": "1dc992a185f6a8ab554d4ba9034c9fe03d4c84ea233948a9f0a1a459b21899b1",
+      "bytes": 538
+    },
+    {
+      "path": "scope-integration-logs/before/packages/lit/README.md",
+      "sha256": "41f0fda0b08a6610f3263782d5459ae9241b30d213bc4c712c4d763773f4f979",
+      "bytes": 448
+    },
+    {
+      "path": "scope-integration-logs/before/packages/lit/package.json",
+      "sha256": "54890b0c2d3581761d689ba312fa4ddac4ead3376c5a0ea10e0feb0eebb9c41f",
+      "bytes": 1574
+    },
+    {
+      "path": "scope-integration-logs/before/packages/lit/project.json",
+      "sha256": "b70b46a5375d3e1d251167fe9f651c0da5558d5bdb480db9ce308a69a7e6c3cc",
+      "bytes": 934
+    },
+    {
+      "path": "scope-integration-logs/before/packages/qwik/README.md",
+      "sha256": "51a0c845150d60f0fcd6dd73997a17cec1e37993593cfe0464392a7f048c31f0",
+      "bytes": 449
+    },
+    {
+      "path": "scope-integration-logs/before/packages/qwik/package.json",
+      "sha256": "cbcea468c56b375cc13c2e89eb081ee1fbad126e1c2d68f81190fe4b3ff9409b",
+      "bytes": 1721
+    },
+    {
+      "path": "scope-integration-logs/before/packages/qwik/project.json",
+      "sha256": "6db29bda3ce93a9febcae28cda28a644c69fb8f58d365f97f698b75e4572d0f8",
+      "bytes": 942
+    },
+    {
+      "path": "scope-integration-logs/before/packages/react/README.md",
+      "sha256": "c543846bb0a30fcbe737a1eb63049fda2e959da3d443773d0331cd0a119999f5",
+      "bytes": 450
+    },
+    {
+      "path": "scope-integration-logs/before/packages/react/package.json",
+      "sha256": "c290e8c3086f4774914760a6ebaa8f75664bff5e86c0a9fcb16de03ba55c9e11",
+      "bytes": 1501
+    },
+    {
+      "path": "scope-integration-logs/before/packages/react/project.json",
+      "sha256": "ad572a7185730f1b5d3ce647ebf496e9b023bbb3c64eaa73d2b0c28a5e6623b7",
+      "bytes": 950
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/README.md",
+      "sha256": "8ca3a5ec5334900902e229f9487c05870950003c0f3d62710ba207b7b86398d9",
+      "bytes": 3119
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/package.json",
+      "sha256": "0b03f6f70700a80716fccc69a271bb35af7317ef0216d6f0c5cc1112e3bc0ea1",
+      "bytes": 2295
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/project.json",
+      "sha256": "0881730de66a0859e62968f0f6cec4e76ba300881541382466b0b880d9d07c5a",
+      "bytes": 950
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/src/components/calendar/index.tsx",
+      "sha256": "1e3d58a8234f5c921d0b92fb1d035f1f6a2aa7736952b9964e7283e4f66b93f1",
+      "bytes": 13489
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/src/components/calendar/model.ts",
+      "sha256": "a05ad25360c791c141ecf20785bc31aac90293b8b79362915ae0bb242c4d3f84",
+      "bytes": 3412
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/src/components/date-input/index.tsx",
+      "sha256": "4b308cc40eb22dba1ecb700c60dea7ba5910f3f1d409a2c32c7c372950f40bc3",
+      "bytes": 15432
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/src/components/modal/index.tsx",
+      "sha256": "f4942f8a507aeeddb96a4c04c71a81bea9f464b59a0c05f2f86023f96bffe949",
+      "bytes": 12497
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/src/components/native-select/index.tsx",
+      "sha256": "7a718fbffd37a8c8416484c1087b33b565c5248199cfbe9232ec7f734c850f99",
+      "bytes": 6645
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid/src/components/tabs/index.tsx",
+      "sha256": "c666bbbaab15ce89b0805797985f691ca636c1c2c30d5e033647a67313200f91",
+      "bytes": 9731
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid-next/README.md",
+      "sha256": "08ab173fd0ef575a72266187c16c9090a0a28d4be472c163f28439c464ba3fba",
+      "bytes": 455
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid-next/package.json",
+      "sha256": "05bc8b72ff18d1ef5a46ed4d0e6291befe51ae6b7f17bb1ffc2f61a40f6e90e9",
+      "bytes": 1819
+    },
+    {
+      "path": "scope-integration-logs/before/packages/solid-next/project.json",
+      "sha256": "64395155992e6c30d210a952f61de0ae69c53a34a061b209a8e5474f86210242",
+      "bytes": 990
+    },
+    {
+      "path": "scope-integration-logs/before/packages/styles/README.md",
+      "sha256": "346111c4124183a3cabdd4f9d0bb4d4629af9dc260f7aef0c8ac32f3d1f16b3d",
+      "bytes": 2768
+    },
+    {
+      "path": "scope-integration-logs/before/packages/styles/package.json",
+      "sha256": "9419e6cca9636c154ff72772df1cc80f3bd019f0c57540296a3841225d8a482f",
+      "bytes": 1595
+    },
+    {
+      "path": "scope-integration-logs/before/packages/styles/project.json",
+      "sha256": "4045aaf59e505ae8bdff8dfbe07d496ca37c3cca7a712c84b212f1642177ed03",
+      "bytes": 1184
+    },
+    {
+      "path": "scope-integration-logs/before/packages/svelte/README.md",
+      "sha256": "5ead096f35eed43e86e97eb069cc58d79aff779b6f70fe98d89dfd65b54844b8",
+      "bytes": 451
+    },
+    {
+      "path": "scope-integration-logs/before/packages/svelte/package.json",
+      "sha256": "8620b9c3c9b422b538c112a12909ec926948f54b06c44c3069e89ec9bf5f0b9d",
+      "bytes": 1541
+    },
+    {
+      "path": "scope-integration-logs/before/packages/svelte/project.json",
+      "sha256": "b24e5025fd1446df222bf01d93f2c05bc935413be5297fc5f75496dee0e1cd37",
+      "bytes": 958
+    },
+    {
+      "path": "scope-integration-logs/before/packages/test-contracts/README.md",
+      "sha256": "f474ca13bfc6912483ba98be3c4a73f81c08f30e6f927b6d4597bf61f414f383",
+      "bytes": 2422
+    },
+    {
+      "path": "scope-integration-logs/before/packages/test-contracts/package.json",
+      "sha256": "b7a46cdf77b36d08f364d15ccae96674aa628a9fe9e77d6cd0a63d727a1f100c",
+      "bytes": 1031
+    },
+    {
+      "path": "scope-integration-logs/before/packages/test-contracts/project.json",
+      "sha256": "e182865c7a70685228b4ef5ee603ac03f1be5dd4a24c19ff962cdd7e9ca91ccd",
+      "bytes": 949
+    },
+    {
+      "path": "scope-integration-logs/before/packages/test-contracts/src/types.ts",
+      "sha256": "09775e21d119a43f2225a89943f8f6be74ecbb431288e3f0dd67d71cb2e4aef5",
+      "bytes": 914
+    },
+    {
+      "path": "scope-integration-logs/before/packages/tokens/README.md",
+      "sha256": "b1f66adf41e7f57ca9c2fe9c580b79f964d8273c7b23de3a9b353b96f93e00c7",
+      "bytes": 1254
+    },
+    {
+      "path": "scope-integration-logs/before/packages/tokens/package.json",
+      "sha256": "310c94e4d2c77daafa03d1cbec2d48b73ba73c756ca8e143cd58fbeafeaac48b",
+      "bytes": 1086
+    },
+    {
+      "path": "scope-integration-logs/before/packages/tokens/project.json",
+      "sha256": "8b4f061a8ff57e39f270cd4d5b18e98ab8fbf8a4af212c51fd20a9bbf2cf4abb",
+      "bytes": 1361
+    },
+    {
+      "path": "scope-integration-logs/before/packages/tokens/src/outputs.test.ts",
+      "sha256": "78ad419ffe5c576a8adad3f63fd3f1d17e612ea8ef620632b273d760a382e9f8",
+      "bytes": 3236
+    },
+    {
+      "path": "scope-integration-logs/before/packages/vue/README.md",
+      "sha256": "b1fa7d6471977bf389993ee6cd725b759150f13d84c4aa33a1833ffb4cabcd4c",
+      "bytes": 448
+    },
+    {
+      "path": "scope-integration-logs/before/packages/vue/package.json",
+      "sha256": "e607919e8c9cddf8c09a2379fcd971ec96eaba9c6ac53d40c3b87f4d31f4f339",
+      "bytes": 1439
+    },
+    {
+      "path": "scope-integration-logs/before/packages/vue/project.json",
+      "sha256": "3707ce47a293be0b07593b17a7e8c3566c6959a34a727ffc1e65432cda0556f8",
+      "bytes": 934
+    },
+    {
+      "path": "scope-integration-logs/before/specs/components/README.md",
+      "sha256": "c1c6e27ac9dfa5e6c4e300f79d396f229a35a2e1fbf8edc79740cff89d3dc398",
+      "bytes": 5149
+    },
+    {
+      "path": "scope-integration-logs/before/tools/check-workspace.test.mjs",
+      "sha256": "cae71867609cd5cd441a96037f9b7c89d5181f89ddf084504a0c533529dd234a",
+      "bytes": 5339
+    },
+    {
+      "path": "scope-integration-logs/before/tools/run-siheom-tests.mjs",
+      "sha256": "3049e6a70dec4d56b3f8cbff180aba066c082e4985ad0afc7fbf42d25217bc21",
+      "bytes": 3005
+    },
+    {
+      "path": "scope-integration-logs/before/yarn.lock",
+      "sha256": "136bebc1c213d0bc274b905ee291fa096beefa4dbbaece6ecf915689adadf4f4",
+      "bytes": 772308
+    },
+    {
+      "path": "scope-integration-logs/candidate-contract/report.json",
+      "sha256": "7b66c2d2c776623303b15c976622a62aad2011f7a90518e4aa5f779eb520419f",
+      "bytes": 2432
+    },
+    {
+      "path": "scope-integration-logs/candidate-contract/solid/artifacts/.last-run.json",
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+      "bytes": 45
+    },
+    {
+      "path": "scope-integration-logs/candidate-contract/solid/command.log",
+      "sha256": "9db461325d69d9def45a3c9b7973f7a975a2a1ebf54126246bb4c32b85c9ee6a",
+      "bytes": 1242
+    },
+    {
+      "path": "scope-integration-logs/candidate-contract/solid/playwright.json",
+      "sha256": "0fa2fd9cbf6bad03cb457453fa3d990254db6e50ffc15f9672d3e2b0f8aca7f4",
+      "bytes": 25863
+    },
+    {
+      "path": "scope-integration-logs/candidate-siheom/report.json",
+      "sha256": "166c9cbdcc666b28342657fc93b8ad4cc5633d8164fc469c5ee5c6a76cb45a81",
+      "bytes": 1139
+    },
+    {
+      "path": "scope-integration-logs/candidate-siheom/solid-command.log",
+      "sha256": "abab182a9c9295e07d76d97a00bad30ffdc55b17c03bb58710e5ba514220a219",
+      "bytes": 211
+    },
+    {
+      "path": "scope-integration-logs/candidate-siheom/solid-vitest.json",
+      "sha256": "f312bf3fd5429eb4cb4049c98ee79b20d9d790f7410085aaef07eb62c3757540",
+      "bytes": 23846
+    },
+    {
+      "path": "scope-integration-logs/candidate-stories/report.json",
+      "sha256": "0184295c352588fc330e644e82107649ce30ec3d1d4155a7b3f61c42602c8f93",
+      "bytes": 10091
+    },
+    {
+      "path": "scope-integration-logs/candidate-stories/solid/krds-button--disabled.png",
+      "sha256": "f8db4df946f2e9d6f523824517fedc5bd169b0fe418a1d5bdcc567b9f5e3b920",
+      "bytes": 6620
+    },
+    {
+      "path": "scope-integration-logs/candidate-stories/solid/krds-calendar--selected-range.png",
+      "sha256": "38d09d105f39c4e570a875ccc1c37c6d6dabb83272fedd839a46bb579dc4a873",
+      "bytes": 39768
+    },
+    {
+      "path": "scope-integration-logs/candidate-stories/solid/krds-date-input--invalid.png",
+      "sha256": "8bbe8899b76968d2ff5cb13bb9a2ecc3023d4122401d9b8ecf6f6f648f2b7dc8",
+      "bytes": 22088
+    },
+    {
+      "path": "scope-integration-logs/candidate-stories/solid/krds-modal--open.png",
+      "sha256": "6fc75115525a654dca184a59319883f36fc4f66f9c8f0294ea56881b4549d3fd",
+      "bytes": 19387
+    },
+    {
+      "path": "scope-integration-logs/candidate-stories/solid/krds-native-select--controlled.png",
+      "sha256": "86183a0892167c59d538a3651c8f77ac0ec2a7cb9d5a84088875ec575c276db4",
+      "bytes": 7055
+    },
+    {
+      "path": "scope-integration-logs/candidate-stories/solid/krds-tabs--manual.png",
+      "sha256": "b2594d2799aced0cd82bcfdf30408887c6709064f47c2bd1934e9601dcb94c15",
+      "bytes": 10445
+    },
+    {
+      "path": "scope-integration-logs/canonical-result-summary.json",
+      "sha256": "e2c5e4edd267eb5c87d9f7d6821be96da4a9aa0bfed533a38b97cbc881ed9586",
+      "bytes": 349
+    },
+    {
+      "path": "scope-integration-logs/command-results.json",
+      "sha256": "907861debfa65b2709af94be3c211386fdf965c7addd2f3e06b5900a33e38303",
+      "bytes": 5335
+    },
+    {
+      "path": "scope-integration-logs/compare-lock.py",
+      "sha256": "7a0329c2881e149cab79f4afcb2f80793f211c1d5855aa33b663bde79bf1a8d4",
+      "bytes": 1833
+    },
+    {
+      "path": "scope-integration-logs/contracts-test.log",
+      "sha256": "fb492fc14f1d0d69e4cadd78e4e355547f1225966e52c65f7cfef15d489bd6f0",
+      "bytes": 238
+    },
+    {
+      "path": "scope-integration-logs/foundations-solid-angular-build-typecheck.log",
+      "sha256": "82136e3e82931c9a303d2c953b0a929542c7e729f6cdd5460752325e5c228146",
+      "bytes": 8223
+    },
+    {
+      "path": "scope-integration-logs/install-immutable.log",
+      "sha256": "b5527fe274d919c38316c677e8633e66849033cfdffce37d16c41b10ab7ad02a",
+      "bytes": 562
+    },
+    {
+      "path": "scope-integration-logs/install.log",
+      "sha256": "551c640afd8f0cbb2195341941a3a058c3f720012af717f2de305dc11e86d6ad",
+      "bytes": 971
+    },
+    {
+      "path": "scope-integration-logs/lock-after.json",
+      "sha256": "019cec1d5d1924d1fe82f7d82c10af569e3348b08dcbff504b1a0ccf6d3730d3",
+      "bytes": 413487
+    },
+    {
+      "path": "scope-integration-logs/lock-baseline.frozen.json",
+      "sha256": "d64bf37fe8c326e87409bbcd132495ff9a1833f5b0cfc82c882157d5c8157523",
+      "bytes": 413283
+    },
+    {
+      "path": "scope-integration-logs/lock-baseline.preparation.json",
+      "sha256": "168b8c4301bbc6dc99b78e7d9af38dce3ecf9515149195d142501c3a6aa30a5d",
+      "bytes": 340258
+    },
+    {
+      "path": "scope-integration-logs/lock-comparison.json",
+      "sha256": "27921b1c7232a59b5fdb2af9016a33ffb40bf79db7be61405e008ad5a8ac3947",
+      "bytes": 522
+    },
+    {
+      "path": "scope-integration-logs/lock-comparison.log",
+      "sha256": "27921b1c7232a59b5fdb2af9016a33ffb40bf79db7be61405e008ad5a8ac3947",
+      "bytes": 522
+    },
+    {
+      "path": "scope-integration-logs/manifest-scope.diff",
+      "sha256": "78cdbb1ba858a65e66b503cd064679736cd94a136a33f7c4f11a1295c727c64d",
+      "bytes": 21617
+    },
+    {
+      "path": "scope-integration-logs/progress-scope-v2.diff",
+      "sha256": "056062c37fc34f607b1ecb171ee2fff9c8522556726c56a1121656ba31ff4255",
+      "bytes": 2471
+    },
+    {
+      "path": "scope-integration-logs/project-graph.json",
+      "sha256": "2279d38c56af5e1cfe54a3ef12104edfd38b2c9839fb5f9a0119eeef0a79fe69",
+      "bytes": 190119
+    },
+    {
+      "path": "scope-integration-logs/project-graph.log",
+      "sha256": "b3d685136198abc26a92719370122fba1b5c84af5c90c1ea1e063f369cd3d9bd",
+      "bytes": 207
+    },
+    {
+      "path": "scope-integration-logs/residual-namespace-audit.log",
+      "sha256": "ff4e9febce251e86f281bac3be582333df0f7c1913ecb64455f5efb3f13cd292",
+      "bytes": 1926
+    },
+    {
+      "path": "scope-integration-logs/review-artifact-sha256.json",
+      "sha256": "458c589dc8aaabaa245269f9129ca87dec474814707159d370356f589456939f",
+      "bytes": 1181
+    },
+    {
+      "path": "scope-integration-logs/scope-source-inventory.preparation.json",
+      "sha256": "35ebc5ac8847ee0be9a0219f736c1e6af0ac09407cb96896fcd8e0569b9954d2",
+      "bytes": 64593
+    },
+    {
+      "path": "scope-integration-logs/solid-canonical-stories-6.log",
+      "sha256": "3c2c7b9ce475891b5b941ed69366a1181e7f1e63fa5963f6f5367df89b77de26",
+      "bytes": 107
+    },
+    {
+      "path": "scope-integration-logs/solid-contract-10.log",
+      "sha256": "88873363fc6de4fcdf1a20f248f461eee02ca61023eba77871ddada217095baa",
+      "bytes": 1350
+    },
+    {
+      "path": "scope-integration-logs/solid-fixture-build.log",
+      "sha256": "a120378d28df0300626e61bc9b12b7ba27214d5db5a78ee1ffc308af42e9ec26",
+      "bytes": 345
+    },
+    {
+      "path": "scope-integration-logs/solid-fixture-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "scope-integration-logs/solid-provider-test.log",
+      "sha256": "1624100f17063e0a786ed2a794ce83c3c78c47cfde74469096a0000e4a583b4a",
+      "bytes": 311
+    },
+    {
+      "path": "scope-integration-logs/solid-siheom-77.log",
+      "sha256": "65898aeb7a56b1205e5910ab59632df6dbda31caaf33e582c1966e2572c3d09d",
+      "bytes": 317
+    },
+    {
+      "path": "scope-integration-logs/solid-storybook-build.log",
+      "sha256": "72754f34106178a77331ebaa8bb91a2593c8665e9c430385537985fbc6dabe3c",
+      "bytes": 2346
+    },
+    {
+      "path": "scope-integration-logs/solid-storybook-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "scope-integration-logs/source-mutations.json",
+      "sha256": "c1978da6e31fc5fc559ed5e832f3dcd166e59fc6c146aa2c0293bfd89434df98",
+      "bytes": 43545
+    },
+    {
+      "path": "scope-integration-logs/source-scope.diff",
+      "sha256": "5a5a068640049a76b2a5bc0ca85aa5e7af543dae978fcd34e17500e150f23216",
+      "bytes": 108539
+    },
+    {
+      "path": "scope-integration-logs/stable-identifiers-to-preserve.preparation.json",
+      "sha256": "12c1e5b5533a8c26c60851e8bf41a1ba650d980b7d26df9f5baedb9226d2fb10",
+      "bytes": 3401
+    },
+    {
+      "path": "scope-integration-logs/styles-test.log",
+      "sha256": "109c8a23deecf426ba9b9df006d35a985696520e0c4a7f310a88f092289f73d1",
+      "bytes": 770
+    },
+    {
+      "path": "scope-integration-logs/test-harness.log",
+      "sha256": "11c0dc07b16e3f27e9cdc950094a9cc9a4a1e76c9c33d8274ec4a551c2660a21",
+      "bytes": 2117
+    },
+    {
+      "path": "scope-integration-logs/test-workspace-green.log",
+      "sha256": "a20dc5ed6c68a7e386b0a5ec9fa6ea9decf02a4cb125da1c83d2441c24010c34",
+      "bytes": 1264
+    },
+    {
+      "path": "scope-integration-logs/test-workspace.log",
+      "sha256": "5799b35bae0917956c93f61e6a04d8515eba2ad33ef9ae9d56188623e034f9b6",
+      "bytes": 13607
+    },
+    {
+      "path": "scope-integration-logs/tokens-test.log",
+      "sha256": "a0fd19247bc5134d70636bb4220de3050b0a156ccf8ac25197ad32e6d4059082",
+      "bytes": 933
+    },
+    {
+      "path": "scope-integration-logs/verify-catalog.log",
+      "sha256": "3ea0d274fae41ce72a2881dd04532f4c60a041334707d8a5f212c3eaf6c51e0f",
+      "bytes": 205
+    },
+    {
+      "path": "scope-integration-logs/verify-workspace.log",
+      "sha256": "3b5e35ec07202d92a1022efd375c26b744fcea1ea7738013e14dca41425c1ea8",
+      "bytes": 110
+    },
+    {
+      "path": "scope-integration-logs/workspace-name-mapping.preparation.json",
+      "sha256": "76318950860a2ea4e025980acf741c598974e76ab8068e7191f79df58cb02566",
+      "bytes": 5764
+    },
+    {
+      "path": "scope-integration-logs/yarn-generated.diff",
+      "sha256": "c6aca99c052b509ec9729530bb593fd60cd569c10bc03d609a976d9a715ae36b",
+      "bytes": 57904
+    },
+    {
+      "path": "scope-integration-logs/yarn-version.log",
+      "sha256": "c98d66bec33d12570c7b0ed9e5fd3ff39abce492a7adb64b8d61da0f7fc6f085",
+      "bytes": 7
+    },
+    {
+      "path": "scope-integration-logs/yarn.after-scope-v1.lock",
+      "sha256": "fb40749425ddd90ce46937551ae72c63d4bdf7caa53706edf073f4ccc69b0b58",
+      "bytes": 772972
+    },
+    {
+      "path": "task-scope-compliance-report.md",
+      "sha256": "b9c725260c44766a9b3e35d0319656f3c4ee03388da460c917e9204c3b8133f3",
+      "bytes": 8704
+    },
+    {
+      "path": "task-scope-integration-report.md",
+      "sha256": "46e6bcdae115d0f9f87d755e8183bb1a6293939106f83fccfcbc4f383a36c1ae",
+      "bytes": 35812
+    },
+    {
+      "path": "task-scope-integration-review.md",
+      "sha256": "3fd0005ee89ec0bfdbebbab1236498ed4f28cb5d329e0d500efc19440276fc29",
+      "bytes": 7279
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+import {createSignal} from 'solid-js';
+import {Button, NativeSelect, DateInput, Calendar, Tabs, Modal} from '@unofficial-krds/solid';
+export default function App() {
+ const [count,setCount]=createSignal(0),[select,setSelect]=createSignal('seoul'),[requests,setRequests]=createSignal(0),[open,setOpen]=createSignal(false);
+ return <main><h1>Native Solid SSR</h1><Button id="ssr-button" onClick={()=>setCount(n=>n+1)}>Hydrated {count()}</Button><form id="ssr-form"><NativeSelect id="ssr-select" name="region" label="Region" hint="Select a region" value={select()} options={[{value:'seoul',label:'Seoul'},{value:'busan',label:'Busan'}]} onValueChange={({value})=>{setSelect(value);setRequests(n=>n+1);}}/><DateInput id="ssr-date" name="visit" label="Visit date" defaultValue="2024-02-29" withCalendar={false}/></form><output id="ssr-requests">{requests()}</output><Tabs id="ssr-tabs" label="Sections" items={[{value:'a',label:'First',content:'First panel'},{value:'b',label:'Second',content:'Second panel'}]}/><Calendar id="ssr-calendar" label="Calendar" referenceDate="2024-02-01"/><Button onClick={()=>setOpen(true)}>Open modal</Button><Modal id="ssr-modal" title="Review" open={open()} onOpenChange={({open})=>setOpen(open)}>Modal content</Modal></main>;
+}

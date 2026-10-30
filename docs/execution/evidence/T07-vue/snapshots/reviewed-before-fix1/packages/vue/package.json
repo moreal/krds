@@ -1,0 +1,83 @@
+{
+  "name": "@unofficial-krds/vue",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "yarn typecheck",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "@vitejs/plugin-vue": "6.0.10",
+    "@vitest/browser-playwright": "4.1.10",
+    "@vue/compiler-sfc": "3.5.44",
+    "playwright": "1.64.1",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10",
+    "vue": "3.5.44",
+    "vue-tsc": "3.3.14"
+  },
+  "description": "Native Vue six-component KRDS pilot",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/Button.vue.d.ts",
+      "import": "./dist/button.js"
+    },
+    "./native-select": {
+      "types": "./dist/components/native-select/NativeSelect.vue.d.ts",
+      "import": "./dist/native-select.js"
+    },
+    "./modal": {
+      "types": "./dist/components/modal/Modal.vue.d.ts",
+      "import": "./dist/modal.js"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs/Tabs.vue.d.ts",
+      "import": "./dist/tabs.js"
+    },
+    "./calendar": {
+      "types": "./dist/components/calendar/Calendar.vue.d.ts",
+      "import": "./dist/calendar.js"
+    },
+    "./date-input": {
+      "types": "./dist/components/date-input/DateInput.vue.d.ts",
+      "import": "./dist/date-input.js"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^3.5.44"
+  },
+  "dependencies": {
+    "@ark-ui/vue": "5.40.0",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/vue"
+  }
+}

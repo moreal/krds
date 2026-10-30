@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-main-menu', title: 'KRDS/main-menu', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const DesktopLinks: Story = { name: "desktop-links", parameters: { __id: "krds-main-menu--desktop-links" }, render: () => <CatalogStory componentId="main-menu" caseId="desktop-links"/> };
+export const DesktopDropdown: Story = { name: "desktop-dropdown", parameters: { __id: "krds-main-menu--desktop-dropdown" }, render: () => <CatalogStory componentId="main-menu" caseId="desktop-dropdown"/> };
+export const DesktopDescribed: Story = { name: "desktop-described", parameters: { __id: "krds-main-menu--desktop-described" }, render: () => <CatalogStory componentId="main-menu" caseId="desktop-described"/> };
+export const LargeMenuOverflow: Story = { name: "large-menu-overflow", parameters: { __id: "krds-main-menu--large-menu-overflow" }, render: () => <CatalogStory componentId="main-menu" caseId="large-menu-overflow"/> };
+export const MobileSimple: Story = { name: "mobile-simple", parameters: { __id: "krds-main-menu--mobile-simple" }, render: () => <CatalogStory componentId="main-menu" caseId="mobile-simple"/> };
+export const MobileSections: Story = { name: "mobile-sections", parameters: { __id: "krds-main-menu--mobile-sections" }, render: () => <CatalogStory componentId="main-menu" caseId="mobile-sections"/> };
+export const MobileDrilldown: Story = { name: "mobile-drilldown", parameters: { __id: "krds-main-menu--mobile-drilldown" }, render: () => <CatalogStory componentId="main-menu" caseId="mobile-drilldown"/> };
+export const LocalSearch: Story = { name: "local-search", parameters: { __id: "krds-main-menu--local-search" }, render: () => <CatalogStory componentId="main-menu" caseId="local-search"/> };

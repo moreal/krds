@@ -1,0 +1,34 @@
+/* KRDS-derived common foundation; global reset and font selection are separate opt-ins. */
+[data-krds-component] {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+[data-krds-component]:is(button, input, select) { font: inherit; }
+[data-krds-component]:focus-visible {
+  outline: var(--krds-number-2) solid var(--krds-light-color-border-primary);
+  outline-offset: var(--krds-number-2);
+}
+[data-krds-component][hidden] { display: none !important; }
+[data-krds-component][data-krds-part="error"] {
+  color: var(--krds-light-color-text-danger);
+  font-weight: 700;
+}
+[data-krds-component][data-krds-part="error"]:not(:empty)::before { content: "! "; }
+[data-krds-component][data-krds-part="hint"] { color: var(--krds-light-color-text-subtle); }
+[data-krds-component]:is(button, input, select):is(:disabled, [data-krds-state~="disabled"]) {
+  cursor: not-allowed;
+  border-style: dashed;
+}
+@media (forced-colors: active) {
+  [data-krds-component] { forced-color-adjust: auto; }
+  [data-krds-component]:focus-visible { outline-color: Highlight; }
+  [data-krds-component]:is(button, input, select) { border-color: ButtonText; }
+  [data-krds-component]:is(button, input, select):disabled { color: GrayText; border-color: GrayText; }
+  [data-krds-component][data-krds-part="error"] { color: CanvasText; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-krds-component] { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

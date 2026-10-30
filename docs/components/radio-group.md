@@ -1,0 +1,163 @@
+---
+title: 'Radio button · 라디오 버튼'
+---
+
+# Radio button
+
+라디오 버튼 · `RadioGroup` · component
+
+[Official KRDS guidance](https://www.krds.go.kr/html/site/component/component_06_01.html) · [Full reviewed specification](/sources/specs/components/radio-group.md.txt) · [Framework support](../compatibility/README.md)
+
+## Native availability
+
+These states are copied from `catalog/coverage.json`; they are not inferred from exports, examples, or test-runner exit codes.
+
+| Framework | Package version | Recorded state | Export declaration | Native examples and stories |
+| --- | --- | --- | --- | --- |
+| react | `0.0.0` | planned | [exact subpath types](/sources/packages/react/dist/components/radio-group/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
+| solid | `0.0.0` | planned | [exact subpath types](/sources/packages/solid/dist/components/radio-group/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
+| svelte | `0.0.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/RadioGroup.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
+| vue | `0.0.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/radio-group/RadioGroup.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
+| lit | `0.0.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/radio-group/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
+| qwik | `0.0.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/radio-group/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
+| angular | `0.0.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-radio-group.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
+| solid-next (preview) | `0.0.0-next.0` | planned | [exact root types](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
+
+## Props, events, content and defaults
+
+The semantic contract below is shared data only. Native content, refs and event transport belong to each adapter. Callback names and detail types in the contract are exact; do not pass machine objects. Optional properties are not automatically defaulted: use the explicit defaults in the guidance below.
+
+```ts
+export interface RadioGroupContract extends ControlledValue<string | null>, FieldContract {
+    options: readonly RadioGroupOption[];
+    size?: 'medium' | 'large';
+    appearance?: 'default' | 'chip';
+}
+
+export interface ControlledValue<T> {
+    value?: T;
+    defaultValue?: T;
+    onValueChange?: (detail: ValueChangeDetails<T>) => void;
+}
+
+export interface ValueChangeDetails<T> {
+    value: T;
+}
+
+export interface FieldContract {
+    id?: string;
+    name?: string;
+    label: string;
+    disabled?: boolean;
+    required?: boolean;
+    invalid?: boolean;
+    helpId?: string;
+    errorId?: string;
+}
+
+export interface RadioGroupOption extends SelectOption {
+    id?: string;
+}
+
+export interface SelectOption {
+    value: string;
+    label: string;
+    disabled?: boolean;
+}
+```
+
+| Semantic property / callback | Required | Exact type | Role |
+| --- | --- | --- | --- |
+| `value` | no | `string \| null` | data / state |
+| `defaultValue` | no | `string \| null` | data / state |
+| `onValueChange` | no | `(detail: ValueChangeDetails<string \| null>) => void` | semantic event request |
+| `id` | no | `string` | data / state |
+| `name` | no | `string` | data / state |
+| `label` | yes | `string` | data / state |
+| `disabled` | no | `boolean` | data / state |
+| `required` | no | `boolean` | data / state |
+| `invalid` | no | `boolean` | data / state |
+| `helpId` | no | `string` | data / state |
+| `errorId` | no | `string` | data / state |
+| `options` | yes | `readonly RadioGroupOption[]` | data / state |
+| `size` | no | `'medium' \| 'large'` | data / state |
+| `appearance` | no | `'default' \| 'chip'` | data / state |
+
+Optional values and explicit defaults are different. Defaults and native content requirements are stated in the reviewed guidance below.
+
+### Native content and event transport
+
+React and Solid use native JSX/content props; Svelte uses native snippets; Vue uses native slots; Angular uses its native inputs, outputs and content projection; Lit uses custom-element properties, slots and DOM events; Qwik uses native QRL event boundaries. Their transport is not interchangeable. Read the linked public package declaration for exact names and required content. A semantic callback below does not imply a same-named Lit DOM event.
+
+### Native structure and mandatory ordering
+
+Named fieldset/legend group of native same-name input[type=radio] with associated right-side labels. Vertical default; horizontal requires sufficient spacing. No preselection when deliberate accurate choice matters. Optional “none/unknown” is an explicit host option.
+
+### Plain semantic API
+
+Independent API: `options: readonly RadioGroupOption[]` (`RadioGroupOption` extends existing `SelectOption` with optional `id?:string`), `name`, `value?: string | null`, `defaultValue?: string | null` (uncontrolled baseline `null`), `onValueChange({value:string | null})`, required=false, disabled=false, invalid/errorId/helpId, size=medium, appearance=default|chip. Defined `value`, including `null`, chooses controlled mode; only `undefined` means uncontrolled. `null` means no checked radio. Every string, including `""`, is an ordinary valid option value and must match exactly one unique option; neither empty string nor a missing option is an empty sentinel. Unknown non-null values and duplicate option values are configuration errors. Never insert a “none/unknown” option automatically; that is explicit host content.
+
+Apply the [pilot controlled/reset conventions](/sources/specs/components/README.md.txt): controlled/default together or mode switching is invalid; read default once; one plain user request per changed choice, including when rejected; no mount/hydration/prop/reset change callbacks. Clicking an already selected option is a no-op. A prop transition to `null` clears every checked bit without an event. Controlled rejection reconciles every actual native radio's checked bit to the committed prop, including restoring all unchecked for `null`; the unaccepted browser toggle must not leak into rendering, validity or FormData.
+
+**Explicit option identity (additive composition API):** An option may provide a nonempty unique id for its actual native radio input. Honor that exact ID and associate its real label with the same control; do not create a duplicate proxy input or use the ID as a selection value. If omitted, existing stable generated-ID behavior is unchanged. Duplicate/empty explicit IDs are configuration errors. This radio-specific subtype does not add IDs or change semantics on NativeSelect’s unrelated SelectOption contract. Selection, grouping, null/empty-string values, reset and callbacks remain unchanged.
+
+### Keyboard, focus and state transitions
+
+Preserve the explicit official requirement that **every enabled radio is sequentially reachable with Tab and Shift+Tab**, alongside real same-name native radio grouping and the separately required arrow movement/selection ([official L1211–1218](https://www.krds.go.kr/html/site/component/component_06_01.html)). Disabled radios are skipped. Tab traversal only changes focus; Space, associated-label/control click and the appropriate arrow key choose one option, emitting one changed-value request without duplicate synthetic activation. Keep the focus ring on the visible radio area.
+
+The frozen same-name native examples have the usual browser single-group Tab behavior, which conflicts with the explicit all-radio sequential-access row. That tension does not authorize negating the row or declaring native-default grouping conformant. The proposed contract preserves all-enabled sequential access; The accepted independent implementation policy is to intercept Tab/Shift+Tab while focus is inside the group, focus the next/previous enabled actual same-name native radio without changing checked state, and allow browser exit at group boundaries. Keep all actual radios with ordinary native group attributes; do not rename, clone or replace them. This preserves the explicit sequential-access row while retaining native arrow/form behavior. Each renderer must verify reverse entry/exit and rejected controlled selection; native-default Tab alone is insufficient. Each renderer/browser must demonstrate forward and reverse sequential access through all enabled radios while preserving real radio form/group semantics, arrow selection and no extra Tab-induced selection. Backend/native defaults alone are not evidence of this outcome.
+
+### Responsive/mobile requirements
+
+Prefer vertical label-right arrangement; many (>7 familiar) options may be better Select. Native-app/mobile recommendation is contextual, not exclusion.
+
+### Forms, reset and composition
+
+For `null`, all actual radios are unchecked, a required group is invalid, and no name/value is contributed to FormData. A checked enabled option contributes its exact string (including an empty-string value); disabled controls/fieldset are omitted. Noncanceled reset restores uncontrolled initial `defaultValue`/`null`, while controlled state retains current prop; reconcile all native checked bits and required validity without a change callback. Canceled reset changes neither selection nor native reconciliation baseline. Prop-driven clearing is not a reset or user action. Labels and error/help associations remain native and testable. No editable IME path.
+
+### Asset, integration and composition completion
+
+Host owns ordering (alphabetical default absent justified priority), option data and required validation text. Completion includes real native radio form participation, not button role substitutes.
+
+### Stable parts and states
+
+root, legend, item, control, indicator, label, help, error; checked,unchecked,disabled,invalid.
+
+All rendered owned parts use `data-krds-component="radio-group"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+
+## State examples and native checks
+
+Supported case axes: `default`, `chip`, `medium`, `large`. These case names are independent project axes; they do not imply official KRDS type names or completed coverage.
+
+[Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
+
+Required full-catalog stories: `krds-radio-group--default`, `krds-radio-group--chip`, `krds-radio-group--medium-large`, `krds-radio-group--unselected-required`, `krds-radio-group--disabled-option`, `krds-radio-group--form-reset`, `krds-radio-group--controlled`, `krds-radio-group--all-radio-sequential-access`, `krds-radio-group--controlled-null`, `krds-radio-group--controlled-clear-rejected`, `krds-radio-group--empty-string-option`.
+
+### Native stories in current built outputs
+
+The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
+
+- react: [Default](/native/storybook-react/?path=/story/krds-radio-group--default) · [Chip](/native/storybook-react/?path=/story/krds-radio-group--chip) · [Medium Large](/native/storybook-react/?path=/story/krds-radio-group--medium-large) · [Unselected Required](/native/storybook-react/?path=/story/krds-radio-group--unselected-required) · [Disabled Option](/native/storybook-react/?path=/story/krds-radio-group--disabled-option) · [Form Reset](/native/storybook-react/?path=/story/krds-radio-group--form-reset) · [Controlled](/native/storybook-react/?path=/story/krds-radio-group--controlled) · [All Radio Sequential Access](/native/storybook-react/?path=/story/krds-radio-group--all-radio-sequential-access) · [Controlled Null](/native/storybook-react/?path=/story/krds-radio-group--controlled-null) · [Controlled Clear Rejected](/native/storybook-react/?path=/story/krds-radio-group--controlled-clear-rejected) · [Empty String Option](/native/storybook-react/?path=/story/krds-radio-group--empty-string-option).
+- solid: [default](/native/storybook-solid/?path=/story/krds-radio-group--default) · [chip](/native/storybook-solid/?path=/story/krds-radio-group--chip) · [medium-large](/native/storybook-solid/?path=/story/krds-radio-group--medium-large) · [unselected-required](/native/storybook-solid/?path=/story/krds-radio-group--unselected-required) · [disabled-option](/native/storybook-solid/?path=/story/krds-radio-group--disabled-option) · [form-reset](/native/storybook-solid/?path=/story/krds-radio-group--form-reset) · [controlled](/native/storybook-solid/?path=/story/krds-radio-group--controlled) · [all-radio-sequential-access](/native/storybook-solid/?path=/story/krds-radio-group--all-radio-sequential-access) · [controlled-null](/native/storybook-solid/?path=/story/krds-radio-group--controlled-null) · [controlled-clear-rejected](/native/storybook-solid/?path=/story/krds-radio-group--controlled-clear-rejected) · [empty-string-option](/native/storybook-solid/?path=/story/krds-radio-group--empty-string-option).
+- svelte: [default](/native/storybook-svelte/?path=/story/krds-radio-group--default) · [chip](/native/storybook-svelte/?path=/story/krds-radio-group--chip) · [medium-large](/native/storybook-svelte/?path=/story/krds-radio-group--medium-large) · [unselected-required](/native/storybook-svelte/?path=/story/krds-radio-group--unselected-required) · [disabled-option](/native/storybook-svelte/?path=/story/krds-radio-group--disabled-option) · [form-reset](/native/storybook-svelte/?path=/story/krds-radio-group--form-reset) · [controlled](/native/storybook-svelte/?path=/story/krds-radio-group--controlled) · [all-radio-sequential-access](/native/storybook-svelte/?path=/story/krds-radio-group--all-radio-sequential-access) · [controlled-null](/native/storybook-svelte/?path=/story/krds-radio-group--controlled-null) · [controlled-clear-rejected](/native/storybook-svelte/?path=/story/krds-radio-group--controlled-clear-rejected) · [empty-string-option](/native/storybook-svelte/?path=/story/krds-radio-group--empty-string-option).
+- vue: [default](/native/storybook-vue/?path=/story/krds-radio-group--default) · [chip](/native/storybook-vue/?path=/story/krds-radio-group--chip) · [medium-large](/native/storybook-vue/?path=/story/krds-radio-group--medium-large) · [unselected-required](/native/storybook-vue/?path=/story/krds-radio-group--unselected-required) · [disabled-option](/native/storybook-vue/?path=/story/krds-radio-group--disabled-option) · [form-reset](/native/storybook-vue/?path=/story/krds-radio-group--form-reset) · [controlled](/native/storybook-vue/?path=/story/krds-radio-group--controlled) · [all-radio-sequential-access](/native/storybook-vue/?path=/story/krds-radio-group--all-radio-sequential-access) · [controlled-null](/native/storybook-vue/?path=/story/krds-radio-group--controlled-null) · [controlled-clear-rejected](/native/storybook-vue/?path=/story/krds-radio-group--controlled-clear-rejected) · [empty-string-option](/native/storybook-vue/?path=/story/krds-radio-group--empty-string-option).
+- lit: [Default](/native/storybook-lit/?path=/story/krds-radio-group--default) · [Chip](/native/storybook-lit/?path=/story/krds-radio-group--chip) · [Medium Large](/native/storybook-lit/?path=/story/krds-radio-group--medium-large) · [Unselected Required](/native/storybook-lit/?path=/story/krds-radio-group--unselected-required) · [Disabled Option](/native/storybook-lit/?path=/story/krds-radio-group--disabled-option) · [Form Reset](/native/storybook-lit/?path=/story/krds-radio-group--form-reset) · [Controlled](/native/storybook-lit/?path=/story/krds-radio-group--controlled) · [All Radio Sequential Access](/native/storybook-lit/?path=/story/krds-radio-group--all-radio-sequential-access) · [Controlled Null](/native/storybook-lit/?path=/story/krds-radio-group--controlled-null) · [Controlled Clear Rejected](/native/storybook-lit/?path=/story/krds-radio-group--controlled-clear-rejected) · [Empty String Option](/native/storybook-lit/?path=/story/krds-radio-group--empty-string-option).
+- qwik: [default](/native/storybook-qwik/?path=/story/krds-radio-group--default) · [chip](/native/storybook-qwik/?path=/story/krds-radio-group--chip) · [medium-large](/native/storybook-qwik/?path=/story/krds-radio-group--medium-large) · [unselected-required](/native/storybook-qwik/?path=/story/krds-radio-group--unselected-required) · [disabled-option](/native/storybook-qwik/?path=/story/krds-radio-group--disabled-option) · [form-reset](/native/storybook-qwik/?path=/story/krds-radio-group--form-reset) · [controlled](/native/storybook-qwik/?path=/story/krds-radio-group--controlled) · [all-radio-sequential-access](/native/storybook-qwik/?path=/story/krds-radio-group--all-radio-sequential-access) · [controlled-null](/native/storybook-qwik/?path=/story/krds-radio-group--controlled-null) · [controlled-clear-rejected](/native/storybook-qwik/?path=/story/krds-radio-group--controlled-clear-rejected) · [empty-string-option](/native/storybook-qwik/?path=/story/krds-radio-group--empty-string-option).
+- angular: [default](/native/storybook-angular/?path=/story/krds-radio-group--default) · [chip](/native/storybook-angular/?path=/story/krds-radio-group--chip) · [medium-large](/native/storybook-angular/?path=/story/krds-radio-group--medium-large) · [unselected-required](/native/storybook-angular/?path=/story/krds-radio-group--unselected-required) · [disabled-option](/native/storybook-angular/?path=/story/krds-radio-group--disabled-option) · [form-reset](/native/storybook-angular/?path=/story/krds-radio-group--form-reset) · [controlled](/native/storybook-angular/?path=/story/krds-radio-group--controlled) · [all-radio-sequential-access](/native/storybook-angular/?path=/story/krds-radio-group--all-radio-sequential-access) · [controlled-null](/native/storybook-angular/?path=/story/krds-radio-group--controlled-null) · [controlled-clear-rejected](/native/storybook-angular/?path=/story/krds-radio-group--controlled-clear-rejected) · [empty-string-option](/native/storybook-angular/?path=/story/krds-radio-group--empty-string-option).
+- solid-next: unsupported native Storybook preview integration.
+
+Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
+
+- react: [read the checked consumer](/examples/react-1); [download exact source](/sources/packages/react/examples/catalog.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log.txt).
+- solid: [read the checked consumer](/examples/solid-3); [download exact source](/sources/apps/fixture-solid/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log.txt).
+- svelte: [read the checked consumer](/examples/svelte-30); [download exact source](/sources/apps/fixture-svelte/src/public-examples/RadioGroupExample.svelte.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log.txt).
+- vue: [read the checked consumer](/examples/vue-58); [download exact source](/sources/apps/fixture-vue/src/PublicCatalogExamples.vue.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log.txt).
+- lit: [read the checked consumer](/examples/lit-60); [download exact source](/sources/apps/fixture-lit/src/examples/catalog.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log.txt).
+- qwik: [read the checked consumer](/examples/qwik-61); [download exact source](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log.txt).
+- angular: [read the checked consumer](/examples/angular-62); [download exact source](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log.txt).
+
+## Source identity and rights
+
+Baseline: `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`. Official detail snapshot retrieved `2026-10-29T23:28:04.390Z`. SHA-256: `28578bf2746fa0f35bb0d4faac7f9c6d2515a9dc3dacc07cb3ffeacdca6c5e44`. [Frozen component source records](/sources/catalog/components.json.txt) · [Official source](https://www.krds.go.kr/html/site/component/component_06_01.html). Raw original HTML remains reference evidence in the checkout and is not copied into this site.
+
+KRDS quoted or derived guidance retains its original terms. The independent code MIT grant does not relicense it, official assets, fonts, or third-party materials. Read [sources and rights](../legal/index.md) before redistributing.

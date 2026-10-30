@@ -1,0 +1,9 @@
+import type { Preview } from 'storybook-solidjs-vite';
+import '@unofficial-krds/styles/reset.css';
+import '@unofficial-krds/styles/fonts.css';
+import '@unofficial-krds/styles/all.css';
+import '../src/catalog.css';
+
+export default {
+  parameters: { layout: 'centered' },
+} satisfies Preview;

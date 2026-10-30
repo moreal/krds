@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-tts', title: 'KRDS/tts', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Page: Story = { name: "page", parameters: { __id: "krds-tts--page" }, render: () => <CatalogStory componentId="tts" caseId="page"/> };
+export const Region: Story = { name: "region", parameters: { __id: "krds-tts--region" }, render: () => <CatalogStory componentId="tts" caseId="region"/> };
+export const PlayPauseStopMock: Story = { name: "play-pause-stop-mock", parameters: { __id: "krds-tts--play-pause-stop-mock" }, render: () => <CatalogStory componentId="tts" caseId="play-pause-stop-mock"/> };
+export const Icon: Story = { name: "icon", parameters: { __id: "krds-tts--icon" }, render: () => <CatalogStory componentId="tts" caseId="icon"/> };
+export const Sizes: Story = { name: "sizes", parameters: { __id: "krds-tts--sizes" }, render: () => <CatalogStory componentId="tts" caseId="sizes"/> };
+export const Unsupported: Story = { name: "unsupported", parameters: { __id: "krds-tts--unsupported" }, render: () => <CatalogStory componentId="tts" caseId="unsupported"/> };
+export const Error: Story = { name: "error", parameters: { __id: "krds-tts--error" }, render: () => <CatalogStory componentId="tts" caseId="error"/> };

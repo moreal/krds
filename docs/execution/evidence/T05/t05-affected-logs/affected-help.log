@@ -1,0 +1,53 @@
+nx affected
+
+Run target for affected projects. Affected projects are projects that have been changed and projects that depend on the changed projects. See https://nx.dev/ci/features/affected for more details.
+
+Run command using --base=[SHA1] (affected by the committed, uncommitted and untracked changes):
+      --base  Base of the current branch (usually main).  [string]
+
+or using --base=[SHA1] --head=[SHA2] (affected by the committed changes):
+      --base  Base of the current branch (usually main).  [string]
+      --head  Latest commit of the current branch (usually HEAD).  [string]
+
+or using:
+      --files        Change the way Nx is calculating the affected command by providing directly changed files, list of files delimited by commas or spaces.  [string]
+      --uncommitted  Uncommitted changes.  [boolean]
+      --untracked    Untracked changes.  [boolean]
+
+Options:
+      --version                                Show version number  [boolean]
+      --explain                                Print why each task was considered affected, instead of running anything. Not available with affected.legacy in nx.json. Pass a file path to save the reasons as JSON instead. Pass "stdout" to print the JSON to the terminal.  [string]
+      --batch                                  Run task(s) in batches for executors which support batches.  [boolean]
+  -c, --configuration                          This is the configuration to use when performing tasks on projects.  [string]
+  -t, --targets, --target                      Tasks to run for affected projects.  [string] [required]
+      --outputStyle                            Defines how Nx emits outputs tasks logs. **tui**: enables the Nx Terminal UI, recommended for local development environments. **dynamic-legacy**: use dynamic-legacy output life cycle, previous content is overwritten or modified as new outputs are added, display minimal logs by default, always show errors. This output format is recommended for local development environments where tui is not supported. **static**: uses static output life cycle, no previous content is rewritten or modified as new outputs are added, and every task prints its full output regardless of status. **static-failures-only**: same as **static**, but successful and cached tasks collapse to a single line, so only failing tasks (and, for a single-project run, the project you asked for) print their full output. This is what Nx uses by default in CI and other non-interactive environments. **summary**: prints only run counts and one line per failing task, naming the file on disk that holds its full output. No task output is printed inline, so the size of a run's output does not depend on how much its tasks logged. This is the default when Nx detects it is being driven by an AI agent. **stream**: nx by default logs output to an internal output stream, enable this option to stream logs to stdout / stderr. **stream-without-prefixes**: nx prefixes the project name the target is running on, use this option remove the project name prefix from output.  [string] [choices: "dynamic-legacy", "dynamic", "tui", "static", "static-failures-only", "summary", "stream", "stream-without-prefixes"]
+      --exclude                                Exclude certain projects from being processed.  [string]
+      --verbose                                Prints additional information about the commands (e.g., stack traces).  [boolean]
+      --parallel                               Max number of parallel processes [default is 3].  [string]
+      --runner                                 This is the name of the tasks runner configured in nx.json.  [string]
+      --graph                                  Show the task graph of the command. Pass a file path to save the graph data instead of viewing it in the browser. Pass "stdout" to print the results to the terminal.  [string]
+      --nxBail                                 Stop command execution after the first failed task.  [boolean]
+      --nxIgnoreCycles                         Ignore cycles in the task graph.  [boolean] [default: false]
+      --skipNxCache, --disableNxCache          Rerun the tasks even when the results are available in the cache.  [boolean] [default: false]
+      --skipRemoteCache, --disableRemoteCache  Disables the remote cache.  [boolean] [default: false]
+      --excludeTaskDependencies                Skips running dependent tasks first.  [boolean] [default: false]
+      --skipSync                               Skips running the sync generators associated with the tasks.  [boolean] [default: false]
+      --tuiAutoExit                            Whether or not to exit the TUI automatically after all tasks finish, and after how long. If set to `true`, the TUI will exit immediately. If set to `false` the TUI will not automatically exit. If set to a number, an interruptible countdown popup will be shown for that many seconds before the TUI exits.  [string]
+      --tui                                    Enable or disable the Nx Terminal UI.  [boolean]
+      --stdin                                  Change the way Nx is calculating the affected command by providing directly changed files from stdin, one file per line.  [boolean]
+      --all  [deprecated: Use `nx run-many` instead] [boolean]
+
+Examples:
+  affected -t custom-target                               Run custom target for all affected projects
+  affected -t test --parallel=5                           Run tests in parallel
+  affected -t lint test build                             Run lint, test, and build targets for affected projects. Requires Nx v15.4+
+  affected -t test --files=libs/mylib/src/index.ts        Run tests for all the projects affected by changing the index.ts file
+  affected -t test --base=main --head=HEAD                Run tests for all the projects affected by the changes between main and HEAD (e.g., PR)
+  affected -t test --base=main~1 --head=main              Run tests for all the projects affected by the last commit on main
+  affected -t=build --exclude='*,!tag:dotnet'             Run build for only projects with the tag `dotnet`
+  affected -t build --tag=$NX_TASK_TARGET_PROJECT:latest  Use the currently executing project name in your command
+  affected -t=build --graph                               Preview the task graph that Nx would run inside a webview
+  affected -t=build --graph=output.json                   Save the task graph to a file
+  affected -t=build --graph=stdout                        Print the task graph to the console
+
+Find more information and examples at https://nx.dev/nx/affected

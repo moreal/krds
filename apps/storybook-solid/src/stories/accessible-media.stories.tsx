@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-accessible-media', title: 'KRDS/accessible-media', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Audio: Story = { name: "audio", parameters: { __id: "krds-accessible-media--audio" }, render: () => <CatalogStory componentId="accessible-media" caseId="audio"/> };
+export const SilentVideo: Story = { name: "silent-video", parameters: { __id: "krds-accessible-media--silent-video" }, render: () => <CatalogStory componentId="accessible-media" caseId="silent-video"/> };
+export const MultimediaCaptions: Story = { name: "multimedia-captions", parameters: { __id: "krds-accessible-media--multimedia-captions" }, render: () => <CatalogStory componentId="accessible-media" caseId="multimedia-captions"/> };
+export const Description: Story = { name: "description", parameters: { __id: "krds-accessible-media--description" }, render: () => <CatalogStory componentId="accessible-media" caseId="description"/> };
+export const Transcript: Story = { name: "transcript", parameters: { __id: "krds-accessible-media--transcript" }, render: () => <CatalogStory componentId="accessible-media" caseId="transcript"/> };
+export const SignLanguage: Story = { name: "sign-language", parameters: { __id: "krds-accessible-media--sign-language" }, render: () => <CatalogStory componentId="accessible-media" caseId="sign-language"/> };
+export const LoadError: Story = { name: "load-error", parameters: { __id: "krds-accessible-media--load-error" }, render: () => <CatalogStory componentId="accessible-media" caseId="load-error"/> };

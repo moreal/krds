@@ -1,0 +1,13 @@
+import {moduleMetadata,type Meta,type StoryObj} from '@storybook/angular';
+import {getPresentation} from '@unofficial-krds/test-contracts/patterns';
+import {PatternPresentation} from '../../../../../packages/angular/examples/patterns/presentation';
+import {content,urls} from './presentation-content';
+const meta:Meta<PatternPresentation>={id:'krds-pattern-consent-confirmation',title:'KRDS patterns/consent-confirmation',decorators:[moduleMetadata({imports:[PatternPresentation]})],render:args=>({props:{...args,content,urls},template:`<krds-pattern-presentation [view]="view" [content]="content" [urls]="urls"/>`})};
+export default meta;
+type Story=StoryObj<PatternPresentation>;
+export const Editing:Story={args:{view:structuredClone(getPresentation('consent-confirmation','editing').state)}};
+export const Invalid:Story={args:{view:structuredClone(getPresentation('consent-confirmation','invalid').state)}};
+export const Confirming:Story={args:{view:structuredClone(getPresentation('consent-confirmation','confirming').state)}};
+export const Loading:Story={args:{view:structuredClone(getPresentation('consent-confirmation','loading').state)}};
+export const Error:Story={args:{view:structuredClone(getPresentation('consent-confirmation','error').state)}};
+export const Success:Story={args:{view:structuredClone(getPresentation('consent-confirmation','success').state)}};

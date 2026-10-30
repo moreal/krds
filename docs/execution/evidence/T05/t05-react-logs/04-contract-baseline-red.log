@@ -1,0 +1,44 @@
+
+Running 1 test using 1 worker
+
+(node:74815) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tools/testing/contract.spec.ts:12:29 › react __probe/native-state (15.1s)
+
+
+  1) [chromium] › tools/testing/contract.spec.ts:12:29 › react __probe/native-state › native server and control channel health 
+
+    Test timeout of 15000ms exceeded.
+
+    Error: page.waitForFunction: Test timeout of 15000ms exceeded.
+
+       at ../../packages/test-contracts/src/driver.ts:37
+
+      35 |     async open(fixture: FixtureCase) {
+      36 |       await page.goto(`${origin}/fixtures/${encodeURIComponent(fixture.componentId)}?case=${encodeURIComponent(fixture.caseId)}`);
+    > 37 |       await page.waitForFunction(() => window.__KRDS_FIXTURE__?.protocol === 1);
+         |                  ^
+      38 |       const framework = await page.evaluate(() => window.__KRDS_FIXTURE__?.framework, undefined);
+      39 |       if (framework !== fixture.framework) throw new Error(`Native framework mismatch: expected ${fixture.framework}, got ${framework}`);
+      40 |     },
+        at Object.open (/Users/moreal/github/moreal/krds/packages/test-contracts/src/driver.ts:37:18)
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:15:5
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:14:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321487231-74809-2d8ecf2f/react/artifacts/contract-react-probe-native-state-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321487231-74809-2d8ecf2f/react/artifacts/contract-react-probe-native-state-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321487231-74809-2d8ecf2f/react/artifacts/contract-react-probe-native-state-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321487231-74809-2d8ecf2f/react/artifacts/contract-react-probe-native-state-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react __probe/native-state ─────────────────
+Report: /Users/moreal/github/moreal/krds/test-results/t05/contract-1793321487231-74809-2d8ecf2f/report.json

@@ -1,0 +1,49 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/tabs.test.tsx (12 tests | 1 failed) 239ms
+   × touch capture release after pointerup preserves only its corresponding focus-click pairing 121ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > touch capture release after pointerup preserves only its corresponding focus-click pairing
+AssertionError: expected [ { value: 'second' }, …(1) ] to deeply equal [ { value: 'second' } ]
+
+Failure screenshot:
+  - test-results/siheom-24028/tests/siheom/tabs.test.tsx/touch-capture-release-after-pointerup-preserves-only-its-corresponding-focus-click-pairing-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[2m    {[22m
+[2m      "value": "second",[22m
+[2m    },[22m
+[31m+   {[39m
+[31m+     "value": "second",[39m
+[31m+   },[39m
+[2m  ][22m
+
+ ❯ toEqual tests/siheom/tabs.test.tsx:122:17
+    120|   pointer('pointerup', 11); pointer('lostpointercapture', 11);
+    121|   second.dispatchEvent(new MouseEvent('click', { bubbles: true, detail…
+    122|   expect(events).toEqual([{ value: 'second' }]);
+       |                 ^
+    123|   // A later deliberate gesture still requests selection after the con…
+    124|   pointer('pointerdown', 12); pointer('pointerup', 12); pointer('lostp…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 passed (12)
+   Start at  11:23:49
+   Duration  1.25s (transform 0ms, setup 58ms, import 116ms, tests 239ms, environment 0ms)
+

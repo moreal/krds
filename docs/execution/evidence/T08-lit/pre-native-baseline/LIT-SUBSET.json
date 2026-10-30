@@ -1,0 +1,635 @@
+{
+  "sourceManifest": ".superpowers/sdd/PLAN/task-native-pilots-base/BASELINE-MANIFEST.json",
+  "purpose": "Archive index of the recorded Lit-only reconstruction; original entries retained without editing",
+  "files": [
+    {
+      "framework": "lit",
+      "path": "apps/fixture-lit/index.html",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/index.html",
+      "sha256": "b4497252977db4bdc9e3ca3f675796680fb3cc260cc3ed61bcdd5c09f85005b6",
+      "bytes": 264,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+          "verifiedBytes": 191
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit/index.html",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "b4497252977db4bdc9e3ca3f675796680fb3cc260cc3ed61bcdd5c09f85005b6",
+          "existsAfter": true
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/fixture-lit/package.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/package.json",
+      "sha256": "87a5c851712e9e55dd63811147872f63084fc100b25249720ff412260dcafe9c",
+      "bytes": 1005,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "78f6f937117b7a5b86e0e65893d39a9c6776f2ba64553cec89e44fd58e4a461e",
+          "verifiedBytes": 945
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit/package.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "78f6f937117b7a5b86e0e65893d39a9c6776f2ba64553cec89e44fd58e4a461e"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "af7b38d47e34de5d3b2bdb6289b8c0f77df399f78477603bb7dbd84d1b6a33c3",
+          "existsAfter": true
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "af7b38d47e34de5d3b2bdb6289b8c0f77df399f78477603bb7dbd84d1b6a33c3",
+          "afterSha256": "87a5c851712e9e55dd63811147872f63084fc100b25249720ff412260dcafe9c"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-lit/package.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "87a5c851712e9e55dd63811147872f63084fc100b25249720ff412260dcafe9c"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/fixture-lit/project.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/project.json",
+      "sha256": "621e0b4503643a401a04c7069dc5f0e46a618d8f56c7141a2fa8a882fce29f42",
+      "bytes": 1672,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "a1ef2ee8718a05ba0ab3ff3c4d5109417300df85a97de6dc361ed714a5573e7f",
+          "verifiedBytes": 1172
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit/project.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "a1ef2ee8718a05ba0ab3ff3c4d5109417300df85a97de6dc361ed714a5573e7f"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "043e89e88a784efa4d3218ad04768b92c9371af463c0908c41eace418a2bc04a",
+          "existsAfter": true
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "043e89e88a784efa4d3218ad04768b92c9371af463c0908c41eace418a2bc04a",
+          "afterSha256": "621e0b4503643a401a04c7069dc5f0e46a618d8f56c7141a2fa8a882fce29f42"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-lit/project.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "621e0b4503643a401a04c7069dc5f0e46a618d8f56c7141a2fa8a882fce29f42"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/fixture-lit/src/main.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/src/main.ts",
+      "sha256": "d7c62792d97dc462de5f85fae4820df6bd35cd01d76a7ec6c5b4666d21988ef9",
+      "bytes": 2215,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb",
+          "verifiedBytes": 258
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit/src/main.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "779a5d41a8738dec03fd739803d622d7094552bf91e4ebcf880ac4723d268ba5",
+          "existsAfter": true
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "779a5d41a8738dec03fd739803d622d7094552bf91e4ebcf880ac4723d268ba5",
+          "afterSha256": "d7c62792d97dc462de5f85fae4820df6bd35cd01d76a7ec6c5b4666d21988ef9"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-lit/src/main.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "d7c62792d97dc462de5f85fae4820df6bd35cd01d76a7ec6c5b4666d21988ef9"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/fixture-lit/tests/contract/native-probe.test.mjs",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/tests/contract/native-probe.test.mjs",
+      "sha256": "795a8fdfe2de0b450b91388c4c8cfa394ebeb5da76ac0ec393392f043e31ccd7",
+      "bytes": 3030,
+      "provenance": [
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "795a8fdfe2de0b450b91388c4c8cfa394ebeb5da76ac0ec393392f043e31ccd7",
+          "existsAfter": true
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/fixture-lit/tsconfig.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/tsconfig.json",
+      "sha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+      "bytes": 184,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+          "verifiedBytes": 184
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit/tsconfig.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/fixture-lit/vite.config.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-lit/vite.config.ts",
+      "sha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0",
+      "bytes": 110,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0",
+          "verifiedBytes": 110
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit/vite.config.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/.storybook/main.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/.storybook/main.ts",
+      "sha256": "8b101012ece2ad52173ef1c77d580605b9c1f2ced38e8e9a3a68ecd9130f8281",
+      "bytes": 517,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "6d61ff13cc54f44eee62270efc7652c3b95677d54a8850f69be485efea657087",
+          "verifiedBytes": 162
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/.storybook/main.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "6d61ff13cc54f44eee62270efc7652c3b95677d54a8850f69be485efea657087"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "8b101012ece2ad52173ef1c77d580605b9c1f2ced38e8e9a3a68ecd9130f8281",
+          "existsAfter": true
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/.storybook/preview.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/.storybook/preview.ts",
+      "sha256": "c2d120c838a9062e4371604824060783ff4a566ebde2a6c4c9bea44eb5a52076",
+      "bytes": 152,
+      "provenance": [
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "c2d120c838a9062e4371604824060783ff4a566ebde2a6c4c9bea44eb5a52076",
+          "existsAfter": true
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/index.html",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/index.html",
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+      "bytes": 191,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce",
+          "verifiedBytes": 191
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/index.html",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/package.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/package.json",
+      "sha256": "d3eff6112a4ebf5b234d0b3223d45a57ab9d4c490b91a67c7426eb1fbd08d0cc",
+      "bytes": 1319,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "0e67f4866e6fde43eb1ba102944453b3ab6bdea830dbe670531cddebb3f69cea",
+          "verifiedBytes": 1184
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/package.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "0e67f4866e6fde43eb1ba102944453b3ab6bdea830dbe670531cddebb3f69cea"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "99ad3c1b2c67dba632852d64dea06cc3c0fae0e7d0123ac3082ecc450b245542",
+          "existsAfter": true
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "99ad3c1b2c67dba632852d64dea06cc3c0fae0e7d0123ac3082ecc450b245542",
+          "afterSha256": "d3eff6112a4ebf5b234d0b3223d45a57ab9d4c490b91a67c7426eb1fbd08d0cc"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/package.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "d3eff6112a4ebf5b234d0b3223d45a57ab9d4c490b91a67c7426eb1fbd08d0cc"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/project.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/project.json",
+      "sha256": "4c03f30a6f1a9c2aec97a9a02c59133fddd2858f1a50122a5b399f3086ff4358",
+      "bytes": 1930,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "01a334b333ff05120095834e06a36d4965e6184e94648d87c6bf39aa839c35f6",
+          "verifiedBytes": 1376
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/project.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "01a334b333ff05120095834e06a36d4965e6184e94648d87c6bf39aa839c35f6"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "91827eb9c45c40b8347b4f61f75b3a1f44d034ae9bd19ff1959bec6cca70e0e3",
+          "existsAfter": true
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "91827eb9c45c40b8347b4f61f75b3a1f44d034ae9bd19ff1959bec6cca70e0e3",
+          "afterSha256": "4c03f30a6f1a9c2aec97a9a02c59133fddd2858f1a50122a5b399f3086ff4358"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/project.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "4c03f30a6f1a9c2aec97a9a02c59133fddd2858f1a50122a5b399f3086ff4358"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/src/main.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/src/main.ts",
+      "sha256": "cae3d6f6eb02cb0b41d528d4cbf57e9f291bc1b7d7b60fcae0a57da71899e6d9",
+      "bytes": 262,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb",
+          "verifiedBytes": 258
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/src/main.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb"
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb",
+          "afterSha256": "cae3d6f6eb02cb0b41d528d4cbf57e9f291bc1b7d7b60fcae0a57da71899e6d9"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/src/main.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "cae3d6f6eb02cb0b41d528d4cbf57e9f291bc1b7d7b60fcae0a57da71899e6d9"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/src/stories/probe.stories.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/src/stories/probe.stories.ts",
+      "sha256": "a9ad4427a0e785c48738bbb8adbc0d6eb7d4fb932aed3a1c4f70fa10779ee125",
+      "bytes": 2386,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "e7cc4f0fc30d013cab5c177be087f1832e9224854b3ea6a90f1acc88bee569b2",
+          "verifiedBytes": 409
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/src/stories/probe.stories.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "e7cc4f0fc30d013cab5c177be087f1832e9224854b3ea6a90f1acc88bee569b2"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "35fe82ee3a5fb6e63ba36501784590356f3ae79b2868c1b816bf4c2954f6fcdc",
+          "existsAfter": true
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "35fe82ee3a5fb6e63ba36501784590356f3ae79b2868c1b816bf4c2954f6fcdc",
+          "afterSha256": "a9ad4427a0e785c48738bbb8adbc0d6eb7d4fb932aed3a1c4f70fa10779ee125"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/src/stories/probe.stories.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "a9ad4427a0e785c48738bbb8adbc0d6eb7d4fb932aed3a1c4f70fa10779ee125"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/tsconfig.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/tsconfig.json",
+      "sha256": "78a48944e92bd130042aaf7399c6e9885cf1232caa084c25e1b6feec463e43ce",
+      "bytes": 210,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f",
+          "verifiedBytes": 184
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/tsconfig.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "c02338c930e5e8a533a197133115acabe69a6f2717ffd4f5d91b0573673e6d7f"
+        },
+        {
+          "stage": "T05-reviewed-unified-patch",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+          "verifiedSha256": "78a48944e92bd130042aaf7399c6e9885cf1232caa084c25e1b6feec463e43ce",
+          "existsAfter": true
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "apps/storybook-lit/vite.config.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-lit/vite.config.ts",
+      "sha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0",
+      "bytes": 110,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0",
+          "verifiedBytes": 110
+        },
+        {
+          "stage": "T05-raw-before",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit/vite.config.ts",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "65e203e4e0ff6cdc0576d4fd1384654d83f9d8c1835fbaae97b411539d94bde0"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "packages/lit/README.md",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/README.md",
+      "sha256": "92d89a7d1cc85959a9358cf27074308b289bca7dd3b2e06b2ad85c60d7c9d4cb",
+      "bytes": 452,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "1727bd95f6fc8863ef34098ffdb518423eef861f21174ad814ff03b53b2ba889",
+          "verifiedBytes": 301
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "1727bd95f6fc8863ef34098ffdb518423eef861f21174ad814ff03b53b2ba889",
+          "afterSha256": "ab23bbde225e9b2ddb81973ef88736bcbdc453b70b50afb02222dafaa2e76744"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/lit/README.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "92d89a7d1cc85959a9358cf27074308b289bca7dd3b2e06b2ad85c60d7c9d4cb"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "packages/lit/package.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/package.json",
+      "sha256": "217f7feaf843cbccf0c654c1f454634d9b96cf435efb9b47fcd8443abe51447d",
+      "bytes": 1709,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "75061e4ca166053a1eeac44f7fe041cdfe1e8c4d2f0e98c90a26b306f255e4db",
+          "verifiedBytes": 1483
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "75061e4ca166053a1eeac44f7fe041cdfe1e8c4d2f0e98c90a26b306f255e4db",
+          "afterSha256": "2d6328e915285fa1ac3c072f391c7fa0546e52f758e51966d3c7f1488236846f"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/lit/package.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "217f7feaf843cbccf0c654c1f454634d9b96cf435efb9b47fcd8443abe51447d"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "packages/lit/project.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/project.json",
+      "sha256": "51e8a7502901d5c4e8c7a704573a9894151ac83633363954c52054030ff468cc",
+      "bytes": 950,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "b70b46a5375d3e1d251167fe9f651c0da5558d5bdb480db9ce308a69a7e6c3cc",
+          "verifiedBytes": 934
+        },
+        {
+          "stage": "intentional-namespace-normalization",
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "beforeSha256": "b70b46a5375d3e1d251167fe9f651c0da5558d5bdb480db9ce308a69a7e6c3cc",
+          "afterSha256": "51e8a7502901d5c4e8c7a704573a9894151ac83633363954c52054030ff468cc"
+        },
+        {
+          "stage": "immutable-scope-v2-after-override",
+          "source": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/lit/project.json",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/scope-integration-logs/authored-source-snapshot-v2-final.json",
+          "verifiedSha256": "51e8a7502901d5c4e8c7a704573a9894151ac83633363954c52054030ff468cc"
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "packages/lit/src/index.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/src/index.ts",
+      "sha256": "2c50d7ddd18164844ab339e749188c0a5964ed29304da4c426eb329161a14c2b",
+      "bytes": 239,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "2c50d7ddd18164844ab339e749188c0a5964ed29304da4c426eb329161a14c2b",
+          "verifiedBytes": 239
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "packages/lit/tsconfig.json",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/tsconfig.json",
+      "sha256": "57e9cd1b17d45522f5b17ab268cad387d3c98ee4b74ce6156f4087aa0e919f0c",
+      "bytes": 249,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "57e9cd1b17d45522f5b17ab268cad387d3c98ee4b74ce6156f4087aa0e919f0c",
+          "verifiedBytes": 249
+        }
+      ]
+    },
+    {
+      "framework": "lit",
+      "path": "packages/lit/vite.config.ts",
+      "baselinePath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/lit/vite.config.ts",
+      "sha256": "3d04fe70a03d2898a797204d177b620857cf3b924b3fa622275cdf10f3036001",
+      "bytes": 420,
+      "provenance": [
+        {
+          "stage": "T01-full-numbered-source",
+          "source": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+          "recordedHashSource": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json",
+          "verifiedSha256": "3d04fe70a03d2898a797204d177b620857cf3b924b3fa622275cdf10f3036001",
+          "verifiedBytes": 420
+        }
+      ]
+    }
+  ]
+}

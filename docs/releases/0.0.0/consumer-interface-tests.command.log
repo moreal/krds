@@ -1,0 +1,16 @@
+✔ stable complete source inventory survives isolated preview changes and detects added stable files (70.927041ms)
+✔ stable artifact binding does not include unavailable or changed preview candidates (0.605583ms)
+✔ actual captured command receipt rejects changed logs, command identity, and nonzero execution (93.611333ms)
+✔ hash-bound lock/compiler/candidate files reject changes to accepted bytes (3.283167ms)
+✔ packed internal ranges cannot hide a mismatched candidate with consumer overrides (0.791291ms)
+✔ actual tar parser rejects extraction escapes and executable symlinks (1.590875ms)
+✔ source drift rejects previous evidence before inspecting any tarballs (0.512583ms)
+✔ debug-only inventory cannot satisfy final candidate verification (0.096208ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 223.800584

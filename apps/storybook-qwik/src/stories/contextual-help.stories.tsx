@@ -1,0 +1,12 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-contextual-help',title:'KRDS/contextual-help',component:CatalogStory,args:{componentId:'contextual-help'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Information:Story={name:"information",args:{caseId:"information"}};
+export const Help:Story={name:"help",args:{caseId:"help"}};
+export const SixPlacements:Story={name:"six-placements",args:{caseId:"six-placements"}};
+export const InteractiveLink:Story={name:"interactive-link",args:{caseId:"interactive-link"}};
+export const NarrowEdge:Story={name:"narrow-edge",args:{caseId:"narrow-edge"}};
+export const RemovedTrigger:Story={name:"removed-trigger",args:{caseId:"removed-trigger"}};
+export const ControlledRejected:Story={name:"controlled-rejected",args:{caseId:"controlled-rejected"}};

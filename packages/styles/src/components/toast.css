@@ -1,0 +1,7 @@
+/* KRDS-derived: frozen HTML toast information/warning guidance; no kit-specific toast CSS; semantic guidance: specs/components/toast.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="toast"][data-krds-part="root"] { position: fixed; z-index: 90; inset-inline: var(--krds-gap-5); inset-block-end: calc(10rem + env(safe-area-inset-bottom, 0px)); margin-inline: auto; inline-size: fit-content; max-inline-size: min(40rem, calc(100vw - 3.2rem)); padding: var(--krds-padding-5) var(--krds-padding-7); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-medium4); background: var(--krds-light-color-surface-inverse); color: var(--krds-light-color-text-basic-inverse); pointer-events: none; }
+[data-krds-component="toast"][data-krds-part="message"] { margin: 0; white-space: normal; }
+[data-krds-component="toast"][data-krds-part="root"][data-krds-tone="warning"] { border: var(--krds-number-3) double currentColor; }
+/* Native generation timers request dismissal. CSS never delays, fades, hides or repeats it. */
+@media (forced-colors: active) { [data-krds-component="toast"][data-krds-part="root"] { background: Canvas; color: CanvasText; border-color: CanvasText; } }

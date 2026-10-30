@@ -1,0 +1,14 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-help-panel',title:'KRDS/help-panel',component:CatalogStory,args:{componentId:'help-panel'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const DesktopOpen:Story={name:"desktop-open",args:{caseId:"desktop-open"}};
+export const Initial:Story={name:"initial",args:{caseId:"initial"}};
+export const ContextDetail:Story={name:"context-detail",args:{caseId:"context-detail"}};
+export const NarrowModal:Story={name:"narrow-modal",args:{caseId:"narrow-modal"}};
+export const TopicTriggerRemoved:Story={name:"topic-trigger-removed",args:{caseId:"topic-trigger-removed"}};
+export const HelpTutorialTabs:Story={name:"help-tutorial-tabs",args:{caseId:"help-tutorial-tabs"}};
+export const NarrowTopicIconReturn:Story={name:"narrow-topic-icon-return",args:{caseId:"narrow-topic-icon-return"}};
+export const ControlledCloseRejected:Story={name:"controlled-close-rejected",args:{caseId:"controlled-close-rejected"}};
+export const PanelOpenerRemoved:Story={name:"panel-opener-removed",args:{caseId:"panel-opener-removed"}};

@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-critical-alert', title: 'KRDS/critical-alert', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const HighUrgency: Story = { name: "high-urgency", parameters: { __id: "krds-critical-alert--high-urgency" }, render: () => <CatalogStory componentId="critical-alert" caseId="high-urgency"/> };
+export const MediumUrgency: Story = { name: "medium-urgency", parameters: { __id: "krds-critical-alert--medium-urgency" }, render: () => <CatalogStory componentId="critical-alert" caseId="medium-urgency"/> };
+export const LowUrgency: Story = { name: "low-urgency", parameters: { __id: "krds-critical-alert--low-urgency" }, render: () => <CatalogStory componentId="critical-alert" caseId="low-urgency"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-critical-alert--narrow" }, render: () => <CatalogStory componentId="critical-alert" caseId="narrow"/> };
+export const PagePlacement: Story = { name: "page-placement", parameters: { __id: "krds-critical-alert--page-placement" }, render: () => <CatalogStory componentId="critical-alert" caseId="page-placement"/> };

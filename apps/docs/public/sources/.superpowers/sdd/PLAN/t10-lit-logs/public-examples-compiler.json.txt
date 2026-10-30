@@ -1,0 +1,17 @@
+{
+  "command": [
+    "node",
+    "tools/yarn.mjs",
+    "workspace",
+    "@unofficial-krds/fixture-lit",
+    "typecheck"
+  ],
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": "",
+  "sourcePath": "apps/fixture-lit/src/examples/catalog.ts",
+  "sourceSha256": "31eda727a5cbf37dd2c329a8d61c5fe8a4bbcc549d663e8a3bc0b0d98ee16292",
+  "framework": "lit",
+  "componentCount": 54,
+  "publicPackageConsumption": true
+}

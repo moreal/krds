@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-side-navigation', title: 'KRDS/Catalog/SideNavigation', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'side-navigation'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Simple: Story = {name: "simple", args: {caseId: "simple"}};
+export const WithHeader: Story = {name: "with-header", args: {caseId: "with-header"}};
+export const TwoOpenBranches: Story = {name: "two-open-branches", args: {caseId: "two-open-branches"}};
+export const DeepProgressive: Story = {name: "deep-progressive", args: {caseId: "deep-progressive"}};
+export const MobileDropdown: Story = {name: "mobile-dropdown", args: {caseId: "mobile-dropdown"}};
+export const LongMenu: Story = {name: "long-menu", args: {caseId: "long-menu"}};

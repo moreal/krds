@@ -1,0 +1,114 @@
+{
+  "name": "storybook-framework-qwik",
+  "version": "0.6.1",
+  "description": "Storybook for Qwik: View Qwik components in isolation.",
+  "keywords": [
+    "storybook",
+    "hydration",
+    "resumable",
+    "qwik",
+    "reactive",
+    "framework",
+    "components",
+    "builder.io"
+  ],
+  "type": "module",
+  "//": "not sure why dist/preview is needed, but it is",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./preset": {
+      "require": "./dist/preset.js",
+      "import": "./dist/preset.js",
+      "types": "./dist/preset.d.ts"
+    },
+    "./dist/preview.js": {
+      "require": "./dist/preview.js",
+      "import": "./dist/preview.js",
+      "types": "./dist/preview.d.ts"
+    },
+    "./preview.js": {
+      "require": "./dist/preview.js",
+      "import": "./dist/preview.js",
+      "types": "./dist/preview.d.ts"
+    },
+    "./qwik-city-decorator": {
+      "require": "./dist/qwik-city-decorator.js",
+      "import": "./dist/qwik-city-decorator.js",
+      "types": "./dist/qwik-city-decorator.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/index.d.ts"
+      ],
+      "qwik-city-decorator": [
+        "./dist/qwik-city-decorator.d.ts"
+      ]
+    }
+  },
+  "homepage": "https://github.com/literalpie/storybook-framework-qwik",
+  "bugs": {
+    "url": "https://github.com/literalpie/storybook-framework-qwik"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/literalpie/storybook-framework-qwik.git",
+    "directory": "app/qwik"
+  },
+  "license": "MIT",
+  "files": [
+    "README.md",
+    "./preset.js",
+    "./dist/**/*.js",
+    "./template/cli/**",
+    "*.js",
+    "*.d.ts",
+    "./dist/*.d.ts"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "watch": "tsc --watch --outDir ./dist --listEmittedFiles",
+    "build": "tsc --outDir ./dist --listEmittedFiles",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "release": "pnpm build && pnpm auto shipit"
+  },
+  "dependencies": {
+    "@storybook/builder-vite": "^10.3.3",
+    "magic-string": "^0.30.21",
+    "react-docgen-typescript": "^2.2.2"
+  },
+  "peerDependencies": {
+    "@builder.io/qwik": ">=1.0.0"
+  },
+  "optionalDependencies": {
+    "@builder.io/qwik-city": "^1.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "auto": "11.3.6",
+    "storybook": "10.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "literalpie <benjaminkindle@yahoo.com>",
+  "auto": {
+    "plugins": [
+      "npm"
+    ]
+  }
+}

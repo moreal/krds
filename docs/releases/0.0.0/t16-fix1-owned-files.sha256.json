@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "status": "intermediate-fix1-review-freeze-F1-open",
+  "releaseCandidateFrozen": false,
+  "remainingImplementation": [
+    "F1 producer-specific/trusted acceptance validators and genuine recorder interfaces"
+  ],
+  "recordedAt": "2026-10-30T06:53:44.783460+00:00",
+  "testCommand": "node tools/yarn.mjs test:release",
+  "testExitCode": 0,
+  "testPassed": 19,
+  "consumerInterfaceTests": {
+    "command": "node tools/yarn.mjs exec node --test tests/consumers/pipeline.test.mjs tests/consumers/interface.test.mjs",
+    "exitCode": 0,
+    "passed": 8
+  },
+  "acceptanceCommand": "node tools/yarn.mjs verify:release",
+  "acceptanceExitCode": 1,
+  "acceptanceResult": {
+    "M1": "blocked",
+    "M2": "blocked",
+    "M3": "failed",
+    "createdAt": "2026-10-30T06:53:01.853Z"
+  },
+  "files": [
+    {
+      "path": "tools/verify-release.mjs",
+      "sha256": "ec5010faf950148e822410f47bddc639f0d4495ecb0f1804bf78561bebee40a6",
+      "bytes": 37189
+    },
+    {
+      "path": "tools/verify-release.test.mjs",
+      "sha256": "86c3c1e3730e4342923b3c57178702530e08f8514943457442e2e6a99240526a",
+      "bytes": 14304
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T16-report.md",
+      "sha256": "1556658d60d7a33314f079bd8d192c86243c470cf4451ea86edf596de3e8f6f7",
+      "bytes": 18528
+    },
+    {
+      "path": "docs/releases/0.0.0/README.md",
+      "sha256": "7c6fdebc99f9b1038cc066abb8b9bb4495cc3e384002dfd80aa76a8a4b2533da",
+      "bytes": 5153
+    },
+    {
+      "path": "docs/releases/0.0.0/artifacts.json",
+      "sha256": "d214757e5685a31081b29cb6d1c394ec5cb037e8eb17182776f059a80b419e0f",
+      "bytes": 1334
+    },
+    {
+      "path": "docs/releases/0.0.0/compatibility.md",
+      "sha256": "d604400ea465826330080eb7f53675897656afcce26af1b6b8ef82a67b0d0cf7",
+      "bytes": 2204
+    },
+    {
+      "path": "docs/releases/0.0.0/consumer-interface-tests.command.log",
+      "sha256": "dd9931451e8f773fbaa5bcd76474add1bb6a4e57fbca4a5a7481cec2f601aabd",
+      "bytes": 887
+    },
+    {
+      "path": "docs/releases/0.0.0/licenses.md",
+      "sha256": "8cf91e17db964e84a8bf2ae89587404dba225e1a0b76494bcb4bfa656db2ffbb",
+      "bytes": 858
+    },
+    {
+      "path": "docs/releases/0.0.0/release-summary.md",
+      "sha256": "97d0769e283c65e9af6c677377b6ac3c2405e3cde507f0b6cc10d929f40bb45e",
+      "bytes": 6698
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix1.patch",
+      "sha256": "aac6904dff7de5591eb029aa8c702b5bd8e5087a901365dd20e747a5b5fcc9a1",
+      "bytes": 64396
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-source.patch",
+      "sha256": "ca4d08efa5cc4a38b83f01263aa18526072355862d04fd0a3d4c17589146ff7d",
+      "bytes": 52273
+    },
+    {
+      "path": "docs/releases/0.0.0/test-release.command.log",
+      "sha256": "8a4f43b1598c8dc365d9cb7a1fbb9f05bd76c99c3a0415de404f23bdf9800303",
+      "bytes": 1867
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.command.log",
+      "sha256": "18b716d3733e51ac7c922fa46b70904b143736a4b2a0d41f04a46b199a1fe9b3",
+      "bytes": 10313
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.exit-code.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.json",
+      "sha256": "18b716d3733e51ac7c922fa46b70904b143736a4b2a0d41f04a46b199a1fe9b3",
+      "bytes": 10313
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.md",
+      "sha256": "d75bbd15dfd6258be935ceaf3c21bbe23ca2d6344690e5f299695ed8e3d34da6",
+      "bytes": 5062
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "tests/consumers/lib.mjs",
+      "sha256": "c0e91393fa59dcf126ea7d2b3686b5fad1d55433abc49c68864f22f436faaa51",
+      "bytes": 5910
+    },
+    {
+      "path": "tests/consumers/scopes.mjs",
+      "sha256": "d4f01ba990f437866392fbc5df14fab628550989e939dd32b75be42d99d96f54",
+      "bytes": 4102
+    },
+    {
+      "path": "tests/consumers/evidence.mjs",
+      "sha256": "3ab6bbce421ac574747be12d7b208878aab091b62ca8e06483e69c22b85e78f2",
+      "bytes": 19014
+    },
+    {
+      "path": "tests/consumers/templates/resolve.mjs",
+      "sha256": "f32d5ae96b5a65355411d9dc86cbb342af0914d0864ed90f7b3ba0e3a0cb5a16",
+      "bytes": 1471
+    },
+    {
+      "path": "tests/consumers/templates/browser.mjs",
+      "sha256": "e561a4960b790ccfc95ba82e18043020b72e8d17e4945924e198cb20cb034930",
+      "bytes": 2719
+    },
+    {
+      "path": "tools/pack-all.mjs",
+      "sha256": "8a09256855300a7bc166f926e63ca178574b97dbd8e2249137f8adc079babb2e",
+      "bytes": 7816
+    },
+    {
+      "path": "tools/inspect-tarballs.mjs",
+      "sha256": "81093808c7d575b5538a2a746757a8c19f72db13863e27d098bdb897c13b0b28",
+      "bytes": 9442
+    },
+    {
+      "path": "tools/test-consumers.mjs",
+      "sha256": "2bc41bc5c65482752e0c875d778bf45f59f5be45bbbaae0e7ae0ab3aaee701bf",
+      "bytes": 15515
+    },
+    {
+      "path": "tests/compatibility/evidence.mjs",
+      "sha256": "87e65d1c9768cd497406d7a28e53320021ace68c15b6b6272de3ffca4ba02be9",
+      "bytes": 2706
+    },
+    {
+      "path": "tests/compatibility/verify.mjs",
+      "sha256": "6b7debc4936d245bddc9d51a30357b584f43f1bdf8d6273dbbdd3b59c12376b0",
+      "bytes": 5461
+    },
+    {
+      "path": "tools/run-ssr-tests.mjs",
+      "sha256": "eb3f99801e46f0c383da1b02879d4d3796281d5f8898c8136e625c6e9a65e8a3",
+      "bytes": 5362
+    },
+    {
+      "path": "tools/check-coverage.mjs",
+      "sha256": "398795517cbfbbc2a917a0cc0c8e7acbf879f636765a0cc0702779f6af8f234f",
+      "bytes": 28935
+    },
+    {
+      "path": "package.json",
+      "sha256": "5e731a267a8b363d1d4aa201f03732208328d329d9876087482e003124e95a9d",
+      "bytes": 2051
+    },
+    {
+      "path": "yarn.lock",
+      "sha256": "4ca243c3a03ff4df3e29c921cdb6e4bb1d5d2c034e568ff59a63a5242a8aa694",
+      "bytes": 769977
+    },
+    {
+      "path": ".github/workflows/release-prepare.yml",
+      "sha256": "9af82bb92ca1cacdcc36a3ff5eeb0216082b46df5a8aef99a69362368574258f",
+      "bytes": 5861
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T14-interface-report.md",
+      "sha256": "55a9885ef85d272049bfa91059e4586caafb34eabd63d259dcc4bd2dc13195d4",
+      "bytes": 9478
+    }
+  ],
+  "countErratum": {
+    "previouslyRecorded": 9,
+    "actualNamedCommandCount": 8,
+    "originalManifest": ".superpowers/sdd/PLAN/task-T16-fix2-base/t16-fix1-owned-files.sha256.json",
+    "reason": "The separate retained-installation probe was not part of the named two-file command."
+  }
+}

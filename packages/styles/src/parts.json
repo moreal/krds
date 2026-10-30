@@ -1,0 +1,1973 @@
+{
+  "schemaVersion": 1,
+  "identity": "data-krds-component",
+  "part": "data-krds-part",
+  "state": "data-krds-state",
+  "stateMatch": "space-separated token membership (~=)",
+  "variant": "data-krds-variant",
+  "size": "data-krds-size",
+  "orientation": "data-krds-orientation",
+  "components": {
+    "button": {
+      "parts": [
+        "root",
+        "label",
+        "icon"
+      ],
+      "states": {
+        "root": [
+          "disabled"
+        ]
+      },
+      "variants": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "text",
+        "icon"
+      ],
+      "sizes": [
+        "xsmall",
+        "small",
+        "medium",
+        "large",
+        "xlarge"
+      ]
+    },
+    "native-select": {
+      "parts": [
+        "root",
+        "label",
+        "control",
+        "hint",
+        "error",
+        "icon"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "invalid"
+        ],
+        "control": [
+          "disabled",
+          "invalid"
+        ]
+      },
+      "sizes": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "modal": {
+      "parts": [
+        "root",
+        "trigger",
+        "backdrop",
+        "content",
+        "title",
+        "description",
+        "body",
+        "actions",
+        "close"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed"
+        ],
+        "backdrop": [
+          "open",
+          "closed"
+        ],
+        "content": [
+          "open",
+          "closed"
+        ]
+      }
+    },
+    "tabs": {
+      "parts": [
+        "root",
+        "list",
+        "trigger",
+        "panel",
+        "indicator"
+      ],
+      "states": {
+        "trigger": [
+          "selected",
+          "disabled"
+        ],
+        "panel": [
+          "active",
+          "inactive"
+        ]
+      },
+      "orientations": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "date-input": {
+      "parts": [
+        "root",
+        "label",
+        "control",
+        "start-input",
+        "end-input",
+        "trigger",
+        "hint",
+        "error",
+        "popup"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "invalid"
+        ],
+        "control": [
+          "disabled",
+          "invalid"
+        ],
+        "start-input": [
+          "disabled",
+          "invalid"
+        ],
+        "end-input": [
+          "disabled",
+          "invalid"
+        ],
+        "trigger": [
+          "open",
+          "closed"
+        ],
+        "popup": [
+          "open",
+          "closed"
+        ]
+      }
+    },
+    "calendar": {
+      "parts": [
+        "root",
+        "header",
+        "heading",
+        "previous",
+        "next",
+        "table",
+        "weekday",
+        "cell",
+        "day",
+        "footer",
+        "today",
+        "clear",
+        "cancel",
+        "confirm"
+      ],
+      "states": {
+        "day": [
+          "today",
+          "selected",
+          "range-start",
+          "range-end",
+          "in-range",
+          "outside-month",
+          "disabled"
+        ],
+        "previous": [
+          "disabled"
+        ],
+        "next": [
+          "disabled"
+        ],
+        "today": [
+          "disabled"
+        ],
+        "clear": [
+          "disabled"
+        ],
+        "cancel": [
+          "disabled"
+        ],
+        "confirm": [
+          "disabled"
+        ]
+      }
+    },
+    "masthead": {
+      "parts": [
+        "root",
+        "text"
+      ],
+      "states": {},
+      "presentation": {}
+    },
+    "identifier": {
+      "parts": [
+        "root",
+        "logo",
+        "text"
+      ],
+      "states": {
+        "root": [
+          "light",
+          "dark"
+        ]
+      },
+      "presentation": {
+        "theme": [
+          "light",
+          "dark"
+        ]
+      }
+    },
+    "header": {
+      "parts": [
+        "root",
+        "identity",
+        "utilities",
+        "utility-trigger",
+        "actions",
+        "search",
+        "navigation",
+        "mobile-trigger"
+      ],
+      "states": {
+        "root": [
+          "expanded",
+          "collapsed",
+          "sticky"
+        ],
+        "utility-trigger": [
+          "expanded",
+          "collapsed"
+        ],
+        "mobile-trigger": [
+          "expanded",
+          "collapsed"
+        ]
+      },
+      "presentation": {
+        "action-layout": [
+          "horizontal",
+          "vertical"
+        ]
+      }
+    },
+    "footer": {
+      "parts": [
+        "root",
+        "logo",
+        "contacts",
+        "utilities",
+        "policies",
+        "privacy-link",
+        "copyright",
+        "identifier"
+      ],
+      "states": {},
+      "presentation": {}
+    },
+    "skip-link": {
+      "parts": [
+        "root",
+        "list",
+        "item",
+        "link"
+      ],
+      "states": {
+        "root": [
+          "focus-visible"
+        ],
+        "link": [
+          "focus-visible"
+        ]
+      },
+      "presentation": {
+        "visibility": [
+          "focus-revealed",
+          "visible"
+        ]
+      }
+    },
+    "main-menu": {
+      "parts": [
+        "root",
+        "list",
+        "item",
+        "trigger",
+        "link",
+        "indicator",
+        "submenu",
+        "submenu-title",
+        "description",
+        "utilities",
+        "mobile-trigger",
+        "mobile-content",
+        "back",
+        "close",
+        "search"
+      ],
+      "states": {
+        "root": [
+          "expanded",
+          "collapsed",
+          "current",
+          "mobile-open"
+        ],
+        "item": [
+          "current",
+          "expanded",
+          "collapsed"
+        ],
+        "trigger": [
+          "expanded",
+          "collapsed",
+          "current"
+        ],
+        "link": [
+          "current"
+        ],
+        "submenu": [
+          "expanded",
+          "collapsed"
+        ],
+        "mobile-trigger": [
+          "expanded",
+          "collapsed"
+        ],
+        "mobile-content": [
+          "mobile-open"
+        ]
+      },
+      "presentation": {
+        "layout": [
+          "desktop",
+          "mobile"
+        ]
+      }
+    },
+    "breadcrumb": {
+      "parts": [
+        "root",
+        "list",
+        "item",
+        "link",
+        "home",
+        "separator",
+        "ellipsis"
+      ],
+      "states": {
+        "root": [
+          "current",
+          "collapsed"
+        ],
+        "item": [
+          "current",
+          "collapsed"
+        ],
+        "link": [
+          "current"
+        ],
+        "ellipsis": [
+          "collapsed"
+        ]
+      },
+      "presentation": {}
+    },
+    "side-navigation": {
+      "parts": [
+        "root",
+        "header",
+        "parent-link",
+        "list",
+        "item",
+        "link",
+        "trigger",
+        "submenu",
+        "indicator"
+      ],
+      "states": {
+        "root": [
+          "current",
+          "expanded",
+          "collapsed"
+        ],
+        "item": [
+          "current",
+          "expanded",
+          "collapsed"
+        ],
+        "link": [
+          "current"
+        ],
+        "trigger": [
+          "expanded",
+          "collapsed"
+        ],
+        "submenu": [
+          "expanded",
+          "collapsed"
+        ]
+      },
+      "presentation": {
+        "layout": [
+          "desktop",
+          "mobile"
+        ]
+      }
+    },
+    "in-page-navigation": {
+      "parts": [
+        "root",
+        "header",
+        "title",
+        "list",
+        "item",
+        "link",
+        "indicator",
+        "disclosure-trigger"
+      ],
+      "states": {
+        "root": [
+          "active",
+          "expanded",
+          "collapsed"
+        ],
+        "item": [
+          "active"
+        ],
+        "link": [
+          "active"
+        ],
+        "indicator": [
+          "active"
+        ],
+        "disclosure-trigger": [
+          "expanded",
+          "collapsed"
+        ],
+        "list": [
+          "expanded",
+          "collapsed"
+        ]
+      },
+      "presentation": {
+        "layout": [
+          "desktop-side",
+          "mobile-inline",
+          "mobile-disclosure"
+        ]
+      }
+    },
+    "pagination": {
+      "parts": [
+        "root",
+        "list",
+        "item",
+        "link",
+        "previous",
+        "next",
+        "ellipsis",
+        "input",
+        "total",
+        "go",
+        "load-more",
+        "count"
+      ],
+      "states": {
+        "root": [
+          "current",
+          "disabled",
+          "pending",
+          "invalid"
+        ],
+        "item": [
+          "current"
+        ],
+        "link": [
+          "current",
+          "disabled"
+        ],
+        "previous": [
+          "disabled"
+        ],
+        "next": [
+          "disabled"
+        ],
+        "input": [
+          "invalid"
+        ],
+        "go": [
+          "disabled"
+        ],
+        "load-more": [
+          "pending",
+          "disabled"
+        ],
+        "count": [
+          "pending"
+        ]
+      },
+      "presentation": {
+        "variant": [
+          "number-links",
+          "direct-page",
+          "load-more"
+        ]
+      }
+    },
+    "structured-list": {
+      "parts": [
+        "root",
+        "header",
+        "toolbar",
+        "list",
+        "item",
+        "preview",
+        "content",
+        "metadata",
+        "cta",
+        "badges",
+        "tags",
+        "actions",
+        "pagination"
+      ],
+      "states": {
+        "root": [
+          "selected",
+          "pending",
+          "empty"
+        ],
+        "list": [
+          "pending",
+          "empty"
+        ],
+        "item": [
+          "selected"
+        ],
+        "toolbar": [
+          "pending"
+        ],
+        "pagination": [
+          "pending"
+        ]
+      },
+      "presentation": {
+        "variant": [
+          "list",
+          "table"
+        ]
+      }
+    },
+    "critical-alert": {
+      "parts": [
+        "root",
+        "icon",
+        "label",
+        "message",
+        "link"
+      ],
+      "states": {
+        "root": [
+          "high",
+          "medium",
+          "low"
+        ],
+        "label": [
+          "high",
+          "medium",
+          "low"
+        ]
+      },
+      "presentation": {
+        "urgency": [
+          "high",
+          "medium",
+          "low"
+        ]
+      }
+    },
+    "disclosure": {
+      "parts": [
+        "root",
+        "trigger",
+        "icon",
+        "content"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed"
+        ],
+        "trigger": [
+          "open",
+          "closed"
+        ],
+        "content": [
+          "open",
+          "closed"
+        ]
+      },
+      "presentation": {}
+    },
+    "badge": {
+      "parts": [
+        "root",
+        "label"
+      ],
+      "states": {
+        "root": [
+          "outline",
+          "filled",
+          "pastel",
+          "numeric",
+          "secondary",
+          "gray",
+          "point",
+          "danger",
+          "warning",
+          "success",
+          "information",
+          "disabled",
+          "small",
+          "medium",
+          "large"
+        ]
+      },
+      "presentation": {
+        "appearance": [
+          "outline",
+          "filled",
+          "pastel"
+        ],
+        "tone": [
+          "secondary",
+          "gray",
+          "point",
+          "danger",
+          "warning",
+          "success",
+          "information",
+          "disabled"
+        ],
+        "size": [
+          "small",
+          "medium",
+          "large"
+        ]
+      }
+    },
+    "accordion": {
+      "parts": [
+        "root",
+        "item",
+        "heading",
+        "trigger",
+        "icon",
+        "panel"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed"
+        ],
+        "item": [
+          "open",
+          "closed"
+        ],
+        "trigger": [
+          "open",
+          "closed"
+        ],
+        "panel": [
+          "open",
+          "closed"
+        ]
+      },
+      "presentation": {
+        "variant": [
+          "default",
+          "line"
+        ]
+      }
+    },
+    "image": {
+      "parts": [
+        "root",
+        "figure",
+        "caption",
+        "description"
+      ],
+      "states": {
+        "root": [
+          "loaded",
+          "error"
+        ],
+        "figure": [
+          "loaded",
+          "error"
+        ]
+      },
+      "presentation": {}
+    },
+    "carousel": {
+      "parts": [
+        "root",
+        "viewport",
+        "list",
+        "slide",
+        "previous",
+        "next",
+        "indicators",
+        "indicator",
+        "position",
+        "play-pause",
+        "stop-intent"
+      ],
+      "states": {
+        "root": [
+          "active",
+          "hidden",
+          "playing",
+          "paused",
+          "disabled"
+        ],
+        "slide": [
+          "active",
+          "hidden"
+        ],
+        "indicator": [
+          "active"
+        ],
+        "previous": [
+          "disabled"
+        ],
+        "next": [
+          "disabled"
+        ],
+        "play-pause": [
+          "playing",
+          "paused",
+          "disabled"
+        ],
+        "viewport": [
+          "playing",
+          "paused"
+        ],
+        "stop-intent": [
+          "paused",
+          "disabled"
+        ]
+      },
+      "presentation": {
+        "layout": [
+          "single",
+          "multiple"
+        ],
+        "indicator": [
+          "dots",
+          "fraction"
+        ]
+      }
+    },
+    "table": {
+      "parts": [
+        "root",
+        "caption",
+        "head",
+        "body",
+        "row",
+        "header-cell",
+        "cell",
+        "sort-trigger",
+        "scroll-region",
+        "scroll-previous",
+        "scroll-next"
+      ],
+      "states": {
+        "root": [
+          "ascending",
+          "descending",
+          "overflow"
+        ],
+        "header-cell": [
+          "ascending",
+          "descending"
+        ],
+        "sort-trigger": [
+          "ascending",
+          "descending"
+        ],
+        "scroll-region": [
+          "overflow"
+        ],
+        "scroll-previous": [
+          "overflow"
+        ],
+        "scroll-next": [
+          "overflow"
+        ]
+      },
+      "presentation": {
+        "layout": [
+          "basic",
+          "narrow-scroll",
+          "narrow-stacked"
+        ]
+      }
+    },
+    "text-list": {
+      "parts": [
+        "root",
+        "item",
+        "marker",
+        "content",
+        "nested-list"
+      ],
+      "states": {
+        "root": [
+          "ordered",
+          "unordered",
+          "level-1",
+          "level-2",
+          "level-3"
+        ],
+        "nested-list": [
+          "ordered",
+          "unordered",
+          "level-1",
+          "level-2",
+          "level-3"
+        ],
+        "item": [
+          "level-1",
+          "level-2",
+          "level-3"
+        ]
+      },
+      "presentation": {
+        "marker": [
+          "dot",
+          "dash",
+          "hollow"
+        ],
+        "ordering": [
+          "ordered",
+          "unordered"
+        ]
+      }
+    },
+    "favicon": {
+      "parts": [],
+      "states": {},
+      "presentation": {}
+    },
+    "link": {
+      "parts": [
+        "root",
+        "label",
+        "icon"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "external"
+        ]
+      },
+      "presentation": {
+        "appearance": [
+          "basic",
+          "emphasis"
+        ],
+        "size": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "underline": [
+          "true",
+          "false"
+        ]
+      }
+    },
+    "fab": {
+      "parts": [
+        "root",
+        "trigger",
+        "icon",
+        "label",
+        "overlay",
+        "actions",
+        "action"
+      ],
+      "states": {
+        "root": [
+          "expanded",
+          "collapsed",
+          "disabled"
+        ],
+        "trigger": [
+          "expanded",
+          "collapsed",
+          "disabled"
+        ],
+        "actions": [
+          "expanded",
+          "collapsed"
+        ],
+        "action": [
+          "disabled"
+        ],
+        "overlay": [
+          "expanded",
+          "collapsed"
+        ]
+      },
+      "presentation": {
+        "variant": [
+          "single-icon",
+          "extended-label",
+          "expandable"
+        ]
+      }
+    },
+    "radio-group": {
+      "parts": [
+        "root",
+        "legend",
+        "item",
+        "control",
+        "indicator",
+        "label",
+        "help",
+        "error"
+      ],
+      "states": {
+        "root": [
+          "checked",
+          "unchecked",
+          "disabled",
+          "invalid"
+        ],
+        "item": [
+          "checked",
+          "unchecked",
+          "disabled",
+          "invalid"
+        ],
+        "control": [
+          "checked",
+          "unchecked",
+          "disabled",
+          "invalid"
+        ],
+        "indicator": [
+          "checked",
+          "unchecked",
+          "disabled",
+          "invalid"
+        ]
+      },
+      "presentation": {
+        "appearance": [
+          "default",
+          "chip"
+        ],
+        "size": [
+          "medium",
+          "large"
+        ]
+      }
+    },
+    "checkbox": {
+      "parts": [
+        "root",
+        "control",
+        "indicator",
+        "label",
+        "legend",
+        "help",
+        "error"
+      ],
+      "states": {
+        "root": [
+          "checked",
+          "unchecked",
+          "mixed",
+          "disabled",
+          "invalid"
+        ],
+        "control": [
+          "checked",
+          "unchecked",
+          "mixed",
+          "disabled",
+          "invalid"
+        ],
+        "indicator": [
+          "checked",
+          "unchecked",
+          "mixed",
+          "disabled",
+          "invalid"
+        ]
+      },
+      "presentation": {
+        "appearance": [
+          "default",
+          "chip"
+        ],
+        "size": [
+          "medium",
+          "large"
+        ]
+      }
+    },
+    "tag": {
+      "parts": [
+        "root",
+        "list",
+        "item",
+        "label",
+        "icon",
+        "remove",
+        "clear",
+        "more"
+      ],
+      "states": {
+        "root": [
+          "selected",
+          "disabled",
+          "expanded"
+        ],
+        "item": [
+          "selected",
+          "disabled"
+        ],
+        "remove": [
+          "disabled"
+        ],
+        "clear": [
+          "disabled"
+        ],
+        "more": [
+          "expanded",
+          "disabled"
+        ],
+        "list": [
+          "expanded"
+        ]
+      },
+      "presentation": {
+        "mode": [
+          "static",
+          "toggle",
+          "removable",
+          "add-filter",
+          "link"
+        ]
+      }
+    },
+    "switch": {
+      "parts": [
+        "root",
+        "control",
+        "track",
+        "handle",
+        "state-icon",
+        "label",
+        "help"
+      ],
+      "states": {
+        "root": [
+          "checked",
+          "unchecked",
+          "disabled"
+        ],
+        "control": [
+          "checked",
+          "unchecked",
+          "disabled"
+        ],
+        "track": [
+          "checked",
+          "unchecked",
+          "disabled"
+        ],
+        "handle": [
+          "checked",
+          "unchecked",
+          "disabled"
+        ],
+        "state-icon": [
+          "checked",
+          "unchecked",
+          "disabled"
+        ]
+      },
+      "presentation": {
+        "size": [
+          "medium",
+          "large"
+        ]
+      }
+    },
+    "step-indicator": {
+      "parts": [
+        "root",
+        "list",
+        "item",
+        "number",
+        "label",
+        "connector",
+        "current-indicator",
+        "complete-indicator"
+      ],
+      "states": {
+        "root": [
+          "current",
+          "complete",
+          "pending",
+          "blocked"
+        ],
+        "item": [
+          "current",
+          "complete",
+          "pending",
+          "blocked"
+        ],
+        "number": [
+          "current",
+          "complete",
+          "pending",
+          "blocked"
+        ],
+        "label": [
+          "current",
+          "complete",
+          "pending",
+          "blocked"
+        ],
+        "connector": [
+          "current",
+          "complete",
+          "pending",
+          "blocked"
+        ],
+        "current-indicator": [
+          "current"
+        ],
+        "complete-indicator": [
+          "complete"
+        ]
+      },
+      "presentation": {
+        "mode": [
+          "sequential",
+          "adaptive"
+        ]
+      }
+    },
+    "spinner": {
+      "parts": [
+        "root",
+        "track",
+        "indicator",
+        "label",
+        "status"
+      ],
+      "states": {
+        "root": [
+          "pending",
+          "complete",
+          "determinate",
+          "indeterminate"
+        ],
+        "track": [
+          "pending",
+          "complete",
+          "determinate",
+          "indeterminate"
+        ],
+        "indicator": [
+          "pending",
+          "complete",
+          "determinate",
+          "indeterminate"
+        ],
+        "status": [
+          "pending",
+          "complete"
+        ],
+        "label": [
+          "pending",
+          "complete"
+        ]
+      },
+      "presentation": {
+        "size": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "layout": [
+          "inline",
+          "region"
+        ]
+      }
+    },
+    "help-panel": {
+      "parts": [
+        "root",
+        "opener",
+        "topic-trigger",
+        "header",
+        "tabs",
+        "close",
+        "title",
+        "body",
+        "related"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "active-topic",
+          "modal"
+        ],
+        "opener": [
+          "open",
+          "closed"
+        ],
+        "topic-trigger": [
+          "active-topic"
+        ],
+        "tabs": [
+          "active-topic"
+        ],
+        "body": [
+          "active-topic"
+        ],
+        "related": [
+          "active-topic"
+        ]
+      },
+      "presentation": {
+        "layout": [
+          "desktop",
+          "narrow-modal"
+        ],
+        "mode": [
+          "help",
+          "tutorial"
+        ]
+      }
+    },
+    "tutorial-panel": {
+      "parts": [
+        "root",
+        "opener",
+        "header",
+        "tabs",
+        "close",
+        "title",
+        "back",
+        "task-list",
+        "task",
+        "step-list",
+        "stop"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "running",
+          "idle",
+          "active-step"
+        ],
+        "opener": [
+          "open",
+          "closed"
+        ],
+        "tabs": [
+          "running",
+          "idle"
+        ],
+        "task": [
+          "active-step"
+        ],
+        "step-list": [
+          "active-step"
+        ],
+        "stop": [
+          "running",
+          "idle"
+        ]
+      },
+      "presentation": {
+        "layout": [
+          "desktop",
+          "narrow-modal"
+        ]
+      }
+    },
+    "contextual-help": {
+      "parts": [
+        "root",
+        "trigger",
+        "icon",
+        "popover",
+        "title",
+        "body",
+        "close"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "top-start",
+          "top",
+          "top-end",
+          "bottom-start",
+          "bottom",
+          "bottom-end"
+        ],
+        "trigger": [
+          "open",
+          "closed"
+        ],
+        "popover": [
+          "open",
+          "closed",
+          "top-start",
+          "top",
+          "top-end",
+          "bottom-start",
+          "bottom",
+          "bottom-end"
+        ]
+      },
+      "presentation": {
+        "variant": [
+          "information",
+          "help"
+        ],
+        "placement": [
+          "top-start",
+          "top",
+          "top-end",
+          "bottom-start",
+          "bottom",
+          "bottom-end"
+        ]
+      }
+    },
+    "coach-mark": {
+      "parts": [
+        "root",
+        "spotlight",
+        "popover",
+        "title",
+        "instruction",
+        "position",
+        "actions",
+        "stop",
+        "previous",
+        "next"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "current-step",
+          "waiting",
+          "missing-target"
+        ],
+        "spotlight": [
+          "open",
+          "closed",
+          "current-step"
+        ],
+        "popover": [
+          "open",
+          "closed",
+          "current-step",
+          "waiting",
+          "missing-target"
+        ],
+        "position": [
+          "current-step"
+        ],
+        "previous": [
+          "current-step"
+        ],
+        "next": [
+          "current-step"
+        ]
+      },
+      "presentation": {}
+    },
+    "tooltip": {
+      "parts": [
+        "root",
+        "trigger",
+        "popup",
+        "icon",
+        "text"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "suppressed",
+          "top-start",
+          "top",
+          "top-end",
+          "bottom-start",
+          "bottom",
+          "bottom-end"
+        ],
+        "trigger": [
+          "open",
+          "closed",
+          "suppressed"
+        ],
+        "popup": [
+          "open",
+          "closed",
+          "suppressed",
+          "top-start",
+          "top",
+          "top-end",
+          "bottom-start",
+          "bottom",
+          "bottom-end"
+        ]
+      },
+      "presentation": {
+        "relationship": [
+          "description",
+          "label"
+        ],
+        "placement": [
+          "top-start",
+          "top",
+          "top-end",
+          "bottom-start",
+          "bottom",
+          "bottom-end"
+        ]
+      }
+    },
+    "tts": {
+      "parts": [
+        "root",
+        "play",
+        "pause",
+        "stop",
+        "label",
+        "status"
+      ],
+      "states": {
+        "root": [
+          "idle",
+          "playing",
+          "paused",
+          "error",
+          "unsupported"
+        ],
+        "play": [
+          "idle",
+          "playing",
+          "paused",
+          "error",
+          "unsupported"
+        ],
+        "pause": [
+          "playing",
+          "paused",
+          "unsupported"
+        ],
+        "stop": [
+          "idle",
+          "playing",
+          "paused",
+          "unsupported"
+        ],
+        "status": [
+          "idle",
+          "playing",
+          "paused",
+          "error",
+          "unsupported"
+        ]
+      },
+      "presentation": {
+        "size": [
+          "xsmall",
+          "small",
+          "medium"
+        ]
+      }
+    },
+    "textarea": {
+      "parts": [
+        "root",
+        "label",
+        "control",
+        "help",
+        "error",
+        "count"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "readonly",
+          "invalid",
+          "focused"
+        ],
+        "control": [
+          "disabled",
+          "readonly",
+          "invalid",
+          "focused"
+        ],
+        "count": [
+          "invalid"
+        ]
+      },
+      "presentation": {}
+    },
+    "text-input": {
+      "parts": [
+        "root",
+        "label",
+        "control",
+        "help",
+        "error",
+        "icon-action"
+      ],
+      "states": {
+        "root": [
+          "invalid",
+          "success",
+          "disabled",
+          "readonly",
+          "focused"
+        ],
+        "control": [
+          "invalid",
+          "success",
+          "disabled",
+          "readonly",
+          "focused"
+        ],
+        "icon-action": [
+          "disabled"
+        ]
+      },
+      "presentation": {
+        "size": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "status": [
+          "default",
+          "error",
+          "success"
+        ]
+      }
+    },
+    "file-upload": {
+      "parts": [
+        "root",
+        "label",
+        "description",
+        "help",
+        "picker",
+        "file-input",
+        "dropzone",
+        "count",
+        "list",
+        "item",
+        "filename",
+        "size",
+        "status",
+        "progress",
+        "remove",
+        "error"
+      ],
+      "states": {
+        "root": [
+          "staged",
+          "drag-over",
+          "uploading",
+          "success",
+          "error",
+          "disabled"
+        ],
+        "picker": [
+          "disabled"
+        ],
+        "file-input": [
+          "disabled"
+        ],
+        "dropzone": [
+          "drag-over",
+          "disabled"
+        ],
+        "list": [
+          "disabled"
+        ],
+        "item": [
+          "staged",
+          "uploading",
+          "success",
+          "error",
+          "disabled"
+        ],
+        "status": [
+          "staged",
+          "uploading",
+          "success",
+          "error"
+        ],
+        "progress": [
+          "uploading",
+          "success",
+          "error"
+        ],
+        "remove": [
+          "disabled"
+        ],
+        "error": [
+          "error"
+        ]
+      },
+      "presentation": {
+        "variant": [
+          "button",
+          "dropzone"
+        ]
+      }
+    },
+    "language-switcher": {
+      "parts": [
+        "root",
+        "trigger",
+        "globe",
+        "current",
+        "list",
+        "option",
+        "external-icon"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "current"
+        ],
+        "trigger": [
+          "open",
+          "closed"
+        ],
+        "list": [
+          "open",
+          "closed"
+        ],
+        "option": [
+          "current"
+        ]
+      },
+      "presentation": {}
+    },
+    "resize": {
+      "parts": [
+        "root",
+        "trigger",
+        "current",
+        "list",
+        "option",
+        "scale-icon"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "selected"
+        ],
+        "trigger": [
+          "open",
+          "closed"
+        ],
+        "list": [
+          "open",
+          "closed"
+        ],
+        "option": [
+          "selected"
+        ]
+      },
+      "presentation": {}
+    },
+    "accessible-media": {
+      "parts": [
+        "root",
+        "media",
+        "caption-track",
+        "alternatives",
+        "transcript",
+        "description",
+        "sign-language"
+      ],
+      "states": {
+        "root": [
+          "playing",
+          "paused",
+          "ended",
+          "error"
+        ],
+        "media": [
+          "playing",
+          "paused",
+          "ended",
+          "error"
+        ]
+      },
+      "presentation": {
+        "kind": [
+          "audio",
+          "silent-video",
+          "multimedia"
+        ]
+      }
+    },
+    "visually-hidden": {
+      "parts": [
+        "root",
+        "overlay-control",
+        "visible-surrogate"
+      ],
+      "states": {
+        "root": [
+          "text",
+          "interactive-overlay",
+          "focus-visible"
+        ],
+        "overlay-control": [
+          "interactive-overlay",
+          "focus-visible"
+        ],
+        "visible-surrogate": [
+          "focus-visible"
+        ]
+      },
+      "presentation": {
+        "variant": [
+          "text",
+          "interactive-overlay",
+          "aria-association"
+        ]
+      }
+    },
+    "range-slider": {
+      "parts": [
+        "root",
+        "label",
+        "control",
+        "track",
+        "range",
+        "thumb",
+        "output",
+        "minimum",
+        "maximum"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "dragging"
+        ],
+        "control": [
+          "disabled",
+          "dragging"
+        ],
+        "track": [
+          "disabled",
+          "dragging"
+        ],
+        "range": [
+          "disabled"
+        ],
+        "thumb": [
+          "disabled",
+          "dragging"
+        ]
+      },
+      "presentation": {}
+    },
+    "back-button": {
+      "parts": [
+        "root",
+        "icon",
+        "label"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "pending-confirmation"
+        ]
+      },
+      "presentation": {}
+    },
+    "bottom-sheet": {
+      "parts": [
+        "root",
+        "backdrop",
+        "content",
+        "handle",
+        "header",
+        "title",
+        "body",
+        "actions",
+        "close"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "dragging"
+        ],
+        "backdrop": [
+          "open",
+          "closed"
+        ],
+        "content": [
+          "open",
+          "closed",
+          "dragging"
+        ],
+        "handle": [
+          "dragging"
+        ]
+      },
+      "presentation": {}
+    },
+    "quantity-toggle": {
+      "parts": [
+        "root",
+        "label",
+        "decrement",
+        "output",
+        "increment",
+        "hidden-input"
+      ],
+      "states": {
+        "root": [
+          "at-minimum",
+          "at-maximum",
+          "disabled"
+        ],
+        "decrement": [
+          "at-minimum",
+          "disabled"
+        ],
+        "increment": [
+          "at-maximum",
+          "disabled"
+        ],
+        "output": [
+          "at-minimum",
+          "at-maximum",
+          "disabled"
+        ],
+        "hidden-input": [
+          "disabled"
+        ]
+      },
+      "presentation": {}
+    },
+    "toast": {
+      "parts": [
+        "root",
+        "message"
+      ],
+      "states": {
+        "root": [
+          "information",
+          "warning",
+          "open",
+          "closed"
+        ],
+        "message": [
+          "information",
+          "warning",
+          "open",
+          "closed"
+        ]
+      },
+      "presentation": {
+        "tone": [
+          "information",
+          "warning"
+        ]
+      }
+    },
+    "snackbar": {
+      "parts": [
+        "root",
+        "icon",
+        "title",
+        "message",
+        "action",
+        "close"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed",
+          "action-pending",
+          "error"
+        ],
+        "action": [
+          "action-pending",
+          "error"
+        ],
+        "message": [
+          "error"
+        ]
+      },
+      "presentation": {}
+    },
+    "tab-bar": {
+      "parts": [
+        "root",
+        "list",
+        "item",
+        "link",
+        "icon",
+        "label",
+        "indicator",
+        "badge",
+        "menu-trigger"
+      ],
+      "states": {
+        "root": [
+          "current"
+        ],
+        "item": [
+          "current"
+        ],
+        "link": [
+          "current"
+        ],
+        "indicator": [
+          "current"
+        ]
+      },
+      "presentation": {}
+    }
+  }
+}

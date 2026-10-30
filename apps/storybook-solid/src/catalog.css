@@ -1,0 +1,8 @@
+[data-krds-component="tab-bar"][data-krds-part="root"]{position:fixed;inset-inline:0;inset-block-end:0;z-index:60}
+.catalog-outline { display:block; }
+@media(min-width:768px){.catalog-outline{display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,20rem);align-items:start;gap:2rem}.catalog-outline-navigation{grid-column:2;grid-row:1}.catalog-outline-body{grid-column:1;grid-row:1}}
+
+/* The example host measures its real navigation; fixed overlays clear that content. */
+[data-krds-host="bottom-layout"] [data-krds-component="fab"][data-krds-part="root"],
+[data-krds-host="bottom-layout"] [data-krds-component="toast"][data-krds-part="root"],
+[data-krds-host="bottom-layout"] [data-krds-component="snackbar"][data-krds-part="root"] { inset-block-end: calc(var(--krds-host-navigation-height, 0px) + 1rem + env(safe-area-inset-bottom, 0px)); }

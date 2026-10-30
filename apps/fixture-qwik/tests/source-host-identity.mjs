@@ -1,0 +1,6 @@
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+import {expect} from '@playwright/test';
+import {startProductionSsr} from '../server.mjs';
+const server=await startProductionSsr(),browser=await chromium.launch();
+try{const page=await browser.newPage(),errors=[];page.on('pageerror',error=>errors.push(String(error)));await page.goto(server.origin+'/catalog-resume.html?component=checkbox&case=outcome-01');const input=page.locator('[data-krds-component="checkbox"] input'),original=await input.elementHandle();assert(original);await input.click();await expect(page.locator('[data-krds-host="committed-value"]')).toHaveText('true');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));assert(await original.evaluate(node=>node.isConnected),'Original actual native control remains connected after host feedback');assert(await input.evaluate((node,before)=>node===before,original),'Same actual native control after host feedback');await expect(input).toBeChecked();assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:1,sameNativeNode:true,committed:true,checked:true,errors}));await original.dispose();}finally{await browser.close();await server.close();}

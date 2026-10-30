@@ -1,0 +1,40 @@
+{
+  "name": "@krds-native/fixture-qwik",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:local": "vite build",
+    "contract": "node ../../tools/run-contract-tests.mjs --framework qwik",
+    "siheom": "node ../../tools/run-siheom-tests.mjs --framework qwik",
+    "siheom:local": "vitest run --config vitest.config.ts"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@builder.io/qwik": "1.20.3",
+    "@builder.io/qwik-city": "1.20.3",
+    "@noma.to/qwik-testing-library": "1.7.1",
+    "@playwright/test": "1.64.1",
+    "@siheom/core": "0.4.1",
+    "@siheom/qwik": "0.3.2",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/user-event": "14.6.8",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "playwright": "1.64.1",
+    "playwright-core": "1.64.1",
+    "typescript": "6.0.2",
+    "vite": "7.3.1",
+    "vitest": "4.1.10"
+  },
+  "dependencies": {
+    "@krds-native/qwik": "workspace:^",
+    "@krds-native/styles": "workspace:^",
+    "@krds-native/test-contracts": "workspace:^",
+    "@krds-native/tokens": "workspace:^"
+  }
+}

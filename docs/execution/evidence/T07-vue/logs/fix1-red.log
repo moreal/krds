@@ -1,0 +1,298 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-vue
+
+12:52:27 PM [vite] (client) Re-optimizing dependencies because lockfile has changed
+12:52:29 PM [vite] (client) [Unhandled rejection] RangeError: Initial focus must target dialog or first interactive element
+ > Q ../../packages/vue/dist/Modal-DFP4n4qp.js:159:45
+    157 |  			if (x.initialFocusId) {
+    158 |  				let e = U.getElementById(x.initialFocusId);
+    159 |  				if (e !== B.dialog && e !== n[0]) throw RangeError("Initial focus must target dialog or first interactive element");
+        |                                               ^
+    160 |  				if (!b(e)) throw RangeError("Initial focus target unavailable");
+    161 |  				r = e;
+
+ ❯ |chromium| tests/siheom/native-behavior.test.ts (23 tests | 5 failed | 18 skipped) 558ms
+   × fix1 Modal reaches native summary in both Tab directions and activates its disclosure 127ms
+   × fix1 Modal accepts its first native summary as the explicit initial focus target 97ms
+   × fix1 NativeSelect follows current external form for reset and isolates the old owner 103ms
+   × fix1 DateInput submits a pending draft through its new native form and resets only there 117ms
+   × fix1 DateInput blocks a rejected pending controlled draft on the new native form 113ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > fix1 Modal reaches native summary in both Tab directions and activates its disclosure
+AssertionError: expected <section id="v-0" …(7)>…(3)</section> to be <summary …(1)></summary> // Object.is equality
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/fix1-Modal-reaches-native-summary-in-both-Tab-directions-and-activates-its-disclosure-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[31m+ <section[39m
+[31m+   aria-labelledby="v-0-title"[39m
+[31m+   aria-modal="true"[39m
+[31m+   data-krds-component="modal"[39m
+[31m+   data-krds-part="content"[39m
+[31m+   data-krds-state="open"[39m
+[31m+   id="v-0"[39m
+[31m+   role="dialog"[39m
+[31m+   tabindex="-1"[39m
+[31m+ >[39m
+[31m+   <h2[39m
+[31m+     data-krds-component="modal"[39m
+[31m+     data-krds-part="title"[39m
+[31m+     id="v-0-title"[39m
+[31m+   >[39m
+[31m+     [39m
+[31m+     Disclosure[39m
+[31m+     [39m
+[31m+   </h2>[39m
+[31m+   <!---->[39m
+[31m+   <div[39m
+[31m+     data-krds-component="modal"[39m
+[31m+     data-krds-part="body"[39m
+[31m+   >[39m
+[31m+     [39m
+[31m+     <div[39m
+[31m+       hidden=""[39m
+[31m+     >[39m
+[31m+       <button>[39m
+[31m+         Hidden action[39m
+[31m+       </button>[39m
+[31m+     </div>[39m
+[31m+     <div[39m
+[31m+       inert=""[39m
+[31m+     >[39m
+[31m+       <button>[39m
+[31m+         Inert action[39m
+[31m+       </button>[39m
+[31m+     </div>[39m
+[31m+     <details>[39m
+[2m        <summary[22m
+[2m          id="disclosure-summary"[22m
+[2m        >[22m
+[2m          More information[22m
+[2m        </summary>[22m
+[31m+       <input[39m
+[31m+         aria-label="Disclosure note"[39m
+[31m+       />[39m
+[31m+     </details>[39m
+[31m+     [39m
+[31m+   </div>[39m
+[31m+   <!---->[39m
+[31m+   <button[39m
+[31m+     aria-label="닫기"[39m
+[31m+     data-krds-component="modal"[39m
+[31m+     data-krds-part="close"[39m
+[31m+     type="button"[39m
+[31m+   >[39m
+[31m+     닫기[39m
+[31m+   </button>[39m
+[31m+ </section>[39m
+
+ ❯ tests/siheom/native-behavior.test.ts:171:33
+    169|   const close = screen.getByRole('button', { name: '닫기' });
+    170|   await userEvent.keyboard('{Tab}');
+    171|   expect(document.activeElement).toBe(summary);
+       |                                 ^
+    172|   await userEvent.keyboard('{Enter}');
+    173|   expect(details.open).toBe(true);
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=b0a788ff:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > fix1 Modal accepts its first native summary as the explicit initial focus target
+AssertionError: expected <body style="overflow: hidden;">…(3)</body> to be <summary id="first-summary"></summary> // Object.is equality
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/fix1-Modal-accepts-its-first-native-summary-as-the-explicit-initial-focus-target-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[31m+ <body[39m
+[31m+   style="overflow: hidden;"[39m
+[31m+ >[39m
+[31m+   [39m
+[31m+   [39m
+[31m+[39m
+[31m+[39m
+[31m+   <div[39m
+[31m+     inert=""[39m
+[31m+   />[39m
+[31m+   <div[39m
+[31m+     inert=""[39m
+[31m+   >[39m
+[31m+     [39m
+[31m+     [39m
+[31m+     [39m
+[31m+     <!--teleport start-->[39m
+[31m+     <!--teleport end-->[39m
+[31m+     [39m
+[31m+   </div>[39m
+[31m+   [39m
+[31m+   <div[39m
+[31m+     data-krds-component="modal"[39m
+[31m+     data-krds-part="root"[39m
+[31m+     data-krds-state="open"[39m
+[31m+     dir="ltr"[39m
+[31m+   >[39m
+[31m+     <div[39m
+[31m+       data-krds-component="modal"[39m
+[31m+       data-krds-part="backdrop"[39m
+[31m+       data-krds-state="open"[39m
+[31m+     >[39m
+[31m+       <section[39m
+[31m+         aria-labelledby="v-0-title"[39m
+[31m+         aria-modal="true"[39m
+[31m+         data-krds-component="modal"[39m
+[31m+         data-krds-part="content"[39m
+[31m+         data-krds-state="open"[39m
+[31m+         id="v-0"[39m
+[31m+         role="dialog"[39m
+[31m+         tabindex="-1"[39m
+[31m+       >[39m
+[31m+         <h2[39m
+[31m+           data-krds-component="modal"[39m
+[31m+           data-krds-part="title"[39m
+[31m+           id="v-0-title"[39m
+[31m+         >[39m
+[31m+           [39m
+[31m+           Initial disclosure[39m
+[31m+           [39m
+[31m+         </h2>[39m
+[31m+         <!---->[39m
+[31m+         <div[39m
+[31m+           data-krds-component="modal"[39m
+[31m+           data-krds-part="body"[39m
+[31m+         >[39m
+[31m+           [39m
+[31m+           <details>[39m
+[2m              <summary[22m
+[2m                id="first-summary"[22m
+[2m              >[22m
+[2m                First disclosure[22m
+[2m              </summary>[22m
+[31m+             <button>[39m
+[31m+               Closed disclosure action[39m
+[31m+             </button>[39m
+[31m+           </details>[39m
+[31m+           [39m
+[31m+         </div>[39m
+[31m+         <!---->[39m
+[31m+         <button[39m
+[31m+           aria-label="닫기"[39m
+[31m+           data-krds-component="modal"[39m
+[31m+           data-krds-part="close"[39m
+[31m+           type="button"[39m
+[31m+         >[39m
+[31m+           닫기[39m
+[31m+         </button>[39m
+[31m+       </section>[39m
+[31m+     </div>[39m
+[31m+   </div>[39m
+[31m+   [39m
+[31m+ </body>[39m
+
+ ❯ tests/siheom/native-behavior.test.ts:192:33
+    190|   });
+    191|   await settle();
+    192|   expect(document.activeElement).toBe(document.getElementById('first-s…
+       |                                 ^
+    193| });
+    194|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=b0a788ff:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > fix1 NativeSelect follows current external form for reset and isolates the old owner
+AssertionError: expected 'b' to be 'a' // Object.is equality
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/fix1-NativeSelect-follows-current-external-form-for-reset-and-isolates-the-old-owner-1.png
+
+Expected: [32m"a"[39m
+Received: [31m"b"[39m
+
+ ❯ tests/siheom/native-behavior.test.ts:220:23
+    218|   oldForm.reset();
+    219|   await settle();
+    220|   expect(select.value).toBe('a');
+       |                       ^
+    221|   expect(new FormData(oldForm).has('region')).toBe(false);
+    222|   expect(new FormData(newForm).get('region')).toBe('a');
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=b0a788ff:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > fix1 DateInput submits a pending draft through its new native form and resets only there
+AssertionError: expected [ '2024-02-29' ] to deeply equal [ '2024-03-01' ]
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/fix1-DateInput-submits-a-pending-draft-through-its-new-native-form-and-resets-only-there-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[32m-   "2024-03-01",[39m
+[31m+   "2024-02-29",[39m
+[2m  ][22m
+
+ ❯ tests/siheom/native-behavior.test.ts:267:20
+    265|   newForm.requestSubmit();
+    266|   await settle();
+    267|   expect(submitted).toEqual(['2024-03-01']);
+       |                    ^
+    268|   expect(events).toEqual([{ value: '2024-03-01' }]);
+    269|   expect(new FormData(oldForm).has('visit')).toBe(false);
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=b0a788ff:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |chromium| tests/siheom/native-behavior.test.ts > fix1 DateInput blocks a rejected pending controlled draft on the new native form
+AssertionError: expected [ false ] to deeply equal [ true ]
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-behavior.test.ts/fix1-DateInput-blocks-a-rejected-pending-controlled-draft-on-the-new-native-form-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[32m-   true,[39m
+[31m+   false,[39m
+[2m  ][22m
+
+ ❯ tests/siheom/native-behavior.test.ts:325:20
+    323|   newForm.requestSubmit();
+    324|   await settle();
+    325|   expect(submitted).toEqual([true]);
+       |                    ^
+    326|   expect(events).toEqual([{ value: '2024-03-01' }]);
+    327|   expect(field.value).toBe('2024-02-29');
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=b0a788ff:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+RangeError: Initial focus must target dialog or first interactive element
+This error originated in "tests/siheom/native-behavior.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "fix1 Modal accepts its first native summary as the explicit initial focus target". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 18 skipped (23)
+     Errors  1 error
+   Start at  12:52:27
+   Duration  1.78s (transform 0ms, setup 507ms, import 22ms, tests 558ms, environment 0ms)
+

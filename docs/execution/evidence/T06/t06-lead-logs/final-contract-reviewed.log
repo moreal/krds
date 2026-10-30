@@ -1,0 +1,18 @@
+
+Running 10 tests using 1 worker
+
+(node:28114) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tools/testing/contract.spec.ts:13:29 › solid button/disabled (216ms)
+  ✓   2 [chromium] › tools/testing/contract.spec.ts:13:29 › solid native-select/controlled (207ms)
+  ✓   3 [chromium] › tools/testing/contract.spec.ts:13:29 › solid native-select/form-reset (230ms)
+  ✓   4 [chromium] › tools/testing/contract.spec.ts:13:29 › solid modal/focus-return (195ms)
+  ✓   5 [chromium] › tools/testing/contract.spec.ts:13:29 › solid modal/trigger-removed (213ms)
+  ✓   6 [chromium] › tools/testing/contract.spec.ts:13:29 › solid tabs/manual-activation (167ms)
+  ✓   7 [chromium] › tools/testing/contract.spec.ts:13:29 › solid date-input/leap-year (181ms)
+  ✓   8 [chromium] › tools/testing/contract.spec.ts:13:29 › solid date-input/ime (153ms)
+  ✓   9 [chromium] › tools/testing/contract.spec.ts:13:29 › solid date-input/timezone-invariance (547ms)
+  ✓  10 [chromium] › tools/testing/contract.spec.ts:13:29 › solid calendar/selection-confirm (567ms)
+
+  10 passed (3.2s)
+Report: /Users/moreal/github/moreal/krds/test-results/t05/contract-1793327519951-28110-4fd4a456/report.json

@@ -1,0 +1,53 @@
+
+ NX   Running target test for project krds-tokens and 1 task it depends on:
+
+
+
+> nx run krds-tokens:build
+
+> node tools/yarn.mjs workspace @krds-native/tokens build:local
+
+(node:65373) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Generated 768 tokens, CSS, types and original-key mappings.
+
+> nx run krds-tokens:test
+
+> node tools/yarn.mjs workspace @krds-native/tokens test
+
+(node:65376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65378) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ all 768 source leaves retain exact raw values, aliases and types [90m(6.883625ms)[39m[39m
+[32m✔ each original Figma key and transformed key has a reversible output mapping [90m(2.215083ms)[39m[39m
+[32m✔ CSS matches every frozen official declaration including alias targets [90m(4.051083ms)[39m[39m
+[32m✔ every package export points to an existing output [90m(0.267125ms)[39m[39m
+[32m✔ distributed derivatives retain preserved originals and explicit provenance paths [90m(11.348375ms)[39m[39m
+(node:65379) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ rejects alias cycles with the complete reference chain [90m(0.880958ms)[39m[39m
+[32m✔ rejects a missing alias target and identifies the referring key [90m(0.199833ms)[39m[39m
+[32m✔ rejects conflicting alias types before CSS generation [90m(0.174ms)[39m[39m
+[32m✔ preserves source values and aliases while resolving chained references [90m(0.62975ms)[39m[39m
+[32m✔ rejects CSS output name collisions rather than overwriting tokens [90m(0.135625ms)[39m[39m
+[34mℹ tests 10[39m
+[34mℹ suites 0[39m
+[34mℹ pass 10[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 109.145459[39m
+
+
+
+ NX   Successfully ran target test for project krds-tokens and 1 task it depends on
+
+
+  Run duration:      1.2s
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     1.1s (2 tasks)
+  Recoverable time:  <1ms

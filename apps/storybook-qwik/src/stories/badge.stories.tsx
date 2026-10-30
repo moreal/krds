@@ -1,0 +1,12 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-badge',title:'KRDS/badge',component:CatalogStory,args:{componentId:'badge'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Outline:Story={name:"outline",args:{caseId:"outline"}};
+export const Filled:Story={name:"filled",args:{caseId:"filled"}};
+export const Pastel:Story={name:"pastel",args:{caseId:"pastel"}};
+export const Numeric:Story={name:"numeric",args:{caseId:"numeric"}};
+export const Sizes:Story={name:"sizes",args:{caseId:"sizes"}};
+export const Tones:Story={name:"tones",args:{caseId:"tones"}};
+export const LongLabel:Story={name:"long-label",args:{caseId:"long-label"}};

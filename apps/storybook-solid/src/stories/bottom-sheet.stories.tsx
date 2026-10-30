@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-bottom-sheet', title: 'KRDS/bottom-sheet', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Modal: Story = { name: "modal", parameters: { __id: "krds-bottom-sheet--modal" }, render: () => <CatalogStory componentId="bottom-sheet" caseId="modal"/> };
+export const ShortContent: Story = { name: "short-content", parameters: { __id: "krds-bottom-sheet--short-content" }, render: () => <CatalogStory componentId="bottom-sheet" caseId="short-content"/> };
+export const SelectCancel: Story = { name: "select-cancel", parameters: { __id: "krds-bottom-sheet--select-cancel" }, render: () => <CatalogStory componentId="bottom-sheet" caseId="select-cancel"/> };
+export const DragClose: Story = { name: "drag-close", parameters: { __id: "krds-bottom-sheet--drag-close" }, render: () => <CatalogStory componentId="bottom-sheet" caseId="drag-close"/> };
+export const NarrowKeyboard: Story = { name: "narrow-keyboard", parameters: { __id: "krds-bottom-sheet--narrow-keyboard" }, render: () => <CatalogStory componentId="bottom-sheet" caseId="narrow-keyboard"/> };
+export const RemovedOpener: Story = { name: "removed-opener", parameters: { __id: "krds-bottom-sheet--removed-opener" }, render: () => <CatalogStory componentId="bottom-sheet" caseId="removed-opener"/> };
+export const ReducedMotion: Story = { name: "reduced-motion", parameters: { __id: "krds-bottom-sheet--reduced-motion" }, render: () => <CatalogStory componentId="bottom-sheet" caseId="reduced-motion"/> };

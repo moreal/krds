@@ -1,0 +1,12 @@
+/* KRDS-derived: frozen component.css lines 1496–1619; semantic guidance: specs/components/text-list.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"] { display: flex; flex-direction: column; gap: var(--krds-gap-4); padding-inline-start: 1.5em; margin-block: 0; color: var(--krds-light-color-text-subtle); }
+[data-krds-component="text-list"][data-krds-part="item"] { position: relative; padding-inline-start: var(--krds-padding-2); }
+[data-krds-component="text-list"][data-krds-part="content"] { min-inline-size: 0; }
+[data-krds-component="text-list"][data-krds-part="nested-list"] { gap: var(--krds-gap-3); margin-block-start: var(--krds-gap-5); }
+[data-krds-component="text-list"][data-krds-part="root"][data-krds-marker="dot"] { list-style-type: disc; }
+[data-krds-component="text-list"][data-krds-part="root"][data-krds-marker="hollow"] { list-style-type: circle; }
+[data-krds-component="text-list"][data-krds-part="root"][data-krds-marker="dash"] { list-style-type: "–  "; }
+[data-krds-component="text-list"][data-krds-part="root"][data-krds-ordering="ordered"] { list-style-type: decimal; }
+[data-krds-component="text-list"][data-krds-part="marker"] { font-variant-numeric: tabular-nums; }
+/* Actual ol/ul and li semantics remain in native markup; no listbox selection. */

@@ -1,0 +1,18 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-tooltip', title: 'KRDS/tooltip', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const InformationIcon: Story = { name: "information-icon", parameters: { __id: "krds-tooltip--information-icon" }, render: () => <CatalogStory componentId="tooltip" caseId="information-icon"/> };
+export const IconButton: Story = { name: "icon-button", parameters: { __id: "krds-tooltip--icon-button" }, render: () => <CatalogStory componentId="tooltip" caseId="icon-button"/> };
+export const Vertical: Story = { name: "vertical", parameters: { __id: "krds-tooltip--vertical" }, render: () => <CatalogStory componentId="tooltip" caseId="vertical"/> };
+export const Box: Story = { name: "box", parameters: { __id: "krds-tooltip--box" }, render: () => <CatalogStory componentId="tooltip" caseId="box"/> };
+export const TouchToggle: Story = { name: "touch-toggle", parameters: { __id: "krds-tooltip--touch-toggle" }, render: () => <CatalogStory componentId="tooltip" caseId="touch-toggle"/> };
+export const EscapeSuppression: Story = { name: "escape-suppression", parameters: { __id: "krds-tooltip--escape-suppression" }, render: () => <CatalogStory componentId="tooltip" caseId="escape-suppression"/> };
+export const ViewportEdge: Story = { name: "viewport-edge", parameters: { __id: "krds-tooltip--viewport-edge" }, render: () => <CatalogStory componentId="tooltip" caseId="viewport-edge"/> };
+export const RelationshipDescription: Story = { name: "relationship-description", parameters: { __id: "krds-tooltip--relationship-description" }, render: () => <CatalogStory componentId="tooltip" caseId="relationship-description"/> };
+export const RelationshipLabelClosed: Story = { name: "relationship-label-closed", parameters: { __id: "krds-tooltip--relationship-label-closed" }, render: () => <CatalogStory componentId="tooltip" caseId="relationship-label-closed"/> };
+export const HoverEscapeReturn: Story = { name: "hover-escape-return", parameters: { __id: "krds-tooltip--hover-escape-return" }, render: () => <CatalogStory componentId="tooltip" caseId="hover-escape-return"/> };
+export const ControlledEscapeRejected: Story = { name: "controlled-escape-rejected", parameters: { __id: "krds-tooltip--controlled-escape-rejected" }, render: () => <CatalogStory componentId="tooltip" caseId="controlled-escape-rejected"/> };
+export const TriggerRemoved: Story = { name: "trigger-removed", parameters: { __id: "krds-tooltip--trigger-removed" }, render: () => <CatalogStory componentId="tooltip" caseId="trigger-removed"/> };
+export const ShadowRelationship: Story = { name: "shadow-relationship", parameters: { __id: "krds-tooltip--shadow-relationship" }, render: () => <CatalogStory componentId="tooltip" caseId="shadow-relationship"/> };

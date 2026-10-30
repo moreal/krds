@@ -1,0 +1,7 @@
+/* KRDS-derived: frozen component.css lines 5695–5754; semantic guidance: specs/components/identifier.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="identifier"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-4); padding-block: var(--krds-padding-6); color: var(--krds-light-color-text-basic); }
+[data-krds-component="identifier"][data-krds-part="logo"] { flex: none; max-inline-size: 12rem; block-size: auto; }
+[data-krds-component="identifier"][data-krds-part="text"] { margin: 0; font-size: var(--krds-pc-font-size-body-small); }
+[data-krds-component="identifier"][data-krds-part="root"][data-krds-theme="dark"] { background: var(--krds-light-color-background-inverse); color: var(--krds-light-color-text-basic-inverse); }
+@media (max-width: 767px) { [data-krds-component="identifier"][data-krds-part="text"] { font-size: var(--krds-mobile-font-size-body-small); } }

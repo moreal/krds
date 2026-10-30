@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-text-list', title: 'KRDS/text-list', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const UnorderedDot: Story = { name: "unordered-dot", parameters: { __id: "krds-text-list--unordered-dot" }, render: () => <CatalogStory componentId="text-list" caseId="unordered-dot"/> };
+export const UnorderedDash: Story = { name: "unordered-dash", parameters: { __id: "krds-text-list--unordered-dash" }, render: () => <CatalogStory componentId="text-list" caseId="unordered-dash"/> };
+export const UnorderedHollow: Story = { name: "unordered-hollow", parameters: { __id: "krds-text-list--unordered-hollow" }, render: () => <CatalogStory componentId="text-list" caseId="unordered-hollow"/> };
+export const Ordered: Story = { name: "ordered", parameters: { __id: "krds-text-list--ordered" }, render: () => <CatalogStory componentId="text-list" caseId="ordered"/> };
+export const ThreeLevel: Story = { name: "three-level", parameters: { __id: "krds-text-list--three-level" }, render: () => <CatalogStory componentId="text-list" caseId="three-level"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-text-list--narrow" }, render: () => <CatalogStory componentId="text-list" caseId="narrow"/> };

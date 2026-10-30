@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "projects": {
+    "consumer": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "index": "index.html",
+            "tsConfig": "tsconfig.json",
+            "outputPath": "dist",
+            "outputMode": "static",
+            "polyfills": [],
+            "styles": [
+              "src/styles.css"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

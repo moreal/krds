@@ -1,0 +1,10 @@
+import '@lit-labs/ssr-client/lit-element-hydrate-support.js';
+const select=document.querySelector('#ssr-select') as any,date=document.querySelector('#ssr-date') as any,tabs=document.querySelector('#ssr-tabs') as any;
+select.options=[{value:'seoul',label:'Seoul'},{value:'busan',label:'Busan'}];date.defaultValue='2024-02-29';date.withCalendar=false;tabs.items=[{value:'a',label:'First',content:'First panel'},{value:'b',label:'Second',content:'Second panel'}];
+const button=document.querySelector('#ssr-button')!;const before=button.shadowRoot!.querySelector('button');
+let count=0,requests=0;button.addEventListener('click',()=>{button.textContent=`Hydrated ${++count}`;});
+select.addEventListener('value-change',(event:CustomEvent)=>{select.value=event.detail.value;document.querySelector('#ssr-requests')!.textContent=String(++requests);});
+const modal=document.querySelector('#ssr-modal') as any;modal.open=false;document.querySelector('#open-modal')!.addEventListener('click',()=>{modal.open=true;});modal.addEventListener('open-change',(event:CustomEvent)=>{modal.open=event.detail.open;});
+const {registerKrdsElements}=await import('@unofficial-krds/lit');registerKrdsElements(customElements);for(const element of document.querySelectorAll('[defer-hydration]'))element.removeAttribute('defer-hydration');
+await Promise.all([...document.querySelectorAll('main > krds-button, form > *, krds-tabs, krds-calendar, krds-modal')].map((element:any)=>element.updateComplete));
+(globalThis as any).__ssrReused=before===button.shadowRoot!.querySelector('button');(globalThis as any).__ssrReady=true;(globalThis as any).__ssrUnmount=()=>document.querySelector('#app')!.replaceChildren();

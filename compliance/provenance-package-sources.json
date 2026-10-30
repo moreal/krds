@@ -1,0 +1,2006 @@
+{
+  "@angular-devkit/build-angular@22.2.5": {
+    "name": "@angular-devkit/build-angular",
+    "version": "22.2.5",
+    "url": "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-22.2.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular-devkit/build-angular/22.2.5",
+    "tarballSha256": "5da1bdbf614c4507f25a8fa8c080f392c941189fe067ccd5196a23e47801cc6d",
+    "integrity": "sha512-bK7dTlqEqBaJHlmOpd+ILBULkdz38/o74JBkj5EUKIZtcsmZPWCSPhcGZgEARaL5yO93QT+lnTIU9ylDQHV40A==",
+    "retrievedAt": "2026-10-30T00:05:33.261757+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular-devkit_build-angular_22.2.5/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/build@22.2.5": {
+    "name": "@angular/build",
+    "version": "22.2.5",
+    "url": "https://registry.npmjs.org/@angular/build/-/build-22.2.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/build/22.2.5",
+    "tarballSha256": "c7139fae3f89f19b890d579cc55c19315d2f21f4731bdf7f52b54df0c7d812c6",
+    "integrity": "sha512-Td25Dalv+jcCso1NChuAyIDwEGPyw3gi++Wg4bwA2lXlKZRRynhfoX0wDGqh74RJhLxyad8IdI6GrjzT4Onrig==",
+    "retrievedAt": "2026-10-30T00:05:33.265291+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_build_22.2.5/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "upstreamPath": "package/src/tools/esbuild/license-extractor.js",
+        "localPath": "LICENSES/packages/_angular_build_22.2.5/src/tools/esbuild/license-extractor.js",
+        "sha256": "5812b8f5c4baf1ba6692462466ea2b2abd4f66b353c09fa6c2fac7c55bcc629c"
+      },
+      {
+        "upstreamPath": "package/src/tools/esbuild/license-extractor.js.map",
+        "localPath": "LICENSES/packages/_angular_build_22.2.5/src/tools/esbuild/license-extractor.js.map",
+        "sha256": "fb8490f513fde6ee7aa092777b0296725e1703dfb94a1e877f0895087f888faf"
+      },
+      {
+        "upstreamPath": "package/src/tools/esbuild/license-extractor.d.ts",
+        "localPath": "LICENSES/packages/_angular_build_22.2.5/src/tools/esbuild/license-extractor.d.ts",
+        "sha256": "afce697b71a0b4fad699443a1c13a455ef208a0afa54d26c0252052d82826b15"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/cli@22.2.5": {
+    "name": "@angular/cli",
+    "version": "22.2.5",
+    "url": "https://registry.npmjs.org/@angular/cli/-/cli-22.2.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/cli/22.2.5",
+    "tarballSha256": "7e7623e754cda981e0c79f2e07987f3d98e11c1e712b772ce91e246ef30a7f94",
+    "integrity": "sha512-nauKuEyBgSgZyH+LFGwoSIHGML6cY7SH+KMGhBv3iFJ+njkTFbwOZeiaed3ySjOSWJMtpUEoh1Zgf8To3s8erw==",
+    "retrievedAt": "2026-10-30T00:05:33.208354+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_cli_22.2.5/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/compiler-cli@22.2.4": {
+    "name": "@angular/compiler-cli",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/compiler-cli/22.2.4",
+    "tarballSha256": "71eb33897252402537c792876b2395d973254c7bc8d26a18608f38233fc484c2",
+    "integrity": "sha512-Ow6AlIdmidjFxa3v4+uZrbPVSc45jLMUO9ERdFp69z6fv5CP9jd4DhK+wKVCvIlCp5ygelia8admEypdY3p5Hw==",
+    "retrievedAt": "2026-10-30T00:05:33.262107+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_angular_compiler-cli_22.2.4/repository-LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7",
+        "url": "https://raw.githubusercontent.com/angular/angular/d6f942d3960a475ac5cd811987b3305eb67daf3b/LICENSE",
+        "gitCommitOrTag": "d6f942d3960a475ac5cd811987b3305eb67daf3b",
+        "retrievedAt": "2026-10-30T00:07:22.998066+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@angular/compiler@22.2.4": {
+    "name": "@angular/compiler",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/compiler/-/compiler-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/compiler/22.2.4",
+    "tarballSha256": "f3f4427fce3014153060d430a4e63b746bada7a4daa01bee888d31a9e53701eb",
+    "integrity": "sha512-Az14b7hE1iCMqNhskOjA28+8w3VQDhSkrVUU+2gyucDHey1qw9rX5x45/z3qNanz4VtTBShvqEDsjctkobKJSA==",
+    "retrievedAt": "2026-10-30T00:05:33.268075+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_compiler_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/core@22.2.4": {
+    "name": "@angular/core",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/core/-/core-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/core/22.2.4",
+    "tarballSha256": "ed92f16afe9bd35a06200ea83776c011cc3db75688dd09626953225d35d6e25b",
+    "integrity": "sha512-FME4hPQ6+RbOkaRtUHWytwyAFXZYjIQ81TDJ3Dj7tx+vzKs0StpH9g/0AoZwQUDmhPlN84IazBimQ7II7lmwVw==",
+    "retrievedAt": "2026-10-30T00:05:33.271062+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_core_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "upstreamPath": "package/third_party/@mcp-b/webmcp-types/LICENSE",
+        "localPath": "LICENSES/packages/_angular_core_22.2.4/third_party/@mcp-b/webmcp-types/LICENSE",
+        "sha256": "94c733ee952e0c922e566db77612b773e29c19f4fc926c29c1708e8ab92a823a"
+      },
+      {
+        "upstreamPath": "package/third_party/@modelcontextprotocol/server/LICENSE",
+        "localPath": "LICENSES/packages/_angular_core_22.2.4/third_party/@modelcontextprotocol/server/LICENSE",
+        "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/ssr@22.2.5": {
+    "name": "@angular/ssr",
+    "version": "22.2.5",
+    "url": "https://registry.npmjs.org/@angular/ssr/-/ssr-22.2.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/ssr/22.2.5",
+    "tarballSha256": "9631e1346df36eabe09340f27f912b82985a983b89ca95fdcb44da2147a3d979",
+    "integrity": "sha512-NVZf70y6h/npUPzcMJj31tkoNe8+3X/o47mCW0jusT2NhghDGdS0y2iaaHSlIl/0xoairym1s6/19DWOE+F0RA==",
+    "retrievedAt": "2026-10-30T00:05:33.502148+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_ssr_22.2.5/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@ark-ui/react@5.40.0": {
+    "name": "@ark-ui/react",
+    "version": "5.40.0",
+    "url": "https://registry.npmjs.org/@ark-ui/react/-/react-5.40.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@ark-ui/react/5.40.0",
+    "tarballSha256": "287eef536440f42d73505b845a1c3390dd02682dca7c20b9e42dc7fbd2f83ebb",
+    "integrity": "sha512-ldJ2IoIyhtpUNDgYuRel3RNyEOW9Tl2xRqGwQjz0BwLF1oVejnTBVNBamlbjWPe6++YavDZL3+aG1NrM8MoTEA==",
+    "retrievedAt": "2026-10-30T00:05:33.579954+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_ark-ui_react_5.40.0/LICENSE",
+        "sha256": "7df81e062165ecf31b80d0115d46ecd46da7426b2a3622caaac3b91339d48e99"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@ark-ui/solid@5.40.0": {
+    "name": "@ark-ui/solid",
+    "version": "5.40.0",
+    "url": "https://registry.npmjs.org/@ark-ui/solid/-/solid-5.40.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@ark-ui/solid/5.40.0",
+    "tarballSha256": "1e005414ff68952d6494a0777f5045dc7f7b5e1332ea02b9e1aa63aa86c9dab7",
+    "integrity": "sha512-uXAmFdFiPRiHXaLWGPaChJuNAO6gBTrfCILILjkkWuyaoaOmM1/zuufjW2qq48B2DDbx1CMYyW5OF6pcuZEioA==",
+    "retrievedAt": "2026-10-30T00:05:33.867489+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_ark-ui_solid_5.40.0/LICENSE",
+        "sha256": "7df81e062165ecf31b80d0115d46ecd46da7426b2a3622caaac3b91339d48e99"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@ark-ui/svelte@5.25.0": {
+    "name": "@ark-ui/svelte",
+    "version": "5.25.0",
+    "url": "https://registry.npmjs.org/@ark-ui/svelte/-/svelte-5.25.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@ark-ui/svelte/5.25.0",
+    "tarballSha256": "039b38c65d1a4f9601f73fd9b0bc8633e3251a82aca4fc6d2077e85d4b51a3c0",
+    "integrity": "sha512-lW6JNmWl4UjbqEHqFg+SX2fo/CYstbQfEzacm1Kc0WGkalG1kFCUdxFfAW8ILga0ZMVoiRaML+sApamgvfD+RQ==",
+    "retrievedAt": "2026-10-30T00:05:33.891534+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_ark-ui_svelte_5.25.0/repository-LICENSE",
+        "sha256": "1ad675033bca604060fe02612c2d9d6f6c9dfa4f50f71ba78c7ab3fa406efeae",
+        "url": "https://raw.githubusercontent.com/chakra-ui/ark/9a3f857e79d5e891afb928781c2c8a0559f49181/LICENSE",
+        "gitCommitOrTag": "9a3f857e79d5e891afb928781c2c8a0559f49181",
+        "retrievedAt": "2026-10-30T00:07:23.290544+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@ark-ui/vue@5.40.0": {
+    "name": "@ark-ui/vue",
+    "version": "5.40.0",
+    "url": "https://registry.npmjs.org/@ark-ui/vue/-/vue-5.40.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@ark-ui/vue/5.40.0",
+    "tarballSha256": "68cf8ed9b7e9ead76ac79a6ad0d650121995191a85d2eb10f80613d8fd1c021d",
+    "integrity": "sha512-qmPNMOG8vZ59zkHIPZESguV/ojbpa8++sBgR9J46BzDuZuYB08YNl+MWQ1aotSsO0YWBWdECgSph5QCpI5sSFg==",
+    "retrievedAt": "2026-10-30T00:05:33.904111+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_ark-ui_vue_5.40.0/LICENSE",
+        "sha256": "7df81e062165ecf31b80d0115d46ecd46da7426b2a3622caaac3b91339d48e99"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@axe-core/playwright@4.14.0": {
+    "name": "@axe-core/playwright",
+    "version": "4.14.0",
+    "url": "https://registry.npmjs.org/@axe-core/playwright/-/playwright-4.14.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@axe-core/playwright/4.14.0",
+    "tarballSha256": "0d16690e81a9c80f653920da310010bd530b3e2bffe18d299769113848b40bdf",
+    "integrity": "sha512-SGUhG5PIHd2eMdpgBF2PyQLOhX+qyDR2PT4cmoS4Qk2ak+jX/rrSvst9l0PGv5WTHolKpUMvVmoHpr4cZgf1RQ==",
+    "retrievedAt": "2026-10-30T00:05:33.495652+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_axe-core_playwright_4.14.0/LICENSE",
+        "sha256": "812e9d96e900a093ae4d1d3f22c5f82f568a0a0461c3007a99d00573d41c5461"
+      }
+    ],
+    "licenseMetadata": "MPL-2.0",
+    "status": "retrieved"
+  },
+  "@builder.io/qwik-city@1.20.3": {
+    "name": "@builder.io/qwik-city",
+    "version": "1.20.3",
+    "url": "https://registry.npmjs.org/@builder.io/qwik-city/-/qwik-city-1.20.3.tgz",
+    "registryUrl": "https://registry.npmjs.org/@builder.io/qwik-city/1.20.3",
+    "tarballSha256": "bb2813eb138ffeee526392c6f448a40e0002bb5b488012c71aed4832724be51b",
+    "integrity": "sha512-p4oXN09EtGdR2uWnejmQp9pQIhzNvJfTmT9CiSrDu9HIJlMUd69idh72qXJatKVgSntYMq3J0V4Al9XfGgT4kQ==",
+    "retrievedAt": "2026-10-30T00:05:34.070942+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_builder.io_qwik-city_1.20.3/LICENSE",
+        "sha256": "3d92569ed1f2e1842f20556418170ea713894500cdd854967680f92d1ac44403"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@builder.io/qwik@1.20.3": {
+    "name": "@builder.io/qwik",
+    "version": "1.20.3",
+    "url": "https://registry.npmjs.org/@builder.io/qwik/-/qwik-1.20.3.tgz",
+    "registryUrl": "https://registry.npmjs.org/@builder.io/qwik/1.20.3",
+    "tarballSha256": "4a9e7145c8676032480bcde9462b6fb6decacb5b83acb4201aa107d1bc8c61be",
+    "integrity": "sha512-G+T8Jhlk3HuEBqqH07H+0eluiEkTxA1YdPQv2I7NZ8o3EBAvc/mfXk8RGIIeWeHvgqvA1n3RyDkB7PW0jnae/w==",
+    "retrievedAt": "2026-10-30T00:05:34.176093+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_builder.io_qwik_1.20.3/LICENSE",
+        "sha256": "3d92569ed1f2e1842f20556418170ea713894500cdd854967680f92d1ac44403"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@lit-labs/ssr-client@1.1.8": {
+    "name": "@lit-labs/ssr-client",
+    "version": "1.1.8",
+    "url": "https://registry.npmjs.org/@lit-labs/ssr-client/-/ssr-client-1.1.8.tgz",
+    "registryUrl": "https://registry.npmjs.org/@lit-labs/ssr-client/1.1.8",
+    "tarballSha256": "112371f73db0bbf6fe59bda097c16fa452a086ea35bfc0fcf9f9ffe0e51b720c",
+    "integrity": "sha512-PjGh81oKsoI64m3IDjTqqjhC7dr2uC/o0jrllUb5gRAyp/RlAHxapgJrjq9kWz97faCHLQ8jUlTi6tGm+8fgyA==",
+    "retrievedAt": "2026-10-30T00:05:34.327323+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_lit-labs_ssr-client_1.1.8/LICENSE",
+        "sha256": "45d31799d0db956cc3eb5469346abbd9b7025babc5ff29fab10d7095da992ef1"
+      }
+    ],
+    "licenseMetadata": "BSD-3-Clause",
+    "status": "retrieved"
+  },
+  "@lit-labs/ssr@4.1.0": {
+    "name": "@lit-labs/ssr",
+    "version": "4.1.0",
+    "url": "https://registry.npmjs.org/@lit-labs/ssr/-/ssr-4.1.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@lit-labs/ssr/4.1.0",
+    "tarballSha256": "894cf8e344936d09188aa2af5069fdbca82337783e240a833b7b60c019118847",
+    "integrity": "sha512-m0zymVVlHB1ddJQ1lastsV8ROW3whFOiHJhVPQWd04MnGTkTlUUVLQctux1QlyD9BtLXNN6iASxv388vhgKMFg==",
+    "retrievedAt": "2026-10-30T00:05:34.366715+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_lit-labs_ssr_4.1.0/LICENSE",
+        "sha256": "2367847c0e5414ef7dd90158477d0e0ae8de17d3725f1e479dd63a90fa602d89"
+      }
+    ],
+    "licenseMetadata": "BSD-3-Clause",
+    "status": "retrieved"
+  },
+  "@nx/js@24.0.2": {
+    "name": "@nx/js",
+    "version": "24.0.2",
+    "url": "https://registry.npmjs.org/@nx/js/-/js-24.0.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@nx/js/24.0.2",
+    "tarballSha256": "f64dcba5dfd172b31a6d5568494430986d42298bc907c782433ec4dd05c4c6cf",
+    "integrity": "sha512-+Rl7UxgBKTwDbdqVSmkZjlnP6D5hvtT6++G/sOAEtoIJvPSoR0YqM/SkibHRAxUCp0DBjS+VOTh+sXW9OaPlFA==",
+    "retrievedAt": "2026-10-30T00:05:34.140637+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/dist/LICENSE",
+        "localPath": "LICENSES/packages/_nx_js_24.0.2/dist/LICENSE",
+        "sha256": "50bb7bf81374073606d3c3f277762d5222d82c918b2088f3789ed7e5f9f8b496"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@playwright/test@1.64.1": {
+    "name": "@playwright/test",
+    "version": "1.64.1",
+    "url": "https://registry.npmjs.org/@playwright/test/-/test-1.64.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@playwright/test/1.64.1",
+    "tarballSha256": "9bc8fb4bf5c8f395c1c6b6999e5480607a5aaaead17e9fe6e58181002b4086e3",
+    "integrity": "sha512-IaYGml/nSOiZWROfPtuIL7neuu9qDOZ3TNvNljUIrhDMxiGTgPjzj/g9p9RxpS2tSepPDRY+UwAaEeiKtUvIAg==",
+    "retrievedAt": "2026-10-30T00:05:34.045599+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_playwright_test_1.64.1/LICENSE",
+        "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb"
+      },
+      {
+        "upstreamPath": "package/NOTICE",
+        "localPath": "LICENSES/packages/_playwright_test_1.64.1/NOTICE",
+        "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d"
+      }
+    ],
+    "licenseMetadata": "Apache-2.0",
+    "status": "retrieved"
+  },
+  "@siheom/angular@0.3.2": {
+    "name": "@siheom/angular",
+    "version": "0.3.2",
+    "url": "https://registry.npmjs.org/@siheom/angular/-/angular-0.3.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@siheom/angular/0.3.2",
+    "tarballSha256": "6954f21f48704940f647beef234f70fe556816ea009a35ec28eb0800ec7be959",
+    "integrity": "sha512-I0k0bPT7OO7fnWYHA5bBLhDj091utlVOxUsHwyrOsKP6EMM1UtMiT5KFn9JIzhpGz+CZPIljVIEz0f4L0Wc4FQ==",
+    "retrievedAt": "2026-10-30T00:05:34.633566+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_siheom_angular_0.3.2/repository-LICENSE",
+        "sha256": "6ac18d9abef0fae55f8dcca79443b8c7e1d9845997486c4e9b64ffa2c9d485b3",
+        "url": "https://raw.githubusercontent.com/twinstae/siheom-ts/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/LICENSE",
+        "gitCommitOrTag": "fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+        "retrievedAt": "2026-10-30T00:07:23.619474+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@siheom/core@0.4.1": {
+    "name": "@siheom/core",
+    "version": "0.4.1",
+    "url": "https://registry.npmjs.org/@siheom/core/-/core-0.4.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@siheom/core/0.4.1",
+    "tarballSha256": "bd320db4ddc7dfdbdb42892ef29c32b4e45bbb62da8e504e65225b2248d84078",
+    "integrity": "sha512-Zg4UN8shGOOPDB7WS5uYAOnxoku4O/RObj8KhvHf8jA5AKhvjZNPTZxxpEYzHFoIffx/YkZucvlC/1AZ2zMAkw==",
+    "retrievedAt": "2026-10-30T00:05:34.718308+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_siheom_core_0.4.1/repository-LICENSE",
+        "sha256": "6ac18d9abef0fae55f8dcca79443b8c7e1d9845997486c4e9b64ffa2c9d485b3",
+        "url": "https://raw.githubusercontent.com/twinstae/siheom-ts/1137e9d8f39b4ee077e2a5d0f63236bd9703f01e/LICENSE",
+        "gitCommitOrTag": "1137e9d8f39b4ee077e2a5d0f63236bd9703f01e",
+        "retrievedAt": "2026-10-30T00:07:23.892573+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@siheom/qwik@0.3.2": {
+    "name": "@siheom/qwik",
+    "version": "0.3.2",
+    "url": "https://registry.npmjs.org/@siheom/qwik/-/qwik-0.3.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@siheom/qwik/0.3.2",
+    "tarballSha256": "4acbf63cdfc0856113323ea6a12bc6e924ab3200c37db2d4efded4cd55c83ff7",
+    "integrity": "sha512-FGKNhwOPA2nzqYr/4xmAMnU8dWd/QytwmLbUeLgrxFqlBWBvd4fBNPu7M2nhhjuKDar1YL/RbQ6NNNSyVkSanw==",
+    "retrievedAt": "2026-10-30T00:05:34.665636+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_siheom_qwik_0.3.2/repository-LICENSE",
+        "sha256": "6ac18d9abef0fae55f8dcca79443b8c7e1d9845997486c4e9b64ffa2c9d485b3",
+        "url": "https://raw.githubusercontent.com/twinstae/siheom-ts/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/LICENSE",
+        "gitCommitOrTag": "fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+        "retrievedAt": "2026-10-30T00:07:23.929985+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@siheom/react@0.4.1": {
+    "name": "@siheom/react",
+    "version": "0.4.1",
+    "url": "https://registry.npmjs.org/@siheom/react/-/react-0.4.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@siheom/react/0.4.1",
+    "tarballSha256": "bda617eb9c79867e5596b62f8c90f5e83f5f30351a1eb775e44b60fac28530b1",
+    "integrity": "sha512-cjHVBh6NU/krSMT/t6YA4kaEZjK27buKPUnLDZ0+WoJVlMze3PdfgUbWmLLj4qyF3F78J+RuJ+7STm65+JhFsQ==",
+    "retrievedAt": "2026-10-30T00:05:34.730997+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_siheom_react_0.4.1/repository-LICENSE",
+        "sha256": "6ac18d9abef0fae55f8dcca79443b8c7e1d9845997486c4e9b64ffa2c9d485b3",
+        "url": "https://raw.githubusercontent.com/twinstae/siheom-ts/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/LICENSE",
+        "gitCommitOrTag": "fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+        "retrievedAt": "2026-10-30T00:07:23.959173+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@siheom/solid@0.3.2": {
+    "name": "@siheom/solid",
+    "version": "0.3.2",
+    "url": "https://registry.npmjs.org/@siheom/solid/-/solid-0.3.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@siheom/solid/0.3.2",
+    "tarballSha256": "811db34a140db46eb05fea707cb67c93287c9e71d6624a7ef3b7073716cb0615",
+    "integrity": "sha512-hVelueVDf0fivchP/SuLm48Yr4ElakuGskfFzGs5qEtIubzyo5aQBb3PS/Z3FVdpeSYOuEhNc0R+6uo+mvulPQ==",
+    "retrievedAt": "2026-10-30T00:05:34.893278+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_siheom_solid_0.3.2/repository-LICENSE",
+        "sha256": "6ac18d9abef0fae55f8dcca79443b8c7e1d9845997486c4e9b64ffa2c9d485b3",
+        "url": "https://raw.githubusercontent.com/twinstae/siheom-ts/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/LICENSE",
+        "gitCommitOrTag": "fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+        "retrievedAt": "2026-10-30T00:07:23.989957+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@siheom/svelte@0.3.2": {
+    "name": "@siheom/svelte",
+    "version": "0.3.2",
+    "url": "https://registry.npmjs.org/@siheom/svelte/-/svelte-0.3.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@siheom/svelte/0.3.2",
+    "tarballSha256": "c8df317386e4a6ee909e3f5c33108734960b427bc6fc86b66428b461cda95143",
+    "integrity": "sha512-IgQ8eTYxoM1G3qFO41hOnKt92Vd911GRPGwtWZWEKL+7feFTCOLZsHZkeURisVLYtEyxuNW0m8jPtJTnI6c+nw==",
+    "retrievedAt": "2026-10-30T00:05:34.912621+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_siheom_svelte_0.3.2/repository-LICENSE",
+        "sha256": "6ac18d9abef0fae55f8dcca79443b8c7e1d9845997486c4e9b64ffa2c9d485b3",
+        "url": "https://raw.githubusercontent.com/twinstae/siheom-ts/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/LICENSE",
+        "gitCommitOrTag": "fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+        "retrievedAt": "2026-10-30T00:07:24.025905+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@siheom/vue@0.3.2": {
+    "name": "@siheom/vue",
+    "version": "0.3.2",
+    "url": "https://registry.npmjs.org/@siheom/vue/-/vue-0.3.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@siheom/vue/0.3.2",
+    "tarballSha256": "2057b19a8645fa20399f39623736d56f608adedcd37c88b07f5f7feaa6ed2558",
+    "integrity": "sha512-M3rsC33XA48usgGptkqpQ7/5cZ2W0KSbIMGpSpaqVNEaGH2QAGTlmWXdXGAbw+pcdAy72JROfmtrZmKZ+62Zug==",
+    "retrievedAt": "2026-10-30T00:05:35.198660+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_siheom_vue_0.3.2/repository-LICENSE",
+        "sha256": "6ac18d9abef0fae55f8dcca79443b8c7e1d9845997486c4e9b64ffa2c9d485b3",
+        "url": "https://raw.githubusercontent.com/twinstae/siheom-ts/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/LICENSE",
+        "gitCommitOrTag": "fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+        "retrievedAt": "2026-10-30T00:07:24.066608+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@solidjs/testing-library@0.8.10": {
+    "name": "@solidjs/testing-library",
+    "version": "0.8.10",
+    "url": "https://registry.npmjs.org/@solidjs/testing-library/-/testing-library-0.8.10.tgz",
+    "registryUrl": "https://registry.npmjs.org/@solidjs/testing-library/0.8.10",
+    "tarballSha256": "448ec5fd12a06e2a3cf456719f8629edbe174962ac10cd48f4b3eb47c52d8a80",
+    "integrity": "sha512-qdeuIerwyq7oQTIrrKvV0aL9aFeuwTd86VYD3afdq5HYEwoox1OBTJy4y8A3TFZr8oAR0nujYgCzY/8wgHGfeQ==",
+    "retrievedAt": "2026-10-30T00:05:35.065871+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_solidjs_testing-library_0.8.10/LICENSE",
+        "sha256": "035389ed56027b7dccc1a8eabb0e4fed4d053a7cf2b7b1f5eefcc28a2846d16a"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@solidjs/vite-plugin@3.0.0-next.53": {
+    "name": "@solidjs/vite-plugin",
+    "version": "3.0.0-next.53",
+    "url": "https://registry.npmjs.org/@solidjs/vite-plugin/-/vite-plugin-3.0.0-next.53.tgz",
+    "registryUrl": "https://registry.npmjs.org/@solidjs/vite-plugin/3.0.0-next.53",
+    "tarballSha256": "412d13861a39ef4b824a885fe9996c3c72555e7c58f8042b6a94b857d420ba1d",
+    "integrity": "sha512-XgPz1Fo0QwbrpeNTTURQQX7D/dLTsLxNYRmVvc2AcSzIakm67BBMPb7AAvF6z2JtMwoVcDgRZzZVJ0m6pV15iA==",
+    "retrievedAt": "2026-10-30T00:05:35.244058+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_solidjs_vite-plugin_3.0.0-next.53/LICENSE",
+        "sha256": "63f4f6dc593af38c9bf595bc4f1de2d0fdb8f3d7789bf6b5bb793e088d46d0a9"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@solidjs/web@2.0.0-rc.0": {
+    "name": "@solidjs/web",
+    "version": "2.0.0-rc.0",
+    "url": "https://registry.npmjs.org/@solidjs/web/-/web-2.0.0-rc.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@solidjs/web/2.0.0-rc.0",
+    "tarballSha256": "14062ae849562e4efcb5031734f6546a29a3f170d5591822fe8b200a1ed8e29c",
+    "integrity": "sha512-pYSaA9+dH8H1h/d/ZF/P2kR6omfzFGNcdzKhWTcg9fJghXhn8+5UrXUr2iYxDdYNOXZzxxFQhYHSJ7P4HKDqgw==",
+    "retrievedAt": "2026-10-30T00:05:35.267636+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_solidjs_web_2.0.0-rc.0/LICENSE",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@storybook/angular@10.6.5": {
+    "name": "@storybook/angular",
+    "version": "10.6.5",
+    "url": "https://registry.npmjs.org/@storybook/angular/-/angular-10.6.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@storybook/angular/10.6.5",
+    "tarballSha256": "964df0b385b4a49d8073e1c1d8f1b51575ab75db1e17c916038609b395fb8f70",
+    "integrity": "sha512-u9plAjDXcoUqJs4Hky4oWIavUFmeTfryDvAb4F+nxeUJB2VLhLzpikBZqwa6aGwxV4OjQh3jtxpBgXTeoo0RdA==",
+    "retrievedAt": "2026-10-30T00:05:35.408370+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_storybook_angular_10.6.5/repository-LICENSE",
+        "sha256": "bc90586179d44dcb313a9a289d687a2f26226303b2066bd21dbefd2378e894e5",
+        "url": "https://raw.githubusercontent.com/storybookjs/storybook/4f0a7d27873b2615c8be7d8b35f4576d1782ac62/LICENSE",
+        "gitCommitOrTag": "4f0a7d27873b2615c8be7d8b35f4576d1782ac62",
+        "retrievedAt": "2026-10-30T00:07:24.338291+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@storybook/react-vite@10.6.5": {
+    "name": "@storybook/react-vite",
+    "version": "10.6.5",
+    "url": "https://registry.npmjs.org/@storybook/react-vite/-/react-vite-10.6.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@storybook/react-vite/10.6.5",
+    "tarballSha256": "ae42a183ebb948c5a022be4d47224a10333dfb4d0ed47c47aed64da44029ab67",
+    "integrity": "sha512-RsRF1drYtCku7+PMdRnuFt3EdG8Rn8I5G8ne0cBjn24xSn5Pbo9W+y9IoyD2llAeaeCpzEEdASY12wpKd3aCQA==",
+    "retrievedAt": "2026-10-30T00:05:35.130996+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_storybook_react-vite_10.6.5/repository-LICENSE",
+        "sha256": "bc90586179d44dcb313a9a289d687a2f26226303b2066bd21dbefd2378e894e5",
+        "url": "https://raw.githubusercontent.com/storybookjs/storybook/4f0a7d27873b2615c8be7d8b35f4576d1782ac62/LICENSE",
+        "gitCommitOrTag": "4f0a7d27873b2615c8be7d8b35f4576d1782ac62",
+        "retrievedAt": "2026-10-30T00:07:24.367198+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@storybook/svelte-vite@10.6.5": {
+    "name": "@storybook/svelte-vite",
+    "version": "10.6.5",
+    "url": "https://registry.npmjs.org/@storybook/svelte-vite/-/svelte-vite-10.6.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@storybook/svelte-vite/10.6.5",
+    "tarballSha256": "063f147646fcc07df9d508aa4a2ce1402ae2a18c9835fcb6f58f0a30d5f7d8a1",
+    "integrity": "sha512-0nxO+6VJvnHITU+9k0QF9nQDLoZYWPLj5k6Fp0T5FTpo2OEc5w2FdcVyrTDg3su/SqTjnc+DYoYSoj7j+Z1h2A==",
+    "retrievedAt": "2026-10-30T00:05:35.596960+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_storybook_svelte-vite_10.6.5/repository-LICENSE",
+        "sha256": "bc90586179d44dcb313a9a289d687a2f26226303b2066bd21dbefd2378e894e5",
+        "url": "https://raw.githubusercontent.com/storybookjs/storybook/4f0a7d27873b2615c8be7d8b35f4576d1782ac62/LICENSE",
+        "gitCommitOrTag": "4f0a7d27873b2615c8be7d8b35f4576d1782ac62",
+        "retrievedAt": "2026-10-30T00:07:24.409545+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@storybook/vue3-vite@10.6.5": {
+    "name": "@storybook/vue3-vite",
+    "version": "10.6.5",
+    "url": "https://registry.npmjs.org/@storybook/vue3-vite/-/vue3-vite-10.6.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@storybook/vue3-vite/10.6.5",
+    "tarballSha256": "00eae76d05be40dd64c69ec9b261345708dcb395619d1c41e0b15b3c6a5957d3",
+    "integrity": "sha512-tpyhI56cgKGgxxYkT+CKwChMKLdtz+fLeaBs0l1RKOYLjbjvZ8FrzaVz/z8JZgMUbSJSD/tIDACgz6rAQVUbrg==",
+    "retrievedAt": "2026-10-30T00:05:35.649678+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_storybook_vue3-vite_10.6.5/repository-LICENSE",
+        "sha256": "bc90586179d44dcb313a9a289d687a2f26226303b2066bd21dbefd2378e894e5",
+        "url": "https://raw.githubusercontent.com/storybookjs/storybook/4f0a7d27873b2615c8be7d8b35f4576d1782ac62/LICENSE",
+        "gitCommitOrTag": "4f0a7d27873b2615c8be7d8b35f4576d1782ac62",
+        "retrievedAt": "2026-10-30T00:07:24.439765+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@storybook/web-components-vite@10.6.5": {
+    "name": "@storybook/web-components-vite",
+    "version": "10.6.5",
+    "url": "https://registry.npmjs.org/@storybook/web-components-vite/-/web-components-vite-10.6.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@storybook/web-components-vite/10.6.5",
+    "tarballSha256": "e0554ba5f285ed1429aa1472fe4ad776eb530847648d6e65e5ebc2c07af3150b",
+    "integrity": "sha512-jkhUqoSpFk2LMVKQga5mqF23C+lhzPFoAevqssCciqBvcmA3+JJXoMCe3hoCg8CSWqRhC3EE2nL/upJJQ0z/Eg==",
+    "retrievedAt": "2026-10-30T00:05:35.749651+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_storybook_web-components-vite_10.6.5/repository-LICENSE",
+        "sha256": "bc90586179d44dcb313a9a289d687a2f26226303b2066bd21dbefd2378e894e5",
+        "url": "https://raw.githubusercontent.com/storybookjs/storybook/4f0a7d27873b2615c8be7d8b35f4576d1782ac62/LICENSE",
+        "gitCommitOrTag": "4f0a7d27873b2615c8be7d8b35f4576d1782ac62",
+        "retrievedAt": "2026-10-30T00:07:24.471134+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@sveltejs/kit@3.1.0": {
+    "name": "@sveltejs/kit",
+    "version": "3.1.0",
+    "url": "https://registry.npmjs.org/@sveltejs/kit/-/kit-3.1.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@sveltejs/kit/3.1.0",
+    "tarballSha256": "1b8445eb13be20ece33a2e52e05c8930b00df9b7f8f41e954c604b999fa28d9c",
+    "integrity": "sha512-JTWlq2HQlkqx6vIoxhC0R6sc4WVqbQoRyEmr5YlqKmiYbzY1U3awtSWTmjMLlS056a49AmkQR6rnNANXIE8B0Q==",
+    "retrievedAt": "2026-10-30T00:05:35.491609+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_sveltejs_kit_3.1.0/LICENSE",
+        "sha256": "ac6ecdc526c9e6aec1db76f0e8dfe344d792380e974686476e7c512152ae2636"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@sveltejs/package@3.0.1": {
+    "name": "@sveltejs/package",
+    "version": "3.0.1",
+    "url": "https://registry.npmjs.org/@sveltejs/package/-/package-3.0.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@sveltejs/package/3.0.1",
+    "tarballSha256": "efdb5802c77a1adaa18e2c5c3cfdcb7174d6e20b501d86b18713ed278d7fedbc",
+    "integrity": "sha512-QblEaqd2r685OZWVO4I0DLAKUOozIp7YxvahxPYntv+4zzMQbisX2vubBEg2d8riF+bPF13AqTzMFlhyuSlaRQ==",
+    "retrievedAt": "2026-10-30T00:05:35.493561+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_sveltejs_package_3.0.1/LICENSE",
+        "sha256": "ac6ecdc526c9e6aec1db76f0e8dfe344d792380e974686476e7c512152ae2636"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@sveltejs/vite-plugin-svelte@7.3.1": {
+    "name": "@sveltejs/vite-plugin-svelte",
+    "version": "7.3.1",
+    "url": "https://registry.npmjs.org/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-7.3.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@sveltejs/vite-plugin-svelte/7.3.1",
+    "tarballSha256": "6e234ee1fa143ae85dd8fd107b86a8976c18fbfa363c0e330181800e06268d72",
+    "integrity": "sha512-ZPsLN8B1e/En+Ak5s4V7srFDT532oS0qieLsQwu63NGKsS+iAjoO2Js1BochlHlglcU+Pt7WAO3C5Ee+4f6gVA==",
+    "retrievedAt": "2026-10-30T00:05:35.612047+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_sveltejs_vite-plugin-svelte_7.3.1/LICENSE",
+        "sha256": "26d4779495753b2fb772445ca50f83f03b431522bcd410a1643cf1097fbcefc0"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@testing-library/angular@19.6.0": {
+    "name": "@testing-library/angular",
+    "version": "19.6.0",
+    "url": "https://registry.npmjs.org/@testing-library/angular/-/angular-19.6.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@testing-library/angular/19.6.0",
+    "tarballSha256": "02ecc6a173396b4d0be9a10ae72946ff2dfa046f3bb29836face0e4a09efca41",
+    "integrity": "sha512-NruHlQHQK00qJ+8NCbsmWGknCqprPN9js4jM/sxDNwsvpv1NOjw3D+t9WY5q6J4+2VAUOS51Yca36Pr+bPUAsw==",
+    "retrievedAt": "2026-10-30T00:05:36.122338+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_testing-library_angular_19.6.0/repository-LICENSE",
+        "sha256": "217d312bb17d823b63c8f6d1ca8e4ccc596da11017039eb89d42dfaddc3ed53d",
+        "url": "https://raw.githubusercontent.com/testing-library/angular-testing-library/9ceab76c5ddc318b7dc9d098e2072ef4549cd392/LICENSE",
+        "gitCommitOrTag": "9ceab76c5ddc318b7dc9d098e2072ef4549cd392",
+        "retrievedAt": "2026-10-30T00:07:24.744255+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@testing-library/dom@10.4.2": {
+    "name": "@testing-library/dom",
+    "version": "10.4.2",
+    "url": "https://registry.npmjs.org/@testing-library/dom/-/dom-10.4.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@testing-library/dom/10.4.2",
+    "tarballSha256": "6a45d85a68c45ab36768f4b58875081903f47daf1313b4d7433c380f706d9c54",
+    "integrity": "sha512-yzr2S9HyAIdhz2/6qHgbs665Q7PKVcDF05vsOlHPxG1mo36gKVesdYVeDLnXgfjJ03CrKRk08knc6+E/9m8v2Q==",
+    "retrievedAt": "2026-10-30T00:05:35.685468+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_testing-library_dom_10.4.2/LICENSE",
+        "sha256": "bf8fd38056b7606deccfcadb4d8ca1c210082d8ef5513426d2650daedc30bed3"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@testing-library/react@16.3.3": {
+    "name": "@testing-library/react",
+    "version": "16.3.3",
+    "url": "https://registry.npmjs.org/@testing-library/react/-/react-16.3.3.tgz",
+    "registryUrl": "https://registry.npmjs.org/@testing-library/react/16.3.3",
+    "tarballSha256": "a34993ab7ff75ff4492655a71b14a8a0d4634148a0e2f128a82cb34fc1308a4e",
+    "integrity": "sha512-Uo193NgQbPMz6lrrhtRQQFcMC6Re/ELLFbbuVL30WDlZxlpZf9/lMHTAVxPRLw1q1iu9OJmR1c2BLiENRstdBg==",
+    "retrievedAt": "2026-10-30T00:05:35.654862+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_testing-library_react_16.3.3/LICENSE",
+        "sha256": "9680978280d509520d2a7b51e93ffbf7d9ec2b9de4411a6989daba5b659048e0"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@testing-library/svelte@5.4.2": {
+    "name": "@testing-library/svelte",
+    "version": "5.4.2",
+    "url": "https://registry.npmjs.org/@testing-library/svelte/-/svelte-5.4.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@testing-library/svelte/5.4.2",
+    "tarballSha256": "54626f8edb1ed08f4ca9cbdf553efe1b0ce4eab0653c318be7f8804a15ae3af2",
+    "integrity": "sha512-4o31E4HGo5BU5KwPkulNRocEden+7Tt9JYm9uhln5ajF7DULeyFA46BBWVfKJ8Ms9B3JmOFPTIiVamH7n3KpuQ==",
+    "retrievedAt": "2026-10-30T00:05:36.119108+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_testing-library_svelte_5.4.2/LICENSE",
+        "sha256": "17a59e7c4f234754711bebc71b415cd95cf15d97353df7963ec34c6f7af9f685"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@testing-library/user-event@14.6.8": {
+    "name": "@testing-library/user-event",
+    "version": "14.6.8",
+    "url": "https://registry.npmjs.org/@testing-library/user-event/-/user-event-14.6.8.tgz",
+    "registryUrl": "https://registry.npmjs.org/@testing-library/user-event/14.6.8",
+    "tarballSha256": "924b109723b9e04d10f758d14f3ee06f2a5f9d908e4e555790cd8cf2691c99a0",
+    "integrity": "sha512-vgSSqnANMnkcYR/vUNDbwS7aM3OErRLNUG8vCVVlj4oc6cKffUrccX7UAS5AmJQQNZTSibi9z5GvvRZ0aYgUCQ==",
+    "retrievedAt": "2026-10-30T00:05:35.863950+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_testing-library_user-event_14.6.8/LICENSE",
+        "sha256": "b5a4028c49c48f820831421de69c8ea83d621a062914bf16739fd0703c7c9fba"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@testing-library/vue@8.1.0": {
+    "name": "@testing-library/vue",
+    "version": "8.1.0",
+    "url": "https://registry.npmjs.org/@testing-library/vue/-/vue-8.1.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@testing-library/vue/8.1.0",
+    "tarballSha256": "1fb986084daafacec85dd15d486bb42b756111a40317ef0f480195093934d42a",
+    "integrity": "sha512-ls4RiHO1ta4mxqqajWRh8158uFObVrrtAPoxk7cIp4HrnQUj/ScKzqz53HxYpG3X6Zb7H2v+0eTGLSoy8HQ2nA==",
+    "retrievedAt": "2026-10-30T00:05:36.154570+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_testing-library_vue_8.1.0/LICENSE",
+        "sha256": "a5cf168303a162936ddabda7851ee9d1f29ad593440e849f86e19243057ebf54"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@vitejs/plugin-vue@6.0.10": {
+    "name": "@vitejs/plugin-vue",
+    "version": "6.0.10",
+    "url": "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-6.0.10.tgz",
+    "registryUrl": "https://registry.npmjs.org/@vitejs/plugin-vue/6.0.10",
+    "tarballSha256": "8db8f57afc207c6efa9ba34797b7caf16fcc93755b52112f68ebebb1bbf3064e",
+    "integrity": "sha512-b80aUQh3n+qEzzZm5oQp3rT2QImeCx58K6eFl/RkJ3d65KW0kTuv5lNsLRVAjbW9YRUpo/wzmvzMgV34bTAItA==",
+    "retrievedAt": "2026-10-30T00:05:35.745266+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_vitejs_plugin-vue_6.0.10/LICENSE",
+        "sha256": "29b68325fe026047d13e187b44c33b2acacf7dc647dec4583702e59f235e13b5"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@vitest/browser-playwright@5.0.5": {
+    "name": "@vitest/browser-playwright",
+    "version": "5.0.5",
+    "url": "https://registry.npmjs.org/@vitest/browser-playwright/-/browser-playwright-5.0.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@vitest/browser-playwright/5.0.5",
+    "tarballSha256": "189e5345df8b390420f2ce210bbf32d11c9fb0d8fbf44cf42e9bda5fdd0b6b41",
+    "integrity": "sha512-lcdThFUUcMV9mGGV1SUiZXPxfjgW4CssA7o3STxzh8WK0tT2r526kc12tZIBRZfoLMwkhxjLmMXkWXONzdsDQw==",
+    "retrievedAt": "2026-10-30T00:05:35.956464+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_vitest_browser-playwright_5.0.5/LICENSE",
+        "sha256": "04575fc5bfae19a9b63100f8691f901a2e15a399011ac02db435a9ef27295551"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@vue/compiler-sfc@3.5.44": {
+    "name": "@vue/compiler-sfc",
+    "version": "3.5.44",
+    "url": "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-3.5.44.tgz",
+    "registryUrl": "https://registry.npmjs.org/@vue/compiler-sfc/3.5.44",
+    "tarballSha256": "691a111580aedc0a0f5e82dc9b928a2469b67650043f6a36d9a0188c3e9388c6",
+    "integrity": "sha512-dzHmQ4jXTpdr5FjIQUeykVakN/uzqFbUo9/C5ikBFg3a3PeM6uRxeczx1ZbXBML0/zJstEh3ygYipzR5Z7b2Pw==",
+    "retrievedAt": "2026-10-30T00:05:35.842096+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_vue_compiler-sfc_3.5.44/LICENSE",
+        "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@yarnpkg/cli-dist@4.18.1": {
+    "name": "@yarnpkg/cli-dist",
+    "version": "4.18.1",
+    "url": "https://registry.npmjs.org/@yarnpkg/cli-dist/-/cli-dist-4.18.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@yarnpkg/cli-dist/4.18.1",
+    "tarballSha256": "f6729593ad4c17784e3d4ade53b3ed684e3dba3af5adb9bebe21bb854fe0b153",
+    "integrity": "sha512-EH+A4TxAtBWXKE0DGQxW9Bo9crXHLJ73mfxjTQJuv8XonNWWTpei8BQ5JjczHJNU9GROTycwMFn8iOvRIZXUcA==",
+    "retrievedAt": "2026-10-30T00:05:36.707458+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE.md",
+        "localPath": "LICENSES/packages/_yarnpkg_cli-dist_4.18.1/repository-LICENSE.md",
+        "sha256": "238d933f5c226cc197bd1dae2ad0c468e157b4cba8ed844f81549ba6db777dc4",
+        "url": "https://raw.githubusercontent.com/yarnpkg/berry/%40yarnpkg%2Fcli%2F4.18.1/LICENSE.md",
+        "gitCommitOrTag": "@yarnpkg/cli/4.18.1",
+        "retrievedAt": "2026-10-30T00:07:25.276027+00:00"
+      }
+    ],
+    "licenseMetadata": "BSD-2-Clause",
+    "status": "repository-license-retrieved"
+  },
+  "@zag-js/core@1.47.0": {
+    "name": "@zag-js/core",
+    "version": "1.47.0",
+    "url": "https://registry.npmjs.org/@zag-js/core/-/core-1.47.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@zag-js/core/1.47.0",
+    "tarballSha256": "a7047bebf5e2cb033e6aa1bb9f7656241b9197a395115041d5ee9c3d8a81fcff",
+    "integrity": "sha512-VOlDoXvB43DoHsSJHrBTXBP0gQRPA8nTZY2dIG328iL+U70vu2cYNUDMTBBxHlexJPE3JDAt9kFIoEmfZCNPew==",
+    "retrievedAt": "2026-10-30T00:05:36.118347+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_zag-js_core_1.47.0/LICENSE",
+        "sha256": "2e9d3d03c7f5bd727f8e53dda3795edc0873e6479d0cb32225b9390c1db72433"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@zag-js/date-picker@1.47.0": {
+    "name": "@zag-js/date-picker",
+    "version": "1.47.0",
+    "url": "https://registry.npmjs.org/@zag-js/date-picker/-/date-picker-1.47.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@zag-js/date-picker/1.47.0",
+    "tarballSha256": "2066cb5df26e15662a7d787ada25487278ad63b4a943daffe1786e684a85c411",
+    "integrity": "sha512-drFN3qobFJW/poZkNLN/gmEEz8875ZYSjb0exXvoAaQK84nzPVwreO2+lhcQSZ4Al5CA0zyW1k10t5+aN8bY2w==",
+    "retrievedAt": "2026-10-30T00:05:36.180175+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_zag-js_date-picker_1.47.0/LICENSE",
+        "sha256": "2e9d3d03c7f5bd727f8e53dda3795edc0873e6479d0cb32225b9390c1db72433"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@zag-js/dialog@1.47.0": {
+    "name": "@zag-js/dialog",
+    "version": "1.47.0",
+    "url": "https://registry.npmjs.org/@zag-js/dialog/-/dialog-1.47.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@zag-js/dialog/1.47.0",
+    "tarballSha256": "78014d32065af8fa4634d0c0b3fda3006bf6c64a9c528a6b67c509dcda75732f",
+    "integrity": "sha512-7Lmm6CWaGy1nd+X8ZRRSkoiyVj38pgXWFgnIb1q+snjbD/cM/bo8A+9Qoogl9CkAoWsLkFYV3cI5RY9fQXfRsw==",
+    "retrievedAt": "2026-10-30T00:05:36.344756+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_zag-js_dialog_1.47.0/LICENSE",
+        "sha256": "2e9d3d03c7f5bd727f8e53dda3795edc0873e6479d0cb32225b9390c1db72433"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@zag-js/tabs@1.47.0": {
+    "name": "@zag-js/tabs",
+    "version": "1.47.0",
+    "url": "https://registry.npmjs.org/@zag-js/tabs/-/tabs-1.47.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@zag-js/tabs/1.47.0",
+    "tarballSha256": "8a33a58c3f4c660461dd554fe5d344bbaa23ce627cd8868e5268c81c8100d649",
+    "integrity": "sha512-ozwN9K5DUbO99S2M4+E18VhrGwWpTo8q97cigOByySpZp6vBJI2A1HNQEVTqwgH9ltrRPfAYUatWXrkO/Dxamw==",
+    "retrievedAt": "2026-10-30T00:05:36.640364+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_zag-js_tabs_1.47.0/LICENSE",
+        "sha256": "2e9d3d03c7f5bd727f8e53dda3795edc0873e6479d0cb32225b9390c1db72433"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@zag-js/vanilla@1.47.0": {
+    "name": "@zag-js/vanilla",
+    "version": "1.47.0",
+    "url": "https://registry.npmjs.org/@zag-js/vanilla/-/vanilla-1.47.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@zag-js/vanilla/1.47.0",
+    "tarballSha256": "a42be72812cfe370b3f4e215d1e45be1d853638fb9cff20627dbf64746985d7c",
+    "integrity": "sha512-J5dk4cROHBQwpTD+8T6MJ3RZ0RkIl6rSYUHP7IwnB627sXZD2ehDQXgb/qXrBgcBDxYDRredFF2lu1SdWORWjw==",
+    "retrievedAt": "2026-10-30T00:05:36.668031+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_zag-js_vanilla_1.47.0/LICENSE",
+        "sha256": "2e9d3d03c7f5bd727f8e53dda3795edc0873e6479d0cb32225b9390c1db72433"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "babel-preset-solid@1.9.16": {
+    "name": "babel-preset-solid",
+    "version": "1.9.16",
+    "url": "https://registry.npmjs.org/babel-preset-solid/-/babel-preset-solid-1.9.16.tgz",
+    "registryUrl": "https://registry.npmjs.org/babel-preset-solid/1.9.16",
+    "tarballSha256": "2bf654c2c8f5b42f4ccf99e57ebde8fa886258a6c69cd87f3890d1824181732a",
+    "integrity": "sha512-+0h40Qk2oBfkQ4OGDBHIDtvq/XQiOnCfzjNHmMxriAr8MmdsaIbyJgqYglDs4d70sF8O08sSpx61TKdpUt3oRw==",
+    "retrievedAt": "2026-10-30T00:05:36.197010+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/babel-preset-solid_1.9.16/LICENSE",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "corepack@0.36.0": {
+    "name": "corepack",
+    "version": "0.36.0",
+    "url": "https://registry.npmjs.org/corepack/-/corepack-0.36.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/corepack/0.36.0",
+    "tarballSha256": "9128cfe26aee0c99f4fc68c15c6b8b12309a68be0de2c012cdfea2a463cb722f",
+    "integrity": "sha512-SiiJsBhZqdBiPHTEl6OT3sASrRrKIcYTQMsVGXx6EE/gM8WFMwYjeIX8Tt8RiU4Iv2J6LbT8KpGfCOsBpRWB/w==",
+    "retrievedAt": "2026-10-30T00:05:36.244963+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.md",
+        "localPath": "LICENSES/packages/corepack_0.36.0/LICENSE.md",
+        "sha256": "30a7b8ba5c4483d97d6123f5634da2362d578fb81f42ed6e1dfbb84fb1cd8fe4"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "lit@3.3.3": {
+    "name": "lit",
+    "version": "3.3.3",
+    "url": "https://registry.npmjs.org/lit/-/lit-3.3.3.tgz",
+    "registryUrl": "https://registry.npmjs.org/lit/3.3.3",
+    "tarballSha256": "92f8d5bcd63e2d5efc41afd0a3d58a0a0f554ef826af9c8e368887c71949fd4d",
+    "integrity": "sha512-fycuvZg/hkpozL00lm1pEJH5nN/lr9ZXd6mJI2HSN4+Bzc+LDNdEApJ6HFbPkdFNHLvOplIIuJvxkS4XUxqirw==",
+    "retrievedAt": "2026-10-30T00:05:36.257715+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/lit_3.3.3/LICENSE",
+        "sha256": "45d31799d0db956cc3eb5469346abbd9b7025babc5ff29fab10d7095da992ef1"
+      }
+    ],
+    "licenseMetadata": "BSD-3-Clause",
+    "status": "retrieved"
+  },
+  "ng-packagr@22.2.5": {
+    "name": "ng-packagr",
+    "version": "22.2.5",
+    "url": "https://registry.npmjs.org/ng-packagr/-/ng-packagr-22.2.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/ng-packagr/22.2.5",
+    "tarballSha256": "5304ad6824ab42c7e817f8bb6d5b852983ce925749c5e7eadd0486f876e7f34e",
+    "integrity": "sha512-AlAruvF6HQa9TIMg17TyLRQ1gxIyTeJgF/KMABWdH0vCkzXE6PatQeTII0ukrkElSgahPRlZZwW/1bm3m7nJQA==",
+    "retrievedAt": "2026-10-30T00:05:36.313574+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/ng-packagr_22.2.5/LICENSE",
+        "sha256": "dccf59439da2bb027e673c83867e3b397d4eef366d9b48cf167d8ac8ef722772"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "nx@24.0.2": {
+    "name": "nx",
+    "version": "24.0.2",
+    "url": "https://registry.npmjs.org/nx/-/nx-24.0.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/nx/24.0.2",
+    "tarballSha256": "9ba1569ce277e9180a42d38d5206dccc548ae3413a9be75941c37189d917845e",
+    "integrity": "sha512-8iM4TsVVVJBVgvEiPF4kYoiTB7W0TM+YO8SzPwTZOY+mRGz4lOF4gAJ/0uLIfMzbYGErHNVxG/DkxtO8ZE838g==",
+    "retrievedAt": "2026-10-30T00:05:36.467349+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/nx_24.0.2/LICENSE",
+        "sha256": "50bb7bf81374073606d3c3f277762d5222d82c918b2088f3789ed7e5f9f8b496"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "react-dom@19.3.1": {
+    "name": "react-dom",
+    "version": "19.3.1",
+    "url": "https://registry.npmjs.org/react-dom/-/react-dom-19.3.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/react-dom/19.3.1",
+    "tarballSha256": "8b49975821eec6311e00d2b3f4b8337923253c876517388a33f9839c61ab262e",
+    "integrity": "sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==",
+    "retrievedAt": "2026-10-30T00:05:36.444450+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/react-dom_19.3.1/LICENSE",
+        "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "react@19.3.1": {
+    "name": "react",
+    "version": "19.3.1",
+    "url": "https://registry.npmjs.org/react/-/react-19.3.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/react/19.3.1",
+    "tarballSha256": "56936913918dcf1f7a6fe58784e79df54b18200a88655ce809cf5e9c4ef871aa",
+    "integrity": "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==",
+    "retrievedAt": "2026-10-30T00:05:36.419329+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/react_19.3.1/LICENSE",
+        "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "solid-js@1.9.18": {
+    "name": "solid-js",
+    "version": "1.9.18",
+    "url": "https://registry.npmjs.org/solid-js/-/solid-js-1.9.18.tgz",
+    "registryUrl": "https://registry.npmjs.org/solid-js/1.9.18",
+    "tarballSha256": "4c93cb8259aa05ea9812ae14aa5b22ce31eb8d886bd94034f28eedd0122127fc",
+    "integrity": "sha512-CHGO5YFk6Y9m/1YSxVtKnXfrW7JD3Tmof8HmR4z6TmCPsS8efo8LnzIR8CQh3cUvffqYm6DWyBFfk8dQw1CNQQ==",
+    "retrievedAt": "2026-10-30T00:05:36.486447+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/solid-js_1.9.18/LICENSE",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "storybook-framework-qwik@0.6.1": {
+    "name": "storybook-framework-qwik",
+    "version": "0.6.1",
+    "url": "https://registry.npmjs.org/storybook-framework-qwik/-/storybook-framework-qwik-0.6.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/storybook-framework-qwik/0.6.1",
+    "tarballSha256": "4127d73d62e582455de05db43885ed1d9ae6158b902a06ffd5e7e5cd91de3233",
+    "integrity": "sha512-rcLTUPS3WVHq1LTWU5znqJp7RrPPm+cdAakgnDWV557/E4DmQaKuhjKNbSYik/HpKGsD4GCrRJ8GbtVGRaZ0RA==",
+    "retrievedAt": "2026-10-30T00:05:36.490077+00:00",
+    "documents": [],
+    "licenseMetadata": "MIT",
+    "status": "no-license-in-tarball",
+    "repositoryInvestigation": {
+      "commit": "d983ff87696be21206dbd1b48d2dd862858d1c4f",
+      "treeUrl": "https://api.github.com/repos/literalpie/storybook-framework-qwik/git/trees/d983ff87696be21206dbd1b48d2dd862858d1c4f?recursive=1",
+      "result": "Exact commit recursive tree contains no license/copying path. Not cleared for copying/bundling."
+    }
+  },
+  "storybook-solidjs-vite@10.7.4": {
+    "name": "storybook-solidjs-vite",
+    "version": "10.7.4",
+    "url": "https://registry.npmjs.org/storybook-solidjs-vite/-/storybook-solidjs-vite-10.7.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/storybook-solidjs-vite/10.7.4",
+    "tarballSha256": "f6fc1fd2dc883aa6194a2f58b5aad53627e1bda6a6743b4fbc495c1b5c1d77c4",
+    "integrity": "sha512-6/E114t87ndFHCQdcakcxSB9K4nj13chvNX41dFv8RnY2n1rU5Lr0GTsIlttGN1j5g3W1znBnp/DIs7DTeuEIw==",
+    "retrievedAt": "2026-10-30T00:05:36.536688+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/storybook-solidjs-vite_10.7.4/LICENSE",
+        "sha256": "ca86d755f787a15ebbb5c33e6c5cefd9aa0d9e474d26f941ebaf9d2f2d7882be"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "storybook@10.6.5": {
+    "name": "storybook",
+    "version": "10.6.5",
+    "url": "https://registry.npmjs.org/storybook/-/storybook-10.6.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/storybook/10.6.5",
+    "tarballSha256": "05a33451ad253776fa8887e454651213c472d90d1dde1457cb93239de674ae31",
+    "integrity": "sha512-qurC38Nx4PDF9YIq6GO95dpUx8a3B9AZwlcHBo4cOI9At09ifjQRsqcwcdOf2YX0cpVhFKmHkI20SWCrxqYQrg==",
+    "retrievedAt": "2026-10-30T00:05:36.792367+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/storybook_10.6.5/repository-LICENSE",
+        "sha256": "bc90586179d44dcb313a9a289d687a2f26226303b2066bd21dbefd2378e894e5",
+        "url": "https://raw.githubusercontent.com/storybookjs/storybook/4f0a7d27873b2615c8be7d8b35f4576d1782ac62/LICENSE",
+        "gitCommitOrTag": "4f0a7d27873b2615c8be7d8b35f4576d1782ac62",
+        "retrievedAt": "2026-10-30T00:07:26.489757+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "svelte@5.57.3": {
+    "name": "svelte",
+    "version": "5.57.3",
+    "url": "https://registry.npmjs.org/svelte/-/svelte-5.57.3.tgz",
+    "registryUrl": "https://registry.npmjs.org/svelte/5.57.3",
+    "tarballSha256": "afda776761670addcd6f4345c1b4b0665c8dd11b82961cbfee9696d5d9f4546a",
+    "integrity": "sha512-5mAftM3SoDV9X0zdF386F9p2pv8iKOwi/KfBS1XnBAkVCKFzVOLHUoa8iGWAt4buoicLmyWVRpuuD5wplXOQsg==",
+    "retrievedAt": "2026-10-30T00:05:36.678373+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.md",
+        "localPath": "LICENSES/packages/svelte_5.57.3/LICENSE.md",
+        "sha256": "06257f4847b13a49a039efb17b944c141e71b12fd8d231b362d86919067d77a3"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "typescript@7.0.2": {
+    "name": "typescript",
+    "version": "7.0.2",
+    "url": "https://registry.npmjs.org/typescript/-/typescript-7.0.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/typescript/7.0.2",
+    "tarballSha256": "da2513f4b95176d6dde8b51aab7afe8a927656c9d277369793f77f7e59371c08",
+    "integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==",
+    "retrievedAt": "2026-10-30T00:05:36.765524+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/typescript_7.0.2/LICENSE",
+        "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47"
+      },
+      {
+        "upstreamPath": "package/vendor/vscode-jsonrpc/License.txt",
+        "localPath": "LICENSES/packages/typescript_7.0.2/vendor/vscode-jsonrpc/License.txt",
+        "sha256": "ec9ee83580841e8eb687aca9867f221503809ba6426c7f876ede17d91b9fcfd0"
+      },
+      {
+        "upstreamPath": "package/NOTICE.txt",
+        "localPath": "LICENSES/packages/typescript_7.0.2/NOTICE.txt",
+        "sha256": "f5c708b59114507b8b27b48181b6883d106bbca0c1634bbee45b5e344237b66b"
+      }
+    ],
+    "licenseMetadata": "Apache-2.0",
+    "status": "retrieved"
+  },
+  "vite-plugin-solid@2.11.14": {
+    "name": "vite-plugin-solid",
+    "version": "2.11.14",
+    "url": "https://registry.npmjs.org/vite-plugin-solid/-/vite-plugin-solid-2.11.14.tgz",
+    "registryUrl": "https://registry.npmjs.org/vite-plugin-solid/2.11.14",
+    "tarballSha256": "cc1c65cfb4a94d1456307a330713fb46ee643242e28565af9b216a8284f1a617",
+    "integrity": "sha512-7ZVBt8rpoyqmlwin2kRIUveaHoF6/kulY7gsnD+qFh4nS29V4OPAnw+ojoAspXIjObiL9o1xh9a/nTuYHm02Rw==",
+    "retrievedAt": "2026-10-30T00:05:36.703941+00:00",
+    "documents": [],
+    "licenseMetadata": "MIT",
+    "status": "no-license-in-tarball",
+    "repositoryInvestigation": {
+      "exactVersionTag": "vite-plugin-solid@2.11.14",
+      "commit": "ce707ed620d5d4839472f9defb3c52c6ce57840e",
+      "checkedPaths": [
+        "LICENSE",
+        "LICENSE.md"
+      ],
+      "result": "Both exact-commit root paths returned HTTP 404; no full exact original license preserved. Not cleared for copying/bundling."
+    }
+  },
+  "vite@8.3.5": {
+    "name": "vite",
+    "version": "8.3.5",
+    "url": "https://registry.npmjs.org/vite/-/vite-8.3.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/vite/8.3.5",
+    "tarballSha256": "7f22c2a78d15bac5ad755c5f413806048db453604fa0c293f6a0613890dc7c17",
+    "integrity": "sha512-z1YpjieJ9g0ebTmQpLBv/oq9E3F9EIlOe+7LahW8SrE3LTiG3udBRUXQOlYXP9b+IC2q2phHeVxj9xGlw34OEQ==",
+    "retrievedAt": "2026-10-30T00:05:36.788473+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.md",
+        "localPath": "LICENSES/packages/vite_8.3.5/LICENSE.md",
+        "sha256": "a22152baa1aef74402443008e767e7c689a524c0909d19b0431d97f5ab066a13"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "vitepress@1.6.4": {
+    "name": "vitepress",
+    "version": "1.6.4",
+    "url": "https://registry.npmjs.org/vitepress/-/vitepress-1.6.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/vitepress/1.6.4",
+    "tarballSha256": "37f38a64e1e8ea1e9db68ad201488327c8df1303d3cdb2ceb0e3754259d65114",
+    "integrity": "sha512-+2ym1/+0VVrbhNyRoFFesVvBvHAVMZMK0rw60E3X/5349M1GuVdKeazuksqopEdvkKwKGs21Q729jX81/bkBJg==",
+    "retrievedAt": "2026-10-30T00:05:36.797689+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/vitepress_1.6.4/LICENSE",
+        "sha256": "6db2f08c2112251083b26df3117dde40c5589d337195953531e7e677d1a600e5"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "vitest@5.0.5": {
+    "name": "vitest",
+    "version": "5.0.5",
+    "url": "https://registry.npmjs.org/vitest/-/vitest-5.0.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/vitest/5.0.5",
+    "tarballSha256": "c66696882320ad7724b0c84f68f1e4ddcac561a928cc86715b72da167aedd9ef",
+    "integrity": "sha512-cPODOMF8YnkiiYtDdHo6n4wWmBrOBBbOIYH2d33M4l3CdNn72h+qMmO6uXffUN6A5AZFXNND/d+krS9mgkXRfg==",
+    "retrievedAt": "2026-10-30T00:05:36.822323+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.md",
+        "localPath": "LICENSES/packages/vitest_5.0.5/LICENSE.md",
+        "sha256": "78fbac9e571c2ee260deb2a1941a8a18f0a85e3f39c23d08e2dcee6da4841998"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "vue@3.5.44": {
+    "name": "vue",
+    "version": "3.5.44",
+    "url": "https://registry.npmjs.org/vue/-/vue-3.5.44.tgz",
+    "registryUrl": "https://registry.npmjs.org/vue/3.5.44",
+    "tarballSha256": "33cd651dcae080f76c110bdb035faf9e0bab35f44cd4bd9cf8cf40ae7ed97256",
+    "integrity": "sha512-dvvmaOCG7lAMkJTPqPwWeGMsPS6DIsFsfZDUgBp9V6mHf9b3+/wyVwYR4Es+WV6uJC0FKRxp81Obcq0ZwUcGFQ==",
+    "retrievedAt": "2026-10-30T00:05:36.819492+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/vue_3.5.44/LICENSE",
+        "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular-devkit/architect@0.2202.5": {
+    "name": "@angular-devkit/architect",
+    "version": "0.2202.5",
+    "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2202.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular-devkit/architect/0.2202.5",
+    "tarballSha256": "1a515dc3f7682c6f848f386d1d1da5cb30f32657b48db9e12877049197106d5b",
+    "integrity": "sha512-VBkWJs44/5kexjCGOnazwmI0ZqKAJC0YJb4RjvE0JIm26jFp85VmzkeQeIYMY0Y04f4rQe4TdfHM3Tf2E6BzWw==",
+    "retrievedAt": "2026-10-30T00:05:37.001589+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular-devkit_architect_0.2202.5/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular-devkit/core@22.2.5": {
+    "name": "@angular-devkit/core",
+    "version": "22.2.5",
+    "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-22.2.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular-devkit/core/22.2.5",
+    "tarballSha256": "cbd00a87475f179e9f62392d54c907c129404d4817025fc20e1823036edb5fe1",
+    "integrity": "sha512-djhGvLmsb8Zje+faIlsDgBpo/yVBvoz7DVRWcGqTWhj7tIItjXUKMwFsYnKb1ykS0EMH08V/D3UXDCL/a7Zr7g==",
+    "retrievedAt": "2026-10-30T00:05:37.019236+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular-devkit_core_22.2.5/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/animations@22.2.4": {
+    "name": "@angular/animations",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/animations/-/animations-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/animations/22.2.4",
+    "tarballSha256": "bc5155c38508358949619cafd1712ca08791e167abe03458ca2577e13fcb44f0",
+    "integrity": "sha512-xReQVMwND+JLpI1C9AUIwkdb/u5KO11hRrECGVsNt4ATQ4njS5ZeTXFgLgPSAjb4DoTPvzcNrDHoDS/Hbd7qCQ==",
+    "retrievedAt": "2026-10-30T00:05:37.035944+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_animations_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/common@22.2.4": {
+    "name": "@angular/common",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/common/-/common-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/common/22.2.4",
+    "tarballSha256": "6c1df1b26254eafece2b7be366fe44f8f7da950b1a5bba49f3cd4b77439d8edf",
+    "integrity": "sha512-i5oosToLSAXumbkOF5pZyti0W0jrfRppj4y6a913f+AY4Em+iHT87JIOKrfybR7vkHs0eceZnpS0CpzylVAvgA==",
+    "retrievedAt": "2026-10-30T00:05:37.188967+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_common_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/forms@22.2.4": {
+    "name": "@angular/forms",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/forms/-/forms-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/forms/22.2.4",
+    "tarballSha256": "d3991a7d989aa623e1df329b53271433f258c82beb665df6266bcd91281c9637",
+    "integrity": "sha512-siFy9s0p4PjPUeDX7zI7bo5x3YstBnFfBGqO/obL0TdR2rBxrmW8iR11TxbGh41NKYc5GvbZezVKsN8WEW2ooA==",
+    "retrievedAt": "2026-10-30T00:05:37.047039+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_forms_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/platform-browser@22.2.4": {
+    "name": "@angular/platform-browser",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/platform-browser/22.2.4",
+    "tarballSha256": "48b454af93748752daab60b861075f5b608c5080684f57c65aae0dd7684f88ae",
+    "integrity": "sha512-NAQ8/Zcl8nRlNqxlXQGrQJ/c5V8lN5vJSlc8qkD3OUN+ClyNuS6UCXffYtKvvbovpyb/q1uYSQjqiEctz+5niw==",
+    "retrievedAt": "2026-10-30T00:05:37.041447+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_platform-browser_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/platform-browser-dynamic@22.2.4": {
+    "name": "@angular/platform-browser-dynamic",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/platform-browser-dynamic/22.2.4",
+    "tarballSha256": "ba125018deb311f3cfa99b9fae0632039ca4c9ac3e9509a699cad7b238a89b2a",
+    "integrity": "sha512-952+4obWSfa0yJE2hOzL/dgOyXrriU1X72I5b3U8ER0jXmGoHLbcIZDRRuol8yxygnHi9GYKnScogRQCXIMxPg==",
+    "retrievedAt": "2026-10-30T00:05:37.227640+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_platform-browser-dynamic_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/platform-server@22.2.4": {
+    "name": "@angular/platform-server",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/platform-server/-/platform-server-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/platform-server/22.2.4",
+    "tarballSha256": "0f1777d37823d9699942b0437ac9fd792548f160585e73888f193aae3d3facc3",
+    "integrity": "sha512-IN2tqpP63PQzW2dGOPLOwvgGseKKeoi1eRP0HANklGXzvugFOY/c2v5MqLMMIBji+5tFGneJRsy0Dwe/kpda5w==",
+    "retrievedAt": "2026-10-30T00:05:37.267474+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_platform-server_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "upstreamPath": "package/third_party/domino/LICENSE",
+        "localPath": "LICENSES/packages/_angular_platform-server_22.2.4/third_party/domino/LICENSE",
+        "sha256": "39ac37b9cbc901474adb91be9b8b1d906284ff451f9b064088f579f6775b76e6"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@angular/router@22.2.4": {
+    "name": "@angular/router",
+    "version": "22.2.4",
+    "url": "https://registry.npmjs.org/@angular/router/-/router-22.2.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@angular/router/22.2.4",
+    "tarballSha256": "8139a498f2d2923825889f61e0c8eb5e464762b39331fdac56b2ca4d28a93e96",
+    "integrity": "sha512-HKe2lqHbeCxczwiRoUlGfNLcJWi/VWGCF3a2v2w3qCBBGUBqed0RghbjdEQzl13led8PsLgse7U1ZC8zlz+BMw==",
+    "retrievedAt": "2026-10-30T00:05:37.301197+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_angular_router_22.2.4/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@babel/core@7.28.5": {
+    "name": "@babel/core",
+    "version": "7.28.5",
+    "url": "https://registry.npmjs.org/@babel/core/-/core-7.28.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@babel/core/7.28.5",
+    "tarballSha256": "c761b593de533f5797ad62830cb8bfe69e170bd5e0cb06cf36fd50a90df75137",
+    "integrity": "sha512-e7jT4DxYvIDLk1ZHmU/m/mB19rex9sv0c2ftBtjSBv+kVM/902eh0fINUzD7UwLLNR+jU585GxUJ8/EBfAM5fw==",
+    "retrievedAt": "2026-10-30T00:05:37.192247+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_babel_core_7.28.5/LICENSE",
+        "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@babel/preset-typescript@7.28.5": {
+    "name": "@babel/preset-typescript",
+    "version": "7.28.5",
+    "url": "https://registry.npmjs.org/@babel/preset-typescript/-/preset-typescript-7.28.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/@babel/preset-typescript/7.28.5",
+    "tarballSha256": "d569930b492c791303938dbab9c6c9b67c37f2fb0b023f041b9ab137103e51a3",
+    "integrity": "sha512-+bQy5WOI2V6LJZpPVxY+yp66XdZ2yifu0Mc1aP5CQKgjn4QM5IN2i5fAZ4xKop47pr8rpVhiAeu+nDQa12C8+g==",
+    "retrievedAt": "2026-10-30T00:05:37.185901+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_babel_preset-typescript_7.28.5/LICENSE",
+        "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@internationalized/date@3.12.4": {
+    "name": "@internationalized/date",
+    "version": "3.12.4",
+    "url": "https://registry.npmjs.org/@internationalized/date/-/date-3.12.4.tgz",
+    "registryUrl": "https://registry.npmjs.org/@internationalized/date/3.12.4",
+    "tarballSha256": "809cf9127ad9f7df548ffbd4bf9a33fc352d01347747eaa4eb1d1108c9cbbcc6",
+    "integrity": "sha512-M1dEn4c1U1HsSlaVR8upZtSqvXrTkHDfv18H01uCSJyjVLDxnBR38v/fMxecmlwXKR4i9HeZcmgQAPE6A+aGJQ==",
+    "retrievedAt": "2026-10-30T00:05:37.290568+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_internationalized_date_3.12.4/LICENSE",
+        "sha256": "7dfe6526888bac51759c99f9a51262ba2711a8c12a067f2181609dd9a4066b84"
+      }
+    ],
+    "licenseMetadata": "Apache-2.0",
+    "status": "retrieved"
+  },
+  "@noma.to/qwik-testing-library@1.7.1": {
+    "name": "@noma.to/qwik-testing-library",
+    "version": "1.7.1",
+    "url": "https://registry.npmjs.org/@noma.to/qwik-testing-library/-/qwik-testing-library-1.7.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@noma.to/qwik-testing-library/1.7.1",
+    "tarballSha256": "8e9deb9fe0cd2136f9d73609126ce1dadec39363bdfa01177363f750d9c75aa4",
+    "integrity": "sha512-cdZidd4ZQhWO6JurzkASanXH+P0X8oFEufNt9ZhOLOnX0J1WZ1Xfl1onoOETOTZgMEHETKfRcxEWDSbaBaA5iw==",
+    "retrievedAt": "2026-10-30T00:05:37.733116+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_noma.to_qwik-testing-library_1.7.1/LICENSE",
+        "sha256": "82fad47359cbd4cdbc8e4c8ea451dcfe31f0b603ac222fb0b17a905e602ece17"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@solidjs/babel-plugin@2.0.0-rc.19": {
+    "name": "@solidjs/babel-plugin",
+    "version": "2.0.0-rc.19",
+    "url": "https://registry.npmjs.org/@solidjs/babel-plugin/-/babel-plugin-2.0.0-rc.19.tgz",
+    "registryUrl": "https://registry.npmjs.org/@solidjs/babel-plugin/2.0.0-rc.19",
+    "tarballSha256": "b95dcdca32a906af009aab281092bb35e5ea6f4efee4366e967f802c66f95c36",
+    "integrity": "sha512-DZTDg989Znh553C/emDjAJXNEe73G+8jYbLyq9kZSB5HV3bTb9yq2PY/qwfM+NiJIA8qRCVMkrW+XsAE+yO6kQ==",
+    "retrievedAt": "2026-10-30T00:05:37.708158+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_solidjs_babel-plugin_2.0.0-rc.19/LICENSE",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@solidjs/compiler@2.0.0-rc.19": {
+    "name": "@solidjs/compiler",
+    "version": "2.0.0-rc.19",
+    "url": "https://registry.npmjs.org/@solidjs/compiler/-/compiler-2.0.0-rc.19.tgz",
+    "registryUrl": "https://registry.npmjs.org/@solidjs/compiler/2.0.0-rc.19",
+    "tarballSha256": "d062a38b07c1c78cb74689279540f4cdf4daf93115b7cc117e454ea3258a1543",
+    "integrity": "sha512-1ySojyE1/RXePyoWqm4nXxYWSdrJ4SoxAY8VF2Ac787zGkrme1PKq5fyE1tq/dJxdAAw6Tc2jgAJn0hyq3h9DA==",
+    "retrievedAt": "2026-10-30T00:05:37.729870+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_solidjs_compiler_2.0.0-rc.19/repository-LICENSE",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b",
+        "url": "https://raw.githubusercontent.com/solidjs/solid/d2323b077c7dda32ebced7843c2ce2b788a91e8d/LICENSE",
+        "gitCommitOrTag": "d2323b077c7dda32ebced7843c2ce2b788a91e8d",
+        "retrievedAt": "2026-10-30T00:07:27.976763+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@solidjs/router@1.0.0": {
+    "name": "@solidjs/router",
+    "version": "1.0.0",
+    "url": "https://registry.npmjs.org/@solidjs/router/-/router-1.0.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@solidjs/router/1.0.0",
+    "tarballSha256": "7f787894eedb631e8183a92061cae9a6c573646076407802f3cb39b6e9fd65b2",
+    "integrity": "sha512-cCSk1hvgCowiMa9bzzYWHiLu1U4E22+DfJe6/rOwAyECKrxc3jrd5QnoW3sDDJtW+e077cz/M67bPl3DqOBw1Q==",
+    "retrievedAt": "2026-10-30T00:05:37.774535+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_solidjs_router_1.0.0/LICENSE",
+        "sha256": "5f679427d1c408cdb5b7d02474f161d14d6a04bfa015b3a04a637f8662679811"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@solidjs/web@2.0.0-rc.19": {
+    "name": "@solidjs/web",
+    "version": "2.0.0-rc.19",
+    "url": "https://registry.npmjs.org/@solidjs/web/-/web-2.0.0-rc.19.tgz",
+    "registryUrl": "https://registry.npmjs.org/@solidjs/web/2.0.0-rc.19",
+    "tarballSha256": "f6ebdcd96817ea4d9cfbc6c53185effdd2d252c9d12dcef9231dc88cad3e5221",
+    "integrity": "sha512-FTHxQ8aE+vSHWc1exWw2Y+Brb727I4hCiWi+Y0DURbaqCou8xjCTzn8uiPi7mwC1tqpKSWfkn1Iq1ya/Bl9vYQ==",
+    "retrievedAt": "2026-10-30T00:05:37.537377+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/_solidjs_web_2.0.0-rc.19/repository-LICENSE",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b",
+        "url": "https://raw.githubusercontent.com/solidjs/solid/d2323b077c7dda32ebced7843c2ce2b788a91e8d/LICENSE",
+        "gitCommitOrTag": "d2323b077c7dda32ebced7843c2ce2b788a91e8d",
+        "retrievedAt": "2026-10-30T00:07:28.011997+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "@testing-library/jest-dom@7.0.1": {
+    "name": "@testing-library/jest-dom",
+    "version": "7.0.1",
+    "url": "https://registry.npmjs.org/@testing-library/jest-dom/-/jest-dom-7.0.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@testing-library/jest-dom/7.0.1",
+    "tarballSha256": "8545c1b16bcc0ed4a61954838f2c06c3ba81671f011d49409cec10422532b583",
+    "integrity": "sha512-oMDTC3oA+6CXSO2JZnvOI7CA6oVub6kij5ggk9ohwye5slmkwxYDXcPOVxgMw/RQlticjtO0C1RZkR97HgrWMw==",
+    "retrievedAt": "2026-10-30T00:05:37.358087+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_testing-library_jest-dom_7.0.1/LICENSE",
+        "sha256": "bf8fd38056b7606deccfcadb4d8ca1c210082d8ef5513426d2650daedc30bed3"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@types/node@24.13.3": {
+    "name": "@types/node",
+    "version": "24.13.3",
+    "url": "https://registry.npmjs.org/@types/node/-/node-24.13.3.tgz",
+    "registryUrl": "https://registry.npmjs.org/@types/node/24.13.3",
+    "tarballSha256": "14200e662b222ab262da7ac16f60565f353a8be6ddc98d9d34b1a97e66c5bebc",
+    "integrity": "sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==",
+    "retrievedAt": "2026-10-30T00:05:37.435582+00:00",
+    "documents": [
+      {
+        "upstreamPath": "node v24.13/LICENSE",
+        "localPath": "LICENSES/packages/_types_node_24.13.3/node v24.13/LICENSE",
+        "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@types/react-dom@19.3.0": {
+    "name": "@types/react-dom",
+    "version": "19.3.0",
+    "url": "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@types/react-dom/19.3.0",
+    "tarballSha256": "0782e1cd4af4a6a030843235a48e55dc690c36f9428b0b672dc53350806dcf21",
+    "integrity": "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==",
+    "retrievedAt": "2026-10-30T00:05:37.484655+00:00",
+    "documents": [
+      {
+        "upstreamPath": "react-dom/LICENSE",
+        "localPath": "LICENSES/packages/_types_react-dom_19.3.0/react-dom/LICENSE",
+        "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@types/react@19.3.0": {
+    "name": "@types/react",
+    "version": "19.3.0",
+    "url": "https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/@types/react/19.3.0",
+    "tarballSha256": "ffa77ffdbdc82e5f67a0fd74d750990375a7dfd8685ec7f10a27c0db128f7766",
+    "integrity": "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==",
+    "retrievedAt": "2026-10-30T00:05:37.546510+00:00",
+    "documents": [
+      {
+        "upstreamPath": "react/LICENSE",
+        "localPath": "LICENSES/packages/_types_react_19.3.0/react/LICENSE",
+        "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@vitejs/plugin-react@6.1.2": {
+    "name": "@vitejs/plugin-react",
+    "version": "6.1.2",
+    "url": "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-6.1.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/@vitejs/plugin-react/6.1.2",
+    "tarballSha256": "9f1049a369ebeb236b436a75843d80d4fbdcf74b17362bf452fbfe586753e0c3",
+    "integrity": "sha512-fhJNGUdscQa4HkI0xFxwonWyhnVReCPDbXI7FH7jmzpnVCrFQI7PRrhWecO263610vOrs9tr2Y4xcf8uAdFxbw==",
+    "retrievedAt": "2026-10-30T00:05:37.612186+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_vitejs_plugin-react_6.1.2/LICENSE",
+        "sha256": "29b68325fe026047d13e187b44c33b2acacf7dc647dec4583702e59f235e13b5"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@vitest/browser-playwright@4.1.10": {
+    "name": "@vitest/browser-playwright",
+    "version": "4.1.10",
+    "url": "https://registry.npmjs.org/@vitest/browser-playwright/-/browser-playwright-4.1.10.tgz",
+    "registryUrl": "https://registry.npmjs.org/@vitest/browser-playwright/4.1.10",
+    "tarballSha256": "9ad2ac9bf2fb0773486354ddba0e8c5f6d00f69dfbdad9f11b7555d3d661ed01",
+    "integrity": "sha512-nMoXGEiRpT7m3W7NsbvrM2aKNwiNHZf+zEpUCvMteGjZFvfT96Q9fh7QyB98dvDWXiKvrLxA7bJ1mCOOv+JQPw==",
+    "retrievedAt": "2026-10-30T00:05:37.602372+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/_vitest_browser-playwright_4.1.10/LICENSE",
+        "sha256": "04575fc5bfae19a9b63100f8691f901a2e15a399011ac02db435a9ef27295551"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "@yarnpkg/cli-dist@4.14.1": {
+    "name": "@yarnpkg/cli-dist",
+    "version": "4.14.1",
+    "url": "https://registry.npmjs.org/@yarnpkg/cli-dist/-/cli-dist-4.14.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/@yarnpkg/cli-dist/4.14.1",
+    "tarballSha256": "050441cd452e222ec1b8409415174e81a15a1e8ca5d76236c89f1a4cc9984bcb",
+    "integrity": "sha512-62uYRCYBnAwNZ1Y4uMh0iUXtgZe4frwAgd5dJFoTu/uWMZWpJzxY2ib0cAva1eiy1L2jiDR0dS1Os+1osiIxvA==",
+    "retrievedAt": "2026-10-30T00:05:37.918723+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE.md",
+        "localPath": "LICENSES/packages/_yarnpkg_cli-dist_4.14.1/repository-LICENSE.md",
+        "sha256": "238d933f5c226cc197bd1dae2ad0c468e157b4cba8ed844f81549ba6db777dc4",
+        "url": "https://raw.githubusercontent.com/yarnpkg/berry/%40yarnpkg%2Fcli%2F4.14.1/LICENSE.md",
+        "gitCommitOrTag": "@yarnpkg/cli/4.14.1",
+        "retrievedAt": "2026-10-30T00:07:28.535633+00:00"
+      }
+    ],
+    "licenseMetadata": "BSD-2-Clause",
+    "status": "repository-license-retrieved"
+  },
+  "krds-uiux@1.1.0": {
+    "name": "krds-uiux",
+    "version": "1.1.0",
+    "url": "https://registry.npmjs.org/krds-uiux/-/krds-uiux-1.1.0.tgz",
+    "registryUrl": "https://registry.npmjs.org/krds-uiux/1.1.0",
+    "tarballSha256": "2958eee582fabe3a3319a1032880f0f838c79647a311497d0d2045686c35dba8",
+    "integrity": "sha512-4cjL3cpnlTaDrkivVceDpWhHxUYgV2AhiRRbO74I8ZKlnM17BcutEjPOlMOz9RQGAmdEubTsSYoyKFhvD1/g+A==",
+    "retrievedAt": "2026-10-30T00:05:37.726399+00:00",
+    "documents": [],
+    "licenseMetadata": "ISC",
+    "status": "no-license-in-tarball"
+  },
+  "playwright@1.64.1": {
+    "name": "playwright",
+    "version": "1.64.1",
+    "url": "https://registry.npmjs.org/playwright/-/playwright-1.64.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/playwright/1.64.1",
+    "tarballSha256": "36ba838d2d55c44fafcff89f919b5d7bc829209318076578ee2bc7cb5687fd57",
+    "integrity": "sha512-HCrVhHr5QQuwYoswEUGTb7gGp522yflbv/ST8nF4sFWGuLjQCt17Q/EubpGGSNKYn1tsTCPZxqHhHCfVURu7UA==",
+    "retrievedAt": "2026-10-30T00:05:37.833700+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/playwright_1.64.1/LICENSE",
+        "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb"
+      },
+      {
+        "upstreamPath": "package/NOTICE",
+        "localPath": "LICENSES/packages/playwright_1.64.1/NOTICE",
+        "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d"
+      }
+    ],
+    "licenseMetadata": "Apache-2.0",
+    "status": "retrieved"
+  },
+  "rxjs@7.8.2": {
+    "name": "rxjs",
+    "version": "7.8.2",
+    "url": "https://registry.npmjs.org/rxjs/-/rxjs-7.8.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/rxjs/7.8.2",
+    "tarballSha256": "2312f8ffd9726ffd7bd53ea12c5f13663d09a3dc3326f448c70b88f5ef6fac82",
+    "integrity": "sha512-dhKf903U/PQZY6boNNtAGdWbG85WAbjT/1xYoZIC7FAY0yWapOBQVsVrDl58W86//e1VpMNBtRV4MaXfdMySFA==",
+    "retrievedAt": "2026-10-30T00:05:37.847427+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.txt",
+        "localPath": "LICENSES/packages/rxjs_7.8.2/LICENSE.txt",
+        "sha256": "81c407ac717813b0e3795402960e04003c7bba8ba59b621624707028531c9ade"
+      }
+    ],
+    "licenseMetadata": "Apache-2.0",
+    "status": "retrieved"
+  },
+  "semver@7.8.5": {
+    "name": "semver",
+    "version": "7.8.5",
+    "url": "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz",
+    "registryUrl": "https://registry.npmjs.org/semver/7.8.5",
+    "tarballSha256": "d85045d4300d7d57c891336b95df532e73f34c22ffcd222452b6d08b9d127d5d",
+    "integrity": "sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==",
+    "retrievedAt": "2026-10-30T00:05:37.783733+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/semver_7.8.5/LICENSE",
+        "sha256": "4ec3d4c66cd87f5c8d8ad911b10f99bf27cb00cdfcff82621956e379186b016b"
+      }
+    ],
+    "licenseMetadata": "ISC",
+    "status": "retrieved"
+  },
+  "solid-js@2.0.0-rc.19": {
+    "name": "solid-js",
+    "version": "2.0.0-rc.19",
+    "url": "https://registry.npmjs.org/solid-js/-/solid-js-2.0.0-rc.19.tgz",
+    "registryUrl": "https://registry.npmjs.org/solid-js/2.0.0-rc.19",
+    "tarballSha256": "85316605b4e881cf160dfbedad96f040d0d1331fa3bbcd8e8ab98adc657ad376",
+    "integrity": "sha512-tlA+rZT1n3XkuxW0sMIoRf/QpOa0H9N9ZDrZLQFueUkZp+hElG+EXWBojBYYi4lVBKV8l03RTNgv+lfVCYkp9w==",
+    "retrievedAt": "2026-10-30T00:05:37.804894+00:00",
+    "documents": [
+      {
+        "upstreamPath": "LICENSE",
+        "localPath": "LICENSES/packages/solid-js_2.0.0-rc.19/repository-LICENSE",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b",
+        "url": "https://raw.githubusercontent.com/solidjs/solid/d2323b077c7dda32ebced7843c2ce2b788a91e8d/LICENSE",
+        "gitCommitOrTag": "d2323b077c7dda32ebced7843c2ce2b788a91e8d",
+        "retrievedAt": "2026-10-30T00:07:28.565053+00:00"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "repository-license-retrieved"
+  },
+  "svelte-check@4.7.7": {
+    "name": "svelte-check",
+    "version": "4.7.7",
+    "url": "https://registry.npmjs.org/svelte-check/-/svelte-check-4.7.7.tgz",
+    "registryUrl": "https://registry.npmjs.org/svelte-check/4.7.7",
+    "tarballSha256": "ca1d60eecbcf8bb1a2ed507abf11e0cdf8c7617b8fe371fb37190a6d0c012830",
+    "integrity": "sha512-Ge2IMdeTpbJuzNFGRiiMg0RWgbScysKQu7xwcyFJ22+DU9F5nPX51+Q3gHmGqRxYQMx2knreVWt5oCtfe0vf2g==",
+    "retrievedAt": "2026-10-30T00:05:37.873828+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/svelte-check_4.7.7/LICENSE",
+        "sha256": "ada595bb2ec8d71616dde1b956edb8fbad63eadab32b8d9ab9310a1aef08e5c5"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "tslib@2.8.1": {
+    "name": "tslib",
+    "version": "2.8.1",
+    "url": "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/tslib/2.8.1",
+    "tarballSha256": "66f635d5eeabae44807534976913a102cf615b9a045368359c9f79ae6ee2119e",
+    "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==",
+    "retrievedAt": "2026-10-30T00:05:37.843488+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.txt",
+        "localPath": "LICENSES/packages/tslib_2.8.1/LICENSE.txt",
+        "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+      }
+    ],
+    "licenseMetadata": "0BSD",
+    "status": "retrieved"
+  },
+  "typescript@6.0.2": {
+    "name": "typescript",
+    "version": "6.0.2",
+    "url": "https://registry.npmjs.org/typescript/-/typescript-6.0.2.tgz",
+    "registryUrl": "https://registry.npmjs.org/typescript/6.0.2",
+    "tarballSha256": "0ae5c188a2f5db22df72fe5e74dcbc122afb52031a86dbac33e78a86db39c65e",
+    "integrity": "sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==",
+    "retrievedAt": "2026-10-30T00:05:37.975852+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.txt",
+        "localPath": "LICENSES/packages/typescript_6.0.2/LICENSE.txt",
+        "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47"
+      }
+    ],
+    "licenseMetadata": "Apache-2.0",
+    "status": "retrieved"
+  },
+  "vite@7.3.1": {
+    "name": "vite",
+    "version": "7.3.1",
+    "url": "https://registry.npmjs.org/vite/-/vite-7.3.1.tgz",
+    "registryUrl": "https://registry.npmjs.org/vite/7.3.1",
+    "tarballSha256": "db84c382a086feb54ccb68b285aa71eff333156cd184299f754003b13682fb85",
+    "integrity": "sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==",
+    "retrievedAt": "2026-10-30T00:05:37.939756+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.md",
+        "localPath": "LICENSES/packages/vite_7.3.1/LICENSE.md",
+        "sha256": "2ef0b8a67599690e6abccc21a3678b54457b420fb402654112d45c4e71cce364"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "vitest@4.1.10": {
+    "name": "vitest",
+    "version": "4.1.10",
+    "url": "https://registry.npmjs.org/vitest/-/vitest-4.1.10.tgz",
+    "registryUrl": "https://registry.npmjs.org/vitest/4.1.10",
+    "tarballSha256": "0b999a3e14e4bc096026ea61f1229aace5f2db2b9895245535bd1f8cfef8100e",
+    "integrity": "sha512-R9jUTe5S4Qb0HCd4TNqpC7oGcrMssMRGXLW80ubjWsW9VH5GF8y1Y0SFLY9AbqSk6nt0PnOx4H4WNJYZ13GUPw==",
+    "retrievedAt": "2026-10-30T00:05:37.960153+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE.md",
+        "localPath": "LICENSES/packages/vitest_4.1.10/LICENSE.md",
+        "sha256": "881d660c26831481b697e39724d4a35c9f86e07b67156d4aeb693a0b39910435"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "vue-tsc@3.3.14": {
+    "name": "vue-tsc",
+    "version": "3.3.14",
+    "url": "https://registry.npmjs.org/vue-tsc/-/vue-tsc-3.3.14.tgz",
+    "registryUrl": "https://registry.npmjs.org/vue-tsc/3.3.14",
+    "tarballSha256": "7cd0011b09ee54fa8602a2bd986591b818f2760e3217b53dceca74243d8c483b",
+    "integrity": "sha512-URAu2H9AuMZMg9GCgnqbaHHHd8pBZRAwNV2e2yYS8VDsoTVXHiOSo663OS6DkEvauQ2yixn5TPFJ9WV9QIspkA==",
+    "retrievedAt": "2026-10-30T00:05:37.912984+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/vue-tsc_3.3.14/LICENSE",
+        "sha256": "a56351045b45475385a9479d7310208ff0be9489babdb4e635fcea5d7dc1fb02"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  },
+  "zone.js@0.16.3": {
+    "name": "zone.js",
+    "version": "0.16.3",
+    "url": "https://registry.npmjs.org/zone.js/-/zone.js-0.16.3.tgz",
+    "registryUrl": "https://registry.npmjs.org/zone.js/0.16.3",
+    "tarballSha256": "f07248a8e66dd172471daef6a6db3c2d1b09d3f00cb3d3ddedb40be9a192c262",
+    "integrity": "sha512-ihXL9+vhYyEhXz4TDNpHeAOZN9FVrbog0Il64OIEI28UP/n5AaI6gsccRuOHBfx+206agzyoK527bYIO0Foy6A==",
+    "retrievedAt": "2026-10-30T00:05:37.977138+00:00",
+    "documents": [
+      {
+        "upstreamPath": "package/LICENSE",
+        "localPath": "LICENSES/packages/zone.js_0.16.3/LICENSE",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "upstreamPath": "package/LICENSE.wrapped",
+        "localPath": "LICENSES/packages/zone.js_0.16.3/LICENSE.wrapped",
+        "sha256": "450c3986e4c42c50a64569b025ece943c5807a791edcdff57a0efc1bea2172e7"
+      }
+    ],
+    "licenseMetadata": "MIT",
+    "status": "retrieved"
+  }
+}

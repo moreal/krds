@@ -1,0 +1,62 @@
+import './catalog/accessible-media.js';
+import './catalog/accordion.js';
+import './catalog/back-button.js';
+import './catalog/badge.js';
+import './catalog/bottom-sheet.js';
+import './catalog/breadcrumb.js';
+import './catalog/carousel.js';
+import './catalog/checkbox.js';
+import './catalog/coach-mark.js';
+import './catalog/contextual-help.js';
+import './catalog/critical-alert.js';
+import './catalog/disclosure.js';
+import './catalog/fab.js';
+import './catalog/favicon.js';
+import './catalog/file-upload.js';
+import './catalog/footer.js';
+import './catalog/header.js';
+import './catalog/help-panel.js';
+import './catalog/identifier.js';
+import './catalog/image.js';
+import './catalog/in-page-navigation.js';
+import './catalog/language-switcher.js';
+import './catalog/link.js';
+import './catalog/main-menu.js';
+import './catalog/masthead.js';
+import './catalog/pagination.js';
+import './catalog/quantity-toggle.js';
+import './catalog/radio-group.js';
+import './catalog/range-slider.js';
+import './catalog/resize.js';
+import './catalog/side-navigation.js';
+import './catalog/skip-link.js';
+import './catalog/snackbar.js';
+import './catalog/spinner.js';
+import './catalog/step-indicator.js';
+import './catalog/structured-list.js';
+import './catalog/switch.js';
+import './catalog/tab-bar.js';
+import './catalog/table.js';
+import './catalog/tag.js';
+import './catalog/text-input.js';
+import './catalog/text-list.js';
+import './catalog/textarea.js';
+import './catalog/toast.js';
+import './catalog/tooltip.js';
+import './catalog/tts.js';
+import './catalog/tutorial-panel.js';
+import './catalog/visually-hidden.js';
+import { fullCatalogScenarios, type FullCatalogStoryCase } from '@unofficial-krds/test-contracts';
+export function mountFullCatalog(componentId: string, caseId: string) {
+    const supported = ["accessible-media", "accordion", "back-button", "badge", "bottom-sheet", "breadcrumb", "carousel", "checkbox", "coach-mark", "contextual-help", "critical-alert", "disclosure", "fab", "favicon", "file-upload", "footer", "header", "help-panel", "identifier", "image", "in-page-navigation", "language-switcher", "link", "main-menu", "masthead", "pagination", "quantity-toggle", "radio-group", "range-slider", "resize", "side-navigation", "skip-link", "snackbar", "spinner", "step-indicator", "structured-list", "switch", "tab-bar", "table", "tag", "text-input", "text-list", "textarea", "toast", "tooltip", "tts", "tutorial-panel", "visually-hidden"];
+    if (!supported.includes(componentId))
+        throw new Error(`Unsupported full catalog fixture: ${componentId}`);
+    const scenario = fullCatalogScenarios.find(item => item.componentId === componentId && item.caseId === caseId);
+    if (!scenario)
+        throw new Error(`Unknown full catalog case: ${componentId}/${caseId}`);
+    const element = document.createElement(`krds-${componentId}-fixture`) as HTMLElement & {
+        recipe: FullCatalogStoryCase;
+    };
+    element.recipe = { ...scenario, id: scenario.storyId, state: scenario.initialState, expected: [], previewFrameworks: [] } as FullCatalogStoryCase;
+    document.getElementById('app')!.append(element);
+}

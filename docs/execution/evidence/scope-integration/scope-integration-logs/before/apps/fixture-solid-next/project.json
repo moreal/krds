@@ -1,0 +1,52 @@
+{
+  "name": "fixture-solid-next",
+  "root": "apps/fixture-solid-next",
+  "sourceRoot": "apps/fixture-solid-next/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:solid-next"
+  ],
+  "implicitDependencies": [
+    "krds-solid-next",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "dependsOn": ["build", "^build"],
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next lint"
+      }
+    },
+    "contract": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "dependsOn": ["build", "^build"],
+      "options": {
+        "command": "node tools/yarn.mjs test:contract --framework solid-next"
+      }
+    }
+  }
+}

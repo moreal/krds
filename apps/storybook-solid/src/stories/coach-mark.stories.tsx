@@ -1,0 +1,18 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-coach-mark', title: 'KRDS/coach-mark', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Single: Story = { name: "single", parameters: { __id: "krds-coach-mark--single" }, render: () => <CatalogStory componentId="coach-mark" caseId="single"/> };
+export const MultiStep: Story = { name: "multi-step", parameters: { __id: "krds-coach-mark--multi-step" }, render: () => <CatalogStory componentId="coach-mark" caseId="multi-step"/> };
+export const ActionGated: Story = { name: "action-gated", parameters: { __id: "krds-coach-mark--action-gated" }, render: () => <CatalogStory componentId="coach-mark" caseId="action-gated"/> };
+export const OffscreenTarget: Story = { name: "offscreen-target", parameters: { __id: "krds-coach-mark--offscreen-target" }, render: () => <CatalogStory componentId="coach-mark" caseId="offscreen-target"/> };
+export const MissingTarget: Story = { name: "missing-target", parameters: { __id: "krds-coach-mark--missing-target" }, render: () => <CatalogStory componentId="coach-mark" caseId="missing-target"/> };
+export const RouteChange: Story = { name: "route-change", parameters: { __id: "krds-coach-mark--route-change" }, render: () => <CatalogStory componentId="coach-mark" caseId="route-change"/> };
+export const ReducedMotion: Story = { name: "reduced-motion", parameters: { __id: "krds-coach-mark--reduced-motion" }, render: () => <CatalogStory componentId="coach-mark" caseId="reduced-motion"/> };
+export const TargetReadingOrder: Story = { name: "target-reading-order", parameters: { __id: "krds-coach-mark--target-reading-order" }, render: () => <CatalogStory componentId="coach-mark" caseId="target-reading-order"/> };
+export const ActionNativeControl: Story = { name: "action-native-control", parameters: { __id: "krds-coach-mark--action-native-control" }, render: () => <CatalogStory componentId="coach-mark" caseId="action-native-control"/> };
+export const StopHiddenPanel: Story = { name: "stop-hidden-panel", parameters: { __id: "krds-coach-mark--stop-hidden-panel" }, render: () => <CatalogStory componentId="coach-mark" caseId="stop-hidden-panel"/> };
+export const StopHelpTab: Story = { name: "stop-help-tab", parameters: { __id: "krds-coach-mark--stop-help-tab" }, render: () => <CatalogStory componentId="coach-mark" caseId="stop-help-tab"/> };
+export const StopFallbackRejected: Story = { name: "stop-fallback-rejected", parameters: { __id: "krds-coach-mark--stop-fallback-rejected" }, render: () => <CatalogStory componentId="coach-mark" caseId="stop-fallback-rejected"/> };
+export const StopPartialNarrowHelp: Story = { name: "stop-partial-narrow-help", parameters: { __id: "krds-coach-mark--stop-partial-narrow-help" }, render: () => <CatalogStory componentId="coach-mark" caseId="stop-partial-narrow-help"/> };

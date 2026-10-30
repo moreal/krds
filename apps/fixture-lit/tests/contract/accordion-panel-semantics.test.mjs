@@ -1,0 +1,60 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { html } from 'lit';
+import { render } from '@lit-labs/ssr';
+import { registerKrdsElements } from '@unofficial-krds/lit';
+import { browserPath, serveProduction } from '../../../../tools/testing/support.mjs';
+process.env.PLAYWRIGHT_BROWSERS_PATH ??= browserPath;
+const { chromium, webkit } = await import('playwright');
+registerKrdsElements(customElements);
+
+for (const engine of ['chromium', 'webkit']) test(`${engine} Accordion generic panels preserve prehydrate associations, six nodes and first keyboard requests`, async () => {
+ const directory = await mkdtemp(join(tmpdir(), 'krds-lit-accordion-semantic-'));
+ let server;
+ let browser;
+ try {
+  await cp(new URL('../../dist/', import.meta.url), directory, {recursive: true});
+  const skeleton = await readFile(join(directory, 'hydrate.html'), 'utf8');
+  const entry = skeleton.match(/<script[^>]*type="module"[^>]*src="([^"]+)"[^>]*><\/script>/)?.[1];
+  assert.ok(entry);
+  const props = {items: [{id: 'eligibility', title: '신청 자격', content: '자격 안내'}, {id: 'documents', title: '제출 서류', content: '서류 안내'}, {id: 'contact', title: '문의', content: '문의 안내'}], defaultOpenIds: ['eligibility', 'documents']};
+  const markup = [...render(html`<krds-accordion id="ssr-accordion" defer-hydration .items=${props.items} .defaultOpenIds=${props.defaultOpenIds}></krds-accordion>`)].join('');
+  const document = skeleton.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '').replace(/<link\b[^>]*rel="modulepreload"[^>]*>/g, '').replace('<main id="app"></main>', `<main id="app">${markup}</main><script id="krds-hydration-state" type="application/json">${JSON.stringify({'ssr-accordion': props})}</script>`);
+  await writeFile(join(directory, 'accordion.html'), document);
+  server = await serveProduction(directory);
+  browser = await ({chromium, webkit})[engine].launch();
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(String(error)));
+  await page.goto(`${server.origin}/accordion.html`);
+  const before = await page.evaluate(() => {
+   const host = document.getElementById('ssr-accordion');
+   const root = host.shadowRoot;
+   window.accordionNodes = [...root.querySelectorAll('[part="trigger"],[part="panel"]')];
+   window.accordionRequests = [];
+   host.addEventListener('open-change', event => window.accordionRequests.push(event.detail));
+   return {unregistered: !customElements.get('krds-accordion'), panels: [...root.querySelectorAll('[part="panel"]')].map(panel => ({id: panel.id, labelledby: panel.getAttribute('aria-labelledby'), role: panel.getAttribute('role'), hidden: panel.hidden})), controls: [...root.querySelectorAll('[part="trigger"]')].map(trigger => ({id: trigger.id, controls: trigger.getAttribute('aria-controls'), resolves: !!root.getElementById(trigger.getAttribute('aria-controls'))}))};
+  });
+  assert.equal(before.unregistered, true);
+  assert.deepEqual(before.panels.map(panel => [panel.labelledby, panel.role, panel.hidden]), [[null, null, false], [null, null, false], [null, null, true]]);
+  assert.deepEqual(before.controls.map(trigger => [trigger.controls, trigger.resolves]), [['panel-eligibility', true], ['panel-documents', true], ['panel-contact', true]]);
+  await page.evaluate(async entry => {await import(entry); await document.getElementById('ssr-accordion').updateComplete;}, entry);
+  assert.deepEqual(await page.evaluate(() => window.accordionNodes.map(node => node.isConnected && document.getElementById('ssr-accordion').shadowRoot.contains(node))), [true, true, true, true, true, true]);
+  assert.deepEqual(await page.evaluate(() => window.accordionRequests), []);
+  const trigger = page.getByRole('button', {name: '신청 자격', exact: true});
+  await trigger.focus();
+  await page.keyboard.press('Enter');
+  await page.locator('krds-accordion').evaluate(async host => await host.updateComplete);
+  assert.equal(await page.locator('#panel-eligibility').isVisible(), false);
+  assert.equal(await trigger.evaluate(node => node.getRootNode().activeElement === node), true);
+  await page.keyboard.press('Space');
+  await page.locator('krds-accordion').evaluate(async host => await host.updateComplete);
+  assert.equal(await page.locator('#panel-eligibility').isVisible(), true);
+  assert.equal(await trigger.evaluate(node => node.getRootNode().activeElement === node), true);
+  assert.deepEqual(await page.evaluate(() => window.accordionRequests), [{ids: ['documents']}, {ids: ['documents', 'eligibility']}]);
+  assert.deepEqual(errors, []);
+ } finally {await browser?.close(); await server?.close(); await rm(directory, {recursive: true, force: true});}
+});

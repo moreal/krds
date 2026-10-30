@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-back-button', title: 'KRDS/Catalog/BackButton', component: CatalogStory, args: {componentId: 'back-button'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {name: "default", args: {caseId: "default"}};
+export const DirtyConfirmation: Story = {name: "dirty-confirmation", args: {caseId: "dirty-confirmation"}};
+export const CancelNavigation: Story = {name: "cancel-navigation", args: {caseId: "cancel-navigation"}};
+export const NoHistoryFallback: Story = {name: "no-history-fallback", args: {caseId: "no-history-fallback"}};
+export const Narrow: Story = {name: "narrow", args: {caseId: "narrow"}};

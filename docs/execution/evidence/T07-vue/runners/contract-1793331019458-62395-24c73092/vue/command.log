@@ -1,0 +1,17 @@
+
+Running 10 tests using 1 worker
+
+(node:62399) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tools/testing/contract.spec.ts:13:29 › vue button/disabled (197ms)
+  ✓   2 [chromium] › tools/testing/contract.spec.ts:13:29 › vue native-select/controlled (198ms)
+  ✓   3 [chromium] › tools/testing/contract.spec.ts:13:29 › vue native-select/form-reset (227ms)
+  ✓   4 [chromium] › tools/testing/contract.spec.ts:13:29 › vue modal/focus-return (211ms)
+  ✓   5 [chromium] › tools/testing/contract.spec.ts:13:29 › vue modal/trigger-removed (263ms)
+  ✓   6 [chromium] › tools/testing/contract.spec.ts:13:29 › vue tabs/manual-activation (160ms)
+  ✓   7 [chromium] › tools/testing/contract.spec.ts:13:29 › vue date-input/leap-year (180ms)
+  ✓   8 [chromium] › tools/testing/contract.spec.ts:13:29 › vue date-input/ime (162ms)
+  ✓   9 [chromium] › tools/testing/contract.spec.ts:13:29 › vue date-input/timezone-invariance (507ms)
+  ✓  10 [chromium] › tools/testing/contract.spec.ts:13:29 › vue calendar/selection-confirm (528ms)
+
+  10 passed (3.1s)

@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:krds-native:provenance-schema:1",
+  "title": "KRDS source provenance (PLAN 9.7)",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/entry"
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "upstreamUrl",
+        "sha256",
+        "retrievedAt",
+        "changeSummary",
+        "versionOrCommit",
+        "upstreamPath",
+        "copyrightNotice",
+        "licenseIdOrRef",
+        "licenseTextPath",
+        "rightsEvidenceUrls",
+        "metadataNotes",
+        "localPaths",
+        "distributedIn",
+        "sourceKind",
+        "rightsStatus",
+        "modified"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "upstreamUrl": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "format": "uri"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "changeSummary": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "versionOrCommit": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "upstreamPath": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "copyrightNotice": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "licenseIdOrRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "licenseTextPath": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rightsEvidenceUrls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "format": "uri"
+          },
+          "uniqueItems": true
+        },
+        "metadataNotes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "uniqueItems": true
+        },
+        "localPaths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "distributedIn": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "uniqueItems": true
+        },
+        "sourceKind": {
+          "enum": [
+            "repository-file",
+            "package",
+            "web-document",
+            "asset"
+          ]
+        },
+        "rightsStatus": {
+          "enum": [
+            "verified",
+            "unresolved"
+          ]
+        },
+        "modified": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "distributedIn": {
+                "minItems": 1
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "rightsStatus": {
+                "const": "verified"
+              },
+              "licenseIdOrRef": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "licenseTextPath": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "rightsEvidenceUrls": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rightsStatus": {
+                "const": "unresolved"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "distributedIn": {
+                "maxItems": 0
+              },
+              "metadataNotes": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rightsStatus": {
+                "const": "verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "licenseIdOrRef": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "licenseTextPath": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "rightsEvidenceUrls": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "anyOf": [
+              {
+                "properties": {
+                  "versionOrCommit": {
+                    "type": "null"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "upstreamPath": {
+                    "type": "null"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "copyrightNotice": {
+                    "type": "null"
+                  }
+                }
+              }
+            ]
+          },
+          "then": {
+            "properties": {
+              "metadataNotes": {
+                "minItems": 1
+              },
+              "rightsEvidenceUrls": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "application": "apps/fixture-solid-next",
+  "inventory": "compliance/distribution-provenance.json",
+  "scope": "Exact local specimen assets and frozen docs text snapshots. No publication authorization or authentic speech/sign-language equivalence. Bundler/dependency output is not cleared by this scoped static inventory.",
+  "independentCopyright": "Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>",
+  "assets": [],
+  "sourceConditions": [
+    {
+      "sourceId": "krds-resource-resources-css-common-common.css",
+      "sourceSha256": "92942dcc081821af80677645247ab4ebfedea219fac8729275368ee022e34aab",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-component-component.css",
+      "sourceSha256": "bc8df76feeb4012a6cb16a13f8702f95a67162e7d2dbf6aa5642be94daefa812",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-token-krds_tokens.css",
+      "sourceSha256": "2e06b0d8393bca671edaab1ca0c7c42ded2ae03b3d03c6ede60f763a93d81569",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-tokens-transformed_tokens.json",
+      "sourceSha256": "5eb255d593ec0b0fa41207223df1288f97295b632dfac50629e60e4e4dc0a52e",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    }
+  ],
+  "sourceConditionsNote": "Shared application stylesheet adaptations retain these existing source conditions. Exact static assets/text snapshots are enumerated here; final bundled runtime/dependency and full rendered-page source clearance remain acceptance work, not supplied by independent MIT.",
+  "termsCopies": [
+    {
+      "sourcePath": "LICENSES/MIT.txt",
+      "destination": "LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "sourcePath": "LICENSES/KRDS-copyright-en.html",
+      "destination": "LICENSES/KRDS-copyright-en.html.txt",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "sourcePath": "LICENSES/KOGL-license-policy.html",
+      "destination": "LICENSES/KOGL-license-policy.html.txt",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    }
+  ],
+  "termsHashes": {
+    "LICENSES/MIT.txt": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+    "LICENSES/KRDS-copyright-en.html": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+    "LICENSES/KOGL-license-policy.html": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+  },
+  "exclusions": [
+    {
+      "origin": "macOS System Voices / Yuna",
+      "rightsStatus": "unresolved",
+      "distributedIn": [],
+      "knownRemovedBytes": 157588,
+      "evidence": ".superpowers/sdd/PLAN/task-media-license-note.md",
+      "reason": "No public redistribution clearance. Independent MIT and KOGL do not supply Apple voice permission."
+    }
+  ]
+}

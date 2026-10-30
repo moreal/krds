@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "displayName": "KRDS Native",
+  "localPackageScope": "@krds-native",
+  "scopeOwnership": {
+    "status": "unconfirmed",
+    "confirmedOwner": null,
+    "publishAuthorized": false,
+    "evidence": "Working name supplied by plan; npm scope ownership and publishing authority not supplied or authenticated."
+  },
+  "repository": {
+    "observedGitRemote": "git@github.com:moreal/krds.git",
+    "observedHttpsUrl": "https://github.com/moreal/krds",
+    "observation": "git remote -v",
+    "identityStatus": "configured-local-remote-only",
+    "ownershipVerified": false,
+    "releaseMetadataRepositoryUrl": null
+  },
+  "copyright": {
+    "independentCodeHolder": null,
+    "independentCodeYear": null,
+    "status": "unconfirmed",
+    "plannedLicense": "MIT for independently authored code only, subject to confirmed holder; not an override for upstream materials"
+  },
+  "affiliation": {
+    "governmentAffiliationClaimed": false,
+    "rule": "Examples must not present the project as an official government service or claim real institutional identity."
+  },
+  "releaseMetadata": {
+    "status": "unmet",
+    "publishAllowed": false,
+    "missing": [
+      "Confirmed scope ownership and publishing authority",
+      "Confirmed independent-code copyright holder",
+      "Confirmed repository URL/ownership for published metadata",
+      "Per-file/asset license reconciliation and font notices"
+    ],
+    "localImplementationAllowed": true,
+    "prohibited": "Do not publish placeholders, assume ownership from a Git remote, or reuse upstream authors as this project identity."
+  },
+  "upstreamIdentity": {
+    "name": "KRDS",
+    "repositoryUrl": "https://github.com/KRDS-uiux/krds-uiux",
+    "separateFromProject": true
+  },
+  "checkedAt": "2026-10-29T23:35:31.019299+00:00"
+}

@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-structured-list', title: 'KRDS/structured-list', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const List: Story = { name: "list", parameters: { __id: "krds-structured-list--list" }, render: () => <CatalogStory componentId="structured-list" caseId="list"/> };
+export const Table: Story = { name: "table", parameters: { __id: "krds-structured-list--table" }, render: () => <CatalogStory componentId="structured-list" caseId="table"/> };
+export const LocalFilterSort: Story = { name: "local-filter-sort", parameters: { __id: "krds-structured-list--local-filter-sort" }, render: () => <CatalogStory componentId="structured-list" caseId="local-filter-sort"/> };
+export const SelectionActions: Story = { name: "selection-actions", parameters: { __id: "krds-structured-list--selection-actions" }, render: () => <CatalogStory componentId="structured-list" caseId="selection-actions"/> };
+export const MissingMetadata: Story = { name: "missing-metadata", parameters: { __id: "krds-structured-list--missing-metadata" }, render: () => <CatalogStory componentId="structured-list" caseId="missing-metadata"/> };
+export const Empty: Story = { name: "empty", parameters: { __id: "krds-structured-list--empty" }, render: () => <CatalogStory componentId="structured-list" caseId="empty"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-structured-list--narrow" }, render: () => <CatalogStory componentId="structured-list" caseId="narrow"/> };

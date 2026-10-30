@@ -1,0 +1,63 @@
+{
+  "name": "@krds-native/solid-next",
+  "version": "0.0.0-next.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../../tools/workspace-probe.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@babel/core": "7.28.5",
+    "@babel/preset-typescript": "7.28.5",
+    "@solidjs/babel-plugin": "2.0.0-rc.19",
+    "@solidjs/compiler": "2.0.0-rc.19",
+    "@solidjs/vite-plugin": "3.0.0-next.53",
+    "@solidjs/web": "2.0.0-rc.19",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "playwright": "1.64.1",
+    "solid-js": "2.0.0-rc.19",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10"
+  },
+  "description": "KRDS Native solid-next: T01 toolchain probe only",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "@solidjs/web": "2.0.0-rc.19",
+    "solid-js": "2.0.0-rc.19"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.12.4",
+    "@krds-native/contracts": "workspace:^",
+    "@krds-native/styles": "workspace:^",
+    "@krds-native/tokens": "workspace:^",
+    "@zag-js/core": "1.47.0",
+    "@zag-js/date-picker": "1.47.0",
+    "@zag-js/dialog": "1.47.0",
+    "@zag-js/tabs": "1.47.0",
+    "@zag-js/vanilla": "1.47.0"
+  }
+}

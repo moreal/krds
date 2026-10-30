@@ -1,0 +1,30 @@
+{
+  "review": ".superpowers/sdd/PLAN/task-T07-vue-review.md",
+  "reviewedBeforeBase": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base",
+  "files": [
+    {
+      "path": "packages/vue/src/components/modal/stack.ts",
+      "beforeSha256": "e9a38ade998ca2958fca75c45f6be51d84a341cf69b96249088fa939dc65bcb0",
+      "afterSha256": "230f89196a717f833f610576ef9fc16ab009db17dfa3b9329fb095e17bd33a53",
+      "reviewedBeforeBytesMatch": true
+    },
+    {
+      "path": "packages/vue/src/components/native-select/NativeSelect.vue",
+      "beforeSha256": "459e132029152e533bd1a20de2b3c0b3cf344ad711d30966ae91da8eae629463",
+      "afterSha256": "45c9e29a500d427a167bb7f467b269d9ac001d89bdc3e9d0a4594adf0fa1adf4",
+      "reviewedBeforeBytesMatch": true
+    },
+    {
+      "path": "packages/vue/src/components/date-input/DateInput.vue",
+      "beforeSha256": "0739f67ea3e9608b92275eada01a44e49b60e1a6711bb5a8f81004a7a28bb416",
+      "afterSha256": "9fb413d733620c6f022cf4d26ff33c61e5c2548c88ec04bf2dc97fca2052dab8",
+      "reviewedBeforeBytesMatch": true
+    },
+    {
+      "path": "apps/fixture-vue/tests/siheom/native-behavior.test.ts",
+      "beforeSha256": "a8ae97e20ce0a3a76ef51cc4f838dec6c06de4a3c611d33e26d4619dd3d1deb0",
+      "afterSha256": "6d36bcf0a09ae944fa58f6a594ac002d0f3ec3847cf521e22f57931af9a0f1c9",
+      "reviewedBeforeBytesMatch": true
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "name": "@unofficial-krds/vue",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "yarn typecheck",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "@vitejs/plugin-vue": "6.0.10",
+    "@vitest/browser-playwright": "4.1.10",
+    "@vue/compiler-sfc": "3.5.44",
+    "playwright": "1.64.1",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10",
+    "vue": "3.5.44",
+    "vue-tsc": "3.3.14"
+  },
+  "description": "Native Vue KRDS catalog implementation candidates with explicit host integration boundaries",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/Button.vue.d.ts",
+      "import": "./dist/button.js"
+    },
+    "./native-select": {
+      "types": "./dist/components/native-select/NativeSelect.vue.d.ts",
+      "import": "./dist/native-select.js"
+    },
+    "./modal": {
+      "types": "./dist/components/modal/Modal.vue.d.ts",
+      "import": "./dist/modal.js"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs/Tabs.vue.d.ts",
+      "import": "./dist/tabs.js"
+    },
+    "./calendar": {
+      "types": "./dist/components/calendar/Calendar.vue.d.ts",
+      "import": "./dist/calendar.js"
+    },
+    "./date-input": {
+      "types": "./dist/components/date-input/DateInput.vue.d.ts",
+      "import": "./dist/date-input.js"
+    },
+    "./accordion": {
+      "types": "./dist/components/accordion/Accordion.vue.d.ts",
+      "import": "./dist/accordion.js"
+    },
+    "./back-button": {
+      "types": "./dist/components/back-button/BackButton.vue.d.ts",
+      "import": "./dist/back-button.js"
+    },
+    "./badge": {
+      "types": "./dist/components/badge/Badge.vue.d.ts",
+      "import": "./dist/badge.js"
+    },
+    "./breadcrumb": {
+      "types": "./dist/components/breadcrumb/Breadcrumb.vue.d.ts",
+      "import": "./dist/breadcrumb.js"
+    },
+    "./checkbox": {
+      "types": "./dist/components/checkbox/Checkbox.vue.d.ts",
+      "import": "./dist/checkbox.js"
+    },
+    "./critical-alert": {
+      "types": "./dist/components/critical-alert/CriticalAlert.vue.d.ts",
+      "import": "./dist/critical-alert.js"
+    },
+    "./disclosure": {
+      "types": "./dist/components/disclosure/Disclosure.vue.d.ts",
+      "import": "./dist/disclosure.js"
+    },
+    "./fab": {
+      "types": "./dist/components/fab/FAB.vue.d.ts",
+      "import": "./dist/fab.js"
+    },
+    "./footer": {
+      "types": "./dist/components/footer/Footer.vue.d.ts",
+      "import": "./dist/footer.js"
+    },
+    "./header": {
+      "types": "./dist/components/header/Header.vue.d.ts",
+      "import": "./dist/header.js"
+    },
+    "./identifier": {
+      "types": "./dist/components/identifier/Identifier.vue.d.ts",
+      "import": "./dist/identifier.js"
+    },
+    "./image": {
+      "types": "./dist/components/image/Image.vue.d.ts",
+      "import": "./dist/image.js"
+    },
+    "./in-page-navigation": {
+      "types": "./dist/components/in-page-navigation/InPageNavigation.vue.d.ts",
+      "import": "./dist/in-page-navigation.js"
+    },
+    "./language-switcher": {
+      "types": "./dist/components/language-switcher/LanguageSwitcher.vue.d.ts",
+      "import": "./dist/language-switcher.js"
+    },
+    "./link": {
+      "types": "./dist/components/link/Link.vue.d.ts",
+      "import": "./dist/link.js"
+    },
+    "./main-menu": {
+      "types": "./dist/components/main-menu/MainMenu.vue.d.ts",
+      "import": "./dist/main-menu.js"
+    },
+    "./masthead": {
+      "types": "./dist/components/masthead/Masthead.vue.d.ts",
+      "import": "./dist/masthead.js"
+    },
+    "./pagination": {
+      "types": "./dist/components/pagination/Pagination.vue.d.ts",
+      "import": "./dist/pagination.js"
+    },
+    "./quantity-toggle": {
+      "types": "./dist/components/quantity-toggle/QuantityToggle.vue.d.ts",
+      "import": "./dist/quantity-toggle.js"
+    },
+    "./radio-group": {
+      "types": "./dist/components/radio-group/RadioGroup.vue.d.ts",
+      "import": "./dist/radio-group.js"
+    },
+    "./range-slider": {
+      "types": "./dist/components/range-slider/RangeSlider.vue.d.ts",
+      "import": "./dist/range-slider.js"
+    },
+    "./resize": {
+      "types": "./dist/components/resize/Resize.vue.d.ts",
+      "import": "./dist/resize.js"
+    },
+    "./side-navigation": {
+      "types": "./dist/components/side-navigation/SideNavigation.vue.d.ts",
+      "import": "./dist/side-navigation.js"
+    },
+    "./skip-link": {
+      "types": "./dist/components/skip-link/SkipLink.vue.d.ts",
+      "import": "./dist/skip-link.js"
+    },
+    "./spinner": {
+      "types": "./dist/components/spinner/Spinner.vue.d.ts",
+      "import": "./dist/spinner.js"
+    },
+    "./step-indicator": {
+      "types": "./dist/components/step-indicator/StepIndicator.vue.d.ts",
+      "import": "./dist/step-indicator.js"
+    },
+    "./structured-list": {
+      "types": "./dist/components/structured-list/StructuredList.vue.d.ts",
+      "import": "./dist/structured-list.js"
+    },
+    "./switch": {
+      "types": "./dist/components/switch/Switch.vue.d.ts",
+      "import": "./dist/switch.js"
+    },
+    "./tab-bar": {
+      "types": "./dist/components/tab-bar/TabBar.vue.d.ts",
+      "import": "./dist/tab-bar.js"
+    },
+    "./table": {
+      "types": "./dist/components/table/Table.vue.d.ts",
+      "import": "./dist/table.js"
+    },
+    "./text-input": {
+      "types": "./dist/components/text-input/TextInput.vue.d.ts",
+      "import": "./dist/text-input.js"
+    },
+    "./text-list": {
+      "types": "./dist/components/text-list/TextList.vue.d.ts",
+      "import": "./dist/text-list.js"
+    },
+    "./textarea": {
+      "types": "./dist/components/textarea/Textarea.vue.d.ts",
+      "import": "./dist/textarea.js"
+    },
+    "./tts": {
+      "types": "./dist/components/tts/TTS.vue.d.ts",
+      "import": "./dist/tts.js"
+    },
+    "./visually-hidden": {
+      "types": "./dist/components/visually-hidden/VisuallyHidden.vue.d.ts",
+      "import": "./dist/visually-hidden.js"
+    },
+    "./accessible-media": {
+      "types": "./dist/components/accessible-media/AccessibleMedia.vue.d.ts",
+      "import": "./dist/accessible-media.js"
+    },
+    "./bottom-sheet": {
+      "types": "./dist/components/bottom-sheet/BottomSheet.vue.d.ts",
+      "import": "./dist/bottom-sheet.js"
+    },
+    "./carousel": {
+      "types": "./dist/components/carousel/Carousel.vue.d.ts",
+      "import": "./dist/carousel.js"
+    },
+    "./coach-mark": {
+      "types": "./dist/components/coach-mark/CoachMark.vue.d.ts",
+      "import": "./dist/coach-mark.js"
+    },
+    "./contextual-help": {
+      "types": "./dist/components/contextual-help/ContextualHelp.vue.d.ts",
+      "import": "./dist/contextual-help.js"
+    },
+    "./favicon": {
+      "types": "./dist/components/favicon/Favicon.vue.d.ts",
+      "import": "./dist/favicon.js"
+    },
+    "./file-upload": {
+      "types": "./dist/components/file-upload/FileUpload.vue.d.ts",
+      "import": "./dist/file-upload.js"
+    },
+    "./help-panel": {
+      "types": "./dist/components/help-panel/HelpPanel.vue.d.ts",
+      "import": "./dist/help-panel.js"
+    },
+    "./snackbar": {
+      "types": "./dist/components/snackbar/Snackbar.vue.d.ts",
+      "import": "./dist/snackbar.js"
+    },
+    "./tag": {
+      "types": "./dist/components/tag/Tag.vue.d.ts",
+      "import": "./dist/tag.js"
+    },
+    "./toast": {
+      "types": "./dist/components/toast/Toast.vue.d.ts",
+      "import": "./dist/toast.js"
+    },
+    "./tooltip": {
+      "types": "./dist/components/tooltip/Tooltip.vue.d.ts",
+      "import": "./dist/tooltip.js"
+    },
+    "./tutorial-panel": {
+      "types": "./dist/components/tutorial-panel/TutorialPanel.vue.d.ts",
+      "import": "./dist/tutorial-panel.js"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^3.5.44"
+  },
+  "dependencies": {
+    "@ark-ui/vue": "5.40.0",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/vue"
+  }
+}

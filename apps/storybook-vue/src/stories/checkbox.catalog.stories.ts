@@ -1,0 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-checkbox', title: 'KRDS/Catalog/Checkbox', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'checkbox'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Binary: Story = {name: "binary", args: {caseId: "binary"}};
+export const MixedParent: Story = {name: "mixed-parent", args: {caseId: "mixed-parent"}};
+export const Chip: Story = {name: "chip", args: {caseId: "chip"}};
+export const Sizes: Story = {name: "sizes", args: {caseId: "sizes"}};
+export const Disabled: Story = {name: "disabled", args: {caseId: "disabled"}};
+export const FormReset: Story = {name: "form-reset", args: {caseId: "form-reset"}};
+export const Required: Story = {name: "required", args: {caseId: "required"}};
+export const InitialPartialReset: Story = {name: "initial-partial-reset", args: {caseId: "initial-partial-reset"}};
+export const ControlledMixedRejected: Story = {name: "controlled-mixed-rejected", args: {caseId: "controlled-mixed-rejected"}};
+export const CanceledReset: Story = {name: "canceled-reset", args: {caseId: "canceled-reset"}};

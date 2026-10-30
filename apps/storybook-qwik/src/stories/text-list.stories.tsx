@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-text-list',title:'KRDS/text-list',component:CatalogStory,args:{componentId:'text-list'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const UnorderedDot:Story={name:"unordered-dot",args:{caseId:"unordered-dot"}};
+export const UnorderedDash:Story={name:"unordered-dash",args:{caseId:"unordered-dash"}};
+export const UnorderedHollow:Story={name:"unordered-hollow",args:{caseId:"unordered-hollow"}};
+export const Ordered:Story={name:"ordered",args:{caseId:"ordered"}};
+export const ThreeLevel:Story={name:"three-level",args:{caseId:"three-level"}};
+export const Narrow:Story={name:"narrow",args:{caseId:"narrow"}};

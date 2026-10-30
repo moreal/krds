@@ -1,0 +1,10 @@
+import type {Meta,StoryObj} from '@storybook/react-vite';
+import {PatternPresentation} from '../../../../../packages/react/examples/patterns/PatternPresentation';
+import {snapshot} from './PatternStories';
+const meta={title:'KRDS Pattern/Search Results',component:PatternPresentation} satisfies Meta<typeof PatternPresentation>;
+export default meta;
+type Story=StoryObj<typeof meta>;
+export const Success:Story=snapshot('search-results','success');
+export const Loading:Story=snapshot('search-results','loading');
+export const Error:Story=snapshot('search-results','error');
+export const Empty:Story=snapshot('search-results','empty');

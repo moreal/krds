@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-breadcrumb', title: 'KRDS/Catalog/Breadcrumb', component: CatalogStory, args: {componentId: 'breadcrumb'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {name: "default", args: {caseId: "default"}};
+export const DeepCollapsed: Story = {name: "deep-collapsed", args: {caseId: "deep-collapsed"}};
+export const MissingParentHref: Story = {name: "missing-parent-href", args: {caseId: "missing-parent-href"}};
+export const NarrowLongLabel: Story = {name: "narrow-long-label", args: {caseId: "narrow-long-label"}};
+export const ParentLastHeading: Story = {name: "parent-last-heading", args: {caseId: "parent-last-heading"}};

@@ -1,0 +1,2147 @@
+{
+  "status": "read-only-preparation-active-sources-not-frozen",
+  "observedAt": "2026-10-30T02:29:13.080595+00:00",
+  "records": [
+    {
+      "path": "PLAN.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "bdd697ea214807988abcb866b41890877ad51ce1e9999ef011b14cc59ed4c7b0",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "path": "apps/docs/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "3d8bba4a5ce448b5daede869beb56a35e26c3f0b865b29fcd6085f3beb8f03a1",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/docs/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f189b4a18a49e66c4f31b232740e67385afdb3d8b9a63ac49a63e03789da2989",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-angular/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b85493a5c18d40e1bb0274d851d9ae48f89cb3fad5fbdba93ae978ad34699b02",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-angular/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "4d0a2dfc971da287b95c6645a11a402405f8b92abb696c828a924a8b7e22df03",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-angular/src/fixture-app.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "8ee0ec6e8cfecf5c41d891ee3eabce5066f94f75795e11330844acabeb8eda96",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-lit/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "af7b38d47e34de5d3b2bdb6289b8c0f77df399f78477603bb7dbd84d1b6a33c3",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-lit/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "043e89e88a784efa4d3218ad04768b92c9371af463c0908c41eace418a2bc04a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-lit/src/main.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "779a5d41a8738dec03fd739803d622d7094552bf91e4ebcf880ac4723d268ba5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-qwik/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "756aed7a528fb35f51abef414fa53dbc2941f8cca3bb1999a37c69219f1c9325",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-qwik/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f8e249ea7649be7782f8695224be66872032823e082da7c075ad73d93c1faa25",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-qwik/src/root.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "80023317ec949a12927cb2d82292dddfda5071270530fcb99732fe614f587b17",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-react/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "29f023c6bce0446e015e612fa72309821cddda2682724dfc624e67a8345b6199",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-react/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c2adf13fe0d15c719b97927c5507553c4c42118a4d59f5e27bee6cf09ac59451",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-react/src/FixtureApp.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "0829f3a568f5a0c0350477d312a3986ab4a96d601eeab0db14e9a1d66248c849",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid-next/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "1877b6ac6b2e018d526465a8bec2099f3520f050a36a9b5c529b48483adb869d",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid-next/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "60db5d9981e92eec8f79c7140c2cba620d4debbef080822991b61ea0a2a6a6a3",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid-next/src/main.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "2f97076afc75e8ae433a3c2acb988480b54607113ef71e5ed7652d5ece3b5797",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid-next/tests/native-probe.spec.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "539704c7f384d19a225788c03d0f0bc7ed538c47711b10023c0b624fe0f3f384",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "1718b461486d7dee16b3281b7d44351ca2f24d625ccd1fbc6061f5c012fbe8dd",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "336b1a5486b2fccd8606b8db731bbb7eb22fbc8d7323aa3069dc1194c92db0dd",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/src/examples.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "404a5358251bf9dee61e1dd19d05b1d0cd4ecf989df539b34242c6895b19e70b",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/src/fixture-app.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f282d51e7251b3ae2d3800a65fdbe25d081a441267e724181a181ddd8ba3b7b5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/src/main.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "113f7577b67469a3bc96ee45735340c90360c748a6386134347b79ac96c068c4",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/tests/setup.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c31ea8e8011de0f7a0bac630cd4a87c7fe47296a48e06c9a96a79e228d8d0a8d",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/tests/siheom/button.test.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "2ada2f5c30289c1b9b0eed2dbdcf51f875eecfb063aaeacc88ba33d7f1393ff9",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/tests/siheom/calendar.test.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "3dbd9959feab777d391cd04b2ba1310281083ca912a403fbb212e764fa346695",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/tests/siheom/date-input.test.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "d175f4fb685c78a22ca9ab7d318e791412ff3f80884f2e2c299a6dc391b73340",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/tests/siheom/modal.test.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "514ad0cfae8a0b6af81b48e8493f0b99dd2819b5808667c6e202feafa00e5ed8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/tests/siheom/native-select.test.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c1fc63fdfeb70a4406aac51e334d44b338eac4ef60ec2bf140898fba75b6ce3b",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-solid/tests/siheom/tabs.test.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "ab013a43df9c2ac77187f002be9d9dd7b7a8b097feb77ccddb99d0e1116f32d7",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "db382e3ef0de30a4bee0494ebbb11de996e9e7219394ff2fee24fab3365408e9",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "a7615bb81610ff4e16cdf6094e5c7b561ecf548e2d4a850c57a55579b6b28f71",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/App.svelte",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "e2df95d0014eae65488a338036c5e3f75e08d01bab06522aaca8fcaa3966073d",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-vue/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "5f1d4258652cb6cf0273f082d8142bd91f07b6add1a798d2afa83bfcfa5f2538",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-vue/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "7a9787e706bc9a337434293eefa22be4086b74f34953dc7e28f7e34061919fe7",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "apps/fixture-vue/src/FixtureApp.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "a5e75d284fa97bf294ae274f836e6ecba06662fa25bbd1fcfca4a36fc7b734da",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-angular/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "264eea06196b65fd0075bc2b4bdb128f2fffb5eacea40414ad0f7ef08296f202",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-angular/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c02d2a5846fdcc53541085459de131abc986611c5acbafb0e47d5c7c4ff18f06",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-angular/src/main.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "986f4173a697e14f76c68ef217fe526333a7c05583d70745f6f790afbe92462f",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-angular/src/stories/probe.stories.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "72b214b5bac855af3c45a28755864752209a40d3265313c5c21bd16d71376c40",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-lit/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "99ad3c1b2c67dba632852d64dea06cc3c0fae0e7d0123ac3082ecc450b245542",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-lit/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "91827eb9c45c40b8347b4f61f75b3a1f44d034ae9bd19ff1959bec6cca70e0e3",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-lit/src/main.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c12b5a64e039be8bc94651680cffbcc26beb43f2bfb3f84b26bb04ae9841aebb",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-lit/src/stories/probe.stories.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "35fe82ee3a5fb6e63ba36501784590356f3ae79b2868c1b816bf4c2954f6fcdc",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-qwik/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "7670ee75ed3516b625a5dfde558515b26a33b3e4d985833dcff6f2eea3a29d58",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-qwik/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "fe58578262fab94edf4efa91a9f63d2a808d282bdd278b7854ea00a509cb4c4f",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-qwik/src/main.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "562a2ddda502cee251108f5f97cd119e1b2696c1159239e1519d9d64bc8852ce",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-qwik/src/root.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f610368b28b185227f92ea86bc22e874067a9fb63a1f1e7ed93c4a2352af68ec",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-qwik/src/stories/probe.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b8eddd098bac39c2c321ea49d540e2984a9283a5e6eeb0637a91b37f36fa95e2",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-react/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "fdf4f2cc7eec1b075827566915d3c4de7e5ff8eeb301f288b89196fc50a9476a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-react/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "d76e5b3b5c224697fd5b22584c7af7475f055bf8a915e1e8328e5a37379248ee",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-react/src/stories/native-probe.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "8ba2dd38e0ee39c3250be000d70676ab51144725974323822bcea56f8e64acd5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid-next/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "23423b79f171a53c08630446ae5c59b6ebac865fbb828e80e9555b5fdb4e1956",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid-next/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "fb5f6921e89b8ec1a23e138ae5c7ca48b768e8c67109de5d690eff0619092f80",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid-next/src/main.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "76267c9eaafbad644044d8d1bd7d18e84ea132c33233b2f4a1ddc09e729f20ad",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid-next/src/stories/probe.stories.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "2c926ed3509b3160dc91c6d392d8b900bbbb1677ff32e3058ed0b9f0b7d04f48",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/.storybook/preview.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "31424cfe271a61b1a5561fe2ceffd76d878b46d95fadc7f09cdee40091342e26",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "e2ea00fe5e67b786aa3065960db79dda21700a96f4d239fbba12e63eb40feb17",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "efca3397451b1d079bfaf5a5f7a62a7dccf7c73b6db240a12b6eb3c5247c535c",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/src/stories/button.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "9b6a9ad1cb970f3d04e4d4af968eab8619747227539361407b02fbc0a7a771a3",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/src/stories/calendar.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "90e5c66d1904c71992409ddf6eea08c0dca2c6f263acd2df1612c635362bdc71",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/src/stories/date-input.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "936d4abb4ef95abe514fcd6ae94f40dd596096bf6e816f681e3ada4c195228ff",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/src/stories/modal.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b3557151a76d99010febabaabc6a082a524b02750e218f9518f93f2f85c41b58",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/src/stories/native-select.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "edc8c1a3c5811f972c3a456a827876fa100166882ec331f6bf1ff519266d36cd",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/src/stories/probe.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "afafaf15074ddc18e923e2fd0f29530cc541174485aa3a7abe8422dd22418f53",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-solid/src/stories/tabs.stories.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "264f2057a99d812bdac50aa2ab9f5e95fd2d89a8e756ead5beed441ed7e4afbb",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-svelte/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "57b39db422397dc10401296ab7e434383713e7950b9bc1e1f180ee19038500b3",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-svelte/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "ec5f69baa2bf5378c147fc907b9330628814d1af42f5d556b108c474f0427d2c",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-svelte/src/App.svelte",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "0a62f4ff8dae7126e66c1ee91bd1a9c98b591e7acfc11e0ea4e1d6017820b35a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-svelte/src/stories/NativeProbe.svelte",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "3200d9243139e7437a1837cbcb756d6d294b47590ab05f6dc85d09982312d690",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-svelte/src/stories/probe.stories.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "163043690ab3355f470c882c0024d5dd630c7b3d340b87ad826dcaa4e0ae5a9e",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-vue/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "a02ff788df45fe7a0c4c08efc08ec232967e5b70f0a2e2bbed239c5425267573",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-vue/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "19b896153a93b69ccc63e6270014d66ad90b648cfbad9b45a2dd8893ee74c9da",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-vue/src/main.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f6565695569ddccebd9121d81fed544c54ca7653c9352fbb67f4b0774709b8be",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/NativeProbe.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "6747d4c37c7069d6d4345b8b003a7cf68da78df46b86912208d4258a75e44059",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "apps/storybook-vue/src/stories/probe.stories.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "cb48a43184288a85fdb2da905a9820cedd7116e6fae3bc7046d1271c609bbf06",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "compatibility/testing.json",
+      "owner": "historical-json-field-review",
+      "sha256AtPreparation": "03ceea14219620c2a6e0b26aafba3f5126c3f72807229f82efd6c628c25cd6eb",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "compatibility/toolchain.json",
+      "owner": "historical-json-field-review",
+      "sha256AtPreparation": "db7f1a5f81fb31e81228317f7b887d22aa7e1378b7d45598af9b4d737099bee8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "compliance/project-identity.json",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "f33ba0e329b1f6340a627b37c3d8bf376710d9c64c4aa6dea2861a4182a5aebd",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "compliance/provenance.json",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "0533d3e07dd46f755d1a813198eafce30522e5bf91994ac7e1138b3d12478071",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 18
+        }
+      ]
+    },
+    {
+      "path": "docs/execution/decisions.md",
+      "owner": "controller-ledger-history-preserve",
+      "sha256AtPreparation": "8f8863860ee6e388e48d20a4f5e49e151ba85c166a4e22df6a9dd3769592de4f",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "8b256cb9392202a4bfc911471320299fc7afe81a0e0be03af27567d493b300bf",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/angular/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "05fe145842f74a19d8a0058d07770146cd92a9332ae96af5a9d4c33dd25bb379",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/angular/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "5624bbf05d6f5045148244dccc4c25ace254dca0627236da07a6bd7c8cbbdc8b",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/angular/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "d7aa21fdec9e1ce1f607787bc44afd44a8a21a415deeaef2f6f73a22557b19f5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/angular/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "44dcef47f8ccbe9efb2dc6e4aea19a663db7d8c446f2c8201d40b66a1e3e5f08",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/angular/ng-package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "7d6e21a2b1853ed34e1cb636fe6adbd474f5ec2523f5f8c5700faf9bb108a16f",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "packages/angular/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "a452b87c4035bf23196c8618cadd67d85189685901f8cd0c602f5f674490eada",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        },
+        {
+          "from": "krds-native-angular",
+          "to": "unofficial-krds-angular",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/angular/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "e5acea33fd0bd501d7ea7b528a160f05021dc69229d7d69823d78676ddfd48a2",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/assets/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "6a40ac21ad8764ee872bc64b96959c6b25ebb4039d712a6a39a6e1eabcf68306",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/assets/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "6847b3ea4f2c8acf686e7d584ebafb66bd7a91e434d06c71d8d2d0aa58c71983",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/assets/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "c703d6491c5fcc4f6e63888ab30f324ac3c4cc90dfa1206250b9efb78baa71b5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/assets/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b3f4cf98901d08441772e0f246195058d0615c5544bda2d479e4353bceb28e8f",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/assets/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "3e17e5005f96110c564547586e47d4e261dd64a25e1ef2726d893f811446f202",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/assets/provenance.json",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "cf1d1bb0d789908910c5b704ff80e0c5556c7d0fa79f2e9506174c91ddceb9fe",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "path": "packages/contracts/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "b40353617991ae30ca7ebe15005a321b5fa9e0fe8167a5f4920c425bbe50a031",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/contracts/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "f708046bb618c34bc4e6881deee556a96a35af30e43b13fb42056e1f62a0e1cb",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/contracts/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "2ea1617fa852967d2cf197119b75c6289605e894bdca5982c1db3a35a55184b9",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/contracts/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "082476c97bc91beef04cf4f10855ff56876916511359374e805dc1dbe88156df",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/contracts/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "4447494832a20fa805a081d908683855f64cbd2ed77a5a1d215b657ffecb6cd5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/contracts/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "5ff9c0d3ff21815d3fa813e12d6911b1fe4fced79d7dde9aee22578cb476c403",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "06d3682b68305f2e164fbe09707df4651eac7f0f0785e772ca6f2bcbf2e30f6b",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "fdb832e382b6a51a0d768d581922ea7743e30bc486e03a2dce4228dba6e277d5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "cfa4f1239db5b72bb6031521ffb467136ad2fb1a43a7544053cdd4ee72c054c8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "e4501d2f65350883e7cd66ab7d19c13f969bb04f78876d37fd1d7f73ab31dfd8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "176498a2257b7fdb79186e33a6b8ee4babd07fdc3fc838d83e645f914d769bcb",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "99ec9d9c000cdece8ba027fe2bcd6b4aebf7b2e1f7fe40de59d62812fe5f605e",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/provenance.json",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "e28c5866c108ff84959e465d909458922b839b35c8656360617a6e4c0d1d7652",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "packages/fonts/src/index.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "1dc992a185f6a8ab554d4ba9034c9fe03d4c84ea233948a9f0a1a459b21899b1",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/lit/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "665dd3f180a4aa8eabb118050f6e75a26ca97b41ab7552dfa5fec85160ebf8b1",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/lit/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "5a21338643516d66a09e55fd9dc9ab421e22a1b5402b254c521bcbb55c6cdd4e",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/lit/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "1727bd95f6fc8863ef34098ffdb518423eef861f21174ad814ff03b53b2ba889",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/lit/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "e260c563d97583e117c3411ac6d37c29e79430c08254daf07a7b1015acbf3bd4",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/lit/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "54890b0c2d3581761d689ba312fa4ddac4ead3376c5a0ea10e0feb0eebb9c41f",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/lit/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b70b46a5375d3e1d251167fe9f651c0da5558d5bdb480db9ce308a69a7e6c3cc",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/qwik/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "44f5c73053ef7831f27c19e75f63245c5010e62e6c44f9d9779cc1c3db77cd47",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/qwik/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "a4572c25571384926e1b375e4aa7d3fd83b84e42914842ffbc27aec28ca809ec",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/qwik/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b0e89d994fe9ef78901a06c725f8b526268eb6393515841f963834d25048fc0a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/qwik/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "b0f983a8879ae2592e6ae44f16d63d235b432db647e85d169e49ac1ae1d16a34",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/qwik/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "cbcea468c56b375cc13c2e89eb081ee1fbad126e1c2d68f81190fe4b3ff9409b",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/qwik/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "6db29bda3ce93a9febcae28cda28a644c69fb8f58d365f97f698b75e4572d0f8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/react/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "72223dd15b4d2e6b93579ef33f458398b213a8f0af440a2967f1233f6d16520e",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/react/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "6701ff3d51759e2e026df2b158e8724c48332ca6d7c1605380cf9ed8341aaf27",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/react/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "5ba20e216db218b9231e6905e49045390f4d6e8f8397befcdfc3a97081911478",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/react/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "e8cf14bf74bd450dad62fb7a34467251e58f38966c0e0c754f9a736715c48e03",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/react/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c290e8c3086f4774914760a6ebaa8f75664bff5e86c0a9fcb16de03ba55c9e11",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/react/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "ad572a7185730f1b5d3ce647ebf496e9b023bbb3c64eaa73d2b0c28a5e6623b7",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/solid-next/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "e68e108144660f36b3002a989f04d647978c2df873b35fe339aac1d3f0e00c52",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid-next/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "16fdf45b846ae0a76c6315c93a68a1b6e65232b3eed61ecd2559b2f4ccdce543",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid-next/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f08204ab0d17dc31ea0ab35dc2e62acff938e62848e68fd2a034fe4be669da36",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid-next/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "021b4af1c1844076be2a865d7ba8d52fdb91568394a831159144a5878e28ed22",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid-next/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "05bc8b72ff18d1ef5a46ed4d0e6291befe51ae6b7f17bb1ffc2f61a40f6e90e9",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/solid-next/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "64395155992e6c30d210a952f61de0ae69c53a34a061b209a8e5474f86210242",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "5458847b0a8f10a9bc97b187989bae3a717983e198e7d2506446d327cd21f3e4",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "ede66871e8bef5c8ccb419e9e9c9baf491af0318e02dce780c342efc5c159d90",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "07e9bd03cddac593960d7e19f5d69433a084a4bbbf11594693235cb0f7037010",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "b13cd7fe1373a32bd5b459bdd818317c421a34ddba6c09ecee3ebd963aa9fde4",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "0b03f6f70700a80716fccc69a271bb35af7317ef0216d6f0c5cc1112e3bc0ea1",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "0881730de66a0859e62968f0f6cec4e76ba300881541382466b0b880d9d07c5a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/src/components/calendar/index.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "1e3d58a8234f5c921d0b92fb1d035f1f6a2aa7736952b9964e7283e4f66b93f1",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/src/components/calendar/model.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "a05ad25360c791c141ecf20785bc31aac90293b8b79362915ae0bb242c4d3f84",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/src/components/date-input/index.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "4b308cc40eb22dba1ecb700c60dea7ba5910f3f1d409a2c32c7c372950f40bc3",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/src/components/modal/index.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f4942f8a507aeeddb96a4c04c71a81bea9f464b59a0c05f2f86023f96bffe949",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/src/components/native-select/index.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "7a718fbffd37a8c8416484c1087b33b565c5248199cfbe9232ec7f734c850f99",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/solid/src/components/tabs/index.tsx",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c666bbbaab15ce89b0805797985f691ca636c1c2c30d5e033647a67313200f91",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/styles/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "bf10cbdd4b0c77420fc31208a14d1d9ed0a6bda925f5a589db432557684fde4a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/styles/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "cb55ff801b5c409cf8e869290b433a59f6914dcdd71cb60d3e248f68026a73e1",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "packages/styles/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "99b7e6abb1689408c58da4eb46fa5dabdb5549b467b6ae7a91b014e4a79c0be8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/styles/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "9419e6cca9636c154ff72772df1cc80f3bd019f0c57540296a3841225d8a482f",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/styles/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "4045aaf59e505ae8bdff8dfbe07d496ca37c3cca7a712c84b212f1642177ed03",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/styles/provenance.json",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "33ab60e51dc0b2b4f8dc4ef5cb55d6fbc2b0cacc03631677d35997d8947c2c1a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "path": "packages/svelte/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "9ab4e489a6bdb6c25bfe96e7d121db6b03c4ddffb93fa5b95ddd6ad20c7c6481",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/svelte/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "f184b970ef19e8cd5c9d6712f914ab6f6a2e9ae4815535f17202542a099d09b1",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/svelte/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "df9948caa835c8a91440b28d6007a6b2c936a12122127323d4c71567ccb8b3f2",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/svelte/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "979810e15d263f10e911fca89a3c82765abf9aa9100f0eb4fb8617c5ca6ab1f6",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/svelte/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "8620b9c3c9b422b538c112a12909ec926948f54b06c44c3069e89ec9bf5f0b9d",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/svelte/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b24e5025fd1446df222bf01d93f2c05bc935413be5297fc5f75496dee0e1cd37",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/test-contracts/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "f474ca13bfc6912483ba98be3c4a73f81c08f30e6f927b6d4597bf61f414f383",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/test-contracts/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "b7a46cdf77b36d08f364d15ccae96674aa628a9fe9e77d6cd0a63d727a1f100c",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/test-contracts/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "e182865c7a70685228b4ef5ee603ac03f1be5dd4a24c19ff962cdd7e9ca91ccd",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/test-contracts/src/types.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "09775e21d119a43f2225a89943f8f6be74ecbb431288e3f0dd67d71cb2e4aef5",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/tokens/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "4ba8a3e8b35adbac39ac7acba3b3244d0efe7ee413b393923d2f3494bdcae095",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/tokens/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "e39a243f57b4fe40f0e741f9b5387de4a0b3513b3be4500ca63a77c20ec84612",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "packages/tokens/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "02d8a0c8e7c2e23f5b05716a88be0119210ef6ace2c0833968630c6c370d10cc",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/tokens/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "310c94e4d2c77daafa03d1cbec2d48b73ba73c756ca8e143cd58fbeafeaac48b",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/tokens/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "8b4f061a8ff57e39f270cd4d5b18e98ab8fbf8a4af212c51fd20a9bbf2cf4abb",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/tokens/provenance.json",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "0c748a4e2c688d972a515e5f5e48978294a210fe43a6cbf708cc382c092e359e",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "path": "packages/tokens/src/outputs.test.ts",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "78ad419ffe5c576a8adad3f63fd3f1d17e612ea8ef620632b273d760a382e9f8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/vue/ATTRIBUTION.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "d2e074d362f47cf954a4a40f44a2381bf297c19939984d4a764d9df50c816543",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/vue/LICENSE.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "2eeef90d1329a107dc7bb649830fc53623e357d97802e4814e957e4572480d02",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/vue/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "15681fbb9318f274dce4d6c3afd09172e2979b7eb4ab2407bca3624fd9de7236",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/vue/THIRD-PARTY-NOTICES.md",
+      "owner": "T03-coordinated-regeneration",
+      "sha256AtPreparation": "6094df9f463a80dec7ffaf4ee9633bb64ae5aaae20beb1ba6557d66eb466cd68",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "packages/vue/package.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "e607919e8c9cddf8c09a2379fcd971ec96eaba9c6ac53d40c3b87f4d31f4f339",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "packages/vue/project.json",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "3707ce47a293be0b07593b17a7e8c3566c6959a34a727ffc1e65432cda0556f8",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "path": "specs/components/README.md",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "c1c6e27ac9dfa5e6c4e300f79d396f229a35a2e1fbf8edc79740cff89d3dc398",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "tools/check-workspace.test.mjs",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "cae71867609cd5cd441a96037f9b7c89d5181f89ddf084504a0c533529dd234a",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "path": "tools/run-siheom-tests.mjs",
+      "owner": "integration-atomic-scope-rewrite",
+      "sha256AtPreparation": "3049e6a70dec4d56b3f8cbff180aba066c082e4985ad0afc7fbf42d25217bc21",
+      "plannedTokenMapping": [
+        {
+          "from": "@krds-native",
+          "to": "@unofficial-krds",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

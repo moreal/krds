@@ -1,0 +1,18 @@
+{
+  "kind": "siheom",
+  "mode": "pilot",
+  "results": [],
+  "unsupported": [
+    {
+      "framework": "lit",
+      "reason": "No upstream native siheom adapter",
+      "alternative": "test:contract --framework lit"
+    },
+    {
+      "framework": "solid-next",
+      "reason": "Solid1 adapter peer does not cover exact Solid2 RC",
+      "alternative": "test:contract --framework solid-next"
+    }
+  ],
+  "error": "Error: siheom lit unsupported: no upstream native adapter; use native contract Playwright"
+}

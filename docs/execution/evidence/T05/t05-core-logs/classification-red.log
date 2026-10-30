@@ -1,0 +1,51 @@
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (1.602666ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.160291ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.641625ms)
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (19.254459ms)
+✔ request guard refuses mutation methods even when URL is a build asset (0.451125ms)
+✔ bridge refuses renderer objects instead of silently coercing them to semantic JSON (0.131708ms)
+✔ real CLI reports invalid selection and zero canonical cases nonzero without server startup (106.7865ms)
+✖ contract summaries distinguish feature RED after health from startup failure and zero execution (1.117083ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 185.9575
+
+✖ failing tests:
+
+test at tools/tests/harness.test.mjs:47:1
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (19.254459ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at tools/tests/harness.test.mjs:84:1
+✖ contract summaries distinguish feature RED after health from startup failure and zero execution (1.117083ms)
+  AssertionError [ERR_ASSERTION]: failure classification is not implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/harness.test.mjs:86:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

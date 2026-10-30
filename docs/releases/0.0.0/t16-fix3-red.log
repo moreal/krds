@@ -1,0 +1,131 @@
+✔ M1 evidence survives blocked M2 and M3 remains nonzero (5.467333ms)
+✔ every required milestone must pass; failure takes precedence over blocked (0.215125ms)
+✔ cross-candidate evidence fails even when its status says passed (0.529959ms)
+✔ snapshot validation rejects changed bytes and forged aggregate hashes (7.599916ms)
+✔ zero, skipped, unsupported and manual-not-performed outcomes never pass (0.348291ms)
+✔ native browser acceptance requires all nine real engine/timezone outcomes (0.283583ms)
+✔ F1 self-asserted indexed rows and empty hashed logs cannot award acceptance (17.275292ms)
+✔ F3 adding untested native input invalidates complete snapshot inventory (17.236958ms)
+✔ F5 dirty or untracked source cannot be attributed to the reviewed Git tree (5.146458ms)
+✔ F6 browser passed flags cannot conceal skipped, unexecuted or nonzero outcomes (1.613125ms)
+✔ F7 latest failed, stale or unfinished selected matrix never falls back to older pass (6.644042ms)
+✔ F7 evidence absence/staleness is blocked; current actual failure is failed (0.329417ms)
+✔ F6 unrelated placeholder observations cannot substitute for native producer checks (0.118ms)
+✔ F2 legacy consumer flag strings and unrelated nonempty logs stay blocked (1.376542ms)
+✔ F4 stable evidence selection has no dependency on preview rows or package identities (0.168041ms)
+✔ F3/F4 stable matrix inventory survives preview-only edits but rejects new stable/shared files (13.511375ms)
+✔ F6 each contradictory browser execution field independently blocks acceptance (0.6095ms)
+✔ F2 canonical consumer command receipts reject tampered original log bytes (35.947083ms)
+✔ F3 current expected inventory hashes are compared as well as its paths (0.900375ms)
+✔ fix2 R2 rejects truncated artifact inventories and forwards only canonical inspected packages (0.261458ms)
+✔ fix2 R3 executable identity and SSR Node version cannot be replaced while preserving argv tail (0.304708ms)
+✔ fix2 R1 uses authentic retained stage inventories instead of a workspace-only output guess (12.831ms)
+✔ F1 parses actual React, Solid and Vue fifteen native binding results without promoting historical evidence (29.840291ms)
+✔ F1 native parser rejects empty, filtered, failed, skipped and invented case identities (0.537834ms)
+✔ F1 parses real docs browser output and exact five-test Node stdout (0.878208ms)
+✔ F1 explicit manual identity/session/support is necessary and legitimate attestation can be validated (0.184958ms)
+✔ F1 actual scoped review Markdown is parsed as scoped review, not a release approval (0.6375ms)
+✔ F1 bundle does not accept a generic all-passed index or absent current command receipts (0.649917ms)
+✔ F1 complete explicitly attested same-candidate manual envelope is accepted; missing transcript is blocked (428.251042ms)
+✔ F1 native CI parser accepts a real canonical ten-case runner report and rejects missing raw health (0.627333ms)
+✔ F1 docs consumed-response closure rejects changed built HTML while preserving claimed response hashes (46.631667ms)
+✔ F1 a current request-changes release review cannot be mistaken for historical accepted text (1.425125ms)
+✔ F1 CI source-before/output-after binding cannot relabel a different commit, lock or input inventory (0.370917ms)
+✔ F1 recorder description cannot launch a job and declares the actual production roots (2.9725ms)
+✔ F1 docs producer redirect preserves every original assertion and shares the actual browser types (512.462667ms)
+✔ fix2 R2 a genuine retained tarball cannot hand off a truncated installed-byte inventory (4.358125ms)
+✔ fix2 R1 actual frozen Angular retained-input report is consumable without its original temporary directory (98.185208ms)
+✖ R5 long current rejected decision cannot be promoted by historical acceptance words (0.336833ms)
+✖ R5 explicit current accepted decision and resolved dispositions validate without treating history as current (0.13025ms)
+✖ R6 original genuine-format fixture drift cannot be replaced by two identical current submitted snapshots (0.336083ms)
+✖ R7 actual CI adapter rejects a substituted historical result reference for the same execution receipt (0.133ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 37
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1381.430708
+
+✖ failing tests:
+
+test at tools/release-evidence/round3.test.mjs:8:1
+✖ R5 long current rejected decision cannot be promoted by historical acceptance words (0.336833ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/round3.test.mjs:10:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tools/release-evidence/round3.test.mjs:12:1
+✖ R5 explicit current accepted decision and resolved dispositions validate without treating history as current (0.13025ms)
+  Error: Original independent review report required
+      at blocked (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:8:45)
+      at requireFact (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:9:53)
+      at Module.parseReview (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:49:2)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/round3.test.mjs:14:105)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    code: 'EVIDENCE_BLOCKED'
+  }
+
+test at tools/release-evidence/round3.test.mjs:18:1
+✖ R6 original genuine-format fixture drift cannot be replaced by two identical current submitted snapshots (0.336083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/round3.test.mjs:19:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/release-evidence/round3.test.mjs:28:1
+✖ R7 actual CI adapter rejects a substituted historical result reference for the same execution receipt (0.133ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/round3.test.mjs:29:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,302 @@
+{
+  "name": "@unofficial-krds/angular",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node ../../tests/ssr/angular/verify.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "ng build krds-angular --configuration production",
+    "typecheck": "ngc -p tsconfig.lib.prod.json --noEmit",
+    "test:toolchain": "node --test ../../tools/workspace-probe.test.mjs",
+    "test:apf": "node ../../tests/ssr/angular/verify.mjs"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "0.2202.5",
+    "@angular-devkit/build-angular": "22.2.5",
+    "@angular-devkit/core": "22.2.5",
+    "@angular/animations": "22.2.4",
+    "@angular/build": "22.2.5",
+    "@angular/cli": "22.2.5",
+    "@angular/common": "22.2.4",
+    "@angular/compiler": "22.2.4",
+    "@angular/compiler-cli": "22.2.4",
+    "@angular/core": "22.2.4",
+    "@angular/forms": "22.2.4",
+    "@angular/platform-browser": "22.2.4",
+    "@angular/platform-browser-dynamic": "22.2.4",
+    "@angular/platform-server": "22.2.4",
+    "@angular/router": "22.2.4",
+    "@angular/ssr": "22.2.5",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "ng-packagr": "22.2.5",
+    "playwright": "1.64.1",
+    "rxjs": "7.8.2",
+    "tslib": "2.8.1",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10",
+    "zone.js": "0.16.3"
+  },
+  "description": "Native Angular KRDS pilot components with Reactive Forms control value accessors",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/types/unofficial-krds-angular.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular.mjs"
+    },
+    "./button": {
+      "types": "./dist/types/unofficial-krds-angular-button.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-button.mjs"
+    },
+    "./native-select": {
+      "types": "./dist/types/unofficial-krds-angular-native-select.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-native-select.mjs"
+    },
+    "./modal": {
+      "types": "./dist/types/unofficial-krds-angular-modal.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-modal.mjs"
+    },
+    "./tabs": {
+      "types": "./dist/types/unofficial-krds-angular-tabs.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-tabs.mjs"
+    },
+    "./calendar": {
+      "types": "./dist/types/unofficial-krds-angular-calendar.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-calendar.mjs"
+    },
+    "./date-input": {
+      "types": "./dist/types/unofficial-krds-angular-date-input.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-date-input.mjs"
+    },
+    "./forms": {
+      "types": "./dist/types/unofficial-krds-angular-forms.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-forms.mjs"
+    },
+    "./accessible-media": {
+      "types": "./dist/types/unofficial-krds-angular-accessible-media.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-accessible-media.mjs"
+    },
+    "./accordion": {
+      "types": "./dist/types/unofficial-krds-angular-accordion.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-accordion.mjs"
+    },
+    "./back-button": {
+      "types": "./dist/types/unofficial-krds-angular-back-button.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-back-button.mjs"
+    },
+    "./badge": {
+      "types": "./dist/types/unofficial-krds-angular-badge.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-badge.mjs"
+    },
+    "./bottom-sheet": {
+      "types": "./dist/types/unofficial-krds-angular-bottom-sheet.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-bottom-sheet.mjs"
+    },
+    "./breadcrumb": {
+      "types": "./dist/types/unofficial-krds-angular-breadcrumb.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-breadcrumb.mjs"
+    },
+    "./carousel": {
+      "types": "./dist/types/unofficial-krds-angular-carousel.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-carousel.mjs"
+    },
+    "./checkbox": {
+      "types": "./dist/types/unofficial-krds-angular-checkbox.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-checkbox.mjs"
+    },
+    "./coach-mark": {
+      "types": "./dist/types/unofficial-krds-angular-coach-mark.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-coach-mark.mjs"
+    },
+    "./contextual-help": {
+      "types": "./dist/types/unofficial-krds-angular-contextual-help.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-contextual-help.mjs"
+    },
+    "./critical-alert": {
+      "types": "./dist/types/unofficial-krds-angular-critical-alert.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-critical-alert.mjs"
+    },
+    "./disclosure": {
+      "types": "./dist/types/unofficial-krds-angular-disclosure.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-disclosure.mjs"
+    },
+    "./fab": {
+      "types": "./dist/types/unofficial-krds-angular-fab.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-fab.mjs"
+    },
+    "./favicon": {
+      "types": "./dist/types/unofficial-krds-angular-favicon.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-favicon.mjs"
+    },
+    "./file-upload": {
+      "types": "./dist/types/unofficial-krds-angular-file-upload.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-file-upload.mjs"
+    },
+    "./footer": {
+      "types": "./dist/types/unofficial-krds-angular-footer.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-footer.mjs"
+    },
+    "./header": {
+      "types": "./dist/types/unofficial-krds-angular-header.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-header.mjs"
+    },
+    "./help-panel": {
+      "types": "./dist/types/unofficial-krds-angular-help-panel.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-help-panel.mjs"
+    },
+    "./identifier": {
+      "types": "./dist/types/unofficial-krds-angular-identifier.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-identifier.mjs"
+    },
+    "./image": {
+      "types": "./dist/types/unofficial-krds-angular-image.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-image.mjs"
+    },
+    "./in-page-navigation": {
+      "types": "./dist/types/unofficial-krds-angular-in-page-navigation.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-in-page-navigation.mjs"
+    },
+    "./language-switcher": {
+      "types": "./dist/types/unofficial-krds-angular-language-switcher.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-language-switcher.mjs"
+    },
+    "./link": {
+      "types": "./dist/types/unofficial-krds-angular-link.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-link.mjs"
+    },
+    "./main-menu": {
+      "types": "./dist/types/unofficial-krds-angular-main-menu.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-main-menu.mjs"
+    },
+    "./masthead": {
+      "types": "./dist/types/unofficial-krds-angular-masthead.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-masthead.mjs"
+    },
+    "./pagination": {
+      "types": "./dist/types/unofficial-krds-angular-pagination.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-pagination.mjs"
+    },
+    "./quantity-toggle": {
+      "types": "./dist/types/unofficial-krds-angular-quantity-toggle.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-quantity-toggle.mjs"
+    },
+    "./radio-group": {
+      "types": "./dist/types/unofficial-krds-angular-radio-group.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-radio-group.mjs"
+    },
+    "./range-slider": {
+      "types": "./dist/types/unofficial-krds-angular-range-slider.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-range-slider.mjs"
+    },
+    "./resize": {
+      "types": "./dist/types/unofficial-krds-angular-resize.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-resize.mjs"
+    },
+    "./side-navigation": {
+      "types": "./dist/types/unofficial-krds-angular-side-navigation.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-side-navigation.mjs"
+    },
+    "./skip-link": {
+      "types": "./dist/types/unofficial-krds-angular-skip-link.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-skip-link.mjs"
+    },
+    "./snackbar": {
+      "types": "./dist/types/unofficial-krds-angular-snackbar.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-snackbar.mjs"
+    },
+    "./spinner": {
+      "types": "./dist/types/unofficial-krds-angular-spinner.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-spinner.mjs"
+    },
+    "./step-indicator": {
+      "types": "./dist/types/unofficial-krds-angular-step-indicator.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-step-indicator.mjs"
+    },
+    "./structured-list": {
+      "types": "./dist/types/unofficial-krds-angular-structured-list.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-structured-list.mjs"
+    },
+    "./switch": {
+      "types": "./dist/types/unofficial-krds-angular-switch.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-switch.mjs"
+    },
+    "./tab-bar": {
+      "types": "./dist/types/unofficial-krds-angular-tab-bar.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-tab-bar.mjs"
+    },
+    "./table": {
+      "types": "./dist/types/unofficial-krds-angular-table.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-table.mjs"
+    },
+    "./tag": {
+      "types": "./dist/types/unofficial-krds-angular-tag.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-tag.mjs"
+    },
+    "./text-input": {
+      "types": "./dist/types/unofficial-krds-angular-text-input.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-text-input.mjs"
+    },
+    "./text-list": {
+      "types": "./dist/types/unofficial-krds-angular-text-list.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-text-list.mjs"
+    },
+    "./textarea": {
+      "types": "./dist/types/unofficial-krds-angular-textarea.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-textarea.mjs"
+    },
+    "./toast": {
+      "types": "./dist/types/unofficial-krds-angular-toast.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-toast.mjs"
+    },
+    "./tooltip": {
+      "types": "./dist/types/unofficial-krds-angular-tooltip.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-tooltip.mjs"
+    },
+    "./tts": {
+      "types": "./dist/types/unofficial-krds-angular-tts.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-tts.mjs"
+    },
+    "./tutorial-panel": {
+      "types": "./dist/types/unofficial-krds-angular-tutorial-panel.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-tutorial-panel.mjs"
+    },
+    "./visually-hidden": {
+      "types": "./dist/types/unofficial-krds-angular-visually-hidden.d.ts",
+      "default": "./dist/fesm2022/unofficial-krds-angular-visually-hidden.mjs"
+    }
+  },
+  "peerDependencies": {
+    "@angular/common": "^22.2.4",
+    "@angular/core": "^22.2.4",
+    "@angular/forms": "^22.2.4"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.12.4",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^",
+    "@zag-js/core": "1.47.0",
+    "@zag-js/date-picker": "1.47.0",
+    "@zag-js/dialog": "1.47.0",
+    "@zag-js/tabs": "1.47.0",
+    "@zag-js/vanilla": "1.47.0",
+    "tslib": "2.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/angular"
+  }
+}

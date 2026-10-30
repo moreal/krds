@@ -1,0 +1,6 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { Button, NativeSelect, Modal, Tabs, Calendar, DateInput, KrdsProvider } from '@unofficial-krds/vue';
+defineProps<{component:string}>();const selected=ref('seoul');const tab=ref('first');const date=ref<string|null>(null);const open=ref(true);
+</script>
+<template><KrdsProvider><main style="padding:1rem"><Button v-if="component==='button'" disabled>저장</Button><NativeSelect v-else-if="component==='native-select'" v-model="selected" label="지역" :options="[{value:'seoul',label:'서울'},{value:'busan',label:'부산'}]" /><Modal v-else-if="component==='modal'" v-model="open" title="확인"><p>작업을 확인하세요.</p></Modal><Tabs v-else-if="component==='tabs'" v-model="tab" label="정보" :items="[{value:'first',label:'첫 번째'},{value:'second',label:'두 번째'}]"><template #first>첫 번째 내용</template><template #second>두 번째 내용</template></Tabs><DateInput v-else-if="component==='date-input'" v-model="date" label="날짜" invalid error="YYYY-MM-DD 형식의 올바른 날짜를 입력하세요" reference-date="2024-02-15" /><Calendar v-else-if="component==='calendar'" mode="range" :default-value="{start:'2024-02-12',end:'2024-02-18'}" reference-date="2024-02-15" today="2024-02-15" label="방문일" /></main></KrdsProvider></template>

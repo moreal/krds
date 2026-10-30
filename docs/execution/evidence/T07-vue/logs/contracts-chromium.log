@@ -1,0 +1,18 @@
+
+Running 10 tests using 1 worker
+
+(node:52012) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tools/testing/contract.spec.ts:13:29 › vue button/disabled (193ms)
+  ✓   2 [chromium] › tools/testing/contract.spec.ts:13:29 › vue native-select/controlled (199ms)
+  ✓   3 [chromium] › tools/testing/contract.spec.ts:13:29 › vue native-select/form-reset (225ms)
+  ✓   4 [chromium] › tools/testing/contract.spec.ts:13:29 › vue modal/focus-return (229ms)
+  ✓   5 [chromium] › tools/testing/contract.spec.ts:13:29 › vue modal/trigger-removed (262ms)
+  ✓   6 [chromium] › tools/testing/contract.spec.ts:13:29 › vue tabs/manual-activation (157ms)
+  ✓   7 [chromium] › tools/testing/contract.spec.ts:13:29 › vue date-input/leap-year (180ms)
+  ✓   8 [chromium] › tools/testing/contract.spec.ts:13:29 › vue date-input/ime (184ms)
+  ✓   9 [chromium] › tools/testing/contract.spec.ts:13:29 › vue date-input/timezone-invariance (572ms)
+  ✓  10 [chromium] › tools/testing/contract.spec.ts:13:29 › vue calendar/selection-confirm (530ms)
+
+  10 passed (3.2s)
+Report: /Users/moreal/github/moreal/krds/test-results/t05/contract-1793329852354-52007-d930d6d7/report.json

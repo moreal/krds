@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-pagination', title: 'KRDS/pagination', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const NumberLinks: Story = { name: "number-links", parameters: { __id: "krds-pagination--number-links" }, render: () => <CatalogStory componentId="pagination" caseId="number-links"/> };
+export const DirectPage: Story = { name: "direct-page", parameters: { __id: "krds-pagination--direct-page" }, render: () => <CatalogStory componentId="pagination" caseId="direct-page"/> };
+export const LoadMore: Story = { name: "load-more", parameters: { __id: "krds-pagination--load-more" }, render: () => <CatalogStory componentId="pagination" caseId="load-more"/> };
+export const FirstLastBoundary: Story = { name: "first-last-boundary", parameters: { __id: "krds-pagination--first-last-boundary" }, render: () => <CatalogStory componentId="pagination" caseId="first-last-boundary"/> };
+export const NarrowSevenItems: Story = { name: "narrow-seven-items", parameters: { __id: "krds-pagination--narrow-seven-items" }, render: () => <CatalogStory componentId="pagination" caseId="narrow-seven-items"/> };
+export const LoadFailure: Story = { name: "load-failure", parameters: { __id: "krds-pagination--load-failure" }, render: () => <CatalogStory componentId="pagination" caseId="load-failure"/> };

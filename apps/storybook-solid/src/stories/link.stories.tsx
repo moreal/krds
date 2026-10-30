@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-link', title: 'KRDS/link', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Standalone: Story = { name: "standalone", parameters: { __id: "krds-link--standalone" }, render: () => <CatalogStory componentId="link" caseId="standalone"/> };
+export const Inline: Story = { name: "inline", parameters: { __id: "krds-link--inline" }, render: () => <CatalogStory componentId="link" caseId="inline"/> };
+export const Group: Story = { name: "group", parameters: { __id: "krds-link--group" }, render: () => <CatalogStory componentId="link" caseId="group"/> };
+export const External: Story = { name: "external", parameters: { __id: "krds-link--external" }, render: () => <CatalogStory componentId="link" caseId="external"/> };
+export const Disabled: Story = { name: "disabled", parameters: { __id: "krds-link--disabled" }, render: () => <CatalogStory componentId="link" caseId="disabled"/> };
+export const MailtoTel: Story = { name: "mailto-tel", parameters: { __id: "krds-link--mailto-tel" }, render: () => <CatalogStory componentId="link" caseId="mailto-tel"/> };

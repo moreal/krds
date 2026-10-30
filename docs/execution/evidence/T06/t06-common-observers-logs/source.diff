@@ -1,0 +1,197 @@
+--- T05-final/tools/testing/observations.mjs
++++ tools/testing/observations.mjs
+@@ -57,3 +57,53 @@
+   expect(observations.map(entry=>entry.value)).toEqual(['2024-02-29','2024-02-29']);
+   return observations;
+ }
++
++/** Controlled prop updates are distinct from one committed native user change. */
++export async function assertNativeSelectControlled(page,driver) {
++  const select=page.getByRole('combobox',{name:'지역',exact:true});
++  expect(await driver.readEvents()).toEqual([]);
++  await driver.setState({value:'busan'});
++  await expect(select).toHaveValue('busan');
++  expect(await driver.readEvents(),'Controlled prop updates emit no value change').toEqual([]);
++  await select.selectOption('seoul');
++  await expect(select).toHaveValue('seoul');
++  expect(await driver.readEvents()).toEqual([{name:'valueChange',detail:{value:'seoul'}}]);
++}
++
++/** Form reset follows real user input on an uncontrolled native baseline. */
++export async function assertNativeSelectReset(page,driver) {
++  const select=page.getByRole('combobox',{name:'지역',exact:true});
++  await expect(select).toHaveValue('seoul');
++  expect(await driver.readEvents()).toEqual([]);
++  await select.selectOption('busan');
++  await expect(select).toHaveValue('busan');
++  const userEvents=[{name:'valueChange',detail:{value:'busan'}}];
++  expect(await driver.readEvents()).toEqual(userEvents);
++  await page.getByRole('button',{name:'초기화',exact:true}).click();
++  await expect(select).toHaveValue('seoul');
++  expect(await driver.readEvents(),'Native reset must not add a change notification').toEqual(userEvents);
++}
++
++/** Standalone Calendar exposes native table structure and tentative selection. */
++export async function assertCalendarSelectionConfirm(page,driver) {
++  await expect(page.getByRole('heading',{name:'2024년 2월',exact:true})).toBeVisible();
++  const table=page.getByRole('table');
++  await expect(table).toHaveCount(1);
++  expect(await table.evaluate(element=>element.tagName)).toBe('TABLE');
++  await expect(table.getByRole('row')).toHaveCount(7);
++  await expect(table.getByRole('cell')).toHaveCount(42);
++  await expect(table.getByRole('columnheader')).toHaveCount(7);
++  for(const name of ['일요일','월요일','화요일','수요일','목요일','금요일','토요일']) {
++    await expect(table.getByRole('columnheader',{name,exact:true})).toHaveAttribute('scope','col');
++  }
++  await expect(page.getByRole('dialog')).toHaveCount(0);
++  await expect(page.getByRole('button',{name:'오늘',exact:true})).toHaveCount(0);
++  await expect(table.getByRole('button',{pressed:true})).toHaveCount(0);
++  expect(await driver.readEvents()).toEqual([]);
++  await table.getByRole('button',{name:'2024년 2월 29일 목요일',exact:true}).click();
++  const tentative=table.getByRole('button',{name:/^2024년 2월 29일 목요일(?:, 선택됨)?$/});
++  await expect(tentative).toHaveAttribute('aria-pressed','true');
++  expect(await driver.readEvents(),'Tentative date selection emits no value changes').toEqual([]);
++  await page.getByRole('button',{name:'확인',exact:true}).click();
++  expect(await driver.readEvents()).toEqual([{name:'valueChange',detail:{value:'2024-02-29'}}]);
++}
+--- T05-final/tools/tests/contract-observations.test.mjs
++++ tools/tests/contract-observations.test.mjs
+@@ -13,11 +13,46 @@
+ <div role="status" aria-label="Fixture health">ready</div><main></main>
+ <script type="module">
+ import {createFixtureBridge} from '/bridge.js';
+-const bridge=createFixtureBridge('react',{value:'2024-02-29',triggerVisible:true});
+ const kind=new URLSearchParams(location.search).get('case');const main=document.querySelector('main');
++const bridge=createFixtureBridge('react',kind.startsWith('select')?{value:'seoul'}:{value:'2024-02-29',triggerVisible:true});
+ if(kind.startsWith('disabled')) {
+   main.innerHTML=kind==='disabled-native'?'<button disabled>저장</button>':'<button aria-disabled="true">저장</button>';
+   main.querySelector('button').addEventListener('click',()=>bridge.recordEvent('click',null));
++} else if(kind.startsWith('select')) {
++  main.innerHTML='<form><label>지역<select aria-label="지역"><option value="seoul" selected>서울</option><option value="busan">부산</option></select></label><button type="reset">초기화</button></form>';
++  const select=main.querySelector('select');
++  select.addEventListener('change',()=>{
++    bridge.recordEvent('valueChange',{value:select.value});
++    if(kind==='select-controlled-duplicate')bridge.recordEvent('valueChange',{value:select.value});
++  });
++  if(kind.startsWith('select-controlled'))bridge.subscribe(state=>{
++    select.value=state.value;
++    if(kind==='select-controlled-prop-event'&&state.value==='busan')bridge.recordEvent('valueChange',{value:state.value});
++  });
++  if(kind==='select-reset-event')main.querySelector('form').addEventListener('reset',()=>queueMicrotask(()=>bridge.recordEvent('valueChange',{value:'seoul'})));
++} else if(kind.startsWith('calendar')) {
++  const weekdays=['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
++  main.innerHTML='<h2>2024년 2월</h2><table><caption>2024년 2월</caption><thead><tr></tr></thead><tbody></tbody></table><button id="confirm">확인</button>';
++  for(const name of weekdays){const th=document.createElement('th');th.scope='col';th.textContent=name;main.querySelector('thead tr').append(th);}
++  let tentative=null;
++  for(let row=0;row<6;row++){
++    const tr=document.createElement('tr');main.querySelector('tbody').append(tr);
++    for(let column=0;column<7;column++){
++      const day=new Date(Date.UTC(2024,0,28+row*7+column));const iso=day.toISOString().slice(0,10);
++      const td=document.createElement('td');const button=document.createElement('button');button.type='button';button.textContent=String(day.getUTCDate());
++      const name=day.getUTCFullYear()+'년 '+(day.getUTCMonth()+1)+'월 '+day.getUTCDate()+'일 '+weekdays[column];
++      button.setAttribute('aria-label',name);button.setAttribute('aria-pressed','false');button.disabled=iso<'2024-02-01'||iso>'2024-03-31';
++      button.addEventListener('click',()=>{
++        tentative=iso;for(const selected of main.querySelectorAll('td button[aria-pressed="true"]'))selected.setAttribute('aria-pressed','false');
++        button.setAttribute('aria-pressed','true');button.setAttribute('aria-label',name+', 선택됨');
++        if(kind==='calendar-eager')bridge.recordEvent('valueChange',{value:iso});
++      });td.append(button);tr.append(td);
++    }
++  }
++  main.querySelector('#confirm').addEventListener('click',()=>{
++    bridge.recordEvent('valueChange',{value:tentative});
++    if(kind==='calendar-duplicate')bridge.recordEvent('valueChange',{value:tentative});
++  });
+ } else if(kind.startsWith('date')) {
+   main.innerHTML='<label>날짜<input aria-label="날짜"></label>';
+   bridge.subscribe(state=>{
+@@ -89,3 +124,49 @@
+     }finally{await page.close();}
+   });
+ });
++
++
++test('controlled native select suppresses prop events and emits one user change',async()=>{
++  assert.equal(typeof observations.assertNativeSelectControlled,'function','controlled native select observation is not implemented');
++  await withInspection(async(browser,origin)=>{
++    const page=await browser.newPage();const driver=createFixtureDriver(page,origin);
++    try {
++      await driver.open({framework:'react',componentId:'native-select',caseId:'select-controlled'});
++      await observations.assertNativeSelectControlled(page,driver);
++      await driver.open({framework:'react',componentId:'native-select',caseId:'select-controlled-prop-event'});
++      await assert.rejects(observations.assertNativeSelectControlled(page,driver),/toEqual/);
++      await driver.open({framework:'react',componentId:'native-select',caseId:'select-controlled-duplicate'});
++      await assert.rejects(observations.assertNativeSelectControlled(page,driver),/toEqual/);
++    }finally{await page.close();}
++  });
++});
++
++test('uncontrolled native select resets user selection to its baseline without another change event',async()=>{
++  assert.equal(typeof observations.assertNativeSelectReset,'function','uncontrolled reset observation is not implemented');
++  await withInspection(async(browser,origin)=>{
++    const page=await browser.newPage();const driver=createFixtureDriver(page,origin);
++    try {
++      await driver.open({framework:'react',componentId:'native-select',caseId:'select-reset'});
++      await observations.assertNativeSelectReset(page,driver);
++      assert.equal(await page.getByRole('combobox',{name:'지역',exact:true}).inputValue(),'seoul');
++      await driver.open({framework:'react',componentId:'native-select',caseId:'select-reset-event'});
++      await assert.rejects(observations.assertNativeSelectReset(page,driver),/toEqual/);
++    }finally{await page.close();}
++  });
++});
++
++test('standalone native table calendar keeps selection tentative and confirms exactly once',async()=>{
++  assert.equal(typeof observations.assertCalendarSelectionConfirm,'function','calendar selection-confirm observation is not implemented');
++  await withInspection(async(browser,origin)=>{
++    const page=await browser.newPage();const driver=createFixtureDriver(page,origin);
++    try {
++      await driver.open({framework:'react',componentId:'calendar',caseId:'calendar-correct'});
++      await observations.assertCalendarSelectionConfirm(page,driver);
++      assert.deepEqual(await driver.readEvents(),[{name:'valueChange',detail:{value:'2024-02-29'}}]);
++      await driver.open({framework:'react',componentId:'calendar',caseId:'calendar-eager'});
++      await assert.rejects(observations.assertCalendarSelectionConfirm(page,driver),/toEqual/);
++      await driver.open({framework:'react',componentId:'calendar',caseId:'calendar-duplicate'});
++      await assert.rejects(observations.assertCalendarSelectionConfirm(page,driver),/toEqual/);
++    }finally{await page.close();}
++  });
++});
+--- T05-final/tools/testing/contract.spec.ts
++++ tools/testing/contract.spec.ts
+@@ -1,5 +1,5 @@
+ import { test, expect } from '@playwright/test';
+-import {assertDisabledButton,assertModalFocus,assertTimezoneInvariant} from './observations.mjs';
++import {assertDisabledButton,assertModalFocus,assertTimezoneInvariant,assertNativeSelectControlled,assertNativeSelectReset,assertCalendarSelectionConfirm} from './observations.mjs';
+ import { readFileSync } from 'node:fs';
+ import { createFixtureDriver } from '../../packages/test-contracts/dist/driver.js';
+ import type { FrameworkId } from '../../packages/test-contracts/dist/types.js';
+@@ -38,21 +38,25 @@
+     if(fixture.componentId==='button') {
+       await assertDisabledButton(page,driver);
+     } else if(fixture.componentId==='native-select') {
+-      const select=page.getByRole('combobox',{name:'지역',exact:true});
+-      await driver.setState({value:'busan'});await expect(select).toHaveValue('busan');
+-      if(fixture.caseId==='controlled') {await select.selectOption('seoul');expect(await driver.readEvents()).toContainEqual({name:'valueChange',detail:{value:'seoul'}});}
+-      else {await page.getByRole('button',{name:'초기화',exact:true}).click();await expect(select).toHaveValue('seoul');}
++      if(fixture.caseId==='controlled') await assertNativeSelectControlled(page,driver);
++      else if(fixture.caseId==='form-reset') await assertNativeSelectReset(page,driver);
++      else throw new Error(`No common native-select observer for case: ${fixture.caseId}`);
+     } else if(fixture.componentId==='modal') {
+       await assertModalFocus(page,driver,{triggerRemoved:fixture.caseId==='trigger-removed'});
+     } else if(fixture.componentId==='tabs') {
+       const first=page.getByRole('tab',{name:'첫 번째',exact:true});const second=page.getByRole('tab',{name:'두 번째',exact:true});
+       await first.focus();await page.keyboard.press('ArrowRight');await expect(second).toBeFocused();await expect(first).toHaveAttribute('aria-selected','true');
+       await page.keyboard.press('Enter');await expect(second).toHaveAttribute('aria-selected','true');
+-    } else {
++    } else if(fixture.componentId==='calendar' && fixture.caseId==='selection-confirm') {
++      await assertCalendarSelectionConfirm(page,driver);
++    } else if(fixture.componentId==='date-input') {
+       const date=page.getByRole('textbox',{name:'날짜',exact:true});
+       if(fixture.caseId==='leap-year') {await date.fill('2023-02-29');await date.blur();await expect(date).toHaveAttribute('aria-invalid','true');await date.fill('2024-02-29');await date.blur();await expect(date).not.toHaveAttribute('aria-invalid','true');}
+       else if(fixture.caseId==='ime') {await date.dispatchEvent('compositionstart');await date.fill('이월');await expect(date).toHaveValue('이월');await date.dispatchEvent('compositionend',{data:'이월'});}
+-      else {await assertTimezoneInvariant(browser,origin,{...fixture,framework},async (health: {timezoneId:string})=>{await info.attach(`native-health-${health.timezoneId.replaceAll('/','-')}.json`,{body:JSON.stringify(health),contentType:'application/json'});});}
++      else if(fixture.caseId==='timezone-invariance') {await assertTimezoneInvariant(browser,origin,{...fixture,framework},async (health: {timezoneId:string})=>{await info.attach(`native-health-${health.timezoneId.replaceAll('/','-')}.json`,{body:JSON.stringify(health),contentType:'application/json'});});}
++      else throw new Error(`No common date-input observer for case: ${fixture.caseId}`);
++    } else {
++      throw new Error(`No common observer for fixture: ${fixture.componentId}/${fixture.caseId}`);
+     }
+   });
+ });

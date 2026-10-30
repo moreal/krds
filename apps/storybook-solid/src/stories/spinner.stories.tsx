@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-spinner', title: 'KRDS/spinner', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Determinate: Story = { name: "determinate", parameters: { __id: "krds-spinner--determinate" }, render: () => <CatalogStory componentId="spinner" caseId="determinate"/> };
+export const Indeterminate: Story = { name: "indeterminate", parameters: { __id: "krds-spinner--indeterminate" }, render: () => <CatalogStory componentId="spinner" caseId="indeterminate"/> };
+export const Inline: Story = { name: "inline", parameters: { __id: "krds-spinner--inline" }, render: () => <CatalogStory componentId="spinner" caseId="inline"/> };
+export const Region: Story = { name: "region", parameters: { __id: "krds-spinner--region" }, render: () => <CatalogStory componentId="spinner" caseId="region"/> };
+export const Complete: Story = { name: "complete", parameters: { __id: "krds-spinner--complete" }, render: () => <CatalogStory componentId="spinner" caseId="complete"/> };
+export const ReducedMotion: Story = { name: "reduced-motion", parameters: { __id: "krds-spinner--reduced-motion" }, render: () => <CatalogStory componentId="spinner" caseId="reduced-motion"/> };

@@ -1,0 +1,49 @@
+{
+  "specContractMissing": [
+    "fixture-qwik",
+    "fixture-solid",
+    "fixture-svelte",
+    "fixture-vue"
+  ],
+  "specSiheomMissing": [
+    "fixture-angular",
+    "fixture-qwik",
+    "fixture-solid",
+    "fixture-svelte",
+    "fixture-vue"
+  ],
+  "commonContractMatchesAll": true,
+  "commonSiheomMatchesAll": true,
+  "commonStoriesMatchesAll": true,
+  "storyManifestStoriesMatchesAll": true,
+  "solidFixtureSelectionCorrect": true,
+  "solidPackageSelectionCorrect": true,
+  "expectedContractProjects": [
+    "fixture-angular",
+    "fixture-lit",
+    "fixture-qwik",
+    "fixture-react",
+    "fixture-solid",
+    "fixture-solid-next",
+    "fixture-svelte",
+    "fixture-vue"
+  ],
+  "expectedSiheomProjects": [
+    "fixture-angular",
+    "fixture-qwik",
+    "fixture-react",
+    "fixture-solid",
+    "fixture-svelte",
+    "fixture-vue"
+  ],
+  "expectedStoryProjects": [
+    "storybook-angular",
+    "storybook-lit",
+    "storybook-qwik",
+    "storybook-react",
+    "storybook-solid",
+    "storybook-solid-next",
+    "storybook-svelte",
+    "storybook-vue"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "krds-docs",
+  "root": "apps/docs",
+  "sourceRoot": "apps/docs/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app"
+  ],
+  "implicitDependencies": [
+    "fixture-react",
+    "fixture-solid",
+    "fixture-svelte",
+    "fixture-vue",
+    "fixture-lit",
+    "fixture-qwik",
+    "fixture-angular",
+    "fixture-solid-next"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs lint"
+      }
+    }
+  }
+}

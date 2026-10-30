@@ -1,0 +1,18 @@
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (1.570916ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.1365ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.491792ms)
+✔ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (43.497584ms)
+✔ request guard refuses mutation methods even when URL is a build asset (0.144292ms)
+✔ bridge refuses renderer objects instead of silently coercing them to semantic JSON (0.130917ms)
+✔ real CLI reports invalid selection and zero canonical cases nonzero without server startup (118.063167ms)
+✔ contract summaries distinguish feature RED after health from startup failure and zero execution (0.729709ms)
+✔ built shared scenario definitions and canonical manifests cover the same non-probe pilot IDs (0.775083ms)
+✔ production request guard blocks negative fixture transports before external sending and rejects visible success (389.894334ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 458.071208

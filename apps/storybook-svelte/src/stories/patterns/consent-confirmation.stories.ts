@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import { getPresentation } from '@unofficial-krds/test-contracts/patterns';
+import PatternStory from './PatternStory.svelte';
+const meta = { id: 'krds-pattern-consent-confirmation', title: 'KRDS/Patterns/consent-confirmation', component: PatternStory } satisfies Meta<typeof PatternStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Editing: Story = { args: { state: getPresentation('consent-confirmation', 'editing').state } };
+export const Invalid: Story = { args: { state: getPresentation('consent-confirmation', 'invalid').state } };
+export const Confirming: Story = { args: { state: getPresentation('consent-confirmation', 'confirming').state } };
+export const Loading: Story = { args: { state: getPresentation('consent-confirmation', 'loading').state } };
+export const Error: Story = { args: { state: getPresentation('consent-confirmation', 'error').state } };
+export const Success: Story = { args: { state: getPresentation('consent-confirmation', 'success').state } };

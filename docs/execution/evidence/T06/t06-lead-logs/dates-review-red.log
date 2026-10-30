@@ -1,0 +1,362 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/date-input.test.tsx (13 tests | 1 failed) 247ms
+   × two range calendar openers include their distinct JSX task labels 150ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > two range calendar openers include their distinct JSX task labels
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name "방문 기간 달력 열기"
+
+Here are the accessible roles:
+
+  group:
+
+  Name "방문 기간":
+  <fieldset
+    data-krds-component="date-input"
+    data-krds-part="root"
+    data-krds-state=""
+    dir="ltr"
+  />
+
+  Name "접수 기간":
+  <fieldset
+    data-krds-component="date-input"
+    data-krds-part="root"
+    data-krds-state=""
+    dir="ltr"
+  />
+
+  --------------------------------------------------
+  strong:
+
+  Name "":
+  <strong />
+
+  Name "":
+  <strong />
+
+  --------------------------------------------------
+  textbox:
+
+  Name "시작일":
+  <input
+    aria-describedby="cl-17-hint"
+    data-krds-component="date-input"
+    data-krds-part="start-input"
+    data-krds-state=""
+    id="cl-17"
+    inputmode="numeric"
+    placeholder="YYYY-MM-DD"
+    type="text"
+  />
+
+  Name "종료일":
+  <input
+    aria-describedby="cl-17-hint"
+    data-krds-component="date-input"
+    data-krds-part="end-input"
+    data-krds-state=""
+    id="cl-17-end"
+    inputmode="numeric"
+    placeholder="YYYY-MM-DD"
+    type="text"
+  />
+
+  Name "시작일":
+  <input
+    aria-describedby="cl-18-hint"
+    data-krds-component="date-input"
+    data-krds-part="start-input"
+    data-krds-state=""
+    id="cl-18"
+    inputmode="numeric"
+    placeholder="YYYY-MM-DD"
+    type="text"
+  />
+
+  Name "종료일":
+  <input
+    aria-describedby="cl-18-hint"
+    data-krds-component="date-input"
+    data-krds-part="end-input"
+    data-krds-state=""
+    id="cl-18-end"
+    inputmode="numeric"
+    placeholder="YYYY-MM-DD"
+    type="text"
+  />
+
+  --------------------------------------------------
+  button:
+
+  Name "달력 열기":
+  <button
+    aria-controls="cl-17-popup"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="달력 열기"
+    data-krds-component="date-input"
+    data-krds-part="trigger"
+    data-krds-state="closed"
+    type="button"
+  />
+
+  Name "달력 열기":
+  <button
+    aria-controls="cl-18-popup"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="달력 열기"
+    data-krds-component="date-input"
+    data-krds-part="trigger"
+    data-krds-state="closed"
+    type="button"
+  />
+
+  --------------------------------------------------
+  status:
+
+  Name "":
+  <span
+    aria-atomic="true"
+    aria-live="polite"
+    data-krds-component="date-input"
+    data-krds-part="error"
+    data-krds-state=""
+    id="cl-17-error"
+    role="status"
+  />
+
+  Name "":
+  <span
+    aria-atomic="true"
+    aria-live="polite"
+    data-krds-component="date-input"
+    data-krds-part="error"
+    data-krds-state=""
+    id="cl-18-error"
+    role="status"
+  />
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+<body
+  style=""
+>
+  
+  
+
+
+  <div>
+    <fieldset
+      data-krds-component="date-input"
+      data-krds-part="root"
+      data-krds-state=""
+      dir="ltr"
+    >
+      <legend
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+      >
+        <strong>
+          방문 기간
+        </strong>
+      </legend>
+      <label
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+        for="cl-17"
+      >
+        시작일
+      </label>
+      <input
+        aria-describedby="cl-17-hint"
+        data-krds-component="date-input"
+        data-krds-part="start-input"
+        data-krds-state=""
+        id="cl-17"
+        inputmode="numeric"
+        placeholder="YYYY-MM-DD"
+        type="text"
+      />
+      <label
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+        for="cl-17-end"
+      >
+        종료일
+      </label>
+      <input
+        aria-describedby="cl-17-hint"
+        data-krds-component="date-input"
+        data-krds-part="end-input"
+        data-krds-state=""
+        id="cl-17-end"
+        inputmode="numeric"
+        placeholder="YYYY-MM-DD"
+        type="text"
+      />
+      <button
+        aria-controls="cl-17-popup"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="달력 열기"
+        data-krds-component="date-input"
+        data-krds-part="trigger"
+        data-krds-state="closed"
+        type="button"
+      >
+        달력 열기
+      </button>
+      <span
+        data-krds-component="date-input"
+        data-krds-part="hint"
+        data-krds-state=""
+        id="cl-17-hint"
+      >
+        YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+        data-krds-component="date-input"
+        data-krds-part="error"
+        data-krds-state=""
+        id="cl-17-error"
+        role="status"
+      />
+      <input
+        type="hidden"
+        value=""
+      />
+      <input
+        type="hidden"
+        value=""
+      />
+    </fieldset>
+    <fieldset
+      data-krds-component="date-input"
+      data-krds-part="root"
+      data-krds-state=""
+      dir="ltr"
+    >
+      <legend
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+      >
+        <strong>
+          접수 기간
+        </strong>
+      </legend>
+      <label
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+        for="cl-18"
+      >
+        시작일
+      </label>
+      <input
+        aria-describedby="cl-18-hint"
+        data-krds-component="date-input"
+        data-krds-part="start-input"
+        data-krds-state=""
+        id="cl-18"
+        inputmode="numeric"
+        placeholder="YYYY-MM-DD"
+        type="text"
+      />
+      <label
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+        for="cl-18-end"
+      >
+        종료일
+      </label>
+      <input
+        aria-describedby="cl-18-hint"
+        data-krds-component="date-input"
+        data-krds-part="end-input"
+        data-krds-state=""
+        id="cl-18-end"
+        inputmode="numeric"
+        placeholder="YYYY-MM-DD"
+        type="text"
+      />
+      <button
+        aria-controls="cl-18-popup"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="달력 열기"
+        data-krds-component="date-input"
+        data-krds-part="trigger"
+        data-krds-state="closed"
+        type="button"
+      >
+        달력 열기
+      </button>
+      <span
+        data-krds-component="date-input"
+        data-krds-part="hint"
+        data-krds-state=""
+        id="cl-18-hint"
+      >
+        YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+        data-krds-component="date-input"
+        data-krds-part="error"
+        data-krds-state=""
+        id="cl-18-error"
+        role="status"
+      />
+      <input
+        type="hidden"
+        value=""
+      />
+      <input
+        type="hidden"
+        value=""
+      />
+    </fieldset>
+  </div>
+</body>
+
+Failure screenshot:
+  - test-results/siheom-13043/tests/siheom/date-input.test.tsx/two-range-calendar-openers-include-their-distinct-JSX-task-labels-1.png
+
+ ❯ Object.getElementError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:338:18
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1197:24
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1176:16
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1219:18
+ ❯ getByRole tests/siheom/date-input.test.tsx:176:16
+    174|     <DateInput mode="range" label={<strong>접수 기간</strong>} />
+    175|   </>);
+    176|   expect(screen.getByRole('button',{name:'방문 기간 달력 열기'})).toBeVisible(…
+       |                ^
+    177|   expect(screen.getByRole('button',{name:'접수 기간 달력 열기'})).toBeVisible(…
+    178| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  11:06:37
+   Duration  1.27s (transform 0ms, setup 56ms, import 108ms, tests 247ms, environment 0ms)
+

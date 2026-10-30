@@ -1,0 +1,2117 @@
+{
+  "schemaVersion": 1,
+  "application": "apps/fixture-vue",
+  "inventory": "compliance/distribution-provenance.json",
+  "scope": "Exact local specimen assets and frozen docs text snapshots. No publication authorization or authentic speech/sign-language equivalence. Bundler/dependency output is not cleared by this scoped static inventory.",
+  "independentCopyright": "Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>",
+  "assets": [
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/captions.vtt",
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c",
+      "bytes": 71,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/captions.vtt",
+        "apps/fixture-lit/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-qwik/public/local-assets/captions.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-react/public/local-assets/captions.vtt",
+        "apps/fixture-react/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-solid/public/local-assets/captions.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-svelte/public/local-assets/captions.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-vue/public/local-assets/captions.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-lit/public/local-assets/captions.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-qwik/public/local-assets/captions.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-react/public/local-assets/captions.vtt",
+        "apps/storybook-react/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-solid/public/local-assets/captions.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-svelte/public/local-assets/captions.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-vue/public/local-assets/captions.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-angular/public/local-assets/captions.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-angular/public/local-assets/captions.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-captions.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+      "sha256": "530623193669849da9bc677cdb3c399f68417458f3fc2d6c51e684b89601b58e",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-angular/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-angular/public/local-assets/intentional-missing-image.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+      "sha256": "7ccc3d810e55708b94b5cf03d3df6ae474236b5c59ce1876685128592e7f4d8c",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing.wav",
+        "apps/fixture-qwik/public/local-assets/intentional-missing.wav",
+        "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+        "apps/fixture-svelte/public/local-assets/intentional-missing.wav",
+        "apps/fixture-vue/public/local-assets/intentional-missing.wav",
+        "apps/storybook-lit/public/local-assets/intentional-missing.wav",
+        "apps/storybook-qwik/public/local-assets/intentional-missing.wav",
+        "apps/storybook-solid/public/local-assets/intentional-missing.wav",
+        "apps/storybook-svelte/public/local-assets/intentional-missing.wav",
+        "apps/storybook-vue/public/local-assets/intentional-missing.wav",
+        "apps/fixture-angular/public/local-assets/intentional-missing.wav",
+        "apps/storybook-angular/public/local-assets/intentional-missing.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+      "sha256": "fc6bb4a2fb84602f95e075ab5352977f078be93a6fbc5adf4260067cfe47e326",
+      "bytes": 64044,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-audio.wav",
+        "apps/fixture-qwik/public/local-assets/specimen-audio.wav",
+        "apps/fixture-react/public/local-assets/specimen-audio.wav",
+        "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+        "apps/fixture-svelte/public/local-assets/specimen-audio.wav",
+        "apps/fixture-vue/public/local-assets/specimen-audio.wav",
+        "apps/storybook-lit/public/local-assets/specimen-audio.wav",
+        "apps/storybook-qwik/public/local-assets/specimen-audio.wav",
+        "apps/storybook-react/public/local-assets/specimen-audio.wav",
+        "apps/storybook-solid/public/local-assets/specimen-audio.wav",
+        "apps/storybook-svelte/public/local-assets/specimen-audio.wav",
+        "apps/storybook-vue/public/local-assets/specimen-audio.wav",
+        "apps/fixture-angular/public/local-assets/specimen-audio.wav",
+        "apps/storybook-angular/public/local-assets/specimen-audio.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+      "sha256": "c3977eb9d0e63943e868056865beeb2fb970ac8f338a3117c2344e2a043efdcd",
+      "bytes": 134,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-description.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-description.vtt",
+        "apps/fixture-react/public/local-assets/specimen-description.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-description.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-description.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-description.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-description.vtt",
+        "apps/storybook-react/public/local-assets/specimen-description.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-description.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-description.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-description.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-description.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-description.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-media.webm",
+      "sha256": "08d3ea65f53ebfe4adfc99176d3b7d8d7667370418e00638d3c1229e76d548a2",
+      "bytes": 11596,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-media.webm",
+        "apps/fixture-qwik/public/local-assets/specimen-media.webm",
+        "apps/fixture-react/public/local-assets/specimen-media.webm",
+        "apps/fixture-solid/public/local-assets/specimen-media.webm",
+        "apps/fixture-svelte/public/local-assets/specimen-media.webm",
+        "apps/fixture-vue/public/local-assets/specimen-media.webm",
+        "apps/storybook-lit/public/local-assets/specimen-media.webm",
+        "apps/storybook-qwik/public/local-assets/specimen-media.webm",
+        "apps/storybook-react/public/local-assets/specimen-media.webm",
+        "apps/storybook-solid/public/local-assets/specimen-media.webm",
+        "apps/storybook-svelte/public/local-assets/specimen-media.webm",
+        "apps/storybook-vue/public/local-assets/specimen-media.webm",
+        "apps/fixture-angular/public/local-assets/specimen-media.webm",
+        "apps/storybook-angular/public/local-assets/specimen-media.webm"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/transcript.html",
+      "sha256": "a334319b7da23949c7d9100eed1c5cf6c39526800975ca192053ebd07bea2e6b",
+      "bytes": 164,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/transcript.html",
+        "apps/fixture-qwik/public/local-assets/transcript.html",
+        "apps/fixture-solid/public/local-assets/transcript.html",
+        "apps/fixture-svelte/public/local-assets/transcript.html",
+        "apps/fixture-vue/public/local-assets/transcript.html",
+        "apps/storybook-lit/public/local-assets/transcript.html",
+        "apps/storybook-qwik/public/local-assets/transcript.html",
+        "apps/storybook-solid/public/local-assets/transcript.html",
+        "apps/storybook-svelte/public/local-assets/transcript.html",
+        "apps/storybook-vue/public/local-assets/transcript.html",
+        "apps/fixture-angular/public/local-assets/transcript.html",
+        "apps/storybook-angular/public/local-assets/transcript.html"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/service-logo.svg",
+      "sha256": "4cf8775cdc8ea6ce622e780330ac8dbb6b2aea17e52ad60e323703a929bc03c1",
+      "bytes": 227,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/service-logo.svg",
+        "apps/fixture-qwik/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-qwik/public/local-assets/specimen-logo.svg",
+        "apps/fixture-solid/public/local-assets/service-logo.svg",
+        "apps/fixture-solid/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-solid/public/local-assets/specimen-logo.svg",
+        "apps/fixture-svelte/public/local-assets/service-logo.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-logo.svg",
+        "apps/fixture-vue/public/local-assets/service-logo.svg",
+        "apps/fixture-vue/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-vue/public/local-assets/specimen-logo.svg",
+        "apps/storybook-qwik/public/local-assets/service-logo.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-logo.svg",
+        "apps/storybook-solid/public/local-assets/service-logo.svg",
+        "apps/storybook-solid/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-solid/public/local-assets/specimen-logo.svg",
+        "apps/storybook-svelte/public/local-assets/service-logo.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-logo.svg",
+        "apps/storybook-vue/public/local-assets/service-logo.svg",
+        "apps/storybook-vue/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-vue/public/local-assets/specimen-logo.svg",
+        "apps/fixture-angular/public/local-assets/specimen-icon-light.svg",
+        "apps/fixture-angular/public/local-assets/specimen-logo.svg",
+        "apps/fixture-angular/public/local-assets/service-logo.svg",
+        "apps/storybook-angular/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-angular/public/local-assets/specimen-logo.svg",
+        "apps/storybook-angular/public/local-assets/service-logo.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-icon-dark.svg",
+      "sha256": "5c725e5b200681b826e8faa2f8c0a61081f81692ce10b42f76cef4975e17f9bd",
+      "bytes": 227,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-solid/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-vue/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-solid/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-vue/public/local-assets/specimen-icon-dark.svg",
+        "apps/fixture-angular/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-angular/public/local-assets/specimen-icon-dark.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-landscape.svg",
+      "sha256": "a90eea113c99b6ac77f7ba3f316ff2ad745885e0f562243785cb1eab6a1cb8bc",
+      "bytes": 263,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-solid/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-svelte/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-vue/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-qwik/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-solid/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-svelte/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-vue/public/local-assets/specimen-landscape.svg",
+        "apps/fixture-angular/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-angular/public/local-assets/specimen-landscape.svg"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/0/index.html",
+      "sha256": "da0abca3f973c42de020709f9c83f11506d184efa867787b8a19cafbc633df45",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/0/index.html",
+        "apps/storybook-vue/public/local/0/index.html",
+        "apps/fixture-angular/public/local/0/index.html",
+        "apps/storybook-angular/public/local/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/1/index.html",
+      "sha256": "5690c236a66f8d1a4f609e8556a787b0ecbaa36369fee32d6e1edaaa4fbfceca",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/1/index.html",
+        "apps/storybook-vue/public/local/1/index.html",
+        "apps/fixture-angular/public/local/1/index.html",
+        "apps/storybook-angular/public/local/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/10/index.html",
+      "sha256": "a2fa3a6eb3ccb9f02b8afc64fa2f22d2e1121cffacc7ca0d84655cf457cdcd74",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/10/index.html",
+        "apps/storybook-vue/public/local/10/index.html",
+        "apps/fixture-angular/public/local/10/index.html",
+        "apps/storybook-angular/public/local/10/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/11/index.html",
+      "sha256": "7bcaecced359cdf571f11e574358e1a3fe05f8583e0082a8c3fd7d777790a3ce",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/11/index.html",
+        "apps/storybook-vue/public/local/11/index.html",
+        "apps/fixture-angular/public/local/11/index.html",
+        "apps/storybook-angular/public/local/11/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/12/index.html",
+      "sha256": "ef3d17de934406438c3ad67ab64e65f52cf3a7495708246e304201822e041002",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/12/index.html",
+        "apps/storybook-vue/public/local/12/index.html",
+        "apps/fixture-angular/public/local/12/index.html",
+        "apps/storybook-angular/public/local/12/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/13/index.html",
+      "sha256": "1ff5f8aaf6fcd43a0ed26538ca0092b8e31e8f65b193e5b5bdac4360e208c767",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/13/index.html",
+        "apps/storybook-vue/public/local/13/index.html",
+        "apps/fixture-angular/public/local/13/index.html",
+        "apps/storybook-angular/public/local/13/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/14/index.html",
+      "sha256": "24896f590a430d12273f4bc44e3e481cba3d17ec35d31d6d70489d413264daab",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/14/index.html",
+        "apps/storybook-vue/public/local/14/index.html",
+        "apps/fixture-angular/public/local/14/index.html",
+        "apps/storybook-angular/public/local/14/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/15/index.html",
+      "sha256": "70036cb155981c0cc1b5589bb711f16b5c82d51d49207136a75cdf5271f8674f",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/15/index.html",
+        "apps/storybook-vue/public/local/15/index.html",
+        "apps/fixture-angular/public/local/15/index.html",
+        "apps/storybook-angular/public/local/15/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/16/index.html",
+      "sha256": "8058458357aa0edda36ddbcddc6781893bb84208a70c051f4c1d4160c716ff15",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/16/index.html",
+        "apps/storybook-vue/public/local/16/index.html",
+        "apps/fixture-angular/public/local/16/index.html",
+        "apps/storybook-angular/public/local/16/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/17/index.html",
+      "sha256": "4342fb1dc05a25ffc2208c1c41be634276b2f93c83223d32a14ac31450779ffd",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/17/index.html",
+        "apps/storybook-vue/public/local/17/index.html",
+        "apps/fixture-angular/public/local/17/index.html",
+        "apps/storybook-angular/public/local/17/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/18/index.html",
+      "sha256": "62714cf7fb6a663b94762f688dcf85bb608b0dd41c841b486a856ffd6be248b9",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/18/index.html",
+        "apps/storybook-vue/public/local/18/index.html",
+        "apps/fixture-angular/public/local/18/index.html",
+        "apps/storybook-angular/public/local/18/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/19/index.html",
+      "sha256": "edd8f12266549761ae333d9f22e8cdaf5d79987f1ffd942924aee14ea103f504",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/19/index.html",
+        "apps/storybook-vue/public/local/19/index.html",
+        "apps/fixture-angular/public/local/19/index.html",
+        "apps/storybook-angular/public/local/19/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/2/index.html",
+      "sha256": "f64b31ab94b5b681d7df6edb920906e4dda1e0563c1f0dd8322a342af673b8ac",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/2/index.html",
+        "apps/storybook-vue/public/local/2/index.html",
+        "apps/fixture-angular/public/local/2/index.html",
+        "apps/storybook-angular/public/local/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/20/index.html",
+      "sha256": "6a0a32627815a0a59f7bcef2b61fdcda25030b8d044c99fcff9adf7f6e2731ed",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/20/index.html",
+        "apps/storybook-vue/public/local/20/index.html",
+        "apps/fixture-angular/public/local/20/index.html",
+        "apps/storybook-angular/public/local/20/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/21/index.html",
+      "sha256": "4cbf9a6b6a7eaed16141740b1faa6a109a4d02165692ff5b8bf5ef56d5b676ed",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/21/index.html",
+        "apps/storybook-vue/public/local/21/index.html",
+        "apps/fixture-angular/public/local/21/index.html",
+        "apps/storybook-angular/public/local/21/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/22/index.html",
+      "sha256": "36c84bc1c5bf1e70bdfc9734ba9d94bda866f0364454b046d5c607b2aa45b4dd",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/22/index.html",
+        "apps/storybook-vue/public/local/22/index.html",
+        "apps/fixture-angular/public/local/22/index.html",
+        "apps/storybook-angular/public/local/22/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/23/index.html",
+      "sha256": "bcbfce8cd4cb64980c3bdd3d5f4a2cf4d7adb34b60f60ff24b32424edfadc095",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/23/index.html",
+        "apps/storybook-vue/public/local/23/index.html",
+        "apps/fixture-angular/public/local/23/index.html",
+        "apps/storybook-angular/public/local/23/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/24/index.html",
+      "sha256": "1bbaf0f7bbaee89b5544ea213b944bfca8a95cd150dac47c0c44f9a149dbd235",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/24/index.html",
+        "apps/storybook-vue/public/local/24/index.html",
+        "apps/fixture-angular/public/local/24/index.html",
+        "apps/storybook-angular/public/local/24/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/25/index.html",
+      "sha256": "9560963d6ea2522d3146562b22632b8075c5518a32f72e42c47e98fb1373f522",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/25/index.html",
+        "apps/storybook-vue/public/local/25/index.html",
+        "apps/fixture-angular/public/local/25/index.html",
+        "apps/storybook-angular/public/local/25/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/26/index.html",
+      "sha256": "dac3795fb7db04cef81ac235949321c82063fd9a3c5e0a175df084e8f4ff931e",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/26/index.html",
+        "apps/storybook-vue/public/local/26/index.html",
+        "apps/fixture-angular/public/local/26/index.html",
+        "apps/storybook-angular/public/local/26/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/27/index.html",
+      "sha256": "7d5d3c179ab067e2b3302ec56e107fc9af89ba72e277be14f2a86bd418ca9c0b",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/27/index.html",
+        "apps/storybook-vue/public/local/27/index.html",
+        "apps/fixture-angular/public/local/27/index.html",
+        "apps/storybook-angular/public/local/27/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/28/index.html",
+      "sha256": "145b9d1d52ab02d4fa669a2fbae0234e73eb11b4265c73fcf692d2dc57d22bc8",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/28/index.html",
+        "apps/storybook-vue/public/local/28/index.html",
+        "apps/fixture-angular/public/local/28/index.html",
+        "apps/storybook-angular/public/local/28/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/29/index.html",
+      "sha256": "e67817ab4f84558a39e9a1235446897a7f25594a340b569536083eec65cd3da1",
+      "bytes": 701,
+      "destinations": [
+        "apps/fixture-vue/public/local/29/index.html",
+        "apps/storybook-vue/public/local/29/index.html",
+        "apps/fixture-angular/public/local/29/index.html",
+        "apps/storybook-angular/public/local/29/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/3/index.html",
+      "sha256": "4388bee9f538fd3696ba5191054caea43f067ffb321baf1f06a00731a3813ba1",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/3/index.html",
+        "apps/storybook-vue/public/local/3/index.html",
+        "apps/fixture-angular/public/local/3/index.html",
+        "apps/storybook-angular/public/local/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/4/index.html",
+      "sha256": "0b5c8b44f4ad8529e9bf23e49ef4766f87b34d8c15badb9b18adb9fad24cce37",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/4/index.html",
+        "apps/storybook-vue/public/local/4/index.html",
+        "apps/fixture-angular/public/local/4/index.html",
+        "apps/storybook-angular/public/local/4/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/5/index.html",
+      "sha256": "040cb4a5e5028d7b3c8448d59580ed8e78e6e493ea3018907f964ff28164ad44",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/5/index.html",
+        "apps/storybook-vue/public/local/5/index.html",
+        "apps/fixture-angular/public/local/5/index.html",
+        "apps/storybook-angular/public/local/5/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/6/index.html",
+      "sha256": "177c0b42db1ca660547c1f472166e09fe50ddba4b9a3a2954b9255371bca3e4a",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/6/index.html",
+        "apps/storybook-vue/public/local/6/index.html",
+        "apps/fixture-angular/public/local/6/index.html",
+        "apps/storybook-angular/public/local/6/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/7/index.html",
+      "sha256": "80f964abfe959de4c7cabd602d20113c822f110af572d9944450b6eadea34102",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/7/index.html",
+        "apps/storybook-vue/public/local/7/index.html",
+        "apps/fixture-angular/public/local/7/index.html",
+        "apps/storybook-angular/public/local/7/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/8/index.html",
+      "sha256": "f6f241bfe9f2392d30e8fd62a0f57b01ce47076c4f800e97134d825c59cee228",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/8/index.html",
+        "apps/storybook-vue/public/local/8/index.html",
+        "apps/fixture-angular/public/local/8/index.html",
+        "apps/storybook-angular/public/local/8/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/9/index.html",
+      "sha256": "991dd00979dd1d8356e2074e489656cfb45a2bf633cddad983e20e93f01f0f82",
+      "bytes": 697,
+      "destinations": [
+        "apps/fixture-vue/public/local/9/index.html",
+        "apps/storybook-vue/public/local/9/index.html",
+        "apps/fixture-angular/public/local/9/index.html",
+        "apps/storybook-angular/public/local/9/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/accordion-help/index.html",
+      "sha256": "6ba1093584bd7de3d512ae5eb32a7098a33a753cff1e24fa4180e1db3f7a82ce",
+      "bytes": 722,
+      "destinations": [
+        "apps/fixture-vue/public/local/accordion-help/index.html",
+        "apps/storybook-vue/public/local/accordion-help/index.html",
+        "apps/fixture-angular/public/local/accordion-help/index.html",
+        "apps/storybook-angular/public/local/accordion-help/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/application/index.html",
+      "sha256": "377b06f55c2160af904fc7a8f4a99607721ef5c93c8d4289387dbc21a7454246",
+      "bytes": 689,
+      "destinations": [
+        "apps/fixture-vue/public/local/application/index.html",
+        "apps/storybook-vue/public/local/application/index.html",
+        "apps/fixture-angular/public/local/application/index.html",
+        "apps/storybook-angular/public/local/application/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/index.html",
+      "sha256": "a575cd7844998a3126809a5789d32edbe9731634d47a5b22934dd8edeab9d388",
+      "bytes": 662,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/index.html",
+        "apps/storybook-vue/public/local/apply/index.html",
+        "apps/fixture-angular/public/local/apply/index.html",
+        "apps/storybook-angular/public/local/apply/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-01/index.html",
+      "sha256": "b62cbdefa7e5cdc1071c2d77e912b6aad3ae7993a3a898616a39fede16e929a8",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-01/index.html",
+        "apps/storybook-vue/public/local/apply/type-01/index.html",
+        "apps/fixture-angular/public/local/apply/type-01/index.html",
+        "apps/storybook-angular/public/local/apply/type-01/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-02/index.html",
+      "sha256": "e7d802d4748a9c5695aad56a168cec9270dd404a479ce2285486b082862decb1",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-02/index.html",
+        "apps/storybook-vue/public/local/apply/type-02/index.html",
+        "apps/fixture-angular/public/local/apply/type-02/index.html",
+        "apps/storybook-angular/public/local/apply/type-02/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-03/index.html",
+      "sha256": "273e1f4e4832b13a96e50eb3283759acb0794e73c06c1779e9ca126c178c6e2f",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-03/index.html",
+        "apps/storybook-vue/public/local/apply/type-03/index.html",
+        "apps/fixture-angular/public/local/apply/type-03/index.html",
+        "apps/storybook-angular/public/local/apply/type-03/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-04/index.html",
+      "sha256": "b98f147b104417f2263961e3bf16b42fbcb648f504f15e6d4465b3bda2c6bfde",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-04/index.html",
+        "apps/storybook-vue/public/local/apply/type-04/index.html",
+        "apps/fixture-angular/public/local/apply/type-04/index.html",
+        "apps/storybook-angular/public/local/apply/type-04/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-05/index.html",
+      "sha256": "39721d76bc35689a440befa6511cacd0ce32709abbcebb35eec1dc3a1d816dda",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-05/index.html",
+        "apps/storybook-vue/public/local/apply/type-05/index.html",
+        "apps/fixture-angular/public/local/apply/type-05/index.html",
+        "apps/storybook-angular/public/local/apply/type-05/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-06/index.html",
+      "sha256": "d10f24b6030f84b8fa98292f84ef392818304f6553270aa2c0ea726491aaec7a",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-06/index.html",
+        "apps/storybook-vue/public/local/apply/type-06/index.html",
+        "apps/fixture-angular/public/local/apply/type-06/index.html",
+        "apps/storybook-angular/public/local/apply/type-06/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-07/index.html",
+      "sha256": "67215310efaf8b952cab1de4dabc73d9dc2f3975c0d9111f5bd7c285a91dd117",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-07/index.html",
+        "apps/storybook-vue/public/local/apply/type-07/index.html",
+        "apps/fixture-angular/public/local/apply/type-07/index.html",
+        "apps/storybook-angular/public/local/apply/type-07/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-08/index.html",
+      "sha256": "739956892501081e860325bb4bddd5e18c675da4007f60245bf34c013aba7813",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-08/index.html",
+        "apps/storybook-vue/public/local/apply/type-08/index.html",
+        "apps/fixture-angular/public/local/apply/type-08/index.html",
+        "apps/storybook-angular/public/local/apply/type-08/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-09/index.html",
+      "sha256": "ede54bb5d76c78069c06fd57c682d25bfef9d8816c931666b141e2b1bf3361c3",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-09/index.html",
+        "apps/storybook-vue/public/local/apply/type-09/index.html",
+        "apps/fixture-angular/public/local/apply/type-09/index.html",
+        "apps/storybook-angular/public/local/apply/type-09/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-10/index.html",
+      "sha256": "f9f721a42ee64b1c92bbf9f71f207e6bdf9c173da60575b26fd843df1b879c1a",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-10/index.html",
+        "apps/storybook-vue/public/local/apply/type-10/index.html",
+        "apps/fixture-angular/public/local/apply/type-10/index.html",
+        "apps/storybook-angular/public/local/apply/type-10/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-11/index.html",
+      "sha256": "acfab943f8795b20a0a7d24fd5563c233f2f379662876d90fef28278ab84de9d",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-11/index.html",
+        "apps/storybook-vue/public/local/apply/type-11/index.html",
+        "apps/fixture-angular/public/local/apply/type-11/index.html",
+        "apps/storybook-angular/public/local/apply/type-11/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-12/index.html",
+      "sha256": "a5abafb943955175d494e11b25601bd8419e5a69e0171670228cadd9bef67746",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-12/index.html",
+        "apps/storybook-vue/public/local/apply/type-12/index.html",
+        "apps/fixture-angular/public/local/apply/type-12/index.html",
+        "apps/storybook-angular/public/local/apply/type-12/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-13/index.html",
+      "sha256": "38cf990b92dd2fc5bc337e12e2a5060a31a61bc4197aa931e8d5ba9f25fdc478",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-13/index.html",
+        "apps/storybook-vue/public/local/apply/type-13/index.html",
+        "apps/fixture-angular/public/local/apply/type-13/index.html",
+        "apps/storybook-angular/public/local/apply/type-13/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-14/index.html",
+      "sha256": "93fe08969d76050e45cdc94c50671de358257fa7559294c0029d569619d42d2c",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-14/index.html",
+        "apps/storybook-vue/public/local/apply/type-14/index.html",
+        "apps/fixture-angular/public/local/apply/type-14/index.html",
+        "apps/storybook-angular/public/local/apply/type-14/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-15/index.html",
+      "sha256": "4c1a9d72cb5c5f0e6750c56a785eb6cfd8567599a165424b0de980f5b4e1e195",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-15/index.html",
+        "apps/storybook-vue/public/local/apply/type-15/index.html",
+        "apps/fixture-angular/public/local/apply/type-15/index.html",
+        "apps/storybook-angular/public/local/apply/type-15/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-16/index.html",
+      "sha256": "b8b1e23bcff6c1905bb6eba12431fdb597eadf4defd6ab0340988c61d4439046",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-16/index.html",
+        "apps/storybook-vue/public/local/apply/type-16/index.html",
+        "apps/fixture-angular/public/local/apply/type-16/index.html",
+        "apps/storybook-angular/public/local/apply/type-16/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-17/index.html",
+      "sha256": "19c330d39aa8664f72ee5896ec19670a7b4bb867ae7285d082476c1d1c38cd82",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-17/index.html",
+        "apps/storybook-vue/public/local/apply/type-17/index.html",
+        "apps/fixture-angular/public/local/apply/type-17/index.html",
+        "apps/storybook-angular/public/local/apply/type-17/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-18/index.html",
+      "sha256": "cde6996ce756e33ed15ddad6c03de0d57a272d6c9d79c70ab94955b6f3a9cba7",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-18/index.html",
+        "apps/storybook-vue/public/local/apply/type-18/index.html",
+        "apps/fixture-angular/public/local/apply/type-18/index.html",
+        "apps/storybook-angular/public/local/apply/type-18/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-19/index.html",
+      "sha256": "f18d4e1ead4c4952725fe93f25f68eed075624462c8febf81558f042c90e8689",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-19/index.html",
+        "apps/storybook-vue/public/local/apply/type-19/index.html",
+        "apps/fixture-angular/public/local/apply/type-19/index.html",
+        "apps/storybook-angular/public/local/apply/type-19/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-20/index.html",
+      "sha256": "9541e78e9fd3f20f84be788c03ccc7da79d7a9a80e600887ee402174dc552a46",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-20/index.html",
+        "apps/storybook-vue/public/local/apply/type-20/index.html",
+        "apps/fixture-angular/public/local/apply/type-20/index.html",
+        "apps/storybook-angular/public/local/apply/type-20/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-21/index.html",
+      "sha256": "8e742759eba99880d6723c97f922fc10f6cb0f69ad7ad89c89e91182565fc19a",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-21/index.html",
+        "apps/storybook-vue/public/local/apply/type-21/index.html",
+        "apps/fixture-angular/public/local/apply/type-21/index.html",
+        "apps/storybook-angular/public/local/apply/type-21/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-22/index.html",
+      "sha256": "308e16210ed6778390e6f2fb11864fd3d495a89e788b9e701116ee60aa6a7009",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-22/index.html",
+        "apps/storybook-vue/public/local/apply/type-22/index.html",
+        "apps/fixture-angular/public/local/apply/type-22/index.html",
+        "apps/storybook-angular/public/local/apply/type-22/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-23/index.html",
+      "sha256": "a7da9a5813d6637fadae6c696f57a61ed5d415e4bb1479d1d05e4023e6430c28",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-23/index.html",
+        "apps/storybook-vue/public/local/apply/type-23/index.html",
+        "apps/fixture-angular/public/local/apply/type-23/index.html",
+        "apps/storybook-angular/public/local/apply/type-23/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-24/index.html",
+      "sha256": "d1ff72529b7418412d928aa7927853ef0a9a86d17eb639ad15689e8c1d5aa2f9",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-24/index.html",
+        "apps/storybook-vue/public/local/apply/type-24/index.html",
+        "apps/fixture-angular/public/local/apply/type-24/index.html",
+        "apps/storybook-angular/public/local/apply/type-24/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-25/index.html",
+      "sha256": "6665dec6ba8ccae047fbb0bfd03f31f57e234a7032712aae907968905e66c740",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-25/index.html",
+        "apps/storybook-vue/public/local/apply/type-25/index.html",
+        "apps/fixture-angular/public/local/apply/type-25/index.html",
+        "apps/storybook-angular/public/local/apply/type-25/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-26/index.html",
+      "sha256": "0ee9e5ae7c84ca23569d3a7918eb78906813786073e3152b689d209be5dc5b82",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-26/index.html",
+        "apps/storybook-vue/public/local/apply/type-26/index.html",
+        "apps/fixture-angular/public/local/apply/type-26/index.html",
+        "apps/storybook-angular/public/local/apply/type-26/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-27/index.html",
+      "sha256": "3ec5fa0966609fff27c97e181ca798da187bc2912b15a8ce2e79530a5e4ac90d",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-27/index.html",
+        "apps/storybook-vue/public/local/apply/type-27/index.html",
+        "apps/fixture-angular/public/local/apply/type-27/index.html",
+        "apps/storybook-angular/public/local/apply/type-27/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-28/index.html",
+      "sha256": "dba938e4958a7760661b71b1a4a4c5340e092f856218bf58d7ec4c1fb0d39353",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-28/index.html",
+        "apps/storybook-vue/public/local/apply/type-28/index.html",
+        "apps/fixture-angular/public/local/apply/type-28/index.html",
+        "apps/storybook-angular/public/local/apply/type-28/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-29/index.html",
+      "sha256": "337151890a358e3e21ccaa1904c31104daa2b05c8d38540146053cf41e0407db",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-29/index.html",
+        "apps/storybook-vue/public/local/apply/type-29/index.html",
+        "apps/fixture-angular/public/local/apply/type-29/index.html",
+        "apps/storybook-angular/public/local/apply/type-29/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-30/index.html",
+      "sha256": "fc73f2e809658fa88c905009096018da205acb4594c5a11a96a0aafad0f0a8dd",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-30/index.html",
+        "apps/storybook-vue/public/local/apply/type-30/index.html",
+        "apps/fixture-angular/public/local/apply/type-30/index.html",
+        "apps/storybook-angular/public/local/apply/type-30/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-31/index.html",
+      "sha256": "1874bd34e2c5ec97583c679bb6977ad489bbe87e214517b12bd2abeebc425b75",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-31/index.html",
+        "apps/storybook-vue/public/local/apply/type-31/index.html",
+        "apps/fixture-angular/public/local/apply/type-31/index.html",
+        "apps/storybook-angular/public/local/apply/type-31/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-32/index.html",
+      "sha256": "d2357d7a57a4c9c3ad1fb7c2a0c8f74d966037240dd2928c402afea689fe905b",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-32/index.html",
+        "apps/storybook-vue/public/local/apply/type-32/index.html",
+        "apps/fixture-angular/public/local/apply/type-32/index.html",
+        "apps/storybook-angular/public/local/apply/type-32/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-33/index.html",
+      "sha256": "446dd4c79986201291fb54271aaa0b1e66097ff21ee2ffd8a3641bbb1136f3dd",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-33/index.html",
+        "apps/storybook-vue/public/local/apply/type-33/index.html",
+        "apps/fixture-angular/public/local/apply/type-33/index.html",
+        "apps/storybook-angular/public/local/apply/type-33/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-34/index.html",
+      "sha256": "8e35f4aeee1af041446b3333da0ddf15d5617fa35975e39de772d65200ab674b",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-34/index.html",
+        "apps/storybook-vue/public/local/apply/type-34/index.html",
+        "apps/fixture-angular/public/local/apply/type-34/index.html",
+        "apps/storybook-angular/public/local/apply/type-34/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-35/index.html",
+      "sha256": "7861e0fff8b57d2de19a64503aa9dccc1e7375f79caab41dd295e6706b9e387d",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-35/index.html",
+        "apps/storybook-vue/public/local/apply/type-35/index.html",
+        "apps/fixture-angular/public/local/apply/type-35/index.html",
+        "apps/storybook-angular/public/local/apply/type-35/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-36/index.html",
+      "sha256": "477fea39b64d42cb8a562a10bfb109dd9b11a66c7e23ef617fd246579a1ad8ff",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-36/index.html",
+        "apps/storybook-vue/public/local/apply/type-36/index.html",
+        "apps/fixture-angular/public/local/apply/type-36/index.html",
+        "apps/storybook-angular/public/local/apply/type-36/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-37/index.html",
+      "sha256": "80a35089856069035044b9e8c2e1dd14043e04d614bb68c4486091a3906c6c39",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-37/index.html",
+        "apps/storybook-vue/public/local/apply/type-37/index.html",
+        "apps/fixture-angular/public/local/apply/type-37/index.html",
+        "apps/storybook-angular/public/local/apply/type-37/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-38/index.html",
+      "sha256": "b3a67a0db9f47af1cd3bedc3dbee80715729d0622148226bd29636cb10aac2b6",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-38/index.html",
+        "apps/storybook-vue/public/local/apply/type-38/index.html",
+        "apps/fixture-angular/public/local/apply/type-38/index.html",
+        "apps/storybook-angular/public/local/apply/type-38/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-39/index.html",
+      "sha256": "65935ccfba7a15b0a88608f4ef0e2bad5e8351df40bc90b7b90d105c2550a458",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-39/index.html",
+        "apps/storybook-vue/public/local/apply/type-39/index.html",
+        "apps/fixture-angular/public/local/apply/type-39/index.html",
+        "apps/storybook-angular/public/local/apply/type-39/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/apply/type-40/index.html",
+      "sha256": "88c6bbb3d9d8e285c3e27b92a9c2154b7faf7467383ec0f17d1fee2138a575a9",
+      "bytes": 805,
+      "destinations": [
+        "apps/fixture-vue/public/local/apply/type-40/index.html",
+        "apps/storybook-vue/public/local/apply/type-40/index.html",
+        "apps/fixture-angular/public/local/apply/type-40/index.html",
+        "apps/storybook-angular/public/local/apply/type-40/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/busan/index.html",
+      "sha256": "e5912ffd5c11877a9d38a0a4c76f6850a24aa6082f536e997508afcd727bfe4d",
+      "bytes": 662,
+      "destinations": [
+        "apps/fixture-vue/public/local/busan/index.html",
+        "apps/storybook-vue/public/local/busan/index.html",
+        "apps/fixture-angular/public/local/busan/index.html",
+        "apps/storybook-angular/public/local/busan/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/en/index.html",
+      "sha256": "6beced54e70485b48376114343e287b0a9f2c96e652178c27b830da7c2c3e5da",
+      "bytes": 659,
+      "destinations": [
+        "apps/fixture-vue/public/local/en/index.html",
+        "apps/storybook-vue/public/local/en/index.html",
+        "apps/fixture-angular/public/local/en/index.html",
+        "apps/storybook-angular/public/local/en/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/external-specimen/index.html",
+      "sha256": "b280411e3be774d0c92926f9005a6e02f4a5231ba7a1f1327e5aedff8abf0c16",
+      "bytes": 716,
+      "destinations": [
+        "apps/fixture-vue/public/local/external-specimen/index.html",
+        "apps/storybook-vue/public/local/external-specimen/index.html",
+        "apps/fixture-angular/public/local/external-specimen/index.html",
+        "apps/storybook-angular/public/local/external-specimen/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/help/index.html",
+      "sha256": "2c6eddb1aa66adc63079e104aef0861d191cd5cf1a8cfd600daf91d7efb9ca07",
+      "bytes": 691,
+      "destinations": [
+        "apps/fixture-vue/public/local/help/index.html",
+        "apps/storybook-vue/public/local/help/index.html",
+        "apps/fixture-angular/public/local/help/index.html",
+        "apps/storybook-angular/public/local/help/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/history/index.html",
+      "sha256": "edb4aa65b2a261d792f07a0f7f2028a83d3678a92ed7dfb0aec56682354a5ea7",
+      "bytes": 706,
+      "destinations": [
+        "apps/fixture-vue/public/local/history/index.html",
+        "apps/storybook-vue/public/local/history/index.html",
+        "apps/fixture-angular/public/local/history/index.html",
+        "apps/storybook-angular/public/local/history/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/home/index.html",
+      "sha256": "7e0e938b72c390577ebb11f04088d3a9bb298a7229080a422012a7e4d67f5458",
+      "bytes": 652,
+      "destinations": [
+        "apps/fixture-vue/public/local/home/index.html",
+        "apps/storybook-vue/public/local/home/index.html",
+        "apps/fixture-angular/public/local/home/index.html",
+        "apps/storybook-angular/public/local/home/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/ja/index.html",
+      "sha256": "70c1a94f1b50a5b351bcb9c0eee69e5a0d04a9df07d579a30bc902fcaca3b77d",
+      "bytes": 648,
+      "destinations": [
+        "apps/fixture-vue/public/local/ja/index.html",
+        "apps/storybook-vue/public/local/ja/index.html",
+        "apps/fixture-angular/public/local/ja/index.html",
+        "apps/storybook-angular/public/local/ja/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/ko/index.html",
+      "sha256": "e9f0bb43702876ad2ea08688589a7ce840c889afd5d95d64b07f31e72e307954",
+      "bytes": 668,
+      "destinations": [
+        "apps/fixture-vue/public/local/ko/index.html",
+        "apps/storybook-vue/public/local/ko/index.html",
+        "apps/fixture-angular/public/local/ko/index.html",
+        "apps/storybook-angular/public/local/ko/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/long/index.html",
+      "sha256": "8d701b9feeefc39f0a3c5599ff66fbcb1800ee18361e6374d6deb79004afebfc",
+      "bytes": 787,
+      "destinations": [
+        "apps/fixture-vue/public/local/long/index.html",
+        "apps/storybook-vue/public/local/long/index.html",
+        "apps/fixture-angular/public/local/long/index.html",
+        "apps/storybook-angular/public/local/long/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/maintenance/index.html",
+      "sha256": "af5e6f4cd6cf0b2cdfd99a7c021178aaad85b210b9da000c08d07c7a46c28181",
+      "bytes": 710,
+      "destinations": [
+        "apps/fixture-vue/public/local/maintenance/index.html",
+        "apps/storybook-vue/public/local/maintenance/index.html",
+        "apps/fixture-angular/public/local/maintenance/index.html",
+        "apps/storybook-angular/public/local/maintenance/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/notice/a/index.html",
+      "sha256": "0ac145264fe5b875bd4d10cb9dc1451bc79e358dd5ab4b67312450f51f0b6487",
+      "bytes": 707,
+      "destinations": [
+        "apps/fixture-vue/public/local/notice/a/index.html",
+        "apps/storybook-vue/public/local/notice/a/index.html",
+        "apps/fixture-angular/public/local/notice/a/index.html",
+        "apps/storybook-angular/public/local/notice/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/notice/b/index.html",
+      "sha256": "b1b31a8d4d0f67b775a3455bdb224d99152ce5f06e207c9841125b7fa92c2d5d",
+      "bytes": 707,
+      "destinations": [
+        "apps/fixture-vue/public/local/notice/b/index.html",
+        "apps/storybook-vue/public/local/notice/b/index.html",
+        "apps/fixture-angular/public/local/notice/b/index.html",
+        "apps/storybook-angular/public/local/notice/b/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/parent/index.html",
+      "sha256": "14025d34e4f79985680ee957b23185157d222f168c701a260e3be65424f91ba7",
+      "bytes": 681,
+      "destinations": [
+        "apps/fixture-vue/public/local/parent/index.html",
+        "apps/storybook-vue/public/local/parent/index.html",
+        "apps/fixture-angular/public/local/parent/index.html",
+        "apps/storybook-angular/public/local/parent/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/policy/index.html",
+      "sha256": "91e035beee660683ab67d9acffb63a4f3144b7397b86eb116094fae803e0b820",
+      "bytes": 681,
+      "destinations": [
+        "apps/fixture-vue/public/local/policy/index.html",
+        "apps/storybook-vue/public/local/policy/index.html",
+        "apps/fixture-angular/public/local/policy/index.html",
+        "apps/storybook-angular/public/local/policy/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/privacy/index.html",
+      "sha256": "e26ed5e492baba499304c9983bc82af22e15988d508c1a027baafc7d7e3e6259",
+      "bytes": 718,
+      "destinations": [
+        "apps/fixture-vue/public/local/privacy/index.html",
+        "apps/storybook-vue/public/local/privacy/index.html",
+        "apps/fixture-angular/public/local/privacy/index.html",
+        "apps/storybook-angular/public/local/privacy/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/process/a/index.html",
+      "sha256": "af41fa550def9b21b86d9a35e08c95c3b1e3a03b6881810bd6f691c105520d10",
+      "bytes": 687,
+      "destinations": [
+        "apps/fixture-vue/public/local/process/a/index.html",
+        "apps/storybook-vue/public/local/process/a/index.html",
+        "apps/fixture-angular/public/local/process/a/index.html",
+        "apps/storybook-angular/public/local/process/a/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/profile/index.html",
+      "sha256": "6570ddd3f082e8023ae2b802124e7010b329c9e13758bab88727fa7cf4af52cb",
+      "bytes": 676,
+      "destinations": [
+        "apps/fixture-vue/public/local/profile/index.html",
+        "apps/storybook-vue/public/local/profile/index.html",
+        "apps/fixture-angular/public/local/profile/index.html",
+        "apps/storybook-angular/public/local/profile/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/result/index.html",
+      "sha256": "c8c36493bc03cc9eac8aef7300d39776499f654754748fea81c74828fbebfe34",
+      "bytes": 684,
+      "destinations": [
+        "apps/fixture-vue/public/local/result/index.html",
+        "apps/storybook-vue/public/local/result/index.html",
+        "apps/fixture-angular/public/local/result/index.html",
+        "apps/storybook-angular/public/local/result/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/results/index.html",
+      "sha256": "8484a9abe57c54804e36eb20a8cc31e7e384885227d639da3e50751c86197112",
+      "bytes": 667,
+      "destinations": [
+        "apps/fixture-vue/public/local/results/index.html",
+        "apps/storybook-vue/public/local/results/index.html",
+        "apps/fixture-angular/public/local/results/index.html",
+        "apps/storybook-angular/public/local/results/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/review/index.html",
+      "sha256": "ce9fcdea11e4d0af972a70e69b13ecbd5b8241e7ee18d1117afce580e70cfdf2",
+      "bytes": 663,
+      "destinations": [
+        "apps/fixture-vue/public/local/review/index.html",
+        "apps/storybook-vue/public/local/review/index.html",
+        "apps/fixture-angular/public/local/review/index.html",
+        "apps/storybook-angular/public/local/review/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/search/index.html",
+      "sha256": "981e38747e22d832b45e055414b266684ae4b3d2b73750d1c249ae13569d823a",
+      "bytes": 663,
+      "destinations": [
+        "apps/fixture-vue/public/local/search/index.html",
+        "apps/storybook-vue/public/local/search/index.html",
+        "apps/fixture-angular/public/local/search/index.html",
+        "apps/storybook-angular/public/local/search/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/seoul/index.html",
+      "sha256": "86d0189ea76fd8922c1f5423e3c8cf9ca701df971455f63dbea8302b319f7ec8",
+      "bytes": 662,
+      "destinations": [
+        "apps/fixture-vue/public/local/seoul/index.html",
+        "apps/storybook-vue/public/local/seoul/index.html",
+        "apps/fixture-angular/public/local/seoul/index.html",
+        "apps/storybook-angular/public/local/seoul/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/separate-en/index.html",
+      "sha256": "7545514224fa827c02b1b1911a5b65297bc79a775a9e5e93a10e0227924dab75",
+      "bytes": 668,
+      "destinations": [
+        "apps/fixture-vue/public/local/separate-en/index.html",
+        "apps/storybook-vue/public/local/separate-en/index.html",
+        "apps/fixture-angular/public/local/separate-en/index.html",
+        "apps/storybook-angular/public/local/separate-en/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/support/index.html",
+      "sha256": "6f11c3714b7ae6b93f1fc0d4de92a0f1afbe31e150d6100a962b65d1147d2f21",
+      "bytes": 664,
+      "destinations": [
+        "apps/fixture-vue/public/local/support/index.html",
+        "apps/storybook-vue/public/local/support/index.html",
+        "apps/fixture-angular/public/local/support/index.html",
+        "apps/storybook-angular/public/local/support/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/tool/0/index.html",
+      "sha256": "fb6d79a608b6d488d3d8b4cda73aad3dc27501ffe46f327b868cb312b9a11820",
+      "bytes": 690,
+      "destinations": [
+        "apps/fixture-vue/public/local/tool/0/index.html",
+        "apps/storybook-vue/public/local/tool/0/index.html",
+        "apps/fixture-angular/public/local/tool/0/index.html",
+        "apps/storybook-angular/public/local/tool/0/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/tool/1/index.html",
+      "sha256": "51a49bbce25076b55cd8b318a507d152868bb22441b85725f211dcf09e52613e",
+      "bytes": 690,
+      "destinations": [
+        "apps/fixture-vue/public/local/tool/1/index.html",
+        "apps/storybook-vue/public/local/tool/1/index.html",
+        "apps/fixture-angular/public/local/tool/1/index.html",
+        "apps/storybook-angular/public/local/tool/1/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/tool/2/index.html",
+      "sha256": "684cbd1722ed1ba4067d7f21230d6e662ace499b8127f2dd2ac25647901bde5f",
+      "bytes": 690,
+      "destinations": [
+        "apps/fixture-vue/public/local/tool/2/index.html",
+        "apps/storybook-vue/public/local/tool/2/index.html",
+        "apps/fixture-angular/public/local/tool/2/index.html",
+        "apps/storybook-angular/public/local/tool/2/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/tool/3/index.html",
+      "sha256": "0e409c92d79fb1cc1494785a7b81cdae9c8e5fbebd200d2fa77e71ba1596de45",
+      "bytes": 690,
+      "destinations": [
+        "apps/fixture-vue/public/local/tool/3/index.html",
+        "apps/storybook-vue/public/local/tool/3/index.html",
+        "apps/fixture-angular/public/local/tool/3/index.html",
+        "apps/storybook-angular/public/local/tool/3/index.html"
+      ]
+    },
+    {
+      "origin": "Independent authored local destination document",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/tests/generate-local-pages.mjs"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local/tool/4/index.html",
+      "sha256": "9c03582952d4948cd2b323e4ccd8f9da01f6a65cdfbdb1a8ef5d3f94bb4b3c65",
+      "bytes": 690,
+      "destinations": [
+        "apps/fixture-vue/public/local/tool/4/index.html",
+        "apps/storybook-vue/public/local/tool/4/index.html",
+        "apps/fixture-angular/public/local/tool/4/index.html",
+        "apps/storybook-angular/public/local/tool/4/index.html"
+      ]
+    },
+    {
+      "origin": "Owner authored independent specimen metadata; corrected current paths",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-vue/public/local-assets/provenance.json"
+      ],
+      "sourcePath": "apps/fixture-vue/public/local-assets/provenance.json",
+      "sha256": "52c258254f06427abe1f1bb5dab38aa38c18aa0fb7279e6beee31c2e63788264",
+      "bytes": 5045,
+      "destinations": [
+        "apps/fixture-vue/public/local-assets/provenance.json",
+        "apps/fixture-angular/public/local-assets/provenance.json"
+      ]
+    }
+  ],
+  "sourceConditions": [
+    {
+      "sourceId": "krds-resource-resources-css-common-common.css",
+      "sourceSha256": "92942dcc081821af80677645247ab4ebfedea219fac8729275368ee022e34aab",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-component-component.css",
+      "sourceSha256": "bc8df76feeb4012a6cb16a13f8702f95a67162e7d2dbf6aa5642be94daefa812",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-token-krds_tokens.css",
+      "sourceSha256": "2e06b0d8393bca671edaab1ca0c7c42ded2ae03b3d03c6ede60f763a93d81569",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-tokens-transformed_tokens.json",
+      "sourceSha256": "5eb255d593ec0b0fa41207223df1288f97295b632dfac50629e60e4e4dc0a52e",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    }
+  ],
+  "sourceConditionsNote": "Shared application stylesheet adaptations retain these existing source conditions. Exact static assets/text snapshots are enumerated here; final bundled runtime/dependency and full rendered-page source clearance remain acceptance work, not supplied by independent MIT.",
+  "termsCopies": [
+    {
+      "sourcePath": "LICENSES/MIT.txt",
+      "destination": "LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "sourcePath": "LICENSES/KRDS-copyright-en.html",
+      "destination": "LICENSES/KRDS-copyright-en.html.txt",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "sourcePath": "LICENSES/KOGL-license-policy.html",
+      "destination": "LICENSES/KOGL-license-policy.html.txt",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    }
+  ],
+  "termsHashes": {
+    "LICENSES/MIT.txt": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+    "LICENSES/KRDS-copyright-en.html": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+    "LICENSES/KOGL-license-policy.html": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+  },
+  "exclusions": [
+    {
+      "origin": "macOS System Voices / Yuna",
+      "rightsStatus": "unresolved",
+      "distributedIn": [],
+      "knownRemovedBytes": 157588,
+      "evidence": ".superpowers/sdd/PLAN/task-media-license-note.md",
+      "reason": "No public redistribution clearance. Independent MIT and KOGL do not supply Apple voice permission."
+    }
+  ]
+}

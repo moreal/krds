@@ -1,0 +1,3046 @@
+{
+  "schemaVersion": 1,
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "stableFrameworks": [
+    "solid",
+    "react",
+    "svelte",
+    "vue",
+    "lit",
+    "qwik",
+    "angular"
+  ],
+  "previewFrameworks": [
+    "solid-next"
+  ],
+  "excludedCanonicalIds": [
+    "component_12_08"
+  ],
+  "policy": "One record per web-applicable item and native framework. Solid-next is preview, not stable coverage. No bootstrap probe counts as evidence. Planned spec paths reserve future work and need not exist yet.",
+  "coverage": [
+    {
+      "componentId": "masthead",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "masthead",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "masthead",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "masthead",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "masthead",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "masthead",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "masthead",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "masthead",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/masthead.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "identifier",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/identifier.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "header",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/header.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "footer",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/footer.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "skip-link",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/skip-link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "main-menu",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/main-menu.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "breadcrumb",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/breadcrumb.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "side-navigation",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/side-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "in-page-navigation",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/in-page-navigation.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "pagination",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/pagination.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "structured-list",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/structured-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "critical-alert",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/critical-alert.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "calendar",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/calendar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "disclosure",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/disclosure.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "modal",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/modal.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "badge",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/badge.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accordion",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/accordion.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "image",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/image.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "carousel",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/carousel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tabs",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/tabs.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "table",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/table.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-list",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/text-list.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "favicon",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/favicon.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "link",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/link.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "button",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "fab",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/fab.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "radio-group",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/radio-group.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/checkbox.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "native-select",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/native-select.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tag",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/tag.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "switch",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/switch.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "step-indicator",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/step-indicator.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "spinner",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/spinner.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "help-panel",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/help-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tutorial-panel",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/tutorial-panel.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "contextual-help",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/contextual-help.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "coach-mark",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/coach-mark.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tooltip",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/tooltip.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tts",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/tts.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "date-input",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/date-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "textarea",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/textarea.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "text-input",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/text-input.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "file-upload",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/file-upload.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "language-switcher",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/language-switcher.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "resize",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/resize.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "accessible-media",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/accessible-media.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "visually-hidden",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/visually-hidden.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "range-slider",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/range-slider.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "back-button",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/back-button.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "bottom-sheet",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/bottom-sheet.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "quantity-toggle",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/quantity-toggle.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "toast",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/toast.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "snackbar",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/snackbar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "solid",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "react",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "svelte",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "vue",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "lit",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "qwik",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "angular",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    },
+    {
+      "componentId": "tab-bar",
+      "framework": "solid-next",
+      "status": "planned",
+      "specPath": "specs/components/tab-bar.md",
+      "evidencePaths": []
+    }
+  ]
+}

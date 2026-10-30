@@ -1,0 +1,43 @@
+{
+  "name": "@unofficial-krds/fixture-solid",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:local": "vite build",
+    "contract": "node ../../tools/yarn.mjs test:contract --framework solid",
+    "siheom": "node ../../tools/yarn.mjs test:siheom --framework solid",
+    "siheom:local": "vitest run --config vitest.config.ts"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@babel/core": "7.28.5",
+    "@playwright/test": "1.64.1",
+    "@siheom/core": "0.4.1",
+    "@siheom/solid": "0.3.2",
+    "@solidjs/router": "1.0.0",
+    "@solidjs/testing-library": "0.8.10",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/user-event": "14.6.8",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "babel-preset-solid": "1.9.16",
+    "playwright": "1.64.1",
+    "playwright-core": "1.64.1",
+    "solid-js": "1.9.18",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vite-plugin-solid": "2.11.14",
+    "vitest": "4.1.10"
+  },
+  "dependencies": {
+    "@unofficial-krds/solid": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/test-contracts": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^"
+  }
+}

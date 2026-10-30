@@ -1,0 +1,70 @@
+
+> nx run krds-contracts:test
+
+> node tools/yarn.mjs workspace @krds-native/contracts test
+
+(node:4579) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/packages/contracts
+
+(node:4587) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4589) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4588) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ src/catalog.test.ts (29 tests | 1 failed) 19ms
+     × accepts all planned stable and preview entries without implementation claims 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > accepts all planned stable and preview entries without implementation claims
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/catalog.test.ts:50:88
+     48|     expect(validateCoverage(coverage, catalog)).toEqual([]);
+     49|     expect(coverage.coverage).toHaveLength(432);
+     50|     expect(coverage.coverage.every((c: { status: string }) => c.status…
+       |                                                                                        ^
+     51|   });
+     52|   it('rejects missing native framework work', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 153 passed (154)
+   Start at  10:47:10
+   Duration  157ms (transform 72ms, setup 0ms, import 105ms, tests 31ms, environment 0ms)
+
+Warning: command "node tools/yarn.mjs workspace @krds-native/contracts test" exited with non-zero status code
+
+
+ NX   Running target test for project krds-contracts failed
+
+Failed tasks:
+
+- krds-contracts:test
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      955ms
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     806ms (1 task)
+  Recoverable time:  <1ms

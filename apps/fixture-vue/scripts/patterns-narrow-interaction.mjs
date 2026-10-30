@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {join,resolve} from 'node:path';
+import {chromium,webkit} from 'playwright';
+import {expect} from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import {serveProduction,root} from '../../../tools/testing/support.mjs';
+if(process.env.PLAYWRIGHT_BROWSERS_PATH!=='/private/tmp/krds-playwright-1.64.1')throw new Error('Set PLAYWRIGHT_BROWSERS_PATH to the selected /private/tmp/krds-playwright-1.64.1 cache before execution.');
+const directory=join(root,'.superpowers/sdd/PLAN/t11-vue-logs',process.env.KRDS_PATTERN_NARROW_RUN??'narrow-interaction');await mkdir(directory,{recursive:true});
+const server=await serveProduction(resolve(process.env.KRDS_PATTERN_DIST??join(root,'apps/fixture-vue/dist')),{fixture:true});const browser=await (process.env.KRDS_PATTERN_BROWSER==='webkit'?webkit:chromium).launch();const results=[];let sequence=0;
+async function settle(page){await page.evaluate(async sequence=>window.__KRDS_FIXTURE__.setState({__patternCommand:{sequence,command:'settle'}}),++sequence);}
+try{for(const [pattern,id] of [['search-results','filter-resets-page'],['consent-confirmation','modal-focus-return'],['service-layout','narrow-navigation']]){
+ const context=await browser.newContext({viewport:{width:360,height:800},locale:'ko-KR',reducedMotion:'reduce'});const page=await context.newPage();const errors=[],external=[];page.on('pageerror',e=>errors.push(String(e)));page.on('request',r=>{if(!r.url().startsWith(server.origin))external.push(r.url());});const result={pattern,pass:false,errors,external};
+ try{await page.goto(`${server.origin}/examples/${pattern}?case=${id}`);await page.waitForFunction(()=>window.__KRDS_FIXTURE__);await page.evaluate(()=>document.documentElement.style.fontSize='200%');
+ if(pattern==='search-results'){
+  const category=page.locator('#example-search-category');await category.focus();await category.press('ArrowDown');await category.press('ArrowDown');await category.press('Enter');await expect(category).toHaveValue('example');await expect(category).toBeFocused();await settle(page);await expect(page.locator('#example-search-count')).toContainText('4건');await expect(page.locator('#resource-02')).toBeVisible();const second=page.locator('[data-krds-component="pagination"][data-krds-part="link"]').filter({hasText:/^2$/});await second.focus();await second.press('Enter');await settle(page);await expect(page.locator('#resource-11')).toBeVisible();await expect(page.locator('[data-krds-component="pagination"] [aria-current="page"]')).toBeFocused();
+ }else if(pattern==='consent-confirmation'){
+  const opener=page.locator('#example-consent-review');await opener.focus();const scroll=await page.evaluate(()=>scrollY);await opener.press('Enter');const dialog=page.getByRole('dialog');await expect(dialog).toBeFocused();await page.keyboard.press('Tab');await expect(page.locator('#example-consent-cancel')).toBeFocused();await page.keyboard.press('Tab');await expect(page.locator('#example-consent-confirm')).toBeFocused();const box=await page.locator('#example-consent-confirm').boundingBox();assert.ok(box.y>=0&&box.y+box.height<=801,'focused completion button must be in visible viewport');await page.screenshot({path:join(directory,'consent-modal-actions.png'),animations:'disabled'});await page.keyboard.press('Tab');await expect(page.getByRole('button',{name:'닫기',exact:true})).toBeFocused();await page.keyboard.press('Tab');await expect(page.locator('#example-consent-cancel')).toBeFocused();await page.keyboard.press('Escape');await expect(opener).toBeFocused();assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scroll)<=3);
+ }else{
+  const opener=page.locator('#example-layout-mobile-open');await opener.focus();await opener.press('Enter');const dialog=page.getByRole('dialog');await dialog.getByRole('button',{name:'예제 둘러보기'}).focus();await page.keyboard.press('Enter');const link=dialog.getByRole('link',{name:'검색 연습',exact:true});await link.focus();await link.press('Enter');await expect(dialog).toHaveCount(0);await expect(page.locator('#example-main-heading')).toBeFocused();await expect(page.locator('#example-main-heading')).toHaveText('검색 연습');
+ }
+ result.axe=await new AxeBuilder({page}).analyze();assert.deepEqual(result.axe.violations.map(x=>x.id),[]);assert.deepEqual(errors,[]);assert.deepEqual(external,[]);await page.screenshot({path:join(directory,pattern+'.png'),fullPage:true,animations:'disabled'});result.pass=true;
+ }catch(error){result.failure=String(error.stack??error);}results.push(result);console.log(`${result.pass?'PASS':'FAIL'} narrow200 keyboard ${pattern}${result.failure?' '+result.failure.split('\n')[0]:''}`);await context.close();
+}}finally{await browser.close();await server.close();await writeFile(join(directory,'results.json'),JSON.stringify({browserVersion:browser.version(),browserCache:process.env.PLAYWRIGHT_BROWSERS_PATH,artifact:server.snapshot,results},null,2));}
+if(results.some(x=>!x.pass))process.exitCode=1;

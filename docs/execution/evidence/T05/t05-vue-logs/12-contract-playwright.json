@@ -1,0 +1,1047 @@
+{
+  "config": {
+    "argv": [
+      "/Users/moreal/.local/share/mise/installs/node/24.18.0/bin/node",
+      "/Users/moreal/github/moreal/krds/node_modules/.store/playwright-npm-1.64.1-cf8187a4bc/package/cli.js",
+      "test",
+      "--config",
+      "/Users/moreal/github/moreal/krds/playwright.config.ts",
+      "--project",
+      "chromium"
+    ],
+    "configFile": "/Users/moreal/github/moreal/krds/playwright.config.ts",
+    "rootDir": "/Users/moreal/github/moreal/krds/tools/testing",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "snapshotDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": "contract.spec.ts",
+        "timeout": 15000,
+        "use": {
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "locale": "ko-KR",
+          "timezoneId": "Asia/Seoul",
+          "colorScheme": "light",
+          "reducedMotion": "reduce",
+          "serviceWorkers": "block",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "contract.spec.ts",
+      "file": "contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "vue button/disabled",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 345,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: button/disabled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: button/disabled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: button/disabled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 102
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 10,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: button/disabled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: button/disabled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:52:54.631Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiYnV0dG9uIiwiY2FzZUlkIjoiZGlzYWJsZWQiLCJkZXNjcmlwdGlvbiI6ImRpc2FibGVkIGNsaWNrIGVtaXRzIG5vIGV2ZW50Iiwic3RhdHVzIjoicmVxdWlyZWQtdW5pbXBsZW1lbnRlZCIsImVudmlyb25tZW50Ijp7ImxvY2FsZSI6ImtvLUtSIiwiZGlyZWN0aW9uIjoibHRyIiwiY29sb3JNb2RlIjoibGlnaHQiLCJub3dJc28iOiIyMDI0LTAyLTI5VDEyOjAwOjAwLjAwMFoifX19"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-button-disabled-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-button-disabled-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-button-disabled-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-afa759056fe2c4aa7535",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue native-select/controlled",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 409,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: native-select/controlled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: native-select/controlled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: native-select/controlled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 151
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 5,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: native-select/controlled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: native-select/controlled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:52:55.781Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibmF0aXZlLXNlbGVjdCIsImNhc2VJZCI6ImNvbnRyb2xsZWQiLCJkZXNjcmlwdGlvbiI6ImV4dGVybmFsIHZhbHVlIHVwZGF0ZXMgbmF0aXZlIHNlbGVjdCIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-native-select-controlled-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-native-select-controlled-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-native-select-controlled-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-c6b971c2e5aa367fe44a",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue native-select/form-reset",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 386,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: native-select/form-reset; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: native-select/form-reset; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: native-select/form-reset; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 199
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 5,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: native-select/form-reset; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: native-select/form-reset; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:52:57.355Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibmF0aXZlLXNlbGVjdCIsImNhc2VJZCI6ImZvcm0tcmVzZXQiLCJkZXNjcmlwdGlvbiI6ImZvcm0gcmVzZXQgcmVzdG9yZXMgaW5pdGlhbCB2YWx1ZSIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-native-select-form-reset-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-native-select-form-reset-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-native-select-form-reset-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-7df3546a0214975ad36c",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue modal/focus-return",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 259,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: modal/focus-return; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: modal/focus-return; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: modal/focus-return; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 109
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 5,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: modal/focus-return; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: modal/focus-return; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:53:00.125Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibW9kYWwiLCJjYXNlSWQiOiJmb2N1cy1yZXR1cm4iLCJkZXNjcmlwdGlvbiI6ImNsb3NpbmcgZGlhbG9nIHJldHVybnMgZm9jdXMgdG8gdHJpZ2dlciIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-modal-focus-return-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-modal-focus-return-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-modal-focus-return-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-3022fc7760314ceddf7a",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue modal/trigger-removed",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 375,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: modal/trigger-removed; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: modal/trigger-removed; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: modal/trigger-removed; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 130
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 10,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: modal/trigger-removed; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: modal/trigger-removed; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:53:00.874Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoibW9kYWwiLCJjYXNlSWQiOiJ0cmlnZ2VyLXJlbW92ZWQiLCJkZXNjcmlwdGlvbiI6ImNsb3NpbmcgYWZ0ZXIgdHJpZ2dlciByZW1vdmFsIHByZXNlcnZlcyBzZW5zaWJsZSBmb2N1cyIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-modal-trigger-removed-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-modal-trigger-removed-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-modal-trigger-removed-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-aa1bfeb8e35c672a83bc",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue tabs/manual-activation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 207,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: tabs/manual-activation; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: tabs/manual-activation; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: tabs/manual-activation; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 71
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 4,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: tabs/manual-activation; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: tabs/manual-activation; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:53:02.635Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoidGFicyIsImNhc2VJZCI6Im1hbnVhbC1hY3RpdmF0aW9uIiwiZGVzY3JpcHRpb24iOiJhcnJvdyBjaGFuZ2VzIGZvY3VzIHdpdGhvdXQgYWN0aXZhdGlvbiB1bnRpbCBFbnRlciIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-tabs-manual-activation-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-tabs-manual-activation-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-tabs-manual-activation-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-7926343d46652979c21d",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue date-input/leap-year",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 238,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: date-input/leap-year; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: date-input/leap-year; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: date-input/leap-year; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 106
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 5,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: date-input/leap-year; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: date-input/leap-year; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:53:03.421Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiZGF0ZS1pbnB1dCIsImNhc2VJZCI6ImxlYXAteWVhciIsImRlc2NyaXB0aW9uIjoiMjAyMy0wMi0yOSBpbnZhbGlkOyAyMDI0LTAyLTI5IHZhbGlkIiwic3RhdHVzIjoicmVxdWlyZWQtdW5pbXBsZW1lbnRlZCIsImVudmlyb25tZW50Ijp7ImxvY2FsZSI6ImtvLUtSIiwiZGlyZWN0aW9uIjoibHRyIiwiY29sb3JNb2RlIjoibGlnaHQiLCJub3dJc28iOiIyMDI0LTAyLTI5VDEyOjAwOjAwLjAwMFoifX19"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-leap-year-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-leap-year-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-leap-year-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-5b4120e7e95b64a611fb",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue date-input/ime",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 226,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: date-input/ime; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: date-input/ime; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: date-input/ime; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 105
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 5,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: date-input/ime; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: date-input/ime; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:53:04.176Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiZGF0ZS1pbnB1dCIsImNhc2VJZCI6ImltZSIsImRlc2NyaXB0aW9uIjoiY29tcG9zaXRpb24gcHJlc2VydmVzIGxvY2FsIEtvcmVhbiBpbnB1dCIsInN0YXR1cyI6InJlcXVpcmVkLXVuaW1wbGVtZW50ZWQiLCJlbnZpcm9ubWVudCI6eyJsb2NhbGUiOiJrby1LUiIsImRpcmVjdGlvbiI6Imx0ciIsImNvbG9yTW9kZSI6ImxpZ2h0Iiwibm93SXNvIjoiMjAyNC0wMi0yOVQxMjowMDowMC4wMDBaIn19fQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-ime-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-ime-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-ime-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-44c29f2a799d967f6dea",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        },
+        {
+          "title": "vue date-input/timezone-invariance",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 230,
+                  "error": {
+                    "message": "Error: Required KRDS feature not implemented: date-input/timezone-invariance; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: Required KRDS feature not implemented: date-input/timezone-invariance; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                    "location": {
+                      "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                      "column": 139,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                        "column": 139,
+                        "line": 36
+                      },
+                      "message": "Error: Required KRDS feature not implemented: date-input/timezone-invariance; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 106
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 4,
+                      "error": {
+                        "message": "Error: Required KRDS feature not implemented: date-input/timezone-invariance; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                        "stack": "Error: Required KRDS feature not implemented: date-input/timezone-invariance; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139\n    at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3",
+                        "location": {
+                          "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                          "column": 139,
+                          "line": 36
+                        },
+                        "snippet": "  34 |     // Fail at the feature boundary immediately once healthy native control has been established.\n  35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});\n> 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);\n     |                                                                                                                                           ^\n  37 |     if(fixture.componentId==='button') {\n  38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();\n  39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:53:04.972Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJ2dWUiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiZGF0ZS1pbnB1dCIsImNhc2VJZCI6InRpbWV6b25lLWludmFyaWFuY2UiLCJkZXNjcmlwdGlvbiI6ImRhdGUgdGV4dCByZW1haW5zIHN0YWJsZSBhY3Jvc3MgdGltZXpvbmUiLCJzdGF0dXMiOiJyZXF1aXJlZC11bmltcGxlbWVudGVkIiwiZW52aXJvbm1lbnQiOnsibG9jYWxlIjoia28tS1IiLCJkaXJlY3Rpb24iOiJsdHIiLCJjb2xvck1vZGUiOiJsaWdodCIsIm5vd0lzbyI6IjIwMjQtMDItMjlUMTI6MDA6MDAuMDAwWiJ9fX0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-timezone-invariance-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-timezone-invariance-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321573026-76085-e860d9e1/vue/artifacts/contract-vue-date-input-timezone-invariance-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts",
+                    "column": 139,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-40c38b06cb3194bd86c8",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T00:52:54.187Z",
+    "duration": 11184.287999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 9,
+    "flaky": 0
+  }
+}

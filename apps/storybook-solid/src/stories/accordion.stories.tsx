@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-accordion', title: 'KRDS/accordion', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-accordion--default" }, render: () => <CatalogStory componentId="accordion" caseId="default"/> };
+export const Line: Story = { name: "line", parameters: { __id: "krds-accordion--line" }, render: () => <CatalogStory componentId="accordion" caseId="line"/> };
+export const MultipleOpen: Story = { name: "multiple-open", parameters: { __id: "krds-accordion--multiple-open" }, render: () => <CatalogStory componentId="accordion" caseId="multiple-open"/> };
+export const InteractivePanel: Story = { name: "interactive-panel", parameters: { __id: "krds-accordion--interactive-panel" }, render: () => <CatalogStory componentId="accordion" caseId="interactive-panel"/> };
+export const LongPanel: Story = { name: "long-panel", parameters: { __id: "krds-accordion--long-panel" }, render: () => <CatalogStory componentId="accordion" caseId="long-panel"/> };
+export const Controlled: Story = { name: "controlled", parameters: { __id: "krds-accordion--controlled" }, render: () => <CatalogStory componentId="accordion" caseId="controlled"/> };

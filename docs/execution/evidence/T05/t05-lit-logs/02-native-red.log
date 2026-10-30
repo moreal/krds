@@ -1,0 +1,22 @@
+✖ Lit production probe updates through its bridge and disposes on native disconnect (5238.60275ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5831.524875
+
+✖ failing tests:
+
+test at tests/contract/native-probe.test.mjs:7:1
+✖ Lit production probe updates through its bridge and disposes on native disconnect (5238.60275ms)
+  locator.waitFor: Timeout 5000ms exceeded.
+  Call log:
+  [2m  - waiting for getByRole('status', { name: 'Fixture health' }) to be visible[22m
+  
+      at TestContext.<anonymous> (/Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/native-probe.test.mjs:14:64) {
+    name: 'TimeoutError',
+    log: [ "  - waiting for getByRole('status', { name: 'Fixture health' }) to be visible" ]
+  }

@@ -1,0 +1,24 @@
+✔ native disabled pointer activation is suppressed; an active aria-disabled handler is rejected (409.827ms)
+✔ semantic date is invariant in positive and negative UTC zones; timestamp shifts and mount events are rejected (5832.020542ms)
+✔ removed trigger restores exact alternate target; connected document body alone is rejected (5411.766834ms)
+✔ controlled native select suppresses prop events and emits one user change (359.026ms)
+✔ uncontrolled native select resets user selection to its baseline without another change event (345.594459ms)
+✔ standalone native table calendar keeps selection tentative and confirms exactly once (478.806958ms)
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (1.471208ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.135125ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.472583ms)
+✔ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (41.700291ms)
+✔ request guard refuses mutation methods even when URL is a build asset (0.157917ms)
+✔ bridge refuses renderer objects instead of silently coercing them to semantic JSON (0.267417ms)
+✔ real CLI reports invalid selection and zero canonical cases nonzero without server startup (124.59325ms)
+✔ contract summaries distinguish feature RED after health from startup failure and zero execution (0.663167ms)
+✔ built shared scenario definitions and canonical manifests cover the same non-probe pilot IDs (0.9135ms)
+✔ production request guard blocks negative fixture transports before external sending and rejects visible success (470.5415ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13096.405583

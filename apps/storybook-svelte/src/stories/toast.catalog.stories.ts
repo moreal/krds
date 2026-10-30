@@ -1,0 +1,17 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-toast', title: 'KRDS/Catalog/Toast', component: CatalogStory, args: {componentId: 'toast'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Information: Story = {name: "information", args: {caseId: "information"}};
+export const Warning: Story = {name: "warning", args: {caseId: "warning"}};
+export const Duplicate: Story = {name: "duplicate", args: {caseId: "duplicate"}};
+export const Queued: Story = {name: "queued", args: {caseId: "queued"}};
+export const TimerCleanup: Story = {name: "timer-cleanup", args: {caseId: "timer-cleanup"}};
+export const Narrow: Story = {name: "narrow", args: {caseId: "narrow"}};
+export const ReducedMotion: Story = {name: "reduced-motion", args: {caseId: "reduced-motion"}};
+export const SlowReadingPersistentResult: Story = {name: "slow-reading-persistent-result", args: {caseId: "slow-reading-persistent-result"}};
+export const SameIdContentUpdate: Story = {name: "same-id-content-update", args: {caseId: "same-id-content-update"}};
+export const HostReplacementRemoval: Story = {name: "host-replacement-removal", args: {caseId: "host-replacement-removal"}};
+export const TimeoutRejected: Story = {name: "timeout-rejected", args: {caseId: "timeout-rejected"}};
+export const GenerationTimer: Story = {name: "generation-timer", args: {caseId: "generation-timer"}};

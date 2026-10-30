@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-accessible-media', title: 'KRDS/Catalog/AccessibleMedia', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'accessible-media'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Audio: Story = {name: "audio", args: {caseId: "audio"}};
+export const SilentVideo: Story = {name: "silent-video", args: {caseId: "silent-video"}};
+export const MultimediaCaptions: Story = {name: "multimedia-captions", args: {caseId: "multimedia-captions"}};
+export const Description: Story = {name: "description", args: {caseId: "description"}};
+export const Transcript: Story = {name: "transcript", args: {caseId: "transcript"}};
+export const SignLanguage: Story = {name: "sign-language", args: {caseId: "sign-language"}};
+export const LoadError: Story = {name: "load-error", args: {caseId: "load-error"}};

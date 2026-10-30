@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "projects": {
+    "storybook-angular": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "index": "index.html",
+            "tsConfig": "tsconfig.json",
+            "outputPath": {
+              "base": "dist",
+              "browser": ""
+            },
+            "polyfills": []
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "storybook-angular:build",
+            "outputDir": "dist"
+          }
+        }
+      }
+    }
+  }
+}

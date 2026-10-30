@@ -1,0 +1,16 @@
+/* KRDS-derived: frozen component.css lines 9203–9419; semantic guidance: specs/components/text-input.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="text-input"][data-krds-part="root"] { display: grid; gap: var(--krds-gap-3); }
+[data-krds-component="text-input"][data-krds-part="label"] { font-weight: 700; }
+[data-krds-component="text-input"][data-krds-part="control"] { inline-size: 100%; min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-3) var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-input-surface); color: var(--krds-light-color-text-basic); font: inherit; }
+[data-krds-component="text-input"][data-krds-part="control"]::placeholder { color: var(--krds-light-color-text-disabled); opacity: 1; }
+[data-krds-component="text-input"][data-krds-part="control"]:focus { border-color: var(--krds-light-color-input-border-active); }
+[data-krds-component="text-input"][data-krds-part="control"][aria-invalid="true"] { border-color: var(--krds-light-color-input-border-error); border-style: double; border-width: var(--krds-number-3); }
+[data-krds-component="text-input"][data-krds-part="control"]:read-only { background: var(--krds-light-color-input-surface-disabled); border-color: var(--krds-light-color-input-border-disabled); }
+[data-krds-component="text-input"][data-krds-part="control"]:disabled { color: var(--krds-light-color-text-disabled-on); background: var(--krds-light-color-input-surface-disabled); }
+[data-krds-component="text-input"][data-krds-part="help"] { color: var(--krds-light-color-text-subtle); }
+[data-krds-component="text-input"][data-krds-part="error"] { margin: 0; }
+[data-krds-component="text-input"][data-krds-part="icon-action"] { justify-self: end; min-inline-size: var(--krds-size-height-6); min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); border: var(--krds-number-1) solid var(--krds-light-color-input-border); background: var(--krds-light-color-action-secondary); color: inherit; font: inherit; }
+[data-krds-component="text-input"][data-krds-part="root"][data-krds-size="small"] [data-krds-component="text-input"][data-krds-part="control"] { min-block-size: var(--krds-size-height-6); border-radius: var(--krds-radius-medium1); }
+[data-krds-component="text-input"][data-krds-part="root"][data-krds-size="large"] [data-krds-component="text-input"][data-krds-part="control"] { min-block-size: var(--krds-size-height-8); border-radius: var(--krds-radius-medium3); }
+[data-krds-component="text-input"][data-krds-part="root"][data-krds-status="success"] [data-krds-component="text-input"][data-krds-part="control"] { border-inline-start: var(--krds-number-4) solid var(--krds-light-color-border-success); }

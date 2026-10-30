@@ -1,0 +1,13 @@
+✔ all public subpaths import in Node without browser globals (1.274ms)
+✔ SSR emits actual native button/select/tab semantics (5.567834ms)
+✔ SSR date output uses canonical Gregorian text independent of host time (4.612959ms)
+✔ wrong date shapes, invalid dates, bounds and tab selections throw during render (0.757ms)
+✔ native context resolves locale without DOM access; closed Modal emits no dialog (3.239166ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92.793458

@@ -1,0 +1,712 @@
+{
+  "react": {
+    "libraryProbeFullAddedSource": {
+      "path": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+      "headings": [
+        {
+          "path": "packages/react/LICENSE.md",
+          "line": 4413
+        },
+        {
+          "path": "packages/react/README.md",
+          "line": 4423
+        },
+        {
+          "path": "packages/react/package.json",
+          "line": 4433
+        },
+        {
+          "path": "packages/react/project.json",
+          "line": 4490
+        },
+        {
+          "path": "packages/react/src/WorkspaceProbe.tsx",
+          "line": 4536
+        },
+        {
+          "path": "packages/react/src/index.ts",
+          "line": 4543
+        },
+        {
+          "path": "packages/react/tsconfig.json",
+          "line": 4550
+        },
+        {
+          "path": "packages/react/vite.config.ts",
+          "line": 4570
+        }
+      ],
+      "hashManifest": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json"
+    },
+    "rawAppBeforeT05": {
+      "fixture": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-react",
+      "storybook": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-react"
+    },
+    "reviewedT05AppDelta": "docs/execution/evidence/scope-integration/native-baselines/task-T05-react-review-package.md",
+    "reviewedT05AfterHashes": "docs/execution/evidence/scope-integration/native-baselines/task-T05-react-snapshot.json",
+    "latestScopeCapturedRawFiles": [
+      {
+        "path": "apps/fixture-react/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-react/package.json",
+        "sha256": "a3d179be15676db4a2806412ad356eecc7e0b65de47198564588b821791e043e"
+      },
+      {
+        "path": "apps/fixture-react/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-react/project.json",
+        "sha256": "c573d5577662f792bd8a0b9c0aee34279a9fe5cc3f3d9d530907d6e48539f411"
+      },
+      {
+        "path": "apps/fixture-react/src/FixtureApp.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-react/src/FixtureApp.tsx",
+        "sha256": "9b472b7e21619a2ab94bf67026e4c58dac2875d1f7e80ebdc86cf102f07df95d"
+      },
+      {
+        "path": "apps/storybook-react/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-react/package.json",
+        "sha256": "b2616ddeec5affff10605f35665700b5e52af69f266f0e97eef52c3df0deca26"
+      },
+      {
+        "path": "apps/storybook-react/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-react/project.json",
+        "sha256": "f69430c2f449929bc8329c5b009caa46af0e09294902fd07a6aaf7314b962351"
+      },
+      {
+        "path": "apps/storybook-react/src/stories/native-probe.stories.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-react/src/stories/native-probe.stories.tsx",
+        "sha256": "e8d60df326a9a546cd4cb50ffaed8cf99d73cbf8101153fcd1008e539d7c48f7"
+      },
+      {
+        "path": "packages/react/README.md",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/react/README.md",
+        "sha256": "99c8479e0b1d8b5c53e94992251618ef8f51233b4be7a7d48f1f49c56c6d03c7"
+      },
+      {
+        "path": "packages/react/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/react/package.json",
+        "sha256": "34e384d914bf171254e11e64320cc7614508d037c0e21265b43d514a4103ad88"
+      },
+      {
+        "path": "packages/react/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/react/project.json",
+        "sha256": "85dd5a975a4fd322c2d1966ecdf621f2052ed36bd3c390998a8189ab7d7a3159"
+      }
+    ]
+  },
+  "svelte": {
+    "libraryProbeFullAddedSource": {
+      "path": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+      "headings": [
+        {
+          "path": "packages/svelte/LICENSE.md",
+          "line": 5057
+        },
+        {
+          "path": "packages/svelte/README.md",
+          "line": 5067
+        },
+        {
+          "path": "packages/svelte/package.json",
+          "line": 5077
+        },
+        {
+          "path": "packages/svelte/project.json",
+          "line": 5135
+        },
+        {
+          "path": "packages/svelte/src/lib/WorkspaceProbe.svelte",
+          "line": 5181
+        },
+        {
+          "path": "packages/svelte/src/lib/index.ts",
+          "line": 5188
+        },
+        {
+          "path": "packages/svelte/svelte.config.js",
+          "line": 5195
+        },
+        {
+          "path": "packages/svelte/tsconfig.json",
+          "line": 5201
+        }
+      ],
+      "hashManifest": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json"
+    },
+    "rawAppBeforeT05": {
+      "fixture": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-svelte",
+      "storybook": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-svelte"
+    },
+    "reviewedT05AppDelta": "docs/execution/evidence/scope-integration/native-baselines/task-T05-svelte-review-package.md",
+    "reviewedT05AfterHashes": "docs/execution/evidence/scope-integration/native-baselines/task-T05-svelte-snapshot.json",
+    "latestScopeCapturedRawFiles": [
+      {
+        "path": "apps/fixture-svelte/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-svelte/package.json",
+        "sha256": "77e8c50e264a7ed63e9af513988d649cf2ca259095f0a98c2d586defded11a29"
+      },
+      {
+        "path": "apps/fixture-svelte/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-svelte/project.json",
+        "sha256": "f63adcf6e94b3830addc294f64998c4ac858171f2680937831992b0fa9bf31cc"
+      },
+      {
+        "path": "apps/fixture-svelte/src/App.svelte",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-svelte/src/App.svelte",
+        "sha256": "00313d658060d48770bfaefe1e0f566520ffc69e1c19cc84797affb3b6e74773"
+      },
+      {
+        "path": "apps/storybook-svelte/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-svelte/package.json",
+        "sha256": "57e3845248a78f7fc408a4d22f108b2244c181cbb111be7a3aa7bcb0b9e2d2d0"
+      },
+      {
+        "path": "apps/storybook-svelte/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-svelte/project.json",
+        "sha256": "9f31e57cca9846738b74256761e597d527825e4d6ae5b3c45dd6be97b6022ab6"
+      },
+      {
+        "path": "apps/storybook-svelte/src/App.svelte",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-svelte/src/App.svelte",
+        "sha256": "9f618c3e2b059589d53a434012e4f3fa311dd33277ce1ac7071a1b90c1071f70"
+      },
+      {
+        "path": "apps/storybook-svelte/src/stories/NativeProbe.svelte",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-svelte/src/stories/NativeProbe.svelte",
+        "sha256": "356f26a03361990197e875946c7d7908355d8adbe657a3d5ba103e32b44d7583"
+      },
+      {
+        "path": "apps/storybook-svelte/src/stories/probe.stories.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-svelte/src/stories/probe.stories.ts",
+        "sha256": "c079e2241a24aea05d1a4558b5b25b064d8f6608b7e907d019b36972b099150c"
+      },
+      {
+        "path": "packages/svelte/README.md",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/svelte/README.md",
+        "sha256": "298d743a3231d0d0e6971d8727872ace2ebc82c8a5523793bcbdf3c7713e3ca8"
+      },
+      {
+        "path": "packages/svelte/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/svelte/package.json",
+        "sha256": "aa0f089c5d87e6ec83f0039e9aa2322209087f4575ef4448e9c128e0af49822d"
+      },
+      {
+        "path": "packages/svelte/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/svelte/project.json",
+        "sha256": "c7cba002e80cbf8781bcb10afecc5d447ea6e43fedd72dab86fdf6955674ccd2"
+      }
+    ]
+  },
+  "vue": {
+    "libraryProbeFullAddedSource": {
+      "path": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+      "headings": [
+        {
+          "path": "packages/vue/LICENSE.md",
+          "line": 5438
+        },
+        {
+          "path": "packages/vue/README.md",
+          "line": 5448
+        },
+        {
+          "path": "packages/vue/package.json",
+          "line": 5458
+        },
+        {
+          "path": "packages/vue/project.json",
+          "line": 5513
+        },
+        {
+          "path": "packages/vue/src/WorkspaceProbe.vue",
+          "line": 5559
+        },
+        {
+          "path": "packages/vue/src/index.ts",
+          "line": 5566
+        },
+        {
+          "path": "packages/vue/tsconfig.json",
+          "line": 5573
+        },
+        {
+          "path": "packages/vue/vite.config.ts",
+          "line": 5593
+        }
+      ],
+      "hashManifest": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json"
+    },
+    "rawAppBeforeT05": {
+      "fixture": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-vue",
+      "storybook": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-vue"
+    },
+    "reviewedT05AppDelta": "docs/execution/evidence/scope-integration/native-baselines/task-T05-vue-review-package.md",
+    "reviewedT05AfterHashes": "docs/execution/evidence/scope-integration/native-baselines/task-T05-vue-snapshot.json",
+    "latestScopeCapturedRawFiles": [
+      {
+        "path": "apps/fixture-vue/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-vue/package.json",
+        "sha256": "9dc900deafc131a81f6b8a5157211af464f0263b27c074bca392e5c5ba25b7ab"
+      },
+      {
+        "path": "apps/fixture-vue/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-vue/project.json",
+        "sha256": "dcf13a657feb00071996ed4c8ac9461c132b9fd5dde929733c97f64cb2ddfcb7"
+      },
+      {
+        "path": "apps/fixture-vue/src/FixtureApp.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-vue/src/FixtureApp.ts",
+        "sha256": "0a06c0c8d8f0cd965a34cb8a76d637687722b0b0539e0d2360fff879ffdd2702"
+      },
+      {
+        "path": "apps/storybook-vue/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-vue/package.json",
+        "sha256": "9b018c07cbba73195d83ada6f0e88b72d10cf8666033f31901c9f1d41c2e1fd5"
+      },
+      {
+        "path": "apps/storybook-vue/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-vue/project.json",
+        "sha256": "d07d549bdfdf4f248e8a074e6274fb8e4911643a9039b9cd5a5eeb9a19e88170"
+      },
+      {
+        "path": "apps/storybook-vue/src/main.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-vue/src/main.ts",
+        "sha256": "2d24717976966092428cde54f88507e5edcb495047b7f1069710617f45c5062b"
+      },
+      {
+        "path": "apps/storybook-vue/src/stories/NativeProbe.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-vue/src/stories/NativeProbe.ts",
+        "sha256": "82eea0adbb07448b2ede293e0b404f153f84477b6301680b47d471cc8132cc17"
+      },
+      {
+        "path": "apps/storybook-vue/src/stories/probe.stories.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-vue/src/stories/probe.stories.ts",
+        "sha256": "254fe593df21594fdcb82ba4a13d8c6e21b717ff0e3e607371924dd3701808f3"
+      },
+      {
+        "path": "packages/vue/README.md",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/vue/README.md",
+        "sha256": "47060de6c36b989f822ee939cd7d68968c6e57acf501b6658ffd74158fe459dd"
+      },
+      {
+        "path": "packages/vue/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/vue/package.json",
+        "sha256": "8d40e7c7492d8ff67ccdd8944133e013b32e61bb642e179f0d8c03a66e660694"
+      },
+      {
+        "path": "packages/vue/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/vue/project.json",
+        "sha256": "bd2f564170cf147adb71488dcc0047a8fe15f4b2a610eb79b1501e621c0b40fb"
+      }
+    ]
+  },
+  "lit": {
+    "libraryProbeFullAddedSource": {
+      "path": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+      "headings": [
+        {
+          "path": "packages/lit/LICENSE.md",
+          "line": 4075
+        },
+        {
+          "path": "packages/lit/README.md",
+          "line": 4085
+        },
+        {
+          "path": "packages/lit/package.json",
+          "line": 4095
+        },
+        {
+          "path": "packages/lit/project.json",
+          "line": 4154
+        },
+        {
+          "path": "packages/lit/src/index.ts",
+          "line": 4200
+        },
+        {
+          "path": "packages/lit/tsconfig.json",
+          "line": 4208
+        },
+        {
+          "path": "packages/lit/vite.config.ts",
+          "line": 4227
+        }
+      ],
+      "hashManifest": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json"
+    },
+    "rawAppBeforeT05": {
+      "fixture": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-lit",
+      "storybook": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-lit"
+    },
+    "reviewedT05AppDelta": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-review-package.md",
+    "reviewedT05AfterHashes": "docs/execution/evidence/scope-integration/native-baselines/task-T05-lit-snapshot.json",
+    "latestScopeCapturedRawFiles": [
+      {
+        "path": "apps/fixture-lit/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-lit/package.json",
+        "sha256": "87a5c851712e9e55dd63811147872f63084fc100b25249720ff412260dcafe9c"
+      },
+      {
+        "path": "apps/fixture-lit/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-lit/project.json",
+        "sha256": "621e0b4503643a401a04c7069dc5f0e46a618d8f56c7141a2fa8a882fce29f42"
+      },
+      {
+        "path": "apps/fixture-lit/src/main.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-lit/src/main.ts",
+        "sha256": "d7c62792d97dc462de5f85fae4820df6bd35cd01d76a7ec6c5b4666d21988ef9"
+      },
+      {
+        "path": "apps/storybook-lit/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/package.json",
+        "sha256": "d3eff6112a4ebf5b234d0b3223d45a57ab9d4c490b91a67c7426eb1fbd08d0cc"
+      },
+      {
+        "path": "apps/storybook-lit/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/project.json",
+        "sha256": "4c03f30a6f1a9c2aec97a9a02c59133fddd2858f1a50122a5b399f3086ff4358"
+      },
+      {
+        "path": "apps/storybook-lit/src/main.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/src/main.ts",
+        "sha256": "cae3d6f6eb02cb0b41d528d4cbf57e9f291bc1b7d7b60fcae0a57da71899e6d9"
+      },
+      {
+        "path": "apps/storybook-lit/src/stories/probe.stories.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-lit/src/stories/probe.stories.ts",
+        "sha256": "a9ad4427a0e785c48738bbb8adbc0d6eb7d4fb932aed3a1c4f70fa10779ee125"
+      },
+      {
+        "path": "packages/lit/README.md",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/lit/README.md",
+        "sha256": "92d89a7d1cc85959a9358cf27074308b289bca7dd3b2e06b2ad85c60d7c9d4cb"
+      },
+      {
+        "path": "packages/lit/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/lit/package.json",
+        "sha256": "217f7feaf843cbccf0c654c1f454634d9b96cf435efb9b47fcd8443abe51447d"
+      },
+      {
+        "path": "packages/lit/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/lit/project.json",
+        "sha256": "51e8a7502901d5c4e8c7a704573a9894151ac83633363954c52054030ff468cc"
+      }
+    ]
+  },
+  "qwik": {
+    "libraryProbeFullAddedSource": {
+      "path": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+      "headings": [
+        {
+          "path": "packages/qwik/LICENSE.md",
+          "line": 4238
+        },
+        {
+          "path": "packages/qwik/README.md",
+          "line": 4248
+        },
+        {
+          "path": "packages/qwik/package.json",
+          "line": 4258
+        },
+        {
+          "path": "packages/qwik/project.json",
+          "line": 4319
+        },
+        {
+          "path": "packages/qwik/src/WorkspaceProbe.tsx",
+          "line": 4365
+        },
+        {
+          "path": "packages/qwik/src/index.ts",
+          "line": 4373
+        },
+        {
+          "path": "packages/qwik/tsconfig.json",
+          "line": 4380
+        },
+        {
+          "path": "packages/qwik/vite.config.ts",
+          "line": 4401
+        }
+      ],
+      "hashManifest": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json"
+    },
+    "rawAppBeforeT05": {
+      "fixture": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-qwik",
+      "storybook": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-qwik"
+    },
+    "reviewedT05AppDelta": "docs/execution/evidence/scope-integration/native-baselines/task-T05-qwik-review-package.md",
+    "reviewedT05AfterHashes": "docs/execution/evidence/scope-integration/native-baselines/task-T05-qwik-snapshot.json",
+    "latestScopeCapturedRawFiles": [
+      {
+        "path": "apps/fixture-qwik/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-qwik/package.json",
+        "sha256": "49df37afc8db7507a1e865064739f8979ebf1a05179cc15397244021ff24d9e4"
+      },
+      {
+        "path": "apps/fixture-qwik/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-qwik/project.json",
+        "sha256": "9ae5e29c53d62a4050b63f175a3082d660a5d9df4192c9ce7f2cf262a89c1d4d"
+      },
+      {
+        "path": "apps/fixture-qwik/src/root.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-qwik/src/root.tsx",
+        "sha256": "eaee276745b73acdd6878cc984b13598cd25d6956e4c001fac5c3d922ea39244"
+      },
+      {
+        "path": "apps/storybook-qwik/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-qwik/package.json",
+        "sha256": "aa866152926c6f9a3134d8dc227495097cf2f29a603bbb44333d792e50a24e65"
+      },
+      {
+        "path": "apps/storybook-qwik/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-qwik/project.json",
+        "sha256": "0da4e75341d7e83b9894337ef6ddff5666b1d4fc5d61f8503a1f003947c175ad"
+      },
+      {
+        "path": "apps/storybook-qwik/src/main.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-qwik/src/main.tsx",
+        "sha256": "61345ab5f46d3422fe1ce4b8354d5bf251f3cd68edcc94f8b652a2430678bb04"
+      },
+      {
+        "path": "apps/storybook-qwik/src/root.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-qwik/src/root.tsx",
+        "sha256": "8ba53cbe09b72e27499b0d2e2cea3a6cf5fc8337d30a53b15544fcd61e84e24d"
+      },
+      {
+        "path": "apps/storybook-qwik/src/stories/probe.stories.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-qwik/src/stories/probe.stories.tsx",
+        "sha256": "821bb3fc2f190207ece9ac760fcbbe092d68ec873aac94265c4f81e2628cfff2"
+      },
+      {
+        "path": "packages/qwik/README.md",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/qwik/README.md",
+        "sha256": "3d59c5131eda6b1bfe20bf6578b4ecd4e2c41574f749b28d422532239f2f2409"
+      },
+      {
+        "path": "packages/qwik/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/qwik/package.json",
+        "sha256": "efdfb5ad0b06f98e3bfefb72af1a9edf2bc52dce575472697d7f806e4613bfaa"
+      },
+      {
+        "path": "packages/qwik/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/qwik/project.json",
+        "sha256": "8c58509b626b5ea28689252600420e7f0165d0c77ba8b53c9b093f4386465179"
+      }
+    ]
+  },
+  "angular": {
+    "libraryProbeFullAddedSource": {
+      "path": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+      "headings": [
+        {
+          "path": "packages/angular/LICENSE.md",
+          "line": 3436
+        },
+        {
+          "path": "packages/angular/README.md",
+          "line": 3446
+        },
+        {
+          "path": "packages/angular/angular.json",
+          "line": 3456
+        },
+        {
+          "path": "packages/angular/ng-package.json",
+          "line": 3484
+        },
+        {
+          "path": "packages/angular/package.json",
+          "line": 3503
+        },
+        {
+          "path": "packages/angular/project.json",
+          "line": 3579
+        },
+        {
+          "path": "packages/angular/src/index.ts",
+          "line": 3625
+        },
+        {
+          "path": "packages/angular/tsconfig.json",
+          "line": 3634
+        },
+        {
+          "path": "packages/angular/tsconfig.lib.json",
+          "line": 3655
+        },
+        {
+          "path": "packages/angular/tsconfig.lib.prod.json",
+          "line": 3675
+        }
+      ],
+      "hashManifest": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json"
+    },
+    "rawAppBeforeT05": {
+      "fixture": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-angular",
+      "storybook": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-angular"
+    },
+    "reviewedT05AppDelta": "docs/execution/evidence/scope-integration/native-baselines/task-T05-angular-review-package.md",
+    "reviewedT05AfterHashes": "docs/execution/evidence/scope-integration/native-baselines/task-T05-angular-snapshot.json",
+    "latestScopeCapturedRawFiles": [
+      {
+        "path": "apps/fixture-angular/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-angular/package.json",
+        "sha256": "3c24f79f3bf68b7dda3c445066829636232dd44548147e08bc70eba9e2f14220"
+      },
+      {
+        "path": "apps/fixture-angular/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-angular/project.json",
+        "sha256": "c0926b983fb9cfd57f27eecc04054c36edc167dc1569649684f18c13fb732e12"
+      },
+      {
+        "path": "apps/fixture-angular/src/fixture-app.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-angular/src/fixture-app.ts",
+        "sha256": "a5d490105307115db545646b4fd5e7e25c1f7d3387987cc52d6926c23ae7f537"
+      },
+      {
+        "path": "apps/storybook-angular/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-angular/package.json",
+        "sha256": "79e76e2d93749216351938a11611b81f7b06eee2c0fe4cc64d8e3e34634af445"
+      },
+      {
+        "path": "apps/storybook-angular/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-angular/project.json",
+        "sha256": "d8cd86ec1adf43afc67ac167002da6ad2054694bec8fd312bad4278a693c67b2"
+      },
+      {
+        "path": "apps/storybook-angular/src/main.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-angular/src/main.ts",
+        "sha256": "6038621b1ccfd4fe2b447197ad0aa674b2dfa46814074906cf5c84052d7d3d99"
+      },
+      {
+        "path": "apps/storybook-angular/src/stories/probe.stories.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-angular/src/stories/probe.stories.ts",
+        "sha256": "1c1e8cedafca804f5f4c03cf857555388a35413d1a55bb07e1786a047478e4ec"
+      },
+      {
+        "path": "packages/angular/README.md",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/angular/README.md",
+        "sha256": "08f330228c2bd418f6d7c461865509cca168671ea720dfae6e2e6e8e8c087193"
+      },
+      {
+        "path": "packages/angular/ng-package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/angular/ng-package.json",
+        "sha256": "2a61988082b354b78b39a7a709a233b402d428e5a7af02a693fa3e8eeeba4c57"
+      },
+      {
+        "path": "packages/angular/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/angular/package.json",
+        "sha256": "f44c069006f7efd60ae13cd9bb52a074249145fc8ca3edc3abfbeb802152b631"
+      },
+      {
+        "path": "packages/angular/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/angular/project.json",
+        "sha256": "c4a688e117df377b12cddcea4d8a9f22673fec231e2cd48812e10dffe9879e21"
+      }
+    ]
+  },
+  "solid-next": {
+    "libraryProbeFullAddedSource": {
+      "path": "docs/execution/evidence/scope-integration/native-baselines/task-T01-review-package.md",
+      "headings": [
+        {
+          "path": "packages/solid-next/LICENSE.md",
+          "line": 4582
+        },
+        {
+          "path": "packages/solid-next/README.md",
+          "line": 4592
+        },
+        {
+          "path": "packages/solid-next/package.json",
+          "line": 4602
+        },
+        {
+          "path": "packages/solid-next/project.json",
+          "line": 4666
+        },
+        {
+          "path": "packages/solid-next/src/WorkspaceProbe.tsx",
+          "line": 4712
+        },
+        {
+          "path": "packages/solid-next/src/index.ts",
+          "line": 4719
+        },
+        {
+          "path": "packages/solid-next/tsconfig.json",
+          "line": 4726
+        },
+        {
+          "path": "packages/solid-next/vite.config.ts",
+          "line": 4747
+        }
+      ],
+      "hashManifest": "docs/execution/evidence/scope-integration/native-baselines/task-T01-snapshot.json"
+    },
+    "rawAppBeforeT05": {
+      "fixture": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/fixture-solid-next",
+      "storybook": "docs/execution/evidence/scope-integration/native-baselines/task-T05-base/apps/storybook-solid-next"
+    },
+    "reviewedT05AppDelta": "docs/execution/evidence/scope-integration/native-baselines/task-T05-solid-next-review-package.md",
+    "reviewedT05AfterHashes": "docs/execution/evidence/scope-integration/native-baselines/task-T05-solid-next-snapshot.json",
+    "latestScopeCapturedRawFiles": [
+      {
+        "path": "apps/fixture-solid-next/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-solid-next/package.json",
+        "sha256": "29c0613c50da79052f82d181594c83ab6e2049c02e9de350f6ac2bcf1928ffc1"
+      },
+      {
+        "path": "apps/fixture-solid-next/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-solid-next/project.json",
+        "sha256": "df1f830c83cecd1420e24741d1c8ed71091791707803c8e3432fc6e6b09d538f"
+      },
+      {
+        "path": "apps/fixture-solid-next/src/main.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-solid-next/src/main.tsx",
+        "sha256": "8dbba8e24ef68bfe2121bd0e75b8cfd0c3599d6763ca1f0b46794180081c4171"
+      },
+      {
+        "path": "apps/fixture-solid-next/tests/native-probe.spec.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/fixture-solid-next/tests/native-probe.spec.ts",
+        "sha256": "9991a8ef90480fac6d3108ca2fff7001d33664a3e154274a54fa35da40ea5ff3"
+      },
+      {
+        "path": "apps/storybook-solid-next/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-solid-next/package.json",
+        "sha256": "efe08c4ca15db4fbbc9ba9548f8442fb4945731caad6b65b6ed9a384a81d79d6"
+      },
+      {
+        "path": "apps/storybook-solid-next/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-solid-next/project.json",
+        "sha256": "ad50c7288612a11e85bc83a8b11fabbef4e38b761bf62187d49637cdf0beb1f6"
+      },
+      {
+        "path": "apps/storybook-solid-next/src/main.tsx",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-solid-next/src/main.tsx",
+        "sha256": "784c715d1fd54ce9de365fc0016832b6fdb1a801a1c7effc987c4f8eb79031bd"
+      },
+      {
+        "path": "apps/storybook-solid-next/src/stories/probe.stories.ts",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/apps/storybook-solid-next/src/stories/probe.stories.ts",
+        "sha256": "f0f32d8cef5b855644ec5f973c09ed387ee74ce886331b37758fafdd7b7dc53f"
+      },
+      {
+        "path": "packages/solid-next/README.md",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/solid-next/README.md",
+        "sha256": "0a72bcc59c47a60f6ecb71652424cb0ee0531d9962e1cd48971d00cc5a6dcd00"
+      },
+      {
+        "path": "packages/solid-next/package.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/solid-next/package.json",
+        "sha256": "3fa20c6cb44551203a089b38169913a9756fcdd51bbdb32e4ba4fab7e1c050da"
+      },
+      {
+        "path": "packages/solid-next/project.json",
+        "snapshot": "docs/execution/evidence/scope-integration/scope-integration-logs/after-source-v1/packages/solid-next/project.json",
+        "sha256": "3a8c8455f4c936c097d1aed3880d1312863c80a33c01a1ec5794c1e040fb7feb"
+      }
+    ]
+  }
+}

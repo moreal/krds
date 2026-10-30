@@ -1,0 +1,64 @@
+{
+  "name": "fixture-angular",
+  "root": "apps/fixture-angular",
+  "sourceRoot": "apps/fixture-angular/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:angular"
+  ],
+  "implicitDependencies": [
+    "krds-angular",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular lint"
+      }
+    },
+    "contract": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs test:contract --framework angular"
+      },
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ]
+    },
+    "siheom": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs test:siheom --framework angular"
+      },
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ]
+    }
+  }
+}

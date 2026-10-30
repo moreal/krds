@@ -1,0 +1,41 @@
+{
+  "name": "krds-lit",
+  "root": "packages/lit",
+  "sourceRoot": "packages/lit/src",
+  "projectType": "library",
+  "tags": [
+    "layer:adapter",
+    "framework:lit"
+  ],
+  "implicitDependencies": [
+    "krds-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/lit build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/lit typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/lit test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/lit lint"
+      }
+    }
+  }
+}

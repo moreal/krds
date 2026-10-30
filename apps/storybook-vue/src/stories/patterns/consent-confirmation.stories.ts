@@ -1,0 +1,15 @@
+import {h} from 'vue';
+import {KrdsProvider} from '@unofficial-krds/vue';
+import {getPresentation} from '@unofficial-krds/test-contracts/patterns';
+import PatternPresentation from '../../../../../packages/vue/examples/patterns/PatternPresentation.vue';
+import {mapPresentation,identity} from './presentation';
+import type {Presentation} from '../../../../../packages/vue/examples/patterns/presentation';
+const pattern='consent-confirmation';
+const render=(args:{presentation:Presentation;identity:typeof identity;hrefForPage:(page:number)=>string})=>({setup:()=>()=>h(KrdsProvider,{},()=>h(PatternPresentation,args))});
+export default {title:'krds-pattern-consent-confirmation',component:PatternPresentation,render};
+export const Editing={args:{presentation:mapPresentation(getPresentation(pattern,'editing').state,'navigate-current'),identity:{...identity},hrefForPage:(page:number)=>'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})}};
+export const Invalid={args:{presentation:mapPresentation(getPresentation(pattern,'invalid').state,'navigate-current'),identity:{...identity},hrefForPage:(page:number)=>'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})}};
+export const Confirming={args:{presentation:mapPresentation(getPresentation(pattern,'confirming').state,'navigate-current'),identity:{...identity},hrefForPage:(page:number)=>'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})}};
+export const Loading={args:{presentation:mapPresentation(getPresentation(pattern,'loading').state,'navigate-current'),identity:{...identity},hrefForPage:(page:number)=>'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})}};
+export const Error={args:{presentation:mapPresentation(getPresentation(pattern,'error').state,'navigate-current'),identity:{...identity},hrefForPage:(page:number)=>'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})}};
+export const Success={args:{presentation:mapPresentation(getPresentation(pattern,'success').state,'navigate-current'),identity:{...identity},hrefForPage:(page:number)=>'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})}};

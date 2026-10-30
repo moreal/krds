@@ -1,0 +1,29 @@
+Loading svelte-check in workspace: /Users/moreal/github/moreal/krds/apps/fixture-svelte
+Getting Svelte diagnostics...
+
+/Users/moreal/github/moreal/krds/apps/fixture-svelte/src/App.svelte:10:15
+Error: Block-scoped variable '$state' used before its declaration. (ts)
+  const isProbe = componentId === '__probe' && caseId === 'native-state';
+  let ready = $state(false);
+  let state = $state<Record<string, unknown>>({ count: 0, label: 'Probe increment', disabled: false });
+
+/Users/moreal/github/moreal/krds/apps/fixture-svelte/src/App.svelte:11:7
+Error: 'state' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer. (ts)
+  let ready = $state(false);
+  let state = $state<Record<string, unknown>>({ count: 0, label: 'Probe increment', disabled: false });
+  let bridge: FixtureBridge | undefined;
+
+/Users/moreal/github/moreal/krds/apps/fixture-svelte/src/App.svelte:11:15
+Error: Block-scoped variable '$state' used before its declaration. (ts)
+  let ready = $state(false);
+  let state = $state<Record<string, unknown>>({ count: 0, label: 'Probe increment', disabled: false });
+  let bridge: FixtureBridge | undefined;
+
+/Users/moreal/github/moreal/krds/apps/fixture-svelte/src/App.svelte:11:15
+Error: Untyped function calls may not accept type arguments. (ts)
+  let ready = $state(false);
+  let state = $state<Record<string, unknown>>({ count: 0, label: 'Probe increment', disabled: false });
+  let bridge: FixtureBridge | undefined;
+
+====================================
+svelte-check found 4 errors and 0 warnings in 1 file

@@ -1,0 +1,791 @@
+--- a/apps/docs/package.json
++++ b/apps/docs/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/docs",
++  "name": "@unofficial-krds/docs",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+
+--- a/apps/fixture-angular/package.json
++++ b/apps/fixture-angular/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-angular",
++  "name": "@unofficial-krds/fixture-angular",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -50,9 +50,9 @@
+     "zone.js": "0.16.3"
+   },
+   "dependencies": {
+-    "@krds-native/angular": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/angular": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-lit/package.json
++++ b/apps/fixture-lit/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-lit",
++  "name": "@unofficial-krds/fixture-lit",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -25,9 +25,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/lit": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/lit": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-qwik/package.json
++++ b/apps/fixture-qwik/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-qwik",
++  "name": "@unofficial-krds/fixture-qwik",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -32,9 +32,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/qwik": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/qwik": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-react/package.json
++++ b/apps/fixture-react/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-react",
++  "name": "@unofficial-krds/fixture-react",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -35,9 +35,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/react": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/react": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-solid-next/package.json
++++ b/apps/fixture-solid-next/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-solid-next",
++  "name": "@unofficial-krds/fixture-solid-next",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -29,9 +29,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid-next": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid-next": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-solid/package.json
++++ b/apps/fixture-solid/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-solid",
++  "name": "@unofficial-krds/fixture-solid",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -35,9 +35,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-svelte/package.json
++++ b/apps/fixture-svelte/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-svelte",
++  "name": "@unofficial-krds/fixture-svelte",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -35,9 +35,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/svelte": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/svelte": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-vue/package.json
++++ b/apps/fixture-vue/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-vue",
++  "name": "@unofficial-krds/fixture-vue",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -36,9 +36,9 @@
+     "vue-tsc": "3.3.14"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
+-    "@krds-native/vue": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
++    "@unofficial-krds/vue": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-angular/package.json
++++ b/apps/storybook-angular/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-angular",
++  "name": "@unofficial-krds/storybook-angular",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -49,9 +49,9 @@
+     "zone.js": "0.16.3"
+   },
+   "dependencies": {
+-    "@krds-native/angular": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/angular": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-lit/package.json
++++ b/apps/storybook-lit/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-lit",
++  "name": "@unofficial-krds/storybook-lit",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -32,9 +32,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/lit": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/lit": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-qwik/package.json
++++ b/apps/storybook-qwik/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-qwik",
++  "name": "@unofficial-krds/storybook-qwik",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -31,9 +31,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/qwik": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/qwik": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-react/package.json
++++ b/apps/storybook-react/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-react",
++  "name": "@unofficial-krds/storybook-react",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -31,9 +31,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/react": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/react": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-solid-next/package.json
++++ b/apps/storybook-solid-next/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-solid-next",
++  "name": "@unofficial-krds/storybook-solid-next",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -36,9 +36,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid-next": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid-next": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-solid/package.json
++++ b/apps/storybook-solid/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-solid",
++  "name": "@unofficial-krds/storybook-solid",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -33,9 +33,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-svelte/package.json
++++ b/apps/storybook-svelte/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-svelte",
++  "name": "@unofficial-krds/storybook-svelte",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -34,9 +34,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/svelte": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/svelte": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-vue/package.json
++++ b/apps/storybook-vue/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-vue",
++  "name": "@unofficial-krds/storybook-vue",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -33,9 +33,9 @@
+     "vue-tsc": "3.3.14"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
+-    "@krds-native/vue": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
++    "@unofficial-krds/vue": "workspace:^"
+   }
+ }
+
+--- a/package.json
++++ b/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/workspace",
++  "name": "@unofficial-krds/workspace",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -39,5 +39,9 @@
+     "playwright": "1.64.1",
+     "playwright-core": "1.64.1",
+     "typescript": "6.0.2"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds"
+   }
+ }
+
+--- a/packages/angular/package.json
++++ b/packages/angular/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/angular",
++  "name": "@unofficial-krds/angular",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -51,8 +51,8 @@
+   "sideEffects": false,
+   "exports": {
+     ".": {
+-      "types": "./dist/types/krds-native-angular.d.ts",
+-      "default": "./dist/fesm2022/krds-native-angular.mjs"
++      "types": "./dist/types/unofficial-krds-angular.d.ts",
++      "default": "./dist/fesm2022/unofficial-krds-angular.mjs"
+     }
+   },
+   "peerDependencies": {
+@@ -62,14 +62,19 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0",
+     "tslib": "2.8.1"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/angular"
+   }
+ }
+
+--- a/packages/assets/package.json
++++ b/packages/assets/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/assets",
++  "name": "@unofficial-krds/assets",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -35,5 +35,10 @@
+       "import": "./dist/index.js"
+     },
+     "./icons/*": "./icons/*"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/assets"
+   }
+ }
+
+--- a/packages/contracts/package.json
++++ b/packages/contracts/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/contracts",
++  "name": "@unofficial-krds/contracts",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -35,5 +35,10 @@
+       "types": "./dist/index.d.ts",
+       "import": "./dist/index.js"
+     }
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/contracts"
+   }
+ }
+
+--- a/packages/fonts/package.json
++++ b/packages/fonts/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fonts",
++  "name": "@unofficial-krds/fonts",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -39,5 +39,10 @@
+     },
+     "./fonts/*": "./fonts/*",
+     "./fonts.css": "./fonts.css"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/fonts"
+   }
+ }
+
+--- a/packages/lit/package.json
++++ b/packages/lit/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/lit",
++  "name": "@unofficial-krds/lit",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -46,13 +46,18 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/lit"
+   }
+ }
+
+--- a/packages/qwik/package.json
++++ b/packages/qwik/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/qwik",
++  "name": "@unofficial-krds/qwik",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -47,14 +47,19 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0"
+   },
+-  "qwik": "./dist/index.qwik.mjs"
++  "qwik": "./dist/index.qwik.mjs",
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/qwik"
++  }
+ }
+
+--- a/packages/react/package.json
++++ b/packages/react/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/react",
++  "name": "@unofficial-krds/react",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -49,8 +49,13 @@
+   },
+   "dependencies": {
+     "@ark-ui/react": "5.40.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/react"
+   }
+ }
+
+--- a/packages/solid-next/package.json
++++ b/packages/solid-next/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/solid-next",
++  "name": "@unofficial-krds/solid-next",
+   "version": "0.0.0-next.0",
+   "type": "module",
+   "scripts": {
+@@ -51,13 +51,18 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/solid-next"
+   }
+ }
+
+--- a/packages/solid/package.json
++++ b/packages/solid/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/solid",
++  "name": "@unofficial-krds/solid",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -75,8 +75,13 @@
+   },
+   "dependencies": {
+     "@ark-ui/solid": "5.40.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/solid"
+   }
+ }
+
+--- a/packages/styles/package.json
++++ b/packages/styles/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/styles",
++  "name": "@unofficial-krds/styles",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -53,6 +53,11 @@
+     "./parts.json": "./dist/parts.json"
+   },
+   "dependencies": {
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/styles"
+   }
+ }
+
+--- a/packages/svelte/package.json
++++ b/packages/svelte/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/svelte",
++  "name": "@unofficial-krds/svelte",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -49,9 +49,14 @@
+   },
+   "dependencies": {
+     "@ark-ui/svelte": "5.25.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   },
+-  "svelte": "./dist/index.js"
++  "svelte": "./dist/index.js",
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/svelte"
++  }
+ }
+
+--- a/packages/test-contracts/package.json
++++ b/packages/test-contracts/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/test-contracts",
++  "name": "@unofficial-krds/test-contracts",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -14,7 +14,7 @@
+     "typescript": "6.0.2"
+   },
+   "dependencies": {
+-    "@krds-native/contracts": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^"
+   },
+   "main": "./dist/index.js",
+   "types": "./dist/index.d.ts",
+
+--- a/packages/tokens/package.json
++++ b/packages/tokens/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/tokens",
++  "name": "@unofficial-krds/tokens",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -38,5 +38,10 @@
+     "./tokens.css": "./dist/tokens.css",
+     "./tokens.json": "./dist/tokens.json",
+     "./source-map.json": "./dist/source-map.json"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/tokens"
+   }
+ }
+
+--- a/packages/vue/package.json
++++ b/packages/vue/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/vue",
++  "name": "@unofficial-krds/vue",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -47,8 +47,13 @@
+   },
+   "dependencies": {
+     "@ark-ui/vue": "5.40.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/vue"
+   }
+ }

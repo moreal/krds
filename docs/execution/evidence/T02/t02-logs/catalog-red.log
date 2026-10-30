@@ -1,0 +1,319 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/packages/contracts
+
+ ❯ src/catalog.test.ts (29 tests | 27 failed) 12ms
+     × rejects duplicate id 2ms
+     × rejects duplicate slug 0ms
+     × rejects duplicate canonicalId 0ms
+     × rejects duplicate exportName 0ms
+     × rejects drift in canonicalUrl 0ms
+     × rejects drift in kind 0ms
+     × rejects drift in sourceId 0ms
+     × rejects drift in webApplicable 1ms
+     × rejects source hash drift 0ms
+     × rejects narrowing the catalog to the pilot 0ms
+     × rejects changing the frozen baseline 0ms
+     × reports malformed input null without crashing 0ms
+     × reports malformed input undefined without crashing 0ms
+     × reports malformed input {} without crashing 0ms
+     × reports malformed input {"components":[null]} without crashing 0ms
+     × rejects empty implementation ownership 0ms
+     × rejects missing native framework work 0ms
+     × rejects duplicate component/framework entries 0ms
+     × rejects implemented claims without evidence 0ms
+     × rejects verified claims without evidence 0ms
+     × rejects a probe masquerading as verification 0ms
+     × rejects non-web guidance counted as native implementation 0ms
+     × rejects an unsupported renderer name 0ms
+     × reports malformed coverage null 0ms
+     × reports malformed coverage undefined 0ms
+     × reports malformed coverage {} 0ms
+     × reports malformed coverage {"coverage":[null]} 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 27 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects duplicate id
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects duplicate slug
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects duplicate canonicalId
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects duplicate exportName
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:19:53
+     17|   it.each(['id', 'slug', 'canonicalId', 'exportName'])('rejects duplic…
+     18|     const value = copy(catalog); value.components[1][field] = value.co…
+     19|     expect(validateCatalog(value, manifest).length).toBeGreaterThan(0);
+       |                                                     ^
+     20|   });
+     21|   it.each(['canonicalUrl', 'kind', 'sourceId', 'webApplicable'])('reje…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/27]⎯
+
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects drift in canonicalUrl
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects drift in kind
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects drift in sourceId
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects drift in webApplicable
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:23:53
+     21|   it.each(['canonicalUrl', 'kind', 'sourceId', 'webApplicable'])('reje…
+     22|     const value = copy(catalog); value.components[0][field] = field ==…
+     23|     expect(validateCatalog(value, manifest).length).toBeGreaterThan(0);
+       |                                                     ^
+     24|   });
+     25|   it('rejects source hash drift', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/27]⎯
+
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects source hash drift
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:27:53
+     25|   it('rejects source hash drift', () => {
+     26|     const value = copy(catalog); value.components[0].source.sha256 = '…
+     27|     expect(validateCatalog(value, manifest).length).toBeGreaterThan(0);
+       |                                                     ^
+     28|   });
+     29|   it('rejects narrowing the catalog to the pilot', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/27]⎯
+
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects narrowing the catalog to the pilot
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:31:53
+     29|   it('rejects narrowing the catalog to the pilot', () => {
+     30|     const value = copy(catalog); value.components.splice(6);
+     31|     expect(validateCatalog(value, manifest).length).toBeGreaterThan(0);
+       |                                                     ^
+     32|   });
+     33|   it('rejects changing the frozen baseline', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/27]⎯
+
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects changing the frozen baseline
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:35:53
+     33|   it('rejects changing the frozen baseline', () => {
+     34|     const value = copy(catalog); value.krdsBaselineId = 'new-baseline';
+     35|     expect(validateCatalog(value, manifest).length).toBeGreaterThan(0);
+       |                                                     ^
+     36|   });
+     37|   it.each([null, [], {}, { components: [null] }])('reports malformed i…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/27]⎯
+
+ FAIL  src/catalog.test.ts > frozen catalog integrity > reports malformed input null without crashing
+ FAIL  src/catalog.test.ts > frozen catalog integrity > reports malformed input undefined without crashing
+ FAIL  src/catalog.test.ts > frozen catalog integrity > reports malformed input {} without crashing
+ FAIL  src/catalog.test.ts > frozen catalog integrity > reports malformed input {"components":[null]} without crashing
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:38:53
+     36|   });
+     37|   it.each([null, [], {}, { components: [null] }])('reports malformed i…
+     38|     expect(validateCatalog(value, manifest).length).toBeGreaterThan(0);
+       |                                                     ^
+     39|   });
+     40|   it('rejects empty implementation ownership', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/27]⎯
+
+ FAIL  src/catalog.test.ts > frozen catalog integrity > rejects empty implementation ownership
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:42:53
+     40|   it('rejects empty implementation ownership', () => {
+     41|     const value = copy(catalog); value.components[0].implementationOwn…
+     42|     expect(validateCatalog(value, manifest).length).toBeGreaterThan(0);
+       |                                                     ^
+     43|   });
+     44| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/27]⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > rejects missing native framework work
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:54:53
+     52|   it('rejects missing native framework work', () => {
+     53|     const value = copy(coverage); value.coverage.pop();
+     54|     expect(validateCoverage(value, catalog).length).toBeGreaterThan(0);
+       |                                                     ^
+     55|   });
+     56|   it('rejects duplicate component/framework entries', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/27]⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > rejects duplicate component/framework entries
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:58:53
+     56|   it('rejects duplicate component/framework entries', () => {
+     57|     const value = copy(coverage); value.coverage[1] = value.coverage[0…
+     58|     expect(validateCoverage(value, catalog).length).toBeGreaterThan(0);
+       |                                                     ^
+     59|   });
+     60|   it.each(['implemented', 'verified'])('rejects %s claims without evid…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/27]⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > rejects implemented claims without evidence
+ FAIL  src/catalog.test.ts > honest native coverage > rejects verified claims without evidence
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:62:53
+     60|   it.each(['implemented', 'verified'])('rejects %s claims without evid…
+     61|     const value = copy(coverage); value.coverage[0].status = status;
+     62|     expect(validateCoverage(value, catalog).length).toBeGreaterThan(0);
+       |                                                     ^
+     63|   });
+     64|   it('rejects a probe masquerading as verification', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/27]⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > rejects a probe masquerading as verification
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:66:53
+     64|   it('rejects a probe masquerading as verification', () => {
+     65|     const value = copy(coverage); value.coverage[0].status = 'verified…
+     66|     expect(validateCoverage(value, catalog).length).toBeGreaterThan(0);
+       |                                                     ^
+     67|   });
+     68|   it('rejects non-web guidance counted as native implementation', () =…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/27]⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > rejects non-web guidance counted as native implementation
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:70:53
+     68|   it('rejects non-web guidance counted as native implementation', () =…
+     69|     const value = copy(coverage); value.coverage[0].componentId = 'spl…
+     70|     expect(validateCoverage(value, catalog).length).toBeGreaterThan(0);
+       |                                                     ^
+     71|   });
+     72|   it('rejects an unsupported renderer name', () => {
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/27]⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > rejects an unsupported renderer name
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:74:53
+     72|   it('rejects an unsupported renderer name', () => {
+     73|     const value = copy(coverage); value.coverage[0].framework = 'react…
+     74|     expect(validateCoverage(value, catalog).length).toBeGreaterThan(0);
+       |                                                     ^
+     75|   });
+     76|   it.each([null, [], {}, { coverage: [null] }])('reports malformed cov…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/27]⎯
+
+ FAIL  src/catalog.test.ts > honest native coverage > reports malformed coverage null
+ FAIL  src/catalog.test.ts > honest native coverage > reports malformed coverage undefined
+ FAIL  src/catalog.test.ts > honest native coverage > reports malformed coverage {}
+ FAIL  src/catalog.test.ts > honest native coverage > reports malformed coverage {"coverage":[null]}
+AssertionError: expected 0 to be greater than 0
+ ❯ src/catalog.test.ts:77:53
+     75|   });
+     76|   it.each([null, [], {}, { coverage: [null] }])('reports malformed cov…
+     77|     expect(validateCoverage(value, catalog).length).toBeGreaterThan(0);
+       |                                                     ^
+     78|   });
+     79| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/27]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  27 failed | 2 passed (29)
+   Start at  09:04:33
+   Duration  177ms (transform 16ms, setup 0ms, import 26ms, tests 12ms, environment 0ms)
+

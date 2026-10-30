@@ -1,0 +1,17 @@
+# Lit compatibility
+
+The selected native profile uses Lit 3.3.3, TypeScript 6.0.2, Vite 8.3.5 and Playwright 1.64.1. Build/test commands run through `node tools/yarn.mjs`, which launches selected Node 24.18.0 and Yarn 4.14.1 without changing global tools.
+
+The six pilots render native Lit templates in open Shadow DOM. Registration is explicit and import-safe; native names and relationships remain within the owned shadow root. Native dialogs use the browser top layer and inherit the same token cascade. ElementInternals owns successful values and validity; the browser tests inspect actual FormData, native disabled-fieldset behavior, cancelable reset, restoration and named submitter submission.
+
+The official Vanilla Zag interpreter runs through a Lit ReactiveController. The Tabs consumer applies the public KRDS sequential-focus/manual-activation policy while the actual service handles requested selection. `machineProps` handles the official normalizer's lowercase event names and removes old listeners, attributes, properties and styles; tests cover replacement, disconnection and reconnection. No foreign renderer is imported.
+
+Standalone server rendering uses Lit Labs SSR 4.1.0. Chromium and WebKit hydrate all six custom elements with official SSR-client 1.1.8 support, reuse server-rendered native controls and execute first actions. The fixture splits lit-html into a shared chunk and dynamically loads element definitions after the hydration hook, avoiding evaluation-order loss of hydration support. Application JSON restores property-only options/items/value before upgrade; automatic arbitrary property serialization is not claimed.
+
+Storybook uses the native Web Components renderer 10.6.5. Stories are local args/state/templates and separate from behavior tests. The canonical runner's raw axe 4.14 findings and network results must both be inspected; exit zero alone is insufficient. The selected siheom release has no official Lit adapter, so Lit siheom execution is explicitly unsupported. Native Playwright suites remain mandatory.
+
+Chromium and WebKit provide native evidence. The inherited Firefox profile-creation failure is a tool/environment limitation, not a passing Firefox implementation result. The final T08 report records exact commands, visual artifacts and residual acceptance limits; no catalog coverage is promoted by this document.
+
+The first Lit review revision adds explicit option `selected` serialization for matched controlled/default values before hydration. Static single-select HTML cannot represent an unmatched empty/no-selection state while enabled options exist; that specific state needs hydration and is excluded from the pre-hydration equivalence claim. Native range validation identifies affected endpoints, so an end-only error keeps the start field valid and uses the end input as the ElementInternals anchor/focus target.
+
+Tabs/Calendar host `aria-label` and `aria-labelledby` reach the actual internal tablist/region. Browser element-reference ARIA is preferred and live reference text updates are observed. In standalone SSR only, external `aria-labelledby` needs application-owned plain text in `.labelReferences`; no unresolved external IDREF is copied into the shadow root and no full accessible-name algorithm or AT acceptance is claimed. Modal return-target usability now traverses assigned slots and shadow hosts for effective inertness and ancestor fallback.

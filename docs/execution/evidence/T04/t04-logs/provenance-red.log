@@ -1,0 +1,37 @@
+✔ all 768 source leaves retain exact raw values, aliases and types (7.109292ms)
+✔ each original Figma key and transformed key has a reversible output mapping (2.126958ms)
+✔ CSS matches every frozen official declaration including alias targets (3.279334ms)
+✔ every package export points to an existing output (0.244083ms)
+✖ distributed derivatives retain preserved originals and explicit provenance paths (10.06225ms)
+✔ rejects alias cycles with the complete reference chain (0.793792ms)
+✔ rejects a missing alias target and identifies the referring key (0.120084ms)
+✔ rejects conflicting alias types before CSS generation (0.136209ms)
+✔ preserves source values and aliases while resolving chained references (0.458584ms)
+✔ rejects CSS output name collisions rather than overwriting tokens (0.11ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 105.4755
+
+✖ failing tests:
+
+test at src/outputs.test.ts:37:1
+✖ distributed derivatives retain preserved originals and explicit provenance paths (10.06225ms)
+  AssertionError [ERR_ASSERTION]: krds-resource-tokens-figma_token.json
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/tokens/src/outputs.test.ts:42:12)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

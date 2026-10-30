@@ -1,0 +1,17 @@
+{
+  "framework": "solid",
+  "publicPackageConsumption": true,
+  "compilerCommand": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck",
+  "compilerLog": ".superpowers/sdd/PLAN/t10-solid-logs/current-fixture-typecheck.log",
+  "compilerExitCode": 0,
+  "sources": [
+    {
+      "sourcePath": "apps/fixture-solid/src/examples.tsx",
+      "sha256": "243f137ee6cf7631bea2efc7716aa96a0a7091cde9e399caa06126251db92f8e"
+    },
+    {
+      "sourcePath": "apps/fixture-solid/src/catalog-examples.tsx",
+      "sha256": "92672a7d08d81ba64f999450da0ec3355091fabfdf211bfc44175157632b739f"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/native-select.test.tsx (23 tests | 2 failed) 244ms
+   × accepts native accessible label text alternatives from a local image 103ms
+   × accepts native accessible label text alternatives from a named image role 90ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > accepts native accessible label text alternatives from a local image
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > accepts native accessible label text alternatives from a named image role
+TypeError: NativeSelect requires an accessible name
+
+Failure screenshots:
+  - test-results/siheom-25433/tests/siheom/native-select.test.tsx/accepts-native-accessible-label-text-alternatives-from-a-local-image-1.png
+  - test-results/siheom-25433/tests/siheom/native-select.test.tsx/accepts-native-accessible-label-text-alternatives-from-a-named-image-role-1.png
+
+ ❯ runComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:753:21
+ ❯ updateComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:735:2
+ ❯ runTop ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:858:6
+ ❯ runUserEffects ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:968:35
+ ❯ ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:925:33
+ ❯ runUpdates ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:874:16
+ ❯ completeUpdates ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:925:16
+ ❯ runUpdates ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:875:4
+ ❯ createRoot ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:202:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 21 passed (23)
+   Start at  11:25:30
+   Duration  1.17s (transform 0ms, setup 60ms, import 149ms, tests 244ms, environment 0ms)
+

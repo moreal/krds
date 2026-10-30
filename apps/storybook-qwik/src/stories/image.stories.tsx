@@ -1,0 +1,10 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-image',title:'KRDS/image',component:CatalogStory,args:{componentId:'image'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Informative:Story={name:"informative",args:{caseId:"informative"}};
+export const Decorative:Story={name:"decorative",args:{caseId:"decorative"}};
+export const ComplexDescription:Story={name:"complex-description",args:{caseId:"complex-description"}};
+export const Responsive:Story={name:"responsive",args:{caseId:"responsive"}};
+export const LoadError:Story={name:"load-error",args:{caseId:"load-error"}};

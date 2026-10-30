@@ -1,0 +1,4 @@
+import {demoIdentity,formCategories,resourceCategories,consentContent,layoutNavigation,layoutSections} from '@unofficial-krds/test-contracts/patterns';
+import type {PatternContent,Destination} from '../../../../../packages/angular/examples/patterns/view';
+export const content:PatternContent={identity:demoIdentity,formCategories,resourceCategories,consent:consentContent,navigation:layoutNavigation,sections:layoutSections};
+export const urls={pages:Object.fromEntries([1,2,3,4].map(page=>[page,'/examples/search-results?'+new URLSearchParams({case:'filter-resets-page',query:'',category:'all',page:String(page)})])),destinations:Object.fromEntries(Object.keys(layoutSections).map(id=>[id,'/examples/service-layout?'+new URLSearchParams({case:'navigate-current',section:id})])) as Record<Destination,string>};

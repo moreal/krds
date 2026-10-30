@@ -1,0 +1,28 @@
+✔ copies exact terms and copyright only into the package that distributes the asset (105.432625ms)
+✔ rejects unresolved rights on a distributed asset (45.953834ms)
+✔ rejects distributed material without preserved full terms (46.17975ms)
+✔ rejects truncated or altered license terms using preserved source hash (51.591958ms)
+✔ accepts absent original web metadata with evidence, without inventing copyright (99.604875ms)
+✔ rejects whitespace metadata and unsupported fields instead of hiding missing values (63.552209ms)
+✔ rejects distributed source hash drift and untracked shipped binary assets (93.3375ms)
+✔ detects stale package notices and a missing files whitelist entry (191.429291ms)
+✔ allows an unresolved investigation record only when it is excluded from distribution (98.324042ms)
+✔ rejects a shipped binary outside the configured asset roots (50.911ms)
+✔ rejects missing rights evidence and missing original copyright even with a replacement license hash (86.576041ms)
+✔ requires explanation for original metadata absence (45.800875ms)
+✔ preserves related full policy text with the package that uses it (94.946584ms)
+✔ rejects a stale supply-chain inventory after the lockfile changes (96.383917ms)
+✔ blocks release when confirmed identity still has an incomplete independent-code policy and grant (142.365542ms)
+✔ blocks release when policy flags are confirmed but the independent-code grant is incomplete (98.942458ms)
+✔ blocks release when completed policy and grant still generate an explicitly incomplete notice (100.087167ms)
+✔ rejects files glob patterns instead of skipping untracked shipped material (397.785666ms)
+✔ accepts local release readiness when confirmed identity, complete MIT grant and package notices agree (106.373917ms)
+✔ blocks release when the completed independent-code grant names a different confirmed holder (98.147541ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2172.427292

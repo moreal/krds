@@ -1,0 +1,321 @@
+{
+  "kind": "stories",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "solid",
+      "canonicalSelection": true,
+      "coverageAwarded": false,
+      "stories": [
+        {
+          "id": "krds-button--disabled",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:52174/iframe.html?id=krds-button--disabled&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:52174/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-B0tl7-AT.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-Bn7eJ6q6.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-oJt4Th0u.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:52174/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/button.stories-C3UFQLiI.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-native-select--controlled",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:52174/iframe.html?id=krds-native-select--controlled&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:52174/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-B0tl7-AT.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-Bn7eJ6q6.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-oJt4Th0u.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:52174/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/native-select.stories-Csq8EnVK.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-modal--open",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:52174/iframe.html?id=krds-modal--open&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:52174/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-B0tl7-AT.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-Bn7eJ6q6.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-oJt4Th0u.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:52174/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/modal.stories-Jg0k2Raw.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/providers-4LHHUrT_-DAMHsHOs.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-tabs--manual",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:52174/iframe.html?id=krds-tabs--manual&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:52174/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-B0tl7-AT.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-Bn7eJ6q6.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-oJt4Th0u.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:52174/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/tabs.stories-BOoyNIN8.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/providers-4LHHUrT_-DAMHsHOs.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-date-input--invalid",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:52174/iframe.html?id=krds-date-input--invalid&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:52174/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-B0tl7-AT.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-Bn7eJ6q6.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-oJt4Th0u.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:52174/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/date-input.stories-DmZS07V1.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/providers-4LHHUrT_-DAMHsHOs.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/calendar-Cj6mdmHQ-DiX5FrHF.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-calendar--selected-range",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:52174/iframe.html?id=krds-calendar--selected-range&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:52174/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-B0tl7-AT.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-Bn7eJ6q6.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/iframe-oJt4Th0u.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:52174/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/calendar.stories-CD2SWDZc.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/calendar-Cj6mdmHQ-DiX5FrHF.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:52174/assets/providers-4LHHUrT_-DAMHsHOs.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        }
+      ],
+      "sourceFiles": 7,
+      "status": "passed"
+    }
+  ]
+}

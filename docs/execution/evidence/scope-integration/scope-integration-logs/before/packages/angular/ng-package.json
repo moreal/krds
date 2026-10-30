@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "dist",
+  "lib": {
+    "entryFile": "src/index.ts"
+  },
+  "allowedNonPeerDependencies": [
+    "@krds-native/contracts",
+    "@krds-native/tokens",
+    "@krds-native/styles",
+    "@zag-js/.*",
+    "@internationalized/date"
+  ]
+}

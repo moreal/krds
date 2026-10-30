@@ -1,0 +1,710 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/modal.test.tsx (9 tests | 1 failed) 142ms
+   × an initially open modal has no opener and uses fallback even if another control had focus 104ms
+ ❯ |chromium| tests/siheom/tabs.test.tsx (7 tests | 2 failed) 269ms
+   × tabs support vertical keyboard policy, unique instance ids and empty/all-disabled state 115ms
+   × automatic click between already focused tabs never duplicates a rejected request 100ms
+ ❯ |chromium| tests/siheom/date-input.test.tsx (8 tests | 3 failed) 375ms
+   × invalid/non-padded drafts stay visible, expose linked errors and block stale form submission 131ms
+   × range fields defer group commit, reject reversed/incomplete and apply inclusive limits 99ms
+   × calendar cancel preserves invalid draft; confirm commits once and returns focus to opener 114ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > invalid/non-padded drafts stay visible, expose linked errors and block stale form submission
+TestingLibraryElementError: Found multiple elements with the text: YYYY-MM-DD 형식의 올바른 날짜를 입력하세요
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+<span
+  data-krds-component="date-input"
+  data-krds-part="error"
+  data-krds-state="invalid"
+  id="cl-1-error"
+>
+  YYYY-MM-DD 형식의 올바른 날짜를 입력하세요
+</span>
+
+Ignored nodes: comments, script, style
+<span
+  aria-atomic="true"
+  aria-live="polite"
+  role="status"
+  style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)"
+>
+  YYYY-MM-DD 형식의 올바른 날짜를 입력하세요
+</span>
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+<body>
+  
+  
+
+
+  <div>
+    <form>
+      <div
+        data-krds-component="date-input"
+        data-krds-part="root"
+        data-krds-state="invalid"
+        dir="ltr"
+      >
+        <label
+          data-krds-component="date-input"
+          data-krds-part="label"
+          data-krds-state=""
+          for="cl-1"
+        >
+          날짜
+        </label>
+        <input
+          aria-describedby="cl-1-hint cl-1-error"
+          aria-invalid="true"
+          data-krds-component="date-input"
+          data-krds-part="control"
+          data-krds-state="invalid"
+          id="cl-1"
+          inputmode="numeric"
+          placeholder="YYYY-MM-DD"
+          type="text"
+        />
+        <button
+          aria-controls="cl-1-popup"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="달력 열기"
+          data-krds-component="date-input"
+          data-krds-part="trigger"
+          data-krds-state="closed"
+          type="button"
+        >
+          달력 열기
+        </button>
+        <span
+          data-krds-component="date-input"
+          data-krds-part="hint"
+          data-krds-state=""
+          id="cl-1-hint"
+        >
+          YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29
+        </span>
+        <span
+          data-krds-component="date-input"
+          data-krds-part="error"
+          data-krds-state="invalid"
+          id="cl-1-error"
+        >
+          YYYY-MM-DD 형식의 올바른 날짜를 입력하세요
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live="polite"
+          role="status"
+          style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)"
+        >
+          YYYY-MM-DD 형식의 올바른 날짜를 입력하세요
+        </span>
+        <input
+          name="date"
+          type="hidden"
+          value="2024-02-29"
+        />
+      </div>
+      <button
+        type="submit"
+      >
+        제출
+      </button>
+    </form>
+  </div>
+</body>
+
+Failure screenshot:
+  - test-results/siheom-4962/tests/siheom/date-input.test.tsx/invalid-non-padded-drafts-stay-visible--expose-linked-errors-and-block-stale-form-submission-1.png
+
+ ❯ Object.getElementError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:338:18
+ ❯ getElementError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1140:21
+ ❯ getMultipleElementsFoundError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1143:9
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1179:12
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1219:18
+ ❯ getByText tests/siheom/date-input.test.tsx:36:16
+     34|   expect(input).toHaveAttribute('aria-invalid', 'true');
+     35|   expect(input.validity.valid).toBe(false);
+     36|   expect(screen.getByText('YYYY-MM-DD 형식의 올바른 날짜를 입력하세요')).toBeVisible…
+       |                ^
+     37|   expect(input.getAttribute('aria-describedby')).toContain(screen.getB…
+     38|   expect(input.form!.checkValidity()).toBe(false);
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > range fields defer group commit, reject reversed/incomplete and apply inclusive limits
+TestingLibraryElementError: Found multiple elements with the text: 종료일은 시작일보다 빠를 수 없습니다
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+<span
+  data-krds-component="date-input"
+  data-krds-part="error"
+  data-krds-state="invalid"
+  id="cl-3-error"
+>
+  종료일은 시작일보다 빠를 수 없습니다
+</span>
+
+Ignored nodes: comments, script, style
+<span
+  aria-atomic="true"
+  aria-live="polite"
+  role="status"
+  style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)"
+>
+  종료일은 시작일보다 빠를 수 없습니다
+</span>
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+<body>
+  
+  
+
+
+  <div>
+    <fieldset
+      data-krds-component="date-input"
+      data-krds-part="root"
+      data-krds-state="invalid"
+      dir="ltr"
+    >
+      <legend
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+      >
+        기간
+      </legend>
+      <label
+        for="cl-3"
+      >
+        시작일
+      </label>
+      <input
+        aria-describedby="cl-3-hint cl-3-error"
+        aria-invalid="true"
+        data-krds-component="date-input"
+        data-krds-part="start-input"
+        data-krds-state="invalid"
+        id="cl-3"
+        inputmode="numeric"
+        placeholder="YYYY-MM-DD"
+        type="text"
+      />
+      <label
+        for="cl-3-end"
+      >
+        종료일
+      </label>
+      <input
+        aria-describedby="cl-3-hint cl-3-error"
+        aria-invalid="true"
+        data-krds-component="date-input"
+        data-krds-part="end-input"
+        data-krds-state="invalid"
+        id="cl-3-end"
+        inputmode="numeric"
+        placeholder="YYYY-MM-DD"
+        type="text"
+      />
+      <button
+        aria-controls="cl-3-popup"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="기간 달력 열기"
+        data-krds-component="date-input"
+        data-krds-part="trigger"
+        data-krds-state="closed"
+        type="button"
+      >
+        달력 열기
+      </button>
+      <span
+        data-krds-component="date-input"
+        data-krds-part="hint"
+        data-krds-state=""
+        id="cl-3-hint"
+      >
+        YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29
+      </span>
+      <span
+        data-krds-component="date-input"
+        data-krds-part="error"
+        data-krds-state="invalid"
+        id="cl-3-error"
+      >
+        종료일은 시작일보다 빠를 수 없습니다
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+        role="status"
+        style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)"
+      >
+        종료일은 시작일보다 빠를 수 없습니다
+      </span>
+      <input
+        name="period.start"
+        type="hidden"
+        value=""
+      />
+      <input
+        name="period.end"
+        type="hidden"
+        value=""
+      />
+    </fieldset>
+  </div>
+</body>
+
+Failure screenshot:
+  - test-results/siheom-4962/tests/siheom/date-input.test.tsx/range-fields-defer-group-commit--reject-reversed-incomplete-and-apply-inclusive-limits-1.png
+
+ ❯ Object.getElementError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:338:18
+ ❯ getElementError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1140:21
+ ❯ getMultipleElementsFoundError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1143:9
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1179:12
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1219:18
+ ❯ getByText tests/siheom/date-input.test.tsx:63:16
+     61|   expect(changes).toEqual([]);
+     62|   fireEvent.input(end, { target: { value: '2024-02-01' } }); enter(end…
+     63|   expect(screen.getByText('종료일은 시작일보다 빠를 수 없습니다')).toBeVisible();
+       |                ^
+     64|   fireEvent.input(start, { target: { value: '2024-02-01' } });
+     65|   fireEvent.input(end, { target: { value: '2024-02-29' } }); enter(end…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > calendar cancel preserves invalid draft; confirm commits once and returns focus to opener
+TestingLibraryElementError: Unable to find an accessible element with the role "dialog" and name "날짜 선택"
+
+Here are the accessible roles:
+
+  textbox:
+
+  Name "날짜":
+  <input
+    aria-describedby="cl-6-hint cl-6-error"
+    aria-invalid="true"
+    data-krds-component="date-input"
+    data-krds-part="control"
+    data-krds-state="invalid"
+    id="cl-6"
+    inputmode="numeric"
+    placeholder="YYYY-MM-DD"
+    type="text"
+  />
+
+  --------------------------------------------------
+  button:
+
+  Name "달력 열기":
+  <button
+    aria-controls="cl-6-popup"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    aria-label="달력 열기"
+    data-krds-component="date-input"
+    data-krds-part="trigger"
+    data-krds-state="open"
+    type="button"
+  />
+
+  --------------------------------------------------
+  status:
+
+  Name "":
+  <span
+    aria-atomic="true"
+    aria-live="polite"
+    role="status"
+    style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)"
+  />
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+<body>
+  
+  
+
+
+  <div>
+    <div
+      data-krds-component="date-input"
+      data-krds-part="root"
+      data-krds-state="invalid"
+      dir="ltr"
+    >
+      <label
+        data-krds-component="date-input"
+        data-krds-part="label"
+        data-krds-state=""
+        for="cl-6"
+      >
+        날짜
+      </label>
+      <input
+        aria-describedby="cl-6-hint cl-6-error"
+        aria-invalid="true"
+        data-krds-component="date-input"
+        data-krds-part="control"
+        data-krds-state="invalid"
+        id="cl-6"
+        inputmode="numeric"
+        placeholder="YYYY-MM-DD"
+        type="text"
+      />
+      <button
+        aria-controls="cl-6-popup"
+        aria-expanded="true"
+        aria-haspopup="dialog"
+        aria-label="달력 열기"
+        data-krds-component="date-input"
+        data-krds-part="trigger"
+        data-krds-state="open"
+        type="button"
+      >
+        달력 열기
+      </button>
+      <span
+        data-krds-component="date-input"
+        data-krds-part="hint"
+        data-krds-state=""
+        id="cl-6-hint"
+      >
+        YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29
+      </span>
+      <span
+        data-krds-component="date-input"
+        data-krds-part="error"
+        data-krds-state="invalid"
+        id="cl-6-error"
+      >
+        YYYY-MM-DD 형식의 올바른 날짜를 입력하세요
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+        role="status"
+        style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)"
+      >
+        YYYY-MM-DD 형식의 올바른 날짜를 입력하세요
+      </span>
+      <input
+        type="hidden"
+        value="2024-02-12"
+      />
+      <dialog
+        aria-labelledby="cl-6-popup-title"
+        aria-modal="true"
+        data-krds-component="date-input"
+        data-krds-part="popup"
+        data-krds-state="open"
+        id="cl-6-popup"
+        tabindex="-1"
+      >
+        <h2
+          id="cl-6-popup-title"
+        >
+          날짜 선택
+        </h2>
+        <div
+          aria-label="날짜 선택"
+          data-krds-component="calendar"
+          data-krds-part="root"
+          data-krds-state=""
+          dir="ltr"
+          id="cl-7"
+          role="group"
+        >
+          
+          <div
+            data-krds-component="calendar"
+            data-krds-part="header"
+            data-krds-state=""
+          >
+            <button
+              aria-label="이전 달"
+              data-krds-component="calendar"
+              data-krds-part="previous"
+              data-krds-state=""
+              type="button"
+            >
+              ‹
+            </button>
+            <h2
+              aria-atomic="true"
+              aria-live="polite"
+              data-krds-component="calendar"
+              data-krds-part="heading"
+              data-krds-state=""
+              id="cl-7-heading"
+            >
+              2024년 2월
+            </h2>
+            <button
+              aria-label="다음 달"
+              data-krds-component="calendar"
+              data-krds-part="next"
+              data-krds-state=""
+              type="button"
+            >
+              ›
+            </button>
+          </div>
+          <table
+            aria-labelledby="cl-7-heading"
+            data-krds-component="calendar"
+            data-krds-part="table"
+            data-krds-state=""
+          >
+            <thead>
+              <tr>
+                <th
+                  aria-label="일요일"
+                  data-krds-component="calendar"
+                  data-krds-part="weekday"
+                  data-krds-state=""
+                  scope="col"
+                >
+                  일
+                </th>
+                <th
+                  aria-label="월요일"
+                  data-krds-component="calendar"
+                  data-krds-part="weekday"
+                  data-krds-state=""
+                  scope="col"
+                >
+                  월
+                </th>
+                <th
+                  aria-label="화요일"
+                  data-krds-component="calendar"
+                  data-krds-part="weekday"
+                  data-krds-state=""
+                  scope="col"
+                >
+                  화
+                </th>
+                <th
+                  aria-label="수요일"
+                  data-krds-component="calendar"
+                  data-krds-part="weekday"
+                  data-krds-state=""
+                  scope="col"
+                >
+                  수
+                </th>
+                <th
+                  aria-label="목요일"
+                  data-krds-component="calendar"
+                  data-krds-part="weekday"
+                  data-krds-state=""
+                  scope="col"
+                >
+                  목
+                </th>
+                <th
+                  aria-label="금요일"
+                  data-krds-component="calendar"
+                  data-krds-part="weekday"
+                  data-krds-state=""
+                  scope="col"
+                >
+                  금
+                </th>
+                <th
+                  aria-label="토요일"
+                  data-krds-component="calendar"
+                  data-krds-part="weekday"
+                  data-krds-state=""
+                  scope="col"
+                >
+                  토
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  data-krds-component="calendar"
+                  data-krds-part="cell"
+                  data-krds-state=""
+                >
+                  <button
+                    aria-label="2024년 1월 28일 일요일, 다른 달"
+                    aria-pressed="false"
+                    data-date="2024-01-28"
+                    data-krds-component="calendar"
+                    data-krds-part="day"
+                    data-krds-state="outside-month"
+                    type="button"
+                  >
+                    28
+                  </button>
+                </td>
+                <td
+                  data-krds-component="calendar"
+                  data-krds-part="cell"
+                  data-krds-state=""
+                >
+                  <button
+                    aria-label="2024년 1월 29일 월요일, 다른 달"
+                    aria-pressed="false"
+                    data-date="2024-01-29"
+                    data-krds-component="calendar"
+                    data-krds-part="day"
+                    data-krds-state="outside-month"
+                    type="button"
+                  >
+                    29
+                  </button>
+                </td>
+                <td
+                  data-krds-component="calendar"
+                  data-krds-part="cell"
+                  data-krds-state=""
+                >
+                  <button
+                    aria-label="2024년 1월 30일 화요일, 다른 달"
+                    aria-pressed="false"
+                    data-date="2024-01-30"
+                    data-krds-component="calendar"
+                    data-krds-part="day"
+                    data-krds-state...
+
+Failure screenshot:
+  - test-results/siheom-4962/tests/siheom/date-input.test.tsx/calendar-cancel-preserves-invalid-draft--confirm-commits-once-and-returns-focus-to-opener-1.png
+
+ ❯ Object.getElementError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:338:18
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1197:24
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1176:16
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1219:18
+ ❯ getByRole tests/siheom/date-input.test.tsx:102:16
+    100|   const trigger = screen.getByRole('button', { name: '달력 열기' });
+    101|   fireEvent.click(trigger);
+    102|   expect(screen.getByRole('dialog', { name: '날짜 선택' })).toBeVisible();
+       |                ^
+    103|   fireEvent.click(screen.getByRole('button', { name: '취소' })); await P…
+    104|   expect(input.value).toBe('잘못된 날짜');
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > an initially open modal has no opener and uses fallback even if another control had focus
+AssertionError: expected <button></button> to be <button id="initial-fallback"></button> // Object.is equality
+
+Failure screenshot:
+  - test-results/siheom-4962/tests/siheom/modal.test.tsx/an-initially-open-modal-has-no-opener-and-uses-fallback-even-if-another-control-had-focus-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- <button[39m
+[32m-   id="initial-fallback"[39m
+[32m- >[39m
+[32m-   다음 작업[39m
+[31m+ <button>[39m
+[31m+   다른 작업[39m
+[2m  </button>[22m
+
+ ❯ toBe tests/siheom/modal.test.tsx:108:35
+    106|     const result = render(() => <><button id="initial-fallback">다음 작업<…
+    107|     dialog().querySelector<HTMLButtonElement>('[data-krds-part="close"…
+    108|     expect(document.activeElement).toBe(document.getElementById('initi…
+       |                                   ^
+    109|   } finally { unrelated.remove(); }
+    110| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tabs support vertical keyboard policy, unique instance ids and empty/all-disabled state
+AssertionError: expected undefined to be null
+
+Failure screenshot:
+  - test-results/siheom-4962/tests/siheom/tabs.test.tsx/tabs-support-vertical-keyboard-policy--unique-instance-ids-and-empty-all-disabled-state-1.png
+
+[32m- Expected:[39m
+null
+
+[31m+ Received:[39m
+undefined
+
+ ❯ toBeNull tests/siheom/tabs.test.tsx:49:96
+     47|   const first = all()[0]!; first.focus(); expect(key('ArrowRight')).to…
+     48|   const ids = [...document.querySelectorAll('[id]')].map(el => el.id);…
+     49|   expect(document.querySelector('[aria-label="빈 탭"]')?.querySelector('…
+       |                                                                                                ^
+     50|   expect(document.querySelector('[aria-label="비활성 탭"]')?.querySelector…
+     51| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > automatic click between already focused tabs never duplicates a rejected request
+AssertionError: expected [ { value: 'second' }, …(1) ] to deeply equal [ { value: 'second' } ]
+
+Failure screenshot:
+  - test-results/siheom-4962/tests/siheom/tabs.test.tsx/automatic-click-between-already-focused-tabs-never-duplicates-a-rejected-request-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[2m    {[22m
+[2m      "value": "second",[22m
+[2m    },[22m
+[31m+   {[39m
+[31m+     "value": "second",[39m
+[31m+   },[39m
+[2m  ][22m
+
+ ❯ toEqual tests/siheom/tabs.test.tsx:70:65
+     68|   const Tabs = tabs(); const events: unknown[] = []; const user = user…
+     69|   render(() => <Tabs label="초점 이동" items={items()} value="first" activ…
+     70|   all()[0]!.focus(); await user.click(all()[2]!); expect(events).toEqu…
+       |                                                                 ^
+     71| });
+     72|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  3 failed | 3 passed (6)
+      Tests  6 failed | 41 passed (47)
+   Start at  10:48:33
+   Duration  1.69s (transform 0ms, setup 641ms, import 1.42s, tests 1.21s, environment 0ms)
+

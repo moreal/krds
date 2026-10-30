@@ -1,0 +1,41 @@
+
+┌  Building storybook v10.6.5
+│
+◇  Cleaning outputDir: dist
+│
+◇  Loading presets
+│
+◇  Building manager..
+│
+●  Building open services..
+│
+●  Building preview..
+│  Vite vite v8.3.5 building client environment for production...
+transforming...
+✓ 64 modules transformed.
+rendering chunks...
+computing gzip size...
+│  Vite dist/iframe.html                           18.65 kB │ gzip:
+│  5.28 kB
+│  dist/assets/iframe-DHpM-7UO.js              0.04 kB │ gzip:   0.06 kB
+│  dist/assets/rolldown-runtime-Dh6celcD.js    0.62 kB │ gzip:   0.41 kB
+│  dist/assets/preload-helper-_1ZBrL1G.js      1.64 kB │ gzip:   0.87 kB
+│  dist/assets/probe.stories-BhLtUTGS.js       1.84 kB │ gzip:   0.87 kB
+│  dist/vite-inject-mocker-entry.js           27.75 kB │ gzip:   9.66 kB
+│  dist/assets/iframe-mzfqoJdo.js            986.84 kB │ gzip: 283.23 kB
+
+│
+▲  Vite [plugin builtin:vite-reporter]
+│  (!) Some chunks are larger than 500 kB after minification. Consider:
+│  - Using dynamic import() to code-split the application
+│  - Use build.rolldownOptions.output.codeSplitting to improve chunking:
+│  ]8;;https://rolldown.rs/reference/OutputOptions.codeSplittinghttps://rolldown.rs/reference/OutputOptions.codeSplitting]8;;
+│  - Adjust chunk size limit for this warning via
+│  build.chunkSizeWarningLimit.
+│  Vite ✓ built in 357ms
+│
+◇  Output directory:
+│  /Users/moreal/github/moreal/krds/apps/storybook-solid/dist
+│
+└  Storybook build completed successfully
+

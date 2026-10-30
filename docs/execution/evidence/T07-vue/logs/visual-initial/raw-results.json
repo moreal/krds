@@ -1,0 +1,210 @@
+[
+  {
+    "variant": "normal",
+    "geometry": {
+      "viewport": 1280,
+      "page": 1280,
+      "focused": "medium",
+      "focusOutline": "solid",
+      "tableScroll": [
+        {
+          "client": 336,
+          "scroll": 336
+        }
+      ]
+    },
+    "axe": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the order of headings is semantically correct",
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "heading-order",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Heading order invalid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "moderate",
+            "html": "<h3 id=\"v-7-heading\" data-krds-component=\"calendar\" data-krds-part=\"heading\" aria-live=\"polite\">2024년 2월</h3>",
+            "target": [
+              "#v-7-heading"
+            ],
+            "failureSummary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      }
+    ],
+    "modalAxe": [],
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "variant": "narrow",
+    "geometry": {
+      "viewport": 320,
+      "page": 320,
+      "focused": "medium",
+      "focusOutline": "solid",
+      "tableScroll": [
+        {
+          "client": 292,
+          "scroll": 328
+        }
+      ]
+    },
+    "axe": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the order of headings is semantically correct",
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "heading-order",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Heading order invalid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "moderate",
+            "html": "<h3 id=\"v-7-heading\" data-krds-component=\"calendar\" data-krds-part=\"heading\" aria-live=\"polite\">2024년 2월</h3>",
+            "target": [
+              "#v-7-heading"
+            ],
+            "failureSummary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      }
+    ],
+    "modalAxe": [],
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "variant": "zoom200",
+    "geometry": {
+      "viewport": 1280,
+      "page": 1280,
+      "focused": "medium",
+      "focusOutline": "solid",
+      "tableScroll": [
+        {
+          "client": 336,
+          "scroll": 336
+        }
+      ]
+    },
+    "axe": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the order of headings is semantically correct",
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "heading-order",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Heading order invalid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "moderate",
+            "html": "<h3 id=\"v-7-heading\" data-krds-component=\"calendar\" data-krds-part=\"heading\" aria-live=\"polite\">2024년 2월</h3>",
+            "target": [
+              "#v-7-heading"
+            ],
+            "failureSummary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      }
+    ],
+    "modalAxe": [],
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "variant": "forced-colors",
+    "geometry": {
+      "viewport": 1280,
+      "page": 1280,
+      "focused": "medium",
+      "focusOutline": "solid",
+      "tableScroll": [
+        {
+          "client": 336,
+          "scroll": 336
+        }
+      ]
+    },
+    "axe": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the order of headings is semantically correct",
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "heading-order",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Heading order invalid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "moderate",
+            "html": "<h3 id=\"v-7-heading\" data-krds-component=\"calendar\" data-krds-part=\"heading\" aria-live=\"polite\">2024년 2월</h3>",
+            "target": [
+              "#v-7-heading"
+            ],
+            "failureSummary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      }
+    ],
+    "modalAxe": [],
+    "errors": [],
+    "externalRequests": []
+  }
+]

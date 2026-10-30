@@ -1,0 +1,94 @@
+✔ R5 actual retained solid report binds all fifteen canonical cases (3.643959ms)
+✔ R5 actual retained react report binds all fifteen canonical cases (0.767209ms)
+✖ R5 actual retained svelte report binds all fifteen canonical cases (3.786ms)
+✔ R5 actual retained vue report binds all fifteen canonical cases (30.812875ms)
+✔ R5 actual retained lit report binds all fifteen canonical cases (1.121167ms)
+✖ R5 actual retained qwik report binds all fifteen canonical cases (0.960417ms)
+✖ R5 actual retained angular report binds all fifteen canonical cases (0.891083ms)
+✔ R5 svelte exact native identities reject missing, duplicate, failed, skipped and malformed rows (3.817167ms)
+✔ R5 angular exact native identities reject missing, duplicate, failed, skipped and malformed rows (1.072417ms)
+✔ R5 qwik exact native identities reject missing, duplicate, failed, skipped and malformed rows (3.249334ms)
+✖ R5 each enumerated recipe resolves an existing actual entry and source inventory binds imported root producers (0.964833ms)
+✖ R5 stdout checks consume actual Lit and three status-producer formats, rejecting unrelated and contradictory output (0.661084ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 7
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 234.920375
+
+✖ failing tests:
+
+test at tools/release-evidence/patterns.test.mjs:18:55
+✖ R5 actual retained svelte report binds all fifteen canonical cases (3.786ms)
+  Error: Native pattern failed/unexecuted: form-errors/error-summary-focus
+      at blocked (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:10:45)
+      at requireFact (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:11:53)
+      at Module.parsePatterns (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:26:24)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/patterns.test.mjs:19:67)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    code: 'EVIDENCE_BLOCKED'
+  }
+
+test at tools/release-evidence/patterns.test.mjs:18:55
+✖ R5 actual retained qwik report binds all fifteen canonical cases (0.960417ms)
+  Error: Native pattern failed/unexecuted: form/error-summary-focus
+      at blocked (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:10:45)
+      at requireFact (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:11:53)
+      at Module.parsePatterns (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:26:24)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/patterns.test.mjs:19:67)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    code: 'EVIDENCE_BLOCKED'
+  }
+
+test at tools/release-evidence/patterns.test.mjs:18:55
+✖ R5 actual retained angular report binds all fifteen canonical cases (0.891083ms)
+  Error: Native pattern failed/unexecuted: form-errors/error-summary-focus
+      at blocked (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:10:45)
+      at requireFact (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:11:53)
+      at Module.parsePatterns (file:///Users/moreal/github/moreal/krds/tools/release-evidence/producers.mjs:26:24)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/patterns.test.mjs:19:67)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    code: 'EVIDENCE_BLOCKED'
+  }
+
+test at tools/release-evidence/patterns.test.mjs:28:1
+✖ R5 each enumerated recipe resolves an existing actual entry and source inventory binds imported root producers (0.964833ms)
+  Error: ENOENT: no such file or directory, stat '/Users/moreal/github/moreal/krds/apps/fixture-svelte/scripts/patterns-browser.mjs'
+      at async stat (node:internal/fs/promises:1038:18)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/patterns.test.mjs:31:17)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'stat',
+    path: '/Users/moreal/github/moreal/krds/apps/fixture-svelte/scripts/patterns-browser.mjs'
+  }
+
+test at tools/release-evidence/patterns.test.mjs:42:1
+✖ R5 stdout checks consume actual Lit and three status-producer formats, rejecting unrelated and contradictory output (0.661084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/release-evidence/patterns.test.mjs:43:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

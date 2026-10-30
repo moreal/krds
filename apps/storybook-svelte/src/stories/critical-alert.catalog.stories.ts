@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-critical-alert', title: 'KRDS/Catalog/CriticalAlert', component: CatalogStory, args: {componentId: 'critical-alert'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const HighUrgency: Story = {name: "high-urgency", args: {caseId: "high-urgency"}};
+export const MediumUrgency: Story = {name: "medium-urgency", args: {caseId: "medium-urgency"}};
+export const LowUrgency: Story = {name: "low-urgency", args: {caseId: "low-urgency"}};
+export const Narrow: Story = {name: "narrow", args: {caseId: "narrow"}};
+export const PagePlacement: Story = {name: "page-placement", args: {caseId: "page-placement"}};

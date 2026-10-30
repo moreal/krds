@@ -1,0 +1,13 @@
+# KRDS Native workspace rules
+
+- For this PLAN execution/session, the user's orchestration preference is `gpt-6.1-sol` for implementation and review delegates. The controller owns delegation. Do not create or amend Git commits while the exact active model identity hook is unavailable; no publishing, pushing, or tagging is authorized.
+
+- Use the exact Node and Yarn versions in `compatibility/toolchain.json`. `node tools/yarn.mjs <command>` explicitly launches the selected Node and vendored Yarn. Do not use ambient Node 26. Corepack is pinned locally; do not change global tools.
+- Yarn Berry owns installation and the single `yarn.lock`; `.yarnrc.yml` must retain `nodeLinker: pnpm`. Never run `pnpm install` or introduce npm/pnpm lockfiles.
+- Native rendering is required for each framework. No React/Lit wrapper substitutes for another renderer. Solid 1 and the exact Solid 2 RC renderer/compiler are isolated. Qwik stays on its selected Vite 7; others use selected Vite 8. Angular uses its official CLI/ng-packagr and partial APF. No root resolutions.
+- Declare every runtime/compiler/test/story dependency directly in its consuming workspace. Public adapter runtimes are peers with exact development copies; internal public dependencies use `workspace:^`.
+- Nx tags and `tools/check-workspace.mjs` enforce shared → shared, adapter → shared, test → shared, app → library dependencies. Adapters may not import each other or foreign renderers. CSS/docs dependencies must appear in `implicitDependencies`. Docs may link fixture outputs.
+- `build` calls each workspace `build:local`; outputs belong in its own `dist/`. Probe entries are bootstrap tests, contribute no catalog coverage, and must be replaced by the owning implementation task. Empty behavioral suites must fail rather than claim success.
+- Stories use local args/inputs/slots and pure state; no API/auth/CDN/external fonts/images. Keep story and siheom behavior files separate. Lit and Solid 2 have no supported upstream siheom adapter; do not widen peers or invent support.
+- Track KRDS source URL, baseline, retrieval date and hashes in upstream/provenance records before incorporating source/assets. Independent MIT code does not relicense KRDS or font materials. Scope ownership, repository ownership and copyright holder are unconfirmed in `compliance/project-identity.json`; never invent holders, publish placeholders, or publish without authorization and release checks.
+- Do not execute original KRDS JavaScript alongside Ark/Zag controlling the same DOM. Do not add remote telemetry requirements or Nx Cloud.

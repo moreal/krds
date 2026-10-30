@@ -1,0 +1,43 @@
+{
+  "baseline": ".superpowers/sdd/PLAN/task-T16-fix4-base",
+  "files": [
+    {
+      "path": "tools/release-evidence/docs-browser.mjs",
+      "before": {
+        "bytes": 3369,
+        "sha256": "0f61407c07ce6fa4f27432363c0400fef155ef374ef502584648d81c1e958320"
+      },
+      "after": {
+        "bytes": 2245,
+        "sha256": "680b8dbf297871e1e32032a761cdedba1569afcac20b8a6af3dd1e588f846df4"
+      }
+    },
+    {
+      "path": "tools/release-evidence/docs-responses.mjs",
+      "before": null,
+      "after": {
+        "bytes": 3619,
+        "sha256": "bcc4cbd244a7db9dc19e35bba6434bb686b55439a466835e7e212493111317d2"
+      }
+    },
+    {
+      "path": "tools/release-evidence/docs-responses.test.mjs",
+      "before": null,
+      "after": {
+        "bytes": 5000,
+        "sha256": "433d3d91429a36e134592b343af745eab016fc367ad894f40eb384326f50d49c"
+      }
+    },
+    {
+      "path": "tools/release-evidence/README.md",
+      "before": {
+        "bytes": 8723,
+        "sha256": "d1f77a16bc8dc6f6e3f2d1ae35167992cfadc2122969cd7698ba972d250a1a68"
+      },
+      "after": {
+        "bytes": 9108,
+        "sha256": "08fcf7989bd7bb935c04db5c3c2b6663b3fcbd87fa4fbb455c57dd377082e186"
+      }
+    }
+  ]
+}

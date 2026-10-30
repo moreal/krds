@@ -1,0 +1,6 @@
+import {booleanAttribute, Component, Input, Output, EventEmitter, ChangeDetectionStrategy, signal, inject, ElementRef, afterEveryRender, ViewChild, type OnInit, type OnChanges, type OnDestroy } from '@angular/core';
+import type * as C from '@unofficial-krds/contracts';
+import { ControlMode, usable, focusables, composing, KRDS_ENVIRONMENT } from '../../internal/behavior';
+
+@Component({selector: 'krds-image', standalone:true, changeDetection:ChangeDetectionStrategy.OnPush,  template: `<figure data-krds-component="image" data-krds-part="figure"><img data-krds-component="image" data-krds-part="root" [src]="src" [alt]="alt" [attr.width]="width??null" [attr.height]="height??null" [attr.srcset]="srcset||null" [attr.sizes]="sizes||null" [attr.loading]="loading" [attr.aria-describedby]="descriptionId||null"/>@if(caption){<figcaption data-krds-component="image" data-krds-part="caption">{{caption}}</figcaption>}</figure>`})
+export class Image implements OnChanges {@Input() src='';@Input() alt='';@Input() width:number|undefined;@Input() height:number|undefined;@Input() srcset='';@Input() sizes='';@Input() loading:'eager'|'lazy'='lazy';@Input({transform:booleanAttribute}) decorative=false;@Input() caption='';@Input() descriptionId='';ngOnChanges():void{if(this.decorative&&this.alt)throw new TypeError('Decorative image must have empty alternative.');}}

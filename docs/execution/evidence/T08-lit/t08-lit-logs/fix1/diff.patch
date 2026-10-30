@@ -1,0 +1,529 @@
+--- reviewed-before/apps/fixture-lit/tests/contract/review-fix1.test.mjs
++++ fix1/apps/fixture-lit/tests/contract/review-fix1.test.mjs
+@@ -0,0 +1,145 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { readFile, writeFile } from 'node:fs/promises';
++import { render } from '@lit-labs/ssr';
++import { html } from 'lit';
++import { registerKrdsElements } from '@unofficial-krds/lit';
++import { browserPath, serveProduction } from '../../../../tools/testing/support.mjs';
++
++process.env.PLAYWRIGHT_BROWSERS_PATH ??= browserPath;
++const { chromium, webkit } = await import('playwright');
++registerKrdsElements(customElements);
++const options = [{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }];
++
++for (const engine of ['chromium', 'webkit']) {
++  test(`review 1 ${engine}: non-first native selection exists before hydration and reuses the select`, async () => {
++    const markup = [...render(html`<krds-native-select id="controlled" defer-hydration label="제어 지역" .options=${options} .value=${'busan'}></krds-native-select><krds-native-select id="uncontrolled" defer-hydration label="기본 지역" .options=${options} .defaultValue=${'busan'}></krds-native-select>`)].join('');
++    const skeleton = await readFile(new URL('../../dist/hydrate.html', import.meta.url), 'utf8');
++    const state = { controlled: { options, value: 'busan' }, uncontrolled: { options, defaultValue: 'busan' } };
++    const document = skeleton.replace('<main id="app"></main>', `<main id="app">${markup}</main><script id="krds-hydration-state" type="application/json">${JSON.stringify(state)}</script>`);
++    await writeFile(new URL(`../../dist/review-selection-${engine}.html`, import.meta.url), document);
++    const server = await serveProduction(new URL('../../dist', import.meta.url).pathname);
++    const browser = await ({ chromium, webkit })[engine].launch();
++    try {
++      const page = await browser.newPage();
++      await page.route('**/*.js', route => route.abort());
++      await page.goto(`${server.origin}/review-selection-${engine}.html`);
++      assert.deepEqual(await page.locator('krds-native-select').evaluateAll(hosts => hosts.map(host => host.shadowRoot.querySelector('select').value)), ['busan', 'busan']);
++      await page.evaluate(() => { window.serverSelects = [...document.querySelectorAll('krds-native-select')].map(host => host.shadowRoot.querySelector('select')); });
++      await page.unroute('**/*.js');
++      const module = await page.locator('script[type="module"]').getAttribute('src');
++      await page.evaluate(async source => { await import(source); }, module);
++      assert.deepEqual(await page.locator('krds-native-select').evaluateAll(async hosts => {
++        await Promise.all(hosts.map(host => host.updateComplete));
++        return hosts.map((host, index) => ({ same: host.shadowRoot.querySelector('select') === window.serverSelects[index], value: host.shadowRoot.querySelector('select').value }));
++      }), [{ same: true, value: 'busan' }, { same: true, value: 'busan' }]);
++      await page.getByRole('combobox', { name: '제어 지역' }).selectOption('seoul');
++      assert.equal(await page.getByRole('combobox', { name: '제어 지역' }).inputValue(), 'busan');
++      await page.getByRole('combobox', { name: '기본 지역' }).selectOption('seoul');
++      assert.equal(await page.getByRole('combobox', { name: '기본 지역' }).inputValue(), 'seoul');
++    } finally { await browser.close(); await server.close(); }
++  });
++
++  test(`review 2 ${engine}: range validity and native submission focus target the affected endpoint`, async () => {
++    const server = await serveProduction(new URL('../../dist', import.meta.url).pathname);
++    const browser = await ({ chromium, webkit })[engine].launch();
++    try {
++      const page = await browser.newPage();
++      await page.goto(`${server.origin}/harness.html`);
++      await page.waitForFunction(() => customElements.get('krds-date-input'));
++      await page.evaluate(async () => {
++        const form = document.createElement('form');
++        const date = document.createElement('krds-date-input');
++        Object.assign(date, { label: '기간', name: 'period', mode: 'range', defaultValue: { start: '2024-02-29', end: '2024-03-01' }, min: '2024-02-01', max: '2024-03-31', withCalendar: false });
++        form.append(date); document.querySelector('main').append(form);
++        window.changes = []; window.submits = 0;
++        date.addEventListener('value-change', event => window.changes.push(event.detail));
++        form.addEventListener('submit', event => { event.preventDefault(); window.submits++; });
++        await date.updateComplete;
++      });
++      const end = page.getByRole('textbox', { name: '종료일', exact: true });
++      for (const raw of ['bad', '2024-04-01', '']) {
++        await end.fill(raw);
++        await page.evaluate(() => document.querySelector('form').requestSubmit());
++        const observation = await page.locator('krds-date-input').evaluate(async host => {
++          await host.updateComplete;
++          const [start, end] = host.shadowRoot.querySelectorAll('input');
++          return { startValid: start.validity.valid, endValid: end.validity.valid, startInvalid: start.getAttribute('aria-invalid'), endInvalid: end.getAttribute('aria-invalid'), focused: host.shadowRoot.activeElement?.id, values: [...new FormData(document.querySelector('form'))], changes: window.changes, submits: window.submits };
++        });
++        assert.deepEqual(observation, { startValid: true, endValid: false, startInvalid: null, endInvalid: 'true', focused: 'end', values: [['period.start', '2024-02-29'], ['period.end', '2024-03-01']], changes: [], submits: 0 });
++      }
++    } finally { await browser.close(); await server.close(); }
++  });
++
++  test(`review 3 ${engine}: explicit naming reaches semantic controls across actual host roots`, async () => {
++    const server = await serveProduction(new URL('../../dist', import.meta.url).pathname);
++    const browser = await ({ chromium, webkit })[engine].launch();
++    try {
++      const page = await browser.newPage();
++      const errors = []; page.on('pageerror', error => errors.push(String(error)));
++      await page.goto(`${server.origin}/harness.html`);
++      await page.waitForFunction(() => customElements.get('krds-tabs'));
++      await page.evaluate(async () => {
++        const root = document.querySelector('main');
++        for (const kind of ['tabs', 'calendar']) {
++          for (const mode of ['label', 'labelledby', 'shadow-labelledby']) {
++            const container = document.createElement('div'); root.append(container);
++            const parent = mode.startsWith('shadow') ? container.attachShadow({ mode: 'open' }) : container;
++            const label = document.createElement('span'); label.id = `${kind}-${mode}-label`; label.textContent = `${kind} ${mode}`; parent.append(label);
++            const element = document.createElement(`krds-${kind}`);
++            if (kind === 'tabs') element.items = [{ value: 'a', label: 'A', content: 'Panel' }];
++            element.setAttribute(mode === 'label' ? 'aria-label' : 'aria-labelledby', mode === 'label' ? label.textContent : label.id);
++            parent.append(element); await element.updateComplete;
++          }
++        }
++      });
++      for (const kind of ['tabs', 'calendar']) for (const mode of ['label', 'labelledby', 'shadow-labelledby']) {
++        const role = kind === 'tabs' ? 'tablist' : 'region';
++        await page.getByRole(role, { name: `${kind} ${mode}`, exact: true }).waitFor({ timeout: 1000 });
++      }
++      await page.evaluate(() => {
++        for (const container of document.querySelector('main').children) {
++          for (const label of (container.shadowRoot ?? container).querySelectorAll('span[id$="-label"]')) label.textContent += ' 갱신';
++        }
++      });
++      for (const kind of ['tabs', 'calendar']) for (const mode of ['labelledby', 'shadow-labelledby']) {
++        await page.getByRole(kind === 'tabs' ? 'tablist' : 'region', { name: `${kind} ${mode} 갱신`, exact: true }).waitFor({ timeout: 1000 });
++      }
++      const rejected = await page.evaluate(async () => {
++        const results = [];
++        for (const [kind, reference] of [['tabs', ''], ['calendar', 'missing-label']]) {
++          const element = document.createElement(`krds-${kind}`);
++          if (kind === 'tabs') element.items = [{ value: 'a', label: 'A', content: 'Panel' }];
++          element.setAttribute('aria-labelledby', reference);
++          const result = element.updateComplete.then(() => false, error => error instanceof TypeError);
++          document.querySelector('main').append(element);
++          results.push(await result);
++          element.remove();
++        }
++        return results;
++      });
++      assert.deepEqual(rejected, [true, true]);
++      assert.deepEqual(errors, []);
++    } finally { await browser.close(); await server.close(); }
++  });
++
++  test(`review 4 ${engine}: an inert outer shadow host forces the supplied usable return target`, async () => {
++    const server = await serveProduction(new URL('../../dist', import.meta.url).pathname);
++    const browser = await ({ chromium, webkit })[engine].launch();
++    try {
++      const page = await browser.newPage();
++      await page.goto(`${server.origin}/harness.html`);
++      await page.waitForFunction(() => customElements.get('krds-modal'));
++      await page.evaluate(async () => {
++        const container = document.createElement('div'); container.id = 'shadow-opener';
++        const shadow = container.attachShadow({ mode: 'open' }); shadow.innerHTML = '<button>열기</button>';
++        const fallback = document.createElement('button'); fallback.id = 'fallback'; fallback.textContent = '다음 작업';
++        const modal = document.createElement('krds-modal'); Object.assign(modal, { title: '확인', open: false, returnFocusId: 'fallback' });
++        document.querySelector('main').append(container, fallback, modal); await modal.updateComplete;
++        shadow.querySelector('button').focus(); modal.open = true; await modal.updateComplete;
++        container.inert = true; modal.open = false; await modal.updateComplete;
++      });
++      assert.equal(await page.getByRole('button', { name: '다음 작업', exact: true }).evaluate(button => button === document.activeElement), true);
++    } finally { await browser.close(); await server.close(); }
++  });
++}
+--- reviewed-before/docs/compatibility/lit.md
++++ fix1/docs/compatibility/lit.md
+@@ -11,3 +11,7 @@
+ Storybook uses the native Web Components renderer 10.6.5. Stories are local args/state/templates and separate from behavior tests. The canonical runner's raw axe 4.14 findings and network results must both be inspected; exit zero alone is insufficient. The selected siheom release has no official Lit adapter, so Lit siheom execution is explicitly unsupported. Native Playwright suites remain mandatory.
+ 
+ Chromium and WebKit provide native evidence. The inherited Firefox profile-creation failure is a tool/environment limitation, not a passing Firefox implementation result. The final T08 report records exact commands, visual artifacts and residual acceptance limits; no catalog coverage is promoted by this document.
++
++The first Lit review revision adds explicit option `selected` serialization for matched controlled/default values before hydration. Static single-select HTML cannot represent an unmatched empty/no-selection state while enabled options exist; that specific state needs hydration and is excluded from the pre-hydration equivalence claim. Native range validation identifies affected endpoints, so an end-only error keeps the start field valid and uses the end input as the ElementInternals anchor/focus target.
++
++Tabs/Calendar host `aria-label` and `aria-labelledby` reach the actual internal tablist/region. Browser element-reference ARIA is preferred and live reference text updates are observed. In standalone SSR only, external `aria-labelledby` needs application-owned plain text in `.labelReferences`; no unresolved external IDREF is copied into the shadow root and no full accessible-name algorithm or AT acceptance is claimed. Modal return-target usability now traverses assigned slots and shadow hosts for effective inertness and ancestor fallback.
+--- reviewed-before/packages/lit/README.md
++++ fix1/packages/lit/README.md
+@@ -23,12 +23,16 @@
+ 
+ A defined `.value` or `.open` selects controlled mode; `.defaultValue`/`.defaultOpen` selects an uncontrolled initial baseline. Do not combine them or switch modes. Parents accept a request by updating the property. Controlled rejection restores the displayed parent value. Semantic `value-change`, `open-change` and Calendar `confirm`/`cancel` events bubble and are composed; details contain plain values. Native Button `click` remains the action event. Mount, parent updates and reset produce no value events.
+ 
+-NativeSelect renders an actual single `<select>`. NativeSelect and DateInput are form-associated custom elements using ElementInternals, without hidden duplicate controls. `name`, `form`, required validity, disabled fieldsets, reset and state restoration are supported. DateInput editable drafts stay unnamed; its canonical value is the sole successful entry. Range entries use `name.start` and `name.end`. Invalid drafts block submission; valid pending drafts commit before FormData is constructed. A controlled rejected commit prevents that submission.
++NativeSelect renders an actual single `<select>`. SSR serializes `selected` for any committed value that matches an option, including a non-first controlled value or uncontrolled default. Static single-select HTML cannot express `selectedIndex = -1` while enabled options exist: an unmatched empty semantic value therefore requires client hydration to establish no selection. No extra placeholder option is inserted; pre-hydration state equivalence is not claimed for that specific case. NativeSelect and DateInput are form-associated custom elements using ElementInternals, without hidden duplicate controls. `name`, `form`, required validity, disabled fieldsets, reset and state restoration are supported. DateInput editable drafts stay unnamed; its canonical value is the sole successful entry. Range entries use `name.start` and `name.end`. Invalid drafts block submission; valid pending drafts commit before FormData is constructed. A controlled rejected commit prevents that submission.
+ 
+ Button renders a native shadow button. Since its native form owner cannot cross a shadow root, submit activation calls the external host form's `requestSubmit` with a temporary native named submitter; the submit event and `FormData(form, event.submitter)` expose its name/value. Reset invokes the cancelable native reset algorithm once. Neither operation adds a persistent hidden input. A prevented `click` prevents form activation.
+ 
+ Modal uses native `<dialog>.showModal()` and its top layer for background interaction/accessibility isolation. The visible title and description share the dialog's root. Its default focus is the dialog; only an explicit dialog/first-interactive `initialFocusId` is accepted. All enabled tabs and calendar dates stay sequential Tab stops; arrows supplement that access. The close icon is last. Disabling `showCloseButton` requires an enabled action marked `data-krds-close`. `returnFocusId` is a fallback after an unusable saved opener. Button-trigger applications should focus the trigger before changing `.open`, including Safari pointer activation. DateInput does this internally.
+ 
++Tabs and Calendar accept a visible `label` or host `aria-label` / `aria-labelledby`. Browser references resolve in the host's actual document or enclosing shadow root; the internal semantic element uses native `ariaLabelledByElements` when available. A plain-text fallback and reference observers keep label updates available without forwarding an external IDREF into a different shadow root. This fallback is not an implementation of the full accessible-name algorithm.
++
++Standalone SSR has no external document tree. For `aria-labelledby`, supply a plain `labelReferences` property mapping each referenced ID to its label text, for example `.labelReferences=${{ 'trip-label': '방문 일정' }}` alongside `aria-labelledby="trip-label"`. This is application-provided plain label context, not automatic DOM/accessible-name computation or assistive-technology proof. Empty/missing reference text is a configuration error. Browser rendering uses actual referenced elements; the SSR mapping does not mask a broken live IDREF.
++
+ Standalone Lit Labs SSR and hydration are tested with the selected `@lit-labs/ssr` 4.1.0 and `@lit-labs/ssr-client` 1.1.8. Install the official hydration support before evaluating element classes. Persist application-owned property data before registration/upgrade; the library does not serialize arbitrary arrays/templates automatically. See `tests/ssr/lit/README.md` and the production fixture's `hydrate` entry. This is standalone Lit Labs evidence, not a blanket host-framework SSR claim.
+ 
+ There is no supported upstream siheom Lit adapter in the selected toolchain. Native Chromium/WebKit contract, form, lifecycle, hydration and Playwright Storybook/axe checks run directly; no foreign renderer or widened peer substitutes for Lit. Full catalog verification and release checks remain separate from the six-pilot task. Independent code and KRDS-derived materials retain the separate licenses and attribution shipped with this package.
+--- reviewed-before/packages/lit/src/components/base.ts
++++ fix1/packages/lit/src/components/base.ts
+@@ -2,25 +2,74 @@
+ import { shadowStyles } from '@unofficial-krds/styles/lit';
+ export class KrdsElement extends LitElement {
+     static override styles = [unsafeCSS(shadowStyles.base), ...(['button', 'native-select', 'modal', 'tabs', 'calendar', 'date-input'] as const).map(name => unsafeCSS(shadowStyles[name])), unsafeCSS(':host{display:block;min-inline-size:0;max-inline-size:100%;color:var(--krds-color-text-primary,#1e2124);font-family:inherit} :host([hidden]){display:none} [hidden]{display:none!important} dialog::backdrop{background:var(--krds-color-light-alpha-black50)}')];
+-    static override properties: PropertyDeclarations = { locale: { type: String }, direction: { type: String, attribute: 'dir' }, label: { type: String } };
++    static override properties: PropertyDeclarations = { locale: { type: String }, direction: { type: String, attribute: 'dir' }, label: { type: String }, labelReferences: { attribute: false } };
+     declare locale: 'ko-KR' | 'en-US';
+     declare direction: 'ltr' | 'rtl';
+     declare label: string;
+-    constructor() { super(); this.locale = 'ko-KR'; this.direction = 'ltr'; this.label = ''; }
++    declare labelReferences: Readonly<Record<string, string>>;
++    private labelObserver?: MutationObserver;
++    private namedSemantics = new WeakSet<Element>();
++    constructor() { super(); this.locale = 'ko-KR'; this.direction = 'ltr'; this.label = ''; this.labelReferences = {}; }
+     static override get observedAttributes() { return [...new Set([...super.observedAttributes, 'aria-label', 'aria-labelledby'])]; }
+     override attributeChangedCallback(name: string, old: string | null, value: string | null) {
+         super.attributeChangedCallback(name, old, value);
+         if (name === 'aria-label' || name === 'aria-labelledby') this.requestUpdate();
+     }
+-    /** Resolve host naming references into a same-root plain-text control name. */
++    private get namingIds(): string[] {
++        return this.getAttribute('aria-labelledby')?.trim().split(/\s+/).filter(Boolean) ?? [];
++    }
++    private get namingElements(): Element[] {
++        const root = this.getRootNode?.() as Document | ShadowRoot | undefined;
++        return this.namingIds.map(id => root?.getElementById?.(id)).filter((element): element is HTMLElement => !!element);
++    }
++    /** Plain labels are a fallback; native element-reference ARIA computes browser names. */
+     protected get explicitName(): string | undefined {
+-        const references = this.getAttribute('aria-labelledby')?.trim().split(/\s+/).filter(Boolean);
+-        if (references?.length) {
+-            const root = this.getRootNode() as Document | ShadowRoot;
+-            const name = references.map(id => root.getElementById?.(id)?.textContent?.trim() ?? '').filter(Boolean).join(' ');
+-            if (name) return name;
++        const ids = this.namingIds;
++        if (this.hasAttribute('aria-labelledby')) {
++            if (!ids.length) throw new TypeError('aria-labelledby requires nonempty references');
++            const root = this.getRootNode?.() as Document | ShadowRoot | undefined;
++            const names = ids.map(id => {
++                if (root?.getElementById) {
++                    const element = root.getElementById(id);
++                    if (!element) throw new TypeError(`Missing naming reference: ${id}`);
++                    return element.getAttribute('aria-label')?.trim() || element.textContent?.trim() || '';
++                }
++                return this.labelReferences[id]?.trim() ?? '';
++            });
++            if (names.some(name => !name)) throw new TypeError('Naming references require nonempty plain label text; SSR requires labelReferences');
++            return names.join(' ');
+         }
+-        return this.getAttribute('aria-label') ?? undefined;
++        const label = this.getAttribute('aria-label');
++        if (label !== null && !label.trim()) throw new TypeError('aria-label cannot be empty');
++        return label ?? undefined;
++    }
++    protected applyExplicitNaming(element: Element): void {
++        if (!('ariaLabelledByElements' in element)) return;
++        const references = this.namingElements;
++        if (references.length) {
++            element.ariaLabelledByElements = references;
++            this.namedSemantics.add(element);
++        } else if (this.namedSemantics.has(element)) {
++            const internalReference = element.getAttribute('aria-labelledby');
++            element.ariaLabelledByElements = null;
++            if (internalReference !== null) element.setAttribute('aria-labelledby', internalReference);
++            this.namedSemantics.delete(element);
++        }
++    }
++    override connectedCallback(): void {
++        super.connectedCallback();
++        const root = this.getRootNode();
++        this.labelObserver = new MutationObserver(records => {
++            if (!this.namingIds.length) return;
++            const elements = this.namingElements;
++            if (records.some(record => elements.some(element => element === record.target || element.contains(record.target)) || record.type === 'childList')) this.requestUpdate();
++        });
++        this.labelObserver.observe(root, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['aria-label'] });
++    }
++    override disconnectedCallback(): void {
++        this.labelObserver?.disconnect();
++        this.labelObserver = undefined;
++        super.disconnectedCallback();
+     }
+     protected emit(name: string, detail: unknown) { this.dispatchEvent(new CustomEvent(name, { detail, bubbles: true, composed: true })); }
+     protected named(part: string, component: string, state = '') { return { 'data-krds-component': component, 'data-krds-part': part, 'data-krds-state': state, part }; }
+@@ -72,3 +121,19 @@
+     }
+     return result;
+ }
++
++/** Composed ancestry includes slot assignment and enclosing shadow hosts. */
++export function composedParent(element: Element): Element | null {
++    if (element.assignedSlot) return element.assignedSlot;
++    if (element.parentElement) return element.parentElement;
++    const root = element.getRootNode();
++    return root instanceof ShadowRoot ? root.host : null;
++}
++export function effectivelyInert(element: Element): boolean {
++    let current: Element | null = element;
++    while (current) {
++        if (current.hasAttribute('inert')) return true;
++        current = composedParent(current);
++    }
++    return false;
++}
+--- reviewed-before/packages/lit/src/components/calendar/index.ts
++++ fix1/packages/lit/src/components/calendar/index.ts
+@@ -124,13 +124,15 @@
+         if (target)
+             void this.focusDate(target);
+     };
++    override updated() { this.applyExplicitNaming(this.renderRoot.querySelector('section')!); }
+     override render() {
++        if (!this.label && !this.explicitName) throw new TypeError('Calendar requires a visible label or explicit accessible name');
+         const t = translations(this.locale, this.translations), p = parseIsoDate(this.view)!;
+         const parts = { year: p.year, month: p.month, monthName: t.monthNames[p.month - 1] };
+         const heading = template(t.monthLabel, parts);
+         const grid = calendarMonthGrid(this.view);
+         const range = typeof this.tentative === 'object' ? this.tentative : null;
+-        return html `<section data-krds-component="calendar" data-krds-part="root" part="root" data-krds-state=${this.disabled ? 'disabled' : ''} aria-label=${this.label || (this.locale === 'ko-KR' ? '날짜 선택' : 'Choose date')}><div data-krds-component="calendar" data-krds-part="header" part="header" data-krds-state=""><button data-krds-component="calendar" data-krds-part="previous" part="previous" data-krds-state="" type="button" ?disabled=${!this.canNavigate(-1)} @click=${() => this.navigate(-1)}>${t.previousMonth}</button><h2 data-krds-component="calendar" data-krds-part="heading" part="heading" data-krds-state="" id="heading" aria-live="polite">${heading}</h2><button data-krds-component="calendar" data-krds-part="next" part="next" data-krds-state="" type="button" ?disabled=${!this.canNavigate(1)} @click=${() => this.navigate(1)}>${t.nextMonth}</button></div>
++        return html `<section data-krds-component="calendar" data-krds-part="root" part="root" data-krds-state=${this.disabled ? 'disabled' : ''} aria-label=${this.explicitName || this.label}><div data-krds-component="calendar" data-krds-part="header" part="header" data-krds-state=""><button data-krds-component="calendar" data-krds-part="previous" part="previous" data-krds-state="" type="button" ?disabled=${!this.canNavigate(-1)} @click=${() => this.navigate(-1)}>${t.previousMonth}</button><h2 data-krds-component="calendar" data-krds-part="heading" part="heading" data-krds-state="" id="heading" aria-live="polite">${heading}</h2><button data-krds-component="calendar" data-krds-part="next" part="next" data-krds-state="" type="button" ?disabled=${!this.canNavigate(1)} @click=${() => this.navigate(1)}>${t.nextMonth}</button></div>
+   <div data-krds-component="calendar" data-krds-internal="table-scroll"><table data-krds-component="calendar" data-krds-part="table" part="table" data-krds-state="" aria-labelledby="heading"><thead><tr>${t.weekdayNames.map(name => html `<th data-krds-component="calendar" data-krds-part="weekday" part="weekday" data-krds-state="" scope="col" aria-label=${name}>${this.locale === 'ko-KR' ? name.slice(0, 1) : name.slice(0, 3)}</th>`)}</tr></thead><tbody>${Array.from({ length: 6 }, (_, row) => html `<tr>${grid.slice(row * 7, row * 7 + 7).map(date => {
+             if (!date)
+                 return html `<td data-krds-component="calendar" data-krds-part="cell" part="cell" data-krds-state=""></td>`;
+--- reviewed-before/packages/lit/src/components/date-input/index.ts
++++ fix1/packages/lit/src/components/date-input/index.ts
+@@ -51,6 +51,7 @@
+     private previous: DateValue | undefined;
+     private initialMode?: string;
+     private composing = false;
++    private localAffected: readonly number[] = [];
+     constructor() { super(); this.mode = 'single'; this.name = ''; this.required = false; this.disabled = false; this.withCalendar = true; this.referenceDate = '2000-01-01'; this.translations = {}; this.error = ''; this.invalid = false; this.autocomplete = 'off'; this.draftStart = ''; this.draftEnd = ''; this.localError = ''; this.popup = false; }
+     get committedValue() { const value = this.state.read(this.value, this.defaultValue, () => empty(this.mode)); validateValue(value, this.mode, this.min, this.max); return value; }
+     private display(value: DateValue) { this.draftStart = typeof value === 'string' ? value : value && typeof value === 'object' ? value.start ?? '' : ''; this.draftEnd = value && typeof value === 'object' ? value.end ?? '' : ''; }
+@@ -67,16 +68,30 @@
+         return; await modal.updateComplete; const calendar = modal.shadowRoot?.querySelector<Calendar>('krds-calendar'); if (!calendar || calendar.hasAttribute('data-focused'))
+         return; calendar.setAttribute('data-focused', ''); await calendar.updateComplete; const selected = calendar.shadowRoot?.querySelector<HTMLButtonElement>('button[aria-pressed="true"]:not(:disabled)') ?? calendar.shadowRoot?.querySelector<HTMLButtonElement>('button[data-date]:not(:disabled):not([data-krds-state~="outside-month"])') ?? calendar.shadowRoot?.querySelector<HTMLButtonElement>('button:not(:disabled)'); selected?.focus(); }
+     private rawValue(): DateValue { return this.mode === 'single' ? this.draftStart || null : { start: this.draftStart || null, end: this.draftEnd || null }; }
+-    private problem() { const t = dictionary(this.locale, this.translations); const dates = this.mode === 'single' ? [this.draftStart] : [this.draftStart, this.draftEnd]; if (dates.some(date => date && !parseIsoDate(date)))
+-        return t.formatError; if (this.mode === 'range' && !!dates[0] !== !!dates[1])
+-        return t.incompleteRangeError; if (this.mode === 'range' && dates[0] && dates[1] && dates[0] > dates[1])
+-        return t.orderError; if (this.required && dates.every(date => !date))
+-        return t.requiredError; for (const date of dates) {
+-        if (date && this.min && date < this.min)
+-            return template(t.minError, { min: this.min });
+-        if (date && this.max && date > this.max)
+-            return template(t.maxError, { max: this.max });
+-    } return ''; }
++    private validation(): { message: string; affected: readonly number[] } {
++        const t = dictionary(this.locale, this.translations);
++        const dates = this.mode === 'single' ? [this.draftStart] : [this.draftStart, this.draftEnd];
++        const malformed = dates.flatMap((date, index) => date && !parseIsoDate(date) ? [index] : []);
++        if (malformed.length) return { message: t.formatError, affected: malformed };
++        if (this.mode === 'range' && !!dates[0] !== !!dates[1]) {
++            return { message: t.incompleteRangeError, affected: [dates[0] ? 1 : 0] };
++        }
++        if (this.mode === 'range' && dates[0] && dates[1] && dates[0] > dates[1]) {
++            return { message: t.orderError, affected: [1] };
++        }
++        if (this.required && dates.every(date => !date)) {
++            return { message: t.requiredError, affected: dates.map((_, index) => index) };
++        }
++        const outside = dates.flatMap((date, index) => {
++            if (date && this.min && date < this.min) return [{ index, message: template(t.minError, { min: this.min }) }];
++            if (date && this.max && date > this.max) return [{ index, message: template(t.maxError, { max: this.max }) }];
++            return [];
++        });
++        return { message: outside[0]?.message ?? '', affected: outside.map(entry => entry.index) };
++    }
++    private validationAnchor(affected: readonly number[]): HTMLInputElement | undefined {
++        return this.renderRoot.querySelectorAll<HTMLInputElement>('input')[affected[0] ?? 0];
++    }
+     private syncForm() { const value = this.committedValue; let payload: string | FormData = typeof value === 'string' ? value : ''; if (this.mode === 'range') {
+         payload = new FormData();
+         if (this.name) {
+@@ -84,20 +99,30 @@
+             payload.append(`${this.name}.start`, range.start ?? '');
+             payload.append(`${this.name}.end`, range.end ?? '');
+         }
+-    } this.formControl.setValue(payload, JSON.stringify(value)); const input = this.renderRoot.querySelector<HTMLInputElement>('input') ?? undefined; for (const field of this.renderRoot.querySelectorAll<HTMLInputElement>('input'))
+-        field.setCustomValidity(this.problem()); this.formControl.setValidity(this.problem(), input); }
++    } this.formControl.setValue(payload, JSON.stringify(value)); const validation = this.validation();
++        this.renderRoot.querySelectorAll<HTMLInputElement>('input').forEach((field, index) => {
++            field.setCustomValidity(validation.affected.includes(index) ? validation.message : '');
++        });
++        this.formControl.setValidity(validation.message, this.validationAnchor(validation.affected)); }
+     private commit() { if (this.formControl.disabled || this.composing)
+-        return false; const error = this.problem(); this.localError = error; if (error) {
++        return false; const validation = this.validation(); const error = validation.message; this.localError = error; this.localAffected = validation.affected; if (error) {
+         this.syncForm();
++        this.requestUpdate();
+         return false;
+     } const next = this.rawValue(); if (!equal(next, this.committedValue)) {
+         this.state.set(next);
+         this.emit('value-change', { value: next });
+     } this.display(this.committedValue); this.requestUpdate(); this.syncForm(); return equal(next, this.committedValue); }
+-    validateSubmission() { const result = this.commit(); if (!result) {
+-        this.formControl.setValidity(this.localError || 'Commit the date before submitting', this.renderRoot.querySelector<HTMLInputElement>('input')!);
+-        this.renderRoot.querySelector<HTMLInputElement>('input')?.focus();
+-    } return result; }
++    validateSubmission() {
++        const affected = this.validation().affected;
++        const result = this.commit();
++        if (!result) {
++            const anchor = this.validationAnchor(affected);
++            this.formControl.setValidity(this.localError || 'Commit the date before submitting', anchor);
++            anchor?.focus();
++        }
++        return result;
++    }
+     resetControl() { this.state.reset(); this.display(this.committedValue); this.localError = ''; this.popup = false; this.requestUpdate(); }
+     restoreControl(state: string | FormData | File | null) { if (typeof state === 'string') {
+         const value = JSON.parse(state) as DateValue;
+@@ -135,10 +160,14 @@
+         const error = this.localError || this.error;
+         const invalid = !!error || this.invalid;
+         const state = [this.formControl.disabled ? 'disabled' : '', invalid ? 'invalid' : ''].filter(Boolean).join(' ');
+-        const field = (end = false) => html `<input data-krds-component="date-input" data-krds-part=${this.mode === 'single' ? 'control' : end ? 'end-input' : 'start-input'} part=${this.mode === 'single' ? 'control' : end ? 'end-input' : 'start-input'} data-krds-state=${state} id=${end ? 'end' : 'control'} type="text" inputmode="numeric" autocomplete=${this.autocomplete} placeholder="YYYY-MM-DD" .value=${live(end ? this.draftEnd : this.draftStart)} ?disabled=${this.formControl.disabled} ?required=${this.required} aria-label=${ifDefined(this.mode === 'range' ? end ? t.endLabel : t.startLabel : undefined)} aria-invalid=${ifDefined(invalid ? 'true' : undefined)} aria-describedby=${error ? 'hint error' : 'hint'} @input=${(event: InputEvent) => this.input(event, end)} @keydown=${this.key} @compositionstart=${() => { this.composing = true; }} @compositionend=${(event: CompositionEvent) => { const text = (event.target as HTMLInputElement).value; if (end)
++        const field = (end = false) => {
++            const fieldInvalid = this.invalid || !!this.error || (!!this.localError && this.localAffected.includes(end ? 1 : 0));
++            const fieldState = [this.formControl.disabled ? 'disabled' : '', fieldInvalid ? 'invalid' : ''].filter(Boolean).join(' ');
++            return html `<input data-krds-component="date-input" data-krds-part=${this.mode === 'single' ? 'control' : end ? 'end-input' : 'start-input'} part=${this.mode === 'single' ? 'control' : end ? 'end-input' : 'start-input'} data-krds-state=${fieldState} id=${end ? 'end' : 'control'} type="text" inputmode="numeric" autocomplete=${this.autocomplete} placeholder="YYYY-MM-DD" .value=${live(end ? this.draftEnd : this.draftStart)} ?disabled=${this.formControl.disabled} ?required=${this.required} aria-label=${ifDefined(this.mode === 'range' ? end ? t.endLabel : t.startLabel : undefined)} aria-invalid=${ifDefined(fieldInvalid ? 'true' : undefined)} aria-describedby=${error ? 'hint error' : 'hint'} @input=${(event: InputEvent) => this.input(event, end)} @keydown=${this.key} @compositionstart=${() => { this.composing = true; }} @compositionend=${(event: CompositionEvent) => { const text = (event.target as HTMLInputElement).value; if (end)
+             this.draftEnd = text;
+         else
+             this.draftStart = text; this.composing = false; }}>`;
++        };
+         return html `<div data-krds-component="date-input" data-krds-part="root" part="root" data-krds-state=${state} @focusout=${this.groupBlur}>
+   ${this.mode === 'single' ? html `<label data-krds-component="date-input" data-krds-part="label" part="label" data-krds-state="" for="control">${this.label}</label>${field()}` : html `<fieldset><legend data-krds-component="date-input" data-krds-part="label" part="label" data-krds-state="">${this.label}</legend>${field()}${field(true)}</fieldset>`}
+   ${this.withCalendar ? html `<button data-krds-component="date-input" data-krds-part="trigger" part="trigger" data-krds-state=${this.popup ? 'open' : 'closed'} id="calendar-trigger" type="button" ?disabled=${this.formControl.disabled} aria-label=${t.openCalendar} aria-haspopup="dialog" aria-expanded=${String(this.popup)} aria-controls="popup" @click=${(event: Event) => { (event.currentTarget as HTMLButtonElement).focus(); this.popup = true; }}>${t.openCalendar}</button>` : ''}
+--- reviewed-before/packages/lit/src/components/modal/index.ts
++++ fix1/packages/lit/src/components/modal/index.ts
+@@ -1,6 +1,6 @@
+ import { html, type PropertyValues } from 'lit';
+ import { ifDefined } from 'lit/directives/if-defined.js';
+-import { KrdsElement, ValueState, deepActive, focusable, shadowFocusables } from '../base.js';
++import { KrdsElement, ValueState, deepActive, focusable, shadowFocusables, effectivelyInert, composedParent } from '../base.js';
+ const locks = new WeakMap<Document, {
+     count: number;
+     overflow: string;
+@@ -58,7 +58,7 @@
+             this.cleanup();
+     }
+     private focusables() { return shadowFocusables(this.renderRoot); }
+-    private usable(node: Element | null): node is HTMLElement { return !!node && node instanceof HTMLElement && node.isConnected && !node.closest('[inert]') && !node.matches(':disabled') && node.getClientRects().length > 0 && node.matches(focusable); }
++    private usable(node: Element | null): node is HTMLElement { return !!node && node instanceof HTMLElement && node.isConnected && !effectivelyInert(node) && !node.matches(':disabled') && node.getClientRects().length > 0 && node.matches(focusable); }
+     private cleanup() {
+         this.renderRoot.querySelector('dialog')?.close();
+         this.active = false;
+@@ -74,9 +74,9 @@
+         if (!this.usable(target))
+             target = this.returnFocusId ? (this.getRootNode() as Document | ShadowRoot).querySelector(`#${CSS.escape(this.returnFocusId)}`) ?? this.ownerDocument.getElementById(this.returnFocusId) : null;
+         if (!this.usable(target)) {
+-            target = this.opener?.parentElement ?? null;
++            target = this.opener ? composedParent(this.opener) : null;
+             while (target && !this.usable(target))
+-                target = target.parentElement;
++                target = composedParent(target);
+         }
+         if (this.usable(target))
+             target.focus();
+--- reviewed-before/packages/lit/src/components/native-select/index.ts
++++ fix1/packages/lit/src/components/native-select/index.ts
+@@ -56,7 +56,7 @@
+         const state = [this.formControl.disabled ? 'disabled' : '', this.invalid ? 'invalid' : ''].filter(Boolean).join(' ');
+         return html `<div data-krds-component="native-select" data-krds-part="root" part="root" data-krds-state=${state} data-krds-size=${this.size}>
+       ${this.label ? html `<label data-krds-component="native-select" data-krds-part="label" part="label" data-krds-state="" for="control">${this.label}</label>` : ''}
+-      <select data-krds-component="native-select" data-krds-part="control" part="control" data-krds-state=${state} id="control" data-krds-size=${this.size} .value=${live(this.committedValue)} ?disabled=${this.formControl.disabled} ?required=${this.required} aria-label=${ifDefined(this.explicitName)} aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)} aria-describedby=${ifDefined([this.hint ? 'hint' : '', this.error ? 'error' : ''].filter(Boolean).join(' ') || undefined)} @change=${this.change}>${this.options.map(option => html `<option value=${option.value} ?disabled=${option.disabled}>${option.label}</option>`)}</select>
++      <select data-krds-component="native-select" data-krds-part="control" part="control" data-krds-state=${state} id="control" data-krds-size=${this.size} .value=${live(this.committedValue)} ?disabled=${this.formControl.disabled} ?required=${this.required} aria-label=${ifDefined(this.explicitName)} aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)} aria-describedby=${ifDefined([this.hint ? 'hint' : '', this.error ? 'error' : ''].filter(Boolean).join(' ') || undefined)} @change=${this.change}>${this.options.map(option => html `<option value=${option.value} ?selected=${option.value === this.committedValue} ?disabled=${option.disabled}>${option.label}</option>`)}</select>
+       ${this.hint ? html `<p data-krds-component="native-select" data-krds-part="hint" part="hint" data-krds-state="" id="hint">${this.hint}</p>` : ''}${this.error ? html `<p data-krds-component="native-select" data-krds-part="error" part="error" data-krds-state="" id="error">${this.error}</p>` : ''}
+     </div>`;
+     }
+--- reviewed-before/packages/lit/src/components/tabs/index.ts
++++ fix1/packages/lit/src/components/tabs/index.ts
+@@ -1,4 +1,5 @@
+ import { html, type PropertyValues } from 'lit';
++import { ifDefined } from 'lit/directives/if-defined.js';
+ import { repeat } from 'lit/directives/repeat.js';
+ import * as tabs from '@zag-js/tabs';
+ import type { Machine } from '@zag-js/core';
+@@ -30,7 +31,7 @@
+     protected override willUpdate(_changed: PropertyValues) {
+         unique(this.items.map(item => item.value));
+         unique(this.items.map((item, index) => item.id ?? `tab-${index}`));
+-        if (!['manual', 'automatic'].includes(this.activationMode) || !['horizontal', 'vertical'].includes(this.orientation) || !this.label)
++        if (!['manual', 'automatic'].includes(this.activationMode) || !['horizontal', 'vertical'].includes(this.orientation) || (!this.label && !this.explicitName))
+             throw new TypeError('Invalid Tabs options or missing label');
+         this.machine.update({ id: 'tabs', getRootNode: () => this.shadowRoot!, value: this.selectedValue, activationMode: 'manual', orientation: this.orientation, composite: false, dir: this.direction, onValueChange: details => this.request(details.value) });
+     }
+@@ -58,12 +59,12 @@
+             this.renderRoot.querySelectorAll<HTMLButtonElement>('[role="tab"]')[target]?.focus();
+         }
+     };
+-    override updated() { for (const panel of this.renderRoot.querySelectorAll<HTMLElement>('[role="tabpanel"]'))
++    override updated() { this.applyExplicitNaming(this.renderRoot.querySelector('[role="tablist"]')!); for (const panel of this.renderRoot.querySelectorAll<HTMLElement>('[role="tabpanel"]'))
+         panel.tabIndex = panel.querySelector(focusable) ? -1 : 0; }
+     override render() {
+         const selected = this.selectedValue;
+         const api = this.machine.active ? this.machine.getApi() : undefined;
+-        return html `<div ${machineProps({ ...api?.getRootProps(), ...this.named('root', 'tabs') })} data-krds-component="tabs" data-krds-part="root" part="root" data-krds-state=""><p id="label">${this.label}</p><div ${machineProps({ ...api?.getListProps(), ...this.named('list', 'tabs'), onkeydown: undefined, role: 'tablist', 'aria-labelledby': 'label', 'aria-orientation': this.orientation, 'data-krds-orientation': this.orientation })} data-krds-component="tabs" data-krds-part="list" part="list" data-krds-state="" data-krds-orientation=${this.orientation} role="tablist" aria-labelledby="label" aria-orientation=${this.orientation}>
++        return html `<div ${machineProps({ ...api?.getRootProps(), ...this.named('root', 'tabs') })} data-krds-component="tabs" data-krds-part="root" part="root" data-krds-state="">${this.label ? html`<p id="label">${this.label}</p>` : ''}<div ${machineProps({ ...api?.getListProps(), ...this.named('list', 'tabs'), onkeydown: undefined, role: 'tablist', 'aria-labelledby': this.label && !this.explicitName ? 'label' : undefined, 'aria-label': this.explicitName, 'aria-orientation': this.orientation, 'data-krds-orientation': this.orientation })} data-krds-component="tabs" data-krds-part="list" part="list" data-krds-state="" data-krds-orientation=${this.orientation} role="tablist" aria-labelledby=${ifDefined(this.label && !this.explicitName ? 'label' : undefined)} aria-label=${ifDefined(this.explicitName)} aria-orientation=${this.orientation}>
+     ${repeat(this.items, item => item.value, (item, index) => html `<button ${machineProps({ ...api?.getTriggerProps({ value: item.value, disabled: item.disabled }), ...this.named('trigger', 'tabs', [selected === item.value ? 'selected' : '', item.disabled ? 'disabled' : ''].filter(Boolean).join(' ')), onclick: undefined, onkeydown: undefined, id: item.id ?? `tab-${index}`, role: 'tab', type: 'button', disabled: !!item.disabled, tabIndex: item.disabled ? -1 : 0, 'aria-controls': `${item.id ?? `tab-${index}`}-panel`, 'aria-selected': String(selected === item.value) })} data-krds-component="tabs" data-krds-part="trigger" part="trigger" data-krds-state=${[selected===item.value?'selected':'',item.disabled?'disabled':''].filter(Boolean).join(' ')} role="tab" type="button" id=${item.id ?? `tab-${index}`} aria-selected=${String(selected === item.value)} aria-controls=${`${item.id ?? `tab-${index}`}-panel`} ?disabled=${item.disabled} tabindex=${item.disabled ? -1 : 0} @keydown=${(event: KeyboardEvent) => this.key(event, index)} @pointerdown=${() => { this.pointerFocus = undefined; this.pointerDown = true; }} @pointercancel=${() => { this.pointerFocus = undefined; this.pointerDown = false; }} @focus=${() => { if (this.activationMode === 'automatic') {
+             this.request(item.value);
+             if (this.pointerDown)
+--- reviewed-before/packages/lit/tests/review-fix1.test.mjs
++++ fix1/packages/lit/tests/review-fix1.test.mjs
+@@ -0,0 +1,44 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { render } from '@lit-labs/ssr';
++import { html } from 'lit';
++import { registerKrdsElements } from '../dist/index.js';
++
++registerKrdsElements(customElements);
++const options = [{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }];
++const items = [{ value: 'first', label: '첫 번째', content: '내용' }];
++const output = template => [...render(template)].join('');
++
++test('review 1: SSR serializes a non-first controlled selected option', () => {
++  const markup = output(html`<krds-native-select label="지역" .options=${options} .value=${'busan'}></krds-native-select>`);
++  assert.match(markup, /<option\b[^>]*value="busan"[^>]* selected(?:[ >])/);
++  assert.doesNotMatch(markup, /<option\b[^>]*value="seoul"[^>]* selected(?:[ >])/);
++});
++
++test('review 1: SSR serializes a non-first uncontrolled baseline', () => {
++  const markup = output(html`<krds-native-select label="지역" .options=${options} .defaultValue=${'busan'}></krds-native-select>`);
++  assert.match(markup, /<option\b[^>]*value="busan"[^>]* selected(?:[ >])/);
++});
++
++test('review 3: SSR applies explicit aria-label to the actual tablist and Calendar region', () => {
++  const tabs = output(html`<krds-tabs aria-label="방문 작업" .items=${items}></krds-tabs>`);
++  const calendar = output(html`<krds-calendar aria-label="방문 날짜"></krds-calendar>`);
++  assert.match(tabs, /role="tablist"[^>]*aria-label="방문 작업"/);
++  assert.match(calendar, /<section\b[^>]*aria-label="방문 날짜"/);
++});
++
++test('review 3: SSR resolves external labelledby through supplied plain-text reference context', () => {
++  const labelReferences = { 'trip-task': '방문 일정' };
++  const tabs = output(html`<h2 id="trip-task">방문 일정</h2><krds-tabs aria-labelledby="trip-task" .labelReferences=${labelReferences} .items=${items}></krds-tabs>`);
++  const calendar = output(html`<h2 id="trip-task">방문 일정</h2><krds-calendar aria-labelledby="trip-task" .labelReferences=${labelReferences}></krds-calendar>`);
++  assert.match(tabs, /role="tablist"[^>]*aria-label="방문 일정"/);
++  assert.match(calendar, /<section\b[^>]*aria-label="방문 일정"/);
++  assert.doesNotMatch(tabs, /role="tablist"[^>]*aria-labelledby="trip-task"/);
++  assert.doesNotMatch(calendar, /<section\b[^>]*aria-labelledby="trip-task"/);
++});
++
++test('review 3: empty or unresolved SSR naming references are configuration errors', () => {
++  assert.throws(() => output(html`<krds-tabs aria-labelledby="task" .labelReferences=${{task:''}} .items=${items}></krds-tabs>`), TypeError);
++  assert.throws(() => output(html`<krds-calendar aria-labelledby="task"></krds-calendar>`), TypeError);
++  assert.throws(() => output(html`<krds-calendar aria-label=" "></krds-calendar>`), TypeError);
++});

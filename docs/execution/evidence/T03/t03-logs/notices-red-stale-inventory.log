@@ -1,0 +1,39 @@
+✔ copies exact terms and copyright only into the package that distributes the asset (103.598084ms)
+✔ rejects unresolved rights on a distributed asset (46.543375ms)
+✔ rejects distributed material without preserved full terms (44.738334ms)
+✔ rejects truncated or altered license terms using preserved source hash (46.176917ms)
+✔ accepts absent original web metadata with evidence, without inventing copyright (93.661958ms)
+✔ rejects whitespace metadata and unsupported fields instead of hiding missing values (43.314833ms)
+✔ rejects distributed source hash drift and untracked shipped binary assets (86.130083ms)
+✔ detects stale package notices and a missing files whitelist entry (186.909334ms)
+✔ allows an unresolved investigation record only when it is excluded from distribution (100.381875ms)
+✔ rejects a shipped binary outside the configured asset roots (48.391791ms)
+✔ rejects missing rights evidence and missing original copyright even with a replacement license hash (84.8445ms)
+✔ requires explanation for original metadata absence (43.795708ms)
+✔ preserves related full policy text with the package that uses it (94.392167ms)
+✖ rejects a stale supply-chain inventory after the lockfile changes (96.198375ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1174.429
+
+✖ failing tests:
+
+test at tools/tests/notices.test.mjs:99:1
+✖ rejects a stale supply-chain inventory after the lockfile changes (96.198375ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:103:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,12 @@
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (0.968166ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.119ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (4.062042ms)
+✔ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (39.877208ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.704417

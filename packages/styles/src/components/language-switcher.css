@@ -1,0 +1,12 @@
+/* KRDS-derived: frozen component.css lines 11756–11809 plus common.css 838–1011 dropdown; semantic guidance: specs/components/language-switcher.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="language-switcher"][data-krds-part="root"] { position: relative; display: inline-flex; }
+[data-krds-component="language-switcher"][data-krds-part="trigger"] { display: inline-flex; align-items: center; gap: var(--krds-gap-3); min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); border: 0; border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-basic); font: inherit; cursor: pointer; }
+[data-krds-component="language-switcher"][data-krds-part="globe"], [data-krds-component="language-switcher"][data-krds-part="external-icon"] { flex: none; inline-size: 1em; block-size: 1em; }
+[data-krds-component="language-switcher"][data-krds-part="current"] { font-weight: 700; }
+[data-krds-component="language-switcher"][data-krds-part="list"] { position: absolute; z-index: 65; inset-block-start: 100%; inset-inline-end: 0; display: grid; gap: var(--krds-gap-3); inline-size: max-content; max-inline-size: min(36rem, calc(100vw - 3.2rem)); max-block-size: calc(100dvh - 3.2rem); overflow: auto; margin: var(--krds-padding-6) 0 0; padding: var(--krds-padding-3); list-style: none; border: var(--krds-number-1) solid var(--krds-light-color-border-gray-light); border-radius: var(--krds-radius-medium4); background: var(--krds-light-color-surface-white-subtler); }
+[data-krds-component="language-switcher"][data-krds-part="option"] { display: flex; align-items: center; gap: var(--krds-gap-3); min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-3); border-radius: var(--krds-radius-medium2); color: var(--krds-light-color-text-basic); text-decoration: none; }
+[data-krds-component="language-switcher"][data-krds-part="option"]:hover { background: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="language-switcher"][data-krds-part="option"][aria-current] { background: var(--krds-light-color-action-secondary-selected); color: var(--krds-light-color-text-secondary); font-weight: 700; text-decoration: underline; }
+/* Text language names remain visible; no national flags or synthesized destinations. */
+[data-krds-component="language-switcher"][data-krds-part="list"][data-krds-state~="closed"] { display: none; }

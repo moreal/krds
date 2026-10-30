@@ -1,0 +1,33 @@
+{
+  "name": "@unofficial-krds/fixture-lit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/contract/*.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:local": "vite build",
+    "contract": "node ../../tools/run-contract-tests.mjs --framework lit"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@lit-labs/ssr": "4.1.0",
+    "@lit-labs/ssr-client": "1.1.8",
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "lit": "3.3.3",
+    "playwright": "1.64.1",
+    "playwright-core": "1.64.1",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10"
+  },
+  "dependencies": {
+    "@unofficial-krds/lit": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/test-contracts": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^"
+  }
+}

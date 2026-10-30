@@ -1,0 +1,58 @@
+{
+  "name": "@krds-native/styles",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test src/build.test.ts",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "postcss": "8.5.32",
+    "typescript": "6.0.2"
+  },
+  "description": "Shared public-part CSS and dependency-free CSS strings for KRDS Native",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./all.css": "./dist/all.css",
+    "./base.css": "./dist/base.css",
+    "./reset.css": "./dist/reset.css",
+    "./fonts.css": "./dist/fonts.css",
+    "./button.css": "./dist/button.css",
+    "./native-select.css": "./dist/native-select.css",
+    "./modal.css": "./dist/modal.css",
+    "./tabs.css": "./dist/tabs.css",
+    "./date-input.css": "./dist/date-input.css",
+    "./calendar.css": "./dist/calendar.css",
+    "./lit": {
+      "types": "./dist/lit.d.ts",
+      "import": "./dist/lit.js"
+    },
+    "./parts.json": "./dist/parts.json"
+  },
+  "dependencies": {
+    "@krds-native/tokens": "workspace:^"
+  }
+}

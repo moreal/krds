@@ -1,0 +1,17 @@
+{
+  "license": "MIT independent authored fixture",
+  "files": [
+    {
+      "path": "public/local-assets/intentional-missing-image.svg",
+      "sha256": "f9d1a8f5ce4d8fae6ec8b9e8df976fa20b702b43bff61b61df8202391c09dd92",
+      "origin": "Independently authored invalid decoder fixture; same-origin tracked bytes, no external request",
+      "purpose": "Actual native error event from invalid local bytes"
+    },
+    {
+      "path": "public/local-assets/intentional-missing.wav",
+      "sha256": "e257cd92f1df116c0a569738af77c863addd8ff412c2a70322c1facf97dc35f4",
+      "origin": "Independently authored invalid decoder fixture; same-origin tracked bytes, no external request",
+      "purpose": "Actual native error event from invalid local bytes"
+    }
+  ]
+}

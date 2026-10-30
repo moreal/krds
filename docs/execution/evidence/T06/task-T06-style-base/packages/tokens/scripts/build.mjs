@@ -1,0 +1,31 @@
+import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { normalizeTokens, flattenTokens, tokensCss } from '../src/token-graph.mjs';
+const root = resolve(import.meta.dirname, '../../..');
+const dir = resolve(import.meta.dirname, '..');
+const read = async (path) => JSON.parse(await readFile(resolve(root, path), 'utf8'));
+const sourcePath = 'upstream/krds/raw/kit/tokens/transformed_tokens.json';
+const figmaPath = 'upstream/krds/raw/kit/tokens/figma_token.json';
+const tokens = normalizeTokens(await read(sourcePath));
+const figma = flattenTokens(await read(figmaPath));
+const groups = { primitive: 'primitive/value-set', 'mode-light': 'mode/light', 'mode-high-contrast': 'mode/high-contrast', 'responsive-pc': 'responsive/pc', 'responsive-mobile': 'responsive/mobile', semantic: 'semantic/value-set' };
+const mappings = Object.entries(tokens).map(([key, token]) => {
+  const [group, ...parts] = key.split('.');
+  const figmaKey = `${groups[group]}.${parts.join('.')}`;
+  const original = figma[figmaKey];
+  if (!original || original.type !== token.type) throw new Error(`Figma mapping mismatch: ${key}`);
+  // Transformed aliases intentionally add group identity; literal values must match exactly.
+  if (!token.references.length && original.value !== token.value) throw new Error(`Original value drift: ${key}`);
+  return { sourceKey: key, sourceValue: token.value, sourceType: token.type, figmaKey, figmaValue: original.value, cssName: token.cssName };
+});
+const mapping = { sourcePath, figmaPath, baseline: 'krds-web-2026-10-30-kit-1.1.0-d6bb184c823e', mappings };
+await rm(resolve(dir, 'dist'), { recursive: true, force: true });
+await mkdir(resolve(dir, 'dist'), { recursive: true });
+const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
+await writeFile(resolve(dir, 'src/source-map.json'), json(mapping));
+await writeFile(resolve(dir, 'dist/source-map.json'), json(mapping));
+await writeFile(resolve(dir, 'dist/tokens.json'), json(tokens));
+await writeFile(resolve(dir, 'dist/tokens.css'), tokensCss(tokens));
+await writeFile(resolve(dir, 'dist/index.js'), `export const tokens = ${JSON.stringify(tokens)};\nexport const tokenNames = Object.keys(tokens);\n`);
+await writeFile(resolve(dir, 'dist/index.d.ts'), `export type TokenName = ${Object.keys(tokens).map(JSON.stringify).join(' | ')};\nexport interface NormalizedToken { value: string; type: 'color' | 'dimension' | 'text'; description?: string; cssName: string; references: readonly TokenName[]; resolvedValue: string }\nexport declare const tokens: Readonly<Record<TokenName, NormalizedToken>>;\nexport declare const tokenNames: readonly TokenName[];\n`);
+console.log(`Generated ${Object.keys(tokens).length} tokens, CSS, types and original-key mappings.`);

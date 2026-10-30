@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-spinner', title: 'KRDS/Catalog/Spinner', component: CatalogStory, args: {componentId: 'spinner'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Determinate: Story = {name: "determinate", args: {caseId: "determinate"}};
+export const Indeterminate: Story = {name: "indeterminate", args: {caseId: "indeterminate"}};
+export const Inline: Story = {name: "inline", args: {caseId: "inline"}};
+export const Region: Story = {name: "region", args: {caseId: "region"}};
+export const Complete: Story = {name: "complete", args: {caseId: "complete"}};
+export const ReducedMotion: Story = {name: "reduced-motion", args: {caseId: "reduced-motion"}};

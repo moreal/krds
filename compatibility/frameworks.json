@@ -1,0 +1,494 @@
+{
+  "schemaVersion": 1,
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "stableTargets": [
+    "react",
+    "solid",
+    "svelte",
+    "vue",
+    "lit",
+    "qwik",
+    "angular"
+  ],
+  "previewTargets": [
+    "solid-next"
+  ],
+  "supportDeclarationPolicy": "All entries remain implementation candidates until exact source-bound minimum/current types, production, SSR/resume, browser/catalog and manual review gates pass. Selected frozen minimum/current runtime bounds coincide; do not infer later releases or future Solid RC support.",
+  "frameworks": [
+    {
+      "id": "react",
+      "supportChannel": "stable-target",
+      "supportStatus": "implementation-candidate-verification-in-progress",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "react": "19.3.1",
+        "react-dom": "19.3.1",
+        "@vitejs/plugin-react": "6.1.2",
+        "@types/react": "19.3.0",
+        "@types/react-dom": "19.3.0"
+      },
+      "intendedPublicPeerDependencies": {
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1"
+      },
+      "renderer": "React native JSX",
+      "buildContract": "Vite 8 + @vitejs/plugin-react; declarations through tsc 6.0.2",
+      "ark": {
+        "package": "@ark-ui/react",
+        "version": "5.40.0",
+        "status": "published-peers-reviewed"
+      },
+      "nativeConnectorStatus": "native-ark-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "react": "19.3.1",
+            "react-dom": "19.3.1"
+          },
+          "currentFrozen": {
+            "react": "19.3.1",
+            "react-dom": "19.3.1"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "solid",
+      "supportChannel": "stable-target",
+      "supportStatus": "implementation-candidate-verification-in-progress",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "solid-js": "1.9.18",
+        "vite-plugin-solid": "2.11.14",
+        "babel-preset-solid": "1.9.16",
+        "@babel/core": "7.28.5"
+      },
+      "intendedPublicPeerDependencies": {
+        "solid-js": "^1.9.18"
+      },
+      "renderer": "Solid 1 native JSX",
+      "buildContract": "vite-plugin-solid 2.11.14 + Babel preset 1.9.16; separate hydratable browser and native server outputs with public node conditions",
+      "ark": {
+        "package": "@ark-ui/solid",
+        "version": "5.40.0",
+        "status": "published-peer-overbroad; restrict our public support to tested Solid 1"
+      },
+      "nativeConnectorStatus": "native-ark-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "solid-js": "1.9.18"
+          },
+          "currentFrozen": {
+            "solid-js": "1.9.18"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "svelte",
+      "supportChannel": "stable-target",
+      "supportStatus": "implementation-candidate-verification-in-progress",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "svelte": "5.57.3",
+        "@sveltejs/package": "3.0.1",
+        "@sveltejs/kit": "3.1.0",
+        "@sveltejs/vite-plugin-svelte": "7.3.1",
+        "svelte-check": "4.7.7"
+      },
+      "intendedPublicPeerDependencies": {
+        "svelte": "^5.57.3"
+      },
+      "renderer": "Svelte 5 native source/snippets",
+      "buildContract": "src/lib compiled/packaged via svelte-package 3.0.1; SvelteKit 3.1.0 production consumer; TS6",
+      "ark": {
+        "package": "@ark-ui/svelte",
+        "version": "5.25.0",
+        "status": "published; peer svelte >=5.29.0"
+      },
+      "nativeConnectorStatus": "native-ark-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [
+        "Svelte 2/3 are extension targets, not v1 support."
+      ],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "svelte": "5.57.3"
+          },
+          "currentFrozen": {
+            "svelte": "5.57.3"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "vue",
+      "supportChannel": "stable-target",
+      "supportStatus": "implementation-candidate-verification-in-progress",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "vue": "3.5.44",
+        "@vue/compiler-sfc": "3.5.44",
+        "@vitejs/plugin-vue": "6.0.10",
+        "vue-tsc": "3.3.14"
+      },
+      "intendedPublicPeerDependencies": {
+        "vue": "^3.5.44"
+      },
+      "renderer": "Vue 3 native SFC/slots",
+      "buildContract": "@vitejs/plugin-vue 6.0.10 with compiler-sfc exactly 3.5.44; vue-tsc declarations",
+      "ark": {
+        "package": "@ark-ui/vue",
+        "version": "5.40.0",
+        "status": "published-peers-reviewed"
+      },
+      "nativeConnectorStatus": "native-ark-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "vue": "3.5.44"
+          },
+          "currentFrozen": {
+            "vue": "3.5.44"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "lit",
+      "supportChannel": "stable-target",
+      "supportStatus": "implementation-candidate-verification-in-progress",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "lit": "3.3.3",
+        "@lit-labs/ssr": "4.1.0",
+        "@lit-labs/ssr-client": "1.1.8"
+      },
+      "intendedPublicPeerDependencies": {
+        "lit": "^3.3.3"
+      },
+      "renderer": "Lit native custom elements/DOM events",
+      "buildContract": "tsc 6.0.2 + Vite 8; local custom element registration; explicit Shadow DOM/light DOM and SSR policy",
+      "ark": null,
+      "nativeConnectorStatus": "native-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [
+        "No official Ark Lit adapter assumed. Project owns Zag lifecycle/reactivity/prop normalization.",
+        "Official Lit SSR lab rendering and declarative Shadow DOM hydration have executed pilot evidence; final frozen-source and full-catalog acceptance remain pending."
+      ],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "lit": "3.3.3"
+          },
+          "currentFrozen": {
+            "lit": "3.3.3"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "qwik",
+      "supportChannel": "stable-target",
+      "supportStatus": "implementation-candidate-verification-in-progress",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "qwik-vite7",
+      "pins": {
+        "@builder.io/qwik": "1.20.3",
+        "@builder.io/qwik-city": "1.20.3"
+      },
+      "intendedPublicPeerDependencies": {
+        "@builder.io/qwik": "^1.20.3"
+      },
+      "renderer": "Qwik 1 native component$/QRL",
+      "buildContract": "qwikVite() from @builder.io/qwik/optimizer; Vite 7 library mode; src/index.ts entry; .qwik.mjs/.qwik.cjs outputs and qwik export; tsc declaration output",
+      "ark": null,
+      "nativeConnectorStatus": "native-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "qwik-vite7",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [
+        "Official guide: https://qwik.dev/docs/advanced/library/ (preserved as raw/qwik-library.html).",
+        "Do not use React/Lit rendering. Production SSR serialization, resume and first interaction are separate required checks.",
+        "Qwik 2 is not a stable target."
+      ],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "@builder.io/qwik": "1.20.3"
+          },
+          "currentFrozen": {
+            "@builder.io/qwik": "1.20.3"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "angular",
+      "supportChannel": "stable-target",
+      "supportStatus": "implementation-candidate-verification-in-progress",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "angular22",
+      "pins": {
+        "@angular/core": "22.2.4",
+        "@angular/compiler": "22.2.4",
+        "@angular/compiler-cli": "22.2.4",
+        "@angular/cli": "22.2.5",
+        "@angular/build": "22.2.5",
+        "@angular-devkit/build-angular": "22.2.5",
+        "@angular/ssr": "22.2.5",
+        "ng-packagr": "22.2.5",
+        "@angular/common": "22.2.4",
+        "@angular/forms": "22.2.4",
+        "@angular/router": "22.2.4",
+        "@angular/platform-browser": "22.2.4",
+        "@angular/platform-browser-dynamic": "22.2.4",
+        "@angular/platform-server": "22.2.4",
+        "@angular/animations": "22.2.4",
+        "@angular-devkit/core": "22.2.5",
+        "@angular-devkit/architect": "0.2202.5",
+        "rxjs": "7.8.2",
+        "zone.js": "0.16.3",
+        "tslib": "2.8.1"
+      },
+      "intendedPublicPeerDependencies": {
+        "@angular/core": "^22.2.4",
+        "@angular/common": "^22.2.4",
+        "@angular/forms": "^22.2.4"
+      },
+      "renderer": "Angular 22 native standalone components/inputs/outputs",
+      "buildContract": "Angular CLI library builder @angular-devkit/build-angular:ng-packagr, ng-packagr 22.2.5, compiler-cli 22.2.4, TS 6.0.2; APF partial compilation, FESM2022 and declarations",
+      "ark": null,
+      "nativeConnectorStatus": "native-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "angular22",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [
+        "Only major 22 selected; do not infer support for 18–21 from Storybook broad peers.",
+        "Production consumer uses @angular/build:application; verify AOT, reactive forms/CVA and server build.",
+        "APF source: https://angular.dev/tools/libraries/angular-package-format"
+      ],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "@angular/core": "22.2.4",
+            "@angular/common": "22.2.4",
+            "@angular/forms": "22.2.4"
+          },
+          "currentFrozen": {
+            "@angular/core": "22.2.4",
+            "@angular/common": "22.2.4",
+            "@angular/forms": "22.2.4"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "solid-next",
+      "supportChannel": "preview-target",
+      "supportStatus": "exact-rc-six-pilot-preview-verification-in-progress",
+      "catalogScope": "pilot-first; publish explicit preview coverage separately",
+      "toolchain": "solid2-preview",
+      "pins": {
+        "solid-js": "2.0.0-rc.19",
+        "@solidjs/web": "2.0.0-rc.19",
+        "@solidjs/compiler": "2.0.0-rc.19",
+        "@solidjs/babel-plugin": "2.0.0-rc.19",
+        "@solidjs/vite-plugin": "3.0.0-next.53",
+        "@babel/core": "7.28.5",
+        "@babel/preset-typescript": "7.28.5"
+      },
+      "intendedPublicPeerDependencies": {
+        "solid-js": "2.0.0-rc.19",
+        "@solidjs/web": "2.0.0-rc.19"
+      },
+      "renderer": "Solid 2 native runtime and @solidjs/web renderer",
+      "buildContract": "Dedicated @solidjs/vite-plugin 3.0.0-next.53 / compiler+babel-plugin rc.19 set; Vite 8; browser/server condition tests",
+      "ark": null,
+      "nativeConnectorStatus": "native-implementation-candidate",
+      "productionConsumer": {
+        "fixtureToolchain": "solid2-preview",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "source-freeze-and-final-isolated-verification-pending"
+      },
+      "notes": [
+        "Exact RC peers only; no implied future RC compatibility.",
+        "Ark Solid numeric >=1.6.0 is not evidence of Solid 2 API compatibility.",
+        "No official siheom Solid 2 peer support. Dedicated RC19 native server/hydration tests are separate from stable Solid 1 and formal seven-target Storybook gates."
+      ],
+      "verification": {
+        "runtimeBounds": {
+          "minimum": {
+            "solid-js": "2.0.0-rc.19",
+            "@solidjs/web": "2.0.0-rc.19"
+          },
+          "currentFrozen": {
+            "solid-js": "2.0.0-rc.19",
+            "@solidjs/web": "2.0.0-rc.19"
+          },
+          "basis": "T00 frozen published registry selection; no subsequent latest-tag support inferred"
+        },
+        "ssrScope": "six native pilots; full catalog server checks are additional renderer-owned evidence",
+        "finalSourceAccepted": false,
+        "humanAccessibilityAccepted": false,
+        "publicationAuthorized": false
+      }
+    }
+  ],
+  "sharedBehavior": {
+    "zag": {
+      "@zag-js/core": "1.47.0",
+      "@zag-js/vanilla": "1.47.0",
+      "@zag-js/dialog": "1.47.0",
+      "@zag-js/tabs": "1.47.0",
+      "@zag-js/date-picker": "1.47.0",
+      "@internationalized/date": "3.12.4"
+    },
+    "nativeConnectors": [
+      "lit",
+      "qwik",
+      "angular",
+      "solid-next"
+    ],
+    "status": "native lifecycle implementations and pilot server/hydration verification in progress; final frozen full-catalog evidence pending",
+    "rule": "Original KRDS JavaScript is reference evidence only; never run it alongside Ark/Zag controlling the same DOM."
+  },
+  "verificationInterfaces": {
+    "compatibility": "node tests/compatibility/verify.mjs",
+    "ssr": "node tools/run-ssr-tests.mjs --all-stable",
+    "previewSsr": "node tools/run-ssr-tests.mjs --framework solid-next",
+    "manualGates": "docs/reviews/manual-gates.json",
+    "outsideConsumers": "T14 artifacts/consumers; exact candidate hash required",
+    "browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "timezones": [
+      "UTC",
+      "Asia/Seoul",
+      "America/Los_Angeles"
+    ],
+    "aggregateEvidencePolicy": "Source-before and source-after fingerprints must match. Passing six-pilot SSR rows do not accept full catalog/story/siheom or manual gates."
+  }
+}

@@ -1,0 +1,67 @@
+--- before/packages/styles/src/base.css
++++ final/packages/styles/src/base.css
+@@ -16,7 +16,7 @@
+   color: var(--krds-light-color-text-danger);
+   font-weight: 700;
+ }
+-[data-krds-component][data-krds-part="error"]::before { content: "! "; }
++[data-krds-component][data-krds-part="error"]:not(:empty)::before { content: "! "; }
+ [data-krds-component][data-krds-part="hint"] { color: var(--krds-light-color-text-subtle); }
+ [data-krds-component]:is(button, input, select):is(:disabled, [data-krds-state~="disabled"]) {
+   cursor: not-allowed;
+--- before/packages/styles/src/components/calendar.css
++++ final/packages/styles/src/components/calendar.css
+@@ -1,9 +1,11 @@
+ [data-krds-component="calendar"][data-krds-part="root"] { inline-size: min(100%, 36rem); padding: var(--krds-padding-5); background: var(--krds-light-color-surface-white); color: var(--krds-light-color-text-basic); }
+ [data-krds-component="calendar"][data-krds-part="header"] { display: flex; align-items: center; justify-content: space-between; gap: var(--krds-gap-2); }
+-[data-krds-component="calendar"][data-krds-part="heading"] { font-weight: 700; }
+-[data-krds-component="calendar"][data-krds-part="table"] { inline-size: 100%; table-layout: fixed; border-collapse: collapse; }
+-[data-krds-component="calendar"]:is([data-krds-part="weekday"], [data-krds-part="cell"]) { text-align: center; padding: var(--krds-number-1); }
+-[data-krds-component="calendar"][data-krds-part="day"] { inline-size: 100%; min-block-size: 2em; padding: var(--krds-number-1); border: var(--krds-number-1) solid transparent; border-radius: var(--krds-radius-small1); background: transparent; color: inherit; }
++[data-krds-component="calendar"][data-krds-part="heading"] { font-weight: 700; overflow-wrap: normal; word-break: keep-all; }
++/* Private scroll wrapper keeps month navigation and footer actions in view. */
++[data-krds-component="calendar"][data-krds-internal="table-scroll"] { overflow-x: auto; overscroll-behavior-inline: contain; padding: var(--krds-number-3); scroll-padding-inline: var(--krds-number-3); }
++[data-krds-component="calendar"][data-krds-part="table"] { inline-size: 100%; min-inline-size: 17.5em; table-layout: auto; border-collapse: collapse; }
++[data-krds-component="calendar"]:is([data-krds-part="weekday"], [data-krds-part="cell"]) { text-align: center; padding: var(--krds-number-1); white-space: nowrap; overflow-wrap: normal; }
++[data-krds-component="calendar"][data-krds-part="day"] { inline-size: 100%; min-inline-size: 2.5em; min-block-size: 2em; white-space: nowrap; overflow-wrap: normal; font-variant-numeric: tabular-nums; padding: var(--krds-number-1); border: var(--krds-number-1) solid transparent; border-radius: var(--krds-radius-small1); background: transparent; color: inherit; }
+ [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="today"] { border-color: currentColor; text-decoration: underline; }
+ [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="selected"] { background: var(--krds-light-color-button-primary-fill); color: var(--krds-light-color-text-inverse-static); font-weight: 700; border-color: currentColor; }
+ [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="in-range"] { border-style: dashed; border-color: currentColor; }
+@@ -12,5 +14,11 @@
+ [data-krds-component="calendar"][data-krds-part="day"]:disabled { color: var(--krds-light-color-text-disabled-on); text-decoration: line-through; }
+ [data-krds-component="calendar"][data-krds-part="footer"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-2); margin-block-start: var(--krds-gap-3); }
+ [data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]) { min-block-size: 2em; padding: var(--krds-padding-2); }
+-@media (forced-colors: active) { [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="selected"] { background: Highlight; color: HighlightText; } }
+-@media (max-width: 24rem) { [data-krds-component="calendar"][data-krds-part="root"] { padding: var(--krds-padding-2); } }
++@media (forced-colors: active) { [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="selected"] { background: Canvas; color: ButtonText; } }
++@media (max-width: 24rem) {
++  [data-krds-component="calendar"][data-krds-part="root"] { padding: var(--krds-padding-2); }
++  [data-krds-component="calendar"][data-krds-part="header"] { display: grid; grid-template-columns: 1fr 1fr; }
++  [data-krds-component="calendar"][data-krds-part="heading"] { grid-column: 1 / -1; grid-row: 1; text-align: center; }
++  [data-krds-component="calendar"][data-krds-part="previous"] { grid-column: 1; grid-row: 2; justify-self: start; }
++  [data-krds-component="calendar"][data-krds-part="next"] { grid-column: 2; grid-row: 2; justify-self: end; }
++}
+--- before/packages/styles/src/components/date-input.css
++++ final/packages/styles/src/components/date-input.css
+@@ -6,5 +6,20 @@
+ [data-krds-component="date-input"]:is(input):disabled { background: var(--krds-light-color-input-surface-disabled); }
+ [data-krds-component="date-input"][data-krds-part="trigger"] { flex: 0 0 auto; min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-4); }
+ [data-krds-component="date-input"][data-krds-part="trigger"][data-krds-state~="open"] { text-decoration: underline; }
+-[data-krds-component="date-input"][data-krds-part="popup"] { max-inline-size: 100%; max-block-size: calc(100dvh - var(--krds-gap-5)); overflow: auto; }
++[data-krds-component="date-input"][data-krds-part="popup"] {
++  position: fixed;
++  inset: 0;
++  margin: auto;
++  inline-size: min(40rem, calc(100vw - var(--krds-gap-5)));
++  max-inline-size: calc(100vw - var(--krds-gap-5));
++  max-block-size: calc(100dvh - var(--krds-gap-5));
++  padding: var(--krds-padding-6);
++  overflow: auto;
++  overscroll-behavior: contain;
++  border: var(--krds-number-1) solid var(--krds-light-color-border-gray);
++  border-radius: var(--krds-radius-xlarge1);
++  background: var(--krds-light-color-surface-white);
++  color: var(--krds-light-color-text-basic);
++}
++[data-krds-component="date-input"][data-krds-part="popup"]::backdrop { background: var(--krds-color-light-alpha-black50); }
+ [data-krds-component="date-input"][data-krds-part="popup"][data-krds-state~="closed"] { display: none; }

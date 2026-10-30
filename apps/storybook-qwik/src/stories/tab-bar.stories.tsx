@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-tab-bar',title:'KRDS/tab-bar',component:CatalogStory,args:{componentId:'tab-bar'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const ThreeItems:Story={name:"three-items",args:{caseId:"three-items"}};
+export const FiveItems:Story={name:"five-items",args:{caseId:"five-items"}};
+export const WithBadge:Story={name:"with-badge",args:{caseId:"with-badge"}};
+export const AllMenu:Story={name:"all-menu",args:{caseId:"all-menu"}};
+export const LongTranslatedLabel:Story={name:"long-translated-label",args:{caseId:"long-translated-label"}};
+export const ScrollPage:Story={name:"scroll-page",args:{caseId:"scroll-page"}};

@@ -1,0 +1,17 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-toast', title: 'KRDS/toast', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Information: Story = { name: "information", parameters: { __id: "krds-toast--information" }, render: () => <CatalogStory componentId="toast" caseId="information"/> };
+export const Warning: Story = { name: "warning", parameters: { __id: "krds-toast--warning" }, render: () => <CatalogStory componentId="toast" caseId="warning"/> };
+export const Duplicate: Story = { name: "duplicate", parameters: { __id: "krds-toast--duplicate" }, render: () => <CatalogStory componentId="toast" caseId="duplicate"/> };
+export const Queued: Story = { name: "queued", parameters: { __id: "krds-toast--queued" }, render: () => <CatalogStory componentId="toast" caseId="queued"/> };
+export const TimerCleanup: Story = { name: "timer-cleanup", parameters: { __id: "krds-toast--timer-cleanup" }, render: () => <CatalogStory componentId="toast" caseId="timer-cleanup"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-toast--narrow" }, render: () => <CatalogStory componentId="toast" caseId="narrow"/> };
+export const ReducedMotion: Story = { name: "reduced-motion", parameters: { __id: "krds-toast--reduced-motion" }, render: () => <CatalogStory componentId="toast" caseId="reduced-motion"/> };
+export const SlowReadingPersistentResult: Story = { name: "slow-reading-persistent-result", parameters: { __id: "krds-toast--slow-reading-persistent-result" }, render: () => <CatalogStory componentId="toast" caseId="slow-reading-persistent-result"/> };
+export const SameIdContentUpdate: Story = { name: "same-id-content-update", parameters: { __id: "krds-toast--same-id-content-update" }, render: () => <CatalogStory componentId="toast" caseId="same-id-content-update"/> };
+export const HostReplacementRemoval: Story = { name: "host-replacement-removal", parameters: { __id: "krds-toast--host-replacement-removal" }, render: () => <CatalogStory componentId="toast" caseId="host-replacement-removal"/> };
+export const TimeoutRejected: Story = { name: "timeout-rejected", parameters: { __id: "krds-toast--timeout-rejected" }, render: () => <CatalogStory componentId="toast" caseId="timeout-rejected"/> };
+export const GenerationTimer: Story = { name: "generation-timer", parameters: { __id: "krds-toast--generation-timer" }, render: () => <CatalogStory componentId="toast" caseId="generation-timer"/> };

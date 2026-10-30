@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-step-indicator', title: 'KRDS/step-indicator', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Sequential: Story = { name: "sequential", parameters: { __id: "krds-step-indicator--sequential" }, render: () => <CatalogStory componentId="step-indicator" caseId="sequential"/> };
+export const Adaptive: Story = { name: "adaptive", parameters: { __id: "krds-step-indicator--adaptive" }, render: () => <CatalogStory componentId="step-indicator" caseId="adaptive"/> };
+export const Compact: Story = { name: "compact", parameters: { __id: "krds-step-indicator--compact" }, render: () => <CatalogStory componentId="step-indicator" caseId="compact"/> };
+export const OptionalSkip: Story = { name: "optional-skip", parameters: { __id: "krds-step-indicator--optional-skip" }, render: () => <CatalogStory componentId="step-indicator" caseId="optional-skip"/> };
+export const Completed: Story = { name: "completed", parameters: { __id: "krds-step-indicator--completed" }, render: () => <CatalogStory componentId="step-indicator" caseId="completed"/> };

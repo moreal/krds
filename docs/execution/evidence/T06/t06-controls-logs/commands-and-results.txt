@@ -1,0 +1,37 @@
+T06 controls executed evidence (2026-10-30)
+Lead serial browser environment: PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1
+
+node tools/yarn.mjs workspace @krds-native/fixture-solid siheom:local tests/siheom/button.test.tsx tests/siheom/native-select.test.tsx
+  controls-red.log: exit 1, 15/15 expected public missing-export assertion failures.
+  controls-green1.log: exit 1, 12 passed / 3 missing fixture-integration failures.
+  controls-icon-red.log: exit 1, 15 passed / 1 decorative icon accessible-name regression failure.
+
+Lead all-six invocation (all6-first-native.log):
+PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs workspace @krds-native/fixture-solid siheom:local tests/siheom/button.test.tsx tests/siheom/native-select.test.tsx tests/siheom/modal.test.tsx tests/siheom/tabs.test.tsx tests/siheom/calendar.test.tsx tests/siheom/date-input.test.tsx
+  exit 1 overall, 41 passed / 6 failures; controls 16/16 passed.
+  Remaining failures are Modal initial-open fallback; Tabs empty-state query and duplicate automatic rejected click; DateInput duplicate error queries (2) and popup name.
+
+node tools/yarn.mjs workspace @krds-native/solid typecheck
+  exit 0; solid-typecheck.log (empty stdout/stderr).
+node tools/yarn.mjs workspace @krds-native/storybook-solid typecheck
+  exit 0; storybook-typecheck.log (empty stdout/stderr).
+
+Workers did not run shared dist writers, native browser Vitest, canonical contract runner or Storybook builds.
+
+Review round 1 evidence:
+RED: PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs workspace @krds-native/fixture-solid siheom:local tests/siheom/native-select.test.tsx
+  exit 1, 4 failed / 16 passed (20 total), reviewed unnamed labels only.
+GREEN: PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs workspace @krds-native/fixture-solid siheom:local tests/siheom/button.test.tsx tests/siheom/native-select.test.tsx tests/siheom/modal.test.tsx tests/siheom/tabs.test.tsx tests/siheom/calendar.test.tsx tests/siheom/date-input.test.tsx
+  exit 0, 6 files / 69 tests passed; controls26/26 (Button6 + NativeSelect20).
+Post-fix noEmit commands workspace @krds-native/solid typecheck, workspace @krds-native/fixture-solid typecheck, workspace @krds-native/storybook-solid typecheck all exit0 with empty output.
+
+Review round2 RED NativeSelect:
+PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs workspace @krds-native/fixture-solid siheom:local tests/siheom/native-select.test.tsx
+  exit1:2 expected image-label failures/21pass(total23).
+Review round2 RED Button:
+PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs workspace @krds-native/fixture-solid siheom:local tests/siheom/button.test.tsx
+  exit1:2 expected image-content failures/6pass(total8).
+Review round2 final GREEN after public rebuild:
+node tools/yarn.mjs test:siheom --framework solid
+  exit0:77/77 canonical native tests passed; controls31/31(Button8+NativeSelect23).
+Fresh worker noEmit after both patches: workspace @krds-native/solid typecheck; workspace @krds-native/fixture-solid typecheck; both exit0/empty output.

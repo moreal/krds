@@ -1,0 +1,46 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/native-select.test.tsx (20 tests | 4 failed) 409ms
+   × rejects 'empty' label without an accessible alternative 121ms
+   × rejects 'whitespace' label without an accessible alternative 83ms
+   × rejects 'false' label without an accessible alternative 82ms
+   × rejects 'aria-hidden-only JSX' label without an accessible alternative 82ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > rejects 'empty' label without an accessible alternative
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > rejects 'whitespace' label without an accessible alternative
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > rejects 'false' label without an accessible alternative
+ FAIL  |chromium| tests/siheom/native-select.test.tsx > rejects 'aria-hidden-only JSX' label without an accessible alternative
+AssertionError: expected function to throw an error, but it didn't
+
+Failure screenshots:
+  - test-results/siheom-13250/tests/siheom/native-select.test.tsx/rejects--empty--label-without-an-accessible-alternative-1.png
+  - test-results/siheom-13250/tests/siheom/native-select.test.tsx/rejects--whitespace--label-without-an-accessible-alternative-1.png
+  - test-results/siheom-13250/tests/siheom/native-select.test.tsx/rejects--false--label-without-an-accessible-alternative-1.png
+  - test-results/siheom-13250/tests/siheom/native-select.test.tsx/rejects--aria-hidden-only-JSX--label-without-an-accessible-alternative-1.png
+
+ ❯ toThrow tests/siheom/native-select.test.tsx:155:81
+    153|
+    154| test.each(unnamedLabels)('rejects $name label without an accessible al…
+    155|   expect(() => render(() => <NativeSelect options={options} label={lab…
+       |                                                                                 ^
+    156| });
+    157|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2027:60
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 16 passed (20)
+   Start at  11:06:54
+   Duration  1.23s (transform 0ms, setup 53ms, import 132ms, tests 409ms, environment 0ms)
+

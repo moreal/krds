@@ -1,0 +1,229 @@
+▶ workspace configuration and source boundaries
+  ✔ rejects linker (1340.365541ms)
+  ✔ rejects second lockfile (931.769917ms)
+  ✔ rejects nested npm lockfile (958.856917ms)
+  ✔ rejects public app (1017.701625ms)
+  ✔ rejects runtime resolution (1125.506ms)
+  ✔ rejects removed boundary tags (1006.3775ms)
+  ✔ rejects upward relative import (994.283833ms)
+  ✔ rejects multiline import (768.984375ms)
+  ✔ rejects foreign renderer (799.3845ms)
+  ✔ rejects native source alias (829.07725ms)
+  ✖ rejects CSS double-quoted URL (812.393375ms)
+  ✖ rejects CSS single-quoted URL (769.786417ms)
+  ✖ rejects CSS unquoted URL (768.437084ms)
+  ✖ rejects CSS URL whitespace (774.485291ms)
+  ✖ rejects Vue embedded CSS URL (761.794459ms)
+  ✖ rejects Svelte embedded CSS URL (786.224667ms)
+  ✖ rejects Lit embedded CSS URL (809.616792ms)
+  ✖ rejects Angular embedded CSS URL (773.093584ms)
+  ✖ rejects CSS permitted layer without declaration (761.429584ms)
+  ✔ permits declared shared CSS imports and retains their implicit graph edge (765.693208ms)
+✖ workspace configuration and source boundaries (17614.43875ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 11
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17668.73775
+
+✖ failing tests:
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS double-quoted URL (812.393375ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/contracts/src/illegal.css: import boundary -> packages/react\n' +
+    'packages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/contracts/src/illegal.css: import boundary -> packages/react\npackages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS single-quoted URL (769.786417ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/contracts/src/illegal.css: import boundary -> packages/react\n' +
+    'packages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/contracts/src/illegal.css: import boundary -> packages/react\npackages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS unquoted URL (768.437084ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/contracts/src/illegal.css: import boundary -> packages/react\n' +
+    'packages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/contracts/src/illegal.css: import boundary -> packages/react\npackages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS URL whitespace (774.485291ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/contracts/src/illegal.css: import boundary -> packages/react\n' +
+    'packages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/contracts/src/illegal.css: import boundary -> packages/react\npackages/contracts/src/illegal.css: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Vue embedded CSS URL (761.794459ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/vue/src/Illegal.vue: import boundary -> packages/react\n' +
+    'packages/vue/src/Illegal.vue: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/vue/src/Illegal.vue: import boundary -> packages/react\npackages/vue/src/Illegal.vue: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Svelte embedded CSS URL (786.224667ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/svelte/src/lib/Illegal.svelte: import boundary -> packages/react\n' +
+    'packages/svelte/src/lib/Illegal.svelte: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/svelte/src/lib/Illegal.svelte: import boundary -> packages/react\npackages/svelte/src/lib/Illegal.svelte: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Lit embedded CSS URL (809.616792ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/lit/src/illegal.ts: import boundary -> packages/react\n' +
+    'packages/lit/src/illegal.ts: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/lit/src/illegal.ts: import boundary -> packages/react\npackages/lit/src/illegal.ts: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects Angular embedded CSS URL (773.093584ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/react/. Input:
+  
+  'packages/angular/src/illegal.ts: import boundary -> packages/react\n' +
+    'packages/angular/src/illegal.ts: undeclared internal import @unofficial-krds/react'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/angular/src/illegal.ts: import boundary -> packages/react\npackages/angular/src/illegal.ts: undeclared internal import @unofficial-krds/react',
+    expected: /undeclared internal import @krds-native\/react/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/check-workspace.test.mjs:57:13
+✖ rejects CSS permitted layer without declaration (761.429584ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /undeclared internal import @krds-native\/fonts/. Input:
+  
+  'packages/styles/src/illegal.css: undeclared internal import @unofficial-krds/fonts'
+  
+      at file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:61:60
+      at async withWorkspaceCopy (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:14:5)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:58:7)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/check-workspace.test.mjs:57:5)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'packages/styles/src/illegal.css: undeclared internal import @unofficial-krds/fonts',
+    expected: /undeclared internal import @krds-native\/fonts/,
+    operator: 'match',
+    diff: 'simple'
+  }

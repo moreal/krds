@@ -1,0 +1,8 @@
+<script lang="ts">
+import {onMount} from 'svelte';import type {BreadcrumbContract} from '@unofficial-krds/contracts';import {owned} from './catalog-state.svelte.js';
+let p:BreadcrumbContract=$props();let narrow=$state(false);
+onMount(()=>{const media=matchMedia('(max-width:767px)');const update=()=>narrow=media.matches;update();media.addEventListener('change',update);return()=>media.removeEventListener('change',update);});
+const max=$derived(narrow?2:p.maxVisible??4);const count=$derived(Math.max(1,max-1));const collapsed=$derived(p.items.length>count);const hiddenCount=$derived(collapsed?p.items.length-count:0);
+</script>
+<nav aria-label="브레드크럼" {...owned('breadcrumb','root',collapsed&&'collapsed')}><ol {...owned('breadcrumb','list')}><li {...owned('breadcrumb','item')}><a href={p.home.href} {...owned('breadcrumb','home')}>{p.home.label}</a></li>{#if collapsed}<li {...owned('breadcrumb','ellipsis','collapsed')} aria-label="중간 경로 생략">…</li>{/if}{#each p.items as item,index(item.id)}<li aria-hidden="true" class:context-only={index<hiddenCount} {...owned('breadcrumb','separator')}>/</li><li class:context-only={index<hiddenCount} {...owned('breadcrumb','item',index<hiddenCount&&'collapsed')}>{#if item.href&&index>=hiddenCount}<a href={item.href} {...owned('breadcrumb','link')}>{item.label}</a>{:else}<span>{item.label}</span>{/if}</li>{/each}{#if p.currentItem&&p.omitCurrent===false}<li aria-current="page" {...owned('breadcrumb','item','current')}>{p.currentItem.label}</li>{/if}</ol></nav>
+<style>.context-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%);white-space:nowrap}</style>

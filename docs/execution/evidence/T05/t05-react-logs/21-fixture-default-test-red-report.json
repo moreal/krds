@@ -1,0 +1,38 @@
+{
+  "kind": "siheom",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "react",
+      "coverage": true,
+      "files": [
+        "button.test.tsx",
+        "date-input.test.tsx",
+        "modal.test.tsx",
+        "native-select.test.tsx",
+        "tabs.test.tsx"
+      ],
+      "adapter": [
+        "@siheom/react",
+        "0.4.1"
+      ],
+      "tests": 9,
+      "passed": 0,
+      "failed": 9,
+      "report": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793321727422-78191-28c2b449/react-vitest.json",
+      "status": "failed"
+    }
+  ],
+  "unsupported": [
+    {
+      "framework": "lit",
+      "reason": "No upstream native siheom adapter",
+      "alternative": "test:contract --framework lit"
+    },
+    {
+      "framework": "solid-next",
+      "reason": "Solid1 adapter peer does not cover exact Solid2 RC",
+      "alternative": "test:contract --framework solid-next"
+    }
+  ]
+}

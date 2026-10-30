@@ -1,0 +1,137 @@
+{
+  "sha": "fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+  "node_id": "C_kwDOO0oRSdoAKGZkZDMxYjA0NDFmNTc1ZmM4NDY0YWYwY2I4ZDg1OTc5ZDYzYTFmOWI",
+  "commit": {
+    "author": {
+      "name": "Taehee Kim",
+      "email": "rabolution@gmail.com",
+      "date": "2026-10-26T03:42:38Z"
+    },
+    "committer": {
+      "name": "Taehee Kim",
+      "email": "rabolution@gmail.com",
+      "date": "2026-10-26T03:42:38Z"
+    },
+    "message": "behavioral(ci): run actions on Node 24 and retry transient publish failures\n\n- actions/checkout and actions/setup-node v4 -> v7 (node24 runtime) in\n  every workflow, fixing the Node 20 deprecation warning\n- publish.yml retries up to 3 times: Rekor stored @siheom/angular's\n  provenance entry but Yarn's request retry got \"409 equivalent entry\n  already exists\" and aborted; --tolerate-republish skips what landed\n- disable setup-node dependency caching in the release job\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "tree": {
+      "sha": "80133f25974adcdb144baf3e0db5fefbf92adba7",
+      "url": "https://api.github.com/repos/twinstae/siheom-ts/git/trees/80133f25974adcdb144baf3e0db5fefbf92adba7"
+    },
+    "url": "https://api.github.com/repos/twinstae/siheom-ts/git/commits/fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/twinstae/siheom-ts/commits/fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+  "html_url": "https://github.com/twinstae/siheom-ts/commit/fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+  "comments_url": "https://api.github.com/repos/twinstae/siheom-ts/commits/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/comments",
+  "author": {
+    "login": "twinstae",
+    "id": 13915810,
+    "node_id": "MDQ6VXNlcjEzOTE1ODEw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/13915810?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/twinstae",
+    "html_url": "https://github.com/twinstae",
+    "followers_url": "https://api.github.com/users/twinstae/followers",
+    "following_url": "https://api.github.com/users/twinstae/following{/other_user}",
+    "gists_url": "https://api.github.com/users/twinstae/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/twinstae/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/twinstae/subscriptions",
+    "organizations_url": "https://api.github.com/users/twinstae/orgs",
+    "repos_url": "https://api.github.com/users/twinstae/repos",
+    "events_url": "https://api.github.com/users/twinstae/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/twinstae/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "twinstae",
+    "id": 13915810,
+    "node_id": "MDQ6VXNlcjEzOTE1ODEw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/13915810?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/twinstae",
+    "html_url": "https://github.com/twinstae",
+    "followers_url": "https://api.github.com/users/twinstae/followers",
+    "following_url": "https://api.github.com/users/twinstae/following{/other_user}",
+    "gists_url": "https://api.github.com/users/twinstae/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/twinstae/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/twinstae/subscriptions",
+    "organizations_url": "https://api.github.com/users/twinstae/orgs",
+    "repos_url": "https://api.github.com/users/twinstae/repos",
+    "events_url": "https://api.github.com/users/twinstae/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/twinstae/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "1137e9d8f39b4ee077e2a5d0f63236bd9703f01e",
+      "url": "https://api.github.com/repos/twinstae/siheom-ts/commits/1137e9d8f39b4ee077e2a5d0f63236bd9703f01e",
+      "html_url": "https://github.com/twinstae/siheom-ts/commit/1137e9d8f39b4ee077e2a5d0f63236bd9703f01e"
+    }
+  ],
+  "stats": {
+    "total": 44,
+    "additions": 37,
+    "deletions": 7
+  },
+  "files": [
+    {
+      "sha": "fa9a6f1b797a0762b931000c25b999ceb19b24fc",
+      "filename": ".github/workflows/ci.yml",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/twinstae/siheom-ts/blob/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/.github%2Fworkflows%2Fci.yml",
+      "raw_url": "https://github.com/twinstae/siheom-ts/raw/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/.github%2Fworkflows%2Fci.yml",
+      "contents_url": "https://api.github.com/repos/twinstae/siheom-ts/contents/.github%2Fworkflows%2Fci.yml?ref=fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+      "patch": "@@ -15,8 +15,8 @@ jobs:\n     name: check\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: actions/checkout@v4\n-      - uses: actions/setup-node@v4\n+      - uses: actions/checkout@v7\n+      - uses: actions/setup-node@v7\n         with:\n           node-version: 24\n "
+    },
+    {
+      "sha": "957ccb6e50666c76f6f24988367fb8788b850f1f",
+      "filename": ".github/workflows/npm-audit.yml",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/twinstae/siheom-ts/blob/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/.github%2Fworkflows%2Fnpm-audit.yml",
+      "raw_url": "https://github.com/twinstae/siheom-ts/raw/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/.github%2Fworkflows%2Fnpm-audit.yml",
+      "contents_url": "https://api.github.com/repos/twinstae/siheom-ts/contents/.github%2Fworkflows%2Fnpm-audit.yml?ref=fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+      "patch": "@@ -18,8 +18,8 @@ jobs:\n     name: audit\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: actions/checkout@v4\n-      - uses: actions/setup-node@v4\n+      - uses: actions/checkout@v7\n+      - uses: actions/setup-node@v7\n         with:\n           node-version: 24\n "
+    },
+    {
+      "sha": "6f2469593df2edc86dc42dc8ed62caf4cdae8133",
+      "filename": ".github/workflows/publish.yml",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 3,
+      "changes": 19,
+      "blob_url": "https://github.com/twinstae/siheom-ts/blob/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/.github%2Fworkflows%2Fpublish.yml",
+      "raw_url": "https://github.com/twinstae/siheom-ts/raw/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/.github%2Fworkflows%2Fpublish.yml",
+      "contents_url": "https://api.github.com/repos/twinstae/siheom-ts/contents/.github%2Fworkflows%2Fpublish.yml?ref=fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+      "patch": "@@ -19,14 +19,27 @@ jobs:\n     name: publish\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: actions/checkout@v4\n-      - uses: actions/setup-node@v4\n+      - uses: actions/checkout@v7\n+      - uses: actions/setup-node@v7\n         with:\n           node-version: 24\n+          # No dependency cache in the release job (cache poisoning risk).\n+          package-manager-cache: false\n \n       - run: corepack enable\n       - run: yarn install --immutable\n       - run: yarn build\n \n+      # Rekor can store a provenance entry and still fail the request; Yarn's\n+      # retry then gets \"409 equivalent entry already exists\" and aborts.\n+      # --tolerate-republish makes re-running skip packages already on npm.\n       - name: Publish to npm\n-        run: yarn workspaces foreach --all --no-private --topological npm publish --access public --tolerate-republish --provenance\n+        run: |\n+          for attempt in 1 2 3; do\n+            if yarn workspaces foreach --all --no-private --topological npm publish --access public --tolerate-republish --provenance; then\n+              exit 0\n+            fi\n+            echo \"::warning::Publish attempt ${attempt} failed; retrying\"\n+            sleep 15\n+          done\n+          exit 1"
+    },
+    {
+      "sha": "a703a777a736329f976a3a71c189a19fbfa58f77",
+      "filename": "scripts/validate-publish-workflow.test.mjs",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 0,
+      "changes": 17,
+      "blob_url": "https://github.com/twinstae/siheom-ts/blob/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/scripts%2Fvalidate-publish-workflow.test.mjs",
+      "raw_url": "https://github.com/twinstae/siheom-ts/raw/fdd31b0441f575fc8464af0cb8d85979d63a1f9b/scripts%2Fvalidate-publish-workflow.test.mjs",
+      "contents_url": "https://api.github.com/repos/twinstae/siheom-ts/contents/scripts%2Fvalidate-publish-workflow.test.mjs?ref=fdd31b0441f575fc8464af0cb8d85979d63a1f9b",
+      "patch": "@@ -19,6 +19,23 @@ test(\"publish workflow authenticates to npm with OIDC trusted publishing\", () =>\n   assert.doesNotMatch(workflow, /NPM_TOKEN|NODE_AUTH_TOKEN|npmAuthToken|--otp/);\n });\n \n+test(\"publish workflow retries transient provenance failures\", () => {\n+  const workflow = readText(\".github/workflows/publish.yml\");\n+\n+  assert.match(workflow, /for attempt in 1 2 3; do/);\n+  assert.match(workflow, /package-manager-cache: false/);\n+});\n+\n+test(\"workflows use actions that run on Node 24\", () => {\n+  for (const name of [\"ci.yml\", \"npm-audit.yml\", \"publish.yml\"]) {\n+    const workflow = readText(`.github/workflows/${name}`);\n+\n+    assert.match(workflow, /actions\\/checkout@v7/, name);\n+    assert.match(workflow, /actions\\/setup-node@v7/, name);\n+    assert.doesNotMatch(workflow, /actions\\/(checkout|setup-node)@v[4-6]\\b/, name);\n+  }\n+});\n+\n test(\"release script publishes through the workflow instead of asking for an OTP\", () => {\n   const script = readText(\"scripts/release.sh\");\n "
+    }
+  ]
+}

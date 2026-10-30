@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-text-input', title: 'KRDS/text-input', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-text-input--default" }, render: () => <CatalogStory componentId="text-input" caseId="default"/> };
+export const Error: Story = { name: "error", parameters: { __id: "krds-text-input--error" }, render: () => <CatalogStory componentId="text-input" caseId="error"/> };
+export const Success: Story = { name: "success", parameters: { __id: "krds-text-input--success" }, render: () => <CatalogStory componentId="text-input" caseId="success"/> };
+export const Sizes: Story = { name: "sizes", parameters: { __id: "krds-text-input--sizes" }, render: () => <CatalogStory componentId="text-input" caseId="sizes"/> };
+export const IconAction: Story = { name: "icon-action", parameters: { __id: "krds-text-input--icon-action" }, render: () => <CatalogStory componentId="text-input" caseId="icon-action"/> };
+export const DisabledReadonly: Story = { name: "disabled-readonly", parameters: { __id: "krds-text-input--disabled-readonly" }, render: () => <CatalogStory componentId="text-input" caseId="disabled-readonly"/> };
+export const Ime: Story = { name: "ime", parameters: { __id: "krds-text-input--ime" }, render: () => <CatalogStory componentId="text-input" caseId="ime"/> };
+export const FormReset: Story = { name: "form-reset", parameters: { __id: "krds-text-input--form-reset" }, render: () => <CatalogStory componentId="text-input" caseId="form-reset"/> };

@@ -1,0 +1,10 @@
+import type {Meta,StoryObj} from 'storybook-solidjs-vite';
+import {getPresentation} from '@unofficial-krds/test-contracts/patterns';
+import {StoryPresentation} from './presentation';
+const meta={id:'krds-pattern-search-results',title:'KRDS patterns/search-results',component:StoryPresentation,parameters:{layout:'fullscreen'},render:(args)=><StoryPresentation {...args}/>} satisfies Meta<typeof StoryPresentation>;
+export default meta;
+type Story=StoryObj<typeof meta>;
+export const Success:Story={args:{state:getPresentation('search-results','success').state}};
+export const Loading:Story={args:{state:getPresentation('search-results','loading').state}};
+export const Error:Story={args:{state:getPresentation('search-results','error').state}};
+export const Empty:Story={args:{state:getPresentation('search-results','empty').state}};

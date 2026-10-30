@@ -1,0 +1,129 @@
+---
+title: 'Accordion · 아코디언'
+---
+
+# Accordion
+
+아코디언 · `Accordion` · component
+
+[Official KRDS guidance](https://www.krds.go.kr/html/site/component/component_04_07.html) · [Full reviewed specification](/sources/specs/components/accordion.md.txt) · [Framework support](../compatibility/)
+
+## Native availability
+
+These states are copied from `catalog/coverage.json`; they are not inferred from exports, examples, or test-runner exit codes.
+
+| Framework | Package version | Recorded state | Export declaration | Native examples and stories |
+| --- | --- | --- | --- | --- |
+| react | `0.0.0` | planned | [exact subpath types](/sources/packages/react/dist/components/accordion/index.d.ts.txt) | [react sources and preview policy](../compatibility/examples#react) |
+| solid | `0.0.0` | planned | [exact subpath types](/sources/packages/solid/dist/components/accordion/index.d.ts.txt) | [solid sources and preview policy](../compatibility/examples#solid) |
+| svelte | `0.0.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/Accordion.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/examples#svelte) |
+| vue | `0.0.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/accordion/Accordion.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/examples#vue) |
+| lit | `0.0.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/accordion/index.d.ts.txt) | [lit sources and preview policy](../compatibility/examples#lit) |
+| qwik | `0.0.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/accordion/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/examples#qwik) |
+| angular | `0.0.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-accordion.d.ts.txt) | [angular sources and preview policy](../compatibility/examples#angular) |
+| solid-next (preview) | `0.0.0-next.0` | planned | [exact root types](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/examples#solid-next) |
+
+## Props, events, content and defaults
+
+The semantic contract below is shared data only. Native content, refs and event transport belong to each adapter. Callback names and detail types in the contract are exact; do not pass machine objects. Optional properties are not automatically defaulted: use the explicit defaults in the guidance below.
+
+```ts
+export interface AccordionContract {
+    items: readonly {
+        id: string;
+        title: string;
+        content: string;
+    }[];
+    openIds?: readonly string[];
+    defaultOpenIds?: readonly string[];
+    onOpenChange?: (detail: {
+        ids: readonly string[];
+    }) => void;
+    multiple?: boolean;
+    variant?: 'default' | 'line';
+}
+```
+
+| Semantic property / callback | Required | Exact type | Role |
+| --- | --- | --- | --- |
+| `items` | yes | `readonly {id: string; title: string; content: string}[]` | data / state |
+| `openIds` | no | `readonly string[]` | data / state |
+| `defaultOpenIds` | no | `readonly string[]` | data / state |
+| `onOpenChange` | no | `(detail: {ids: readonly string[]}) => void` | semantic event request |
+| `multiple` | no | `boolean` | data / state |
+| `variant` | no | `'default' \| 'line'` | data / state |
+
+Optional values and explicit defaults are different. Defaults and native content requirements are stated in the reviewed guidance below.
+
+### Native content and event transport
+
+React and Solid use native JSX/content props; Svelte uses native snippets; Vue uses native slots; Angular uses its native inputs, outputs and content projection; Lit uses custom-element properties, slots and DOM events; Qwik uses native QRL event boundaries. Their transport is not interchangeable. Read the linked public package declaration for exact names and required content. A semantic callback below does not imply a same-named Lit DOM event.
+
+### Native structure and mandatory ordering
+
+Ordered content sections with page-appropriate heading containing a full-width type=button trigger, state icon and adjacent associated panel. Expose expanded state; panels have no independent vertical/horizontal scroll. Avoid nested accordion/tab hiding for essential content.
+
+### Plain semantic API
+
+Independent API: items {id,title,content}[], openIds/defaultOpenIds=[], onOpenChange({ids}), multiple=true, variant=default|line. multiple and initial policy are independent choices because official page does not mandate single-open. Stable IDs link triggers/panels.
+
+Shared state policy follows [current pilot conventions](/sources/specs/components/README.md.txt): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+
+### Keyboard, focus and state transitions
+
+Tab traverses headers and open content; Enter/Space/click toggle once, focus stays header. Full header target clickable. Closed content cannot be focused/read; external closure of focused panel returns its trigger. No invented mandatory arrow-key roving model.
+
+### Responsive/mobile requirements
+
+Use natural page scroll for long panels; headings/labels wrap legibly and state icons keep consistent position. Reduced motion does not alter logical open state.
+
+### Forms, reset and composition
+
+No aggregate form value/reset; preserve child form values on collapse by default.
+
+### Asset, integration and composition completion
+
+Host supplies related content and heading level. Completion includes real independently expandable sections in default/line styling.
+
+### Stable parts and states
+
+root, item, heading, trigger, icon, panel; open,closed,disabled if explicitly supported.
+
+All rendered owned parts use `data-krds-component="accordion"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+
+## State examples and native checks
+
+Supported case axes: `default`, `line`. These case names are independent project axes; they do not imply official KRDS type names or completed coverage.
+
+[Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
+
+Required full-catalog stories: `krds-accordion--default`, `krds-accordion--line`, `krds-accordion--multiple-open`, `krds-accordion--interactive-panel`, `krds-accordion--long-panel`, `krds-accordion--controlled`.
+
+### Native stories in current built outputs
+
+The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
+
+- react: [Default](/native/storybook-react/?path=/story/krds-accordion--default) · [Line](/native/storybook-react/?path=/story/krds-accordion--line) · [Multiple Open](/native/storybook-react/?path=/story/krds-accordion--multiple-open) · [Interactive Panel](/native/storybook-react/?path=/story/krds-accordion--interactive-panel) · [Long Panel](/native/storybook-react/?path=/story/krds-accordion--long-panel) · [Controlled](/native/storybook-react/?path=/story/krds-accordion--controlled).
+- solid: [default](/native/storybook-solid/?path=/story/krds-accordion--default) · [line](/native/storybook-solid/?path=/story/krds-accordion--line) · [multiple-open](/native/storybook-solid/?path=/story/krds-accordion--multiple-open) · [interactive-panel](/native/storybook-solid/?path=/story/krds-accordion--interactive-panel) · [long-panel](/native/storybook-solid/?path=/story/krds-accordion--long-panel) · [controlled](/native/storybook-solid/?path=/story/krds-accordion--controlled).
+- svelte: [default](/native/storybook-svelte/?path=/story/krds-accordion--default) · [line](/native/storybook-svelte/?path=/story/krds-accordion--line) · [multiple-open](/native/storybook-svelte/?path=/story/krds-accordion--multiple-open) · [interactive-panel](/native/storybook-svelte/?path=/story/krds-accordion--interactive-panel) · [long-panel](/native/storybook-svelte/?path=/story/krds-accordion--long-panel) · [controlled](/native/storybook-svelte/?path=/story/krds-accordion--controlled).
+- vue: [default](/native/storybook-vue/?path=/story/krds-accordion--default) · [line](/native/storybook-vue/?path=/story/krds-accordion--line) · [multiple-open](/native/storybook-vue/?path=/story/krds-accordion--multiple-open) · [interactive-panel](/native/storybook-vue/?path=/story/krds-accordion--interactive-panel) · [long-panel](/native/storybook-vue/?path=/story/krds-accordion--long-panel) · [controlled](/native/storybook-vue/?path=/story/krds-accordion--controlled).
+- lit: [Default](/native/storybook-lit/?path=/story/krds-accordion--default) · [Line](/native/storybook-lit/?path=/story/krds-accordion--line) · [Multiple Open](/native/storybook-lit/?path=/story/krds-accordion--multiple-open) · [Interactive Panel](/native/storybook-lit/?path=/story/krds-accordion--interactive-panel) · [Long Panel](/native/storybook-lit/?path=/story/krds-accordion--long-panel) · [Controlled](/native/storybook-lit/?path=/story/krds-accordion--controlled).
+- qwik: [default](/native/storybook-qwik/?path=/story/krds-accordion--default) · [line](/native/storybook-qwik/?path=/story/krds-accordion--line) · [multiple-open](/native/storybook-qwik/?path=/story/krds-accordion--multiple-open) · [interactive-panel](/native/storybook-qwik/?path=/story/krds-accordion--interactive-panel) · [long-panel](/native/storybook-qwik/?path=/story/krds-accordion--long-panel) · [controlled](/native/storybook-qwik/?path=/story/krds-accordion--controlled).
+- angular: [default](/native/storybook-angular/?path=/story/krds-accordion--default) · [line](/native/storybook-angular/?path=/story/krds-accordion--line) · [multiple-open](/native/storybook-angular/?path=/story/krds-accordion--multiple-open) · [interactive-panel](/native/storybook-angular/?path=/story/krds-accordion--interactive-panel) · [long-panel](/native/storybook-angular/?path=/story/krds-accordion--long-panel) · [controlled](/native/storybook-angular/?path=/story/krds-accordion--controlled).
+- solid-next: unsupported native Storybook preview integration.
+
+Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
+
+- react: [read the checked consumer](/examples/react-1); [download exact source](/sources/packages/react/examples/catalog.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log.txt).
+- solid: [read the checked consumer](/examples/solid-3); [download exact source](/sources/apps/fixture-solid/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log.txt).
+- svelte: [read the checked consumer](/examples/svelte-20); [download exact source](/sources/apps/fixture-svelte/src/public-examples/AccordionExample.svelte.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log.txt).
+- vue: [read the checked consumer](/examples/vue-58); [download exact source](/sources/apps/fixture-vue/src/PublicCatalogExamples.vue.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log.txt).
+- lit: [read the checked consumer](/examples/lit-60); [download exact source](/sources/apps/fixture-lit/src/examples/catalog.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log.txt).
+- qwik: [read the checked consumer](/examples/qwik-61); [download exact source](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log.txt).
+- angular: [read the checked consumer](/examples/angular-62); [download exact source](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt); [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json.txt), [compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log.txt).
+
+## Source identity and rights
+
+Baseline: `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`. Official detail snapshot retrieved `2026-10-29T23:28:03.699Z`. SHA-256: `b7cd55bbfda033e500711ddf92543704e918c0e041c418856c5ac3445cbf9b3a`. [Frozen component source records](/sources/catalog/components.json.txt) · [Official source](https://www.krds.go.kr/html/site/component/component_04_07.html). Raw original HTML remains reference evidence in the checkout and is not copied into this site.
+
+KRDS quoted or derived guidance retains its original terms. The independent code MIT grant does not relicense it, official assets, fonts, or third-party materials. Read [sources and rights](../legal/) before redistributing.

@@ -1,0 +1,365 @@
+diff --git a/tools/release-evidence/producers.mjs b/tools/release-evidence/producers.mjs
+index a273476..9bf54db 100644
+--- a/tools/release-evidence/producers.mjs
++++ b/tools/release-evidence/producers.mjs
+@@ -4,6 +4,8 @@ import {resolve,join,relative,dirname} from 'node:path';
+ import {createHash} from 'node:crypto';
+ import {validateStep,nodeCommand,producerEnvironment} from './receipts.mjs';
+ import {validateCIResultBinding,validateCapturedNative,validateCapturedSiheom} from './ci-outputs.mjs';
++import {patternProducer,patternArtifactRoots,validatePatternStdout,validatePatternResultBinding} from './patterns.mjs';
++export {patternProducer,validatePatternStdout,validatePatternResultBinding} from './patterns.mjs';
+ export {prepareCIOutputs,retainCIOutputs,validateCIResultBinding,validateCapturedNative,validateCapturedSiheom} from './ci-outputs.mjs';
+ export const stable=['solid','react','svelte','vue','lit','qwik','angular'];
+ export const hash=value=>createHash('sha256').update(value).digest('hex');
+@@ -23,9 +25,12 @@ export async function readRef(root,ref){
+ export async function ref(root,path){const value=await bytes(root,path);return {path:relative(await realpath(root),await realpath(resolve(root,path))),bytes:value.length,sha256:hash(value)};}
+ export function parsePatterns(raw,framework){
+  requireFact([...stable,'solid-next'].includes(framework),'Unknown native framework');const rows=Array.isArray(raw)?raw:raw?.results;requireFact(Array.isArray(rows)&&rows.length>=15,'Empty/filtered native pattern execution');
+- for(const row of rows)requireFact((row.passed===true||row.ok===true||row.pass===true)&&row.skipped!==true&&row.executed!==false&&(row.exitCode===undefined||row.exitCode===0)&&!row.error&&!row.failure&&(!row.errors||row.errors.length===0)&&(!row.external||row.external.length===0),`Native pattern failed/unexecuted: ${row.id??row.name}`);
+- const cases=patternCases.map(id=>{const [pattern,name]=id.split('/');const found=rows.filter(row=>row.id===`pattern-${pattern}-${name}`||row.name===id||row.pattern===pattern&&row.id===name);requireFact(found.length===1,`Missing/duplicate actual binding case ${id}`);return id;});
++ const producer=stable.includes(framework)?patternProducer(framework):null;
++ for(const row of rows)requireFact(row&&typeof row==='object'&&(producer?.statusRows?row.status==='passed':row.passed===true||row.ok===true||row.pass===true)&&['passed','ok','pass'].every(key=>row[key]===undefined||row[key]===true)&&(row.status===undefined||row.status==='passed')&&row.skipped!==true&&row.executed!==false&&(row.exitCode===undefined||row.exitCode===0)&&!row.error&&!row.failure&&(!row.errors||Array.isArray(row.errors)&&row.errors.length===0)&&(!row.external||Array.isArray(row.external)&&row.external.length===0),`Native pattern failed/unexecuted: ${row?.id??row?.name}`);
++ const cases=patternCases.map((id,index)=>{const [pattern,name]=id.split('/');const found=rows.filter(row=>producer?.statusRows?framework==='qwik'?row.name===producer.caseNames[index]:row.id===id:row.id===`pattern-${pattern}-${name}`||row.name===id||row.pattern===pattern&&row.id===name);requireFact(found.length===1,`Missing/duplicate actual binding case ${id}`);return id;});
++ for(const key of ['errors','external','externalRequests','serviceRequests'])if(raw?.[key]!==undefined)requireFact(Array.isArray(raw[key])&&raw[key].length===0,`Raw native ${key} failure`);
+  if(raw.violations)requireFact(raw.violations.every(row=>Array.isArray(row.violations)&&row.violations.length===0),'Raw pattern axe violations');
++ for(const row of [...raw.visual??[],...raw.screens??[]])requireFact(Array.isArray(row.violations)&&row.violations.length===0&&!row.overflow,'Raw native visual/axe failure');
+  return {framework,requiredCases:15,caseIds:cases,executedRows:rows.length};
+ }
+ export function parseNodeTests(text,expected){
+@@ -60,7 +65,7 @@ const omit=new Set(['node_modules','dist','public','.git','.nx','.angular','.vit
+ export function sourceRoots(kind,frameworks=stable){
+  requireFact(['patterns','documentation','preview','ci','manualAccessibility','independentReview'].includes(kind),'Unknown producer source kind');
+  const common=['tools','tests','packages/test-contracts','package.json','.yarnrc.yml','.yarn/releases','yarn.lock','compatibility/toolchain.json','compatibility/frameworks.json','compatibility/testing.json'];
+- if(kind==='patterns')return [...common,'packages/test-contracts/src/patterns','examples/pattern-specs','docs/patterns',...frameworks.flatMap(id=>[`packages/${id}/src`,`packages/${id}/examples/patterns`,`apps/fixture-${id}/src`,`apps/fixture-${id}/scripts`,`apps/fixture-${id}/tests`,`apps/fixture-${id}/public`,`apps/storybook-${id}/src`])];
++ if(kind==='patterns')return [...common,'packages/test-contracts/src/patterns','examples/pattern-specs','docs/patterns',...frameworks.flatMap(id=>[`packages/${id}/src`,`packages/${id}/examples/patterns`,`apps/fixture-${id}/src`,`apps/fixture-${id}/scripts`,`apps/fixture-${id}/tests`,`apps/fixture-${id}/public`,`apps/storybook-${id}/src`,...(stable.includes(id)?patternProducer(id).rootScripts:[])])];
+  if(kind==='manualAccessibility')return [...sourceRoots('patterns',frameworks),'docs/reviews','compliance/project-identity.json'];
+  if(kind==='independentReview')return [...sourceRoots('ci',frameworks),'docs/reviews'];
+  if(kind==='documentation')return [...common,'apps/docs','catalog','specs','compliance'];
+@@ -85,7 +90,7 @@ export async function validateEnvelope(root,report,kind,expected,frameworks){
+  return report;
+ }
+ export function recipe(kind,framework){
+- if(kind==='patterns')return ['tools/yarn.mjs','workspace',`@unofficial-krds/fixture-${framework}`,'exec','node','scripts/patterns-browser.mjs'];
++ if(kind==='patterns'){const producer=patternProducer(framework);return producer.statusRows?['tools/release-evidence/patterns-browser.mjs',framework]:['tools/yarn.mjs','workspace',`@unofficial-krds/fixture-${framework}`,'exec','node','scripts/patterns-browser.mjs'];}
+  if(kind==='docs-tests')return ['tools/yarn.mjs','workspace','@unofficial-krds/docs','test'];
+  if(kind==='docs-browser')return ['tools/release-evidence/docs-browser.mjs'];
+  if(kind==='preview-contracts')return ['tools/yarn.mjs','test:contract','--framework','solid-next'];
+@@ -111,7 +116,7 @@ export function capturedCandidateMatches(kind,captured,expected,sourceBefore){re
+ export async function validateCapture(root,reference,report,expected,recipeName,execution,result,closure){
+  const captured=JSON.parse(await readRef(root,reference));requireFact(captured.schemaVersion===3&&captured.kind==='captured-recipe'&&captured.recipe===recipeName&&capturedCandidateMatches(report.kind,captured.candidate,expected,report.sourceBefore)&&captured.sourceUnchanged===true&&identical(captured.sourceBefore,report.sourceBefore)&&identical(captured.sourceAfter,report.sourceAfter)&&identical(captured.execution,execution),'Original recorder/candidate/source/execution receipt differs');
+  if(result)requireFact(identical(captured.result,result),'Original recorder result reference differs');
+- if(recipeName==='patterns'||recipeName==='docs-tests'||recipeName==='docs-browser'){requireFact(closure,'Submitted original artifact closure missing');const roots=recipeName==='patterns'?[`apps/fixture-${closure.framework}/dist`,`packages/${closure.framework}/dist`,'packages/test-contracts/dist']:['apps/docs/dist','apps/docs/public'];if(recipeName==='patterns')requireFact(captured.framework===closure.framework,'Captured native framework differs');requireFact(identical(captured.artifactsBefore,closure.artifactsBefore)&&identical(captured.artifactsAfter,closure.artifactsAfter)&&identical(captured.artifactsBefore,captured.artifactsAfter),'Original recorder artifacts drifted or were replaced');await validateInventory(root,captured.artifactsBefore,roots,{outputs:true});await validateInventory(root,captured.artifactsAfter,roots,{outputs:true});if(recipeName==='docs-browser')requireFact(closure.served&&identical(captured.served,closure.served),'Original captured served responses were substituted');}
++ if(recipeName==='patterns'||recipeName==='docs-tests'||recipeName==='docs-browser'){requireFact(closure,'Submitted original artifact closure missing');const roots=recipeName==='patterns'?patternArtifactRoots(closure.framework,captured.outputs?.producerState?.artifact??undefined):['apps/docs/dist','apps/docs/public'];if(recipeName==='patterns')requireFact(captured.framework===closure.framework,'Captured native framework differs');requireFact(identical(captured.artifactsBefore,closure.artifactsBefore)&&identical(captured.artifactsAfter,closure.artifactsAfter)&&identical(captured.artifactsBefore,captured.artifactsAfter),'Original recorder artifacts drifted or were replaced');await validateInventory(root,captured.artifactsBefore,roots,{outputs:true});await validateInventory(root,captured.artifactsAfter,roots,{outputs:true});if(recipeName==='docs-browser')requireFact(closure.served&&identical(captured.served,closure.served),'Original captured served responses were substituted');}
+  if(report.kind==='ci'){requireFact(identical(captured.ci,report.ci),'Original CI workflow/run identity differs');if(recipeName==='ci:targets'&&execution.exitCode===0)await validateInventory(root,captured.producedArtifacts,await outputRoots(root),{outputs:true});}return captured;
+ }
+ async function validateManualSupport(root,observation){
+@@ -125,8 +130,9 @@ export async function inspectReleaseEvidence(root,name,index,candidate,scopes={}
+   await validateEnvelope(root,report,name,expected,frameworks);const paths=[index.reports[name].path];
+   if(name==='patterns'){
+    requireFact(exact(report.rows?.map(row=>row.framework),stable),'Every seven native composition producers required');
+-   for(const row of report.rows){const raw=JSON.parse(await readRef(root,row.result));const parsed=parsePatterns(raw,row.framework);await validateCapture(root,row.capture,report,expected,'patterns',row.execution,row.result,{framework:row.framework,artifactsBefore:row.artifactsBefore,artifactsAfter:row.artifactsAfter});const captured=await step(root,row.execution,'patterns',row.framework);for(const id of parsed.caseIds){const [pattern,name]=id.split('/');const label=row.framework==='react'?`pattern-${pattern}-${name}`:id;requireFact(captured.stdout.split(/\r?\n/u).some(line=>line===`PASS ${label}`),`Original subprocess did not execute ${id}`);}requireFact(!/^FAIL /mu.test(captured.stdout),'Actual pattern subprocess failure');
+-    const artifactRoots=[`apps/fixture-${row.framework}/dist`,`packages/${row.framework}/dist`,'packages/test-contracts/dist'];await validateInventory(root,row.artifactsBefore,artifactRoots,{outputs:true});await validateInventory(root,row.artifactsAfter,artifactRoots,{outputs:true});requireFact(identical(row.artifactsBefore,row.artifactsAfter),'Pattern served artifacts changed');
++   for(const row of report.rows){const raw=JSON.parse(await readRef(root,row.result));parsePatterns(raw,row.framework);const capture=await validateCapture(root,row.capture,report,expected,'patterns',row.execution,row.result,{framework:row.framework,artifactsBefore:row.artifactsBefore,artifactsAfter:row.artifactsAfter});const binding=await validatePatternResultBinding(root,capture,row.result);await step(root,row.execution,'patterns',row.framework,binding.environment);
++    const artifactRoots=patternArtifactRoots(row.framework,binding.artifact);await validateInventory(root,row.artifactsBefore,artifactRoots,{outputs:true});await validateInventory(root,row.artifactsAfter,artifactRoots,{outputs:true});requireFact(identical(row.artifactsBefore,row.artifactsAfter),'Pattern served artifacts changed');
++    if(binding.artifact){const actual=await inventory(root,[binding.artifact+(row.framework==='qwik'?'/dist':'')],{outputs:true}),canonical=await inventory(root,[`apps/fixture-${row.framework}/dist${row.framework==='angular'?'/browser':''}`],{outputs:true});const normalized=record=>record.files.map(file=>({path:relative(record.roots[0],file.path),bytes:file.bytes,sha256:file.sha256}));requireFact(identical(normalized(actual),normalized(canonical)),'Leased fixture differs from current candidate output');if(row.framework==='qwik'){const server=await ref(root,`${binding.artifact}/server.mjs`);requireFact(row.review?.sources?.some(source=>source.path===server.path&&source.sha256===server.sha256),'Qwik leased SSR server source requires explicit independent review');}}
+     const text=(await readRef(root,row.review.report)).toString();approvedReview(text,row.framework,row.review);validateReviewer(row.review,`patterns:${row.framework}`);await validateInventory(root,row.review.sourceInventory,sourceRoots('patterns',[row.framework]));requireFact(row.review.sourceFingerprint===expected.sourceFingerprint&&row.review.artifactSetSha256===expected.artifactSetSha256,'Native review is not bound to this exact candidate');for(const source of row.review.sources)requireFact(hash(await bytes(root,source.path))===source.sha256,'Reviewed pattern source stale');requireFact(row.review.observations?.some(value=>nonempty(value)),'Independent native review observations missing');paths.push(row.result.path,row.review.report.path);
+    }
+   }else if(name==='documentation'){
+diff --git a/tools/release-evidence/record.mjs b/tools/release-evidence/record.mjs
+index 0316bb0..95c9e1a 100644
+--- a/tools/release-evidence/record.mjs
++++ b/tools/release-evidence/record.mjs
+@@ -1,27 +1,33 @@
+ #!/usr/bin/env node
+ /** Explicit recorder. Never imports historical logs as a new execution. */
+-import {readFile,writeFile,mkdir} from 'node:fs/promises';
++import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
+ import {resolve,join,relative,dirname} from 'node:path';
+ import {fileURLToPath} from 'node:url';
+ import {recipe,inventory,sourceRoots,ref,identicalSnapshot} from './record-support.mjs';
+ import {candidateBinding,outputRoots,prepareCIOutputs,retainCIOutputs} from './producers.mjs';
+ import {captureStep,nodeCommand,producerEnvironment} from './receipts.mjs';
++import {patternEnvironment,patternArtifactRoots,preparePatternOutputs,retainPatternOutputs} from './patterns.mjs';
+ const root=resolve(import.meta.dirname,'../..');
+-export async function record({recipeName,framework,candidate,scopes,output,resultPath,execute=false}){
++export async function record({recipeName,framework,candidate,scopes,output,resultPath,artifactPath,execute=false}){
+  const args=recipe(recipeName,framework),kind=recipeName==='patterns'?'patterns':recipeName.startsWith('docs-')?'documentation':recipeName.startsWith('preview-')?'preview':'ci';
+  if(!execute)return {recipe:recipeName,command:nodeCommand(root,args,producerEnvironment(root,recipeName,framework)),sourceRoots:sourceRoots(kind),executionPerformed:false};
+  const destination=resolve(root,output);if(!destination.startsWith(`${root}/test-results/`)&&!destination.startsWith(`${root}/docs/releases/`))throw new Error('Recorder output must be a retained test-results or docs/releases directory');
+- let binding=kind==='ci'?null:candidateBinding(kind,candidate,scopes);await mkdir(dirname(destination),{recursive:true});await mkdir(destination);const before=await inventory(root,sourceRoots(kind));if(kind==='ci')binding={bindingMode:'source-before/outputs-after',sourceCommit:candidate?.sourceCommit,lockfileSha256:candidate?.lockfileSha256,sourceInventorySha256:before.sha256};const artifactRoots=kind==='patterns'?[`apps/fixture-${framework}/dist`,`packages/${framework}/dist`,'packages/test-contracts/dist']:kind==='documentation'?['apps/docs/dist','apps/docs/public']:[];const artifactsBefore=artifactRoots.length?await inventory(root,artifactRoots,{outputs:true}):null;
++ if(kind==='patterns'&&resultPath)throw new Error('Pattern results are derived from fresh enumerated producer outputs; --result is unsupported');
++ if(artifactPath&&(kind!=='patterns'||!['svelte','angular','qwik'].includes(framework)))throw new Error('--artifact is supported only by the three root native producers');
++ if(kind==='patterns'&&framework==='qwik'&&!artifactPath)throw new Error('Qwik requires --artifact for the owner-leased production root with server.mjs and dist/');
++ let binding=kind==='ci'?null:candidateBinding(kind,candidate,scopes);await mkdir(dirname(destination),{recursive:true});await mkdir(destination);let artifact;if(artifactPath){artifact=relative(root,join(destination,'inputs/fixture'));await cp(resolve(root,artifactPath),resolve(root,artifact),{recursive:true});}
++ const before=await inventory(root,sourceRoots(kind));if(kind==='ci')binding={bindingMode:'source-before/outputs-after',sourceCommit:candidate?.sourceCommit,lockfileSha256:candidate?.lockfileSha256,sourceInventorySha256:before.sha256};const artifactRoots=kind==='patterns'?patternArtifactRoots(framework,artifact):kind==='documentation'?['apps/docs/dist','apps/docs/public']:[];const artifactsBefore=artifactRoots.length?await inventory(root,artifactRoots,{outputs:true}):null;
+  // The command is an enumerated native recipe, never shell text from an evidence file.
+- const environment={...producerEnvironment(root,recipeName,framework),...(recipeName==='docs-browser'?{KRDS_RELEASE_DOCS_SERVED:join(destination,'served-docs.json'),KRDS_RELEASE_DOCS_OUTPUT:join(destination,'native-output')}:{})};
+- const producerState=kind==='ci'?await prepareCIOutputs(root,recipeName,destination):null;
+- const execution=await captureStep(recipeName,nodeCommand(root,args,environment),{baseRoot:root,output:join(destination,'process')});
+- const after=await inventory(root,sourceRoots(kind));const ci=process.env.GITHUB_ACTIONS==='true'?{provider:'github-actions',runId:process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,workflow:process.env.GITHUB_WORKFLOW,sourceSha:process.env.GITHUB_SHA}:null;let outputs=null,outputError;try{if(kind==='ci')outputs=await retainCIOutputs(root,recipeName,destination,producerState,execution,binding,ci);}catch(error){outputError=error.message;}const record={schemaVersion:3,kind:'captured-recipe',recipe:recipeName,framework,candidate:binding,sourceBefore:before,sourceAfter:after,artifactsBefore,artifactsAfter:artifactRoots.length?await inventory(root,artifactRoots,{outputs:true}):null,execution,producedArtifacts:recipeName==='ci:targets'&&execution.exitCode===0?await inventory(root,await outputRoots(root),{outputs:true}):null,sourceUnchanged:identicalSnapshot(before,after),outputs,outputError,result:kind==='ci'?outputs?.result??null:recipeName==='docs-browser'?await ref(root,join(destination,'native-output/report.json')).catch(()=>null):resultPath?await ref(root,resultPath).catch(()=>null):null,served:recipeName==='docs-browser'&&execution.exitCode===0?await ref(root,join(destination,'served-docs.json')):null,ci,releaseAccepted:false};
++ const environment={...(kind==='patterns'?patternEnvironment(root,framework,destination,artifact):producerEnvironment(root,recipeName,framework)),...(recipeName==='docs-browser'?{KRDS_RELEASE_DOCS_SERVED:join(destination,'served-docs.json'),KRDS_RELEASE_DOCS_OUTPUT:join(destination,'native-output')}:{})};
++ const producerState=kind==='ci'?await prepareCIOutputs(root,recipeName,destination):kind==='patterns'?await preparePatternOutputs(root,framework,destination,artifact):null;
++ const ci=process.env.GITHUB_ACTIONS==='true'?{provider:'github-actions',runId:process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,workflow:process.env.GITHUB_WORKFLOW,sourceSha:process.env.GITHUB_SHA}:null;
++ const execution=await captureStep(recipeName,nodeCommand(root,args,environment),{baseRoot:root,output:join(destination,'process')});let outputs=null,outputError;try{if(kind==='ci')outputs=await retainCIOutputs(root,recipeName,destination,producerState,execution,binding,ci);else if(kind==='patterns')outputs=await retainPatternOutputs(root,framework,destination,producerState,execution,binding);}catch(error){outputError=error.message;}
++ const after=await inventory(root,sourceRoots(kind));const record={schemaVersion:3,kind:'captured-recipe',recipe:recipeName,framework,candidate:binding,sourceBefore:before,sourceAfter:after,artifactsBefore,artifactsAfter:artifactRoots.length?await inventory(root,artifactRoots,{outputs:true}):null,execution,producedArtifacts:recipeName==='ci:targets'&&execution.exitCode===0?await inventory(root,await outputRoots(root),{outputs:true}):null,sourceUnchanged:identicalSnapshot(before,after),outputs,outputError,result:['ci','patterns'].includes(kind)?outputs?.result??null:recipeName==='docs-browser'?await ref(root,join(destination,'native-output/report.json')).catch(()=>null):resultPath?await ref(root,resultPath).catch(()=>null):null,served:recipeName==='docs-browser'&&execution.exitCode===0?await ref(root,join(destination,'served-docs.json')):null,ci,releaseAccepted:false};
+  await writeFile(join(destination,'record.json'),JSON.stringify(record,null,2)+'\n');return record;
+ }
+ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+- const opts={};for(let i=2;i<process.argv.length;i++){const key=process.argv[i];if(key==='--execute')opts.execute=true;else if(['--recipe','--framework','--candidate','--manifest','--output','--result'].includes(key)){const value=process.argv[++i];if(!value)throw new Error(`Missing ${key}`);opts[key.slice(2)]=value;}else throw new Error(`Unknown ${key}`);}
++ const opts={};for(let i=2;i<process.argv.length;i++){const key=process.argv[i];if(key==='--execute')opts.execute=true;else if(['--recipe','--framework','--candidate','--manifest','--output','--result','--artifact'].includes(key)){const value=process.argv[++i];if(!value)throw new Error(`Missing ${key}`);opts[key.slice(2)]=value;}else throw new Error(`Unknown ${key}`);}
+  const input=opts.candidate?JSON.parse(await readFile(resolve(root,opts.candidate),'utf8')):undefined;const candidate=input?.candidate??input;
+  const scopes=opts.manifest?JSON.parse(await readFile(resolve(root,opts.manifest),'utf8')).scopes:undefined;
+- const result=await record({recipeName:opts.recipe,framework:opts.framework,candidate,scopes,output:opts.output,resultPath:opts.result,execute:opts.execute});console.log(JSON.stringify(result,null,2));if(result.execution&&(result.execution.exitCode!==0||result.execution.signal||!result.sourceUnchanged||result.outputError))process.exitCode=1;
++ const result=await record({recipeName:opts.recipe,framework:opts.framework,candidate,scopes,output:opts.output,resultPath:opts.result,artifactPath:opts.artifact,execute:opts.execute});console.log(JSON.stringify(result,null,2));if(result.execution&&(result.execution.exitCode!==0||result.execution.signal||!result.sourceUnchanged||result.outputError))process.exitCode=1;
+ }
+diff --git a/tools/release-evidence/receipts.mjs b/tools/release-evidence/receipts.mjs
+index 0032b7e..9c4072e 100644
+--- a/tools/release-evidence/receipts.mjs
++++ b/tools/release-evidence/receipts.mjs
+@@ -1,9 +1,9 @@
+ /** Lossless, source-bound selected-Node command receipts. */
+ import {node} from '../../tests/consumers/lib.mjs';
+ import {captureStep as capture,validateStep} from '../../tests/consumers/evidence.mjs';
+-import {resolve} from 'node:path';
++import {patternEnvironment} from './patterns.mjs';
+ export {validateStep};
+-export function producerEnvironment(root,kind,framework){return kind==='patterns'?{PATTERN_STATIC_ROOT:resolve(root,`apps/fixture-${framework}/dist`),KRDS_PATTERN_DIST:resolve(root,`apps/fixture-${framework}/dist`)}:{};}
++export function producerEnvironment(root,kind,framework){return kind==='patterns'?patternEnvironment(root,framework):{};}
+ export const nodeCommand=(root,args,environment={})=>({executable:node,args,cwd:root,...(Object.keys(environment).length?{environment}:{})});
+ export async function captureStep(name,command,options){
+  const saved={};for(const [key,value]of Object.entries(command.environment??{})){saved[key]=process.env[key];process.env[key]=value;}
+diff --git a/tools/release-evidence/producers.test.mjs b/tools/release-evidence/producers.test.mjs
+index be2691f..8a60094 100644
+--- a/tools/release-evidence/producers.test.mjs
++++ b/tools/release-evidence/producers.test.mjs
+@@ -2,6 +2,7 @@ import test from 'node:test';
+ import assert from 'node:assert/strict';
+ import {readFileSync,mkdtempSync,writeFileSync,rmSync} from 'node:fs';
+ import {join,resolve} from 'node:path';
++await import('./patterns.test.mjs');
+ const api=await import('./producers.mjs').catch(()=>({}));
+ const root=resolve(import.meta.dirname,'../..');
+ const json=path=>JSON.parse(readFileSync(join(root,path),'utf8'));
+diff --git a/tools/release-evidence/README.md b/tools/release-evidence/README.md
+index f5dcd68..f0ad5ab 100644
+--- a/tools/release-evidence/README.md
++++ b/tools/release-evidence/README.md
+@@ -11,10 +11,16 @@ These helpers validate producer-specific facts. Parsing a historical report is d
+ ```sh
+ node tools/yarn.mjs exec node tools/release-evidence/record.mjs --recipe patterns --framework react
+ # During the authorized frozen producer window only:
+-node tools/yarn.mjs exec node tools/release-evidence/record.mjs --recipe patterns --framework react --candidate docs/releases/VERSION/verification.json --manifest artifacts/manifest-stable.json --output test-results/release/react-RUN --result PATH_TO_NEW_NATIVE_RESULTS --execute
++node tools/yarn.mjs exec node tools/release-evidence/record.mjs --recipe patterns --framework react --candidate docs/releases/VERSION/verification.json --manifest artifacts/manifest-stable.json --output test-results/release/react-RUN --execute
++# A separately leased immutable Svelte/Angular/Qwik artifact may be retained as input:
++node tools/yarn.mjs exec node tools/release-evidence/record.mjs --recipe patterns --framework svelte --candidate docs/releases/VERSION/verification.json --manifest artifacts/manifest-stable.json --output test-results/release/svelte-RUN --artifact /PATH/TO/LEASED/FIXTURE --execute
+ ```
+ 
+-Pattern captures force the actual production fixture root. React/Solid/Vue use their existing fifteen-case browser programs and complete raw results. All seven native adapters need the canonical case identities, zero execution/request errors, immutable fixture/package/private-contract bytes and actual independent scoped source review. Missing future native scripts fail instead of inventing support.
++Pattern captures invoke the existing Solid/React/Vue/Lit fixture recipes. Svelte and Angular invoke their actual root scripts with artifact/output arguments; Qwik invokes the actual root test producer through a retained copy with only repository-root/output literals redirected. Original and redirected Qwik source hashes are retained and their exact relationship is checked. Source inventories include the mapped root Svelte/Angular scripts and their imported tests. Every producer keeps its native raw result: booleans for the original four, canonical IDs plus `status: passed` for Svelte/Angular, and an exact enumerated mapping of Qwik's compound names. Stdout is validated in each producer's actual format; no PASS lines or booleans are synthesized.
++
++The recorder derives `result` from a fresh canonical output tree and binds its complete inventory to the original captured process, stdout, source/candidate and environment. `--result` is rejected for patterns. React/Vue/Lit use their supported output settings; the coordinator-authorized one-line Solid overlay adds `PATTERN_OUTPUT` with its original default unchanged. Svelte/Angular/Qwik receive a fresh output directory. Original T11 evidence is never moved or overwritten. `--artifact` copies an owner-leased immutable input into the same capture's `inputs/fixture`; Qwik expects the owner's production root with `server.mjs` and `dist/`, and its server source must be explicitly independently reviewed. Final acceptance additionally compares leased fixture files with current candidate outputs. Historical fixture copies and null-HEAD diagnostic captures do not qualify as a current candidate.
++
++All seven native adapters require exactly one binding for each canonical case, zero execution/request errors, immutable fixture/package/private-contract bytes and actual independent scoped source review. Additional executed native checks remain in the raw report and must pass. Missing, duplicate, skipped, malformed or failed cases block acceptance.
+ 
+ Docs recipes are `docs-tests` and `docs-browser`. The latter wraps the actual T12 browser source, redirecting only its repository-root and evidence-output literals into a retained copy so frozen T12 reports are preserved. The original T12 route policy keeps its local/remote decisions. Each continued browser request is fetched once without retries or followed redirects, compared byte-for-byte with current `apps/docs/dist/`, and fulfilled with that exact HTTP response/body. This includes Chromium prefetches, whose browser-protocol body view can be empty. Active requests drain before browser/context close. Actual response URL/status/headers and delivered body hashes, the original and redirected producer hashes, reports and screenshots are retained; byte mismatches and capture errors still fail. The five-test Node stdout, two browser reports, 54 references, seven full compiler mappings, current input/download hashes and exact served artifacts are validated. Text scaling is never relabeled browser zoom. Pattern and documentation acceptance also compares the original capture’s declared artifact roots and complete before/after inventories with the submitted inventories and current bytes. Those original inventories must agree. The documentation served-response reference must be the one retained by that capture. For a diagnostic documentation run with no final artifact manifest, omit `--manifest`; absent candidate identity still prevents final acceptance.
+ 
+diff --git a/apps/fixture-solid/scripts/patterns-browser.mjs b/apps/fixture-solid/scripts/patterns-browser.mjs
+index b588c52..0391c5f 100644
+--- a/apps/fixture-solid/scripts/patterns-browser.mjs
++++ b/apps/fixture-solid/scripts/patterns-browser.mjs
+@@ -9,7 +9,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
+ const require = createRequire(import.meta.url);
+ const port = Number(process.env.PATTERN_PORT ?? 5381);
+ let origin = `http://127.0.0.1:${port}`;
+-const output = resolve('../../.superpowers/sdd/PLAN/t11-solid-logs');
++const output = resolve(process.env.PATTERN_OUTPUT ?? '../../.superpowers/sdd/PLAN/t11-solid-logs');
+ await mkdir(output, {recursive:true});
+ let server,production,serverLog='';
+ if(process.env.PATTERN_STATIC_ROOT){production=await serveProduction(process.env.PATTERN_STATIC_ROOT,{fixture:true});origin=production.origin;}else{server=spawn(process.execPath,[resolve(dirname(require.resolve('vite/package.json')),'bin/vite.js'),'--host','127.0.0.1','--port',String(port),'--strictPort'],{stdio:['ignore','pipe','pipe']});server.stdout.on('data',v=>serverLog+=v);server.stderr.on('data',v=>serverLog+=v);}
+diff --git a/tools/release-evidence/patterns.mjs b/tools/release-evidence/patterns.mjs
+new file mode 100644
+index 0000000..bd74b18
+--- /dev/null
++++ b/tools/release-evidence/patterns.mjs
+@@ -0,0 +1,68 @@
++/** Enumerated T11 producers and lossless same-invocation native output bindings. */
++import {mkdir,stat} from 'node:fs/promises';
++import {resolve,join,relative,dirname} from 'node:path';
++import {blocked,bytes,ref,readRef,inventory,validateInventory,parsePatterns,hash} from './producers.mjs';
++const check=(value,message)=>{if(!value)throw blocked(message);};
++const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
++const producers={
++ solid:{entry:'apps/fixture-solid/scripts/patterns-browser.mjs',result:'browser-results.json'},
++ react:{entry:'apps/fixture-react/scripts/patterns-browser.mjs',result:'results.json'},
++ vue:{entry:'apps/fixture-vue/scripts/patterns-browser.mjs',result:'results.json'},
++ lit:{entry:'apps/fixture-lit/scripts/patterns-browser.mjs',result:'report.json'},
++ svelte:{entry:'scripts/patterns-svelte-browser.mjs',result:'results.json',statusRows:true,rootScripts:['scripts/patterns-svelte-browser.mjs']},
++ angular:{entry:'scripts/patterns-angular.mjs',result:'results.json',statusRows:true,rootScripts:['scripts/patterns-angular.mjs']},
++ qwik:{entry:'tests/patterns/qwik/browser.mjs',result:'browser.json',statusRows:true,caseNames:['form/error-summary-focus','form/retry-success+native-formdata+duplicate+command-replay','form/reset-cancels-pending+native-canceled-reset','search/filter-resets-page+links+history','search/empty-results','search/retry-success','search/query-during-loading+immutable-payload','consent/required-refusal','consent/optional-refusal-success','consent/modal-focus-return+trap+scroll+cancel-late','consent/retry-in-dialog','layout/skip-main','layout/navigate-current+popstate','layout/narrow-navigation+current-activation+cancel','layout/footer-policy']}
++};
++export function patternProducer(framework){check(Object.hasOwn(producers,framework),'Unknown native pattern producer');return {...producers[framework],rootScripts:producers[framework].rootScripts??[]};}
++export function patternEnvironment(root,framework,destination,artifact){
++ patternProducer(framework);const fixture=resolve(root,artifact??`apps/fixture-${framework}/dist${framework==='angular'?'/browser':''}`);
++ const env={PATTERN_STATIC_ROOT:fixture,KRDS_PATTERN_DIST:fixture,PLAYWRIGHT_BROWSERS_PATH:'/private/tmp/krds-playwright-1.64.1'};
++ if(destination){const output=resolve(destination,'native-output');if(framework==='solid')env.PATTERN_OUTPUT=output;
++  else if(framework==='react')env.KRDS_PATTERN_REPORT=output;
++  else if(['vue','lit'].includes(framework))env.KRDS_PATTERN_RUN=relative(resolve(root,`.superpowers/sdd/PLAN/t11-${framework}-logs`),output);
++  else if(['svelte','angular','qwik'].includes(framework)){env.KRDS_RELEASE_PATTERN_OUTPUT=output;env.KRDS_RELEASE_PATTERN_ARTIFACT=fixture;}
++ }return env;
++}
++export function patternArtifactRoots(framework,artifact){return [artifact??`apps/fixture-${framework}/dist`,`packages/${framework}/dist`,'packages/test-contracts/dist'];}
++export function validatePatternStdout(stdout,raw,framework){
++ const parsed=parsePatterns(raw,framework),rows=Array.isArray(raw)?raw:raw.results;
++ check(!/^FAIL /mu.test(stdout),'Actual pattern subprocess failure');
++ if(framework==='svelte'){let printed;try{printed=JSON.parse(stdout);}catch{throw blocked('Missing original Svelte JSON stdout');}check(same(printed.results,rows)&&same(printed.errors,raw.errors)&&same(printed.external,raw.external),'Original Svelte stdout/result differs');}
++ else if(framework==='angular'){let printed;try{printed=JSON.parse(stdout);}catch{throw blocked('Missing original Angular summary stdout');}check(printed.passed===rows.length&&printed.failed===0&&same(printed.errors,raw.errors)&&same(printed.externalRequests,raw.externalRequests),'Original Angular stdout/result differs');}
++ else if(framework==='qwik'){const lines=[...stdout.matchAll(/^Qwik T11 browser (\d+)\/(\d+)\s*$/gmu)];check(lines.length===1&&Number(lines[0][1])===rows.length&&Number(lines[0][2])===rows.length,'Original Qwik stdout/result differs');}
++ else for(const id of parsed.caseIds){const label=framework==='react'?`pattern-${id.replace('/','-')}`:framework==='lit'?`${id.split('/')[1]} true`:id;check(stdout.split(/\r?\n/u).filter(line=>framework==='lit'?line.trimEnd()===label:line===`PASS ${label}`).length===(framework==='lit'?rows.filter(row=>row.id===id.split('/')[1]).length:1),`Original subprocess did not execute ${id}`);}
++ return parsed;
++}
++export function redirectQwikProducer(source,root,output){
++ const from="const root=resolve(import.meta.dirname,'../../..'),require=createRequire(resolve(root,'apps/fixture-qwik/package.json'));";
++ const out="const directory=resolve(root,'.superpowers/sdd/PLAN/t11-qwik-logs'),production=process.env.KRDS_PATTERN_PRODUCTION;";
++ check(source.split(from).length===2&&source.split(out).length===2,'Qwik producer changed; root/output-only transform needs review');
++ return source.replace(from,`const root=${JSON.stringify(resolve(root))},require=createRequire(resolve(root,'apps/fixture-qwik/package.json'));`).replace(out,`const directory=${JSON.stringify(resolve(output))},production=process.env.KRDS_PATTERN_PRODUCTION;`);
++}
++export async function preparePatternOutputs(root,framework,destination,artifact){
++ const sourceDirectory=resolve(destination,'native-output');
++ const state={schemaVersion:1,framework,directory:relative(root,destination),sourceDirectory:relative(root,sourceDirectory),fresh:true,artifact:artifact??null};
++ try{await stat(sourceDirectory);throw blocked('Native producer output already exists');}catch(error){if(error.code!=='ENOENT')throw error;}
++ await mkdir(sourceDirectory,{recursive:true});return state;
++}
++export async function retainPatternOutputs(root,framework,destination,state,execution,candidate){
++ const output=join(destination,'native-output');
++ const files=await inventory(root,[relative(root,output)],{outputs:true}),result=await ref(root,join(output,patternProducer(framework).result));
++ return {schemaVersion:1,kind:'native-pattern-output',framework,inputBinding:candidate,executionResultSha256:execution.rawResult.sha256,producerStdoutSha256:execution.stdout.sha256,producerState:state,directory:relative(root,output),inventory:files,result};
++}
++export async function validatePatternResultBinding(root,capture,submitted){
++ const output=capture.outputs,state=output?.producerState,framework=capture.framework;patternProducer(framework);
++ const directory=dirname(dirname(capture.execution.rawResult.path));
++ check(output?.schemaVersion===1&&output.kind==='native-pattern-output'&&output.framework===framework&&same(output.inputBinding,capture.candidate)&&output.executionResultSha256===capture.execution.rawResult.sha256&&output.producerStdoutSha256===capture.execution.stdout.sha256,'Native result does not belong to original captured process');
++ check(state?.schemaVersion===1&&state.framework===framework&&state.fresh===true&&state.directory===directory&&output.directory===`${directory}/native-output`&&same(submitted,capture.result)&&same(submitted,output.result)&&submitted.path===`${output.directory}/${patternProducer(framework).result}`,'Historical or unrelated pattern result substituted');
++ check(state.sourceDirectory===output.directory,'Wrong canonical native output source');
++ await validateInventory(root,output.inventory,[output.directory],{outputs:true});check(output.inventory.files.some(row=>same(row,submitted)),'Original native result omitted from complete output closure');
++ if(state.artifact)check(state.artifact===`${directory}/inputs/fixture`,'Immutable diagnostic artifact must be retained in the same capture');
++ const environment=patternEnvironment(root,framework,resolve(root,directory),state.artifact??undefined);
++ check(same(capture.execution.command.environment,environment),'Pattern output/artifact environment was substituted');
++ const raw=JSON.parse(await readRef(root,submitted));
++ if(['svelte','angular'].includes(framework))check(raw.artifact===environment.KRDS_RELEASE_PATTERN_ARTIFACT,'Native producer served another artifact root');
++ if(framework==='qwik'){const producer=JSON.parse(await bytes(root,`${output.directory}/producer.json`)),source=await bytes(root,patternProducer(framework).entry);check(producer.sourceSha256===hash(source),'Original Qwik source changed');check((await readRef(root,producer.redirected)).toString()===redirectQwikProducer(source.toString(),root,resolve(root,output.directory)),'Qwik redirected producer changed assertions');}
++ const stdout=await bytes(root,capture.execution.stdout.path);check(hash(stdout)===capture.execution.stdout.sha256,'Original native stdout changed');validatePatternStdout(stdout.toString(),raw,framework);
++ return {raw,environment,artifact:state.artifact??undefined};
++}
+diff --git a/tools/release-evidence/patterns-browser.mjs b/tools/release-evidence/patterns-browser.mjs
+new file mode 100644
+index 0000000..2bb2c13
+--- /dev/null
++++ b/tools/release-evidence/patterns-browser.mjs
+@@ -0,0 +1,20 @@
++#!/usr/bin/env node
++/** Invoke the actual root T11 producers, changing only Qwik root/output literals. */
++import {spawnSync} from 'node:child_process';
++import {readFile,writeFile} from 'node:fs/promises';
++import {resolve,join} from 'node:path';
++import {pathToFileURL} from 'node:url';
++import {patternProducer,redirectQwikProducer} from './patterns.mjs';
++import {hash,ref} from './producers.mjs';
++const root=resolve(import.meta.dirname,'../..'),framework=process.argv[2],producer=patternProducer(framework);
++if(!['svelte','angular','qwik'].includes(framework))throw new Error('Use the existing fixture producer for this framework');
++const output=process.env.KRDS_RELEASE_PATTERN_OUTPUT,artifact=process.env.KRDS_RELEASE_PATTERN_ARTIFACT;
++if(!output||!artifact)throw new Error('An explicitly leased artifact and fresh retained output are required');
++if(framework==='qwik'){
++ const source=await readFile(join(root,producer.entry),'utf8'),derived=redirectQwikProducer(source,root,output),path=join(output,'qwik-producer-redirected.mjs');
++ await writeFile(path,derived);await writeFile(join(output,'producer.json'),JSON.stringify({source:producer.entry,sourceSha256:hash(source),redirected:await ref(root,path)},null,2)+'\n');
++ process.env.KRDS_PATTERN_PRODUCTION=artifact;await import(pathToFileURL(path).href);
++}else{
++ const args=[producer.entry,...(framework==='svelte'?[artifact,output]:['--dist',artifact,'--output',output])],child=spawnSync(process.execPath,args,{cwd:root,stdio:'inherit',env:process.env});
++ if(child.error)throw child.error;if(child.signal)throw new Error(`Native producer terminated by ${child.signal}`);process.exitCode=child.status??1;
++}
+diff --git a/tools/release-evidence/patterns.test.mjs b/tools/release-evidence/patterns.test.mjs
+new file mode 100644
+index 0000000..bf3e76f
+--- /dev/null
++++ b/tools/release-evidence/patterns.test.mjs
+@@ -0,0 +1,81 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFile,mkdtemp,mkdir,writeFile,rm,stat} from 'node:fs/promises';
++import {join,resolve,dirname} from 'node:path';
++import * as api from './producers.mjs';
++const root=resolve(import.meta.dirname,'../..');
++const retained={
++ solid:'.superpowers/sdd/PLAN/t11-solid-logs/browser-results.json',
++ react:'.superpowers/sdd/PLAN/t11-react-logs/native-final/results.json',
++ svelte:'.superpowers/sdd/PLAN/t11-svelte-logs/browser-producer10-final/results.json',
++ vue:'.superpowers/sdd/PLAN/t11-vue-logs/31-browser-selected-cache/results.json',
++ lit:'.superpowers/sdd/PLAN/t11-lit-logs/browser-accepted/report.json',
++ qwik:'.superpowers/sdd/PLAN/t11-qwik-logs/browser.json',
++ angular:'.superpowers/sdd/PLAN/t11-angular-logs/consumer-browser-c267-final/results.json'
++};
++const load=async path=>JSON.parse(await readFile(join(root,path),'utf8'));
++const required=['form-errors/error-summary-focus','form-errors/retry-success','form-errors/reset-cancels-pending','search-results/filter-resets-page','search-results/empty-results','search-results/retry-success','search-results/query-during-loading','consent-confirmation/required-refusal','consent-confirmation/optional-refusal-success','consent-confirmation/modal-focus-return','consent-confirmation/retry-in-dialog','service-layout/skip-main','service-layout/navigate-current','service-layout/narrow-navigation','service-layout/footer-policy'];
++for(const [framework,path]of Object.entries(retained))test(`R5 actual retained ${framework} report binds all fifteen canonical cases`,async()=>{
++ const raw=await load(path),before=JSON.stringify(raw),parsed=api.parsePatterns(raw,framework);
++ assert.deepEqual(parsed.caseIds,required);assert.equal(parsed.requiredCases,15);assert.equal(JSON.stringify(raw),before,'Parsing must preserve original native observations');
++});
++for(const framework of ['svelte','angular','qwik'])test(`R5 ${framework} exact native identities reject missing, duplicate, failed, skipped and malformed rows`,async()=>{
++ const raw=await load(retained[framework]);
++ for(const mutate of [r=>r.results.splice(0,1),r=>r.results.push({...r.results[0]}),r=>r.results[0].status='failed',r=>r.results[0].skipped=true,r=>r.results[0].executed=false,r=>r.results[0].passed=false,r=>r.results[0].exitCode=1,r=>r.results[0].error='actual failure',r=>r.results[0]=null,r=>r.results[0][framework==='qwik'?'name':'id']+='-invented',r=>r.errors=['page error']]){
++  const invalid=structuredClone(raw);mutate(invalid);assert.throws(()=>api.parsePatterns(invalid,framework));
++ }
++});
++test('R5 each enumerated recipe resolves an existing actual entry and source inventory binds imported root producers',async()=>{
++ for(const framework of ['solid','react','svelte','vue','lit','qwik','angular']){
++  const args=api.recipe('patterns',framework),entry=args[0]==='tools/yarn.mjs'?`apps/fixture-${framework}/${args.at(-1)}`:args[0];
++  assert.equal((await stat(join(root,entry))).isFile(),true,`${framework}: ${entry}`);
++ }
++ const temporary=await mkdtemp('/private/tmp/krds-pattern-source-unit-');try{
++  for(const path of ['scripts/patterns-svelte-browser.mjs','scripts/patterns-angular.mjs','scripts/unrelated.mjs','tests/patterns/svelte.browser.mjs','tests/patterns/angular.browser.mjs','tests/patterns/qwik/browser.mjs']){await mkdir(dirname(join(temporary,path)),{recursive:true});await writeFile(join(temporary,path),'unit source');}
++  const inventory=await api.inventory(temporary,api.sourceRoots('patterns',['svelte','angular','qwik']));
++  assert.ok(inventory.files.some(row=>row.path==='scripts/patterns-svelte-browser.mjs'));
++  assert.ok(inventory.files.some(row=>row.path==='scripts/patterns-angular.mjs'));
++  assert.ok(inventory.files.some(row=>row.path==='tests/patterns/qwik/browser.mjs'));
++  assert.ok(!inventory.files.some(row=>row.path==='scripts/unrelated.mjs'));
++  await writeFile(join(temporary,'scripts/patterns-svelte-browser.mjs'),'changed actual imported producer');await assert.rejects(api.validateInventory(temporary,inventory,api.sourceRoots('patterns',['svelte','angular','qwik'])));
++ }finally{await rm(temporary,{recursive:true,force:true});}
++});
++test('R5 stdout checks consume actual Lit and three status-producer formats, rejecting unrelated and contradictory output',async()=>{
++ assert.equal(typeof api.validatePatternStdout,'function');
++ const cases=[['lit','.superpowers/sdd/PLAN/t11-lit-logs/browser-accepted.log'],['svelte','.superpowers/sdd/PLAN/t11-svelte-logs/55-full-producer10-final-browser.log'],['qwik','.superpowers/sdd/PLAN/t11-qwik-logs/browser-v3.log']];
++ for(const [framework,path]of cases){const raw=await load(retained[framework]),stdout=await readFile(join(root,path),'utf8');api.validatePatternStdout(stdout,raw,framework);assert.throws(()=>api.validatePatternStdout('unrelated successful command',raw,framework));assert.throws(()=>api.validatePatternStdout(stdout+'\nFAIL actual-native-case\n',raw,framework));}
++ // The retained Angular owner packet has raw results, but no original browser stdout.
++ // This literal is a unit fixture for that actual CLI's printed summary, not execution evidence.
++ const angular=await load(retained.angular);api.validatePatternStdout('{"passed":21,"failed":0,"errors":[],"externalRequests":[]}',angular,'angular');
++ assert.throws(()=>api.validatePatternStdout('{"passed":20,"failed":0,"errors":[],"externalRequests":[]}',angular,'angular'));
++});
++test('R5 fresh output retention rejects historical result substitution, changed closure, stdout and environment',async()=>{
++ const {preparePatternOutputs,retainPatternOutputs,patternEnvironment}=await import('./patterns.mjs'),{captureStep,nodeCommand}=await import('./receipts.mjs');
++ const temporary=await mkdtemp('/private/tmp/krds-pattern-capture-unit-');try{
++  const destination=join(temporary,'test-results/capture');await mkdir(destination,{recursive:true});
++  const state=await preparePatternOutputs(temporary,'svelte',destination),environment=patternEnvironment(temporary,'svelte',destination),raw=await load(retained.svelte);raw.artifact=environment.KRDS_RELEASE_PATTERN_ARTIFACT;
++  const script=`const fs=require('node:fs');const raw=${JSON.stringify(raw)};fs.writeFileSync(${JSON.stringify(join(destination,'native-output/results.json'))},JSON.stringify(raw));console.log(JSON.stringify({results:raw.results,external:raw.external,errors:raw.errors}));`;
++  const execution=await captureStep('unit-pattern-output',nodeCommand(temporary,['-e',script],environment),{baseRoot:temporary,output:join(destination,'process')});assert.equal(execution.exitCode,0);
++  const candidate={sourceCommit:null},outputs=await retainPatternOutputs(temporary,'svelte',destination,state,execution,candidate),capture={framework:'svelte',candidate,execution,outputs,result:outputs.result};
++  assert.equal((await api.validatePatternResultBinding(temporary,capture,capture.result)).raw.results.length,20);
++  await writeFile(join(temporary,'historical.json'),JSON.stringify(raw));await assert.rejects(api.validatePatternResultBinding(temporary,capture,await api.ref(temporary,'historical.json')));
++  const forged=structuredClone(capture);forged.execution.command.environment.KRDS_RELEASE_PATTERN_OUTPUT='/wrong';await assert.rejects(api.validatePatternResultBinding(temporary,forged,forged.result));
++  await writeFile(join(destination,'native-output/extra.json'),'changed closure');await assert.rejects(api.validatePatternResultBinding(temporary,capture,capture.result));await rm(join(destination,'native-output/extra.json'));
++  await writeFile(join(temporary,execution.stdout.path),'unrelated successful subprocess');await assert.rejects(api.validatePatternResultBinding(temporary,capture,capture.result));
++ }finally{await rm(temporary,{recursive:true,force:true});}
++});
++test('R5 Qwik output/root-only redirect preserves the original assertion body and rejects changed producer anchors',async()=>{
++ const {redirectQwikProducer}=await import('./patterns.mjs'),source=await readFile(join(root,'tests/patterns/qwik/browser.mjs'),'utf8'),output='/private/tmp/unit-qwik-output';
++ const derived=redirectQwikProducer(source,root,output);
++ assert.equal(derived.replace(`const root=${JSON.stringify(root)},require=`,"const root=resolve(import.meta.dirname,'../../..'),require=").replace(`const directory=${JSON.stringify(output)},production=`,"const directory=resolve(root,'.superpowers/sdd/PLAN/t11-qwik-logs'),production="),source);
++ assert.throws(()=>redirectQwikProducer(source.replace("'../../..'","'changed-root'"),root,output));
++});
++test('R5 all native output destinations are capture-local and refuse pre-existing output directories',async()=>{
++ const {preparePatternOutputs,patternEnvironment}=await import('./patterns.mjs'),temporary=await mkdtemp('/private/tmp/krds-pattern-fresh-unit-');try{
++  for(const framework of ['solid','react','svelte','vue','lit','qwik','angular']){
++   const destination=join(temporary,'test-results',framework);await mkdir(destination,{recursive:true});const state=await preparePatternOutputs(temporary,framework,destination),environment=patternEnvironment(temporary,framework,destination);
++   assert.equal(state.sourceDirectory,`test-results/${framework}/native-output`);await assert.rejects(preparePatternOutputs(temporary,framework,destination));
++   if(framework==='solid')assert.equal(environment.PATTERN_OUTPUT,join(destination,'native-output'));
++  }
++ }finally{await rm(temporary,{recursive:true,force:true});}
++});

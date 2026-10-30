@@ -1,0 +1,7 @@
+import { createEffect, createUniqueId } from 'solid-js';
+import type { SwitchContract } from '@unofficial-krds/contracts';
+import { owned, stateValue, resetField } from '../../internal/catalog';
+export type SwitchProps = SwitchContract;
+export function Switch(props: SwitchProps) { const uid = createUniqueId(); const checked = stateValue(() => props.checked, props.defaultChecked, false, checked => props.onCheckedChange?.({ checked })); let input!: HTMLInputElement; const sync = () => { if (input) {
+    input.checked = checked.read();
+} }; createEffect(sync); resetField(() => input, () => { checked.reset(); sync(); }); return <label {...owned('switch', 'root', props.disabled ? 'disabled' : checked.read() ? 'checked' : 'unchecked')} data-krds-size={props.size ?? 'medium'}><input ref={input} id={props.id ?? uid} type="checkbox" role="switch" aria-checked={checked.read()} {...owned('switch', 'control')} name={props.name} value={props.value ?? 'on'} checked={checked.read()} disabled={props.disabled} required={props.required} aria-invalid={props.invalid || undefined} aria-describedby={[props.helpId, props.invalid ? props.errorId : undefined].filter(Boolean).join(' ') || undefined} onChange={event => { checked.request(event.currentTarget.checked); sync(); }}/><span {...owned('switch', "track")} aria-hidden="true"><span {...owned("switch", "handle")}/></span><span {...owned('switch', 'label')}>{props.label}</span></label>; }

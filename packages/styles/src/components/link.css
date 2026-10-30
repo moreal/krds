@@ -1,0 +1,13 @@
+/* KRDS-derived: frozen component.css lines 2–1133 link branches; semantic guidance: specs/components/link.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="link"][data-krds-part="root"] { display: inline-flex; align-items: baseline; gap: var(--krds-gap-2); color: var(--krds-light-color-link-default); text-decoration: underline; text-underline-offset: .2em; border-radius: var(--krds-radius-small2); }
+[data-krds-component="link"][data-krds-part="root"][data-krds-underline="false"]:not([aria-disabled="true"]) { text-decoration: none; }
+[data-krds-component="link"][data-krds-part="root"]:visited { color: var(--krds-light-color-link-visited); }
+[data-krds-component="link"][data-krds-part="root"]:hover { text-decoration-thickness: .15em; }
+[data-krds-component="link"][data-krds-part="root"][data-krds-appearance="emphasis"] { font-weight: 700; }
+[data-krds-component="link"][data-krds-part="root"][aria-disabled="true"] { color: var(--krds-light-color-text-disabled); text-decoration: line-through; cursor: not-allowed; }
+[data-krds-component="link"][data-krds-part="label"] { min-inline-size: 0; }
+[data-krds-component="link"][data-krds-part="icon"] { flex: none; inline-size: 1em; block-size: 1em; }
+[data-krds-component="link"][data-krds-part="root"][data-krds-size="small"] { font-size: var(--krds-pc-font-size-body-small); }
+[data-krds-component="link"][data-krds-part="root"][data-krds-size="large"] { font-size: var(--krds-pc-font-size-body-large); }
+@media (max-width: 767px) { [data-krds-component="link"][data-krds-part="root"][data-krds-size="small"] { font-size: var(--krds-mobile-font-size-body-small); } [data-krds-component="link"][data-krds-part="root"][data-krds-size="large"] { font-size: var(--krds-mobile-font-size-body-large); } }

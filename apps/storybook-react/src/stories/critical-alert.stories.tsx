@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-critical-alert', title: 'KRDS/CriticalAlert', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const HighUrgency: Story = { args: {"componentId": "critical-alert", "initialState": {"urgency": "high", "label": "긴급 안내", "message": "예제 점검으로 신청이 잠시 중단됩니다.", "details": {"href": "/local/maintenance", "label": "점검 상세 안내", "destinationTitle": "점검 상세 안내"}}, "host": {"localOnly": true, "acceptChanges": true, "bodyFirst": true}} };
+export const MediumUrgency: Story = { args: {"componentId": "critical-alert", "initialState": {"urgency": "medium", "label": "중요 안내", "message": "예제 점검으로 신청이 잠시 중단됩니다.", "details": {"href": "/local/maintenance", "label": "점검 상세 안내", "destinationTitle": "점검 상세 안내"}}, "host": {"localOnly": true, "acceptChanges": true, "bodyFirst": true}} };
+export const LowUrgency: Story = { args: {"componentId": "critical-alert", "initialState": {"urgency": "low", "label": "일반 안내", "message": "예제 점검으로 신청이 잠시 중단됩니다.", "details": {"href": "/local/maintenance", "label": "점검 상세 안내", "destinationTitle": "점검 상세 안내"}}, "host": {"localOnly": true, "acceptChanges": true, "bodyFirst": true}} };
+export const Narrow: Story = { args: {"componentId": "critical-alert", "initialState": {"urgency": "high", "label": "긴급 안내", "message": "예제 점검으로 신청이 잠시 중단됩니다.", "details": {"href": "/local/maintenance", "label": "점검 상세 안내", "destinationTitle": "점검 상세 안내"}}, "host": {"localOnly": true, "acceptChanges": true, "bodyFirst": true}} };
+export const PagePlacement: Story = { args: {"componentId": "critical-alert", "initialState": {"urgency": "high", "label": "긴급 안내", "message": "예제 점검으로 신청이 잠시 중단됩니다.", "details": {"href": "/local/maintenance", "label": "점검 상세 안내", "destinationTitle": "점검 상세 안내"}}, "host": {"localOnly": true, "acceptChanges": true, "bodyFirst": true}} };

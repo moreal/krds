@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-fab', title: 'KRDS/Catalog/FAB', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'fab'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const SingleIcon: Story = {name: "single-icon", args: {caseId: "single-icon"}};
+export const ExtendedLabel: Story = {name: "extended-label", args: {caseId: "extended-label"}};
+export const Expandable: Story = {name: "expandable", args: {caseId: "expandable"}};
+export const TabbarClearance: Story = {name: "tabbar-clearance", args: {caseId: "tabbar-clearance"}};
+export const Narrow: Story = {name: "narrow", args: {caseId: "narrow"}};

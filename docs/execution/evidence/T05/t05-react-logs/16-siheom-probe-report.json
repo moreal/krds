@@ -1,0 +1,34 @@
+{
+  "kind": "siheom",
+  "mode": "probe",
+  "results": [
+    {
+      "framework": "react",
+      "coverage": false,
+      "files": [
+        "native-probe.test.tsx"
+      ],
+      "adapter": [
+        "@siheom/react",
+        "0.4.1"
+      ],
+      "tests": 2,
+      "passed": 2,
+      "failed": 0,
+      "report": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793321635018-77077-0d056012/react-vitest.json",
+      "status": "passed"
+    }
+  ],
+  "unsupported": [
+    {
+      "framework": "lit",
+      "reason": "No upstream native siheom adapter",
+      "alternative": "test:contract --framework lit"
+    },
+    {
+      "framework": "solid-next",
+      "reason": "Solid1 adapter peer does not cover exact Solid2 RC",
+      "alternative": "test:contract --framework solid-next"
+    }
+  ]
+}

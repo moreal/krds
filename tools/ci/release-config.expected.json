@@ -1,0 +1,27 @@
+{
+  "projectsRelationship": "independent",
+  "versionPlans": true,
+  "git": {"commit": false, "tag": false, "push": false, "stageChanges": false},
+  "version": {
+    "currentVersionResolver": "disk",
+    "adjustSemverBumpsForZeroMajorVersion": false,
+    "preserveLocalDependencyProtocols": true,
+    "updateDependents": "always"
+  },
+  "changelog": {
+    "workspaceChangelog": false,
+    "projectChangelogs": {"createRelease": false}
+  },
+  "groups": {
+    "stable": {
+      "projects": ["krds-contracts", "krds-tokens", "krds-styles", "krds-assets", "krds-fonts", "krds-react", "krds-solid", "krds-svelte", "krds-vue", "krds-lit", "krds-qwik", "krds-angular"],
+      "projectsRelationship": "independent",
+      "versionPlans": true
+    },
+    "solid2-preview": {
+      "projects": ["krds-solid-next"],
+      "projectsRelationship": "independent",
+      "versionPlans": true
+    }
+  }
+}

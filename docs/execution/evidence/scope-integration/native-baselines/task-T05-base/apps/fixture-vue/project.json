@@ -1,0 +1,54 @@
+{
+  "name": "fixture-vue",
+  "root": "apps/fixture-vue",
+  "sourceRoot": "apps/fixture-vue/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:vue"
+  ],
+  "implicitDependencies": [
+    "krds-vue",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue lint"
+      }
+    },
+    "contract": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue contract"
+      }
+    },
+    "siheom": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue siheom"
+      }
+    }
+  }
+}

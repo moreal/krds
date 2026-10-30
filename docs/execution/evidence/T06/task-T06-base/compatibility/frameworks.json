@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "stableTargets": [
+    "react",
+    "solid",
+    "svelte",
+    "vue",
+    "lit",
+    "qwik",
+    "angular"
+  ],
+  "previewTargets": [
+    "solid-next"
+  ],
+  "supportDeclarationPolicy": "These are frozen implementation targets, not a claim of completed support. Widen peers only after minimum/latest isolated consumer verification.",
+  "frameworks": [
+    {
+      "id": "react",
+      "supportChannel": "stable-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "react": "19.3.1",
+        "react-dom": "19.3.1",
+        "@vitejs/plugin-react": "6.1.2",
+        "@types/react": "19.3.0",
+        "@types/react-dom": "19.3.0"
+      },
+      "intendedPublicPeerDependencies": {
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1"
+      },
+      "renderer": "React native JSX",
+      "buildContract": "Vite 8 + @vitejs/plugin-react; declarations through tsc 6.0.2",
+      "ark": {
+        "package": "@ark-ui/react",
+        "version": "5.40.0",
+        "status": "published-peers-reviewed"
+      },
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": []
+    },
+    {
+      "id": "solid",
+      "supportChannel": "stable-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "solid-js": "1.9.18",
+        "vite-plugin-solid": "2.11.14",
+        "babel-preset-solid": "1.9.16",
+        "@babel/core": "7.28.5"
+      },
+      "intendedPublicPeerDependencies": {
+        "solid-js": "^1.9.18"
+      },
+      "renderer": "Solid 1 native JSX",
+      "buildContract": "vite-plugin-solid 2.11.14 + Babel preset 1.9.16; Solid browser/server exports preserved",
+      "ark": {
+        "package": "@ark-ui/solid",
+        "version": "5.40.0",
+        "status": "published-peer-overbroad; restrict our public support to tested Solid 1"
+      },
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": []
+    },
+    {
+      "id": "svelte",
+      "supportChannel": "stable-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "svelte": "5.57.3",
+        "@sveltejs/package": "3.0.1",
+        "@sveltejs/kit": "3.1.0",
+        "@sveltejs/vite-plugin-svelte": "7.3.1",
+        "svelte-check": "4.7.7"
+      },
+      "intendedPublicPeerDependencies": {
+        "svelte": "^5.57.3"
+      },
+      "renderer": "Svelte 5 native source/snippets",
+      "buildContract": "src/lib compiled/packaged via svelte-package 3.0.1; SvelteKit 3.1.0 production consumer; TS6",
+      "ark": {
+        "package": "@ark-ui/svelte",
+        "version": "5.25.0",
+        "status": "published; peer svelte >=5.29.0"
+      },
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": [
+        "Svelte 2/3 are extension targets, not v1 support."
+      ]
+    },
+    {
+      "id": "vue",
+      "supportChannel": "stable-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "vue": "3.5.44",
+        "@vue/compiler-sfc": "3.5.44",
+        "@vitejs/plugin-vue": "6.0.10",
+        "vue-tsc": "3.3.14"
+      },
+      "intendedPublicPeerDependencies": {
+        "vue": "^3.5.44"
+      },
+      "renderer": "Vue 3 native SFC/slots",
+      "buildContract": "@vitejs/plugin-vue 6.0.10 with compiler-sfc exactly 3.5.44; vue-tsc declarations",
+      "ark": {
+        "package": "@ark-ui/vue",
+        "version": "5.40.0",
+        "status": "published-peers-reviewed"
+      },
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": []
+    },
+    {
+      "id": "lit",
+      "supportChannel": "stable-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "native-vite8",
+      "pins": {
+        "lit": "3.3.3",
+        "@lit-labs/ssr": "4.1.0",
+        "@lit-labs/ssr-client": "1.1.8"
+      },
+      "intendedPublicPeerDependencies": {
+        "lit": "^3.3.3"
+      },
+      "renderer": "Lit native custom elements/DOM events",
+      "buildContract": "tsc 6.0.2 + Vite 8; local custom element registration; explicit Shadow DOM/light DOM and SSR policy",
+      "ark": null,
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "native-vite8",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": [
+        "No official Ark Lit adapter assumed. Project owns Zag lifecycle/reactivity/prop normalization.",
+        "SSR lab packages are candidates; SSR/hydration not verified."
+      ]
+    },
+    {
+      "id": "qwik",
+      "supportChannel": "stable-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "qwik-vite7",
+      "pins": {
+        "@builder.io/qwik": "1.20.3",
+        "@builder.io/qwik-city": "1.20.3"
+      },
+      "intendedPublicPeerDependencies": {
+        "@builder.io/qwik": "^1.20.3"
+      },
+      "renderer": "Qwik 1 native component$/QRL",
+      "buildContract": "qwikVite() from @builder.io/qwik/optimizer; Vite 7 library mode; src/index.ts entry; .qwik.mjs/.qwik.cjs outputs and qwik export; tsc declaration output",
+      "ark": null,
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "qwik-vite7",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": [
+        "Official guide: https://qwik.dev/docs/advanced/library/ (preserved as raw/qwik-library.html).",
+        "Do not use React/Lit rendering. Production SSR serialization, resume and first interaction are separate required checks.",
+        "Qwik 2 is not a stable target."
+      ]
+    },
+    {
+      "id": "angular",
+      "supportChannel": "stable-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "54 web-applicable manifest items",
+      "toolchain": "angular22",
+      "pins": {
+        "@angular/core": "22.2.4",
+        "@angular/compiler": "22.2.4",
+        "@angular/compiler-cli": "22.2.4",
+        "@angular/cli": "22.2.5",
+        "@angular/build": "22.2.5",
+        "@angular-devkit/build-angular": "22.2.5",
+        "@angular/ssr": "22.2.5",
+        "ng-packagr": "22.2.5",
+        "@angular/common": "22.2.4",
+        "@angular/forms": "22.2.4",
+        "@angular/router": "22.2.4",
+        "@angular/platform-browser": "22.2.4",
+        "@angular/platform-browser-dynamic": "22.2.4",
+        "@angular/platform-server": "22.2.4",
+        "@angular/animations": "22.2.4",
+        "@angular-devkit/core": "22.2.5",
+        "@angular-devkit/architect": "0.2202.5",
+        "rxjs": "7.8.2",
+        "zone.js": "0.16.3",
+        "tslib": "2.8.1"
+      },
+      "intendedPublicPeerDependencies": {
+        "@angular/core": "^22.2.4",
+        "@angular/common": "^22.2.4",
+        "@angular/forms": "^22.2.4"
+      },
+      "renderer": "Angular 22 native standalone components/inputs/outputs",
+      "buildContract": "Angular CLI library builder @angular-devkit/build-angular:ng-packagr, ng-packagr 22.2.5, compiler-cli 22.2.4, TS 6.0.2; APF partial compilation, FESM2022 and declarations",
+      "ark": null,
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "angular22",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": [
+        "Only major 22 selected; do not infer support for 18–21 from Storybook broad peers.",
+        "Production consumer uses @angular/build:application; verify AOT, reactive forms/CVA and server build.",
+        "APF source: https://angular.dev/tools/libraries/angular-package-format"
+      ]
+    },
+    {
+      "id": "solid-next",
+      "supportChannel": "preview-target",
+      "supportStatus": "target-not-yet-implemented",
+      "catalogScope": "pilot-first; publish explicit preview coverage separately",
+      "toolchain": "solid2-preview",
+      "pins": {
+        "solid-js": "2.0.0-rc.19",
+        "@solidjs/web": "2.0.0-rc.19",
+        "@solidjs/compiler": "2.0.0-rc.19",
+        "@solidjs/babel-plugin": "2.0.0-rc.19",
+        "@solidjs/vite-plugin": "3.0.0-next.53",
+        "@babel/core": "7.28.5",
+        "@babel/preset-typescript": "7.28.5"
+      },
+      "intendedPublicPeerDependencies": {
+        "solid-js": "2.0.0-rc.19",
+        "@solidjs/web": "2.0.0-rc.19"
+      },
+      "renderer": "Solid 2 native runtime and @solidjs/web renderer",
+      "buildContract": "Dedicated @solidjs/vite-plugin 3.0.0-next.53 / compiler+babel-plugin rc.19 set; Vite 8; browser/server condition tests",
+      "ark": null,
+      "nativeConnectorStatus": "pending",
+      "productionConsumer": {
+        "fixtureToolchain": "solid2-preview",
+        "requiredChecks": [
+          "independent-tarball-install",
+          "types",
+          "production-build",
+          "browser-interaction",
+          "ssr-or-explicit-ssr-policy"
+        ],
+        "status": "pending"
+      },
+      "notes": [
+        "Exact RC peers only; no implied future RC compatibility.",
+        "Ark Solid numeric >=1.6.0 is not evidence of Solid 2 API compatibility.",
+        "No official siheom Solid 2 peer support. Community Storybook advertises Solid 2; execution/compiler selection pending."
+      ]
+    }
+  ],
+  "sharedBehavior": {
+    "zag": {
+      "@zag-js/core": "1.47.0",
+      "@zag-js/vanilla": "1.47.0",
+      "@zag-js/dialog": "1.47.0",
+      "@zag-js/tabs": "1.47.0",
+      "@zag-js/date-picker": "1.47.0",
+      "@internationalized/date": "3.12.4"
+    },
+    "nativeConnectors": [
+      "lit",
+      "qwik",
+      "angular",
+      "solid-next"
+    ],
+    "status": "published metadata reviewed; machine lifecycle/SSR/form integration pending",
+    "rule": "Original KRDS JavaScript is reference evidence only; never run it alongside Ark/Zag controlling the same DOM."
+  }
+}

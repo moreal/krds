@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "displayName": "KRDS Native",
+  "localPackageScope": "@unofficial-krds",
+  "scopeOwnership": {
+    "status": "unverified",
+    "confirmedOwner": null,
+    "publishAuthorized": false,
+    "evidence": "The user selected unofficial-krds as the npm scope name. This confirms naming intent only; npm account/scope ownership and publication authorization have not been authenticated or granted."
+  },
+  "repository": {
+    "observedGitRemote": "git@github.com:moreal/krds.git",
+    "observedHttpsUrl": "https://github.com/moreal/krds",
+    "observation": "git remote -v",
+    "identityStatus": "user-confirmed-metadata-url",
+    "ownershipVerified": false,
+    "releaseMetadataRepositoryUrl": "https://github.com/moreal/krds",
+    "metadataSource": "Repository URL supplied by the user; configured Git remote is retained as separate observed evidence, not proof of account ownership."
+  },
+  "copyright": {
+    "independentCodeHolder": "Lee Dogeon <dev.moreal@gmail.com>",
+    "independentCodeYear": 2026,
+    "status": "confirmed",
+    "plannedLicense": "MIT for independently authored project code only; completed grant in LICENSES/MIT.txt, not a replacement for KRDS originals/derivatives or third-party materials.",
+    "evidence": "User supplied Lee Dogeon <dev.moreal@gmail.com>; controller confirmed independent-code holder separately from official KRDS attribution. Year 2026 records this workspace implementation session, not an inferred upstream year."
+  },
+  "affiliation": {
+    "governmentAffiliationClaimed": false,
+    "rule": "Examples must not present the project as an official government service or claim real institutional identity."
+  },
+  "releaseMetadata": {
+    "status": "metadata-confirmed-release-checks-pending",
+    "publishAllowed": false,
+    "missing": [
+      "Atomic requested-scope integration by T01",
+      "Remaining candidate/release checks and T16 assessment of the existing ownership-related policy gates"
+    ],
+    "localImplementationAllowed": true,
+    "prohibited": "Do not infer npm/repository account ownership or publication permission from metadata naming. Preserve original KRDS/third-party rights. Ordinary local packing and candidate preparation are separate from publication authorization."
+  },
+  "upstreamIdentity": {
+    "name": "KRDS",
+    "repositoryUrl": "https://github.com/KRDS-uiux/krds-uiux",
+    "separateFromProject": true,
+    "providerAttribution": "행정안전부 / Ministry of the Interior and Safety — KRDS source materials under their verified original terms",
+    "governmentCoownershipOfIndependentCodeAsserted": false
+  },
+  "checkedAt": "2026-10-30T02:52:39.162847+00:00",
+  "requestedPackageScope": "@unofficial-krds",
+  "scopeNaming": {
+    "status": "confirmed-by-user",
+    "currentLocalScope": "@unofficial-krds",
+    "requestedScope": "@unofficial-krds",
+    "integrationStatus": "in-progress-T01-atomic-manifest-lock-and-provenance-rename"
+  },
+  "metadataReadiness": {
+    "status": "user-values-and-independent-grant-complete",
+    "complete": true,
+    "requestedScope": "@unofficial-krds",
+    "repositoryUrl": "https://github.com/moreal/krds",
+    "independentGrantPath": "LICENSES/MIT.txt",
+    "scopeIntegration": "in-progress-T01; manifests, lock and package provenance/notices are in the approved atomic integration window"
+  },
+  "ownershipVerification": {
+    "npmScope": "not-authenticated",
+    "repository": "not-authenticated",
+    "notImpliedByUserMetadata": true
+  },
+  "publicationAuthorization": {
+    "authorized": false,
+    "scope": "No npm publication, pushing or tagging is authorized by this metadata request."
+  },
+  "baselineCheckedAt": "2026-10-29T23:35:31.019299+00:00",
+  "metadataEvidencePath": "compliance/metadata-evidence.json"
+}

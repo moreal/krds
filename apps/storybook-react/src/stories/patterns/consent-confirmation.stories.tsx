@@ -1,0 +1,12 @@
+import type {Meta,StoryObj} from '@storybook/react-vite';
+import {PatternPresentation} from '../../../../../packages/react/examples/patterns/PatternPresentation';
+import {snapshot} from './PatternStories';
+const meta={title:'KRDS Pattern/Consent Confirmation',component:PatternPresentation} satisfies Meta<typeof PatternPresentation>;
+export default meta;
+type Story=StoryObj<typeof meta>;
+export const Editing:Story=snapshot('consent-confirmation','editing');
+export const Invalid:Story=snapshot('consent-confirmation','invalid');
+export const Confirming:Story=snapshot('consent-confirmation','confirming');
+export const Loading:Story=snapshot('consent-confirmation','loading');
+export const Error:Story=snapshot('consent-confirmation','error');
+export const Success:Story=snapshot('consent-confirmation','success');

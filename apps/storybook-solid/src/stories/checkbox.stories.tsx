@@ -1,0 +1,15 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-checkbox', title: 'KRDS/checkbox', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Binary: Story = { name: "binary", parameters: { __id: "krds-checkbox--binary" }, render: () => <CatalogStory componentId="checkbox" caseId="binary"/> };
+export const MixedParent: Story = { name: "mixed-parent", parameters: { __id: "krds-checkbox--mixed-parent" }, render: () => <CatalogStory componentId="checkbox" caseId="mixed-parent"/> };
+export const Chip: Story = { name: "chip", parameters: { __id: "krds-checkbox--chip" }, render: () => <CatalogStory componentId="checkbox" caseId="chip"/> };
+export const Sizes: Story = { name: "sizes", parameters: { __id: "krds-checkbox--sizes" }, render: () => <CatalogStory componentId="checkbox" caseId="sizes"/> };
+export const Disabled: Story = { name: "disabled", parameters: { __id: "krds-checkbox--disabled" }, render: () => <CatalogStory componentId="checkbox" caseId="disabled"/> };
+export const FormReset: Story = { name: "form-reset", parameters: { __id: "krds-checkbox--form-reset" }, render: () => <CatalogStory componentId="checkbox" caseId="form-reset"/> };
+export const Required: Story = { name: "required", parameters: { __id: "krds-checkbox--required" }, render: () => <CatalogStory componentId="checkbox" caseId="required"/> };
+export const InitialPartialReset: Story = { name: "initial-partial-reset", parameters: { __id: "krds-checkbox--initial-partial-reset" }, render: () => <CatalogStory componentId="checkbox" caseId="initial-partial-reset"/> };
+export const ControlledMixedRejected: Story = { name: "controlled-mixed-rejected", parameters: { __id: "krds-checkbox--controlled-mixed-rejected" }, render: () => <CatalogStory componentId="checkbox" caseId="controlled-mixed-rejected"/> };
+export const CanceledReset: Story = { name: "canceled-reset", parameters: { __id: "krds-checkbox--canceled-reset" }, render: () => <CatalogStory componentId="checkbox" caseId="canceled-reset"/> };

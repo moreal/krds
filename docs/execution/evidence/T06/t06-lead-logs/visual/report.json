@@ -1,0 +1,594 @@
+{
+  "screenshots": [
+    "button-focus",
+    "button-disabled",
+    "native-select-default",
+    "native-select-invalid",
+    "native-select-narrow",
+    "modal-open",
+    "modal-close-focus",
+    "modal-narrow",
+    "tabs-manual-focus",
+    "tabs-selected",
+    "tabs-narrow",
+    "date-input-default",
+    "date-input-invalid",
+    "date-input-narrow",
+    "date-input-calendar-popup",
+    "calendar-range",
+    "calendar-in-range-focus",
+    "calendar-in-range-focus-forced",
+    "calendar-range-start-focus",
+    "calendar-range-start-focus-forced",
+    "calendar-range-end-focus",
+    "calendar-range-end-focus-forced",
+    "calendar-both-endpoints-focus",
+    "calendar-both-endpoints-focus-forced",
+    "calendar-disabled",
+    "calendar-narrow",
+    "calendar-narrow-text-200"
+  ],
+  "checks": [
+    {
+      "name": "button-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button>"
+    },
+    {
+      "name": "button",
+      "axeViolations": [
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "targets": [
+            [
+              "html"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "button-disabled",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-state=\"disabled\" data-krds-variant=\"primary\" data-krds-size=\"medium\" disabled=\"\"><span data-krds-component=\"button\" data-krds-part=\"label\" data-krds-state=\"\">저장</span></button></main></div>\n</body>"
+    },
+    {
+      "name": "native-select-default",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"\" data-krds-size=\"medium\"><option value=\"seoul\">서울</option>"
+    },
+    {
+      "name": "native-select-invalid",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"invalid\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint solid-region-error\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"invalid\" data-krds-size=\"medium\" "
+    },
+    {
+      "name": "native-select",
+      "axeViolations": [
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "targets": [
+            [
+              "html"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "native-select-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div data-krds-component=\"native-select\" data-krds-part=\"root\" data-krds-state=\"invalid\"><label data-krds-component=\"native-select\" data-krds-part=\"label\" data-krds-state=\"\" for=\"solid-region\">지역</label><select name=\"region\" id=\"solid-region\" aria-describedby=\"solid-region-hint solid-region-error\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-state=\"invalid\" data-krds-size=\"medium\" "
+    },
+    {
+      "name": "modal-open",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<div id=\"solid-confirmation\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"solid-confirmation-title\" aria-describedby=\"solid-confirmation-description\" tabindex=\"-1\" data-krds-component=\"modal\" data-krds-part=\"content\" data-krds-state=\"open\"><h2 data-krds-component=\"modal\" data-krds-part=\"title\" data-krds-state=\"\" id=\"solid-confirmation-title\">확인</h2><div data-krds-component=\"modal\" data-krds-part=\"description\" data-krds-state=\"\" id=\"solid-confirmation-description\">진행할 내용을 확인하세요</div><div data"
+    },
+    {
+      "name": "modal",
+      "axeViolations": []
+    },
+    {
+      "name": "modal-close-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-krds-component=\"modal\" data-krds-part=\"close\" data-krds-state=\"\" aria-label=\"닫기\"><span aria-hidden=\"true\">×</span></button>"
+    },
+    {
+      "name": "modal-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" data-krds-component=\"modal\" data-krds-part=\"close\" data-krds-state=\"\" aria-label=\"닫기\"><span aria-hidden=\"true\">×</span></button>"
+    },
+    {
+      "name": "tabs-manual-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" role=\"tab\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" id=\"krds-tabs-cl-0-item-2\" tabindex=\"0\" aria-selected=\"false\" aria-controls=\"krds-tabs-cl-0-item-2-panel\" data-krds-state=\"\">두 번째</button>"
+    },
+    {
+      "name": "tabs",
+      "axeViolations": [
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "targets": [
+            [
+              "html"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tabs-selected",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" role=\"tab\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" id=\"krds-tabs-cl-0-item-2\" tabindex=\"0\" aria-selected=\"true\" aria-controls=\"krds-tabs-cl-0-item-2-panel\" data-krds-state=\"selected\">두 번째</button>"
+    },
+    {
+      "name": "tabs-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" role=\"tab\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" id=\"krds-tabs-cl-0-item-2\" tabindex=\"0\" aria-selected=\"true\" aria-controls=\"krds-tabs-cl-0-item-2-panel\" data-krds-state=\"selected\">두 번째</button>"
+    },
+    {
+      "name": "date-input-default",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><form><div dir=\"ltr\" data-krds-component=\"date-input\" data-krds-part=\"root\" data-krds-state=\"\"><label for=\"solid-date\" data-krds-component=\"date-input\" data-krds-part=\"label\" data-krds-state=\"\">날짜</label><input type=\"text\" inputmode=\"numeric\" placeholder=\"YYYY-MM-DD\" id=\"solid-date\" aria-describedby=\"solid-date-hint\" data-krds-component=\"date-input\" data-krds-part=\"control\" data-krds-state=\"\" style=\"\"><button typ"
+    },
+    {
+      "name": "date-input-invalid",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" aria-haspopup=\"dialog\" aria-controls=\"solid-date-popup\" aria-label=\"달력 열기\" aria-expanded=\"false\" data-krds-component=\"date-input\" data-krds-part=\"trigger\" data-krds-state=\"closed\">달력 열기</button>"
+    },
+    {
+      "name": "date-input-invalid",
+      "axeViolations": [
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "targets": [
+            [
+              "html"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "date-input-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<button type=\"button\" aria-haspopup=\"dialog\" aria-controls=\"solid-date-popup\" aria-label=\"달력 열기\" aria-expanded=\"false\" data-krds-component=\"date-input\" data-krds-part=\"trigger\" data-krds-state=\"closed\">달력 열기</button>"
+    },
+    {
+      "name": "date-input-calendar-popup",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-29\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected\" aria-label=\"2024년 2월 29일 목요일, 선택됨\" aria-pressed=\"true\">29</button>"
+    },
+    {
+      "name": "date-input-popup",
+      "axeViolations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "targets": [
+            [
+              "button[data-date=\"2024-01-28\"]"
+            ],
+            [
+              "button[data-date=\"2024-01-29\"]"
+            ],
+            [
+              "button[data-date=\"2024-01-30\"]"
+            ],
+            [
+              "button[data-date=\"2024-01-31\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-01\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-02\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-03\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-04\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-05\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-06\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-07\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-08\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-09\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-10\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-11\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-12\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-13\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-14\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-15\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-16\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-17\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-18\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-19\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-20\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-21\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-22\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-23\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-24\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-25\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-26\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-27\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-28\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-29\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-01\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-02\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-03\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-04\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-05\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-06\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-07\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-08\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-09\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calendar-range",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds-state=\"\" aria-label=\"이전 달\">‹<"
+    },
+    {
+      "name": "calendar",
+      "axeViolations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "targets": [
+            [
+              "button[data-date=\"2024-01-28\"]"
+            ],
+            [
+              "button[data-date=\"2024-01-29\"]"
+            ],
+            [
+              "button[data-date=\"2024-01-30\"]"
+            ],
+            [
+              "button[data-date=\"2024-01-31\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-01\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-02\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-03\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-04\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-05\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-06\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-07\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-08\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-09\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-10\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-11\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-12\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-13\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-14\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-15\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-16\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-17\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-18\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-19\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-20\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-21\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-22\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-23\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-24\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-25\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-26\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-27\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-28\"]"
+            ],
+            [
+              "button[data-date=\"2024-02-29\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-01\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-02\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-03\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-04\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-05\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-06\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-07\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-08\"]"
+            ],
+            [
+              "button[data-date=\"2024-03-09\"]"
+            ]
+          ]
+        },
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "targets": [
+            [
+              "html"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calendar-in-range-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected in-range\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨\" aria-current=\"date\" aria-pressed=\"true\">15</button>"
+    },
+    {
+      "name": "calendar-in-range-normal",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "dashed",
+      "borderWidth": "1px",
+      "state": "today selected in-range"
+    },
+    {
+      "name": "calendar-in-range-forced",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "dashed",
+      "borderWidth": "1px",
+      "state": "today selected in-range"
+    },
+    {
+      "name": "calendar-in-range-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected in-range\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨\" aria-current=\"date\" aria-pressed=\"true\">15</button>"
+    },
+    {
+      "name": "calendar-range-start-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-12\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-start\" aria-label=\"2024년 2월 12일 월요일, 선택됨, 시작일\" aria-pressed=\"true\">12</button>"
+    },
+    {
+      "name": "calendar-range-start-normal",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "state": "selected range-start"
+    },
+    {
+      "name": "calendar-range-start-forced",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "state": "selected range-start"
+    },
+    {
+      "name": "calendar-range-start-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-12\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-start\" aria-label=\"2024년 2월 12일 월요일, 선택됨, 시작일\" aria-pressed=\"true\">12</button>"
+    },
+    {
+      "name": "calendar-range-end-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-18\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-end\" aria-label=\"2024년 2월 18일 일요일, 선택됨, 종료일\" aria-pressed=\"true\">18</button>"
+    },
+    {
+      "name": "calendar-range-end-normal",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "state": "selected range-end"
+    },
+    {
+      "name": "calendar-range-end-forced",
+      "focusVisible": true,
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+      "borderStyle": "double",
+      "borderWidth": "4px",
+      "state": "selected range-end"
+    },
+    {
+      "name": "calendar-range-end-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-18\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-end\" aria-label=\"2024년 2월 18일 일요일, 선택됨, 종료일\" aria-pressed=\"true\">18</button>"
+    },
+    {
+      "name": "calendar-both-endpoints-focus",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected range-start range-end\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨, 시작일, 종료일\" aria-current=\"date\" aria-pressed=\"true\">15</button>"
+    },
+    {
+      "name": "calendar-both-endpoints-focus-forced",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected range-start range-end\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨, 시작일, 종료일\" aria-current=\"date\" aria-pressed=\"true\">15</button>"
+    },
+    {
+      "name": "calendar-disabled",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"disabled\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds-state=\"disabled\" aria"
+    },
+    {
+      "name": "calendar-narrow",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds-state=\"\" aria-label=\"이전 달\">‹<"
+    },
+    {
+      "name": "calendar-narrow-text-200",
+      "viewport": 320,
+      "documentWidth": 320,
+      "active": "<body><div id=\"app\"><main><div role=\"status\" aria-label=\"Fixture health\">ready</div><div id=\"solid-calendar-range\" dir=\"ltr\" role=\"group\" aria-labelledby=\"solid-calendar-range-label\" data-krds-component=\"calendar\" data-krds-part=\"root\" data-krds-state=\"\"><div id=\"solid-calendar-range-label\">기간 선택</div><div data-krds-component=\"calendar\" data-krds-part=\"header\" data-krds-state=\"\"><button type=\"button\" data-krds-component=\"calendar\" data-krds-part=\"previous\" data-krds-state=\"\" aria-label=\"이전 달\">‹<"
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

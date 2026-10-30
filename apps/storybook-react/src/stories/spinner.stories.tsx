@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-spinner', title: 'KRDS/Spinner', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Determinate: Story = { args: {"componentId": "spinner", "initialState": {"pending": true, "label": "신청 내역 불러오는 중", "completionMessage": "신청 내역을 불러왔습니다.", "size": "medium", "value": 40}, "host": {"localOnly": true, "acceptChanges": true, "layout": "region", "loadingRegionId": "results"}} };
+export const Indeterminate: Story = { args: {"componentId": "spinner", "initialState": {"pending": true, "label": "신청 내역 불러오는 중", "completionMessage": "신청 내역을 불러왔습니다.", "size": "medium"}, "host": {"localOnly": true, "acceptChanges": true, "layout": "region", "loadingRegionId": "results"}} };
+export const Inline: Story = { args: {"componentId": "spinner", "initialState": {"pending": true, "label": "신청 내역 불러오는 중", "completionMessage": "신청 내역을 불러왔습니다.", "size": "medium"}, "host": {"localOnly": true, "acceptChanges": true, "layout": "inline", "loadingRegionId": "results"}} };
+export const Region: Story = { args: {"componentId": "spinner", "initialState": {"pending": true, "label": "신청 내역 불러오는 중", "completionMessage": "신청 내역을 불러왔습니다.", "size": "medium"}, "host": {"localOnly": true, "acceptChanges": true, "layout": "region", "loadingRegionId": "results"}} };
+export const Complete: Story = { args: {"componentId": "spinner", "initialState": {"pending": false, "label": "신청 내역 불러오는 중", "completionMessage": "신청 내역을 불러왔습니다.", "size": "medium", "value": 100}, "host": {"localOnly": true, "acceptChanges": true, "layout": "region", "loadingRegionId": "results"}} };
+export const ReducedMotion: Story = { args: {"componentId": "spinner", "initialState": {"pending": true, "label": "신청 내역 불러오는 중", "completionMessage": "신청 내역을 불러왔습니다.", "size": "medium"}, "host": {"localOnly": true, "acceptChanges": true, "layout": "region", "loadingRegionId": "results"}} };

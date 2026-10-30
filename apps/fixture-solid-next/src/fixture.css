@@ -1,0 +1,8 @@
+body { background:var(--krds-light-color-surface-white,#fff); color:var(--krds-light-color-text-basic,#1e2124); }
+main { max-width:960px; margin:0 auto; padding:24px; }
+form { display:flex; flex-wrap:wrap; align-items:start; gap:16px; }
+dialog { max-width:min(92vw,720px); max-height:90dvh; overflow:auto; padding:24px; border:2px solid; border-radius:12px; background:white; color:#1e2124; }
+dialog::backdrop { background:#0008; }
+[data-krds-component="date-input"][data-krds-part="root"] { display:flex; flex-wrap:wrap; gap:8px; max-width:100%; }
+[data-krds-component="date-input"][data-krds-part="hint"], [data-krds-component="date-input"][data-krds-part="error"] { flex-basis:100%; }
+@media (forced-colors:active) { dialog { background:Canvas; color:CanvasText; border-color:CanvasText; } }

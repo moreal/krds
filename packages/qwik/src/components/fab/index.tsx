@@ -1,0 +1,10 @@
+import { $, component$, useSignal, Slot, useId, useComputed$, useVisibleTask$, useTask$, type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { FABContract } from '@unofficial-krds/contracts';
+import { owned, states, safeRel, useField, useReset, useNarrow, usable, focusTarget, restore, ignoredKey, type NativeContract } from '../../internal/catalog';
+export type FABProps = NativeContract<FABContract>;
+export const FAB = component$<FABProps>((props) => { const uid = useId(), expanded = useField<boolean>(props, 'expanded', 'defaultExpanded', false), trigger = useSignal<HTMLButtonElement>(); const show = $(async (next: boolean) => { await expanded.request(next, () => props.onExpandedChange$?.({ expanded: next })); if (!expanded.value.value)
+    trigger.value?.focus(); }); return <div {...owned('fab', 'root', expanded.value.value ? 'expanded' : 'collapsed')} data-krds-variant={props.actions?.length ? 'expandable' : props.showLabel === false ? 'single-icon' : 'extended-label'} onKeyDown$={e => { if (!ignoredKey(e) && e.key === 'Escape' && expanded.value.value)
+    void show(false); }}><button ref={trigger} type="button" aria-label={props.label} {...owned('fab', 'trigger')} disabled={props.disabled} aria-expanded={props.actions?.length ? expanded.value.value : undefined} aria-controls={props.actions?.length ? uid : undefined} onClick$={() => { if (props.actions?.length)
+    void show(!expanded.value.value);
+else
+    void props.onAction$?.(); }}><span {...owned('fab', 'icon')} aria-hidden="true">{props.icon==='plus'?<svg viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>:props.icon}</span>{props.showLabel !== false && <span {...owned('fab', 'label')}>{props.label}</span>}</button>{!!props.actions?.length && <div id={uid} hidden={!expanded.value.value} {...owned('fab', 'actions')}>{props.actions.map(action => <button key={action.id} type="button" {...owned('fab', 'action')} disabled={props.disabled} onClick$={() => action.onAction()}>{action.label}</button>)}</div>}</div>; });

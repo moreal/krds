@@ -1,0 +1,17 @@
+import {createServer} from 'node:http';
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {resolve,extname} from 'node:path';
+import {chromium} from 'playwright';
+import {exercisePattern,exerciseLocationAndLinks,exerciseCurrentNavigation} from '../tests/patterns/browser-scenarios.mjs';
+import {freezeProduction} from './patterns-production.mjs';
+import {patternScenarios} from '@unofficial-krds/test-contracts/patterns';
+const root=resolve(import.meta.dirname,'../../..');
+const out=process.env.KRDS_PATTERN_REPORT??resolve(root,'.superpowers/sdd/PLAN/t11-react-logs/browser');await mkdir(out,{recursive:true});
+const dist=await freezeProduction(resolve(root,'apps/fixture-react/dist'),out,'fixture');
+const server=createServer(async(req,res)=>{try {const path=new URL(req.url,'http://localhost').pathname;const file=path==='/'||path.startsWith('/examples/')?'/index.html':path;if(file.includes('..'))throw Error('path');const body=await readFile(dist+file);res.writeHead(200,{'content-type':({'.html':'text/html','.js':'text/javascript','.css':'text/css','.woff2':'font/woff2','.svg':'image/svg+xml'})[extname(file)]??'application/octet-stream'}).end(body);}catch{res.writeHead(404).end();}});await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});const origin=`http://127.0.0.1:${server.address().port}`;
+const browser=await chromium.launch({headless:true});await writeFile(resolve(out,'runtime.json'),JSON.stringify({node:process.version,browser:browser.version(),platform:process.platform},null,2)+'\n');const results=[];
+try {for(const scenario of patternScenarios.filter(item=>!process.env.KRDS_PATTERN_ONLY||item.id===process.env.KRDS_PATTERN_ONLY)){const page=await browser.newPage({viewport:{width:1280,height:800},locale:'ko-KR',reducedMotion:'reduce'});const errors=[];const external=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(origin)&&!r.url().startsWith('data:'))external.push(r.url());});try{await exercisePattern(page,scenario.patternId,scenario.caseId,origin);if(errors.length)throw Error(JSON.stringify(errors));if(external.length)throw Error(`External requests: ${external}`);results.push({id:scenario.id,passed:true,errors,external});console.log(`PASS ${scenario.id}`);}catch(e){results.push({id:scenario.id,passed:false,error:String(e),errors,external});console.log(`FAIL ${scenario.id}: ${String(e).slice(0,350)}`);await page.screenshot({path:resolve(out,`${scenario.id}.png`),fullPage:true});}finally{await page.close();}}
+ for(const [name,run] of [['url-history-modified-links',exerciseLocationAndLinks],['current-collapsed-native-enter',exerciseCurrentNavigation]]) {if(process.env.KRDS_PATTERN_ONLY&&process.env.KRDS_PATTERN_ONLY!==name)continue;const page=await browser.newPage({viewport:{width:1280,height:800}});try{await run(page,origin);results.push({id:name,passed:true});console.log(`PASS ${name}`);}catch(e){results.push({id:name,passed:false,error:String(e),debug:await page.evaluate(()=>({platform:navigator.platform,url:location.href,events:window.__KRDS_FIXTURE__?.readEvents()}))});console.log(`FAIL ${name}: ${e}`);}finally{await page.close();}}
+ if(!results.length)throw new Error('Zero native pattern cases selected');
+ await writeFile(resolve(out,'results.json'),JSON.stringify(results,null,2)+'\n');process.exitCode=results.every(r=>r.passed)?0:1;
+}finally{await browser.close();await new Promise(r=>server.close(r));}

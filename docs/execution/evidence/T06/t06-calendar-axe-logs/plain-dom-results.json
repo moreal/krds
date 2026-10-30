@@ -1,0 +1,725 @@
+{
+  "scope": "Temporary plain DOM research: zero KRDS renderer/catalog coverage",
+  "node": "v24.18.0",
+  "playwright": "1.64.1",
+  "axePlaywright": "4.14.0",
+  "axeCore": "4.14.0",
+  "axeEntry": "/Users/moreal/github/moreal/krds/node_modules/.store/axe-core-npm-4.14.0-8afa6194b5/package/axe.js",
+  "browserVersion": "156.0.8078.4",
+  "chromiumExecutableReportedByPlaywright": "/private/tmp/krds-playwright-1.64.1/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+  "launchMode": "default headless Chromium shell; PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1",
+  "observations": [
+    {
+      "id": "ko-aria-label",
+      "expectedName": "2024년 2월 29일 목요일",
+      "chromiumComputedName": "2024년 2월 29일 목요일",
+      "exactNamePreserved": true,
+      "snapshot": "- button \"2024년 2월 29일 목요일\": \"29\"",
+      "outerHTML": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일\">29</button>",
+      "textContent": "29",
+      "innerText": "29",
+      "accessibleName": "2024년 2월 29일 목요일",
+      "visibleText": "29",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29"
+        ],
+        "nameTokens": [
+          "2024년",
+          "2월",
+          "29일",
+          "목요일"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:09.227Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [],
+        "passes": [],
+        "incomplete": [],
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": [
+              {
+                "any": [
+                  {
+                    "id": "label-content-name-mismatch",
+                    "data": null,
+                    "relatedNodes": [],
+                    "impact": "serious",
+                    "message": "Text inside the element is not included in the accessible name"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": "serious",
+                "html": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일\">29</button>",
+                "target": [
+                  "#target"
+                ],
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ko-aria-label-state",
+      "expectedName": "2024년 2월 29일 목요일, 오늘, 선택됨",
+      "chromiumComputedName": "2024년 2월 29일 목요일, 오늘, 선택됨",
+      "exactNamePreserved": true,
+      "snapshot": "- button \"2024년 2월 29일 목요일, 오늘, 선택됨\" [pressed]: \"29\"",
+      "outerHTML": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일, 오늘, 선택됨\" aria-current=\"date\" aria-pressed=\"true\">29</button>",
+      "textContent": "29",
+      "innerText": "29",
+      "accessibleName": "2024년 2월 29일 목요일, 오늘, 선택됨",
+      "visibleText": "29",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29"
+        ],
+        "nameTokens": [
+          "2024년",
+          "2월",
+          "29일",
+          "목요일",
+          "오늘",
+          "선택됨"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:09.404Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [],
+        "passes": [],
+        "incomplete": [],
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": [
+              {
+                "any": [
+                  {
+                    "id": "label-content-name-mismatch",
+                    "data": null,
+                    "relatedNodes": [],
+                    "impact": "serious",
+                    "message": "Text inside the element is not included in the accessible name"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": "serious",
+                "html": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일, 오늘, 선택됨\" aria-current=\"date\" aria-pressed=\"true\">29</button>",
+                "target": [
+                  "#target"
+                ],
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "en-aria-label",
+      "expectedName": "Thursday, February 29, 2024",
+      "chromiumComputedName": "Thursday, February 29, 2024",
+      "exactNamePreserved": true,
+      "snapshot": "- button \"Thursday, February 29, 2024\": \"29\"",
+      "outerHTML": "<button id=\"target\" aria-label=\"Thursday, February 29, 2024\">29</button>",
+      "textContent": "29",
+      "innerText": "29",
+      "accessibleName": "Thursday, February 29, 2024",
+      "visibleText": "29",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29"
+        ],
+        "nameTokens": [
+          "thursday",
+          "february",
+          "29",
+          "2024"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:09.579Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [],
+        "passes": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": null,
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": [
+              {
+                "any": [
+                  {
+                    "id": "label-content-name-mismatch",
+                    "data": null,
+                    "relatedNodes": [],
+                    "impact": "serious",
+                    "message": "Element contains visible text as part of its accessible name"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": null,
+                "html": "<button id=\"target\" aria-label=\"Thursday, February 29, 2024\">29</button>",
+                "target": [
+                  "#target"
+                ]
+              }
+            ]
+          }
+        ],
+        "incomplete": [],
+        "violations": []
+      }
+    },
+    {
+      "id": "ko-aria-hidden-number",
+      "expectedName": "2024년 2월 29일 목요일",
+      "chromiumComputedName": "2024년 2월 29일 목요일",
+      "exactNamePreserved": true,
+      "snapshot": "- button \"2024년 2월 29일 목요일\"",
+      "outerHTML": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일\"><span aria-hidden=\"true\">29</span></button>",
+      "textContent": "29",
+      "innerText": "29",
+      "accessibleName": "2024년 2월 29일 목요일",
+      "visibleText": "29",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29"
+        ],
+        "nameTokens": [
+          "2024년",
+          "2월",
+          "29일",
+          "목요일"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:09.747Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [],
+        "passes": [],
+        "incomplete": [],
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": [
+              {
+                "any": [
+                  {
+                    "id": "label-content-name-mismatch",
+                    "data": null,
+                    "relatedNodes": [],
+                    "impact": "serious",
+                    "message": "Text inside the element is not included in the accessible name"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": "serious",
+                "html": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일\"><span aria-hidden=\"true\">29</span></button>",
+                "target": [
+                  "#target"
+                ],
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ko-labelledby-hidden-date",
+      "expectedName": "2024년 2월 29일 목요일",
+      "chromiumComputedName": "2024년 2월 29일 목요일",
+      "exactNamePreserved": true,
+      "snapshot": "- button \"2024년 2월 29일 목요일\": \"29\"",
+      "outerHTML": "<button id=\"target\" aria-labelledby=\"date\">29</button>",
+      "textContent": "29",
+      "innerText": "29",
+      "accessibleName": "2024년 2월 29일 목요일",
+      "visibleText": "29",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29"
+        ],
+        "nameTokens": [
+          "2024년",
+          "2월",
+          "29일",
+          "목요일"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:09.914Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [],
+        "passes": [],
+        "incomplete": [],
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": [
+              {
+                "any": [
+                  {
+                    "id": "label-content-name-mismatch",
+                    "data": null,
+                    "relatedNodes": [],
+                    "impact": "serious",
+                    "message": "Text inside the element is not included in the accessible name"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": "serious",
+                "html": "<button id=\"target\" aria-labelledby=\"date\">29</button>",
+                "target": [
+                  "#target"
+                ],
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ko-name-from-content",
+      "expectedName": "2024년 2월 29일 목요일",
+      "chromiumComputedName": "2024년 2월 29 일 목요일",
+      "exactNamePreserved": false,
+      "snapshot": "- button \"2024년 2월 29 일 목요일\"",
+      "outerHTML": "<button id=\"target\"><span class=\"sr\">2024년 2월 </span>29<span class=\"sr\">일 목요일</span></button>",
+      "textContent": "2024년 2월 29일 목요일",
+      "innerText": "2024년 2월\n29\n일 목요일",
+      "accessibleName": "2024년 2월 29일 목요일",
+      "visibleText": "29",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29"
+        ],
+        "nameTokens": [
+          "2024년",
+          "2월",
+          "29일",
+          "목요일"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:10.077Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": null,
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": []
+          }
+        ],
+        "passes": [],
+        "incomplete": [],
+        "violations": []
+      }
+    },
+    {
+      "id": "ko-name-from-content-hidden-number",
+      "expectedName": "2024년 2월 29일 목요일",
+      "chromiumComputedName": "2024년 2월 29일 목요일",
+      "exactNamePreserved": true,
+      "snapshot": "- button \"2024년 2월 29일 목요일\"",
+      "outerHTML": "<button id=\"target\"><span aria-hidden=\"true\">29</span><span class=\"sr\">2024년 2월 29일 목요일</span></button>",
+      "textContent": "292024년 2월 29일 목요일",
+      "innerText": "29\n2024년 2월 29일 목요일",
+      "accessibleName": "2024년 2월 29일 목요일",
+      "visibleText": "29",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29"
+        ],
+        "nameTokens": [
+          "2024년",
+          "2월",
+          "29일",
+          "목요일"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:10.240Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": null,
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": []
+          }
+        ],
+        "passes": [],
+        "incomplete": [],
+        "violations": []
+      }
+    },
+    {
+      "id": "ko-visible-day-suffix",
+      "expectedName": "2024년 2월 29일 목요일",
+      "chromiumComputedName": "2024년 2월 29일 목요일",
+      "exactNamePreserved": true,
+      "snapshot": "- button \"2024년 2월 29일 목요일\": 29일",
+      "outerHTML": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일\">29일</button>",
+      "textContent": "29일",
+      "innerText": "29일",
+      "accessibleName": "2024년 2월 29일 목요일",
+      "visibleText": "29일",
+      "tokens": {
+        "browserLanguage": "ko-KR",
+        "segmenterLocale": "ko-KR",
+        "visibleTokens": [
+          "29일"
+        ],
+        "nameTokens": [
+          "2024년",
+          "2월",
+          "29일",
+          "목요일"
+        ]
+      },
+      "raw": {
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "testEnvironment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+          "windowWidth": 1280,
+          "windowHeight": 720,
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary"
+        },
+        "timestamp": "2026-10-30T02:13:10.411Z",
+        "url": "about:blank",
+        "toolOptions": {
+          "runOnly": {
+            "type": "rule",
+            "values": [
+              "label-content-name-mismatch"
+            ]
+          },
+          "reporter": "v1"
+        },
+        "inapplicable": [],
+        "passes": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": null,
+            "tags": [
+              "cat.semantics",
+              "wcag21a",
+              "wcag253",
+              "EN-301-549",
+              "EN-9.2.5.3",
+              "RGAAv4",
+              "RGAA-6.1.5"
+            ],
+            "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+            "help": "Elements must have their visible text as part of their accessible name",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+            "nodes": [
+              {
+                "any": [
+                  {
+                    "id": "label-content-name-mismatch",
+                    "data": null,
+                    "relatedNodes": [],
+                    "impact": "serious",
+                    "message": "Element contains visible text as part of its accessible name"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": null,
+                "html": "<button id=\"target\" aria-label=\"2024년 2월 29일 목요일\">29일</button>",
+                "target": [
+                  "#target"
+                ]
+              }
+            ]
+          }
+        ],
+        "incomplete": [],
+        "violations": []
+      }
+    }
+  ]
+}

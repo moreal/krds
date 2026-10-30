@@ -1,0 +1,27 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-vue
+
+12:04:50 PM [vite] (client) Re-optimizing dependencies because lockfile has changed
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: listen EPERM: operation not permitted ::1:63315
+ ❯ Server.setupListenHandle [as _listen2] node:net:1987:21
+ ❯ listenInCluster node:net:2066:12
+ ❯ GetAddrInfoReqWrap.callback node:net:2275:7
+ ❯ GetAddrInfoReqWrap.onlookupall [as oncomplete] node:dns:134:8
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'EPERM', errno: -1, syscall: 'listen', address: '::1', port: 63315 }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  no tests
+      Tests  no tests
+     Errors  1 error
+   Start at  12:04:50
+   Duration  67ms (transform 0ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

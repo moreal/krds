@@ -1,0 +1,133 @@
+[
+  {
+    "project": "fixture-angular",
+    "target": "siheom",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/packages/test-contracts/**/*"
+    ]
+  },
+  {
+    "project": "fixture-qwik",
+    "target": "contract",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/catalog/story-cases.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/tools/run-contract-tests.mjs",
+      "{workspaceRoot}/tools/run-siheom-tests.mjs",
+      "{workspaceRoot}/tools/run-story-tests.mjs",
+      "{workspaceRoot}/playwright.config.ts",
+      "{workspaceRoot}/tools/testing/**/*"
+    ]
+  },
+  {
+    "project": "fixture-qwik",
+    "target": "siheom",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/catalog/story-cases.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/tools/run-contract-tests.mjs",
+      "{workspaceRoot}/tools/run-siheom-tests.mjs",
+      "{workspaceRoot}/tools/run-story-tests.mjs",
+      "{workspaceRoot}/playwright.config.ts",
+      "{workspaceRoot}/tools/testing/**/*"
+    ]
+  },
+  {
+    "project": "fixture-solid",
+    "target": "contract",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/catalog/story-cases.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/playwright.config.ts",
+      "{workspaceRoot}/tools/run-contract-tests.mjs",
+      "{workspaceRoot}/tools/run-story-tests.mjs",
+      "{workspaceRoot}/tools/run-siheom-tests.mjs",
+      "{workspaceRoot}/catalog/story-coverage.json",
+      "{workspaceRoot}/packages/test-contracts/**/*",
+      "{workspaceRoot}/packages/contracts/src/specs/**/*",
+      "{workspaceRoot}/tools/testing/**/*"
+    ]
+  },
+  {
+    "project": "fixture-solid",
+    "target": "siheom",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/catalog/story-cases.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/playwright.config.ts",
+      "{workspaceRoot}/tools/run-contract-tests.mjs",
+      "{workspaceRoot}/tools/run-story-tests.mjs",
+      "{workspaceRoot}/tools/run-siheom-tests.mjs",
+      "{workspaceRoot}/catalog/story-coverage.json",
+      "{workspaceRoot}/packages/test-contracts/**/*",
+      "{workspaceRoot}/packages/contracts/src/specs/**/*",
+      "{workspaceRoot}/tools/testing/**/*"
+    ]
+  },
+  {
+    "project": "fixture-svelte",
+    "target": "contract",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/playwright.config.ts",
+      "{workspaceRoot}/tools/testing/**/*",
+      "{workspaceRoot}/tools/run-contract-tests.mjs"
+    ]
+  },
+  {
+    "project": "fixture-svelte",
+    "target": "siheom",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/tools/run-siheom-tests.mjs"
+    ]
+  },
+  {
+    "project": "fixture-vue",
+    "target": "contract",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/playwright.config.ts",
+      "{workspaceRoot}/tools/testing/**/*",
+      "{workspaceRoot}/tools/run-contract-tests.mjs",
+      "{workspaceRoot}/tools/run-siheom-tests.mjs"
+    ]
+  },
+  {
+    "project": "fixture-vue",
+    "target": "siheom",
+    "actualInputs": [
+      "default",
+      "^default",
+      "{workspaceRoot}/catalog/fixture-cases.json",
+      "{workspaceRoot}/compatibility/testing.json",
+      "{workspaceRoot}/playwright.config.ts",
+      "{workspaceRoot}/tools/testing/**/*",
+      "{workspaceRoot}/tools/run-contract-tests.mjs",
+      "{workspaceRoot}/tools/run-siheom-tests.mjs"
+    ]
+  }
+]

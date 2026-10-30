@@ -1,0 +1,2861 @@
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -1,4 +1,6 @@
+ # KRDS Native workspace rules
++
++- The user selected npm namespace `@unofficial-krds` and repository metadata `https://github.com/moreal/krds`. This confirms naming/location intent, not authenticated npm or repository ownership. Use the confirmed independent-code MIT holder/grant and separate official KRDS attribution in `compliance/project-identity.json`; publication, pushing and tagging remain unauthorized.
+ 
+ - For this PLAN execution/session, the user's orchestration preference is `gpt-6.1-sol` for implementation and review delegates. The controller owns delegation. Do not create or amend Git commits while the exact active model identity hook is unavailable; no publishing, pushing, or tagging is authorized.
+ 
+
+--- a/apps/docs/package.json
++++ b/apps/docs/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/docs",
++  "name": "@unofficial-krds/docs",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+
+--- a/apps/docs/project.json
++++ b/apps/docs/project.json
+@@ -20,25 +20,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/docs build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/docs typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/docs test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/docs lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/docs lint"
+       }
+     }
+   }
+
+--- a/apps/fixture-angular/package.json
++++ b/apps/fixture-angular/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-angular",
++  "name": "@unofficial-krds/fixture-angular",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -50,9 +50,9 @@
+     "zone.js": "0.16.3"
+   },
+   "dependencies": {
+-    "@krds-native/angular": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/angular": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-angular/project.json
++++ b/apps/fixture-angular/project.json
+@@ -17,25 +17,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-angular lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular lint"
+       }
+     },
+     "contract": {
+
+--- a/apps/fixture-angular/src/fixture-app.ts
++++ b/apps/fixture-angular/src/fixture-app.ts
+@@ -1,6 +1,6 @@
+ import { Component, signal, type OnDestroy } from '@angular/core';
+-import { WorkspaceProbe } from '@krds-native/angular';
+-import { createFixtureBridge } from '@krds-native/test-contracts/driver';
++import { WorkspaceProbe } from '@unofficial-krds/angular';
++import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
+ import { NativeProbe } from './native-probe';
+ 
+ @Component({
+
+--- a/apps/fixture-lit/package.json
++++ b/apps/fixture-lit/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-lit",
++  "name": "@unofficial-krds/fixture-lit",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -25,9 +25,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/lit": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/lit": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-lit/project.json
++++ b/apps/fixture-lit/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-lit build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-lit typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-lit test"
+       },
+       "dependsOn": [
+         "build",
+@@ -40,7 +40,7 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-lit lint"
+       }
+     },
+     "contract": {
+
+--- a/apps/fixture-lit/src/main.ts
++++ b/apps/fixture-lit/src/main.ts
+@@ -1,8 +1,8 @@
+ /** Native test infrastructure only. No KRDS component coverage. */
+ import { LitElement, html } from 'lit';
+-import { WorkspaceProbe } from '@krds-native/lit';
+-import { createFixtureBridge } from '@krds-native/test-contracts/driver';
+-import type { FixtureBridge } from '@krds-native/test-contracts';
++import { WorkspaceProbe } from '@unofficial-krds/lit';
++import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
++import type { FixtureBridge } from '@unofficial-krds/test-contracts';
+ 
+ // Resolve the adapter's built public entry without a development source alias.
+ if (!customElements.get('krds-workspace-probe')) customElements.define('krds-workspace-probe', WorkspaceProbe);
+
+--- a/apps/fixture-qwik/package.json
++++ b/apps/fixture-qwik/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-qwik",
++  "name": "@unofficial-krds/fixture-qwik",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -32,9 +32,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/qwik": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/qwik": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-qwik/project.json
++++ b/apps/fixture-qwik/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik test"
+       },
+       "cache": false,
+       "dependsOn": [
+@@ -40,7 +40,7 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-qwik lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik lint"
+       }
+     },
+     "contract": {
+
+--- a/apps/fixture-qwik/src/root.tsx
++++ b/apps/fixture-qwik/src/root.tsx
+@@ -1,6 +1,6 @@
+ import { component$, useStore, useVisibleTask$ } from '@builder.io/qwik';
+-import { createFixtureBridge } from '@krds-native/test-contracts/driver';
+-import { WorkspaceProbe } from '@krds-native/qwik';
++import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
++import { WorkspaceProbe } from '@unofficial-krds/qwik';
+ 
+ /** Client-only T05 infrastructure. This does not exercise production SSR/resume. */
+ export default component$(() => {
+
+--- a/apps/fixture-react/package.json
++++ b/apps/fixture-react/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-react",
++  "name": "@unofficial-krds/fixture-react",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -35,9 +35,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/react": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/react": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-react/project.json
++++ b/apps/fixture-react/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-react build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-react build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-react typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-react typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-react test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-react test"
+       },
+       "cache": false,
+       "dependsOn": [
+@@ -40,7 +40,7 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-react lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-react lint"
+       }
+     },
+     "contract": {
+
+--- a/apps/fixture-react/src/FixtureApp.tsx
++++ b/apps/fixture-react/src/FixtureApp.tsx
+@@ -1,7 +1,7 @@
+ import { useEffect, useState } from 'react';
+-import { WorkspaceProbe } from '@krds-native/react';
+-import type { FixtureBridge } from '@krds-native/test-contracts';
+-import { createFixtureBridge } from '@krds-native/test-contracts/driver';
++import { WorkspaceProbe } from '@unofficial-krds/react';
++import type { FixtureBridge } from '@unofficial-krds/test-contracts';
++import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
+ import { NativeProbe } from './NativeProbe';
+ 
+ interface FixtureRoute { componentId: string; caseId: string }
+
+--- a/apps/fixture-solid-next/package.json
++++ b/apps/fixture-solid-next/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-solid-next",
++  "name": "@unofficial-krds/fixture-solid-next",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -29,9 +29,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid-next": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid-next": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-solid-next/project.json
++++ b/apps/fixture-solid-next/project.json
+@@ -17,13 +17,13 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid-next build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid-next typecheck"
+       }
+     },
+     "test": {
+@@ -31,13 +31,13 @@
+       "cache": false,
+       "dependsOn": ["build", "^build"],
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid-next test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid-next lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid-next lint"
+       }
+     },
+     "contract": {
+
+--- a/apps/fixture-solid-next/src/main.tsx
++++ b/apps/fixture-solid-next/src/main.tsx
+@@ -1,8 +1,8 @@
+ /** T05 native infrastructure only; actual KRDS components belong to T09. */
+ import { createSignal, onCleanup, onSettled } from 'solid-js';
+ import { render } from '@solidjs/web';
+-import { WorkspaceProbe } from '@krds-native/solid-next';
+-import { createFixtureBridge } from '@krds-native/test-contracts/driver';
++import { WorkspaceProbe } from '@unofficial-krds/solid-next';
++import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
+ 
+ const route = new URL(window.location.href);
+ const componentId = decodeURIComponent(route.pathname.split('/')[2] ?? 'unknown');
+
+--- a/apps/fixture-solid-next/tests/native-probe.spec.ts
++++ b/apps/fixture-solid-next/tests/native-probe.spec.ts
+@@ -1,6 +1,6 @@
+ import { test as base, expect } from '@playwright/test';
+ import { fileURLToPath } from 'node:url';
+-import { createFixtureDriver } from '@krds-native/test-contracts/driver';
++import { createFixtureDriver } from '@unofficial-krds/test-contracts/driver';
+ import { serveProduction } from '../../../tools/testing/support.mjs';
+ 
+ // Use the same production server as the common runner; no dev server or HMR.
+
+--- a/apps/fixture-solid/package.json
++++ b/apps/fixture-solid/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-solid",
++  "name": "@unofficial-krds/fixture-solid",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -35,9 +35,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-solid/project.json
++++ b/apps/fixture-solid/project.json
+@@ -17,25 +17,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-solid lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid lint"
+       }
+     },
+     "contract": {
+
+--- a/apps/fixture-solid/src/examples.tsx
++++ b/apps/fixture-solid/src/examples.tsx
+@@ -1,5 +1,5 @@
+ import { createSignal } from 'solid-js';
+-import { Button, Calendar, DateInput, KrdsProvider, Modal, NativeSelect, Tabs } from '@krds-native/solid';
++import { Button, Calendar, DateInput, KrdsProvider, Modal, NativeSelect, Tabs } from '@unofficial-krds/solid';
+ 
+ /** Compiled documentation examples use only the built public package. */
+ export function ControlledRegionExample() {
+
+--- a/apps/fixture-solid/src/fixture-app.tsx
++++ b/apps/fixture-solid/src/fixture-app.tsx
+@@ -1,7 +1,7 @@
+ import { createSignal, Match, onCleanup, onMount, Show, Switch } from 'solid-js';
+-import { Button, Calendar, DateInput, KrdsProvider, Modal, NativeSelect, Tabs } from '@krds-native/solid';
+-import type { ButtonProps, NativeSelectProps } from '@krds-native/solid';
+-import { createFixtureBridge } from '@krds-native/test-contracts/driver';
++import { Button, Calendar, DateInput, KrdsProvider, Modal, NativeSelect, Tabs } from '@unofficial-krds/solid';
++import type { ButtonProps, NativeSelectProps } from '@unofficial-krds/solid';
++import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
+ 
+ /** Production native Solid fixture; bridge data stays outside the public adapter. */
+ export function FixtureApp(props: { componentId: string; caseId: string }) {
+
+--- a/apps/fixture-solid/src/main.tsx
++++ b/apps/fixture-solid/src/main.tsx
+@@ -1,8 +1,8 @@
+ import { render } from 'solid-js/web';
+ import { FixtureApp } from './fixture-app';
+-import '@krds-native/styles/reset.css';
+-import '@krds-native/styles/fonts.css';
+-import '@krds-native/styles/all.css';
++import '@unofficial-krds/styles/reset.css';
++import '@unofficial-krds/styles/fonts.css';
++import '@unofficial-krds/styles/all.css';
+ import './fixture.css';
+ 
+ const route = /^\/fixtures\/([^/]+)$/.exec(window.location.pathname);
+
+--- a/apps/fixture-solid/tests/setup.ts
++++ b/apps/fixture-solid/tests/setup.ts
+@@ -1,4 +1,4 @@
+-import type {} from '@krds-native/test-contracts';
++import type {} from '@unofficial-krds/test-contracts';
+ import '@testing-library/jest-dom/vitest';
+ import { afterEach } from 'vitest';
+ import { cleanup } from '@solidjs/testing-library';
+
+--- a/apps/fixture-solid/tests/siheom/button.test.tsx
++++ b/apps/fixture-solid/tests/siheom/button.test.tsx
+@@ -3,7 +3,7 @@
+ import { createSignal, type Component, type JSX } from 'solid-js';
+ import { render } from '@solidjs/testing-library';
+ import { assertions, given, query, runSiheom } from '@siheom/solid';
+-import * as Krds from '@krds-native/solid';
++import * as Krds from '@unofficial-krds/solid';
+ import { FixtureApp } from '../../src/fixture-app';
+ 
+ type TestButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: string; size?: string; icon?: JSX.Element };
+
+--- a/apps/fixture-solid/tests/siheom/calendar.test.tsx
++++ b/apps/fixture-solid/tests/siheom/calendar.test.tsx
+@@ -1,7 +1,7 @@
+ import { expect, test } from 'vitest';
+ import { fireEvent, render, screen } from '@solidjs/testing-library';
+ import { createSignal } from 'solid-js';
+-import * as solid from '@krds-native/solid';
++import * as solid from '@unofficial-krds/solid';
+ import { assertions, query, runSiheom } from '@siheom/solid';
+ 
+ const Calendar = (props: any) => {
+
+--- a/apps/fixture-solid/tests/siheom/date-input.test.tsx
++++ b/apps/fixture-solid/tests/siheom/date-input.test.tsx
+@@ -1,7 +1,7 @@
+ import { expect, test } from 'vitest';
+ import { fireEvent, render, screen } from '@solidjs/testing-library';
+ import { createSignal } from 'solid-js';
+-import * as solid from '@krds-native/solid';
++import * as solid from '@unofficial-krds/solid';
+ import { assertions, query, runSiheom } from '@siheom/solid';
+ 
+ const DateInput = (props: any) => {
+
+--- a/apps/fixture-solid/tests/siheom/modal.test.tsx
++++ b/apps/fixture-solid/tests/siheom/modal.test.tsx
+@@ -3,7 +3,7 @@
+ import { createSignal, Show } from 'solid-js';
+ import { given, runSiheom } from '@siheom/solid';
+ import userEvent from '@testing-library/user-event';
+-import * as Native from '@krds-native/solid';
++import * as Native from '@unofficial-krds/solid';
+ 
+ afterEach(cleanup);
+ const tick = async () => { await Promise.resolve(); await Promise.resolve(); };
+
+--- a/apps/fixture-solid/tests/siheom/native-select.test.tsx
++++ b/apps/fixture-solid/tests/siheom/native-select.test.tsx
+@@ -2,7 +2,7 @@
+ import { createSignal, type Component, type JSX } from 'solid-js';
+ import { fireEvent, render } from '@solidjs/testing-library';
+ import { assertions, given, query, runSiheom } from '@siheom/solid';
+-import * as Krds from '@krds-native/solid';
++import * as Krds from '@unofficial-krds/solid';
+ import { FixtureApp } from '../../src/fixture-app';
+ 
+ type Option = { value: string; label: string; disabled?: boolean };
+
+--- a/apps/fixture-solid/tests/siheom/tabs.test.tsx
++++ b/apps/fixture-solid/tests/siheom/tabs.test.tsx
+@@ -3,7 +3,7 @@
+ import { createSignal } from 'solid-js';
+ import { given, runSiheom } from '@siheom/solid';
+ import userEvent from '@testing-library/user-event';
+-import * as Native from '@krds-native/solid';
++import * as Native from '@unofficial-krds/solid';
+ 
+ afterEach(cleanup);
+ const tabs = () => { expect(Native).toHaveProperty('Tabs'); return (Native as any).Tabs; };
+
+--- a/apps/fixture-svelte/package.json
++++ b/apps/fixture-svelte/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-svelte",
++  "name": "@unofficial-krds/fixture-svelte",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -35,9 +35,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/svelte": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/svelte": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-svelte/project.json
++++ b/apps/fixture-svelte/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte test"
+       },
+       "cache": false,
+       "dependsOn": [
+@@ -40,13 +40,13 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte lint"
+       }
+     },
+     "contract": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte contract"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte contract"
+       },
+       "cache": false,
+       "dependsOn": [
+@@ -66,7 +66,7 @@
+     "siheom": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-svelte siheom"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte siheom"
+       },
+       "cache": false,
+       "dependsOn": [
+
+--- a/apps/fixture-svelte/src/App.svelte
++++ b/apps/fixture-svelte/src/App.svelte
+@@ -1,8 +1,8 @@
+ <script lang="ts">
+   import { onMount } from 'svelte';
+-  import { WorkspaceProbe } from '@krds-native/svelte';
+-  import { createFixtureBridge } from '@krds-native/test-contracts/driver';
+-  import type { FixtureBridge } from '@krds-native/test-contracts';
++  import { WorkspaceProbe } from '@unofficial-krds/svelte';
++  import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
++  import type { FixtureBridge } from '@unofficial-krds/test-contracts';
+ 
+   const componentId = decodeURIComponent(window.location.pathname.split('/')[2] ?? 'unknown');
+   const caseId = new URLSearchParams(window.location.search).get('case') ?? 'default';
+
+--- a/apps/fixture-vue/package.json
++++ b/apps/fixture-vue/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fixture-vue",
++  "name": "@unofficial-krds/fixture-vue",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -36,9 +36,9 @@
+     "vue-tsc": "3.3.14"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
+-    "@krds-native/vue": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
++    "@unofficial-krds/vue": "workspace:^"
+   }
+ }
+
+--- a/apps/fixture-vue/project.json
++++ b/apps/fixture-vue/project.json
+@@ -17,25 +17,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-vue build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-vue test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fixture-vue lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-vue lint"
+       }
+     },
+     "contract": {
+
+--- a/apps/fixture-vue/src/FixtureApp.ts
++++ b/apps/fixture-vue/src/FixtureApp.ts
+@@ -1,7 +1,7 @@
+ /** Test infrastructure only: no KRDS component coverage. */
+ import { defineComponent, h, onUnmounted, shallowRef } from 'vue';
+-import { WorkspaceProbe } from '@krds-native/vue';
+-import { createFixtureBridge } from '@krds-native/test-contracts/driver';
++import { WorkspaceProbe } from '@unofficial-krds/vue';
++import { createFixtureBridge } from '@unofficial-krds/test-contracts/driver';
+ 
+ export const FixtureApp = defineComponent({
+   name: 'FixtureApp',
+
+--- a/apps/storybook-angular/package.json
++++ b/apps/storybook-angular/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-angular",
++  "name": "@unofficial-krds/storybook-angular",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -49,9 +49,9 @@
+     "zone.js": "0.16.3"
+   },
+   "dependencies": {
+-    "@krds-native/angular": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/angular": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-angular/project.json
++++ b/apps/storybook-angular/project.json
+@@ -17,31 +17,31 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-angular build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-angular typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-angular test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-angular lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-angular storybook-build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-angular storybook-build:local"
+       },
+       "dependsOn": [
+         "^build"
+
+--- a/apps/storybook-angular/src/main.ts
++++ b/apps/storybook-angular/src/main.ts
+@@ -1,5 +1,5 @@
+ /** T01 toolchain probe only; no component coverage. */
+ import '@angular/compiler';
+ import { bootstrapApplication } from '@angular/platform-browser';
+-import { WorkspaceProbe } from '@krds-native/angular';
++import { WorkspaceProbe } from '@unofficial-krds/angular';
+ void bootstrapApplication(WorkspaceProbe);
+
+--- a/apps/storybook-angular/src/stories/probe.stories.ts
++++ b/apps/storybook-angular/src/stories/probe.stories.ts
+@@ -1,7 +1,7 @@
+ /** Test-only infrastructure stories; excluded from KRDS catalog coverage. */
+ import type { Meta, StoryObj } from '@storybook/angular';
+-import type { StoryStateCase } from '@krds-native/test-contracts';
+-import { infrastructureStoryCases } from '@krds-native/test-contracts/fixtures';
++import type { StoryStateCase } from '@unofficial-krds/test-contracts';
++import { infrastructureStoryCases } from '@unofficial-krds/test-contracts/fixtures';
+ import { NativeStoryProbe } from './native-probe';
+ const state = (id: StoryStateCase['id']) => ({ ...infrastructureStoryCases.find(item => item.id === id)!.state });
+ const meta: Meta<NativeStoryProbe> = { title: 'Infrastructure/Native probe', component: NativeStoryProbe };
+
+--- a/apps/storybook-lit/package.json
++++ b/apps/storybook-lit/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-lit",
++  "name": "@unofficial-krds/storybook-lit",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -32,9 +32,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/lit": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/lit": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-lit/project.json
++++ b/apps/storybook-lit/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-lit build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-lit typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-lit test"
+       },
+       "dependsOn": [
+         "build",
+@@ -40,13 +40,13 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-lit lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-lit storybook-build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-lit storybook-build:local"
+       },
+       "dependsOn": [
+         "^build"
+
+--- a/apps/storybook-lit/src/main.ts
++++ b/apps/storybook-lit/src/main.ts
+@@ -1,4 +1,4 @@
+ /** T01 toolchain probe only; no component coverage. */
+-import { WorkspaceProbe } from '@krds-native/lit';
++import { WorkspaceProbe } from '@unofficial-krds/lit';
+ customElements.define('krds-workspace-probe', WorkspaceProbe);
+ document.getElementById('app')!.append(document.createElement('krds-workspace-probe'));
+
+--- a/apps/storybook-lit/src/stories/probe.stories.ts
++++ b/apps/storybook-lit/src/stories/probe.stories.ts
+@@ -1,9 +1,9 @@
+ /** Test-only native WebComponents states; excluded from KRDS coverage. */
+ import { LitElement, html } from 'lit';
+ import type { Meta, StoryObj } from '@storybook/web-components-vite';
+-import { WorkspaceProbe } from '@krds-native/lit';
+-import type { StoryStateCase } from '@krds-native/test-contracts';
+-import { infrastructureStoryCases, storyStateCases } from '@krds-native/test-contracts/fixtures';
++import { WorkspaceProbe } from '@unofficial-krds/lit';
++import type { StoryStateCase } from '@unofficial-krds/test-contracts';
++import { infrastructureStoryCases, storyStateCases } from '@unofficial-krds/test-contracts/fixtures';
+ 
+ if (!customElements.get('krds-workspace-probe')) customElements.define('krds-workspace-probe', WorkspaceProbe);
+ 
+
+--- a/apps/storybook-qwik/package.json
++++ b/apps/storybook-qwik/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-qwik",
++  "name": "@unofficial-krds/storybook-qwik",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -31,9 +31,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/qwik": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/qwik": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-qwik/project.json
++++ b/apps/storybook-qwik/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-qwik build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-qwik typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-qwik test"
+       },
+       "cache": false,
+       "dependsOn": [
+@@ -40,13 +40,13 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-qwik lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-qwik storybook-build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-qwik storybook-build:local"
+       }
+     },
+     "stories": {
+
+--- a/apps/storybook-qwik/src/main.tsx
++++ b/apps/storybook-qwik/src/main.tsx
+@@ -1,4 +1,4 @@
+ /** T01 toolchain probe only; no component coverage. */
+ import { render } from '@builder.io/qwik';
+-import { WorkspaceProbe } from '@krds-native/qwik';
++import { WorkspaceProbe } from '@unofficial-krds/qwik';
+ void render(document, <WorkspaceProbe />);
+
+--- a/apps/storybook-qwik/src/root.tsx
++++ b/apps/storybook-qwik/src/root.tsx
+@@ -1,3 +1,3 @@
+ import { component$ } from '@builder.io/qwik';
+-import { WorkspaceProbe } from '@krds-native/qwik';
++import { WorkspaceProbe } from '@unofficial-krds/qwik';
+ export default component$(() => <html><head><title>T01 probe</title></head><body><WorkspaceProbe /></body></html>);
+
+--- a/apps/storybook-qwik/src/stories/probe.stories.tsx
++++ b/apps/storybook-qwik/src/stories/probe.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-framework-qwik';
+-import type { StoryStateCase } from '@krds-native/test-contracts';
+-import { infrastructureStoryCases, storyStateCases } from '@krds-native/test-contracts/fixtures';
++import type { StoryStateCase } from '@unofficial-krds/test-contracts';
++import { infrastructureStoryCases, storyStateCases } from '@unofficial-krds/test-contracts/fixtures';
+ import { NativeProbe, type NativeProbeProps } from './native-probe';
+ 
+ const argsFor = (id: string): NativeProbeProps => {
+
+--- a/apps/storybook-react/package.json
++++ b/apps/storybook-react/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-react",
++  "name": "@unofficial-krds/storybook-react",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -31,9 +31,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/react": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/react": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-react/project.json
++++ b/apps/storybook-react/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-react build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-react typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-react test"
+       },
+       "cache": false,
+       "dependsOn": [
+@@ -40,13 +40,13 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-react lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react storybook-build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-react storybook-build:local"
+       },
+       "dependsOn": [
+         "^build"
+
+--- a/apps/storybook-react/src/stories/native-probe.stories.tsx
++++ b/apps/storybook-react/src/stories/native-probe.stories.tsx
+@@ -1,9 +1,9 @@
+ /** Infrastructure states only; these do not contribute KRDS catalog coverage. */
+ import { useState } from 'react';
+ import type { Meta, StoryObj } from '@storybook/react-vite';
+-import type { StoryStateCase } from '@krds-native/test-contracts';
+-import { infrastructureStoryCases, storyStateCases } from '@krds-native/test-contracts/fixtures';
+-import { WorkspaceProbe } from '@krds-native/react';
++import type { StoryStateCase } from '@unofficial-krds/test-contracts';
++import { infrastructureStoryCases, storyStateCases } from '@unofficial-krds/test-contracts/fixtures';
++import { WorkspaceProbe } from '@unofficial-krds/react';
+ 
+ type ProbeArgs = { count: number; label: string; disabled: boolean; errorMessage?: string };
+ function NativeStoryProbe({ count, label, disabled, errorMessage }: ProbeArgs) {
+
+--- a/apps/storybook-solid-next/package.json
++++ b/apps/storybook-solid-next/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-solid-next",
++  "name": "@unofficial-krds/storybook-solid-next",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -36,9 +36,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid-next": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid-next": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-solid-next/project.json
++++ b/apps/storybook-solid-next/project.json
+@@ -17,37 +17,37 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next storybook-build"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next storybook-build"
+       }
+     },
+     "stories": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid-next stories"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next stories"
+       }
+     }
+   }
+
+--- a/apps/storybook-solid-next/src/main.tsx
++++ b/apps/storybook-solid-next/src/main.tsx
+@@ -1,4 +1,4 @@
+ /** T01 toolchain probe only; no component coverage. */
+ import { render } from '@solidjs/web';
+-import { WorkspaceProbe } from '@krds-native/solid-next';
++import { WorkspaceProbe } from '@unofficial-krds/solid-next';
+ render(() => <WorkspaceProbe />, document.getElementById('app')!);
+
+--- a/apps/storybook-solid-next/src/stories/probe.stories.ts
++++ b/apps/storybook-solid-next/src/stories/probe.stories.ts
+@@ -1,4 +1,4 @@
+ /** Toolchain probe: excluded from KRDS catalog/story coverage. */
+-import { WorkspaceProbe } from '@krds-native/solid-next';
++import { WorkspaceProbe } from '@unofficial-krds/solid-next';
+ export default { title: 'Bootstrap/T01 probe', component: WorkspaceProbe };
+ export const Probe = { args: {} };
+
+--- a/apps/storybook-solid/.storybook/preview.ts
++++ b/apps/storybook-solid/.storybook/preview.ts
+@@ -1,7 +1,7 @@
+ import type { Preview } from 'storybook-solidjs-vite';
+-import '@krds-native/styles/reset.css';
+-import '@krds-native/styles/fonts.css';
+-import '@krds-native/styles/all.css';
++import '@unofficial-krds/styles/reset.css';
++import '@unofficial-krds/styles/fonts.css';
++import '@unofficial-krds/styles/all.css';
+ 
+ export default {
+   parameters: { layout: 'centered' },
+
+--- a/apps/storybook-solid/package.json
++++ b/apps/storybook-solid/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-solid",
++  "name": "@unofficial-krds/storybook-solid",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -33,9 +33,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/solid": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/solid": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-solid/project.json
++++ b/apps/storybook-solid/project.json
+@@ -17,31 +17,31 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-solid storybook-build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid storybook-build:local"
+       },
+       "cache": false,
+       "dependsOn": [
+
+--- a/apps/storybook-solid/src/stories/button.stories.tsx
++++ b/apps/storybook-solid/src/stories/button.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+ import { createSignal } from 'solid-js';
+-import { Button } from '@krds-native/solid';
++import { Button } from '@unofficial-krds/solid';
+ 
+ const meta = {
+   id: 'krds-button',
+
+--- a/apps/storybook-solid/src/stories/calendar.stories.tsx
++++ b/apps/storybook-solid/src/stories/calendar.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+ import { createSignal } from 'solid-js';
+-import { Calendar } from '@krds-native/solid';
++import { Calendar } from '@unofficial-krds/solid';
+ 
+ const meta = { id:'krds-calendar', title:'KRDS/Calendar', component:Calendar, args:{label:'날짜 선택',referenceDate:'2024-02-15'} } satisfies Meta<typeof Calendar>;
+ export default meta;
+
+--- a/apps/storybook-solid/src/stories/date-input.stories.tsx
++++ b/apps/storybook-solid/src/stories/date-input.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+ import { createSignal } from 'solid-js';
+-import { DateInput } from '@krds-native/solid';
++import { DateInput } from '@unofficial-krds/solid';
+ 
+ const meta={id:'krds-date-input',title:'KRDS/DateInput',component:DateInput,args:{label:'날짜',referenceDate:'2024-02-15'}} satisfies Meta<typeof DateInput>;
+ export default meta;
+
+--- a/apps/storybook-solid/src/stories/modal.stories.tsx
++++ b/apps/storybook-solid/src/stories/modal.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+ import { createSignal } from 'solid-js';
+-import { Modal, type ModalProps } from '@krds-native/solid';
++import { Modal, type ModalProps } from '@unofficial-krds/solid';
+ 
+ function LocalModal(args: ModalProps) {
+   const [open, setOpen] = createSignal(args.open ?? false);
+
+--- a/apps/storybook-solid/src/stories/native-select.stories.tsx
++++ b/apps/storybook-solid/src/stories/native-select.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+ import { createSignal } from 'solid-js';
+-import { NativeSelect } from '@krds-native/solid';
++import { NativeSelect } from '@unofficial-krds/solid';
+ 
+ const options = [{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }, { value: 'unavailable', label: '선택할 수 없는 지역', disabled: true }];
+ const meta = {
+
+--- a/apps/storybook-solid/src/stories/probe.stories.tsx
++++ b/apps/storybook-solid/src/stories/probe.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+-import type { StoryStateCase } from '@krds-native/test-contracts';
+-import { infrastructureStoryCases, storyStateCases } from '@krds-native/test-contracts/fixtures';
++import type { StoryStateCase } from '@unofficial-krds/test-contracts';
++import { infrastructureStoryCases, storyStateCases } from '@unofficial-krds/test-contracts/fixtures';
+ import { NativeProbe } from './native-probe';
+ 
+ const meta = { title: 'Infrastructure/Native probe', component: NativeProbe } satisfies Meta<typeof NativeProbe>;
+
+--- a/apps/storybook-solid/src/stories/tabs.stories.tsx
++++ b/apps/storybook-solid/src/stories/tabs.stories.tsx
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+ import { createSignal } from 'solid-js';
+-import { Tabs } from '@krds-native/solid';
++import { Tabs } from '@unofficial-krds/solid';
+ 
+ const items = [
+   { value: 'first', label: '첫 번째', content: <p>첫 번째 정보입니다.</p> },
+
+--- a/apps/storybook-svelte/package.json
++++ b/apps/storybook-svelte/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-svelte",
++  "name": "@unofficial-krds/storybook-svelte",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -34,9 +34,9 @@
+     "vitest": "4.1.10"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/svelte": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/svelte": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-svelte/project.json
++++ b/apps/storybook-svelte/project.json
+@@ -17,19 +17,19 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte test"
+       },
+       "cache": false,
+       "dependsOn": [
+@@ -40,13 +40,13 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte storybook-build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte storybook-build:local"
+       },
+       "dependsOn": [
+         "^build"
+@@ -58,7 +58,7 @@
+     "stories": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-svelte stories"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte stories"
+       },
+       "cache": false,
+       "dependsOn": [
+
+--- a/apps/storybook-svelte/src/App.svelte
++++ b/apps/storybook-svelte/src/App.svelte
+@@ -1,5 +1,5 @@
+ <!-- T01 compiler probe; no catalog coverage. -->
+ <script lang="ts">
+-  import { WorkspaceProbe } from "@krds-native/svelte";
++  import { WorkspaceProbe } from "@unofficial-krds/svelte";
+ </script>
+ <WorkspaceProbe />
+
+--- a/apps/storybook-svelte/src/stories/NativeProbe.svelte
++++ b/apps/storybook-svelte/src/stories/NativeProbe.svelte
+@@ -1,6 +1,6 @@
+ <script lang="ts">
+   // Infrastructure only; no KRDS component coverage.
+-  import { WorkspaceProbe } from '@krds-native/svelte';
++  import { WorkspaceProbe } from '@unofficial-krds/svelte';
+   let { count = 0, label = 'Probe increment', disabled = false, loading = false, errorMessage = '' }: {
+     count?: number; label?: string; disabled?: boolean; loading?: boolean; errorMessage?: string;
+   } = $props();
+
+--- a/apps/storybook-svelte/src/stories/probe.stories.ts
++++ b/apps/storybook-svelte/src/stories/probe.stories.ts
+@@ -1,6 +1,6 @@
+ import type { Meta, StoryObj } from '@storybook/svelte-vite';
+-import type { StoryStateCase } from '@krds-native/test-contracts';
+-import { infrastructureStoryCases, storyStateCases } from '@krds-native/test-contracts/fixtures';
++import type { StoryStateCase } from '@unofficial-krds/test-contracts';
++import { infrastructureStoryCases, storyStateCases } from '@unofficial-krds/test-contracts/fixtures';
+ import NativeProbe from './NativeProbe.svelte';
+ 
+ const meta = { title: 'Infrastructure/Native probe', component: NativeProbe, excludeStories: ['canonicalPilotStates'] } satisfies Meta<typeof NativeProbe>;
+
+--- a/apps/storybook-vue/package.json
++++ b/apps/storybook-vue/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/storybook-vue",
++  "name": "@unofficial-krds/storybook-vue",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -33,9 +33,9 @@
+     "vue-tsc": "3.3.14"
+   },
+   "dependencies": {
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/test-contracts": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
+-    "@krds-native/vue": "workspace:^"
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/test-contracts": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
++    "@unofficial-krds/vue": "workspace:^"
+   }
+ }
+
+--- a/apps/storybook-vue/project.json
++++ b/apps/storybook-vue/project.json
+@@ -17,31 +17,31 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-vue build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-vue typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-vue test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-vue lint"
+       }
+     },
+     "storybook-build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/storybook-vue storybook-build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-vue storybook-build:local"
+       },
+       "dependsOn": [
+         "^build"
+
+--- a/apps/storybook-vue/src/main.ts
++++ b/apps/storybook-vue/src/main.ts
+@@ -1,4 +1,4 @@
+ /** T01 toolchain probe only; no component coverage. */
+ import { createApp } from 'vue';
+-import { WorkspaceProbe } from '@krds-native/vue';
++import { WorkspaceProbe } from '@unofficial-krds/vue';
+ createApp(WorkspaceProbe).mount('#app');
+
+--- a/apps/storybook-vue/src/stories/NativeProbe.ts
++++ b/apps/storybook-vue/src/stories/NativeProbe.ts
+@@ -1,6 +1,6 @@
+ /** Native Vue story-only infrastructure; no KRDS component coverage. */
+ import { defineComponent, h } from 'vue';
+-import { WorkspaceProbe } from '@krds-native/vue';
++import { WorkspaceProbe } from '@unofficial-krds/vue';
+ export const NativeProbe = defineComponent({
+   name: 'NativeProbe',
+   props: {
+
+--- a/apps/storybook-vue/src/stories/probe.stories.ts
++++ b/apps/storybook-vue/src/stories/probe.stories.ts
+@@ -1,7 +1,7 @@
+ /** Local state-only infrastructure, excluded from KRDS catalog coverage. */
+ import type { Meta, StoryObj } from '@storybook/vue3-vite';
+-import type { StoryStateCase } from '@krds-native/test-contracts';
+-import { infrastructureStoryCases, storyStateCases } from '@krds-native/test-contracts/fixtures';
++import type { StoryStateCase } from '@unofficial-krds/test-contracts';
++import { infrastructureStoryCases, storyStateCases } from '@unofficial-krds/test-contracts/fixtures';
+ import { NativeProbe } from './NativeProbe';
+ const meta = { title: 'Infrastructure/Native probe', component: NativeProbe } satisfies Meta<typeof NativeProbe>;
+ export default meta;
+
+--- a/package.json
++++ b/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/workspace",
++  "name": "@unofficial-krds/workspace",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -39,5 +39,9 @@
+     "playwright": "1.64.1",
+     "playwright-core": "1.64.1",
+     "typescript": "6.0.2"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds"
+   }
+ }
+
+--- a/packages/angular/README.md
++++ b/packages/angular/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/angular
++# @unofficial-krds/angular
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/angular/ng-package.json
++++ b/packages/angular/ng-package.json
+@@ -5,9 +5,9 @@
+     "entryFile": "src/index.ts"
+   },
+   "allowedNonPeerDependencies": [
+-    "@krds-native/contracts",
+-    "@krds-native/tokens",
+-    "@krds-native/styles",
++    "@unofficial-krds/contracts",
++    "@unofficial-krds/tokens",
++    "@unofficial-krds/styles",
+     "@zag-js/.*",
+     "@internationalized/date"
+   ]
+
+--- a/packages/angular/package.json
++++ b/packages/angular/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/angular",
++  "name": "@unofficial-krds/angular",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -51,8 +51,8 @@
+   "sideEffects": false,
+   "exports": {
+     ".": {
+-      "types": "./dist/types/krds-native-angular.d.ts",
+-      "default": "./dist/fesm2022/krds-native-angular.mjs"
++      "types": "./dist/types/unofficial-krds-angular.d.ts",
++      "default": "./dist/fesm2022/unofficial-krds-angular.mjs"
+     }
+   },
+   "peerDependencies": {
+@@ -62,14 +62,19 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0",
+     "tslib": "2.8.1"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/angular"
+   }
+ }
+
+--- a/packages/angular/project.json
++++ b/packages/angular/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/angular build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/angular build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/angular typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/angular typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/angular test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/angular test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/angular lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/angular lint"
+       }
+     }
+   }
+
+--- a/packages/assets/README.md
++++ b/packages/assets/README.md
+@@ -1,6 +1,6 @@
+-# @krds-native/assets
++# @unofficial-krds/assets
+ 
+-Eight unmodified generic KRDS SVG icons are available as local files through `@krds-native/assets/icons/*.svg` or as URLs through `krdsIconUrls`. No remote fetch is required. Provide accessible labels in the consuming control; decorative images should have empty alternative text.
++Eight unmodified generic KRDS SVG icons are available as local files through `@unofficial-krds/assets/icons/*.svg` or as URLs through `krdsIconUrls`. No remote fetch is required. Provide accessible labels in the consuming control; decorative images should have empty alternative text.
+ 
+ Institution logos, service names, official government banners and third-party brand marks are not bundled. Consumers supply their own identity and verify their rights. `InstitutionIdentity` describes optional consumer-provided identity without inventing an institution.
+ 
+
+--- a/packages/assets/package.json
++++ b/packages/assets/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/assets",
++  "name": "@unofficial-krds/assets",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -35,5 +35,10 @@
+       "import": "./dist/index.js"
+     },
+     "./icons/*": "./icons/*"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/assets"
+   }
+ }
+
+--- a/packages/assets/project.json
++++ b/packages/assets/project.json
+@@ -11,25 +11,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/assets build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/assets build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/assets typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/assets typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/assets test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/assets test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/assets lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/assets lint"
+       }
+     }
+   }
+
+--- a/packages/contracts/README.md
++++ b/packages/contracts/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/contracts
++# @unofficial-krds/contracts
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/contracts/package.json
++++ b/packages/contracts/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/contracts",
++  "name": "@unofficial-krds/contracts",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -35,5 +35,10 @@
+       "types": "./dist/index.d.ts",
+       "import": "./dist/index.js"
+     }
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/contracts"
+   }
+ }
+
+--- a/packages/contracts/project.json
++++ b/packages/contracts/project.json
+@@ -11,25 +11,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/contracts build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/contracts build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/contracts typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/contracts typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/contracts test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/contracts test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/contracts lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/contracts lint"
+       }
+     }
+   }
+
+--- a/packages/fonts/README.md
++++ b/packages/fonts/README.md
+@@ -1,6 +1,6 @@
+-# @krds-native/fonts
++# @unofficial-krds/fonts
+ 
+-This package contains the official, unmodified full Pretendard GOV Regular (400), Medium (500), and Bold (700) WOFF2 files. Import `@krds-native/fonts/fonts.css` to opt in, or use the local URLs exported by `pretendardGovFontUrls`. The stylesheet contains local relative URLs and never requests a CDN. No custom subset, glyph removal, format conversion, metadata edit or renaming was performed.
++This package contains the official, unmodified full Pretendard GOV Regular (400), Medium (500), and Bold (700) WOFF2 files. Import `@unofficial-krds/fonts/fonts.css` to opt in, or use the local URLs exported by `pretendardGovFontUrls`. The stylesheet contains local relative URLs and never requests a CDN. No custom subset, glyph removal, format conversion, metadata edit or renaming was performed.
+ 
+ The original SIL OFL 1.1, copyright notices and Reserved Font Names `Pretendard GOV`, `Source`, `Inter` and `M PLUS 1` are preserved in LICENSES/Pretendard-GOV-OFL-1.1.txt. Preserve the full text and notices with redistributed font files. OFL restricts selling fonts by themselves; embedding them in an application does not put independent UI code under OFL. Modified fonts require separate consideration of the original RFN conditions.
+ 
+
+--- a/packages/fonts/package.json
++++ b/packages/fonts/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/fonts",
++  "name": "@unofficial-krds/fonts",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -39,5 +39,10 @@
+     },
+     "./fonts/*": "./fonts/*",
+     "./fonts.css": "./fonts.css"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/fonts"
+   }
+ }
+
+--- a/packages/fonts/project.json
++++ b/packages/fonts/project.json
+@@ -11,25 +11,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fonts build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fonts build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fonts typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fonts typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fonts test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fonts test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/fonts lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/fonts lint"
+       }
+     }
+   }
+
+--- a/packages/fonts/src/index.ts
++++ b/packages/fonts/src/index.ts
+@@ -1,4 +1,4 @@
+-/** Official, unmodified Pretendard GOV assets. Import @krds-native/fonts/fonts.css to opt in. */
++/** Official, unmodified Pretendard GOV assets. Import @unofficial-krds/fonts/fonts.css to opt in. */
+ export const pretendardGovFamily = 'Pretendard GOV' as const;
+ export const pretendardGovFontUrls = {
+   regular: new URL('../fonts/PretendardGOV-Regular.woff2', import.meta.url).href,
+
+--- a/packages/lit/README.md
++++ b/packages/lit/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/lit
++# @unofficial-krds/lit
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/lit/package.json
++++ b/packages/lit/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/lit",
++  "name": "@unofficial-krds/lit",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -46,13 +46,18 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/lit"
+   }
+ }
+
+--- a/packages/lit/project.json
++++ b/packages/lit/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/lit build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/lit build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/lit typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/lit typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/lit test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/lit test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/lit lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/lit lint"
+       }
+     }
+   }
+
+--- a/packages/qwik/README.md
++++ b/packages/qwik/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/qwik
++# @unofficial-krds/qwik
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/qwik/package.json
++++ b/packages/qwik/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/qwik",
++  "name": "@unofficial-krds/qwik",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -47,14 +47,19 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0"
+   },
+-  "qwik": "./dist/index.qwik.mjs"
++  "qwik": "./dist/index.qwik.mjs",
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/qwik"
++  }
+ }
+
+--- a/packages/qwik/project.json
++++ b/packages/qwik/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/qwik build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/qwik build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/qwik typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/qwik typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/qwik test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/qwik test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/qwik lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/qwik lint"
+       }
+     }
+   }
+
+--- a/packages/react/README.md
++++ b/packages/react/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/react
++# @unofficial-krds/react
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/react/package.json
++++ b/packages/react/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/react",
++  "name": "@unofficial-krds/react",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -49,8 +49,13 @@
+   },
+   "dependencies": {
+     "@ark-ui/react": "5.40.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/react"
+   }
+ }
+
+--- a/packages/react/project.json
++++ b/packages/react/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/react build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/react build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/react typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/react typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/react test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/react test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/react lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/react lint"
+       }
+     }
+   }
+
+--- a/packages/solid-next/README.md
++++ b/packages/solid-next/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/solid-next
++# @unofficial-krds/solid-next
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/solid-next/package.json
++++ b/packages/solid-next/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/solid-next",
++  "name": "@unofficial-krds/solid-next",
+   "version": "0.0.0-next.0",
+   "type": "module",
+   "scripts": {
+@@ -51,13 +51,18 @@
+   },
+   "dependencies": {
+     "@internationalized/date": "3.12.4",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^",
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^",
+     "@zag-js/core": "1.47.0",
+     "@zag-js/date-picker": "1.47.0",
+     "@zag-js/dialog": "1.47.0",
+     "@zag-js/tabs": "1.47.0",
+     "@zag-js/vanilla": "1.47.0"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/solid-next"
+   }
+ }
+
+--- a/packages/solid-next/project.json
++++ b/packages/solid-next/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid-next build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid-next typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid-next test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid-next lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid-next lint"
+       }
+     }
+   }
+
+--- a/packages/solid/README.md
++++ b/packages/solid/README.md
+@@ -1,9 +1,9 @@
+-# @krds-native/solid
++# @unofficial-krds/solid
+ 
+ Native Solid 1 pilots: `Button`, `NativeSelect`, `Modal`, `Tabs`, `DateInput` and
+ `Calendar`. These render through Solid and native HTML. Solid 2 RC has a separate package.
+ 
+-Import from `@krds-native/solid`, or from the individual `/button`, `/native-select`,
++Import from `@unofficial-krds/solid`, or from the individual `/button`, `/native-select`,
+ `/modal`, `/tabs`, `/date-input`, `/calendar` and `/provider` entries. Public props use
+ native Solid content and semantic plain-value callbacks; no Ark implementation types
+ are part of this API.
+@@ -11,10 +11,10 @@
+ Styles are explicit imports. Choose individual component CSS or `all.css`:
+ 
+ ```tsx
+-import '@krds-native/styles/reset.css';
+-import '@krds-native/styles/fonts.css';
+-import '@krds-native/styles/all.css';
+-import { Button, DateInput, KrdsProvider } from '@krds-native/solid';
++import '@unofficial-krds/styles/reset.css';
++import '@unofficial-krds/styles/fonts.css';
++import '@unofficial-krds/styles/all.css';
++import { Button, DateInput, KrdsProvider } from '@unofficial-krds/solid';
+ 
+ function VisitDateExample() {
+   return <KrdsProvider locale="ko-KR"><form>
+@@ -36,7 +36,7 @@
+ 
+ ```tsx
+ import { createSignal } from 'solid-js';
+-import { NativeSelect } from '@krds-native/solid';
++import { NativeSelect } from '@unofficial-krds/solid';
+ 
+ function ControlledRegionExample() {
+   const [region, setRegion] = createSignal('seoul');
+
+--- a/packages/solid/package.json
++++ b/packages/solid/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/solid",
++  "name": "@unofficial-krds/solid",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -75,8 +75,13 @@
+   },
+   "dependencies": {
+     "@ark-ui/solid": "5.40.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/solid"
+   }
+ }
+
+--- a/packages/solid/project.json
++++ b/packages/solid/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/solid lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/solid lint"
+       }
+     }
+   }
+
+--- a/packages/solid/src/components/calendar/index.tsx
++++ b/packages/solid/src/components/calendar/index.tsx
+@@ -1,7 +1,7 @@
+ import { For, Show, createEffect, createMemo, createSignal, createUniqueId, on, splitProps } from 'solid-js';
+ import type { JSX } from 'solid-js';
+-import { addDays, addMonths, calendarMonthGrid, parseIsoDate, weekday } from '@krds-native/contracts';
+-import type { DateRangeValue, ValueChangeDetails } from '@krds-native/contracts';
++import { addDays, addMonths, calendarMonthGrid, parseIsoDate, weekday } from '@unofficial-krds/contracts';
++import type { DateRangeValue, ValueChangeDetails } from '@unofficial-krds/contracts';
+ import { useKrdsEnvironment } from '../../providers';
+ import { copyValue, dateConfig, emptyValue, endpoints, interpolate, nonemptyDictionary, notifyValue, sameValue, validateValue } from './model';
+ import type { DateModeProps, DateValue } from './model';
+
+--- a/packages/solid/src/components/calendar/model.ts
++++ b/packages/solid/src/components/calendar/model.ts
+@@ -1,5 +1,5 @@
+-import { parseIsoDate } from '@krds-native/contracts';
+-import type { DateRangeValue, ValueChangeDetails } from '@krds-native/contracts';
++import { parseIsoDate } from '@unofficial-krds/contracts';
++import type { DateRangeValue, ValueChangeDetails } from '@unofficial-krds/contracts';
+ 
+ export type DateValue = string | null | DateRangeValue;
+ export type DateModeProps = {
+
+--- a/packages/solid/src/components/date-input/index.tsx
++++ b/packages/solid/src/components/date-input/index.tsx
+@@ -1,6 +1,6 @@
+ import { Show, createEffect, createMemo, createSignal, createUniqueId, on, onCleanup, untrack } from 'solid-js';
+ import type { JSX } from 'solid-js';
+-import { parseIsoDate } from '@krds-native/contracts';
++import { parseIsoDate } from '@unofficial-krds/contracts';
+ import { useKrdsEnvironment } from '../../providers';
+ import { Calendar } from '../calendar';
+ import type { CalendarProps, CalendarTranslations } from '../calendar';
+
+--- a/packages/solid/src/components/modal/index.tsx
++++ b/packages/solid/src/components/modal/index.tsx
+@@ -1,6 +1,6 @@
+ import { createMemo, createSignal, createUniqueId, onCleanup, onMount, Show, splitProps, untrack, type JSX } from 'solid-js';
+ import { Portal } from 'solid-js/web';
+-import type { OpenChangeDetails } from '@krds-native/contracts';
++import type { OpenChangeDetails } from '@unofficial-krds/contracts';
+ import { useKrdsEnvironment } from '../../providers';
+ 
+ export interface ModalProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title' | 'children' | 'onChange'> {
+
+--- a/packages/solid/src/components/native-select/index.tsx
++++ b/packages/solid/src/components/native-select/index.tsx
+@@ -1,5 +1,5 @@
+ import { createEffect, createSignal, createUniqueId, For, onCleanup, onMount, Show, splitProps, type JSX } from 'solid-js';
+-import type { SelectOption, ValueChangeDetails } from '@krds-native/contracts';
++import type { SelectOption, ValueChangeDetails } from '@unofficial-krds/contracts';
+ 
+ export interface NativeSelectProps extends Omit<JSX.SelectHTMLAttributes<HTMLSelectElement>, 'children' | 'value' | 'size' | 'multiple'> {
+   options: SelectOption[];
+
+--- a/packages/solid/src/components/tabs/index.tsx
++++ b/packages/solid/src/components/tabs/index.tsx
+@@ -1,5 +1,5 @@
+ import { createEffect, createMemo, createSignal, createUniqueId, For, onCleanup, onMount, splitProps, type JSX } from 'solid-js';
+-import type { ValueChangeDetails } from '@krds-native/contracts';
++import type { ValueChangeDetails } from '@unofficial-krds/contracts';
+ import { useKrdsEnvironment } from '../../providers';
+ 
+ export interface TabItem {
+
+--- a/packages/styles/README.md
++++ b/packages/styles/README.md
+@@ -1,14 +1,14 @@
+-# @krds-native/styles
++# @unofficial-krds/styles
+ 
+ Six pilot component styles use the stable `data-krds-component`, `data-krds-part` and space-separated `data-krds-state` contracts in `parts.json`. Every owned part, including portal content, carries component identity. Native/ARIA state remains authoritative. These styles do not implement rendering, focus traps, inert, scroll locking, form behavior or keyboard handling.
+ 
+-Opt into `@krds-native/styles/button.css` (or `native-select.css`, `modal.css`, `tabs.css`, `date-input.css`, `calendar.css`) for one component with token declarations and scoped base styles. `all.css` contains all six components, tokens and base exactly once. `base.css`, `reset.css` and `fonts.css` are separate entries. The root JS import has no stylesheet side effect. CSS imports are marked as side effects for bundlers.
++Opt into `@unofficial-krds/styles/button.css` (or `native-select.css`, `modal.css`, `tabs.css`, `date-input.css`, `calendar.css`) for one component with token declarations and scoped base styles. `all.css` contains all six components, tokens and base exactly once. `base.css`, `reset.css` and `fonts.css` are separate entries. The root JS import has no stylesheet side effect. CSS imports are marked as side effects for bundlers.
+ 
+ `reset.css` is an explicit global choice: KRDS rem tokens assume the original 62.5% root font size. Without this opt-in, dimensions follow the application's root rem scale. `fonts.css` only selects the installed/local Pretendard GOV with system fallbacks; it contains no font files or remote URLs. Install optional font material separately under its own notices. Component imports never select or download fonts.
+ 
+ Button root exposes `data-krds-variant` (`primary`, `secondary`, `tertiary`, `text`, `icon`) and `data-krds-size` (five documented sizes). NativeSelect control exposes `data-krds-size` (`small`, `medium`, `large`); adapters should reflect root size onto control. Tabs list exposes `data-krds-orientation` (`horizontal`, `vertical`). Defaults are medium, primary and horizontal. These attributes select presentation only. Full parts/states and semantic options remain in `specs/components`.
+ 
+-Import `{ styles }` from `@krds-native/styles/lit` for plain strings (`styles.button`, `styles.all`, etc.). A Lit adapter may pass its selected string to Lit's `unsafeCSS`; this package depends on no Lit runtime. Strings are byte-identical to the corresponding CSS files, generated from the same sources with imports already expanded. Non-Lit native adapters may use the same strings or CSS entries.
++Import `{ styles }` from `@unofficial-krds/styles/lit` for plain strings (`styles.button`, `styles.all`, etc.). A Lit adapter may pass its selected string to Lit's `unsafeCSS`; this package depends on no Lit runtime. Strings are byte-identical to the corresponding CSS files, generated from the same sources with imports already expanded. Non-Lit native adapters may use the same strings or CSS entries.
+ 
+ Build parses all sources with PostCSS, rejects unknown token references, public parts/states and remote assets, and writes outputs only to `dist/`. Focus-visible, forced colors, reduced motion, wrapping and viewport rules are included. No animation is introduced. Renderer-level visual and accessibility acceptance, including 200% zoom and narrow viewport inspection, belongs to T06+; generated styles are not that evidence.
+ 
+
+--- a/packages/styles/package.json
++++ b/packages/styles/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/styles",
++  "name": "@unofficial-krds/styles",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -53,6 +53,11 @@
+     "./parts.json": "./dist/parts.json"
+   },
+   "dependencies": {
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/styles"
+   }
+ }
+
+--- a/packages/styles/project.json
++++ b/packages/styles/project.json
+@@ -13,7 +13,7 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/styles build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/styles build:local"
+       },
+       "inputs": [
+         "default",
+@@ -24,13 +24,13 @@
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/styles typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/styles typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/styles test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/styles test"
+       },
+       "dependsOn": [
+         "build",
+@@ -45,7 +45,7 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/styles lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/styles lint"
+       }
+     }
+   }
+
+--- a/packages/svelte/README.md
++++ b/packages/svelte/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/svelte
++# @unofficial-krds/svelte
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/svelte/package.json
++++ b/packages/svelte/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/svelte",
++  "name": "@unofficial-krds/svelte",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -49,9 +49,14 @@
+   },
+   "dependencies": {
+     "@ark-ui/svelte": "5.25.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
+   },
+-  "svelte": "./dist/index.js"
++  "svelte": "./dist/index.js",
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/svelte"
++  }
+ }
+
+--- a/packages/svelte/project.json
++++ b/packages/svelte/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/svelte build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/svelte build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/svelte typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/svelte typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/svelte test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/svelte test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/svelte lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/svelte lint"
+       }
+     }
+   }
+
+--- a/packages/test-contracts/README.md
++++ b/packages/test-contracts/README.md
+@@ -1,8 +1,8 @@
+ # Private native test contracts
+ 
+-Built exports provide semantic types, JSON state fixtures, the fixture-only control bridge and required pilot scenario IDs. Build with `node tools/yarn.mjs workspace @krds-native/test-contracts build:local`. Consumers import the package exports, never source aliases.
++Built exports provide semantic types, JSON state fixtures, the fixture-only control bridge and required pilot scenario IDs. Build with `node tools/yarn.mjs workspace @unofficial-krds/test-contracts build:local`. Consumers import the package exports, never source aliases.
+ 
+-Every native fixture implements `/fixtures/<componentId>?case=<caseId>` and installs `createFixtureBridge(framework, initialState)` from `@krds-native/test-contracts/driver`. Subscribe within the native renderer, dispose on unmount, and record serializable events. The bridge merges semantic state patches and waits two animation frames for native rendering. `createFixtureDriver(page, origin)` verifies protocol and native framework before controlling the app.
++Every native fixture implements `/fixtures/<componentId>?case=<caseId>` and installs `createFixtureBridge(framework, initialState)` from `@unofficial-krds/test-contracts/driver`. Subscribe within the native renderer, dispose on unmount, and record serializable events. The bridge merges semantic state patches and waits two animation frames for native rendering. `createFixtureDriver(page, origin)` verifies protocol and native framework before controlling the app.
+ 
+ Shared `StoryStateCase` records from `/fixtures` contain serializable data; native story code maps them to framework inputs/slots and local callbacks. `pilotScenarios` from `/scenarios` lists required canonical observations. No runtime renderer, provider, callback, QRL or DI object belongs in these records.
+ 
+
+--- a/packages/test-contracts/package.json
++++ b/packages/test-contracts/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/test-contracts",
++  "name": "@unofficial-krds/test-contracts",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+@@ -14,7 +14,7 @@
+     "typescript": "6.0.2"
+   },
+   "dependencies": {
+-    "@krds-native/contracts": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^"
+   },
+   "main": "./dist/index.js",
+   "types": "./dist/index.d.ts",
+
+--- a/packages/test-contracts/project.json
++++ b/packages/test-contracts/project.json
+@@ -13,25 +13,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/test-contracts build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/test-contracts build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/test-contracts typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/test-contracts typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/test-contracts test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/test-contracts test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/test-contracts lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/test-contracts lint"
+       }
+     }
+   }
+
+--- a/packages/test-contracts/src/types.ts
++++ b/packages/test-contracts/src/types.ts
+@@ -1,5 +1,5 @@
+-import type { FrameworkId } from '@krds-native/contracts';
+-export type { FrameworkId } from '@krds-native/contracts';
++import type { FrameworkId } from '@unofficial-krds/contracts';
++export type { FrameworkId } from '@unofficial-krds/contracts';
+ export interface FixtureCase { componentId: string; caseId: string; framework: FrameworkId; }
+ export interface FixtureEvent { name: string; detail: unknown; }
+ export interface FixtureDriver {
+
+--- a/packages/tokens/README.md
++++ b/packages/tokens/README.md
+@@ -1,6 +1,6 @@
+-# @krds-native/tokens
++# @unofficial-krds/tokens
+ 
+-Source-preserving KRDS kit 1.1.0 tokens. Import `tokens` and `tokenNames` from the package, or opt into `@krds-native/tokens/tokens.css`. `tokens.json` retains all 768 transformed source keys, raw values, raw aliases, types, descriptions, explicit references and resolved values. `source-map.json` connects every output CSS name to both frozen Figma and transformed keys/values. No numeric values are guessed or rounded.
++Source-preserving KRDS kit 1.1.0 tokens. Import `tokens` and `tokenNames` from the package, or opt into `@unofficial-krds/tokens/tokens.css`. `tokens.json` retains all 768 transformed source keys, raw values, raw aliases, types, descriptions, explicit references and resolved values. `source-map.json` connects every output CSS name to both frozen Figma and transformed keys/values. No numeric values are guessed or rounded.
+ 
+ `node scripts/build.mjs` validates aliases (cycles, missing references and type conflicts), rejects output-name collisions, and produces CSS, JSON and declarations in `dist/`. The generated CSS preserves every official token declaration; it also targets `:host` so the same token text can initialize shadow roots. Original KRDS rem dimensions assume its optional 62.5% root font size; importing tokens alone does not change the host application's root font size.
+ 
+
+--- a/packages/tokens/package.json
++++ b/packages/tokens/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/tokens",
++  "name": "@unofficial-krds/tokens",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -38,5 +38,10 @@
+     "./tokens.css": "./dist/tokens.css",
+     "./tokens.json": "./dist/tokens.json",
+     "./source-map.json": "./dist/source-map.json"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/tokens"
+   }
+ }
+
+--- a/packages/tokens/project.json
++++ b/packages/tokens/project.json
+@@ -11,7 +11,7 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/tokens build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/tokens build:local"
+       },
+       "inputs": [
+         "default",
+@@ -23,13 +23,13 @@
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/tokens typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/tokens typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/tokens test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/tokens test"
+       },
+       "dependsOn": [
+         "build",
+@@ -45,7 +45,7 @@
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/tokens lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/tokens lint"
+       }
+     }
+   }
+
+--- a/packages/tokens/src/outputs.test.ts
++++ b/packages/tokens/src/outputs.test.ts
+@@ -42,7 +42,7 @@
+     assert.equal(entry.modified, true, id);
+     assert.ok(entry.localPaths[0].startsWith('upstream/krds/raw/kit/'));
+     assert.equal(createHash('sha256').update(read(`../../../${entry.localPaths[0]}`)).digest('hex'), entry.sha256);
+-    assert.ok(entry.distributedIn.includes('@krds-native/tokens'), id);
++    assert.ok(entry.distributedIn.includes('@unofficial-krds/tokens'), id);
+     assert.ok(entry.localPaths.includes('packages/tokens/dist/tokens.css') || entry.localPaths.includes('packages/tokens/dist/source-map.json'), id);
+     assert.ok(entry.localPaths.every((path) => !/[?*]/u.test(path)), id);
+   }
+
+--- a/packages/vue/README.md
++++ b/packages/vue/README.md
+@@ -1,4 +1,4 @@
+-# @krds-native/vue
++# @unofficial-krds/vue
+ 
+ T01 workspace/compiler probe only. This entry is not a KRDS component and contributes no catalog coverage. Native implementation, independent consumer validation, and rights reconciliation remain pending.
+ 
+
+--- a/packages/vue/package.json
++++ b/packages/vue/package.json
+@@ -1,5 +1,5 @@
+ {
+-  "name": "@krds-native/vue",
++  "name": "@unofficial-krds/vue",
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+@@ -47,8 +47,13 @@
+   },
+   "dependencies": {
+     "@ark-ui/vue": "5.40.0",
+-    "@krds-native/contracts": "workspace:^",
+-    "@krds-native/styles": "workspace:^",
+-    "@krds-native/tokens": "workspace:^"
++    "@unofficial-krds/contracts": "workspace:^",
++    "@unofficial-krds/styles": "workspace:^",
++    "@unofficial-krds/tokens": "workspace:^"
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/moreal/krds",
++    "directory": "packages/vue"
+   }
+ }
+
+--- a/packages/vue/project.json
++++ b/packages/vue/project.json
+@@ -16,25 +16,25 @@
+     "build": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/vue build:local"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/vue build:local"
+       }
+     },
+     "typecheck": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/vue typecheck"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/vue typecheck"
+       }
+     },
+     "test": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/vue test"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/vue test"
+       }
+     },
+     "lint": {
+       "executor": "nx:run-commands",
+       "options": {
+-        "command": "node tools/yarn.mjs workspace @krds-native/vue lint"
++        "command": "node tools/yarn.mjs workspace @unofficial-krds/vue lint"
+       }
+     }
+   }
+
+--- a/specs/components/README.md
++++ b/specs/components/README.md
+@@ -1,6 +1,6 @@
+ # Pilot contract conventions
+ 
+-These contracts bind every native adapter. Read this file with each pilot spec. Shared types are exported by `@krds-native/contracts`; adapters add their own native children, refs, listeners and callback transport. No renderer type enters the shared package. These documents specify behavior; they are not evidence that any adapter implements it.
++These contracts bind every native adapter. Read this file with each pilot spec. Shared types are exported by `@unofficial-krds/contracts`; adapters add their own native children, refs, listeners and callback transport. No renderer type enters the shared package. These documents specify behavior; they are not evidence that any adapter implements it.
+ 
+ ## Source and policy boundary
+ 
+
+--- a/tools/check-workspace.test.mjs
++++ b/tools/check-workspace.test.mjs
+@@ -41,7 +41,7 @@
+     ['upward relative import', async (dir) => writeFile(`${dir}/packages/contracts/src/illegal.ts`, 'export * from "../../react/src/index";'), /boundary/],
+     ['multiline import', async (dir) => writeFile(`${dir}/packages/contracts/src/illegal.ts`, 'import {\n WorkspaceProbe,\n} from "../../react/src/index";'), /boundary/],
+     ['foreign renderer', async (dir) => writeFile(`${dir}/packages/solid/src/illegal.ts`, 'import React from "react";'), /foreign runtime/],
+-    ['native source alias', async (dir) => writeFile(`${dir}/packages/solid/src/illegal.ts`, 'export * from "@krds-native/react";'), /boundary/],
++    ['native source alias', async (dir) => writeFile(`${dir}/packages/solid/src/illegal.ts`, 'export * from "@unofficial-krds/react";'), /boundary/],
+     ...[
+       ['CSS double-quoted URL', 'packages/contracts/src/illegal.css', '@import url("../../react/src/review.css");'],
+       ['CSS single-quoted URL', 'packages/contracts/src/illegal.css', "@import url('../../react/src/review.css');"],
+@@ -51,8 +51,8 @@
+       ['Svelte embedded CSS URL', 'packages/svelte/src/lib/Illegal.svelte', '<style>@import url(../../../react/src/review.css);</style>'],
+       ['Lit embedded CSS URL', 'packages/lit/src/illegal.ts', 'const styles = css`@import url("../../react/src/review.css");`;'],
+       ['Angular embedded CSS URL', 'packages/angular/src/illegal.ts', '@Component({ styles: [`@import url(../../react/src/review.css);`] }) class Probe {}'],
+-    ].map(([name, path, source]) => [name, async (dir) => writeFile(`${dir}/${path}`, source), [/import boundary -> packages\/react/, /undeclared internal import @krds-native\/react/]]),
+-    ['CSS permitted layer without declaration', async (dir) => writeFile(`${dir}/packages/styles/src/illegal.css`, '@import url(../../fonts/src/review.css);'), /undeclared internal import @krds-native\/fonts/],
++    ].map(([name, path, source]) => [name, async (dir) => writeFile(`${dir}/${path}`, source), [/import boundary -> packages\/react/, /undeclared internal import @unofficial-krds\/react/]]),
++    ['CSS permitted layer without declaration', async (dir) => writeFile(`${dir}/packages/styles/src/illegal.css`, '@import url(../../fonts/src/review.css);'), /undeclared internal import @unofficial-krds\/fonts/],
+   ]) {
+     await t.test(`rejects ${name}`, async () => {
+       await withWorkspaceCopy(root, async (dir) => {
+
+--- a/tools/run-siheom-tests.mjs
++++ b/tools/run-siheom-tests.mjs
+@@ -8,7 +8,7 @@
+   for(const framework of options.frameworks) {
+     const result={framework,canonicalSelection:!options.probe,coverageAwarded:false};
+     try {
+-      const workspace=`@krds-native/fixture-${framework}`;const app=join(root,`apps/fixture-${framework}`);
++      const workspace=`@unofficial-krds/fixture-${framework}`;const app=join(root,`apps/fixture-${framework}`);
+       const manifest=JSON.parse(await readFile(join(app,'package.json'),'utf8'));
+       if(!manifest.scripts['siheom:local'])throw new Error(`Missing native siheom:local command in ${workspace}`);
+       const names=(await readdir(join(app,'tests/siheom'))).filter(name=>/\.test\.[cm]?[jt]sx?$/.test(name)).filter(name=>options.probe?name.startsWith('native-probe.test.'):!name.startsWith('native-probe.test.')).filter(name=>!options.component||name.startsWith(`${options.component}.test.`));
+
+--- a/PLAN.md
++++ b/PLAN.md
+@@ -25,7 +25,7 @@
+ 1. 사용자가 확정한 요구는 **프레임워크별 네이티브 구현**, **Lit·Qwik·Angular 지원**, **KRDS 토큰과 디자인 시스템 계약 준수**, **Yarn Berry + nodeLinker: pnpm**, **모노레포 운영**, **Playwright·Storybook·siheom-ts 활용**, **외부 요청에 의존하지 않는 props/상태 중심 스토리**, **라이선스와 출처 명시**이다.
+ 2. 모노레포 도구는 Nx를 선택한다. 패키지 매니저는 Yarn이다. 루트의 정식 lockfile은 `yarn.lock` 하나이다.
+ 3. `.yarnrc.yml`의 `nodeLinker` 값은 `pnpm`이다. `pnpm install`, `pnpm-lock.yaml`, `pnpm-workspace.yaml`을 사용하는 프로젝트로 바꾸지 않는다.
+-4. 런타임별 native rendering을 유지한다. 예를 들어 `@krds-native/solid`가 Lit 또는 React를 통해 UI를 렌더링하는 방식은 이 설계의 구현으로 인정하지 않는다.
++4. 런타임별 native rendering을 유지한다. 예를 들어 `@unofficial-krds/solid`가 Lit 또는 React를 통해 UI를 렌더링하는 방식은 이 설계의 구현으로 인정하지 않는다.
+ 5. HTML Component Kit의 DOM·클래스·원본 JavaScript와 완전히 같은 구현을 요구하지 않는다. KRDS가 명시한 의미론, 마크업 순서, 키보드·초점 규칙은 계약에 포함한다.
+ 6. 원본 KRDS JavaScript와 Ark/Zag가 같은 DOM의 상태·이벤트를 중복 제어하지 않게 한다.
+ 7. `solid-js` 등 런타임을 루트 `resolutions`로 하나의 버전에 강제하지 않는다. 지원 세대별 peer, 개발용 런타임, 컴파일러, 테스트 환경을 분리한다.
+@@ -78,7 +78,7 @@
+ 다음은 추가 질문 없이 작업을 시작할 수 있게 정한 기본값이다. 사용자의 명시적 요구로 표현하지 않는다.
+ 
+ - 프로젝트 작업명: **KRDS Native**.
+-- 예시 패키지 scope: `@krds-native`. T00에서 사용자 소유 scope가 확인되면 전체를 한 번에 치환한다. 소유권 미확인 scope로 공개 배포하지 않는다.
++- 예시 패키지 scope: `@unofficial-krds`. T00에서 사용자 소유 scope가 확인되면 전체를 한 번에 치환한다. 소유권 미확인 scope로 공개 배포하지 않는다.
+ - Solid를 첫 번째 네이티브 참조 구현으로 개발하고, 나머지 프레임워크를 초기에 병행 검증한다.
+ - React·Svelte·Vue·Solid 1·Lit·Qwik·Angular의 정식 목표는 T00에서 동결한 웹 적용 대상 카탈로그이다.
+ - Solid 2는 검증한 RC를 대상으로 한 별도 네이티브 프리뷰로 시작한다.
+@@ -180,7 +180,7 @@
+ 
+ ### 3.4 패키지와 파일 배치
+ 
+-아래 경로는 저장소 루트 기준이다. 작업 scope는 `@krds-native`이며, 공개 scope 변경은 T00의 단일 설정을 기준으로 일괄 적용한다.
++아래 경로는 저장소 루트 기준이다. 작업 scope는 `@unofficial-krds`이며, 공개 scope 변경은 T00의 단일 설정을 기준으로 일괄 적용한다.
+ 
+ | 경로 | 책임 | 공개 여부 |
+ | --- | --- | --- |
+@@ -442,7 +442,7 @@
+ 프로젝트 이름은 `krds-contracts`, `krds-tokens`, `krds-styles`, `krds-assets`, `krds-fonts`, `krds-solid`, `krds-react`, `krds-svelte`, `krds-vue`, `krds-lit`, `krds-qwik`, `krds-angular`, `krds-solid-next`, `krds-test-contracts`, `krds-docs`, `fixture-<framework>`, `storybook-<framework>`, `krds-workspace`로 고정한다.
+ 
+ - Nx target `build`는 해당 workspace의 `build:local` script를 실행한다. 서로 호출하여 재귀하지 않게 한다.
+-- 예: `krds-solid:build` → `yarn workspace @krds-native/solid build:local`.
++- 예: `krds-solid:build` → `yarn workspace @unofficial-krds/solid build:local`.
+ - 토큰·스타일·자산의 import와 생성 의존관계를 project graph에 나타낸다. 정적 분석이 놓치는 CSS·문서·catalog 의존은 `implicitDependencies`로 보완한다.
+ - 공통 토큰·계약 변경은 이를 사용하는 모든 구현을 affected로 만든다.
+ - 각 `fixture-<framework>`에 `contract` target을 두고 그 프레임워크의 공통 Playwright 시나리오를 실행한다. native package·`krds-test-contracts`의 project 의존과 spec·fixture manifest 입력을 명시한다. 브라우저 테스트 캐시는 초기에는 끈다.
+@@ -792,7 +792,7 @@
+ ```tsx
+ import { it } from "vitest";
+ import { assertions, given, query, runSiheom } from "@siheom/solid";
+-import { Button } from "@krds-native/solid";
++import { Button } from "@unofficial-krds/solid";
+ 
+ it("저장 버튼의 접근 가능한 이름을 제공한다", () =>
+   runSiheom(
+@@ -1703,8 +1703,8 @@
+ ### 13.2 Yarn으로 실제 배포물을 만든다
+ 
+ ```sh
+-yarn workspace @krds-native/solid pack --dry-run --json
+-yarn workspace @krds-native/solid pack --out /absolute/path/artifacts/krds-solid.tgz
++yarn workspace @unofficial-krds/solid pack --dry-run --json
++yarn workspace @unofficial-krds/solid pack --out /absolute/path/artifacts/krds-solid.tgz
+ ```
+ 
+ root workspace를 잘못 pack하지 않는다. 생성한 tarball의 내용을 검사하고, 소비 앱 검증에 동일한 생성물을 사용한다.
+@@ -1718,8 +1718,8 @@
+ 검증용 dry-run:
+ 
+ ```sh
+-yarn workspace @krds-native/solid npm publish --access public --tag latest --dry-run
+-yarn workspace @krds-native/solid-next npm publish --access public --tag next --dry-run
++yarn workspace @unofficial-krds/solid npm publish --access public --tag latest --dry-run
++yarn workspace @unofficial-krds/solid-next npm publish --access public --tag next --dry-run
+ ```
+ 
+ 실제 권한이 있는 최종 게시 단계에서만 `--dry-run`을 제거한다.
+
+--- a/docs/execution/progress.md
++++ b/docs/execution/progress.md
+@@ -19,3 +19,12 @@
+ 사용자가 독립 코드 권리자 `Lee Dogeon <dev.moreal@gmail.com>`, 저장소 메타데이터 URL `https://github.com/moreal/krds`, 요청 scope `@unofficial-krds`를 확인했고 독립 MIT 허가문은 `LICENSES/MIT.txt`에 완성되었다. 현재 실제 로컬 scope는 아직 `@krds-native`이며 T01의 manifest·lock·출처 원자적 전환이 다음이다. 이 메타데이터 확인은 npm/repository 계정 소유권 인증이나 게시 권한이 아니다. 원래 KRDS·폰트·제삼자 권리는 별도로 유지하며 release 후보 검사와 T16 gate, 필요한 수동 접근성·전체 브라우저·SSR/독립 소비 검증은 남아 있다.
+ 
+ Firefox1555는 profile 시작 단계에서 실패한다. 두 임시 경로의 실제 실패를 보존했으며 T13의 전체 브라우저 행렬 검증에서 해결 또는 명확한 차단 판정이 필요하다.
++
++
++## npm scope 원자적 전환 완료 (2026-10-30)
++
++현재 32개 로컬 workspace의 npm namespace는 `@unofficial-krds`이다. 사용자 제공 저장소 메타데이터는 `https://github.com/moreal/krds`이며, 독립 코드의 2026 MIT 권리자 Lee Dogeon <dev.moreal@gmail.com>와 원래 KRDS·폰트·제삼자 권리 및 출처표시는 분리하여 유지했다. 위의 scope 전환 대기 문단은 전환 이전의 기록이다.
++
++고정 Node/Yarn으로 의도적 설치와 immutable 설치를 마쳤다. npm 산출물 1,878개, 내장 patch 5개와 기존 checksum 1,544개는 같고, 32개 workspace 식별자만 scope 치환으로 변경되었다. 기반·Solid·Angular APF 8개 프로젝트의 build/typecheck, 새 이름의 Solid fixture/Storybook 빌드·타입 검사, 경계 회귀 21개 및 canonical siheom 77개·production contract 10개·story 6개가 통과했다. T03의 실제 tarball 13개 이름/저장소/독립 MIT/고지 바이트 검사와 정상 로컬 라이선스 검증도 통과했다.
++
++이는 기존 구현의 namespace·메타데이터 전환 검증이며 카탈로그 완료 범위를 늘리지 않는다. npm/repository 계정 소유권은 인증되지 않았고 게시·push·tag 권한도 부여되지 않았다. 정식 릴리스와 후속 native 구현 검증은 별도 gate로 남는다. 상세 실행·고정 diff/hash: `.superpowers/sdd/PLAN/task-scope-integration-report.md`, T03 보완: `.superpowers/sdd/PLAN/task-scope-compliance-report.md`.

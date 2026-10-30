@@ -1,0 +1,67 @@
+{
+  "kind": "scoped-r4-source-and-evidence",
+  "files": [
+    {
+      "path": "tools/release-evidence/docs-browser.mjs",
+      "bytes": 2245,
+      "sha256": "680b8dbf297871e1e32032a761cdedba1569afcac20b8a6af3dd1e588f846df4"
+    },
+    {
+      "path": "tools/release-evidence/docs-responses.mjs",
+      "bytes": 3619,
+      "sha256": "bcc4cbd244a7db9dc19e35bba6434bb686b55439a466835e7e212493111317d2"
+    },
+    {
+      "path": "tools/release-evidence/docs-responses.test.mjs",
+      "bytes": 5000,
+      "sha256": "433d3d91429a36e134592b343af745eab016fc367ad894f40eb384326f50d49c"
+    },
+    {
+      "path": "tools/release-evidence/README.md",
+      "bytes": 9108,
+      "sha256": "08fcf7989bd7bb935c04db5c3c2b6663b3fcbd87fa4fbb455c57dd377082e186"
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix4.patch",
+      "bytes": 20429,
+      "sha256": "a5cf0b2f978d4df27dd3ab780da53656068f3406b18d52263711e54d6187166f"
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix4-source-sha256.json",
+      "bytes": 1206,
+      "sha256": "d21aed4567fe157138fd94a0c9bbc0f112c5069616203d694d128580bd799f7e"
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix4-red.log",
+      "bytes": 2204,
+      "sha256": "c76945c89e2cd258f4a514b66cd2a948486dc7ca17420302da10e9d47d3a81ea"
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix4-browser-tests.log",
+      "bytes": 337,
+      "sha256": "96231c1bf918549ff8ca30d57b2c4d5911899f248fbd145843ce6099ed0ad6bd"
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix4-test-release.log",
+      "bytes": 4911,
+      "sha256": "d86bfe97ccf325ccf060dac2edebc8e85e61b87fb748ba0ff716851ca95f20cd"
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix4-syntax.log",
+      "bytes": 540,
+      "sha256": "908533e9c1314a993e6845a9437862220b669e8ab7b9c2f5f524b75e0f44301e"
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix4-diagnostic-evidence.sha256.json",
+      "bytes": 1913,
+      "sha256": "20f56ff57b6f99375aeb2625e42fe7fbdbc0c2f2e57063cb2d5e89a24d2ceb60"
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T16-report.md",
+      "bytes": 37193,
+      "sha256": "70ae442b89a2b6a03d89b74a6ad2154ea7b69735b37a321fae7b53e1d015d4c8"
+    }
+  ],
+  "dependencyAcceptance": "T14 and other concurrently owned dependencies are separately reviewed; no new freeze or acceptance is asserted.",
+  "releaseAccepted": false
+}

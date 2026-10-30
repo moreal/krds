@@ -1,0 +1,5 @@
+/** Public entry names; ordinary styles embed tokens, shadow styles inherit them. */
+export type CssEntry = 'base' | 'reset' | 'fonts' | 'button' | 'native-select' | 'modal' | 'tabs' | 'date-input' | 'calendar' | 'masthead' | 'identifier' | 'header' | 'footer' | 'skip-link' | 'main-menu' | 'breadcrumb' | 'side-navigation' | 'in-page-navigation' | 'pagination' | 'structured-list' | 'critical-alert' | 'disclosure' | 'badge' | 'accordion' | 'image' | 'carousel' | 'table' | 'text-list' | 'favicon' | 'link' | 'fab' | 'radio-group' | 'checkbox' | 'tag' | 'switch' | 'step-indicator' | 'spinner' | 'help-panel' | 'tutorial-panel' | 'contextual-help' | 'coach-mark' | 'tooltip' | 'tts' | 'textarea' | 'text-input' | 'file-upload' | 'language-switcher' | 'resize' | 'accessible-media' | 'visually-hidden' | 'range-slider' | 'back-button' | 'bottom-sheet' | 'quantity-toggle' | 'toast' | 'snackbar' | 'tab-bar' | 'all';
+export type StyleStrings = Readonly<Record<CssEntry, string>>;
+export type ShadowCssEntry = Exclude<CssEntry, 'reset' | 'fonts'>;
+export type ShadowStyleStrings = Readonly<Record<ShadowCssEntry, string>>;

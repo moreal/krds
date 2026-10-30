@@ -1,0 +1,119 @@
+✔ copies exact terms and copyright only into the package that distributes the asset (104.880875ms)
+✔ rejects unresolved rights on a distributed asset (45.82875ms)
+✔ rejects distributed material without preserved full terms (44.330667ms)
+✔ rejects truncated or altered license terms using preserved source hash (45.764ms)
+✔ accepts absent original web metadata with evidence, without inventing copyright (96.75975ms)
+✔ rejects whitespace metadata and unsupported fields instead of hiding missing values (42.825542ms)
+✔ rejects distributed source hash drift and untracked shipped binary assets (91.378958ms)
+✔ detects stale package notices and a missing files whitelist entry (186.335792ms)
+✔ allows an unresolved investigation record only when it is excluded from distribution (100.635083ms)
+✔ rejects a shipped binary outside the configured asset roots (49.348166ms)
+✔ rejects missing rights evidence and missing original copyright even with a replacement license hash (99.305583ms)
+✔ requires explanation for original metadata absence (44.665083ms)
+✔ preserves related full policy text with the package that uses it (97.53275ms)
+✔ rejects a stale supply-chain inventory after the lockfile changes (97.10375ms)
+✖ blocks release when confirmed identity still has an incomplete independent-code policy and grant (148.0715ms)
+✖ blocks release when policy flags are confirmed but the independent-code grant is incomplete (101.332084ms)
+✖ blocks release when completed policy and grant still generate an explicitly incomplete notice (100.981ms)
+✖ rejects files glob patterns instead of skipping untracked shipped material (99.673584ms)
+✖ accepts local release readiness when confirmed identity, complete MIT grant and package notices agree (51.6635ms)
+✖ blocks release when the completed independent-code grant names a different confirmed holder (102.092625ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 14
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1811.887792
+
+✖ failing tests:
+
+test at tools/tests/notices.test.mjs:118:1
+✖ blocks release when confirmed identity still has an incomplete independent-code policy and grant (148.0715ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:120:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:122:1
+✖ blocks release when policy flags are confirmed but the independent-code grant is incomplete (101.332084ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:124:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:126:1
+✖ blocks release when completed policy and grant still generate an explicitly incomplete notice (100.981ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:128:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:130:1
+✖ rejects files glob patterns instead of skipping untracked shipped material (99.673584ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:134:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:137:1
+✖ accepts local release readiness when confirmed identity, complete MIT grant and package notices agree (51.6635ms)
+  Error: ENOENT: no such file or directory, open '/var/folders/1l/wsg6qdtx5hngllzgfl6w__m40000gn/T/krds-notices-2Em6dW/packages/one/LICENSES/MIT.txt'
+      at async open (node:internal/fs/promises:640:25)
+      at async readFile (node:internal/fs/promises:1290:14)
+      at async TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:139:16)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/var/folders/1l/wsg6qdtx5hngllzgfl6w__m40000gn/T/krds-notices-2Em6dW/packages/one/LICENSES/MIT.txt'
+  }
+
+test at tools/tests/notices.test.mjs:142:1
+✖ blocks release when the completed independent-code grant names a different confirmed holder (102.092625ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:145:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,17 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-tutorial-panel',title:'KRDS/tutorial-panel',component:CatalogStory,args:{componentId:'tutorial-panel'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const TaskOverview:Story={name:"task-overview",args:{caseId:"task-overview"}};
+export const ActiveStep:Story={name:"active-step",args:{caseId:"active-step"}};
+export const SuspendedPanel:Story={name:"suspended-panel",args:{caseId:"suspended-panel"}};
+export const HelpTabReturn:Story={name:"help-tab-return",args:{caseId:"help-tab-return"}};
+export const NarrowModal:Story={name:"narrow-modal",args:{caseId:"narrow-modal"}};
+export const RouteChange:Story={name:"route-change",args:{caseId:"route-change"}};
+export const StopAfterFold:Story={name:"stop-after-fold",args:{caseId:"stop-after-fold"}};
+export const StopAfterHelpTab:Story={name:"stop-after-help-tab",args:{caseId:"stop-after-help-tab"}};
+export const NarrowStopReturn:Story={name:"narrow-stop-return",args:{caseId:"narrow-stop-return"}};
+export const ControlledStopExposureRejected:Story={name:"controlled-stop-exposure-rejected",args:{caseId:"controlled-stop-exposure-rejected"}};
+export const StartActionRemoved:Story={name:"start-action-removed",args:{caseId:"start-action-removed"}};
+export const StopPartialNarrowHelp:Story={name:"stop-partial-narrow-help",args:{caseId:"stop-partial-narrow-help"}};

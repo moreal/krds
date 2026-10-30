@@ -1,0 +1,39 @@
+
+ NX   Running target typecheck for 2 projects and 1 task they depend on:
+
+- krds-tokens
+- krds-styles
+
+
+
+> nx run krds-tokens:build
+
+> node tools/yarn.mjs workspace @krds-native/tokens build:local
+
+(node:65321) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Generated 768 tokens, CSS, types and original-key mappings.
+
+> nx run krds-tokens:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/tokens typecheck
+
+(node:65322) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-styles:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/styles typecheck
+
+(node:65327) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran target typecheck for 2 projects and 1 task they depend on
+
+
+  Run duration:      1.3s
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     1.2s (2 tasks)
+  Recoverable time:  <1ms

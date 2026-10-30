@@ -1,0 +1,8 @@
+@import '@unofficial-krds/styles/base.css';
+@import '@unofficial-krds/styles/all.css';
+
+/* Native example host layout; component presentation stays in the shared styles. */
+krds-catalog-example { display:block; font-family:system-ui,sans-serif; }
+krds-catalog-example.krds-outline-example > krds-in-page-navigation { position:fixed; inset-inline-end:1rem; inset-block-start:4rem; inline-size:16rem; }
+krds-catalog-example.krds-outline-example > section { max-inline-size:calc(100% - 18rem); min-block-size:30rem; }
+@media(max-width:767px) { krds-catalog-example.krds-outline-example > krds-in-page-navigation { position:static; inline-size:100%; } krds-catalog-example.krds-outline-example > section { max-inline-size:100%; } }

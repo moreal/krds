@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-textarea', title: 'KRDS/textarea', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-textarea--default" }, render: () => <CatalogStory componentId="textarea" caseId="default"/> };
+export const Limited: Story = { name: "limited", parameters: { __id: "krds-textarea--limited" }, render: () => <CatalogStory componentId="textarea" caseId="limited"/> };
+export const Invalid: Story = { name: "invalid", parameters: { __id: "krds-textarea--invalid" }, render: () => <CatalogStory componentId="textarea" caseId="invalid"/> };
+export const Disabled: Story = { name: "disabled", parameters: { __id: "krds-textarea--disabled" }, render: () => <CatalogStory componentId="textarea" caseId="disabled"/> };
+export const Readonly: Story = { name: "readonly", parameters: { __id: "krds-textarea--readonly" }, render: () => <CatalogStory componentId="textarea" caseId="readonly"/> };
+export const LongValue: Story = { name: "long-value", parameters: { __id: "krds-textarea--long-value" }, render: () => <CatalogStory componentId="textarea" caseId="long-value"/> };
+export const Ime: Story = { name: "ime", parameters: { __id: "krds-textarea--ime" }, render: () => <CatalogStory componentId="textarea" caseId="ime"/> };
+export const FormReset: Story = { name: "form-reset", parameters: { __id: "krds-textarea--form-reset" }, render: () => <CatalogStory componentId="textarea" caseId="form-reset"/> };

@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-switch', title: 'KRDS/switch', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Medium: Story = { name: "medium", parameters: { __id: "krds-switch--medium" }, render: () => <CatalogStory componentId="switch" caseId="medium"/> };
+export const Large: Story = { name: "large", parameters: { __id: "krds-switch--large" }, render: () => <CatalogStory componentId="switch" caseId="large"/> };
+export const WithHelp: Story = { name: "with-help", parameters: { __id: "krds-switch--with-help" }, render: () => <CatalogStory componentId="switch" caseId="with-help"/> };
+export const Disabled: Story = { name: "disabled", parameters: { __id: "krds-switch--disabled" }, render: () => <CatalogStory componentId="switch" caseId="disabled"/> };
+export const ControlledRejected: Story = { name: "controlled-rejected", parameters: { __id: "krds-switch--controlled-rejected" }, render: () => <CatalogStory componentId="switch" caseId="controlled-rejected"/> };
+export const FormReset: Story = { name: "form-reset", parameters: { __id: "krds-switch--form-reset" }, render: () => <CatalogStory componentId="switch" caseId="form-reset"/> };

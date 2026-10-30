@@ -1,0 +1,40 @@
+{
+  "kind": "stories",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "solid",
+      "canonicalSelection": true,
+      "coverageAwarded": false,
+      "stories": [
+        {
+          "id": "krds-button--disabled",
+          "status": "missing",
+          "error": "Required native story missing; infrastructure probes do not replace canonical stories"
+        },
+        {
+          "id": "krds-native-select--controlled",
+          "status": "missing",
+          "error": "Required native story missing; infrastructure probes do not replace canonical stories"
+        },
+        {
+          "id": "krds-modal--open",
+          "status": "missing",
+          "error": "Required native story missing; infrastructure probes do not replace canonical stories"
+        },
+        {
+          "id": "krds-tabs--manual",
+          "status": "missing",
+          "error": "Required native story missing; infrastructure probes do not replace canonical stories"
+        },
+        {
+          "id": "krds-date-input--invalid",
+          "status": "missing",
+          "error": "Required native story missing; infrastructure probes do not replace canonical stories"
+        }
+      ],
+      "sourceFiles": 1,
+      "status": "failed"
+    }
+  ]
+}

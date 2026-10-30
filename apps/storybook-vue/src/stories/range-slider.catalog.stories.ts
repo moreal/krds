@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-range-slider', title: 'KRDS/Catalog/RangeSlider', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'range-slider'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const SingleValue: Story = {name: "single-value", args: {caseId: "single-value"}};
+export const Discrete: Story = {name: "discrete", args: {caseId: "discrete"}};
+export const Disabled: Story = {name: "disabled", args: {caseId: "disabled"}};
+export const FormReset: Story = {name: "form-reset", args: {caseId: "form-reset"}};
+export const NarrowTouch: Story = {name: "narrow-touch", args: {caseId: "narrow-touch"}};
+export const InputNotificationCounts: Story = {name: "input-notification-counts", args: {caseId: "input-notification-counts"}};
+export const ControlledRejected: Story = {name: "controlled-rejected", args: {caseId: "controlled-rejected"}};
+export const PointerCancel: Story = {name: "pointer-cancel", args: {caseId: "pointer-cancel"}};

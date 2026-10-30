@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-table',title:'KRDS/table',component:CatalogStory,args:{componentId:'table'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Basic:Story={name:"basic",args:{caseId:"basic"}};
+export const RowHeaders:Story={name:"row-headers",args:{caseId:"row-headers"}};
+export const MissingCells:Story={name:"missing-cells",args:{caseId:"missing-cells"}};
+export const Sortable:Story={name:"sortable",args:{caseId:"sortable"}};
+export const NarrowScroll:Story={name:"narrow-scroll",args:{caseId:"narrow-scroll"}};
+export const NarrowStacked:Story={name:"narrow-stacked",args:{caseId:"narrow-stacked"}};

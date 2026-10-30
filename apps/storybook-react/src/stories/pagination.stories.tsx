@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-pagination', title: 'KRDS/Pagination', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const NumberLinks: Story = { args: {"componentId": "pagination", "initialState": {"defaultPage": 1, "pageCount": 12, "variant": "number-links", "hrefTemplate": "/local/results?page={page}"}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const DirectPage: Story = { args: {"componentId": "pagination", "initialState": {"defaultPage": 1, "pageCount": 12, "variant": "direct-page", "hrefTemplate": "/local/results?page={page}"}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const LoadMore: Story = { args: {"componentId": "pagination", "initialState": {"defaultPage": 1, "pageCount": 12, "variant": "load-more", "hrefTemplate": "/local/results?page={page}", "loadMore": {"shown": 10, "total": 24, "pending": false, "firstNewItemId": "result-11"}}, "host": {"localOnly": true, "acceptChanges": true, "localItems": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]}} };
+export const FirstLastBoundary: Story = { args: {"componentId": "pagination", "initialState": {"pageCount": 12, "variant": "number-links", "hrefTemplate": "/local/results?page={page}", "page": 12}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const NarrowSevenItems: Story = { args: {"componentId": "pagination", "initialState": {"pageCount": 30, "variant": "number-links", "hrefTemplate": "/local/results?page={page}", "page": 6}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const LoadFailure: Story = { args: {"componentId": "pagination", "initialState": {"defaultPage": 1, "pageCount": 12, "variant": "load-more", "hrefTemplate": "/local/results?page={page}", "loadMore": {"shown": 10, "total": 24, "pending": false}}, "host": {"localOnly": true, "acceptChanges": true, "loadResult": "error"}} };

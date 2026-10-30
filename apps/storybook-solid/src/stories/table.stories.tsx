@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-table', title: 'KRDS/table', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Basic: Story = { name: "basic", parameters: { __id: "krds-table--basic" }, render: () => <CatalogStory componentId="table" caseId="basic"/> };
+export const RowHeaders: Story = { name: "row-headers", parameters: { __id: "krds-table--row-headers" }, render: () => <CatalogStory componentId="table" caseId="row-headers"/> };
+export const MissingCells: Story = { name: "missing-cells", parameters: { __id: "krds-table--missing-cells" }, render: () => <CatalogStory componentId="table" caseId="missing-cells"/> };
+export const Sortable: Story = { name: "sortable", parameters: { __id: "krds-table--sortable" }, render: () => <CatalogStory componentId="table" caseId="sortable"/> };
+export const NarrowScroll: Story = { name: "narrow-scroll", parameters: { __id: "krds-table--narrow-scroll" }, render: () => <CatalogStory componentId="table" caseId="narrow-scroll"/> };
+export const NarrowStacked: Story = { name: "narrow-stacked", parameters: { __id: "krds-table--narrow-stacked" }, render: () => <CatalogStory componentId="table" caseId="narrow-stacked"/> };

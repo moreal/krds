@@ -1,0 +1,83 @@
+{
+  "name": "storybook-react",
+  "root": "apps/storybook-react",
+  "sourceRoot": "apps/storybook-react/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:react"
+  ],
+  "implicitDependencies": [
+    "krds-react",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react test"
+      },
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react lint"
+      }
+    },
+    "storybook-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/storybook-react storybook-build:local"
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs test:stories --framework react"
+      },
+      "cache": false,
+      "dependsOn": [
+        "storybook-build",
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/fixture-cases.json",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/catalog/story-coverage.json",
+        "{workspaceRoot}/compatibility/testing.json",
+        "{workspaceRoot}/playwright.config.ts",
+        "{workspaceRoot}/packages/test-contracts/**/*",
+        "{workspaceRoot}/tools/run-*-tests.mjs",
+        "{workspaceRoot}/specs/components/**/*",
+        "{workspaceRoot}/compatibility/frameworks.json"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1896 @@
+{
+  "schemaVersion": 1,
+  "application": "apps/fixture-lit",
+  "inventory": "compliance/distribution-provenance.json",
+  "scope": "Exact local specimen assets and frozen docs text snapshots. No publication authorization or authentic speech/sign-language equivalence. Bundler/dependency output is not cleared by this scoped static inventory.",
+  "independentCopyright": "Copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com>",
+  "assets": [
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/captions.vtt",
+      "sha256": "8048b08d144a9fc82f9cb72043d64f7a8fe04d0bc03ca9bc3ba9036b531d707c",
+      "bytes": 71,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/captions.vtt",
+        "apps/fixture-lit/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-qwik/public/local-assets/captions.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-react/public/local-assets/captions.vtt",
+        "apps/fixture-react/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-solid/public/local-assets/captions.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-svelte/public/local-assets/captions.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-vue/public/local-assets/captions.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-lit/public/local-assets/captions.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-qwik/public/local-assets/captions.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-react/public/local-assets/captions.vtt",
+        "apps/storybook-react/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-solid/public/local-assets/captions.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-svelte/public/local-assets/captions.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-vue/public/local-assets/captions.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-captions.vtt",
+        "apps/fixture-angular/public/local-assets/captions.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-captions.vtt",
+        "apps/storybook-angular/public/local-assets/captions.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-captions.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+      "sha256": "530623193669849da9bc677cdb3c399f68417458f3fc2d6c51e684b89601b58e",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-lit/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-qwik/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-solid/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-svelte/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-vue/public/local-assets/intentional-missing-image.svg",
+        "apps/fixture-angular/public/local-assets/intentional-missing-image.svg",
+        "apps/storybook-angular/public/local-assets/intentional-missing-image.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+      "sha256": "7ccc3d810e55708b94b5cf03d3df6ae474236b5c59ce1876685128592e7f4d8c",
+      "bytes": 70,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/intentional-missing.wav",
+        "apps/fixture-qwik/public/local-assets/intentional-missing.wav",
+        "apps/fixture-solid/public/local-assets/intentional-missing.wav",
+        "apps/fixture-svelte/public/local-assets/intentional-missing.wav",
+        "apps/fixture-vue/public/local-assets/intentional-missing.wav",
+        "apps/storybook-lit/public/local-assets/intentional-missing.wav",
+        "apps/storybook-qwik/public/local-assets/intentional-missing.wav",
+        "apps/storybook-solid/public/local-assets/intentional-missing.wav",
+        "apps/storybook-svelte/public/local-assets/intentional-missing.wav",
+        "apps/storybook-vue/public/local-assets/intentional-missing.wav",
+        "apps/fixture-angular/public/local-assets/intentional-missing.wav",
+        "apps/storybook-angular/public/local-assets/intentional-missing.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-lit/public/local-assets/service-logo.svg",
+      "sha256": "54008280d7eb956e3c893f34c0d60b3af21db9e4b39a80d378770b62407d3722",
+      "bytes": 251,
+      "origin": "Independent Lit geometric SVG/text specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/assets.json"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/service-logo.svg",
+        "apps/storybook-lit/public/local-assets/service-logo.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+      "sha256": "fc6bb4a2fb84602f95e075ab5352977f078be93a6fbc5adf4260067cfe47e326",
+      "bytes": 64044,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-audio.wav",
+        "apps/fixture-qwik/public/local-assets/specimen-audio.wav",
+        "apps/fixture-react/public/local-assets/specimen-audio.wav",
+        "apps/fixture-solid/public/local-assets/specimen-audio.wav",
+        "apps/fixture-svelte/public/local-assets/specimen-audio.wav",
+        "apps/fixture-vue/public/local-assets/specimen-audio.wav",
+        "apps/storybook-lit/public/local-assets/specimen-audio.wav",
+        "apps/storybook-qwik/public/local-assets/specimen-audio.wav",
+        "apps/storybook-react/public/local-assets/specimen-audio.wav",
+        "apps/storybook-solid/public/local-assets/specimen-audio.wav",
+        "apps/storybook-svelte/public/local-assets/specimen-audio.wav",
+        "apps/storybook-vue/public/local-assets/specimen-audio.wav",
+        "apps/fixture-angular/public/local-assets/specimen-audio.wav",
+        "apps/storybook-angular/public/local-assets/specimen-audio.wav"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+      "sha256": "c3977eb9d0e63943e868056865beeb2fb970ac8f338a3117c2344e2a043efdcd",
+      "bytes": 134,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-description.vtt",
+        "apps/fixture-qwik/public/local-assets/specimen-description.vtt",
+        "apps/fixture-react/public/local-assets/specimen-description.vtt",
+        "apps/fixture-solid/public/local-assets/specimen-description.vtt",
+        "apps/fixture-svelte/public/local-assets/specimen-description.vtt",
+        "apps/fixture-vue/public/local-assets/specimen-description.vtt",
+        "apps/storybook-lit/public/local-assets/specimen-description.vtt",
+        "apps/storybook-qwik/public/local-assets/specimen-description.vtt",
+        "apps/storybook-react/public/local-assets/specimen-description.vtt",
+        "apps/storybook-solid/public/local-assets/specimen-description.vtt",
+        "apps/storybook-svelte/public/local-assets/specimen-description.vtt",
+        "apps/storybook-vue/public/local-assets/specimen-description.vtt",
+        "apps/fixture-angular/public/local-assets/specimen-description.vtt",
+        "apps/storybook-angular/public/local-assets/specimen-description.vtt"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-lit/public/local-assets/specimen-icon-dark.svg",
+      "sha256": "2f8aa36a49f780156eb9b0b93a39682bcbafa4cfeb357cbaf1c783b465803f78",
+      "bytes": 183,
+      "origin": "Independent Lit geometric SVG/text specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/assets.json"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-icon-dark.svg",
+        "apps/storybook-lit/public/local-assets/specimen-icon-dark.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-lit/public/local-assets/specimen-icon-light.svg",
+      "sha256": "617e2c3d6c8f3bddcda73f076ea73b5572d69710bdfaa6829f124179e69c6f0a",
+      "bytes": 183,
+      "origin": "Independent Lit geometric SVG/text specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/assets.json"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-icon-light.svg",
+        "apps/storybook-lit/public/local-assets/specimen-icon-light.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-lit/public/local-assets/specimen-landscape.svg",
+      "sha256": "6693a9b1b8d5ba11cd6e0b76f2190c7a6548e775cd9c09627ab7115d58b1ac1d",
+      "bytes": 249,
+      "origin": "Independent Lit geometric SVG/text specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/assets.json"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-landscape.svg",
+        "apps/storybook-lit/public/local-assets/specimen-landscape.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-lit/public/local-assets/specimen-logo.svg",
+      "sha256": "9f4fd2686896f7c3f8b0be4e1718745e37823d12d91dedae760ef51243d08d40",
+      "bytes": 249,
+      "origin": "Independent Lit geometric SVG/text specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/assets.json"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-logo.svg",
+        "apps/storybook-lit/public/local-assets/specimen-logo.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/specimen-media.webm",
+      "sha256": "08d3ea65f53ebfe4adfc99176d3b7d8d7667370418e00638d3c1229e76d548a2",
+      "bytes": 11596,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/specimen-media.webm",
+        "apps/fixture-qwik/public/local-assets/specimen-media.webm",
+        "apps/fixture-react/public/local-assets/specimen-media.webm",
+        "apps/fixture-solid/public/local-assets/specimen-media.webm",
+        "apps/fixture-svelte/public/local-assets/specimen-media.webm",
+        "apps/fixture-vue/public/local-assets/specimen-media.webm",
+        "apps/storybook-lit/public/local-assets/specimen-media.webm",
+        "apps/storybook-qwik/public/local-assets/specimen-media.webm",
+        "apps/storybook-react/public/local-assets/specimen-media.webm",
+        "apps/storybook-solid/public/local-assets/specimen-media.webm",
+        "apps/storybook-svelte/public/local-assets/specimen-media.webm",
+        "apps/storybook-vue/public/local-assets/specimen-media.webm",
+        "apps/fixture-angular/public/local-assets/specimen-media.webm",
+        "apps/storybook-angular/public/local-assets/specimen-media.webm"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/transcript.html",
+      "sha256": "a334319b7da23949c7d9100eed1c5cf6c39526800975ca192053ebd07bea2e6b",
+      "bytes": 164,
+      "origin": "Independent arithmetic tone/geometric media and authored captions/transcript/SVG/error specimen",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/tools/generate-local-media.py",
+        ".superpowers/sdd/PLAN/task-media-license-note.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/transcript.html",
+        "apps/fixture-qwik/public/local-assets/transcript.html",
+        "apps/fixture-solid/public/local-assets/transcript.html",
+        "apps/fixture-svelte/public/local-assets/transcript.html",
+        "apps/fixture-vue/public/local-assets/transcript.html",
+        "apps/storybook-lit/public/local-assets/transcript.html",
+        "apps/storybook-qwik/public/local-assets/transcript.html",
+        "apps/storybook-solid/public/local-assets/transcript.html",
+        "apps/storybook-svelte/public/local-assets/transcript.html",
+        "apps/storybook-vue/public/local-assets/transcript.html",
+        "apps/fixture-angular/public/local-assets/transcript.html",
+        "apps/storybook-angular/public/local-assets/transcript.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/0/index.html",
+      "sha256": "4ee3b14890946e6f32096472b94cffdc881de4fa062dc753a5b75de91872f3a3",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/0/index.html",
+        "apps/storybook-lit/public/local/0/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/1/index.html",
+      "sha256": "a30b29db78f2e11ebed4f05146f0a20600a8934d47fcf67f37ce7f84e51d553e",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/1/index.html",
+        "apps/storybook-lit/public/local/1/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/10/index.html",
+      "sha256": "5665731849bf7dbc224f07eb1361c8b7f3c3a931cd8e0e07571e2cda3f9bd4ec",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/10/index.html",
+        "apps/storybook-lit/public/local/10/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/11/index.html",
+      "sha256": "18669f70907132d7b300c9a6a4d579c36fddffa2eaad22fd8da49beb9fcad2e1",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/11/index.html",
+        "apps/storybook-lit/public/local/11/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/12/index.html",
+      "sha256": "6924c48ae9145ebf04f04b7d158499c041521662cca7f9c4f0393902597f1333",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/12/index.html",
+        "apps/storybook-lit/public/local/12/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/13/index.html",
+      "sha256": "4f35f7311c43401ba2ba04d37d767a9e9fd80e8fbaaac537d67ad6dfb3e3ae53",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/13/index.html",
+        "apps/storybook-lit/public/local/13/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/14/index.html",
+      "sha256": "eb570e57e5cc84761feda41ec4a810b70a8736a7809323a36dbf39d1b581a44e",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/14/index.html",
+        "apps/storybook-lit/public/local/14/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/15/index.html",
+      "sha256": "cca9bdc9f595ef0cb1b44e4373e2c0e126896133b00a1546a1ab483215eab9e4",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/15/index.html",
+        "apps/storybook-lit/public/local/15/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/16/index.html",
+      "sha256": "f9d51f8b10ad9f093fe4faf1f712137ddb03e679aa5a1b8cc1cd205a54a97526",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/16/index.html",
+        "apps/storybook-lit/public/local/16/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/17/index.html",
+      "sha256": "79a3870f445db996de6adca657ad17a22794dab4ae83613fc46b85b7ce9295ba",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/17/index.html",
+        "apps/storybook-lit/public/local/17/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/18/index.html",
+      "sha256": "fc49bc77580563c59fae5fda7d99b595cd3b9e214493008d62dba14e511d39c2",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/18/index.html",
+        "apps/storybook-lit/public/local/18/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/19/index.html",
+      "sha256": "be6b3b641126d4bfbff8b4844d4aa60b4c3216fe4b387eac01765651e3ba3c29",
+      "bytes": 370,
+      "destinations": [
+        "apps/fixture-lit/public/local/19/index.html",
+        "apps/storybook-lit/public/local/19/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/2/index.html",
+      "sha256": "7d067e57ec5c974710c9bf77a0eaa879e48ced0da9456e6e968c861326b0fcd7",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/2/index.html",
+        "apps/storybook-lit/public/local/2/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/20/index.html",
+      "sha256": "d2dc152697e9210e62dbd329ec0ea6b104aee5b9f381643b0d0b9aebde6dcb1c",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/20/index.html",
+        "apps/storybook-lit/public/local/20/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/21/index.html",
+      "sha256": "907ce14565d0a04f51bb76ca9b3030ac3b5ca95cb8238c7fe0c22b73856f6c29",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/21/index.html",
+        "apps/storybook-lit/public/local/21/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/22/index.html",
+      "sha256": "ab08a9a3ee894c79818f610a45701a3f5de80173d360b67db998933e1886f05d",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/22/index.html",
+        "apps/storybook-lit/public/local/22/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/23/index.html",
+      "sha256": "644d1e62b6ba7ce94c75d34cf95a8f55bcf0d41a38e19db30322ab65bf2bc6c2",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/23/index.html",
+        "apps/storybook-lit/public/local/23/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/24/index.html",
+      "sha256": "6b1b3bc844f296e26e0233c64b008e4544c43a540dfd889d4c89fa42e1a9c79f",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/24/index.html",
+        "apps/storybook-lit/public/local/24/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/25/index.html",
+      "sha256": "02905196f8e42573194616e7e7e2bddc5a38d19aedfbf7e79d3bce3f234bf6c7",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/25/index.html",
+        "apps/storybook-lit/public/local/25/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/26/index.html",
+      "sha256": "92462333afde4e2a518e4a6035c3ffa1e2a55bfb4c346a5e772e38d848652bee",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/26/index.html",
+        "apps/storybook-lit/public/local/26/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/27/index.html",
+      "sha256": "775dd8fa8fad83eb1da0e62dc06fba291fa3508fef4f976ea1c4c1cf3351947a",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/27/index.html",
+        "apps/storybook-lit/public/local/27/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/28/index.html",
+      "sha256": "850f78b6886eeabe0a8e3f357f7f96a21192a5ab22f0417f4921c1e415e542c6",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/28/index.html",
+        "apps/storybook-lit/public/local/28/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/29/index.html",
+      "sha256": "6810685e71d77e549d85e87ec0ce127674880b58ea69a062732af85257d18f65",
+      "bytes": 392,
+      "destinations": [
+        "apps/fixture-lit/public/local/29/index.html",
+        "apps/storybook-lit/public/local/29/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/3/index.html",
+      "sha256": "659abd5978b3cddf763f70b56a179eec060130a47a1d3e806655846b97a785ca",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/3/index.html",
+        "apps/storybook-lit/public/local/3/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/4/index.html",
+      "sha256": "ddbb758b30fa3a5e1800848de530c1d53ea05c44c5329585f878f94fdb5a2df8",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/4/index.html",
+        "apps/storybook-lit/public/local/4/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/5/index.html",
+      "sha256": "ff2cc3bc4259703c4513454381ec57a2a3b46f9746d33d2121607a4dd6aae227",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/5/index.html",
+        "apps/storybook-lit/public/local/5/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/6/index.html",
+      "sha256": "cb97470a32f1d88083d161b90f1576788bcaf4b825269a5dc1a0a2f3f27b53c5",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/6/index.html",
+        "apps/storybook-lit/public/local/6/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/7/index.html",
+      "sha256": "34408c145b8e1ea791f0f21fbb5fac21135fe1928487222ecfc4e2511a282954",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/7/index.html",
+        "apps/storybook-lit/public/local/7/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/8/index.html",
+      "sha256": "2fd26682a601261729c6fb9cd6dc05284a2e84846f31b7fca0714c65d2587669",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/8/index.html",
+        "apps/storybook-lit/public/local/8/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/9/index.html",
+      "sha256": "c52721c11ace1695a571c384abbe57aa4dd9071e1370bf482fde2bbec1543a2a",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/9/index.html",
+        "apps/storybook-lit/public/local/9/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/accordion-help/index.html",
+      "sha256": "84bdfcfe1aa8d08e736d27ed8a6ee13d5e99699ff7c077bb520138f08a317b69",
+      "bytes": 410,
+      "destinations": [
+        "apps/fixture-lit/public/local/accordion-help/index.html",
+        "apps/storybook-lit/public/local/accordion-help/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/application/index.html",
+      "sha256": "72252e8216b03982954cdd870c6d54d2536524dfd049a9b2c88c7b1be8f58535",
+      "bytes": 387,
+      "destinations": [
+        "apps/fixture-lit/public/local/application/index.html",
+        "apps/storybook-lit/public/local/application/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/index.html",
+      "sha256": "3812ae36084203419b4a8658e7b955feb812251bbff1941f430f5cc187f81a97",
+      "bytes": 381,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/index.html",
+        "apps/storybook-lit/public/local/apply/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-01/index.html",
+      "sha256": "1fc0b9f5cfdbe550aabf068ea652a0e7a46a94247380e39fcd74caa91957ce18",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-01/index.html",
+        "apps/storybook-lit/public/local/apply/type-01/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-02/index.html",
+      "sha256": "fc360ea66fbdea6d44a72a4a7938314f1181aad7cb157230163b9aac2951229c",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-02/index.html",
+        "apps/storybook-lit/public/local/apply/type-02/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-03/index.html",
+      "sha256": "effb8968cb4ab979905a492f3c1ccc569c9cf0e5e2af145176e3f1824557d715",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-03/index.html",
+        "apps/storybook-lit/public/local/apply/type-03/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-04/index.html",
+      "sha256": "47b369d75b4e049724aa0d20ae1ad60a91e929d1653a15edbc6ec7d4b91d6749",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-04/index.html",
+        "apps/storybook-lit/public/local/apply/type-04/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-05/index.html",
+      "sha256": "1352c344a28bfd7199f8335ecdfe60e6640f2a722dc14842216c0ea3a9d30eb4",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-05/index.html",
+        "apps/storybook-lit/public/local/apply/type-05/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-06/index.html",
+      "sha256": "c328aa1d70085c90f35e861cabdeed43ae419fb1f69aa8d04f8427c79de63115",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-06/index.html",
+        "apps/storybook-lit/public/local/apply/type-06/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-07/index.html",
+      "sha256": "b36ab3fc892304f1b11c31c8a45db4fafe99e7adcf1bbdd8a269cdaeeb5ef23f",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-07/index.html",
+        "apps/storybook-lit/public/local/apply/type-07/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-08/index.html",
+      "sha256": "35fd8d12bef53e3ee8ffe45b4d5aa0c957dfb853cacc1162348d358dbed25f8f",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-08/index.html",
+        "apps/storybook-lit/public/local/apply/type-08/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-09/index.html",
+      "sha256": "d19c8a10d5220adfb879fe47100fb8a1635809c9618f166fc65b7f71cbd86f92",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-09/index.html",
+        "apps/storybook-lit/public/local/apply/type-09/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-10/index.html",
+      "sha256": "e60b9874d781060281e5ad25d34eaf1aefe81629f31690cba11d9a0e39552fe3",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-10/index.html",
+        "apps/storybook-lit/public/local/apply/type-10/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-11/index.html",
+      "sha256": "1bfe6403c00158d752472d273496cde17af19b82530318e71ea03a73e8b91744",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-11/index.html",
+        "apps/storybook-lit/public/local/apply/type-11/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-12/index.html",
+      "sha256": "5558442e2b95a97cc9fda93320ce03b3f686ac9ffcb2d4eb049cb58e74a67657",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-12/index.html",
+        "apps/storybook-lit/public/local/apply/type-12/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-13/index.html",
+      "sha256": "ddef0c0a7196f38d50aaa71d2c42ab25be5bad153219f877035534034cbfb66f",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-13/index.html",
+        "apps/storybook-lit/public/local/apply/type-13/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-14/index.html",
+      "sha256": "2f0e5a0dadee3bc8cf16ef4ac90743d34cc2e09eb7038e474052b3c873c8128e",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-14/index.html",
+        "apps/storybook-lit/public/local/apply/type-14/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-15/index.html",
+      "sha256": "2c50bc6608b8984abc59667aab7d049eabd639ec5ec14e16e1facef4051ebf70",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-15/index.html",
+        "apps/storybook-lit/public/local/apply/type-15/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-16/index.html",
+      "sha256": "e5d0b8d4f7b2aaf8269d91b40bc424da66dd13ace42a400d68c1e63f50acadbd",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-16/index.html",
+        "apps/storybook-lit/public/local/apply/type-16/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-17/index.html",
+      "sha256": "4e9f2bc194a7d6256061c22349d3b469164a45b5508a38369ca2f926563b1f4c",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-17/index.html",
+        "apps/storybook-lit/public/local/apply/type-17/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-18/index.html",
+      "sha256": "c8fc740a7d8350aa401fa9c1e727e65ce605da3f1f594d444270670146a1eeda",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-18/index.html",
+        "apps/storybook-lit/public/local/apply/type-18/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-19/index.html",
+      "sha256": "1ea747d68b3243e782ee30d32fa187bbac6d0e4ec2233121edb0b1dfd2a0e971",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-19/index.html",
+        "apps/storybook-lit/public/local/apply/type-19/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-20/index.html",
+      "sha256": "9faea7da87a0578969ee3ba68f5c5ad4478cfeaffee7b9289837a39107d4752f",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-20/index.html",
+        "apps/storybook-lit/public/local/apply/type-20/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-21/index.html",
+      "sha256": "250ccbe89616e5f977d4c94537a1bf9888f393f3c1cf207fad85cdeeac6fd0b8",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-21/index.html",
+        "apps/storybook-lit/public/local/apply/type-21/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-22/index.html",
+      "sha256": "917f5078049be2b95c70314fc1fd32f7fbf59e125e038d9c5d9c03015e0bfbe2",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-22/index.html",
+        "apps/storybook-lit/public/local/apply/type-22/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-23/index.html",
+      "sha256": "9a740c6c99a4971984892916fc40b5e03534a8377db83a584db002c3266387c5",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-23/index.html",
+        "apps/storybook-lit/public/local/apply/type-23/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-24/index.html",
+      "sha256": "488558eae1b68bb6b01a05cf9b70de76df61f4ce20098c4b9e9a8d4a74ecf9b9",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-24/index.html",
+        "apps/storybook-lit/public/local/apply/type-24/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-25/index.html",
+      "sha256": "cc752db1c99477f4fdcade77491a87e33a68de822e700d393248a8a5d91e55c7",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-25/index.html",
+        "apps/storybook-lit/public/local/apply/type-25/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-26/index.html",
+      "sha256": "d43e2e62a86386079eb07986421d25fe70e00f7cb5293ad2501ff7d4b2f540bb",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-26/index.html",
+        "apps/storybook-lit/public/local/apply/type-26/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-27/index.html",
+      "sha256": "9adeaa993cde087fe191e3e04be14709db7bd23a670d191b27543928f8f53c75",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-27/index.html",
+        "apps/storybook-lit/public/local/apply/type-27/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-28/index.html",
+      "sha256": "f70b87ef1ac1f1d21f81fc45ef37362442bac70ac8d13e2a374f766a05df6ca2",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-28/index.html",
+        "apps/storybook-lit/public/local/apply/type-28/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-29/index.html",
+      "sha256": "0f9e188e3ee48c277530686c4550bf7b44d0e46ca57b4bba4117b83a81a31396",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-29/index.html",
+        "apps/storybook-lit/public/local/apply/type-29/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-30/index.html",
+      "sha256": "7f1bf0995204922ae8cd3583d149bd18e4b6ea40ce4735fa6326bcf53f10d68e",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-30/index.html",
+        "apps/storybook-lit/public/local/apply/type-30/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-31/index.html",
+      "sha256": "9741db7c774a86c545cab0bae437d71e7a15c8683608c5358303bec8f82cbd56",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-31/index.html",
+        "apps/storybook-lit/public/local/apply/type-31/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-32/index.html",
+      "sha256": "6acf4587e34c4315d044eca64374cfbb3efed79a644df5252c54f1c48824a2a4",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-32/index.html",
+        "apps/storybook-lit/public/local/apply/type-32/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-33/index.html",
+      "sha256": "58e2e5ee3c7282305bea7afad44e5b73078e8400dc9d3462f8ed76972fee8220",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-33/index.html",
+        "apps/storybook-lit/public/local/apply/type-33/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-34/index.html",
+      "sha256": "8c996feefb846ac6f50c290195b7323bcd69a7927db46757e9c48ae32c895e75",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-34/index.html",
+        "apps/storybook-lit/public/local/apply/type-34/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-35/index.html",
+      "sha256": "b4c2d3e0f45c0fdbf12eed353dbb42885b971eba247b54ec9d5ff4769e436306",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-35/index.html",
+        "apps/storybook-lit/public/local/apply/type-35/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-36/index.html",
+      "sha256": "2e48a0cbc8ab9426a2a9c2017b422ac0c24bd1eed5d3bedd87e731890960c349",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-36/index.html",
+        "apps/storybook-lit/public/local/apply/type-36/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-37/index.html",
+      "sha256": "50eb9043d2610ef99eee0d7609d83e3290e3be4e92db21c26db69e39feae8c90",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-37/index.html",
+        "apps/storybook-lit/public/local/apply/type-37/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-38/index.html",
+      "sha256": "0321459519742787f8ea877d7b207345a4ca4dd43ed3a1a0321b67c9ed92e501",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-38/index.html",
+        "apps/storybook-lit/public/local/apply/type-38/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-39/index.html",
+      "sha256": "f9e90e093051e6b23dec383f25878e3b765529ecf03b866a65149b385ce0fd89",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-39/index.html",
+        "apps/storybook-lit/public/local/apply/type-39/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/apply/type-40/index.html",
+      "sha256": "eb337f5ec07780179fccd7c1f610019f78297d4a25a8d953b4af7cf2dcfb8b0f",
+      "bytes": 465,
+      "destinations": [
+        "apps/fixture-lit/public/local/apply/type-40/index.html",
+        "apps/storybook-lit/public/local/apply/type-40/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/busan/index.html",
+      "sha256": "318ff39982e2b8558d5332521c07cbabdafa48aba6fb66f140c34fdd87af0f84",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/busan/index.html",
+        "apps/storybook-lit/public/local/busan/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/current/index.html",
+      "sha256": "d6fbfe7c08e26c09e561a404cd65a28e751c563548341748e33e67ae3aa60703",
+      "bytes": 371,
+      "destinations": [
+        "apps/fixture-lit/public/local/current/index.html",
+        "apps/storybook-lit/public/local/current/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/details/index.html",
+      "sha256": "201b2e2a6386067fc2fa0d65afe41bbab5d5da4fde65bcbe1382820e0b6bf826",
+      "bytes": 371,
+      "destinations": [
+        "apps/fixture-lit/public/local/details/index.html",
+        "apps/storybook-lit/public/local/details/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/en/index.html",
+      "sha256": "762b69499e984b44e129865cf26c2a27a66cb6bbeb93db9aa8d32ae994951f07",
+      "bytes": 356,
+      "destinations": [
+        "apps/fixture-lit/public/local/en/index.html",
+        "apps/storybook-lit/public/local/en/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/external-specimen/index.html",
+      "sha256": "da713bde2d6c8b4515980bce32d6c61325b78373b0495e27bba372e74f356415",
+      "bytes": 407,
+      "destinations": [
+        "apps/fixture-lit/public/local/external-specimen/index.html",
+        "apps/storybook-lit/public/local/external-specimen/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/help/index.html",
+      "sha256": "493f38a064af99613822268ffebaae970243a9a9e3c9a752888d074ae2d616f1",
+      "bytes": 386,
+      "destinations": [
+        "apps/fixture-lit/public/local/help/index.html",
+        "apps/storybook-lit/public/local/help/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/history/index.html",
+      "sha256": "9f943982e8f4cb9b04bf99e821d28d80bffcdf89632a70a13a94d5b7499f24af",
+      "bytes": 383,
+      "destinations": [
+        "apps/fixture-lit/public/local/history/index.html",
+        "apps/storybook-lit/public/local/history/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/home/index.html",
+      "sha256": "43cda5c589dba078791cc99d02ed266fd28109f8f0d0378f12d34609c9abd3d1",
+      "bytes": 394,
+      "destinations": [
+        "apps/fixture-lit/public/local/home/index.html",
+        "apps/storybook-lit/public/local/home/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/item/index.html",
+      "sha256": "592071f998783cb6b8dcbf73e678c433682abb28f79b6e02c2fb415daf54f134",
+      "bytes": 362,
+      "destinations": [
+        "apps/fixture-lit/public/local/item/index.html",
+        "apps/storybook-lit/public/local/item/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/ja/index.html",
+      "sha256": "f0547092ce5d47d3be4fffcd6899a093cbc032835f4c50b14d677734ea430139",
+      "bytes": 356,
+      "destinations": [
+        "apps/fixture-lit/public/local/ja/index.html",
+        "apps/storybook-lit/public/local/ja/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/ko/index.html",
+      "sha256": "10793fa9274ef5232fbfad53c0e5f96f8e43489a38b9cf8cee0b66aa8fcb07c5",
+      "bytes": 356,
+      "destinations": [
+        "apps/fixture-lit/public/local/ko/index.html",
+        "apps/storybook-lit/public/local/ko/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/long/index.html",
+      "sha256": "0aa26b9b05f35d3693de73cc9b09b41a3e54fe5cc281d51c4713c6cff78f48c1",
+      "bytes": 450,
+      "destinations": [
+        "apps/fixture-lit/public/local/long/index.html",
+        "apps/storybook-lit/public/local/long/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/maintenance/index.html",
+      "sha256": "1b98af21330359e81c56b70e14f4887c15ab66f17a0956b71849ef9f874f94b0",
+      "bytes": 401,
+      "destinations": [
+        "apps/fixture-lit/public/local/maintenance/index.html",
+        "apps/storybook-lit/public/local/maintenance/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/notice/a/index.html",
+      "sha256": "d20df0d0cc5e4834b32cc6aa7d524ab26e0616ba7a504a53c44164a86efc94c2",
+      "bytes": 398,
+      "destinations": [
+        "apps/fixture-lit/public/local/notice/a/index.html",
+        "apps/storybook-lit/public/local/notice/a/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/notice/b/index.html",
+      "sha256": "6f016d40452028c0a20920169573640789af0bb2528e425eac3c5bff4848b150",
+      "bytes": 398,
+      "destinations": [
+        "apps/fixture-lit/public/local/notice/b/index.html",
+        "apps/storybook-lit/public/local/notice/b/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/parent/index.html",
+      "sha256": "c7a7a202ed2def0c917027cc3af8c52f0431d79019e228d353e3ea4bf206a566",
+      "bytes": 418,
+      "destinations": [
+        "apps/fixture-lit/public/local/parent/index.html",
+        "apps/storybook-lit/public/local/parent/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/policy/index.html",
+      "sha256": "b6358b38f9230525ff72cf00087771dd442668b80176a6833439216235d8e1a0",
+      "bytes": 380,
+      "destinations": [
+        "apps/fixture-lit/public/local/policy/index.html",
+        "apps/storybook-lit/public/local/policy/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/privacy/index.html",
+      "sha256": "a2e227400028e3686a48e892718db3da7f1bdc116332d4d89cf39f090d67ac68",
+      "bytes": 405,
+      "destinations": [
+        "apps/fixture-lit/public/local/privacy/index.html",
+        "apps/storybook-lit/public/local/privacy/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/process/a/index.html",
+      "sha256": "1eb1d637ed986e1df57d7e7f921185efd39530336b8f36685d684226f7185339",
+      "bytes": 385,
+      "destinations": [
+        "apps/fixture-lit/public/local/process/a/index.html",
+        "apps/storybook-lit/public/local/process/a/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/profile/index.html",
+      "sha256": "143ec9c4054d3b8bad3dd9939d77116ed868c28d998b06af39f913cde9e87300",
+      "bytes": 377,
+      "destinations": [
+        "apps/fixture-lit/public/local/profile/index.html",
+        "apps/storybook-lit/public/local/profile/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/results/index.html",
+      "sha256": "3707a8d8058d1daa43aca0b71b2d0c3e253d67d76c21e40a40e4aa56c2dd453c",
+      "bytes": 371,
+      "destinations": [
+        "apps/fixture-lit/public/local/results/index.html",
+        "apps/storybook-lit/public/local/results/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/search/index.html",
+      "sha256": "2933d0639bc1da3ef4bc20df0c504b0ec4020ab173020a9d60f9b2e120c42038",
+      "bytes": 368,
+      "destinations": [
+        "apps/fixture-lit/public/local/search/index.html",
+        "apps/storybook-lit/public/local/search/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/seoul/index.html",
+      "sha256": "291f0cbcdf80922f3fcab203587b04c247638a3c3409e16d35f9ac4b51bd4ab4",
+      "bytes": 367,
+      "destinations": [
+        "apps/fixture-lit/public/local/seoul/index.html",
+        "apps/storybook-lit/public/local/seoul/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/separate-en/index.html",
+      "sha256": "22eaef638695ff268ba0b67df5d94e866e883e03356134e5213c6ada55877558",
+      "bytes": 383,
+      "destinations": [
+        "apps/fixture-lit/public/local/separate-en/index.html",
+        "apps/storybook-lit/public/local/separate-en/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/support/index.html",
+      "sha256": "ff25fc7e1439574d3aa7fdf94d8769694a46e47c8300e6f3caf7625f8d05fc00",
+      "bytes": 369,
+      "destinations": [
+        "apps/fixture-lit/public/local/support/index.html",
+        "apps/storybook-lit/public/local/support/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/tool/0/index.html",
+      "sha256": "e886d3a846b35a205024dd2e3e18724b785712ec851e605bf5459f9db6b9f817",
+      "bytes": 386,
+      "destinations": [
+        "apps/fixture-lit/public/local/tool/0/index.html",
+        "apps/storybook-lit/public/local/tool/0/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/tool/1/index.html",
+      "sha256": "36fb2691dc4e87cac814d4b709c5f06e372ec395c0a70fb759e3dd2fbcfdfc20",
+      "bytes": 386,
+      "destinations": [
+        "apps/fixture-lit/public/local/tool/1/index.html",
+        "apps/storybook-lit/public/local/tool/1/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/tool/2/index.html",
+      "sha256": "52655309bbd7f6c1743c1e57d21e5520aed64e0c854186fc7a57502b94300a1c",
+      "bytes": 386,
+      "destinations": [
+        "apps/fixture-lit/public/local/tool/2/index.html",
+        "apps/storybook-lit/public/local/tool/2/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/tool/3/index.html",
+      "sha256": "a181afefd5d1710e89899ff4cf7989aec30001fe208f47b10effad629cdf6273",
+      "bytes": 386,
+      "destinations": [
+        "apps/fixture-lit/public/local/tool/3/index.html",
+        "apps/storybook-lit/public/local/tool/3/index.html"
+      ]
+    },
+    {
+      "origin": "independently authored local HTML destination; route pathname from shared catalog, no third-party content",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/PLAN/t10-lit-logs/local-route-pages.json"
+      ],
+      "sourcePath": "apps/fixture-lit/public/local/tool/4/index.html",
+      "sha256": "fe2ca6c5f3ca0862709a869f87f3d378cca58321524515edb4a118469e04427d",
+      "bytes": 386,
+      "destinations": [
+        "apps/fixture-lit/public/local/tool/4/index.html",
+        "apps/storybook-lit/public/local/tool/4/index.html"
+      ]
+    }
+  ],
+  "sourceConditions": [
+    {
+      "sourceId": "krds-resource-resources-css-common-common.css",
+      "sourceSha256": "92942dcc081821af80677645247ab4ebfedea219fac8729275368ee022e34aab",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-component-component.css",
+      "sourceSha256": "bc8df76feeb4012a6cb16a13f8702f95a67162e7d2dbf6aa5642be94daefa812",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-resources-css-token-krds_tokens.css",
+      "sourceSha256": "2e06b0d8393bca671edaab1ca0c7c42ded2ae03b3d03c6ede60f763a93d81569",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    },
+    {
+      "sourceId": "krds-resource-tokens-transformed_tokens.json",
+      "sourceSha256": "5eb255d593ec0b0fa41207223df1288f97295b632dfac50629e60e4e4dc0a52e",
+      "licenseIdOrRef": "LicenseRef-KRDS-KOGL-Type-1",
+      "licenseTextPath": "LICENSES/KRDS-copyright-en.html",
+      "rightsStatus": "verified"
+    }
+  ],
+  "sourceConditionsNote": "Shared application stylesheet adaptations retain these existing source conditions. Exact static assets/text snapshots are enumerated here; final bundled runtime/dependency and full rendered-page source clearance remain acceptance work, not supplied by independent MIT.",
+  "termsCopies": [
+    {
+      "sourcePath": "LICENSES/MIT.txt",
+      "destination": "LICENSES/MIT.txt",
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "sourcePath": "LICENSES/KRDS-copyright-en.html",
+      "destination": "LICENSES/KRDS-copyright-en.html.txt",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd"
+    },
+    {
+      "sourcePath": "LICENSES/KOGL-license-policy.html",
+      "destination": "LICENSES/KOGL-license-policy.html.txt",
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+    }
+  ],
+  "termsHashes": {
+    "LICENSES/MIT.txt": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+    "LICENSES/KRDS-copyright-en.html": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+    "LICENSES/KOGL-license-policy.html": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
+  },
+  "exclusions": [
+    {
+      "origin": "macOS System Voices / Yuna",
+      "rightsStatus": "unresolved",
+      "distributedIn": [],
+      "knownRemovedBytes": 157588,
+      "evidence": ".superpowers/sdd/PLAN/task-media-license-note.md",
+      "reason": "No public redistribution clearance. Independent MIT and KOGL do not supply Apple voice permission."
+    }
+  ]
+}

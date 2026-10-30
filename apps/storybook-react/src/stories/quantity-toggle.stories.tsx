@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-quantity-toggle', title: 'KRDS/QuantityToggle', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { args: {"componentId": "quantity-toggle", "initialState": {"label": "신청 수량", "name": "quantity", "min": 0, "max": 10, "step": 1, "defaultValue": 2, "unit": "개"}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const Minimum: Story = { args: {"componentId": "quantity-toggle", "initialState": {"label": "신청 수량", "name": "quantity", "min": 0, "max": 10, "step": 1, "defaultValue": 0, "unit": "개"}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const Maximum: Story = { args: {"componentId": "quantity-toggle", "initialState": {"label": "신청 수량", "name": "quantity", "min": 0, "max": 10, "step": 1, "defaultValue": 10, "unit": "개"}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const Disabled: Story = { args: {"componentId": "quantity-toggle", "initialState": {"label": "신청 수량", "name": "quantity", "min": 0, "max": 10, "step": 1, "defaultValue": 2, "unit": "개", "disabled": true}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const UnitLabel: Story = { args: {"componentId": "quantity-toggle", "initialState": {"label": "신청 인원", "name": "quantity", "min": 0, "max": 10, "step": 1, "defaultValue": 2, "unit": "명"}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };
+export const FormReset: Story = { args: {"componentId": "quantity-toggle", "initialState": {"label": "신청 수량", "name": "quantity", "min": 0, "max": 10, "step": 1, "defaultValue": 2, "unit": "개"}, "host": {"localOnly": true, "acceptChanges": true, "form": true}} };

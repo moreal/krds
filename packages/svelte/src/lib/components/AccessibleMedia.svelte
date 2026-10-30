@@ -1,0 +1,9 @@
+<script lang="ts">
+import type { Snippet } from 'svelte';
+import { untrack, tick, onMount, onDestroy } from 'svelte';
+import type { AccessibleMediaContract } from '@unofficial-krds/contracts';
+import { owned, control, resetField, ignoredKey } from './catalog-state.svelte.js';
+let p: AccessibleMediaContract  = $props();
+let status=$state('paused');
+</script>
+<figure {...owned('accessible-media','root',status)}><figcaption {...owned('accessible-media','title')}>{p.title}</figcaption>{#if p.media.kind==='audio'}<audio controls preload="metadata" {...owned('accessible-media','media',status)} aria-label={p.title} onplay={()=>status='playing'} onpause={()=>status='paused'} onended={()=>status='ended'} onerror={()=>status='error'}><source src={p.media.src} type={p.media.type}/></audio>{:else}<video controls preload="metadata" poster={p.media.poster} {...owned('accessible-media','media',status)} aria-label={p.title} onplay={()=>status='playing'} onpause={()=>status='paused'} onended={()=>status='ended'} onerror={()=>status='error'}><source src={p.media.src} type={p.media.type}/>{#each p.captionTracks??[] as track}<track kind="captions" src={track.src} srclang={track.lang} label={track.label}/>{/each}{#if p.descriptionTrack}<track kind="descriptions" src={p.descriptionTrack.src} srclang={p.descriptionTrack.lang} label={p.descriptionTrack.label}/>{/if}</video>{/if}{#if p.transcript.content}<section aria-label={`${p.title} 대체 정보`} {...owned('accessible-media','transcript')}>{p.transcript.content}</section>{:else}<a {...owned('accessible-media','transcript')} href={p.transcript.href}>대체 텍스트</a>{/if}{#if p.signLanguageSource}<a {...owned('accessible-media','sign-language')} href={p.signLanguageSource}>수어 영상</a>{/if}</figure>

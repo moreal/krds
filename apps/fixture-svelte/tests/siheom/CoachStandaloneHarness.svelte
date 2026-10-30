@@ -1,0 +1,4 @@
+<script lang="ts">
+import TutorialExample from '../../src/TutorialExample.svelte';let snapshot=$state<Record<string,unknown>>({defaultOpen:true,defaultStepId:'one',steps:[{id:'one',title:'Save standalone',targetId:'standalone-save',instruction:'Save',requiresAction:true}],boundaries:[{targetId:'standalone-save',insertionBoundaryId:'standalone-after'}],startActionId:'standalone-start',fallbackFocusId:'standalone-fallback',__host:{targetActionVerified:true}});let events=$state<{name:string;detail:unknown}[]>([]);function patch(next:Record<string,unknown>){snapshot={...snapshot,...next};}function emit(name:string,detail:unknown,next?:Record<string,unknown>){events=[...events,{name,detail}];if(next)patch(next);}
+</script>
+<TutorialExample componentId="coach-mark" state={snapshot} {emit} {patch}/><output data-events>{JSON.stringify(events)}</output><button type="button" id="standalone-fallback">Fallback</button>

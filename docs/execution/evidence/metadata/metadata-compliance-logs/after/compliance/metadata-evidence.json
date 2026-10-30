@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "recordedAt": "2026-10-30T02:30:00.251464+00:00",
+  "authorizationSource": "User metadata supplied in this execution session and relayed by the controller; controller approved the independent-code/upstream rights distinction and representation before mutation.",
+  "userSupplied": {
+    "scopeName": "unofficial-krds",
+    "repositoryUrl": "https://github.com/moreal/krds",
+    "proposedAttribution": "government and Lee Dogeon <dev.moreal@gmail.com>"
+  },
+  "decisions": {
+    "independentCodeHolder": "Lee Dogeon <dev.moreal@gmail.com>",
+    "independentCodeYear": 2026,
+    "yearBasis": "Independent project implementation authored during the 2026 execution session; no upstream copyright year was inferred.",
+    "independentGrantPath": "LICENSES/MIT.txt",
+    "independentGrantSha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e",
+    "krdsAttribution": "KRDS source materials are credited to 행정안전부 / Ministry of the Interior and Safety under the verified KOGL Type 1 conditions. Official example identifies KRDS work created in 2024; that example is not substituted for absent file-level copyright notices.",
+    "governmentCoownershipOfIndependentCodeAsserted": false,
+    "thirdPartyAndFontTerms": "Existing provenance, license texts, copyright and RFN are unchanged; independent MIT does not replace them.",
+    "scopeApplication": "Requested @unofficial-krds naming confirmed; actual localPackageScope remains @krds-native until T01 atomic integration.",
+    "metadataReadiness": "User-supplied values and independent MIT grant complete; requested-scope application pending.",
+    "ownershipVerification": "No npm or repository account ownership claim is made.",
+    "publicationAuthorization": "None; existing strict --release ownership/publication-related checks remain unchanged, independently of normal local pack/candidate work."
+  },
+  "officialSourceChecks": [
+    {
+      "url": "https://www.krds.go.kr/html/eng/utility/utility_05.html",
+      "checkedAt": "2026-10-30T02:25:18.836405+00:00",
+      "finalUrl": "https://www.krds.go.kr/html/eng/utility/utility_05.html",
+      "status": "retrieved",
+      "path": "LICENSES/KRDS-copyright-en.html",
+      "sha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+      "bytes": 34235,
+      "role": "Verified complete official KRDS English policy; fresh bytes match the preserved T03 original."
+    },
+    {
+      "url": "https://www.kogl.or.kr/info/licenseType1.do",
+      "checkedAt": "2026-10-30T02:25:18.941871+00:00",
+      "finalUrl": "https://www.kogl.or.kr/info/licenseType1.do",
+      "status": "retrieved",
+      "path": "compliance/evidence/metadata/kogl-license-type1.html",
+      "sha256": "6b40c3874cf8866f61d8d1bab95e5d4bbedae4dd11347288883a1e83cfd425a6",
+      "bytes": 7729,
+      "role": "Verified official Type 1 certificate and full terms; research evidence only, not runtime payload."
+    }
+  ],
+  "preservedPolicyEvidence": {
+    "krdsEnglishPath": "LICENSES/KRDS-copyright-en.html",
+    "krdsEnglishSha256": "a75159fad6d57e3e2693c067f7555f99730ea54354a18358cd3583ba3a6756bd",
+    "freshKrdsEnglishMatchesPreserved": true,
+    "koglPolicyPath": "LICENSES/KOGL-license-policy.html",
+    "koglPolicySha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+    "newCertificateRole": "Research confirmation only; no new upstream material is incorporated into runtime packages."
+  },
+  "protectedBeforeHashes": {
+    "compliance/provenance.json": "0533d3e07dd46f755d1a813198eafce30522e5bf91994ac7e1138b3d12478071",
+    "upstream/krds/manifest.json": "1b8583c883193a5eb047e60ffbca3837d17a0e7ebc11762d1d94a005e0cb2933",
+    "yarn.lock": "136bebc1c213d0bc274b905ee291fa096beefa4dbbaece6ecf915689adadf4f4"
+  },
+  "supplementalSource": "Official FAQ browser text was also checked; its newly fetched HTML is a dynamic shell and is not used as the complete licensing basis. Research fetch evidence remains in metadata-compliance-logs."
+}

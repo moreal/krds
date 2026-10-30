@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-in-page-navigation',title:'KRDS/in-page-navigation',component:CatalogStory,args:{componentId:'in-page-navigation'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const DesktopSide:Story={name:"desktop-side",args:{caseId:"desktop-side"}};
+export const MobileInline:Story={name:"mobile-inline",args:{caseId:"mobile-inline"}};
+export const MobileDisclosure:Story={name:"mobile-disclosure",args:{caseId:"mobile-disclosure"}};
+export const ThreeLevelOutline:Story={name:"three-level-outline",args:{caseId:"three-level-outline"}};
+export const StickyOffset:Story={name:"sticky-offset",args:{caseId:"sticky-offset"}};
+export const RemovedSection:Story={name:"removed-section",args:{caseId:"removed-section"}};

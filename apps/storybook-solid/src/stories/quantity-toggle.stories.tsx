@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-quantity-toggle', title: 'KRDS/quantity-toggle', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-quantity-toggle--default" }, render: () => <CatalogStory componentId="quantity-toggle" caseId="default"/> };
+export const Minimum: Story = { name: "minimum", parameters: { __id: "krds-quantity-toggle--minimum" }, render: () => <CatalogStory componentId="quantity-toggle" caseId="minimum"/> };
+export const Maximum: Story = { name: "maximum", parameters: { __id: "krds-quantity-toggle--maximum" }, render: () => <CatalogStory componentId="quantity-toggle" caseId="maximum"/> };
+export const Disabled: Story = { name: "disabled", parameters: { __id: "krds-quantity-toggle--disabled" }, render: () => <CatalogStory componentId="quantity-toggle" caseId="disabled"/> };
+export const UnitLabel: Story = { name: "unit-label", parameters: { __id: "krds-quantity-toggle--unit-label" }, render: () => <CatalogStory componentId="quantity-toggle" caseId="unit-label"/> };
+export const FormReset: Story = { name: "form-reset", parameters: { __id: "krds-quantity-toggle--form-reset" }, render: () => <CatalogStory componentId="quantity-toggle" caseId="form-reset"/> };

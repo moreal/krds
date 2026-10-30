@@ -1,0 +1,34 @@
+
+> nx run krds-contracts:test
+
+> node tools/yarn.mjs workspace @krds-native/contracts test
+
+(node:4985) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4989) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/packages/contracts
+
+(node:4992) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4990) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  3 passed (3)
+      Tests  154 passed (154)
+   Start at  10:48:36
+   Duration  142ms (transform 80ms, setup 0ms, import 110ms, tests 27ms, environment 0ms)
+
+
+
+
+ NX   Successfully ran target test for project krds-contracts
+
+
+  Run duration:      901ms
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     758ms (1 task)
+  Recoverable time:  <1ms

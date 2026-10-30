@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-fab', title: 'KRDS/Fab', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const SingleIcon: Story = { args: {"componentId": "fab", "initialState": {"label": "새 신청", "icon": "plus", "defaultExpanded": false, "showLabel": false}, "host": {"localOnly": true, "acceptChanges": true, "tabBarHeight": 0, "actionResults": []}} };
+export const ExtendedLabel: Story = { args: {"componentId": "fab", "initialState": {"label": "새 신청", "icon": "plus", "defaultExpanded": false, "showLabel": true}, "host": {"localOnly": true, "acceptChanges": true, "tabBarHeight": 0, "actionResults": []}} };
+export const Expandable: Story = { args: {"componentId": "fab", "initialState": {"label": "새 신청", "icon": "plus", "defaultExpanded": false, "actions": [{"id": "new", "label": "새 신청"}, {"id": "draft", "label": "임시 저장"}]}, "host": {"localOnly": true, "acceptChanges": true, "tabBarHeight": 0, "actionResults": []}} };
+export const TabbarClearance: Story = { args: {"componentId": "fab", "initialState": {"label": "새 신청", "icon": "plus", "defaultExpanded": false}, "host": {"localOnly": true, "acceptChanges": true, "tabBarHeight": 72, "actionResults": []}} };
+export const Narrow: Story = { args: {"componentId": "fab", "initialState": {"label": "새 신청", "icon": "plus", "defaultExpanded": false}, "host": {"localOnly": true, "acceptChanges": true, "tabBarHeight": 0, "actionResults": []}} };

@@ -1,0 +1,29 @@
+error SB_PREVIEW_API_0010 (MissingStoryFromCsfFileError): Couldn't find story matching id 'infrastructure-native-probe--default' after importing a CSF file.
+
+The file was indexed as if the story was there, but then after importing the file in the browser
+we didn't find the story. Possible reasons:
+- You are using a custom story indexer that is misbehaving.
+- You have a custom file loader that is removing or renaming exports.
+
+Please check your browser console and terminal for errors that may explain the issue.
+    at StoryStore.storyFromCSFFile (http://127.0.0.1:52095/sb-preview/runtime.js:35416:13)
+    at StoryStore.loadStory (http://127.0.0.1:52095/sb-preview/runtime.js:35406:17)
+    at async http://127.0.0.1:52095/sb-preview/runtime.js:35638:20
+    at async StoryRender.runPhase (http://127.0.0.1:52095/sb-preview/runtime.js:35627:21)
+    at async StoryRender.prepare (http://127.0.0.1:52095/sb-preview/runtime.js:35637:9)
+    at async PreviewWeb.renderSelection (http://127.0.0.1:52095/sb-preview/runtime.js:37098:7)
+    at async PreviewWeb.selectSpecifiedStory (http://127.0.0.1:52095/sb-preview/runtime.js:37011:202)
+    at async PreviewWeb.initialize (http://127.0.0.1:52095/sb-preview/runtime.js:35872:56)
+BODY Couldn't find story matching id 'infrastructure-native-probe--default' after importing a CSF file.
+
+The component failed to render properly, likely due to a configuration issue in Storybook. Here are some common causes and how you can address them:
+
+Missing Context/Providers: You can use decorators to supply specific contexts or providers, which are sometimes necessary for components to render correctly. For detailed instructions on using decorators, please visit the Decorators documentation.
+Misconfigured Webpack or Vite: Verify that Storybook picks up all necessary settings for loaders, plugins, and other relevant parameters. You can find step-by-step guides for configuring Webpack or Vite with Storybook.
+Missing Environment Variables: Your Storybook may require specific environment variables to function as intended. You can set up custom environment variables as outlined in the Environment Variables documentation.
+The file was indexed as if the story was there, but then after importing the file in the browser
+we didn't find the story. Possible reasons:
+- You are using a custom story indexer that is misbehaving.
+- You have a custom file loader that is removing or renaming exports.
+
+Please check your browser console and terminal for errors that may explain the issue.

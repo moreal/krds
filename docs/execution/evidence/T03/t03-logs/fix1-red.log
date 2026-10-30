@@ -1,0 +1,88 @@
+✔ copies exact terms and copyright only into the package that distributes the asset (101.006208ms)
+✔ rejects unresolved rights on a distributed asset (46.559458ms)
+✔ rejects distributed material without preserved full terms (47.094375ms)
+✔ rejects truncated or altered license terms using preserved source hash (45.156ms)
+✔ accepts absent original web metadata with evidence, without inventing copyright (98.238625ms)
+✔ rejects whitespace metadata and unsupported fields instead of hiding missing values (43.926625ms)
+✔ rejects distributed source hash drift and untracked shipped binary assets (89.113625ms)
+✔ detects stale package notices and a missing files whitelist entry (189.319ms)
+✔ allows an unresolved investigation record only when it is excluded from distribution (98.91125ms)
+✔ rejects a shipped binary outside the configured asset roots (46.57175ms)
+✔ rejects missing rights evidence and missing original copyright even with a replacement license hash (86.328416ms)
+✔ requires explanation for original metadata absence (46.412416ms)
+✔ preserves related full policy text with the package that uses it (94.963375ms)
+✔ rejects a stale supply-chain inventory after the lockfile changes (99.21175ms)
+✖ blocks release when confirmed identity still has an incomplete independent-code policy and grant (147.240709ms)
+✖ blocks release when policy flags are confirmed but the independent-code grant is incomplete (122.348792ms)
+✖ blocks release when completed policy and grant still generate an explicitly incomplete notice (98.240583ms)
+✖ rejects files glob patterns instead of skipping untracked shipped material (99.473959ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 14
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1660.764917
+
+✖ failing tests:
+
+test at tools/tests/notices.test.mjs:118:1
+✖ blocks release when confirmed identity still has an incomplete independent-code policy and grant (147.240709ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:120:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:122:1
+✖ blocks release when policy flags are confirmed but the independent-code grant is incomplete (122.348792ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:124:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:126:1
+✖ blocks release when completed policy and grant still generate an explicitly incomplete notice (98.240583ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:128:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:130:1
+✖ rejects files glob patterns instead of skipping untracked shipped material (99.473959ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:134:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

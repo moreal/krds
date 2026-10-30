@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-fab', title: 'KRDS/fab', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const SingleIcon: Story = { name: "single-icon", parameters: { __id: "krds-fab--single-icon" }, render: () => <CatalogStory componentId="fab" caseId="single-icon"/> };
+export const ExtendedLabel: Story = { name: "extended-label", parameters: { __id: "krds-fab--extended-label" }, render: () => <CatalogStory componentId="fab" caseId="extended-label"/> };
+export const Expandable: Story = { name: "expandable", parameters: { __id: "krds-fab--expandable" }, render: () => <CatalogStory componentId="fab" caseId="expandable"/> };
+export const TabbarClearance: Story = { name: "tabbar-clearance", parameters: { __id: "krds-fab--tabbar-clearance" }, render: () => <CatalogStory componentId="fab" caseId="tabbar-clearance"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-fab--narrow" }, render: () => <CatalogStory componentId="fab" caseId="narrow"/> };

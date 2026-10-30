@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-skip-link', title: 'KRDS/Catalog/SkipLink', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'skip-link'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Visible: Story = {name: "visible", args: {caseId: "visible"}};
+export const FocusRevealed: Story = {name: "focus-revealed", args: {caseId: "focus-revealed"}};
+export const ThreeTargets: Story = {name: "three-targets", args: {caseId: "three-targets"}};
+export const StickyPage: Story = {name: "sticky-page", args: {caseId: "sticky-page"}};
+export const ShadowTarget: Story = {name: "shadow-target", args: {caseId: "shadow-target"}};

@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {serveProduction} from '../../../tools/testing/support.mjs';
+process.env.PLAYWRIGHT_BROWSERS_PATH='/private/tmp/krds-playwright-1.64.1';
+const root=resolve(import.meta.dirname,'../../..'),require=createRequire(resolve(root,'apps/storybook-qwik/package.json')),{chromium}=require('playwright'),{default:AxeBuilder}=await import(require.resolve('@axe-core/playwright'));
+const production=process.env.KRDS_PATTERN_STORIES;assert(production,'Immutable built Storybook path required');
+const index=JSON.parse(await readFile(resolve(production,'index.json'),'utf8')),directory=resolve(root,'.superpowers/sdd/PLAN/t11-qwik-logs/stories');await mkdir(directory,{recursive:true});
+const expected={'form-errors':['editing','invalid','loading','error','success'],'search-results':['success','loading','error','empty'],'consent-confirmation':['editing','invalid','confirming','loading','error','success'],'service-layout':['default']};
+const server=await serveProduction(production),browser=await chromium.launch(),results=[];
+try{for(const [flow,variants] of Object.entries(expected))for(const variant of variants){const id=`krds-pattern-${flow}--${variant}`;assert(index.entries[id],id);const context=await browser.newContext({locale:'ko-KR',reducedMotion:'reduce',viewport:{width:1280,height:900}}),page=await context.newPage(),errors=[],external=[];page.on('pageerror',e=>errors.push(String(e)));page.on('request',r=>{if(!r.url().startsWith(server.origin)&&!r.url().startsWith('data:'))external.push(r.url());});
+ await page.goto(`${server.origin}/iframe.html?id=${id}&viewMode=story`,{waitUntil:'networkidle'});await page.locator(`[data-pattern="${flow}"]`).waitFor();
+ assert.equal(await page.getByRole('complementary',{name:'로컬 테스트 제어'}).count(),0,'Stories contain no fixture driver controls');
+ if(flow==='form-errors'&&variant==='invalid')assert.equal(await page.locator('#example-form-errors li').count(),2);
+ if(flow==='search-results'&&variant==='empty')await page.getByText('검색 결과가 없습니다. 검색어나 자료 유형을 바꿔 보세요.').waitFor();
+ if(flow==='consent-confirmation'&&['confirming','loading','error'].includes(variant))await page.getByRole('dialog',{name:'예제 선택 확인'}).waitFor();
+ const axe=await new AxeBuilder({page}).include('#storybook-root').analyze();await writeFile(resolve(directory,`${id}-axe.json`),JSON.stringify(axe,null,2));await page.screenshot({path:resolve(directory,`${id}.png`),fullPage:true});
+ results.push({id,status:!errors.length&&!external.length&&!axe.violations.length?'passed':'failed',errors,external,violations:axe.violations});await context.close();
+}}finally{await browser.close();await server.close();await writeFile(resolve(directory,'report.json'),JSON.stringify({results},null,2));}
+assert.equal(results.length,16);assert.equal(results.filter(r=>r.status==='failed').length,0);console.log('Actual built Qwik presentation stories: 16/16; raw axe, screenshots, errors, external requests retained');

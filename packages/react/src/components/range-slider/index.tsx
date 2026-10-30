@@ -1,0 +1,11 @@
+import { useId, useLayoutEffect, useRef, useState } from 'react';
+import type { RangeSliderContract } from '@unofficial-krds/contracts';
+import { part, states, useValue, useFormReset, numberBounds, stepped, described } from '../../catalog-utils.js';
+export type RangeSliderProps = RangeSliderContract;
+export function RangeSlider({ value, defaultValue, onValueChange, label, id: provided, name, min = 0, max = 100, step = 10, disabled, valueText, helpId, errorId }: RangeSliderProps) { const generated = useId(); const id = provided ?? generated; const state = useValue(value, defaultValue, min, 'RangeSlider'); numberBounds(min, max, step, state.current); const ref = useRef<HTMLInputElement>(null); const [dragging, setDragging] = useState(false); const reconcile = () => { if (ref.current)
+    ref.current.value = String(state.latest.current); }; useLayoutEffect(reconcile); useFormReset(ref, state.reset, reconcile); const token = states(disabled && 'disabled', dragging && 'dragging'); return <div {...part('range-slider', 'root', token)}><label {...part('range-slider', 'label')} htmlFor={id}>{label}</label><output {...part('range-slider', 'output')} htmlFor={id}>{valueText?.(state.current) ?? state.current}</output><><input {...part('range-slider', 'control', token)} ref={ref} id={id} name={name} type="range" min={min} max={max} step={step} value={state.current} disabled={disabled} aria-valuetext={valueText?.(state.current)} aria-describedby={described(helpId, errorId)} onPointerDown={() => setDragging(true)} onPointerUp={() => setDragging(false)} onPointerCancel={() => setDragging(false)} onBlur={() => setDragging(false)} onInput={e => { if (disabled)
+    return; const next = stepped(e.currentTarget.valueAsNumber, min, max, step); if (next !== state.current) {
+    state.commit(next);
+    onValueChange?.({ value: next });
+} if (state.controlled)
+    e.currentTarget.value = String(state.latest.current); }} onChange={() => { }}/><span {...part('range-slider', 'range', disabled ? 'disabled' : '')} aria-hidden="true"/><span {...part('range-slider', 'thumb', token)} aria-hidden="true"/></><span {...part('range-slider', 'minimum')}>{min}</span><span {...part('range-slider', 'maximum')}>{max}</span></div>; }

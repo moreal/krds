@@ -1,0 +1,45 @@
+✔ copies exact terms and copyright only into the package that distributes the asset (107.703958ms)
+✔ rejects unresolved rights on a distributed asset (45.038166ms)
+✔ rejects distributed material without preserved full terms (46.487708ms)
+✔ rejects truncated or altered license terms using preserved source hash (47.732542ms)
+✔ accepts absent original web metadata with evidence, without inventing copyright (103.714625ms)
+✔ rejects whitespace metadata and unsupported fields instead of hiding missing values (44.930083ms)
+✔ rejects distributed source hash drift and untracked shipped binary assets (90.659792ms)
+✔ detects stale package notices and a missing files whitelist entry (193.604708ms)
+✔ allows an unresolved investigation record only when it is excluded from distribution (102.516625ms)
+✔ rejects a shipped binary outside the configured asset roots (49.325958ms)
+✔ rejects missing rights evidence and missing original copyright even with a replacement license hash (88.7325ms)
+✔ requires explanation for original metadata absence (46.735041ms)
+✔ preserves related full policy text with the package that uses it (101.170542ms)
+✔ rejects a stale supply-chain inventory after the lockfile changes (96.577125ms)
+✔ blocks release when confirmed identity still has an incomplete independent-code policy and grant (148.304666ms)
+✔ blocks release when policy flags are confirmed but the independent-code grant is incomplete (101.678541ms)
+✔ blocks release when completed policy and grant still generate an explicitly incomplete notice (100.360291ms)
+✖ rejects files glob patterns instead of skipping untracked shipped material (208.412292ms)
+✔ accepts local release readiness when confirmed identity, complete MIT grant and package notices agree (101.324375ms)
+✔ blocks release when the completed independent-code grant names a different confirmed holder (98.1935ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 19
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1974.735917
+
+✖ failing tests:
+
+test at tools/tests/notices.test.mjs:130:1
+✖ rejects files glob patterns instead of skipping untracked shipped material (208.412292ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:137:40)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

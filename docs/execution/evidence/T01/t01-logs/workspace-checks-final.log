@@ -1,0 +1,1345 @@
+
+ NX   Running targets typecheck, test, lint for 31 projects and 12 tasks they depend on:
+
+- storybook-solid-next
+- fixture-solid-next
+- krds-test-contracts
+- storybook-angular
+- storybook-svelte
+- fixture-angular
+- storybook-react
+- storybook-solid
+- fixture-svelte
+- krds-solid-next
+- storybook-qwik
+- fixture-react
+- fixture-solid
+- krds-contracts
+- storybook-lit
+- storybook-vue
+- fixture-qwik
+- fixture-lit
+- fixture-vue
+- krds-angular
+- krds-assets
+- krds-styles
+- krds-svelte
+- krds-tokens
+- krds-fonts
+- krds-react
+- krds-solid
+- krds-qwik
+- krds-lit
+- krds-vue
+- krds-workspace
+
+
+
+> nx run krds-tokens:build
+
+> node tools/yarn.mjs workspace @krds-native/tokens build:local
+
+(node:51230) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-contracts:build
+
+> node tools/yarn.mjs workspace @krds-native/contracts build:local
+
+(node:51232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-contracts:test
+
+> node tools/yarn.mjs workspace @krds-native/contracts test
+
+(node:51231) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/packages/contracts
+
+(node:51239) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  08:53:25
+   Duration  135ms (transform 15ms, setup 0ms, import 24ms, tests 3ms, environment 0ms)
+
+
+> nx run krds-styles:build
+
+> node tools/yarn.mjs workspace @krds-native/styles build:local
+
+(node:51240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-test-contracts:build
+
+> node tools/yarn.mjs workspace @krds-native/test-contracts build:local
+
+(node:51242) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-tokens:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/tokens typecheck
+
+(node:51245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-solid:build
+
+> node tools/yarn.mjs workspace @krds-native/solid build:local
+
+(node:51253) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 3 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.21 kB[0m[2m │ gzip: 0.18 kB[0m
+
+✓ built in 48ms
+
+> nx run krds-vue:build
+
+> node tools/yarn.mjs workspace @krds-native/vue build:local
+
+(node:51256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 4 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.38 kB[0m[2m │ gzip: 0.28 kB[0m
+
+✓ built in 18ms
+
+> nx run krds-angular:build
+
+> node tools/yarn.mjs workspace @krds-native/angular build:local
+
+(node:51251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1m[31m(node:51258) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[33mThe "@angular-devkit/build-angular:ng-packagr" builder is deprecated as part of Angular's Webpack support deprecation. Use "@angular/build:ng-packagr" instead. For more information, see https://angular.dev/tools/cli/build-system-migration.[39m[22m
+[34mBuilding Angular Package[39m
+[37m
+------------------------------------------------------------------------------[39m
+[37mBuilding entry point '@krds-native/angular'[39m
+[37m------------------------------------------------------------------------------[39m
+- Compiling with Angular sources in partial compilation mode.
+[32m✔[39m Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+[32m✔[39m Writing FESM and DTS bundles
+- Copying assets
+[32m✔[39m Copying assets
+- Writing package manifest
+[1m[33m[33mWARNING: Found a conflicting export condition for ".". The "types" condition would be overridden by ng-packagr. Please unset it.[39m[39m[22m
+[1m[33m[33mWARNING: Found a conflicting export condition for ".". The "default" condition would be overridden by ng-packagr. Please unset it.[39m[39m[22m
+[34mℹ[39m Removing scripts section in package.json as it's considered a potential security vulnerability.
+[34mℹ[39m Removing devDependencies section in package.json.
+[32m✔[39m Writing package manifest
+[32m✔[39m Built @krds-native/angular
+[32m
+------------------------------------------------------------------------------[39m
+[32mBuilt Angular Package
+- from: /Users/moreal/github/moreal/krds/packages/angular
+- to:   /Users/moreal/github/moreal/krds/packages/angular/dist[39m
+[32m------------------------------------------------------------------------------[39m
+[37m[37m
+Build at: [1m2026-10-29T23:53:27.995Z[22m - Time: [1m406[22mms
+[39m[39m
+
+> nx run krds-svelte:build
+
+> node tools/yarn.mjs workspace @krds-native/svelte build:local
+
+(node:51291) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1m[32msrc/lib -> dist[39m[22m
+
+> nx run krds-react:build
+
+> node tools/yarn.mjs workspace @krds-native/react build:local
+
+(node:51295) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51298) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 3 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.23 kB[0m[2m │ gzip: 0.19 kB[0m
+
+✓ built in 15ms
+
+> nx run krds-solid-next:build
+
+> node tools/yarn.mjs workspace @krds-native/solid-next build:local
+
+(node:51293) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51297) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 3 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.22 kB[0m[2m │ gzip: 0.18 kB[0m
+
+✓ built in 18ms
+
+> nx run krds-contracts:lint
+
+> node tools/yarn.mjs workspace @krds-native/contracts lint
+
+(node:51306) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-qwik:build
+
+> node tools/yarn.mjs workspace @krds-native/qwik build:local
+
+(node:51302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51307) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v7.3.1 building client environment for lib...
+transforming...
+✓ 2 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.qwik.mjs  0.27 kB │ gzip: 0.20 kB
+dist/index.qwik.cjs  0.39 kB │ gzip: 0.26 kB
+✓ built in 38ms
+
+> nx run krds-lit:build
+
+> node tools/yarn.mjs workspace @krds-native/lit build:local
+
+(node:51305) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 2 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.21 kB[0m[2m │ gzip: 0.18 kB[0m
+
+✓ built in 14ms
+
+> nx run krds-contracts:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/contracts typecheck
+
+(node:51314) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-tokens:lint
+
+> node tools/yarn.mjs workspace @krds-native/tokens lint
+
+(node:51316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-tokens:test
+
+> node tools/yarn.mjs workspace @krds-native/tokens test
+
+(node:51319) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51323) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51325) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/tokens: direct toolchain resolves from this workspace [90m(1.681875ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 57.086584[39m
+
+> nx run krds-styles:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/styles typecheck
+
+(node:51322) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-styles:test
+
+> node tools/yarn.mjs workspace @krds-native/styles test
+
+(node:51326) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51331) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/styles: direct toolchain resolves from this workspace [90m(1.512458ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 54.880125[39m
+
+> nx run krds-styles:lint
+
+> node tools/yarn.mjs workspace @krds-native/styles lint
+
+(node:51328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-test-contracts:test
+
+> node tools/yarn.mjs workspace @krds-native/test-contracts test
+
+(node:51335) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51342) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/test-contracts: direct toolchain resolves from this workspace [90m(1.708709ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 57.740833[39m
+
+> nx run krds-test-contracts:lint
+
+> node tools/yarn.mjs workspace @krds-native/test-contracts lint
+
+(node:51338) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-test-contracts:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/test-contracts typecheck
+
+(node:51336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-svelte:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/svelte typecheck
+
+(node:51346) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Loading svelte-check in workspace: /Users/moreal/github/moreal/krds/packages/svelte
+Getting Svelte diagnostics...
+
+svelte-check found 0 errors and 0 warnings
+
+> nx run krds-vue:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/vue typecheck
+
+(node:51348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-angular:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/angular typecheck
+
+(node:51344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51349) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-qwik:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/qwik typecheck
+
+(node:51359) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-react:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/react typecheck
+
+(node:51361) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-solid-next:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/solid-next typecheck
+
+(node:51363) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-svelte:lint
+
+> node tools/yarn.mjs workspace @krds-native/svelte lint
+
+(node:51370) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-solid:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/solid typecheck
+
+(node:51369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-lit:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/lit typecheck
+
+(node:51372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-qwik:lint
+
+> node tools/yarn.mjs workspace @krds-native/qwik lint
+
+(node:51377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-vue:lint
+
+> node tools/yarn.mjs workspace @krds-native/vue lint
+
+(node:51379) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-solid:lint
+
+> node tools/yarn.mjs workspace @krds-native/solid lint
+
+(node:51381) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-lit:lint
+
+> node tools/yarn.mjs workspace @krds-native/lit lint
+
+(node:51384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-react:lint
+
+> node tools/yarn.mjs workspace @krds-native/react lint
+
+(node:51388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-angular:lint
+
+> node tools/yarn.mjs workspace @krds-native/angular lint
+
+(node:51390) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-solid-next:lint
+
+> node tools/yarn.mjs workspace @krds-native/solid-next lint
+
+(node:51394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-angular:test
+
+> node tools/yarn.mjs workspace @krds-native/angular test
+
+(node:51397) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51402) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51406) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/angular: direct toolchain resolves from this workspace [90m(3.457167ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 59.472[39m
+
+> nx run krds-solid-next:test
+
+> node tools/yarn.mjs workspace @krds-native/solid-next test
+
+(node:51399) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/solid-next: direct toolchain resolves from this workspace [90m(5.105ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 61.613083[39m
+
+> nx run krds-svelte:test
+
+> node tools/yarn.mjs workspace @krds-native/svelte test
+
+(node:51403) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51413) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/svelte: direct toolchain resolves from this workspace [90m(4.626833ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 64.85775[39m
+
+> nx run krds-react:test
+
+> node tools/yarn.mjs workspace @krds-native/react test
+
+(node:51409) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51415) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51418) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/react: direct toolchain resolves from this workspace [90m(3.503125ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 59.193291[39m
+
+> nx run krds-lit:test
+
+> node tools/yarn.mjs workspace @krds-native/lit test
+
+(node:51411) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51417) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/lit: direct toolchain resolves from this workspace [90m(4.095542ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 61.189416[39m
+
+> nx run krds-vue:test
+
+> node tools/yarn.mjs workspace @krds-native/vue test
+
+(node:51416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51425) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/vue: direct toolchain resolves from this workspace [90m(3.108791ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 62.92225[39m
+
+> nx run krds-qwik:test
+
+> node tools/yarn.mjs workspace @krds-native/qwik test
+
+(node:51421) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/qwik: direct toolchain resolves from this workspace [90m(4.117167ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 61.800416[39m
+
+> nx run krds-solid:test
+
+> node tools/yarn.mjs workspace @krds-native/solid test
+
+(node:51423) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51429) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51436) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/solid: direct toolchain resolves from this workspace [90m(4.330875ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 60.828125[39m
+
+> nx run fixture-qwik:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-qwik typecheck
+
+(node:51439) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run fixture-svelte:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-svelte typecheck
+
+(node:51427) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Loading svelte-check in workspace: /Users/moreal/github/moreal/krds/apps/fixture-svelte
+Getting Svelte diagnostics...
+
+/Users/moreal/github/moreal/krds/apps/fixture-svelte/tsconfig.json:1:1
+Warn: No svelte input files were found in config file '/Users/moreal/github/moreal/krds/apps/fixture-svelte/tsconfig.json'. Did you forget to add svelte files to the 'include' in your tsconfig.json? Specified 'include' paths were '["src/**/*.ts","src/**/*.tsx"]' and 'exclude' paths were 'undefined' (svelte)
+
+
+====================================
+svelte-check found 0 errors and 1 warning in 1 file
+
+> nx run fixture-angular:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-angular typecheck
+
+(node:51437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51441) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run fixture-react:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-react typecheck
+
+(node:51446) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run fixture-vue:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-vue typecheck
+
+(node:51445) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run fixture-lit:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-lit typecheck
+
+(node:51455) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run fixture-qwik:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-qwik test
+
+(node:51464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51467) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51468) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-qwik: direct toolchain resolves from this workspace [90m(3.63675ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 64.254541[39m
+
+> nx run fixture-solid:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-solid typecheck
+
+(node:51460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run fixture-solid-next:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fixture-solid-next typecheck
+
+(node:51463) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run fixture-react:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-react test
+
+(node:51470) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51475) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51476) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-react: direct toolchain resolves from this workspace [90m(3.182917ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 60.229542[39m
+
+> nx run fixture-lit:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-lit test
+
+(node:51472) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51478) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51481) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-lit: direct toolchain resolves from this workspace [90m(3.649916ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 59.5095[39m
+
+> nx run fixture-solid:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-solid lint
+
+(node:51474) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run fixture-vue:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-vue test
+
+(node:51479) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-vue: direct toolchain resolves from this workspace [90m(2.975875ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 59.998333[39m
+
+> nx run fixture-solid-next:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-solid-next test
+
+(node:51484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51489) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-solid-next: direct toolchain resolves from this workspace [90m(4.50875ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 60.644875[39m
+
+> nx run fixture-solid:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-solid test
+
+(node:51485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51493) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-solid: direct toolchain resolves from this workspace [90m(3.802041ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 61.100792[39m
+
+> nx run fixture-angular:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-angular test
+
+(node:51490) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51499) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-angular: direct toolchain resolves from this workspace [90m(4.00925ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 60.778541[39m
+
+> nx run fixture-svelte:test
+
+> node tools/yarn.mjs workspace @krds-native/fixture-svelte test
+
+(node:51496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fixture-svelte: direct toolchain resolves from this workspace [90m(3.427667ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 57.589334[39m
+
+> nx run fixture-svelte:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-svelte lint
+
+(node:51497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run fixture-react:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-react lint
+
+(node:51502) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run fixture-vue:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-vue lint
+
+(node:51507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run fixture-qwik:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-qwik lint
+
+(node:51508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run fixture-lit:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-lit lint
+
+(node:51513) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run fixture-solid-next:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-solid-next lint
+
+(node:51516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run fixture-angular:lint
+
+> node tools/yarn.mjs workspace @krds-native/fixture-angular lint
+
+(node:51517) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-angular:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-angular typecheck
+
+(node:51533) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51538) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-svelte:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-svelte typecheck
+
+(node:51530) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51537) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Loading svelte-check in workspace: /Users/moreal/github/moreal/krds/apps/storybook-svelte
+Getting Svelte diagnostics...
+
+/Users/moreal/github/moreal/krds/apps/storybook-svelte/tsconfig.json:1:1
+Warn: No svelte input files were found in config file '/Users/moreal/github/moreal/krds/apps/storybook-svelte/tsconfig.json'. Did you forget to add svelte files to the 'include' in your tsconfig.json? Specified 'include' paths were '["src/**/*.ts","src/**/*.tsx"]' and 'exclude' paths were 'undefined' (svelte)
+
+
+====================================
+svelte-check found 0 errors and 1 warning in 1 file
+
+> nx run krds-workspace:test
+
+> node --test tools/check-workspace.test.mjs
+
+(node:51520) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ workspace configuration and source boundaries
+  [32m✔ rejects linker [90m(216.954667ms)[39m[39m
+  [32m✔ rejects second lockfile [90m(252.736333ms)[39m[39m
+  [32m✔ rejects nested npm lockfile [90m(179.812792ms)[39m[39m
+  [32m✔ rejects public app [90m(190.493125ms)[39m[39m
+  [32m✔ rejects runtime resolution [90m(240.612917ms)[39m[39m
+  [32m✔ rejects upward relative import [90m(281.475584ms)[39m[39m
+  [32m✔ rejects foreign renderer [90m(229.161583ms)[39m[39m
+  [32m✔ rejects native source alias [90m(200.93825ms)[39m[39m
+[32m✔ workspace configuration and source boundaries [90m(1844.733834ms)[39m[39m
+[34mℹ tests 9[39m
+[34mℹ suites 0[39m
+[34mℹ pass 9[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 1901.889[39m
+
+> nx run storybook-qwik:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-qwik typecheck
+
+(node:51540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-vue:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-vue typecheck
+
+(node:51542) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-solid:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-solid typecheck
+
+(node:51544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-lit:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-lit typecheck
+
+(node:51552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-react:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-react typecheck
+
+(node:51551) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-solid-next:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/storybook-solid-next typecheck
+
+(node:51555) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-fonts:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fonts typecheck
+
+(node:51560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-solid:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-solid test
+
+(node:51564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-solid: direct toolchain resolves from this workspace [90m(3.881ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 60.143875[39m
+
+> nx run krds-assets:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/assets typecheck
+
+(node:51562) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-react:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-react test
+
+(node:51570) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51575) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51578) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-react: direct toolchain resolves from this workspace [90m(3.525833ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 57.247958[39m
+
+> nx run storybook-lit:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-lit test
+
+(node:51573) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51579) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-lit: direct toolchain resolves from this workspace [90m(3.756875ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 59.04025[39m
+
+> nx run krds-fonts:test
+
+> node tools/yarn.mjs workspace @krds-native/fonts test
+
+(node:51574) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/fonts: direct toolchain resolves from this workspace [90m(1.451791ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 55.60775[39m
+
+> nx run krds-fonts:lint
+
+> node tools/yarn.mjs workspace @krds-native/fonts lint
+
+(node:51584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-qwik:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-qwik test
+
+(node:51585) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51588) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51590) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-qwik: direct toolchain resolves from this workspace [90m(3.798208ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 58.867834[39m
+
+> nx run storybook-vue:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-vue test
+
+(node:51586) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51589) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51591) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-vue: direct toolchain resolves from this workspace [90m(4.094416ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 59.083792[39m
+
+> nx run krds-assets:test
+
+> node tools/yarn.mjs workspace @krds-native/assets test
+
+(node:51593) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51598) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51601) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/assets: direct toolchain resolves from this workspace [90m(1.69375ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 58.177[39m
+
+> nx run storybook-svelte:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-svelte test
+
+(node:51596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51599) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51603) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-svelte: direct toolchain resolves from this workspace [90m(4.094833ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 58.28[39m
+
+> nx run storybook-angular:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-angular test
+
+(node:51597) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-angular: direct toolchain resolves from this workspace [90m(3.735125ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 58.119041[39m
+
+> nx run storybook-solid:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-solid lint
+
+(node:51605) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-solid-next:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-solid-next lint
+
+(node:51609) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-solid-next:test
+
+> node tools/yarn.mjs workspace @krds-native/storybook-solid-next test
+
+(node:51608) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51614) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ @krds-native/storybook-solid-next: direct toolchain resolves from this workspace [90m(5.246208ms)[39m[39m
+[34mℹ tests 1[39m
+[34mℹ suites 0[39m
+[34mℹ pass 1[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 60.728666[39m
+
+> nx run storybook-vue:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-vue lint
+
+(node:51615) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-assets:lint
+
+> node tools/yarn.mjs workspace @krds-native/assets lint
+
+(node:51619) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-workspace:typecheck
+
+> node tools/yarn.mjs tsc -p tools/tsconfig.json
+
+(node:51618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run storybook-lit:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-lit lint
+
+(node:51624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-angular:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-angular lint
+
+(node:51627) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-svelte:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-svelte lint
+
+(node:51628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run krds-workspace:lint
+
+> node tools/check-workspace.mjs
+
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-react:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-react lint
+
+(node:51633) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+> nx run storybook-qwik:lint
+
+> node tools/yarn.mjs workspace @krds-native/storybook-qwik lint
+
+(node:51636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Workspace verified: selected pins, pnpm linker, private apps, package metadata, dependency/import boundaries.
+
+
+
+ NX   Successfully ran targets typecheck, test, lint for 31 projects and 12 tasks they depend on
+
+
+  Run duration:      27.1s
+  Cache:             0/105 hit (0%)
+  Critical path:     4.7s (4 tasks)
+  Recoverable time:  22.4s (83% of the run)

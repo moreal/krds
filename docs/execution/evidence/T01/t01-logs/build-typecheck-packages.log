@@ -1,0 +1,325 @@
+
+ NX   Running targets build, typecheck for 14 projects:
+
+- krds-contracts
+- krds-tokens
+- krds-styles
+- krds-assets
+- krds-fonts
+- krds-react
+- krds-solid
+- krds-svelte
+- krds-vue
+- krds-lit
+- krds-qwik
+- krds-angular
+- krds-solid-next
+- krds-test-contracts
+
+
+
+> nx run krds-tokens:build  [local cache]
+
+> node tools/yarn.mjs workspace @krds-native/tokens build:local
+
+(node:49596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-contracts:build  [local cache]
+
+> node tools/yarn.mjs workspace @krds-native/contracts build:local
+
+(node:49594) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-assets:build  [local cache]
+
+> node tools/yarn.mjs workspace @krds-native/assets build:local
+
+(node:49595) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-fonts:build  [local cache]
+
+> node tools/yarn.mjs workspace @krds-native/fonts build:local
+
+(node:49607) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-styles:build  [local cache]
+
+> node tools/yarn.mjs workspace @krds-native/styles build:local
+
+(node:49605) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-test-contracts:build  [local cache]
+
+> node tools/yarn.mjs workspace @krds-native/test-contracts build:local
+
+(node:49606) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-svelte:build  [local cache]
+
+> node tools/yarn.mjs workspace @krds-native/svelte build:local
+
+(node:49619) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1m[32msrc/lib -> dist[39m[22m
+
+> nx run krds-contracts:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/contracts typecheck
+
+(node:49865) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-tokens:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/tokens typecheck
+
+(node:49867) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-styles:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/styles typecheck
+
+(node:49866) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-test-contracts:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/test-contracts typecheck
+
+(node:49874) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-solid:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/solid typecheck
+
+(node:49876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-react:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/react typecheck
+
+(node:49875) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-lit:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/lit typecheck
+
+(node:49885) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-vue:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/vue typecheck
+
+(node:49884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-svelte:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/svelte typecheck
+
+(node:49881) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Loading svelte-check in workspace: /Users/moreal/github/moreal/krds/packages/svelte
+Getting Svelte diagnostics...
+
+svelte-check found 0 errors and 0 warnings
+
+> nx run krds-qwik:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/qwik typecheck
+
+(node:49892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-qwik:build
+
+> node tools/yarn.mjs workspace @krds-native/qwik build:local
+
+(node:49890) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49894) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v7.3.1 building client environment for lib...
+transforming...
+✓ 2 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.qwik.mjs  0.27 kB │ gzip: 0.20 kB
+dist/index.qwik.cjs  0.39 kB │ gzip: 0.26 kB
+✓ built in 42ms
+
+> nx run krds-angular:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/angular typecheck
+
+(node:49895) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49899) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-solid-next:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/solid-next typecheck
+
+(node:49902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-angular:build
+
+> node tools/yarn.mjs workspace @krds-native/angular build:local
+
+(node:49903) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1m[31m(node:49908) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)[39m[22m
+[1m[33mThe "@angular-devkit/build-angular:ng-packagr" builder is deprecated as part of Angular's Webpack support deprecation. Use "@angular/build:ng-packagr" instead. For more information, see https://angular.dev/tools/cli/build-system-migration.[39m[22m
+[34mBuilding Angular Package[39m
+[37m
+------------------------------------------------------------------------------[39m
+[37mBuilding entry point '@krds-native/angular'[39m
+[37m------------------------------------------------------------------------------[39m
+- Compiling with Angular sources in partial compilation mode.
+[32m✔[39m Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+[32m✔[39m Writing FESM and DTS bundles
+- Copying assets
+[32m✔[39m Copying assets
+- Writing package manifest
+[1m[33m[33mWARNING: Found a conflicting export condition for ".". The "types" condition would be overridden by ng-packagr. Please unset it.[39m[39m[22m
+[1m[33m[33mWARNING: Found a conflicting export condition for ".". The "default" condition would be overridden by ng-packagr. Please unset it.[39m[39m[22m
+[34mℹ[39m Removing scripts section in package.json as it's considered a potential security vulnerability.
+[34mℹ[39m Removing devDependencies section in package.json.
+[32m✔[39m Writing package manifest
+[32m✔[39m Built @krds-native/angular
+[32m
+------------------------------------------------------------------------------[39m
+[32mBuilt Angular Package
+- from: /Users/moreal/github/moreal/krds/packages/angular
+- to:   /Users/moreal/github/moreal/krds/packages/angular/dist[39m
+[32m------------------------------------------------------------------------------[39m
+[37m[37m
+Build at: [1m2026-10-29T23:50:50.230Z[22m - Time: [1m388[22mms
+[39m[39m
+
+> nx run krds-solid:build
+
+> node tools/yarn.mjs workspace @krds-native/solid build:local
+
+(node:49910) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49914) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 3 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.21 kB[0m[2m │ gzip: 0.18 kB[0m
+
+✓ built in 48ms
+
+> nx run krds-vue:build
+
+> node tools/yarn.mjs workspace @krds-native/vue build:local
+
+(node:49913) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49915) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 4 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.38 kB[0m[2m │ gzip: 0.28 kB[0m
+
+✓ built in 18ms
+
+> nx run krds-react:build
+
+> node tools/yarn.mjs workspace @krds-native/react build:local
+
+(node:49919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49922) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 3 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.23 kB[0m[2m │ gzip: 0.19 kB[0m
+
+✓ built in 11ms
+
+> nx run krds-solid-next:build
+
+> node tools/yarn.mjs workspace @krds-native/solid-next build:local
+
+(node:49921) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 3 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.22 kB[0m[2m │ gzip: 0.18 kB[0m
+
+✓ built in 19ms
+
+> nx run krds-lit:build
+
+> node tools/yarn.mjs workspace @krds-native/lit build:local
+
+(node:49924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.3.5 building client environment for production...
+transforming...
+[32m✓[0m 2 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[0m[36mindex.js  [0m[1;2m0.21 kB[0m[2m │ gzip: 0.18 kB[0m
+
+✓ built in 12ms
+
+> nx run krds-assets:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/assets typecheck
+
+(node:49931) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run krds-fonts:typecheck
+
+> node tools/yarn.mjs workspace @krds-native/fonts typecheck
+
+(node:49933) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran targets build, typecheck for 14 projects
+
+Nx read the output from the cache instead of running the command for 7 out of 28 tasks.
+
+  Run duration:      7.7s
+  Cache:             7/28 hit (25%)
+  Critical path:     1.7s (3 tasks)
+  Recoverable time:  6.0s (78% of the run)

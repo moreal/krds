@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-badge', title: 'KRDS/badge', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Outline: Story = { name: "outline", parameters: { __id: "krds-badge--outline" }, render: () => <CatalogStory componentId="badge" caseId="outline"/> };
+export const Filled: Story = { name: "filled", parameters: { __id: "krds-badge--filled" }, render: () => <CatalogStory componentId="badge" caseId="filled"/> };
+export const Pastel: Story = { name: "pastel", parameters: { __id: "krds-badge--pastel" }, render: () => <CatalogStory componentId="badge" caseId="pastel"/> };
+export const Numeric: Story = { name: "numeric", parameters: { __id: "krds-badge--numeric" }, render: () => <CatalogStory componentId="badge" caseId="numeric"/> };
+export const Sizes: Story = { name: "sizes", parameters: { __id: "krds-badge--sizes" }, render: () => <CatalogStory componentId="badge" caseId="sizes"/> };
+export const Tones: Story = { name: "tones", parameters: { __id: "krds-badge--tones" }, render: () => <CatalogStory componentId="badge" caseId="tones"/> };
+export const LongLabel: Story = { name: "long-label", parameters: { __id: "krds-badge--long-label" }, render: () => <CatalogStory componentId="badge" caseId="long-label"/> };

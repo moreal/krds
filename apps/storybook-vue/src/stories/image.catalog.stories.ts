@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-image', title: 'KRDS/Catalog/Image', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'image'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Informative: Story = {name: "informative", args: {caseId: "informative"}};
+export const Decorative: Story = {name: "decorative", args: {caseId: "decorative"}};
+export const ComplexDescription: Story = {name: "complex-description", args: {caseId: "complex-description"}};
+export const Responsive: Story = {name: "responsive", args: {caseId: "responsive"}};
+export const LoadError: Story = {name: "load-error", args: {caseId: "load-error"}};

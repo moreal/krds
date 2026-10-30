@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-skip-link', title: 'KRDS/skip-link', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Visible: Story = { name: "visible", parameters: { __id: "krds-skip-link--visible" }, render: () => <CatalogStory componentId="skip-link" caseId="visible"/> };
+export const FocusRevealed: Story = { name: "focus-revealed", parameters: { __id: "krds-skip-link--focus-revealed" }, render: () => <CatalogStory componentId="skip-link" caseId="focus-revealed"/> };
+export const ThreeTargets: Story = { name: "three-targets", parameters: { __id: "krds-skip-link--three-targets" }, render: () => <CatalogStory componentId="skip-link" caseId="three-targets"/> };
+export const StickyPage: Story = { name: "sticky-page", parameters: { __id: "krds-skip-link--sticky-page" }, render: () => <CatalogStory componentId="skip-link" caseId="sticky-page"/> };
+export const ShadowTarget: Story = { name: "shadow-target", parameters: { __id: "krds-skip-link--shadow-target" }, render: () => <CatalogStory componentId="skip-link" caseId="shadow-target"/> };

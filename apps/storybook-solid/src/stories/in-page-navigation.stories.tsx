@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-in-page-navigation', title: 'KRDS/in-page-navigation', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const DesktopSide: Story = { name: "desktop-side", parameters: { __id: "krds-in-page-navigation--desktop-side" }, render: () => <CatalogStory componentId="in-page-navigation" caseId="desktop-side"/> };
+export const MobileInline: Story = { name: "mobile-inline", parameters: { __id: "krds-in-page-navigation--mobile-inline" }, render: () => <CatalogStory componentId="in-page-navigation" caseId="mobile-inline"/> };
+export const MobileDisclosure: Story = { name: "mobile-disclosure", parameters: { __id: "krds-in-page-navigation--mobile-disclosure" }, render: () => <CatalogStory componentId="in-page-navigation" caseId="mobile-disclosure"/> };
+export const ThreeLevelOutline: Story = { name: "three-level-outline", parameters: { __id: "krds-in-page-navigation--three-level-outline" }, render: () => <CatalogStory componentId="in-page-navigation" caseId="three-level-outline"/> };
+export const StickyOffset: Story = { name: "sticky-offset", parameters: { __id: "krds-in-page-navigation--sticky-offset" }, render: () => <CatalogStory componentId="in-page-navigation" caseId="sticky-offset"/> };
+export const RemovedSection: Story = { name: "removed-section", parameters: { __id: "krds-in-page-navigation--removed-section" }, render: () => <CatalogStory componentId="in-page-navigation" caseId="removed-section"/> };

@@ -1,0 +1,17 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-carousel', title: 'KRDS/carousel', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Single: Story = { name: "single", parameters: { __id: "krds-carousel--single" }, render: () => <CatalogStory componentId="carousel" caseId="single"/> };
+export const Multiple: Story = { name: "multiple", parameters: { __id: "krds-carousel--multiple" }, render: () => <CatalogStory componentId="carousel" caseId="multiple"/> };
+export const Manual: Story = { name: "manual", parameters: { __id: "krds-carousel--manual" }, render: () => <CatalogStory componentId="carousel" caseId="manual"/> };
+export const Autoplay: Story = { name: "autoplay", parameters: { __id: "krds-carousel--autoplay" }, render: () => <CatalogStory componentId="carousel" caseId="autoplay"/> };
+export const PausedOnFocus: Story = { name: "paused-on-focus", parameters: { __id: "krds-carousel--paused-on-focus" }, render: () => <CatalogStory componentId="carousel" caseId="paused-on-focus"/> };
+export const SingleItem: Story = { name: "single-item", parameters: { __id: "krds-carousel--single-item" }, render: () => <CatalogStory componentId="carousel" caseId="single-item"/> };
+export const NarrowFraction: Story = { name: "narrow-fraction", parameters: { __id: "krds-carousel--narrow-fraction" }, render: () => <CatalogStory componentId="carousel" caseId="narrow-fraction"/> };
+export const ReducedMotion: Story = { name: "reduced-motion", parameters: { __id: "krds-carousel--reduced-motion" }, render: () => <CatalogStory componentId="carousel" caseId="reduced-motion"/> };
+export const ControlledInhibition: Story = { name: "controlled-inhibition", parameters: { __id: "krds-carousel--controlled-inhibition" }, render: () => <CatalogStory componentId="carousel" caseId="controlled-inhibition"/> };
+export const PlayWhileFocusedHovered: Story = { name: "play-while-focused-hovered", parameters: { __id: "krds-carousel--play-while-focused-hovered" }, render: () => <CatalogStory componentId="carousel" caseId="play-while-focused-hovered"/> };
+export const ControlledStopRejected: Story = { name: "controlled-stop-rejected", parameters: { __id: "krds-carousel--controlled-stop-rejected" }, render: () => <CatalogStory componentId="carousel" caseId="controlled-stop-rejected"/> };
+export const TimerRequestRejected: Story = { name: "timer-request-rejected", parameters: { __id: "krds-carousel--timer-request-rejected" }, render: () => <CatalogStory componentId="carousel" caseId="timer-request-rejected"/> };

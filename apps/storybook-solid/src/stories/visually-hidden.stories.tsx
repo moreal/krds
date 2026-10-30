@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-visually-hidden', title: 'KRDS/visually-hidden', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Text: Story = { name: "text", parameters: { __id: "krds-visually-hidden--text" }, render: () => <CatalogStory componentId="visually-hidden" caseId="text"/> };
+export const AriaAssociation: Story = { name: "aria-association", parameters: { __id: "krds-visually-hidden--aria-association" }, render: () => <CatalogStory componentId="visually-hidden" caseId="aria-association"/> };
+export const InteractiveOverlay: Story = { name: "interactive-overlay", parameters: { __id: "krds-visually-hidden--interactive-overlay" }, render: () => <CatalogStory componentId="visually-hidden" caseId="interactive-overlay"/> };
+export const Zoom: Story = { name: "zoom", parameters: { __id: "krds-visually-hidden--zoom" }, render: () => <CatalogStory componentId="visually-hidden" caseId="zoom"/> };
+export const Translated: Story = { name: "translated", parameters: { __id: "krds-visually-hidden--translated" }, render: () => <CatalogStory componentId="visually-hidden" caseId="translated"/> };
+export const ManualAt: Story = { name: "manual-at", parameters: { __id: "krds-visually-hidden--manual-at" }, render: () => <CatalogStory componentId="visually-hidden" caseId="manual-at"/> };

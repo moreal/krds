@@ -1,0 +1,54 @@
+{
+  "name": "@krds-native/vue",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../../tools/workspace-probe.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "@vitejs/plugin-vue": "6.0.10",
+    "@vitest/browser-playwright": "4.1.10",
+    "@vue/compiler-sfc": "3.5.44",
+    "playwright": "1.64.1",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vitest": "4.1.10",
+    "vue": "3.5.44",
+    "vue-tsc": "3.3.14"
+  },
+  "description": "KRDS Native vue: T01 toolchain probe only",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^3.5.44"
+  },
+  "dependencies": {
+    "@ark-ui/vue": "5.40.0",
+    "@krds-native/contracts": "workspace:^",
+    "@krds-native/styles": "workspace:^",
+    "@krds-native/tokens": "workspace:^"
+  }
+}

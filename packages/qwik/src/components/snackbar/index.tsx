@@ -1,0 +1,16 @@
+import { $, component$, useSignal, Slot, useId, useComputed$, useVisibleTask$, useTask$, type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { SnackbarContract } from '@unofficial-krds/contracts';
+import { owned, states, safeRel, useField, useReset, useNarrow, usable, focusTarget, restore, ignoredKey, type NativeContract } from '../../internal/catalog';
+import { useNotification } from '../../internal/notification';
+export type SnackbarProps = NativeContract<SnackbarContract>;
+export const Snackbar = component$<SnackbarProps>((props) => { const hover = useSignal(false), focused = useSignal(false), root = useSignal<HTMLDivElement>(), initiator = useSignal<HTMLElement>(), focusOwned = useSignal(false), last = useSignal<string>(); const signature = useComputed$(() => props.message ? JSON.stringify([props.message, props.action, props.durationMs]) : null), duration = useComputed$(() => props.durationMs ?? null), paused = useComputed$(() => hover.value || focused.value || !!props.message?.actionPending), generation = useNotification(signature, duration, paused, $(generation => { if (props.message)
+    return props.onDismiss$({ id: props.message.id, reason: 'timeout', generation }); })); useVisibleTask$(({ track, cleanup }) => { const id = track(() => props.message?.id); if (id && !last.value && usable(document.activeElement))
+    initiator.value = document.activeElement; if (last.value && last.value !== id && focusOwned.value) {
+    queueMicrotask(() => restore(undefined, props.fallbackFocusId, initiator.value));
+    focusOwned.value = false;
+} last.value = id; cleanup(() => { if (focusOwned.value)
+    queueMicrotask(() => restore(undefined, props.fallbackFocusId, initiator.value)); }); }, { strategy: 'document-ready' }); return props.message ? <div ref={root} {...owned('snackbar', 'root', props.message.actionPending ? 'open action-pending' : props.message.error ? 'open error' : 'open')} onPointerEnter$={() => hover.value = true} onPointerLeave$={() => hover.value = false} onFocusIn$={() => { focused.value = true; focusOwned.value = true; }} onFocusOut$={event => { if (!root.value?.contains(event.relatedTarget as Node)) {
+    focused.value = false;
+    if (usable(event.relatedTarget as Element))
+        focusOwned.value = false;
+} }}><div role="status" aria-live="polite" aria-atomic="true">{props.message.icon && <span {...owned('snackbar', 'icon')} aria-hidden="true">{props.message.icon}</span>}<strong {...owned('snackbar', 'title')}>{props.message.title}</strong><p {...owned('snackbar', 'message')}>{props.message.text}</p>{props.message.error && <p>{props.message.error}</p>}</div>{props.action && (props.action.kind === 'link' ? <a {...owned('snackbar', 'action')} href={props.action.href} target={props.action.target} rel={safeRel(props.action.target, props.action.rel)}>{props.action.label}{props.action.target === '_blank' ? ' (새 창)' : ''}</a> : <button type="button" {...owned('snackbar', 'action')} disabled={props.message.actionPending} onClick$={() => props.onAction$?.({ id: props.message!.id, generation: generation.value, actionId: props.action!.id })}>{props.action.label}</button>)}<button type="button" {...owned('snackbar', 'close')} aria-label="알림 닫기" onClick$={() => props.onDismiss$({ id: props.message!.id, reason: 'close', generation: generation.value })}>닫기</button></div> : null; });

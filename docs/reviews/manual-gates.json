@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "status": "blocked-human-review",
+  "checkedAt": "2026-10-30",
+  "environment": {
+    "os": "macOS 27.2 (26B123)",
+    "architecture": "arm64",
+    "screenReaderApplication": "/System/Library/CoreServices/VoiceOver.app",
+    "applicationPresent": true,
+    "actualScreenReaderSessionPerformed": false,
+    "screenReaderSpeechReviewed": false,
+    "nativeAccessibilityInspectionAvailable": true,
+    "connectedBrowserHostAvailable": false,
+    "screenReaderSpeechCaptureExposed": false,
+    "capabilityCheck": "Read-only CUA inventory and native accessibility-tree inspection succeeded; browser inventory explicitly reported its access host unavailable. No VoiceOver session or global accessibility setting was enabled or changed."
+  },
+  "automatedChecksAreNotManualAcceptance": true,
+  "requiredHumanReviews": [
+    {
+      "id": "screen-reader",
+      "status": "not-performed",
+      "scope": "Input, modal, tabs, date, help and notifications in each declared renderer; spoken names, roles, state changes, reading order, virtual cursor, live-region timing and restoration."
+    },
+    {
+      "id": "real-browser-zoom",
+      "status": "not-performed",
+      "scope": "Real browser 200% and 400% zoom, focus visibility and content reachability. CSS zoom or smaller viewport is not equivalent."
+    },
+    {
+      "id": "high-contrast",
+      "status": "not-performed",
+      "scope": "Real operating-system high contrast and forced-colors interpretation; automated media emulation is supporting evidence only."
+    },
+    {
+      "id": "touch-assistive-technology",
+      "status": "not-performed",
+      "scope": "Real touch screen reader and gesture arbitration where supported."
+    },
+    {
+      "id": "media-equivalence",
+      "status": "not-performed",
+      "scope": "Authentic audio/video, captions, transcript, audio description and sign-language equivalence and timing review; synthetic signal/geometric fixtures do not satisfy this gate."
+    }
+  ],
+  "releaseAccepted": false,
+  "publicationAuthorized": false
+}

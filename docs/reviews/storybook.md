@@ -1,0 +1,9 @@
+# Storybook and behavioral test review
+
+The seven formal Storybook targets are React, Solid 1, Svelte, Vue, Lit, Qwik and Angular. Solid 2 RC19 remains separate preview coverage. Story args/inputs/slots and local state must supply behavior without API, authentication, CDN, external font or image dependencies. Any forbidden request attempt fails the run; a blocked request is still an attempt.
+
+`node tools/yarn.mjs test:stories --all-stable` selects the shared baseline suite. `node tools/yarn.mjs test:stories --catalog --all-stable --browser <chromium|firefox|webkit>` separately executes the exact 344 new catalog states per native renderer. The canonical six baseline stories remain separate; release review requires both selections (350 total per renderer), with no staged or missing state counted as execution. Neither an index entry nor a static render counts as executed behavioral coverage. Builds, observed state assertions, actual case counts, raw axe findings, forbidden request counts, cleanup and source hashes must all be retained before acceptance.
+
+`node tools/yarn.mjs test:siheom --supported` selects only the six actual upstream native adapters declared in `compatibility/testing.json`: React 0.4.1 and Solid 1/Svelte/Vue/Angular/Qwik 0.3.2 with core 0.4.1. Lit and Solid 2 have no supported upstream siheom adapter. Their native browser tests do not invent siheom support or widen adapter peers. Story files and siheom behavior files remain separate.
+
+Full catalog/story/siheom owner runs are still in progress. T13 does not mark these global gates passed from per-pilot SSR or browser-launch results. The final source-bound result pointers belong in the T13 task report after the implementation freeze; nonzero executions with failures or source drift remain failed/unaccepted evidence.

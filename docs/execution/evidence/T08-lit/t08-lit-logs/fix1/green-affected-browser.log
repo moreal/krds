@@ -1,0 +1,20 @@
+✔ Lit chromium hydrates all six SSR shadow roots and reuses native DOM (476.381416ms)
+✔ Lit webkit hydrates all six SSR shadow roots and reuses native DOM (996.79925ms)
+✔ Lit chromium native forms, state, Shadow DOM and lifecycle (587.680958ms)
+✔ Lit webkit native forms, state, Shadow DOM and lifecycle (1157.16525ms)
+✔ review 1 chromium: non-first native selection exists before hydration and reuses the select (394.434625ms)
+✔ review 2 chromium: range validity and native submission focus target the affected endpoint (306.091375ms)
+✔ review 3 chromium: explicit naming reaches semantic controls across actual host roots (266.77625ms)
+✔ review 4 chromium: an inert outer shadow host forces the supplied usable return target (343.886ms)
+✔ review 1 webkit: non-first native selection exists before hydration and reuses the select (716.049292ms)
+✔ review 2 webkit: range validity and native submission focus target the affected endpoint (616.286834ms)
+✔ review 3 webkit: explicit naming reaches semantic controls across actual host roots (594.541375ms)
+✔ review 4 webkit: an inert outer shadow host forces the supplied usable return target (604.225792ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4133.652583

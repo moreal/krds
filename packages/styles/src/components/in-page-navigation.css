@@ -1,0 +1,14 @@
+/* KRDS-derived: frozen component.css lines 6772–6971; semantic guidance: specs/components/in-page-navigation.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="in-page-navigation"][data-krds-part="root"] { display: flex; flex-direction: column; gap: var(--krds-gap-5); inline-size: 16rem; max-inline-size: 100%; }
+[data-krds-component="in-page-navigation"][data-krds-part="header"] { display: grid; gap: var(--krds-gap-2); }
+[data-krds-component="in-page-navigation"][data-krds-part="title"] { margin: 0; font-size: var(--krds-pc-font-size-heading-xsmall); font-weight: 700; }
+[data-krds-component="in-page-navigation"][data-krds-part="list"] { display: flex; flex-direction: column; gap: var(--krds-gap-2); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="in-page-navigation"][data-krds-part="item"] { position: relative; }
+[data-krds-component="in-page-navigation"][data-krds-part="link"] { display: block; padding: var(--krds-padding-3); border-radius: var(--krds-radius-small3); color: var(--krds-light-color-text-subtle); text-decoration: none; }
+[data-krds-component="in-page-navigation"][data-krds-part="link"]:hover { background: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="in-page-navigation"][data-krds-part="link"][aria-current], [data-krds-component="in-page-navigation"][data-krds-part="link"][data-krds-state~="active"] { background: var(--krds-light-color-action-secondary-selected); color: var(--krds-light-color-text-secondary); font-weight: 700; border-inline-start: var(--krds-number-3) solid currentColor; text-decoration: underline; }
+[data-krds-component="in-page-navigation"][data-krds-part="indicator"] { pointer-events: none; }
+[data-krds-component="in-page-navigation"][data-krds-part="disclosure-trigger"] { display: flex; justify-content: space-between; inline-size: 100%; min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); background: var(--krds-light-color-action-secondary); color: inherit; font: inherit; text-align: start; }
+@media (max-width: 767px) { [data-krds-component="in-page-navigation"][data-krds-part="root"] { inline-size: 100%; } [data-krds-component="in-page-navigation"][data-krds-part="title"] { font-size: var(--krds-mobile-font-size-heading-xsmall); } }
+[data-krds-component="in-page-navigation"][data-krds-part="root"][data-krds-layout="mobile-disclosure"] [data-krds-component="in-page-navigation"][data-krds-part="list"][data-krds-state~="collapsed"] { display: none; }

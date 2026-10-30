@@ -1,0 +1,33 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-angular
+
+9:55:54 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+ ❯ |chromium| tests/siheom/native-probe.test.ts (2 tests | 1 failed) 120ms
+   × native adapter render, click, controlled state update and cleanup 115ms
+   ✓ native adapter synthetic click focuses the native button 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/native-probe.test.ts > native adapter render, click, controlled state update and cleanup
+TypeError: Cannot read properties of null (reading 'componentInstance')
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/native-probe.test.ts/native-adapter-render--click--controlled-state-update-and-cleanup-1.png
+
+ ❯ tests/siheom/native-probe.test.ts:27:42
+     25|   controller.count.set(7);
+     26|   controller.label.set('Updated probe');
+     27|   await runSiheom(assertions.textContent(query.status('Probe value'), …
+       |                                          ^
+     28|     actions.click(query.button('Updated probe')),
+     29|     assertions.textContent(query.status('Probe value'), '8'));
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=801ffebb:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  09:55:54
+   Duration  1.48s (transform 0ms, setup 564ms, import 43ms, tests 120ms, environment 0ms)
+

@@ -1,0 +1,3 @@
+import assert from 'node:assert/strict';
+import {startProductionSsr}from '../server.mjs';
+const server=await startProductionSsr(),results=[];try{for(const id of ['invalid-radio-empty','invalid-radio-duplicate','invalid-table-header','invalid-quantity-step','invalid-quantity-nan']){try{const response=await fetch(server.origin+'/source-contracts.html?case='+id);assert.equal(response.status,500);assert.match(await response.text(),/TypeError|RangeError/);results.push({id,status:'passed'});}catch(error){results.push({id,status:'failed',error:String(error)});}}}finally{await server.close();}console.log(JSON.stringify(results,null,2));if(results.some(r=>r.status!=='passed'))process.exitCode=1;

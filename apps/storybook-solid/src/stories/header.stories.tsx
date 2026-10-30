@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-header', title: 'KRDS/header', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const HorizontalActions: Story = { name: "horizontal-actions", parameters: { __id: "krds-header--horizontal-actions" }, render: () => <CatalogStory componentId="header" caseId="horizontal-actions"/> };
+export const VerticalActions: Story = { name: "vertical-actions", parameters: { __id: "krds-header--vertical-actions" }, render: () => <CatalogStory componentId="header" caseId="vertical-actions"/> };
+export const FiveUtilities: Story = { name: "five-utilities", parameters: { __id: "krds-header--five-utilities" }, render: () => <CatalogStory componentId="header" caseId="five-utilities"/> };
+export const MobileMenu: Story = { name: "mobile-menu", parameters: { __id: "krds-header--mobile-menu" }, render: () => <CatalogStory componentId="header" caseId="mobile-menu"/> };
+export const StickyLongPage: Story = { name: "sticky-long-page", parameters: { __id: "krds-header--sticky-long-page" }, render: () => <CatalogStory componentId="header" caseId="sticky-long-page"/> };
+export const TranslatedLongLabels: Story = { name: "translated-long-labels", parameters: { __id: "krds-header--translated-long-labels" }, render: () => <CatalogStory componentId="header" caseId="translated-long-labels"/> };

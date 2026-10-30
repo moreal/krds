@@ -1,0 +1,36 @@
+{
+  "kind": "siheom",
+  "mode": "probe",
+  "results": [
+    {
+      "framework": "vue",
+      "coverage": false,
+      "files": [
+        "native-probe.test.ts"
+      ],
+      "adapter": [
+        "@siheom/vue",
+        "0.3.2"
+      ],
+      "commandExitCode": 0,
+      "commandLog": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793321960834-81478-4b00bcfc/vue-command.log",
+      "tests": 2,
+      "passed": 2,
+      "failed": 0,
+      "report": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793321960834-81478-4b00bcfc/vue-vitest.json",
+      "status": "passed"
+    }
+  ],
+  "unsupported": [
+    {
+      "framework": "lit",
+      "reason": "No upstream native siheom adapter",
+      "alternative": "test:contract --framework lit"
+    },
+    {
+      "framework": "solid-next",
+      "reason": "Solid1 adapter peer does not cover exact Solid2 RC",
+      "alternative": "test:contract --framework solid-next"
+    }
+  ]
+}

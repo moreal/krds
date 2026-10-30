@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-skip-link', title: 'KRDS/SkipLink', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Visible: Story = { args: {"componentId": "skip-link", "initialState": {"links": [{"id": "main", "label": "본문 바로가기", "targetId": "main-content"}], "visibility": "visible"}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const FocusRevealed: Story = { args: {"componentId": "skip-link", "initialState": {"links": [{"id": "main", "label": "본문 바로가기", "targetId": "main-content"}], "visibility": "focus-revealed"}, "host": {"localOnly": true, "acceptChanges": true}} };
+export const ThreeTargets: Story = { args: {"componentId": "skip-link", "initialState": {"links": [{"id": "main", "label": "본문 바로가기", "targetId": "main"}, {"id": "nav", "label": "주 메뉴 바로가기", "targetId": "nav"}, {"id": "search", "label": "검색 바로가기", "targetId": "search"}], "visibility": "visible"}, "host": {"localOnly": true, "acceptChanges": true, "targetIds": ["main", "nav", "search"]}} };
+export const StickyPage: Story = { args: {"componentId": "skip-link", "initialState": {"links": [{"id": "main", "label": "본문 바로가기", "targetId": "main-content"}], "visibility": "visible"}, "host": {"localOnly": true, "acceptChanges": true, "stickyHeaderHeight": 80, "targetId": "main-content"}} };
+export const ShadowTarget: Story = { args: {"componentId": "skip-link", "initialState": {"links": [{"id": "main", "label": "본문 바로가기", "targetId": "main-content"}], "visibility": "visible"}, "host": {"localOnly": true, "acceptChanges": true, "targetRoot": "native-same-root", "targetId": "main-content"}} };

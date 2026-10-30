@@ -1,0 +1,383 @@
+[
+  {
+    "id": "krds-button--default",
+    "width": 1280,
+    "image": "krds-button--default.png"
+  },
+  {
+    "id": "krds-button--small",
+    "width": 1280,
+    "image": "krds-button--small.png"
+  },
+  {
+    "id": "krds-button--large",
+    "width": 1280,
+    "image": "krds-button--large.png"
+  },
+  {
+    "id": "krds-button--disabled",
+    "width": 1280,
+    "image": "krds-button--disabled.png"
+  },
+  {
+    "id": "krds-native-select--invalid",
+    "width": 1280,
+    "image": "krds-native-select--invalid.png"
+  },
+  {
+    "id": "krds-tabs--manual",
+    "width": 1280,
+    "image": "krds-tabs--manual.png"
+  },
+  {
+    "id": "krds-date-input--invalid",
+    "width": 1280,
+    "image": "krds-date-input--invalid.png"
+  },
+  {
+    "id": "krds-modal--open",
+    "width": 1280,
+    "image": "krds-modal--open.png"
+  },
+  {
+    "id": "krds-calendar--selected-range",
+    "width": 1280,
+    "image": "krds-calendar--selected-range.png"
+  },
+  {
+    "id": "krds-button--default",
+    "mode": "narrow200",
+    "image": "krds-button--default-narrow200.png",
+    "metrics": {
+      "viewport": 320,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "20px",
+      "zoom": "1",
+      "bodyScroll": 320,
+      "focus": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\">저장</span></button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-native-select--invalid",
+    "mode": "narrow200",
+    "image": "krds-native-select--invalid-narrow200.png",
+    "metrics": {
+      "viewport": 320,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "20px",
+      "zoom": "1",
+      "bodyScroll": 320,
+      "focus": "<select id=\"_r_0_\" aria-invalid=\"true\" aria-describedby=\"_r_0_-hint _r_0_-error\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-size=\"medium\" data-krds-state=\"invalid\"><option value=\"seoul\">서울</option><option value=\"busan\">부산</option></select>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-tabs--manual",
+    "mode": "narrow200",
+    "image": "krds-tabs--manual-narrow200.png",
+    "metrics": {
+      "viewport": 320,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "20px",
+      "zoom": "1",
+      "bodyScroll": 320,
+      "focus": "<button id=\"_r_0_-tab-0\" type=\"button\" role=\"tab\" tabindex=\"0\" aria-selected=\"true\" aria-controls=\"_r_0_-panel-0\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" data-krds-state=\"selected\">첫 번째</button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-calendar--selected-range",
+    "mode": "narrow200",
+    "image": "krds-calendar--selected-range-narrow200.png",
+    "metrics": {
+      "viewport": 320,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "20px",
+      "zoom": "1",
+      "bodyScroll": 320,
+      "focus": "<button data-krds-component=\"calendar\" data-krds-part=\"day\" type=\"button\" data-date=\"2024-01-28\" data-month=\"2024-02\" aria-label=\"2024년 1월 28일 일요일, 다른 달\" aria-pressed=\"false\" data-krds-state=\"outside-month\">28일</button>",
+      "tableScroll": [
+        {
+          "width": 264,
+          "scroll": 657
+        }
+      ]
+    }
+  },
+  {
+    "id": "krds-date-input--invalid",
+    "mode": "narrow200",
+    "image": "krds-date-input--invalid-narrow200.png",
+    "metrics": {
+      "viewport": 320,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "20px",
+      "zoom": "1",
+      "bodyScroll": 320,
+      "focus": "<input data-krds-component=\"date-input\" data-krds-part=\"control\" id=\"_r_0_-0\" inputmode=\"numeric\" placeholder=\"YYYY-MM-DD\" aria-describedby=\"_r_0_-hint _r_0_-error\" aria-invalid=\"true\" data-krds-state=\"invalid\" type=\"text\" value=\"\" style=\"\">",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "date-popup",
+    "mode": "narrow200",
+    "image": "date-popup-narrow200.png",
+    "focus": "<button data-krds-component=\"calendar\" data-krds-part=\"day\" type=\"button\" data-date=\"2024-02-01\" data-month=\"2024-02\" aria-label=\"2024년 2월 1일 목요일\" aria-pressed=\"false\">1일</button>",
+    "popupPart": "popup"
+  },
+  {
+    "id": "date-popup-footer",
+    "mode": "narrow200",
+    "image": "date-popup-footer-narrow200.png",
+    "metrics": {
+      "scrollHeight": 1282,
+      "clientHeight": 864,
+      "scrollTop": 418
+    }
+  },
+  {
+    "id": "krds-modal--open",
+    "mode": "narrow200",
+    "image": "krds-modal--open-narrow200.png",
+    "metrics": {
+      "viewport": 320,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "20px",
+      "zoom": "1",
+      "bodyScroll": 320,
+      "focus": "<button data-krds-component=\"modal\" data-krds-part=\"close\" data-krds-state=\"open\" type=\"button\">닫기</button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-button--default",
+    "mode": "zoom200",
+    "image": "krds-button--default-zoom200.png",
+    "metrics": {
+      "viewport": 640,
+      "viewportHeight": 450,
+      "devicePixelRatio": 2,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 640,
+      "focus": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\">저장</span></button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-native-select--invalid",
+    "mode": "zoom200",
+    "image": "krds-native-select--invalid-zoom200.png",
+    "metrics": {
+      "viewport": 640,
+      "viewportHeight": 450,
+      "devicePixelRatio": 2,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 640,
+      "focus": "<select id=\"_r_0_\" aria-invalid=\"true\" aria-describedby=\"_r_0_-hint _r_0_-error\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-size=\"medium\" data-krds-state=\"invalid\"><option value=\"seoul\">서울</option><option value=\"busan\">부산</option></select>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-tabs--manual",
+    "mode": "zoom200",
+    "image": "krds-tabs--manual-zoom200.png",
+    "metrics": {
+      "viewport": 640,
+      "viewportHeight": 450,
+      "devicePixelRatio": 2,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 640,
+      "focus": "<button id=\"_r_0_-tab-0\" type=\"button\" role=\"tab\" tabindex=\"0\" aria-selected=\"true\" aria-controls=\"_r_0_-panel-0\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" data-krds-state=\"selected\">첫 번째</button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-calendar--selected-range",
+    "mode": "zoom200",
+    "image": "krds-calendar--selected-range-zoom200.png",
+    "metrics": {
+      "viewport": 640,
+      "viewportHeight": 450,
+      "devicePixelRatio": 2,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 640,
+      "focus": "<button data-krds-component=\"calendar\" data-krds-part=\"day\" type=\"button\" data-date=\"2024-01-28\" data-month=\"2024-02\" aria-label=\"2024년 1월 28일 일요일, 다른 달\" aria-pressed=\"false\" data-krds-state=\"outside-month\">28일</button>",
+      "tableScroll": [
+        {
+          "width": 336,
+          "scroll": 336
+        }
+      ]
+    }
+  },
+  {
+    "id": "krds-date-input--invalid",
+    "mode": "zoom200",
+    "image": "krds-date-input--invalid-zoom200.png",
+    "metrics": {
+      "viewport": 640,
+      "viewportHeight": 450,
+      "devicePixelRatio": 2,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 640,
+      "focus": "<input data-krds-component=\"date-input\" data-krds-part=\"control\" id=\"_r_0_-0\" inputmode=\"numeric\" placeholder=\"YYYY-MM-DD\" aria-describedby=\"_r_0_-hint _r_0_-error\" aria-invalid=\"true\" data-krds-state=\"invalid\" type=\"text\" value=\"\" style=\"\">",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "date-popup",
+    "mode": "zoom200",
+    "image": "date-popup-zoom200.png",
+    "focus": "<button data-krds-component=\"calendar\" data-krds-part=\"day\" type=\"button\" data-date=\"2024-02-01\" data-month=\"2024-02\" aria-label=\"2024년 2월 1일 목요일\" aria-pressed=\"false\">1일</button>",
+    "popupPart": "popup"
+  },
+  {
+    "id": "date-popup-footer",
+    "mode": "zoom200",
+    "image": "date-popup-footer-zoom200.png",
+    "metrics": {
+      "scrollHeight": 519,
+      "clientHeight": 432,
+      "scrollTop": 87
+    }
+  },
+  {
+    "id": "krds-modal--open",
+    "mode": "zoom200",
+    "image": "krds-modal--open-zoom200.png",
+    "metrics": {
+      "viewport": 640,
+      "viewportHeight": 450,
+      "devicePixelRatio": 2,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 640,
+      "focus": "<button data-krds-component=\"modal\" data-krds-part=\"close\" data-krds-state=\"open\" type=\"button\">닫기</button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-button--default",
+    "mode": "forced",
+    "image": "krds-button--default-forced.png",
+    "metrics": {
+      "viewport": 1280,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 1280,
+      "focus": "<button type=\"button\" data-krds-component=\"button\" data-krds-part=\"root\" data-krds-variant=\"primary\" data-krds-size=\"medium\"><span data-krds-component=\"button\" data-krds-part=\"label\">저장</span></button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-native-select--invalid",
+    "mode": "forced",
+    "image": "krds-native-select--invalid-forced.png",
+    "metrics": {
+      "viewport": 1280,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 1280,
+      "focus": "<select id=\"_r_0_\" aria-invalid=\"true\" aria-describedby=\"_r_0_-hint _r_0_-error\" data-krds-component=\"native-select\" data-krds-part=\"control\" data-krds-size=\"medium\" data-krds-state=\"invalid\"><option value=\"seoul\">서울</option><option value=\"busan\">부산</option></select>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-tabs--manual",
+    "mode": "forced",
+    "image": "krds-tabs--manual-forced.png",
+    "metrics": {
+      "viewport": 1280,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 1280,
+      "focus": "<button id=\"_r_0_-tab-0\" type=\"button\" role=\"tab\" tabindex=\"0\" aria-selected=\"true\" aria-controls=\"_r_0_-panel-0\" data-krds-component=\"tabs\" data-krds-part=\"trigger\" data-krds-state=\"selected\">첫 번째</button>",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "krds-calendar--selected-range",
+    "mode": "forced",
+    "image": "krds-calendar--selected-range-forced.png",
+    "metrics": {
+      "viewport": 1280,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 1280,
+      "focus": "<button data-krds-component=\"calendar\" data-krds-part=\"day\" type=\"button\" data-date=\"2024-01-28\" data-month=\"2024-02\" aria-label=\"2024년 1월 28일 일요일, 다른 달\" aria-pressed=\"false\" data-krds-state=\"outside-month\">28일</button>",
+      "tableScroll": [
+        {
+          "width": 336,
+          "scroll": 336
+        }
+      ]
+    }
+  },
+  {
+    "id": "krds-date-input--invalid",
+    "mode": "forced",
+    "image": "krds-date-input--invalid-forced.png",
+    "metrics": {
+      "viewport": 1280,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 1280,
+      "focus": "<input data-krds-component=\"date-input\" data-krds-part=\"control\" id=\"_r_0_-0\" inputmode=\"numeric\" placeholder=\"YYYY-MM-DD\" aria-describedby=\"_r_0_-hint _r_0_-error\" aria-invalid=\"true\" data-krds-state=\"invalid\" type=\"text\" value=\"\" style=\"\">",
+      "tableScroll": []
+    }
+  },
+  {
+    "id": "date-popup",
+    "mode": "forced",
+    "image": "date-popup-forced.png",
+    "focus": "<button data-krds-component=\"calendar\" data-krds-part=\"day\" type=\"button\" data-date=\"2024-02-01\" data-month=\"2024-02\" aria-label=\"2024년 2월 1일 목요일\" aria-pressed=\"false\">1일</button>",
+    "popupPart": "popup"
+  },
+  {
+    "id": "date-popup-footer",
+    "mode": "forced",
+    "image": "date-popup-footer-forced.png",
+    "metrics": {
+      "scrollHeight": 519,
+      "clientHeight": 519,
+      "scrollTop": 0
+    }
+  },
+  {
+    "id": "krds-modal--open",
+    "mode": "forced",
+    "image": "krds-modal--open-forced.png",
+    "metrics": {
+      "viewport": 1280,
+      "viewportHeight": 900,
+      "devicePixelRatio": 1,
+      "rootFontSize": "10px",
+      "zoom": "1",
+      "bodyScroll": 1280,
+      "focus": "<button data-krds-component=\"modal\" data-krds-part=\"close\" data-krds-state=\"open\" type=\"button\">닫기</button>",
+      "tableScroll": []
+    }
+  }
+]

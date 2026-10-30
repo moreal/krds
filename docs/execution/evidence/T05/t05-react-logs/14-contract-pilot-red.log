@@ -1,0 +1,340 @@
+
+Running 9 tests using 1 worker
+
+(node:76790) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tools/testing/contract.spec.ts:12:29 › react button/disabled (220ms)
+(node:76803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tools/testing/contract.spec.ts:12:29 › react native-select/controlled (222ms)
+(node:76816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [chromium] › tools/testing/contract.spec.ts:12:29 › react native-select/form-reset (213ms)
+(node:76827) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [chromium] › tools/testing/contract.spec.ts:12:29 › react modal/focus-return (209ms)
+(node:76839) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [chromium] › tools/testing/contract.spec.ts:12:29 › react modal/trigger-removed (212ms)
+(node:76849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [chromium] › tools/testing/contract.spec.ts:12:29 › react tabs/manual-activation (210ms)
+(node:76864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  7 [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/leap-year (209ms)
+(node:76878) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  8 [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/ime (187ms)
+(node:76892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  9 [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/timezone-invariance (206ms)
+
+
+  1) [chromium] › tools/testing/contract.spec.ts:12:29 › react button/disabled › required observable behavior 
+
+    Error: Required KRDS feature not implemented: button/disabled; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-button-disabled-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-button-disabled-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-button-disabled-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-button-disabled-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tools/testing/contract.spec.ts:12:29 › react native-select/controlled › required observable behavior 
+
+    Error: Required KRDS feature not implemented: native-select/controlled; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-controlled-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-controlled-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-controlled-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-controlled-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tools/testing/contract.spec.ts:12:29 › react native-select/form-reset › required observable behavior 
+
+    Error: Required KRDS feature not implemented: native-select/form-reset; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-form-reset-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-form-reset-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-form-reset-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-native-select-form-reset-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › tools/testing/contract.spec.ts:12:29 › react modal/focus-return › required observable behavior 
+
+    Error: Required KRDS feature not implemented: modal/focus-return; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-focus-return-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-focus-return-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-focus-return-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-focus-return-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [chromium] › tools/testing/contract.spec.ts:12:29 › react modal/trigger-removed › required observable behavior 
+
+    Error: Required KRDS feature not implemented: modal/trigger-removed; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-trigger-removed-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-trigger-removed-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-trigger-removed-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-modal-trigger-removed-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [chromium] › tools/testing/contract.spec.ts:12:29 › react tabs/manual-activation › required observable behavior 
+
+    Error: Required KRDS feature not implemented: tabs/manual-activation; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-tabs-manual-activation-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-tabs-manual-activation-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-tabs-manual-activation-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-tabs-manual-activation-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/leap-year › required observable behavior 
+
+    Error: Required KRDS feature not implemented: date-input/leap-year; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-leap-year-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-leap-year-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-leap-year-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-leap-year-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/ime › required observable behavior 
+
+    Error: Required KRDS feature not implemented: date-input/ime; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-ime-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-ime-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-ime-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-ime-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/timezone-invariance › required observable behavior 
+
+    Error: Required KRDS feature not implemented: date-input/timezone-invariance; native health passed
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      34 |     // Fail at the feature boundary immediately once healthy native control has been established.
+      35 |     const missing=page.getByRole('note').filter({hasText:`Component not implemented: ${fixture.componentId}/${fixture.caseId}`});
+    > 36 |     expect(await missing.count(),`Required KRDS feature not implemented: ${fixture.componentId}/${fixture.caseId}; native health passed`).toBe(0);
+         |                                                                                                                                           ^
+      37 |     if(fixture.componentId==='button') {
+      38 |       const button=page.getByRole('button',{name:'저장',exact:true});await expect(button).toBeDisabled();
+      39 |       await button.dispatchEvent('click');expect(await driver.readEvents()).toEqual([]);
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:36:139
+        at /Users/moreal/github/moreal/krds/tools/testing/contract.spec.ts:22:3
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-timezone-invariance-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-timezone-invariance-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-timezone-invariance-chromium/trace.zip
+    Usage:
+
+        yarn playwright show-trace test-results/t05/contract-1793321610236-76781-1a7bbc10/react/artifacts/contract-react-date-input-timezone-invariance-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9 failed
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react button/disabled ──────────────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react native-select/controlled ─────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react native-select/form-reset ─────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react modal/focus-return ───────────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react modal/trigger-removed ────────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react tabs/manual-activation ───────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/leap-year ─────────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/ime ───────────────────────
+    [chromium] › tools/testing/contract.spec.ts:12:29 › react date-input/timezone-invariance ───────
+Report: /Users/moreal/github/moreal/krds/test-results/t05/contract-1793321610236-76781-1a7bbc10/report.json

@@ -1,0 +1,24 @@
+/* KRDS-derived: frozen component.css lines 7496–7735; semantic guidance: specs/components/breadcrumb.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="breadcrumb"][data-krds-part="root"] { padding-block: var(--krds-padding-5); color: var(--krds-light-color-text-subtle); }
+[data-krds-component="breadcrumb"][data-krds-part="list"] { display: flex; align-items: baseline; flex-wrap: nowrap; white-space: nowrap; overflow-wrap: normal; gap: var(--krds-gap-2); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="breadcrumb"][data-krds-part="item"] { display: inline-flex; align-items: baseline; gap: var(--krds-gap-2); min-inline-size: 0; flex: none; }
+[data-krds-component="breadcrumb"][data-krds-part="link"], [data-krds-component="breadcrumb"][data-krds-part="home"] { display: inline-flex; align-items: center; min-block-size: var(--krds-size-height-5); padding: var(--krds-padding-2); color: inherit; text-decoration: underline; text-underline-offset: .2em; }
+[data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"] { font-weight: 700; text-decoration: none; }
+[data-krds-component="breadcrumb"][data-krds-part="separator"] { flex: none; padding-inline: var(--krds-padding-2); }
+[data-krds-component="breadcrumb"][data-krds-part="ellipsis"] { padding-inline: var(--krds-padding-2); }
+/* The host omits/collapses intermediate items according to its explicit viewport policy. */
+
+/* The renderer first reduces the path. Only the last remaining complete text
+ * may ellipsize visually; the underlying accessible name is never replaced. */
+[data-krds-component="breadcrumb"][data-krds-part="item"]:last-child { flex: 0 1 auto; }
+[data-krds-component="breadcrumb"][data-krds-part="home"], [data-krds-component="breadcrumb"][data-krds-part="separator"], [data-krds-component="breadcrumb"][data-krds-part="ellipsis"] { flex: none; white-space: nowrap; overflow-wrap: normal; }
+[data-krds-component="breadcrumb"][data-krds-part="item"]:last-child [data-krds-component="breadcrumb"][data-krds-part="link"] {
+  display: block;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  text-overflow: ellipsis;
+}

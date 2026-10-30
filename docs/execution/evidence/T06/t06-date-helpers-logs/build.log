@@ -1,0 +1,17 @@
+
+> nx run krds-contracts:build
+
+> node tools/yarn.mjs workspace @krds-native/contracts build:local
+
+(node:4562) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran target build for project krds-contracts
+
+
+  Run duration:      873ms
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     726ms (1 task)
+  Recoverable time:  <1ms

@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-language-switcher', title: 'KRDS/Catalog/LanguageSwitcher', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'language-switcher'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const TwoLanguageLink: Story = {name: "two-language-link", args: {caseId: "two-language-link"}};
+export const Dropdown: Story = {name: "dropdown", args: {caseId: "dropdown"}};
+export const SeparateService: Story = {name: "separate-service", args: {caseId: "separate-service"}};
+export const NarrowFooter: Story = {name: "narrow-footer", args: {caseId: "narrow-footer"}};
+export const LocalTranslationMock: Story = {name: "local-translation-mock", args: {caseId: "local-translation-mock"}};

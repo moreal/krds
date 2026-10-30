@@ -1,0 +1,33 @@
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (1.000667ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.120333ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.98175ms)
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (0.94275ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56.382042
+
+✖ failing tests:
+
+test at tools/tests/harness.test.mjs:47:1
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (0.94275ms)
+  AssertionError [ERR_ASSERTION]: production server is not implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/harness.test.mjs:49:10)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

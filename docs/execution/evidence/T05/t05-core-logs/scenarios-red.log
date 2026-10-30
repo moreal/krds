@@ -1,0 +1,49 @@
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (1.551459ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.145542ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.418958ms)
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (19.893834ms)
+✔ request guard refuses mutation methods even when URL is a build asset (0.545ms)
+✔ bridge refuses renderer objects instead of silently coercing them to semantic JSON (0.14225ms)
+✔ real CLI reports invalid selection and zero canonical cases nonzero without server startup (105.335042ms)
+✔ contract summaries distinguish feature RED after health from startup failure and zero execution (0.868042ms)
+✖ built shared scenario definitions and canonical manifests cover the same non-probe pilot IDs (0.913542ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 7
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 183.104666
+
+✖ failing tests:
+
+test at tools/tests/harness.test.mjs:47:1
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (19.893834ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at tools/tests/harness.test.mjs:93:1
+✖ built shared scenario definitions and canonical manifests cover the same non-probe pilot IDs (0.913542ms)
+  AssertionError [ERR_ASSERTION]: public pilot scenarios are not implemented
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/harness.test.mjs:95:10)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

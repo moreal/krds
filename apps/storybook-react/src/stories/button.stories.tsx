@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button } from '@unofficial-krds/react';
+const meta = { title: 'KRDS/Button', component: Button, args: { children: '저장' } } satisfies Meta<typeof Button>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Disabled: Story = { args: { disabled: true } };
+export const Default: Story = {};
+export const Small: Story = { args: { size: 'small', variant: 'secondary' } };
+export const Large: Story = { args: { size: 'large', variant: 'tertiary' } };
+export const Icon: Story = { args: { variant: 'icon', children: '+', 'aria-label': '추가' } };

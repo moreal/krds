@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-breadcrumb', title: 'KRDS/breadcrumb', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-breadcrumb--default" }, render: () => <CatalogStory componentId="breadcrumb" caseId="default"/> };
+export const DeepCollapsed: Story = { name: "deep-collapsed", parameters: { __id: "krds-breadcrumb--deep-collapsed" }, render: () => <CatalogStory componentId="breadcrumb" caseId="deep-collapsed"/> };
+export const MissingParentHref: Story = { name: "missing-parent-href", parameters: { __id: "krds-breadcrumb--missing-parent-href" }, render: () => <CatalogStory componentId="breadcrumb" caseId="missing-parent-href"/> };
+export const NarrowLongLabel: Story = { name: "narrow-long-label", parameters: { __id: "krds-breadcrumb--narrow-long-label" }, render: () => <CatalogStory componentId="breadcrumb" caseId="narrow-long-label"/> };
+export const ParentLastHeading: Story = { name: "parent-last-heading", parameters: { __id: "krds-breadcrumb--parent-last-heading" }, render: () => <CatalogStory componentId="breadcrumb" caseId="parent-last-heading"/> };

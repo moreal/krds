@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { daysInMonth, weekday, addDays, addMonths, calendarMonthGrid } from '../../../../packages/contracts/dist/index.js';
+assert.equal(process.versions.node, '24.18.0');
+assert.equal(daysInMonth(1900, 2), 28);
+assert.equal(daysInMonth(2000, 2), 29);
+assert.equal(weekday('0001-01-01'), 1);
+assert.equal(weekday({ year: 9999, month: 12, day: 31 }), 5);
+assert.equal(addDays('2024-02-29', 1), '2024-03-01');
+assert.equal(addDays('0001-01-01', -1), null);
+assert.equal(addMonths({ year: 2024, month: 1, day: 31 }, 1), '2024-02-29');
+assert.equal(addMonths('9999-12-31', 1), null);
+assert.throws(() => addDays('2024-01-01', Number.MAX_SAFE_INTEGER + 1), RangeError);
+assert.equal(calendarMonthGrid('2024-02-29').length, 42);
+assert.deepEqual(calendarMonthGrid('0001-01-01').slice(0, 3), [null, '0001-01-01', '0001-01-02']);
+assert.deepEqual(calendarMonthGrid('9999-12-31').slice(34), [null, null, null, null, null, null, null, null]);
+console.log('Built public ESM date helpers passed: month lengths, weekday, day/month arithmetic, strict errors and 42-cell boundary grids under Node 24.18.0.');

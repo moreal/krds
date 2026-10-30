@@ -1,0 +1,27 @@
+✔ native disabled pointer activation is suppressed; an active aria-disabled handler is rejected (572.302917ms)
+✔ semantic date is invariant in positive and negative UTC zones; timestamp shifts and mount events are rejected (5770.967958ms)
+✔ removed trigger restores exact alternate target; connected document body alone is rejected (5401.101166ms)
+✔ controlled native select suppresses prop events and emits one user change (344.741292ms)
+✔ uncontrolled native select resets user selection to its baseline without another change event (344.820334ms)
+✔ standalone native table calendar keeps selection tentative and confirms exactly once (986.304584ms)
+✔ calendar rejects uneven native body rows even when total cell count is correct (5284.65775ms)
+✔ calendar rejects missing, non-native and incorrectly typed date controls (15310.140583ms)
+✔ known component case typos are rejected before observer dispatch (0.422375ms)
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (1.494666ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.136791ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.407875ms)
+✔ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (39.1855ms)
+✔ request guard refuses mutation methods even when URL is a build asset (0.147ms)
+✔ bridge refuses renderer objects instead of silently coercing them to semantic JSON (0.136291ms)
+✔ real CLI reports invalid selection and zero canonical cases nonzero without server startup (114.032667ms)
+✔ contract summaries distinguish feature RED after health from startup failure and zero execution (0.689875ms)
+✔ built shared scenario definitions and canonical manifests cover the same non-probe pilot IDs (1.027208ms)
+✔ production request guard blocks negative fixture transports before external sending and rejects visible success (617.411708ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34611.229416

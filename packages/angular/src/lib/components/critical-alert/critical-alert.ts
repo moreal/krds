@@ -1,0 +1,6 @@
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, signal, inject, ElementRef, afterEveryRender, ViewChild, type OnInit, type OnChanges, type OnDestroy } from '@angular/core';
+import type * as C from '@unofficial-krds/contracts';
+import { ControlMode, usable, focusables, composing, KRDS_ENVIRONMENT } from '../../internal/behavior';
+
+@Component({selector: 'krds-critical-alert', standalone:true, changeDetection:ChangeDetectionStrategy.OnPush,  template: `<section role="banner" data-krds-component="critical-alert" data-krds-part="root" [attr.data-krds-state]="urgency"><span aria-hidden="true" data-krds-component="critical-alert" data-krds-part="icon">!</span><strong data-krds-component="critical-alert" data-krds-part="label">{{label}}</strong><p data-krds-component="critical-alert" data-krds-part="message">{{message}}</p>@if(details){<a data-krds-component="critical-alert" data-krds-part="link" [href]="details.href" [attr.title]="details.destinationTitle">{{details.label}}</a>}</section>`})
+export class CriticalAlert { @Input() urgency:C.CriticalAlertContract['urgency']='low';@Input() label='';@Input() message='';@Input() details:C.CriticalAlertContract['details']; }

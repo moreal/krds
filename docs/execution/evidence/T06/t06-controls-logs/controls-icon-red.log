@@ -1,0 +1,37 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/button.test.tsx (6 tests | 1 failed) 373ms
+   × decorative icons require an explicit accessible action name 92ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/button.test.tsx > decorative icons require an explicit accessible action name
+AssertionError: expected function to throw an error, but it didn't
+
+Failure screenshot:
+  - test-results/siheom-4450/tests/siheom/button.test.tsx/decorative-icons-require-an-explicit-accessible-action-name-1.png
+
+ ❯ toThrow tests/siheom/button.test.tsx:86:63
+     84| // A decorative glyph must never silently become the action's accessib…
+     85| test('decorative icons require an explicit accessible action name', ()…
+     86|   expect(() => render(() => <Button icon={<span>×</span>} />)).toThrow…
+       |                                                               ^
+     87|   expect(() => render(() => <Button><span aria-hidden="true">×</span><…
+     88|   const view = render(() => <Button aria-label="닫기" icon={<span>×</spa…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 15 passed (16)
+   Start at  10:46:38
+   Duration  1.20s (transform 0ms, setup 119ms, import 228ms, tests 405ms, environment 0ms)
+

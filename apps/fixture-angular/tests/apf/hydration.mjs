@@ -1,0 +1,32 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {join} from 'node:path';
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+import {serveProduction,root,browserPath} from '../../../../tools/testing/support.mjs';
+process.env.PLAYWRIGHT_BROWSERS_PATH??=browserPath;
+const evidence=process.env.KRDS_SSR_OUTPUT??join(root,'.superpowers/sdd/PLAN/t10-angular-logs/apf');
+const consumer=JSON.parse(await readFile(join(evidence,'full-catalog-consumer.json'),'utf8'));
+assert.equal(consumer.ssrPassed,true);
+const server=await serveProduction(join(consumer.directory,'dist/browser'));
+const browser=await chromium.launch();const results=[];
+try{
+ const context=await browser.newContext({locale:'ko-KR',timezoneId:'Asia/Seoul',viewport:{width:1280,height:900},reducedMotion:'reduce'});
+ const page=await context.newPage();const errors=[];page.on('pageerror',error=>errors.push(String(error)));
+ await page.addInitScript(()=>{const observer=new MutationObserver(()=>{const input=document.getElementById('public-person');if(input&&!window.__PUBLIC_SSR_PERSON__){window.__PUBLIC_SSR_PERSON__=input;observer.disconnect();}});observer.observe(document,{subtree:true,childList:true});});
+ await page.goto(server.origin,{waitUntil:'networkidle'});
+ await page.getByRole('status',{name:'Consumer health',exact:true}).waitFor();
+ assert.equal(await page.evaluate(()=>document.getElementById('public-person')===window.__PUBLIC_SSR_PERSON__),true,'SSR public input node must be reused');
+ assert.equal(await page.evaluate(()=>window.__CONSUMER_APPLICATION__.components[0].instance.entrypoints),true,'All54 secondary exports must identify the root classes');
+ await page.evaluate(()=>{const example=window.__CONSUMER_APPLICATION__.components[0].instance.publicExamples;window.__PUBLIC_CHANGES__=[];window.__PUBLIC_CHECKS__=[];example.person.valueChanges.subscribe(value=>window.__PUBLIC_CHANGES__.push(value));example.consent.valueChanges.subscribe(value=>window.__PUBLIC_CHECKS__.push(value));});
+ const person=page.getByRole('textbox',{name:'신청인',exact:true});await person.fill('수정한 신청인');
+ assert.deepEqual(await page.evaluate(()=>window.__PUBLIC_CHANGES__),['수정한 신청인']);assert.equal(await page.getByLabel('Public form value').textContent(),'수정한 신청인');
+ await page.getByRole('checkbox',{name:'동의',exact:true}).click();assert.deepEqual(await page.evaluate(()=>window.__PUBLIC_CHECKS__),[true]);
+ assert.equal(await person.evaluate(node=>new FormData(node.form).get('person')),'수정한 신청인');
+ await page.evaluate(()=>window.__CONSUMER_APPLICATION__.components[0].instance.publicExamples.person.disable());await page.waitForFunction(()=>document.getElementById('public-person')?.disabled===true);assert.equal(await person.isDisabled(),true);assert.equal(await person.evaluate(node=>new FormData(node.form).has('person')),false);
+ await page.evaluate(()=>window.__CONSUMER_APPLICATION__.components[0].instance.publicExamples.person.enable());await page.waitForFunction(()=>document.getElementById('public-person')?.disabled===false);await person.evaluate(node=>node.form.reset());await page.waitForFunction(()=>document.getElementById('public-person')?.value==='');assert.equal(await person.inputValue(),'');
+ await page.getByRole('button',{name:'Increment 0',exact:true}).click();await page.getByRole('button',{name:'Increment 1',exact:true}).waitFor();
+ await page.getByRole('button',{name:'Open confirmation',exact:true}).click();await page.getByRole('dialog',{name:'Confirmation',exact:true}).waitFor();await page.keyboard.press('Escape');await page.getByRole('dialog',{name:'Confirmation',exact:true}).waitFor({state:'hidden'});
+ assert.equal(await page.evaluate(()=>document.body.style.overflow),'');assert.deepEqual(errors,[]);
+ results.push({browser:'chromium',timezone:'Asia/Seoul',ssrNodeReused:true,entrypointIdentities:54,firstNativeTextEditNotifications:1,firstNativeCheckboxNotifications:1,formData:true,disabledOmission:true,reset:true,zonelessFirstClick:true,modalCleanup:true,runtimeErrors:errors,passed:true,coverageAwarded:false});await context.close();
+}finally{await browser.close();await server.close();await mkdir(evidence,{recursive:true});await writeFile(join(evidence,'full-catalog-hydration.json'),JSON.stringify({consumer,results},null,2)+'\n');}
+console.log(JSON.stringify(results,null,2));

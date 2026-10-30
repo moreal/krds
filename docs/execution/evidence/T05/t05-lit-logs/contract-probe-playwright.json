@@ -1,0 +1,206 @@
+{
+  "config": {
+    "argv": [
+      "/Users/moreal/.local/share/mise/installs/node/24.18.0/bin/node",
+      "/Users/moreal/github/moreal/krds/node_modules/.store/playwright-npm-1.64.1-cf8187a4bc/package/cli.js",
+      "test",
+      "--config",
+      "/Users/moreal/github/moreal/krds/playwright.config.ts",
+      "--project",
+      "chromium"
+    ],
+    "configFile": "/Users/moreal/github/moreal/krds/playwright.config.ts",
+    "rootDir": "/Users/moreal/github/moreal/krds/tools/testing",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321567701-76001-b63e32da/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321567701-76001-b63e32da/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321567701-76001-b63e32da/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": [
+          "contract.spec.ts"
+        ],
+        "timeout": 15000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321567701-76001-b63e32da/lit/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "snapshotDir": "/Users/moreal/github/moreal/krds/tools/testing",
+        "testIgnore": [],
+        "testMatch": "contract.spec.ts",
+        "timeout": 15000,
+        "use": {
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "locale": "ko-KR",
+          "timezoneId": "Asia/Seoul",
+          "colorScheme": "light",
+          "reducedMotion": "reduce",
+          "serviceWorkers": "block",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/moreal/github/moreal/krds/test-results/t05/contract-1793321567701-76001-b63e32da/lit/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "contract.spec.ts",
+      "file": "contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "lit __probe/native-state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 389,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "native server and control channel health",
+                      "duration": 105
+                    },
+                    {
+                      "title": "required observable behavior",
+                      "duration": 174
+                    }
+                  ],
+                  "startTime": "2026-10-30T00:52:48.703Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "native-health.json",
+                      "contentType": "application/json",
+                      "body": "eyJoZWFsdGh5Ijp0cnVlLCJmcmFtZXdvcmsiOiJsaXQiLCJmaXh0dXJlIjp7ImNvbXBvbmVudElkIjoiX19wcm9iZSIsImNhc2VJZCI6Im5hdGl2ZS1zdGF0ZSIsImNvdmVyYWdlIjpmYWxzZX19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90a218284ea7aefb289c-a5b063ded0711b12e8a8",
+          "file": "contract.spec.ts",
+          "line": 12,
+          "column": 29
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T00:52:48.430Z",
+    "duration": 825.2829999999999,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

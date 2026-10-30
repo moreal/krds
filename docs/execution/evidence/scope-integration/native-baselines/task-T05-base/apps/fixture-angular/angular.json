@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "projects": {
+    "fixture-angular": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "index": "index.html",
+            "tsConfig": "tsconfig.json",
+            "outputPath": {
+              "base": "dist",
+              "browser": ""
+            },
+            "polyfills": []
+          }
+        }
+      }
+    }
+  }
+}

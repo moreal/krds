@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-quantity-toggle',title:'KRDS/quantity-toggle',component:CatalogStory,args:{componentId:'quantity-toggle'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Default:Story={name:"default",args:{caseId:"default"}};
+export const Minimum:Story={name:"minimum",args:{caseId:"minimum"}};
+export const Maximum:Story={name:"maximum",args:{caseId:"maximum"}};
+export const Disabled:Story={name:"disabled",args:{caseId:"disabled"}};
+export const UnitLabel:Story={name:"unit-label",args:{caseId:"unit-label"}};
+export const FormReset:Story={name:"form-reset",args:{caseId:"form-reset"}};

@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-link', title: 'KRDS/Link', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Standalone: Story = { args: {"componentId": "link", "initialState": {"href": "/local/application", "label": "신청 안내", "appearance": "basic", "size": "medium", "underline": true}, "host": {"localOnly": true, "acceptChanges": true, "context": "standalone", "groupLinks": []}} };
+export const Inline: Story = { args: {"componentId": "link", "initialState": {"href": "/local/application", "label": "신청 안내", "appearance": "basic", "size": "medium", "underline": true}, "host": {"localOnly": true, "acceptChanges": true, "context": "inline", "groupLinks": []}} };
+export const Group: Story = { args: {"componentId": "link", "initialState": {"href": "/local/application", "label": "신청 안내", "appearance": "basic", "size": "medium", "underline": true}, "host": {"localOnly": true, "acceptChanges": true, "context": "group", "groupLinks": [{"id": "policy", "label": "이용약관", "href": "/local/policy"}]}} };
+export const External: Story = { args: {"componentId": "link", "initialState": {"href": "/local/external-specimen", "label": "외부 예제 안내", "appearance": "basic", "size": "medium", "underline": true, "target": "_blank", "rel": "noopener noreferrer"}, "host": {"localOnly": true, "acceptChanges": true, "context": "external", "groupLinks": []}} };
+export const Disabled: Story = { args: {"componentId": "link", "initialState": {"href": "/local/application", "label": "신청 안내", "appearance": "basic", "size": "medium", "underline": true, "disabled": true}, "host": {"localOnly": true, "acceptChanges": true, "context": "disabled", "groupLinks": []}} };
+export const MailtoTel: Story = { args: {"componentId": "link", "initialState": {"href": "mailto:local-example@example.invalid", "label": "예제 이메일", "appearance": "basic", "size": "medium", "underline": true}, "host": {"localOnly": true, "acceptChanges": true, "context": "mailto-tel", "groupLinks": []}} };

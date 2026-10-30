@@ -1,0 +1,111 @@
+{
+  "name": "@unofficial-krds/styles",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test src/build.test.ts",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "postcss": "8.5.32",
+    "typescript": "6.0.2"
+  },
+  "description": "Shared public-part CSS and dependency-free CSS strings for KRDS Native",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./all.css": "./dist/all.css",
+    "./base.css": "./dist/base.css",
+    "./reset.css": "./dist/reset.css",
+    "./fonts.css": "./dist/fonts.css",
+    "./button.css": "./dist/button.css",
+    "./native-select.css": "./dist/native-select.css",
+    "./modal.css": "./dist/modal.css",
+    "./tabs.css": "./dist/tabs.css",
+    "./date-input.css": "./dist/date-input.css",
+    "./calendar.css": "./dist/calendar.css",
+    "./lit": {
+      "types": "./dist/lit.d.ts",
+      "import": "./dist/lit.js"
+    },
+    "./parts.json": "./dist/parts.json",
+    "./masthead.css": "./dist/masthead.css",
+    "./identifier.css": "./dist/identifier.css",
+    "./header.css": "./dist/header.css",
+    "./footer.css": "./dist/footer.css",
+    "./skip-link.css": "./dist/skip-link.css",
+    "./main-menu.css": "./dist/main-menu.css",
+    "./breadcrumb.css": "./dist/breadcrumb.css",
+    "./side-navigation.css": "./dist/side-navigation.css",
+    "./in-page-navigation.css": "./dist/in-page-navigation.css",
+    "./pagination.css": "./dist/pagination.css",
+    "./structured-list.css": "./dist/structured-list.css",
+    "./critical-alert.css": "./dist/critical-alert.css",
+    "./disclosure.css": "./dist/disclosure.css",
+    "./badge.css": "./dist/badge.css",
+    "./accordion.css": "./dist/accordion.css",
+    "./image.css": "./dist/image.css",
+    "./carousel.css": "./dist/carousel.css",
+    "./table.css": "./dist/table.css",
+    "./text-list.css": "./dist/text-list.css",
+    "./favicon.css": "./dist/favicon.css",
+    "./link.css": "./dist/link.css",
+    "./fab.css": "./dist/fab.css",
+    "./radio-group.css": "./dist/radio-group.css",
+    "./checkbox.css": "./dist/checkbox.css",
+    "./tag.css": "./dist/tag.css",
+    "./switch.css": "./dist/switch.css",
+    "./step-indicator.css": "./dist/step-indicator.css",
+    "./spinner.css": "./dist/spinner.css",
+    "./help-panel.css": "./dist/help-panel.css",
+    "./tutorial-panel.css": "./dist/tutorial-panel.css",
+    "./contextual-help.css": "./dist/contextual-help.css",
+    "./coach-mark.css": "./dist/coach-mark.css",
+    "./tooltip.css": "./dist/tooltip.css",
+    "./tts.css": "./dist/tts.css",
+    "./textarea.css": "./dist/textarea.css",
+    "./text-input.css": "./dist/text-input.css",
+    "./file-upload.css": "./dist/file-upload.css",
+    "./language-switcher.css": "./dist/language-switcher.css",
+    "./resize.css": "./dist/resize.css",
+    "./accessible-media.css": "./dist/accessible-media.css",
+    "./visually-hidden.css": "./dist/visually-hidden.css",
+    "./range-slider.css": "./dist/range-slider.css",
+    "./back-button.css": "./dist/back-button.css",
+    "./bottom-sheet.css": "./dist/bottom-sheet.css",
+    "./quantity-toggle.css": "./dist/quantity-toggle.css",
+    "./toast.css": "./dist/toast.css",
+    "./snackbar.css": "./dist/snackbar.css",
+    "./tab-bar.css": "./dist/tab-bar.css"
+  },
+  "dependencies": {
+    "@unofficial-krds/tokens": "workspace:^"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/styles"
+  }
+}

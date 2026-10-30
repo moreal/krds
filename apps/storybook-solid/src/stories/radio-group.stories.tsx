@@ -1,0 +1,16 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-radio-group', title: 'KRDS/radio-group', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { name: "default", parameters: { __id: "krds-radio-group--default" }, render: () => <CatalogStory componentId="radio-group" caseId="default"/> };
+export const Chip: Story = { name: "chip", parameters: { __id: "krds-radio-group--chip" }, render: () => <CatalogStory componentId="radio-group" caseId="chip"/> };
+export const MediumLarge: Story = { name: "medium-large", parameters: { __id: "krds-radio-group--medium-large" }, render: () => <CatalogStory componentId="radio-group" caseId="medium-large"/> };
+export const UnselectedRequired: Story = { name: "unselected-required", parameters: { __id: "krds-radio-group--unselected-required" }, render: () => <CatalogStory componentId="radio-group" caseId="unselected-required"/> };
+export const DisabledOption: Story = { name: "disabled-option", parameters: { __id: "krds-radio-group--disabled-option" }, render: () => <CatalogStory componentId="radio-group" caseId="disabled-option"/> };
+export const FormReset: Story = { name: "form-reset", parameters: { __id: "krds-radio-group--form-reset" }, render: () => <CatalogStory componentId="radio-group" caseId="form-reset"/> };
+export const Controlled: Story = { name: "controlled", parameters: { __id: "krds-radio-group--controlled" }, render: () => <CatalogStory componentId="radio-group" caseId="controlled"/> };
+export const AllRadioSequentialAccess: Story = { name: "all-radio-sequential-access", parameters: { __id: "krds-radio-group--all-radio-sequential-access" }, render: () => <CatalogStory componentId="radio-group" caseId="all-radio-sequential-access"/> };
+export const ControlledNull: Story = { name: "controlled-null", parameters: { __id: "krds-radio-group--controlled-null" }, render: () => <CatalogStory componentId="radio-group" caseId="controlled-null"/> };
+export const ControlledClearRejected: Story = { name: "controlled-clear-rejected", parameters: { __id: "krds-radio-group--controlled-clear-rejected" }, render: () => <CatalogStory componentId="radio-group" caseId="controlled-clear-rejected"/> };
+export const EmptyStringOption: Story = { name: "empty-string-option", parameters: { __id: "krds-radio-group--empty-string-option" }, render: () => <CatalogStory componentId="radio-group" caseId="empty-string-option"/> };

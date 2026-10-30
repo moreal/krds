@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "probe": {
+    "componentId": "__probe",
+    "caseId": "native-state",
+    "coverage": false
+  },
+  "cases": [
+    {
+      "componentId": "button",
+      "caseId": "disabled",
+      "description": "disabled click emits no event",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "native-select",
+      "caseId": "controlled",
+      "description": "external value updates native select",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "native-select",
+      "caseId": "form-reset",
+      "description": "form reset restores initial value",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "modal",
+      "caseId": "focus-return",
+      "description": "closing dialog returns focus to trigger",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "modal",
+      "caseId": "trigger-removed",
+      "description": "closing after trigger removal focuses the alternate button 다음 작업",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "tabs",
+      "caseId": "manual-activation",
+      "description": "arrow changes focus without activation until Enter",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "date-input",
+      "caseId": "leap-year",
+      "description": "2023-02-29 invalid; 2024-02-29 valid",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "date-input",
+      "caseId": "ime",
+      "description": "composition preserves local Korean input",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    },
+    {
+      "componentId": "date-input",
+      "caseId": "timezone-invariance",
+      "description": "semantic date remains unchanged in Pacific/Kiritimati and America/Los_Angeles without unsolicited events",
+      "status": "required-unimplemented",
+      "environment": {
+        "locale": "ko-KR",
+        "direction": "ltr",
+        "colorMode": "light",
+        "nowIso": "2024-02-29T12:00:00.000Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "sourceFrozen": true,
+  "coverageAwarded": false,
+  "siheom": {
+    "framework": "vue",
+    "canonicalSelection": true,
+    "coverageAwarded": false,
+    "files": [
+      "button.test.ts",
+      "native-behavior.test.ts",
+      "pilots.test.ts"
+    ],
+    "adapter": [
+      "@siheom/vue",
+      "0.3.2"
+    ],
+    "commandExitCode": 0,
+    "commandLog": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793331213102-63846-e7ffc79d/vue-command.log",
+    "tests": 20,
+    "passed": 20,
+    "failed": 0,
+    "report": "/Users/moreal/github/moreal/krds/test-results/t05/siheom-1793331213102-63846-e7ffc79d/vue-vitest.json",
+    "status": "passed"
+  },
+  "storyReport": "/Users/moreal/github/moreal/krds/test-results/t05/stories-1793331231963-64006-4d1dadd7/report.json",
+  "storyStates": [
+    {
+      "id": "krds-button--disabled",
+      "status": "passed",
+      "axeViolations": 0,
+      "requestViolations": 0
+    },
+    {
+      "id": "krds-native-select--controlled",
+      "status": "passed",
+      "axeViolations": 0,
+      "requestViolations": 0
+    },
+    {
+      "id": "krds-modal--open",
+      "status": "passed",
+      "axeViolations": 0,
+      "requestViolations": 0
+    },
+    {
+      "id": "krds-tabs--manual",
+      "status": "passed",
+      "axeViolations": 0,
+      "requestViolations": 0
+    },
+    {
+      "id": "krds-date-input--invalid",
+      "status": "passed",
+      "axeViolations": 0,
+      "requestViolations": 0
+    },
+    {
+      "id": "krds-calendar--selected-range",
+      "status": "passed",
+      "axeViolations": 0,
+      "requestViolations": 0
+    }
+  ],
+  "visualModes": [
+    {
+      "variant": "normal",
+      "geometry": {
+        "viewport": 1280,
+        "page": 1280,
+        "focused": "medium",
+        "focusOutline": "solid",
+        "tableScroll": [
+          {
+            "client": 336,
+            "scroll": 336
+          }
+        ]
+      },
+      "axeViolations": 0,
+      "modalAxeViolations": 0,
+      "runtimeErrors": [],
+      "externalRequests": []
+    },
+    {
+      "variant": "narrow",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "focused": "medium",
+        "focusOutline": "solid",
+        "tableScroll": [
+          {
+            "client": 292,
+            "scroll": 328
+          }
+        ]
+      },
+      "axeViolations": 0,
+      "modalAxeViolations": 0,
+      "runtimeErrors": [],
+      "externalRequests": []
+    },
+    {
+      "variant": "zoom200",
+      "geometry": {
+        "viewport": 1280,
+        "page": 1280,
+        "focused": "medium",
+        "focusOutline": "solid",
+        "tableScroll": [
+          {
+            "client": 336,
+            "scroll": 336
+          }
+        ]
+      },
+      "axeViolations": 0,
+      "modalAxeViolations": 0,
+      "runtimeErrors": [],
+      "externalRequests": []
+    },
+    {
+      "variant": "text200",
+      "geometry": {
+        "viewport": 1280,
+        "page": 1280,
+        "focused": "medium",
+        "focusOutline": "solid",
+        "tableScroll": [
+          {
+            "client": 1075,
+            "scroll": 1075
+          }
+        ]
+      },
+      "axeViolations": 0,
+      "modalAxeViolations": 0,
+      "runtimeErrors": [],
+      "externalRequests": []
+    },
+    {
+      "variant": "forced-colors",
+      "geometry": {
+        "viewport": 1280,
+        "page": 1280,
+        "focused": "medium",
+        "focusOutline": "solid",
+        "tableScroll": [
+          {
+            "client": 336,
+            "scroll": 336
+          }
+        ]
+      },
+      "axeViolations": 0,
+      "modalAxeViolations": 0,
+      "runtimeErrors": [],
+      "externalRequests": []
+    }
+  ],
+  "nxTypecheck": "passed: one isolated task after root .nxignore correction",
+  "remainingGates": [
+    "independent review",
+    "PLAN 8.4/T10 full catalog and release gates",
+    "inherited Firefox profile startup blocker"
+  ],
+  "fixRound1": {
+    "scope": "two Important review findings; four source/test paths",
+    "focusedRed": {
+      "failed": 5,
+      "skipped": 18,
+      "unhandledErrors": 1,
+      "log": "fix1-red.log"
+    },
+    "focusedGreen": {
+      "passed": 5,
+      "skipped": 18,
+      "log": "fix1-green.log"
+    },
+    "finalAffectedGreen": {
+      "passed": 14,
+      "skipped": 10,
+      "log": "fix1-affected-green-final.log"
+    },
+    "build": "fix1-build-final.log",
+    "fixtureBuild": "fix1-fixture-build-final.log",
+    "packageTypecheck": "fix1-typecheck.log",
+    "fixtureTypecheck": "fix1-fixture-typecheck-final.log",
+    "sourceHashes": "fix1-source-hashes.json",
+    "fullVisualAndStoryGatesRepeated": false
+  }
+}

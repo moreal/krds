@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-switch', title: 'KRDS/Switch', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Medium: Story = { args: {"componentId": "switch", "initialState": {"label": "예제 알림 받기", "name": "notification", "defaultChecked": false, "size": "medium"}, "host": {"localOnly": true, "acceptChanges": true, "form": true, "helpText": "알림은 예제 화면에서만 변경됩니다."}} };
+export const Large: Story = { args: {"componentId": "switch", "initialState": {"label": "예제 알림 받기", "name": "notification", "defaultChecked": false, "size": "large"}, "host": {"localOnly": true, "acceptChanges": true, "form": true, "helpText": "알림은 예제 화면에서만 변경됩니다."}} };
+export const WithHelp: Story = { args: {"componentId": "switch", "initialState": {"label": "예제 알림 받기", "name": "notification", "defaultChecked": false, "size": "medium", "helpId": "notification-help"}, "host": {"localOnly": true, "acceptChanges": true, "form": true, "helpText": "알림은 예제 화면에서만 변경됩니다."}} };
+export const Disabled: Story = { args: {"componentId": "switch", "initialState": {"label": "예제 알림 받기", "name": "notification", "defaultChecked": false, "size": "medium", "disabled": true}, "host": {"localOnly": true, "acceptChanges": true, "form": true, "helpText": "알림은 예제 화면에서만 변경됩니다."}} };
+export const ControlledRejected: Story = { args: {"componentId": "switch", "initialState": {"label": "예제 알림 받기", "name": "notification", "size": "medium", "checked": false}, "host": {"localOnly": true, "acceptChanges": false, "form": true, "helpText": "알림은 예제 화면에서만 변경됩니다."}} };
+export const FormReset: Story = { args: {"componentId": "switch", "initialState": {"label": "예제 알림 받기", "name": "notification", "defaultChecked": false, "size": "medium"}, "host": {"localOnly": true, "acceptChanges": true, "form": true, "helpText": "알림은 예제 화면에서만 변경됩니다."}} };

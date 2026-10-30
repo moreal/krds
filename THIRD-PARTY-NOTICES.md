@@ -1,0 +1,247 @@
+# Third-party notices
+
+Generated from compliance/provenance.json. Public-package materials appear below. Web specimen assets and frozen documentation snapshots are mapped separately in compliance/distribution-provenance.json; each registered web app includes linked _legal notices and exact terms in its public/build output. The complete external development/runtime dependency inventory is separate from copied/bundled material.
+
+## KRDS resources/css/common/common.css
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/css/common/common.css](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/css/common/common.css)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/css/common/common.css
+- SHA-256: `92942dcc081821af80677645247ab4ebfedea219fac8729275368ee022e34aab`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Reworked common foundation as scoped public attributes with focus-visible, forced colors and reduced-motion rules. Separated explicit global reset and optional installed/local font selection; omitted remote assets, original scripts and global defaults from component entries. Plain CSS strings use identical source bytes. T06 native-renderer correction: decorate only nonempty errors so persistent empty polite regions remain visually empty. T10: preserved the six pilot/base source bytes; expanded scoped base embedding to all 54 web entries. Added source-backed dropdown/clipping adaptations for LanguageSwitcher, Resize and VisuallyHidden. Added inheritance-safe shadowStyles raw base/component/all strings without token defaults, reset or font opt-ins; ordinary CSS and existing styles strings retain their previous token/base semantics.
+- Local paths: `upstream/krds/raw/kit/resources/css/common/common.css`, `packages/styles/src/base.css`, `packages/styles/src/reset.css`, `packages/styles/src/fonts.css`, `packages/styles/dist/base.css`, `packages/styles/dist/reset.css`, `packages/styles/dist/fonts.css`, `packages/styles/dist/all.css`, `packages/styles/dist/button.css`, `packages/styles/dist/native-select.css`, `packages/styles/dist/modal.css`, `packages/styles/dist/tabs.css`, `packages/styles/dist/date-input.css`, `packages/styles/dist/calendar.css`, `packages/styles/dist/lit.js`, `packages/styles/src/components/language-switcher.css`, `packages/styles/src/components/resize.css`, `packages/styles/src/components/visually-hidden.css`, `packages/styles/dist/masthead.css`, `packages/styles/dist/identifier.css`, `packages/styles/dist/header.css`, `packages/styles/dist/footer.css`, `packages/styles/dist/skip-link.css`, `packages/styles/dist/main-menu.css`, `packages/styles/dist/breadcrumb.css`, `packages/styles/dist/side-navigation.css`, `packages/styles/dist/in-page-navigation.css`, `packages/styles/dist/pagination.css`, `packages/styles/dist/structured-list.css`, `packages/styles/dist/critical-alert.css`, `packages/styles/dist/disclosure.css`, `packages/styles/dist/badge.css`, `packages/styles/dist/accordion.css`, `packages/styles/dist/image.css`, `packages/styles/dist/carousel.css`, `packages/styles/dist/table.css`, `packages/styles/dist/text-list.css`, `packages/styles/dist/favicon.css`, `packages/styles/dist/link.css`, `packages/styles/dist/fab.css`, `packages/styles/dist/radio-group.css`, `packages/styles/dist/checkbox.css`, `packages/styles/dist/tag.css`, `packages/styles/dist/switch.css`, `packages/styles/dist/step-indicator.css`, `packages/styles/dist/spinner.css`, `packages/styles/dist/help-panel.css`, `packages/styles/dist/tutorial-panel.css`, `packages/styles/dist/contextual-help.css`, `packages/styles/dist/coach-mark.css`, `packages/styles/dist/tooltip.css`, `packages/styles/dist/tts.css`, `packages/styles/dist/textarea.css`, `packages/styles/dist/text-input.css`, `packages/styles/dist/file-upload.css`, `packages/styles/dist/language-switcher.css`, `packages/styles/dist/resize.css`, `packages/styles/dist/accessible-media.css`, `packages/styles/dist/visually-hidden.css`, `packages/styles/dist/range-slider.css`, `packages/styles/dist/back-button.css`, `packages/styles/dist/bottom-sheet.css`, `packages/styles/dist/quantity-toggle.css`, `packages/styles/dist/toast.css`, `packages/styles/dist/snackbar.css`, `packages/styles/dist/tab-bar.css`
+- Source note: No material-specific copyright notice in original; provider and policy evidence retained without inventing a file notice.
+- Source note: No conflicting file-level license header found. Original KRDS JavaScript is reference evidence only, never executed or distributed alongside adapter state control.
+
+## KRDS resources/css/component/component.css
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/css/component/component.css](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/css/component/component.css)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/css/component/component.css
+- SHA-256: `bc8df76feeb4012a6cb16a13f8702f95a67162e7d2dbf6aa5642be94daefa812`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Adapted six pilot styles to documented public component/part/state/variant/size attributes with native semantics left to adapters; added wrapping, constrained viewport layouts and non-color state cues. Omitted original DOM-specific classes, JavaScript, icon assets and unrelated components; generated ordinary CSS and identical runtime-free strings. Calendar in-range uses a dashed border rather than outline so the independent focus-visible outline and forced-colors Highlight focus cue remain available; range endpoints retain double borders. T06 native-renderer corrections: selected Calendar dates use Canvas/ButtonText with non-color state borders in forced colors; nonwrapping digits/weekday labels and intrinsic table width scroll locally under narrow text enlargement; native DateInput popup receives explicit centered viewport-bounded sizing. Calendar table scrolling is isolated in a private native wrapper with focus-ring padding, keeping month navigation and footer actions stationary; narrow headers use separate heading/navigation rows to avoid year-arrow overlap. T10: adapted additional frozen component sections to exact native component-specific public parts, per-part states and orthogonal presentation axes; all 54 web entries are exported, with an intentionally selector-free asset-only Favicon entry. Component-CSS derivative paths here include only sections actually used from this preserved kit CSS. HTML-only additions use independently authored functional/native geometry and token references rather than copied expressive HTML text/code. Added native control/error/progress/navigation/overlay layouts, noncolor state borders, wrapping, viewport/safe-area constraints, a source-matched indeterminate spinner loop with a stable reduced-motion alternative, and raw inheritance-safe shadowStyles strings. No original JavaScript, font, icon or image assets were copied. All six pilot CSS source bytes and prior generated standalone CSS inputs remain unchanged; new native visual/behavior acceptance remains pending. T10 review fix1: current Pagination matches aria-current=true/page and public current state, with narrow previous/next visual row before the number row while preserving DOM order. Desktop MainMenu submenus have an internal 70vh scroll bound. TabBar is fixed at the bottom with equal nonwrapping columns and complete wrapped labels. Breadcrumb preserves one reduced path row with permitted final-label visual ellipsis; FileUpload filename ellipsis retains complete underlying accessible text. Blocked noninteractive StepIndicator text uses the readable official subtle text token rather than disabled text, preserving dashed state borders and unchanged font size/opacity. Real native progress indicators are exempted from decorative ring rotation/borders; no progress values are fabricated. Additional actual native React contrast correction: regular Footer anchors inherit the readable official basic text/surface pair, retaining privacy-link primary emphasis, full names, underlines and separate focus outlines; no token value, font size or opacity was changed. Controller-authorized Carousel extension: the new bounded stop-intent part shares native playback-control presentation and disabled cues, with paused/disabled per-part states. It is conditionally rendered by the native owner only for multi-slide committed playback intent inhibited from actual advancement; CSS adds no intent, timer or label policy. The owned decorative TabBar current indicator is positioned out of flow over its existing current border, so it does not add a flex row or shift the active icon/label. Only its decorative glyph is clipped; complete navigation labels, native current semantics and the independent focus outline remain unchanged. Actual native complex-table correction: header cells, data cells and sort triggers preserve natural word boundaries with normal overflow wrapping/keep-all word breaking. This overrides the generic anywhere foundation for table text so meaningful long references retain intrinsic widths and trigger the real locally scrollable region/controls, rather than collapsing into vertical glyph columns. No arbitrary table minimum width, font reduction, content hiding or header-association change was introduced. Bounded post-acceptance layout/contrast correction: CoachMark popovers retain their nominal width but are capped by the actual parent content width as well as viewport gutters, avoiding nested TutorialPanel clipping without changing position, wrapping or overflow policy. HelpPanel topic-trigger visible text uses the official text-information token instead of the icon-information token. Noninteractive disabled-tone Badge labels use readable subtle text for outline/pastel and basic text on their unchanged filled surface, preserving tone fill/border and forced-color behavior. The independently authored Image figure uses a zero-minimum fractional grid track so its real image intrinsic width cannot enlarge the parent track. No token literal, font size, opacity, semantic relationship or native event behavior was changed. Bounded TabBar alignment correction: existing native control stacks align to their start, and all controls reserve the same transparent token-sized top border as the current control. Variable wrapped label lengths therefore do not stagger the icon row or label start. An actual forced-color follow-up showed that the browser painted all transparent spacers as LinkText; noncurrent/menu spacers therefore use the system Canvas border color in forced colors while keeping identical reserved geometry. Current color/marker, natural content sizing, complete labels, safe-area/fixed positioning and the independent focus outline remain unchanged; no fixed label height, truncation, font change or oversized box was introduced. Bounded MainMenu in Modal composition correction: mobile-content directly owned by the public Modal body participates in normal flow (static positioning, automatic inset and stacking, visible overflow); the existing Modal content remains the scroll and modal layer boundary. Standalone mobile-content retains its fixed inset layer. This prevents a zero-height body and mobile submenu overlay from covering the real Modal close button. Padding, colors, native modality and independent focus behavior remain unchanged. Bounded MainMenu enlarged-text reading-width correction: only mobile-content directly owned by the public Modal body resets its own and submenu native UL margins, padding and bullets, and removes repeated submenu inline padding. Existing block padding, complete labels, control padding/minimum sizes, semantic list structure, progressive context and accepted Modal-flow rule remain. Desktop menus and standalone mobile layers do not match these structural selectors. No text truncation, clipping, font change or service override was introduced. Bounded Link optional-underline correction: the existing public underline boolean can suppress decoration on an enabled Link through the explicitly registered data-krds-underline false presentation value. Default links remain underlined, and aria-disabled true links retain their existing line-through treatment. Only the Link underline true/false presentation metadata was added to the shared allowed-axis maps; no public prop/type, token, state, semantic part or other component changed.
+- Local paths: `upstream/krds/raw/kit/resources/css/component/component.css`, `packages/styles/src/components/button.css`, `packages/styles/src/components/native-select.css`, `packages/styles/src/components/modal.css`, `packages/styles/src/components/tabs.css`, `packages/styles/src/components/date-input.css`, `packages/styles/src/components/calendar.css`, `packages/styles/dist/all.css`, `packages/styles/dist/button.css`, `packages/styles/dist/native-select.css`, `packages/styles/dist/modal.css`, `packages/styles/dist/tabs.css`, `packages/styles/dist/date-input.css`, `packages/styles/dist/calendar.css`, `packages/styles/dist/lit.js`, `packages/styles/src/components/masthead.css`, `packages/styles/src/components/identifier.css`, `packages/styles/src/components/header.css`, `packages/styles/src/components/footer.css`, `packages/styles/src/components/skip-link.css`, `packages/styles/src/components/main-menu.css`, `packages/styles/src/components/breadcrumb.css`, `packages/styles/src/components/side-navigation.css`, `packages/styles/src/components/in-page-navigation.css`, `packages/styles/src/components/pagination.css`, `packages/styles/src/components/structured-list.css`, `packages/styles/src/components/critical-alert.css`, `packages/styles/src/components/disclosure.css`, `packages/styles/src/components/badge.css`, `packages/styles/src/components/accordion.css`, `packages/styles/src/components/carousel.css`, `packages/styles/src/components/table.css`, `packages/styles/src/components/text-list.css`, `packages/styles/src/components/link.css`, `packages/styles/src/components/radio-group.css`, `packages/styles/src/components/checkbox.css`, `packages/styles/src/components/tag.css`, `packages/styles/src/components/switch.css`, `packages/styles/src/components/step-indicator.css`, `packages/styles/src/components/spinner.css`, `packages/styles/src/components/help-panel.css`, `packages/styles/src/components/tutorial-panel.css`, `packages/styles/src/components/contextual-help.css`, `packages/styles/src/components/coach-mark.css`, `packages/styles/src/components/tooltip.css`, `packages/styles/src/components/textarea.css`, `packages/styles/src/components/text-input.css`, `packages/styles/src/components/file-upload.css`, `packages/styles/src/components/language-switcher.css`, `packages/styles/src/components/resize.css`, `packages/styles/src/components/bottom-sheet.css`, `packages/styles/dist/masthead.css`, `packages/styles/dist/identifier.css`, `packages/styles/dist/header.css`, `packages/styles/dist/footer.css`, `packages/styles/dist/skip-link.css`, `packages/styles/dist/main-menu.css`, `packages/styles/dist/breadcrumb.css`, `packages/styles/dist/side-navigation.css`, `packages/styles/dist/in-page-navigation.css`, `packages/styles/dist/pagination.css`, `packages/styles/dist/structured-list.css`, `packages/styles/dist/critical-alert.css`, `packages/styles/dist/disclosure.css`, `packages/styles/dist/badge.css`, `packages/styles/dist/accordion.css`, `packages/styles/dist/carousel.css`, `packages/styles/dist/table.css`, `packages/styles/dist/text-list.css`, `packages/styles/dist/link.css`, `packages/styles/dist/radio-group.css`, `packages/styles/dist/checkbox.css`, `packages/styles/dist/tag.css`, `packages/styles/dist/switch.css`, `packages/styles/dist/step-indicator.css`, `packages/styles/dist/spinner.css`, `packages/styles/dist/help-panel.css`, `packages/styles/dist/tutorial-panel.css`, `packages/styles/dist/contextual-help.css`, `packages/styles/dist/coach-mark.css`, `packages/styles/dist/tooltip.css`, `packages/styles/dist/textarea.css`, `packages/styles/dist/text-input.css`, `packages/styles/dist/file-upload.css`, `packages/styles/dist/language-switcher.css`, `packages/styles/dist/resize.css`, `packages/styles/dist/bottom-sheet.css`
+- Source note: No material-specific copyright notice in original; provider and policy evidence retained without inventing a file notice.
+- Source note: No conflicting file-level license header found. Original KRDS JavaScript is reference evidence only, never executed or distributed alongside adapter state control.
+
+## KRDS resources/css/token/krds_tokens.css
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/css/token/krds_tokens.css](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/css/token/krds_tokens.css)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/css/token/krds_tokens.css
+- SHA-256: `2e06b0d8393bca671edaab1ca0c7c42ded2ae03b3d03c6ede60f763a93d81569`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Preserved every original CSS custom-property name, literal value and alias in generated token declarations; added :host targeting for shadow roots and embedded declarations in component/all CSS and plain strings. No official token values re-estimated. T10: embedded the same unchanged 768-token declaration block once in all 54 ordinary component entries and all.css. Existing styles strings remain byte-identical to ordinary CSS. New shadowStyles deliberately contains no token defaults so ancestor theme overrides can inherit.
+- Local paths: `upstream/krds/raw/kit/resources/css/token/krds_tokens.css`, `packages/tokens/dist/tokens.css`, `packages/styles/dist/all.css`, `packages/styles/dist/button.css`, `packages/styles/dist/native-select.css`, `packages/styles/dist/modal.css`, `packages/styles/dist/tabs.css`, `packages/styles/dist/date-input.css`, `packages/styles/dist/calendar.css`, `packages/styles/dist/lit.js`, `packages/styles/dist/masthead.css`, `packages/styles/dist/identifier.css`, `packages/styles/dist/header.css`, `packages/styles/dist/footer.css`, `packages/styles/dist/skip-link.css`, `packages/styles/dist/main-menu.css`, `packages/styles/dist/breadcrumb.css`, `packages/styles/dist/side-navigation.css`, `packages/styles/dist/in-page-navigation.css`, `packages/styles/dist/pagination.css`, `packages/styles/dist/structured-list.css`, `packages/styles/dist/critical-alert.css`, `packages/styles/dist/disclosure.css`, `packages/styles/dist/badge.css`, `packages/styles/dist/accordion.css`, `packages/styles/dist/image.css`, `packages/styles/dist/carousel.css`, `packages/styles/dist/table.css`, `packages/styles/dist/text-list.css`, `packages/styles/dist/favicon.css`, `packages/styles/dist/link.css`, `packages/styles/dist/fab.css`, `packages/styles/dist/radio-group.css`, `packages/styles/dist/checkbox.css`, `packages/styles/dist/tag.css`, `packages/styles/dist/switch.css`, `packages/styles/dist/step-indicator.css`, `packages/styles/dist/spinner.css`, `packages/styles/dist/help-panel.css`, `packages/styles/dist/tutorial-panel.css`, `packages/styles/dist/contextual-help.css`, `packages/styles/dist/coach-mark.css`, `packages/styles/dist/tooltip.css`, `packages/styles/dist/tts.css`, `packages/styles/dist/textarea.css`, `packages/styles/dist/text-input.css`, `packages/styles/dist/file-upload.css`, `packages/styles/dist/language-switcher.css`, `packages/styles/dist/resize.css`, `packages/styles/dist/accessible-media.css`, `packages/styles/dist/visually-hidden.css`, `packages/styles/dist/range-slider.css`, `packages/styles/dist/back-button.css`, `packages/styles/dist/bottom-sheet.css`, `packages/styles/dist/quantity-toggle.css`, `packages/styles/dist/toast.css`, `packages/styles/dist/snackbar.css`, `packages/styles/dist/tab-bar.css`
+- Source note: No material-specific copyright notice in original; provider and policy evidence retained without inventing a file notice.
+- Source note: No conflicting file-level license header found. Original KRDS JavaScript is reference evidence only, never executed or distributed alongside adapter state control.
+
+## KRDS tokens/figma_token.json
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/tokens/figma_token.json](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/tokens/figma_token.json)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: tokens/figma_token.json
+- SHA-256: `89efe7199e8d440a52d9db9c0ba3109efa024a291152ca78aea94d2bf288b625`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Mapped every original Figma token key and raw alias/value to its transformed key and CSS output name; preserved original JSON unchanged as first local path.
+- Local paths: `upstream/krds/raw/kit/tokens/figma_token.json`, `packages/tokens/src/source-map.json`, `packages/tokens/dist/source-map.json`
+- Source note: No material-specific copyright notice in original; provider and policy evidence retained without inventing a file notice.
+- Source note: No conflicting file-level license header found. Original KRDS JavaScript is reference evidence only, never executed or distributed alongside adapter state control.
+
+## KRDS tokens/transformed_tokens.json
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/tokens/transformed_tokens.json](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/tokens/transformed_tokens.json)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: tokens/transformed_tokens.json
+- SHA-256: `5eb255d593ec0b0fa41207223df1288f97295b632dfac50629e60e4e4dc0a52e`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Normalized all 768 original keyed tokens without changing numeric/string values, raw aliases, types or descriptions; generated resolved records, CSS aliases, original-key map and public type declarations; embedded generated token CSS in standalone component/all CSS and identical plain CSS strings. T10: extended the unchanged normalized 768-token output embedding to all 54 ordinary component entries and all.css/styles strings. Raw shadowStyles omits token defaults. No original token key, value, alias, type or description was changed.
+- Local paths: `upstream/krds/raw/kit/tokens/transformed_tokens.json`, `packages/tokens/src/source-map.json`, `packages/tokens/dist/source-map.json`, `packages/tokens/dist/tokens.json`, `packages/tokens/dist/tokens.css`, `packages/tokens/dist/index.js`, `packages/tokens/dist/index.d.ts`, `packages/styles/dist/all.css`, `packages/styles/dist/button.css`, `packages/styles/dist/native-select.css`, `packages/styles/dist/modal.css`, `packages/styles/dist/tabs.css`, `packages/styles/dist/date-input.css`, `packages/styles/dist/calendar.css`, `packages/styles/dist/lit.js`, `packages/styles/dist/masthead.css`, `packages/styles/dist/identifier.css`, `packages/styles/dist/header.css`, `packages/styles/dist/footer.css`, `packages/styles/dist/skip-link.css`, `packages/styles/dist/main-menu.css`, `packages/styles/dist/breadcrumb.css`, `packages/styles/dist/side-navigation.css`, `packages/styles/dist/in-page-navigation.css`, `packages/styles/dist/pagination.css`, `packages/styles/dist/structured-list.css`, `packages/styles/dist/critical-alert.css`, `packages/styles/dist/disclosure.css`, `packages/styles/dist/badge.css`, `packages/styles/dist/accordion.css`, `packages/styles/dist/image.css`, `packages/styles/dist/carousel.css`, `packages/styles/dist/table.css`, `packages/styles/dist/text-list.css`, `packages/styles/dist/favicon.css`, `packages/styles/dist/link.css`, `packages/styles/dist/fab.css`, `packages/styles/dist/radio-group.css`, `packages/styles/dist/checkbox.css`, `packages/styles/dist/tag.css`, `packages/styles/dist/switch.css`, `packages/styles/dist/step-indicator.css`, `packages/styles/dist/spinner.css`, `packages/styles/dist/help-panel.css`, `packages/styles/dist/tutorial-panel.css`, `packages/styles/dist/contextual-help.css`, `packages/styles/dist/coach-mark.css`, `packages/styles/dist/tooltip.css`, `packages/styles/dist/tts.css`, `packages/styles/dist/textarea.css`, `packages/styles/dist/text-input.css`, `packages/styles/dist/file-upload.css`, `packages/styles/dist/language-switcher.css`, `packages/styles/dist/resize.css`, `packages/styles/dist/accessible-media.css`, `packages/styles/dist/visually-hidden.css`, `packages/styles/dist/range-slider.css`, `packages/styles/dist/back-button.css`, `packages/styles/dist/bottom-sheet.css`, `packages/styles/dist/quantity-toggle.css`, `packages/styles/dist/toast.css`, `packages/styles/dist/snackbar.css`, `packages/styles/dist/tab-bar.css`
+- Source note: No material-specific copyright notice in original; provider and policy evidence retained without inventing a file notice.
+- Source note: No conflicting file-level license header found. Original KRDS JavaScript is reference evidence only, never executed or distributed alongside adapter state control.
+
+## PretendardGOV-Regular
+
+- Source: [https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Regular.woff2](https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Regular.woff2)
+- Version/commit: 7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae
+- Upstream path: packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Regular.woff2
+- SHA-256: `0707d52d277a20d807f472559940e7f8022e528ac4c680b827287938d4db1fbe`
+- Conditions: OFL-1.1; [preserved full text](LICENSES/Pretendard-GOV-OFL-1.1.txt)
+- Copyright: Copyright (c) 2021, Kil Hyung-jin (https://github.com/orioncactus/pretendard),
+with Reserved Font Name 'Pretendard GOV'.
+
+Copyright 2014-2021 Adobe (http://www.adobe.com/),
+with Reserved Font Name 'Source'.
+Source is a trademark of Adobe in the United States and/or other countries.
+
+Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter),
+with Reserved Font Name 'Inter'.
+
+Copyright 2021 The M+ FONTS Project Authors (https://github.com/coz-m/MPLUS_FONTS),
+with Reserved Font Name 'M PLUS 1'.
+- Changes: Original retained without changes.
+- Local paths: `packages/fonts/fonts/PretendardGOV-Regular.woff2`
+- Source note: Official complete WOFF2 file; no local subset, conversion, rename or metadata edit.
+- Source note: Reserved Font Names preserved verbatim in the original license: Pretendard GOV; Source; Inter; M PLUS 1.
+- Source note: Official package manifest reports version 1.3.9; versionOrCommit pins the exact repository commit containing this unmodified full font file.
+
+## PretendardGOV-Medium
+
+- Source: [https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Medium.woff2](https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Medium.woff2)
+- Version/commit: 7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae
+- Upstream path: packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Medium.woff2
+- SHA-256: `0c72b4e0ab4d89a0b2bba4d92690d0a36609392611a1d2c366f842552627897d`
+- Conditions: OFL-1.1; [preserved full text](LICENSES/Pretendard-GOV-OFL-1.1.txt)
+- Copyright: Copyright (c) 2021, Kil Hyung-jin (https://github.com/orioncactus/pretendard),
+with Reserved Font Name 'Pretendard GOV'.
+
+Copyright 2014-2021 Adobe (http://www.adobe.com/),
+with Reserved Font Name 'Source'.
+Source is a trademark of Adobe in the United States and/or other countries.
+
+Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter),
+with Reserved Font Name 'Inter'.
+
+Copyright 2021 The M+ FONTS Project Authors (https://github.com/coz-m/MPLUS_FONTS),
+with Reserved Font Name 'M PLUS 1'.
+- Changes: Original retained without changes.
+- Local paths: `packages/fonts/fonts/PretendardGOV-Medium.woff2`
+- Source note: Official complete WOFF2 file; no local subset, conversion, rename or metadata edit.
+- Source note: Reserved Font Names preserved verbatim in the original license: Pretendard GOV; Source; Inter; M PLUS 1.
+- Source note: Official package manifest reports version 1.3.9; versionOrCommit pins the exact repository commit containing this unmodified full font file.
+
+## PretendardGOV-Bold
+
+- Source: [https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Bold.woff2](https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Bold.woff2)
+- Version/commit: 7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae
+- Upstream path: packages/pretendard-gov/dist/web/static/woff2/PretendardGOV-Bold.woff2
+- SHA-256: `d78ab7c3708fe868dcc5e3696281771b3cdc6a891de571f93331f98840d8941b`
+- Conditions: OFL-1.1; [preserved full text](LICENSES/Pretendard-GOV-OFL-1.1.txt)
+- Copyright: Copyright (c) 2021, Kil Hyung-jin (https://github.com/orioncactus/pretendard),
+with Reserved Font Name 'Pretendard GOV'.
+
+Copyright 2014-2021 Adobe (http://www.adobe.com/),
+with Reserved Font Name 'Source'.
+Source is a trademark of Adobe in the United States and/or other countries.
+
+Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter),
+with Reserved Font Name 'Inter'.
+
+Copyright 2021 The M+ FONTS Project Authors (https://github.com/coz-m/MPLUS_FONTS),
+with Reserved Font Name 'M PLUS 1'.
+- Changes: Original retained without changes.
+- Local paths: `packages/fonts/fonts/PretendardGOV-Bold.woff2`
+- Source note: Official complete WOFF2 file; no local subset, conversion, rename or metadata edit.
+- Source note: Reserved Font Names preserved verbatim in the original license: Pretendard GOV; Source; Inter; M PLUS 1.
+- Source note: Official package manifest reports version 1.3.9; versionOrCommit pins the exact repository commit containing this unmodified full font file.
+
+## KRDS ico_close
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_close.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_close.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_close.svg
+- SHA-256: `091dd9cd65eb8225a48b3a6ce8e07f73205255b0a8c0b7b2bac709ebddee8ef9`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_close.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.
+
+## KRDS ico_sch
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_sch.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_sch.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_sch.svg
+- SHA-256: `eabbebc5f9883328bf94d3f1400f3d1e0363cb11e2c9ec7d8affe9d73ab4a5bb`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_sch.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.
+
+## KRDS ico_plus
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_plus.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_plus.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_plus.svg
+- SHA-256: `91fee18a7adaff5b7a028c0a09edfe02872c3825ac56739d2b9a6795a3d9de2a`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_plus.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.
+
+## KRDS ico_calendar
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_calendar.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_calendar.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_calendar.svg
+- SHA-256: `a1cc9a1912319ae5e933081fc78e45ff45dd889c49d95510e386a85005d06e28`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_calendar.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.
+
+## KRDS ico_download
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_download.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_download.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_download.svg
+- SHA-256: `1061727deafed961259c224f354d2e2027ab1934f4b16dbadf26eaa8d85a38fc`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_download.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.
+
+## KRDS ico_information
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_information.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_information.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_information.svg
+- SHA-256: `dcb6a65a3d832ddcaf72a716b185879539d331dd3ec9caff355f0a76c2e79dce`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_information.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.
+
+## KRDS ico_angle
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_angle.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_angle.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_angle.svg
+- SHA-256: `ad9a32ee7d4c2237eb4ceae7f19afb64bd5343211e19d13fc2f234f54463729f`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_angle.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.
+
+## KRDS ico_checkbox_checked
+
+- Source: [https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_checkbox_checked.svg](https://raw.githubusercontent.com/KRDS-uiux/krds-uiux/d6bb184c823e4757f05807ea4646a23e3133b6e6/resources/img/component/icon/ico_checkbox_checked.svg)
+- Version/commit: d6bb184c823e4757f05807ea4646a23e3133b6e6
+- Upstream path: resources/img/component/icon/ico_checkbox_checked.svg
+- SHA-256: `ff2e5f7f5a8d4e7f4f02c58531e3f1127c586b74b568b95f14a3c673cc06ba4b`
+- Conditions: LicenseRef-KRDS-KOGL-Type-1; [preserved full text](LICENSES/KRDS-copyright-en.html)
+- Copyright: No material-specific copyright notice provided by original; no holder/year inferred.
+- Changes: Original retained without changes.
+- Local paths: `packages/assets/icons/ico_checkbox_checked.svg`
+- Source note: Generic UI icon individually inspected: no institutional identity, third-party brand, script, remote reference or conflicting rights header.
+- Source note: No material-specific copyright line or year in SVG; attribution identifies KRDS and the official providing institution without inventing a file copyright.

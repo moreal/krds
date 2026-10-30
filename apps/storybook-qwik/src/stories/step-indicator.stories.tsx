@@ -1,0 +1,10 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-step-indicator',title:'KRDS/step-indicator',component:CatalogStory,args:{componentId:'step-indicator'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Sequential:Story={name:"sequential",args:{caseId:"sequential"}};
+export const Adaptive:Story={name:"adaptive",args:{caseId:"adaptive"}};
+export const Compact:Story={name:"compact",args:{caseId:"compact"}};
+export const OptionalSkip:Story={name:"optional-skip",args:{caseId:"optional-skip"}};
+export const Completed:Story={name:"completed",args:{caseId:"completed"}};

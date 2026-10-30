@@ -1,0 +1,18 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-coach-mark',title:'KRDS/coach-mark',component:CatalogStory,args:{componentId:'coach-mark'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Single:Story={name:"single",args:{caseId:"single"}};
+export const MultiStep:Story={name:"multi-step",args:{caseId:"multi-step"}};
+export const ActionGated:Story={name:"action-gated",args:{caseId:"action-gated"}};
+export const OffscreenTarget:Story={name:"offscreen-target",args:{caseId:"offscreen-target"}};
+export const MissingTarget:Story={name:"missing-target",args:{caseId:"missing-target"}};
+export const RouteChange:Story={name:"route-change",args:{caseId:"route-change"}};
+export const ReducedMotion:Story={name:"reduced-motion",args:{caseId:"reduced-motion"}};
+export const TargetReadingOrder:Story={name:"target-reading-order",args:{caseId:"target-reading-order"}};
+export const ActionNativeControl:Story={name:"action-native-control",args:{caseId:"action-native-control"}};
+export const StopHiddenPanel:Story={name:"stop-hidden-panel",args:{caseId:"stop-hidden-panel"}};
+export const StopHelpTab:Story={name:"stop-help-tab",args:{caseId:"stop-help-tab"}};
+export const StopFallbackRejected:Story={name:"stop-fallback-rejected",args:{caseId:"stop-fallback-rejected"}};
+export const StopPartialNarrowHelp:Story={name:"stop-partial-narrow-help",args:{caseId:"stop-partial-narrow-help"}};

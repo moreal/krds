@@ -1,0 +1,12 @@
+Loading svelte-check in workspace: /Users/moreal/github/moreal/krds/apps/storybook-svelte
+Getting Svelte diagnostics...
+
+/Users/moreal/github/moreal/krds/apps/storybook-svelte/src/stories/probe.stories.ts:11:27
+Error: This expression is not constructable.
+  Type 'BaseAnnotations<SvelteRenderer<Component<$$ComponentProps, {}, "">>, { count?: number | undefined; label?: string | undefined; disabled?: boolean | undefined; loading?: boolean | undefined; errorMessage?: string | undefined; }> & { ...; } & { ...; }' has no construct signatures. 
+  const fixture: StoryStateCase | undefined = infrastructureStoryCases.find((item) => item.id === id);
+  if (!fixture) throw new Error(`Missing infrastructure story state: ${id}`);
+  return fixture.state;
+
+====================================
+svelte-check found 1 error and 0 warnings in 1 file

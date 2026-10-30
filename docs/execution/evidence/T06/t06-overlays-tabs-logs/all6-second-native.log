@@ -1,0 +1,79 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/date-input.test.tsx (12 tests | 1 failed) 204ms
+   × popup Escape closes only the topmost dialog and ignores composing Escape 126ms
+ ❯ |chromium| tests/siheom/tabs.test.tsx (8 tests | 1 failed) 227ms
+   × active panels with only hidden content controls remain reachable by Tab 155ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/date-input.test.tsx > popup Escape closes only the topmost dialog and ignores composing Escape
+TestingLibraryElementError: Unable to find an accessible element with the role "dialog" and name "바깥 대화상자"
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body
+  style=""
+>
+  
+  
+
+
+  <div />
+</body>
+
+Failure screenshot:
+  - test-results/siheom-5749/tests/siheom/date-input.test.tsx/popup-Escape-closes-only-the-topmost-dialog-and-ignores-composing-Escape-1.png
+
+ ❯ Object.getElementError ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:338:18
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1197:24
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1176:16
+ ❯ ../../node_modules/.store/@testing-library-dom-npm-10.4.2-3edc020ffc/package/dist/@testing-library/dom.esm.js:1219:18
+ ❯ getByRole tests/siheom/date-input.test.tsx:168:16
+    166|   await Promise.resolve();
+    167|   expect(screen.queryByRole('dialog',{name:'날짜 선택'})).toBeNull();
+    168|   expect(screen.getByRole('dialog',{name:'바깥 대화상자'})).toBeVisible();
+       |                ^
+    169| });
+    170|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > active panels with only hidden content controls remain reachable by Tab
+AssertionError: expected -1 to be +0 // Object.is equality
+
+Failure screenshot:
+  - test-results/siheom-5749/tests/siheom/tabs.test.tsx/active-panels-with-only-hidden-content-controls-remain-reachable-by-Tab-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 0[39m
+[31m+ -1[39m
+
+ ❯ toBe tests/siheom/tabs.test.tsx:76:77
+     74|   const Tabs = tabs();
+     75|   render(() => <Tabs label="빈 컨트롤" items={[{ value: 'hidden', label: '…
+     76|   expect(document.querySelector<HTMLElement>('[role="tabpanel"]')!.tab…
+       |                                                                             ^
+     77| });
+     78|
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  2 failed | 51 passed (53)
+   Start at  10:50:50
+   Duration  1.97s (transform 0ms, setup 664ms, import 1.55s, tests 886ms, environment 0ms)
+

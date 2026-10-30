@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "parentBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "supplementalBaselineId": "t11-pattern-guidance-2026-10-30",
+  "policy": "Separate live website snapshot, not proven equivalent to kit 1.1.0. Reference evidence only; do not execute source JavaScript or redistribute source assets as independent MIT.",
+  "attempts": [
+    {
+      "transport": "urllib-default",
+      "results": [
+        {
+          "url": "https://www.krds.go.kr/html/site/global/global_summary.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/global/global_03.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/global/global_04.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/global/global_07.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/global/global_08.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/global/global_10.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/service/service_04_05.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/service/service_04_06.html",
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "url": "https://www.krds.go.kr/html/site/service/service_02_03.html",
+          "error": "HTTP Error 400: Bad Request"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.krds.go.kr/html/site/global/global_03.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.188226+00:00",
+      "localPath": "docs/patterns/evidence/global_03.html",
+      "bytes": 69170,
+      "sha256": "e65c933813ba7204feb8fe4baf0447a530533a6781888ceefca14cde1a4c3fd1",
+      "transport": "curl Mozilla/5.0"
+    },
+    {
+      "url": "https://www.krds.go.kr/html/site/global/global_04.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.276637+00:00",
+      "localPath": "docs/patterns/evidence/global_04.html",
+      "bytes": 67936,
+      "sha256": "3448f7bbc670a2314e8b21cd9bf50cdf807e3f71471d717745ecb9a0383390d2",
+      "transport": "curl Mozilla/5.0"
+    },
+    {
+      "url": "https://www.krds.go.kr/html/site/global/global_07.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.360826+00:00",
+      "localPath": "docs/patterns/evidence/global_07.html",
+      "bytes": 60767,
+      "sha256": "2e3226613b577aa2c393a4e88c61f48f5be342076df97d40fae18fa97f2f7a7c",
+      "transport": "curl Mozilla/5.0"
+    },
+    {
+      "url": "https://www.krds.go.kr/html/site/global/global_08.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.432189+00:00",
+      "localPath": "docs/patterns/evidence/global_08.html",
+      "bytes": 86512,
+      "sha256": "0c14715d58c29e6266bbc5e024f88073ae3531a0ef3fa15f8d1be4fdc946d607",
+      "transport": "curl Mozilla/5.0"
+    },
+    {
+      "url": "https://www.krds.go.kr/html/site/global/global_10.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.524926+00:00",
+      "localPath": "docs/patterns/evidence/global_10.html",
+      "bytes": 88485,
+      "sha256": "c9fffec80a3f3049341b5f60ad1d2b10c7a84c0df95fcc90c022bda7f66abae9",
+      "transport": "curl Mozilla/5.0"
+    },
+    {
+      "url": "https://www.krds.go.kr/html/site/service/service_04_05.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.608850+00:00",
+      "localPath": "docs/patterns/evidence/service_04_05.html",
+      "bytes": 68976,
+      "sha256": "f79037668f57aeeae205fc0f09928d17a3c1630ed28c6186e69d0808406a5d76",
+      "transport": "curl Mozilla/5.0"
+    },
+    {
+      "url": "https://www.krds.go.kr/html/site/service/service_04_06.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.693782+00:00",
+      "localPath": "docs/patterns/evidence/service_04_06.html",
+      "bytes": 56817,
+      "sha256": "14388b752aa7a838b6e29e26e19290ddf65c08e4b98fb18ced7190e6c477abff",
+      "transport": "curl Mozilla/5.0"
+    },
+    {
+      "url": "https://www.krds.go.kr/html/site/service/service_02_04.html",
+      "status": "retrieved",
+      "retrievedAt": "2026-10-30T04:41:31.787168+00:00",
+      "localPath": "docs/patterns/evidence/service_02_04.html",
+      "bytes": 63411,
+      "sha256": "f61eee2af5275549fd80ad631c61ac536ad15d69b7ecfee0058b183a954d8e8c",
+      "transport": "curl Mozilla/5.0"
+    }
+  ],
+  "frozenAt": "2026-10-30T04:41:31.787168+00:00",
+  "rights": {
+    "provider": "행정안전부 / Ministry of the Interior and Safety — KRDS",
+    "independentMitApplies": false,
+    "sourcePolicyRecords": [
+      "upstream/krds/manifest.json",
+      "ATTRIBUTION.md",
+      "THIRD-PARTY-NOTICES.md"
+    ],
+    "use": "Frozen primary-source reference evidence; no source JavaScript/assets imported into a native renderer."
+  }
+}

@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-structured-list', title: 'KRDS/Catalog/StructuredList', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'structured-list'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const List: Story = {name: "list", args: {caseId: "list"}};
+export const Table: Story = {name: "table", args: {caseId: "table"}};
+export const LocalFilterSort: Story = {name: "local-filter-sort", args: {caseId: "local-filter-sort"}};
+export const SelectionActions: Story = {name: "selection-actions", args: {caseId: "selection-actions"}};
+export const MissingMetadata: Story = {name: "missing-metadata", args: {caseId: "missing-metadata"}};
+export const Empty: Story = {name: "empty", args: {caseId: "empty"}};
+export const Narrow: Story = {name: "narrow", args: {caseId: "narrow"}};

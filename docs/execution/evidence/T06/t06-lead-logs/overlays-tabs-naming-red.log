@@ -1,0 +1,150 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/modal.test.tsx (12 tests | 2 failed) 247ms
+   × modal cannot reuse backdrop ownership across two different pointer gestures 127ms
+   × modal rejects blank primitive titles and blank explicit icon labels 81ms
+ ❯ |chromium| tests/siheom/tabs.test.tsx (11 tests | 3 failed) 366ms
+   × an abandoned tab pointer gesture cannot suppress a later rejected keyboard retry 123ms
+   × tab panels retain their context stop when text precedes a later or nested control 84ms
+   × tabs reject blank primitive names and ignore blank naming overrides when another valid name exists 83ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal cannot reuse backdrop ownership across two different pointer gestures
+AssertionError: expected [ { open: false } ] to deeply equal []
+
+Failure screenshot:
+  - test-results/siheom-14043/tests/siheom/modal.test.tsx/modal-cannot-reuse-backdrop-ownership-across-two-different-pointer-gestures-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   {[39m
+[31m+     "open": false,[39m
+[31m+   },[39m
+[31m+ ][39m
+
+ ❯ toEqual tests/siheom/modal.test.tsx:127:17
+    125|   pointer(backdrop, 'pointerdown'); pointer(dialog(), 'pointerup');
+    126|   pointer(dialog(), 'pointerdown'); pointer(backdrop, 'pointerup');
+    127|   expect(events).toEqual([]); expect(dialog()).not.toBeNull();
+       |                 ^
+    128|   pointer(backdrop, 'pointerdown'); pointer(backdrop, 'pointerup'); ex…
+    129| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |chromium| tests/siheom/modal.test.tsx > modal rejects blank primitive titles and blank explicit icon labels
+AssertionError: expected function to throw an error, but it didn't
+
+Failure screenshot:
+  - test-results/siheom-14043/tests/siheom/modal.test.tsx/modal-rejects-blank-primitive-titles-and-blank-explicit-icon-labels-1.png
+
+ ❯ toThrow tests/siheom/modal.test.tsx:133:94
+    131| test('modal rejects blank primitive titles and blank explicit icon lab…
+    132|   const Modal = modal();
+    133|   for (const title of ['', '   ', false]) expect(() => render(() => <M…
+       |                                                                                              ^
+    134|   for (const closeLabel of ['', '   ']) expect(() => render(() => <Mod…
+    135| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > an abandoned tab pointer gesture cannot suppress a later rejected keyboard retry
+AssertionError: expected [ { value: 'second' } ] to deeply equal [ { value: 'second' }, …(1) ]
+
+Failure screenshot:
+  - test-results/siheom-14043/tests/siheom/tabs.test.tsx/an-abandoned-tab-pointer-gesture-cannot-suppress-a-later-rejected-keyboard-retry-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[2m    {[22m
+[2m      "value": "second",[22m
+[2m    },[22m
+[32m-   {[39m
+[32m-     "value": "second",[39m
+[32m-   },[39m
+[2m  ][22m
+
+ ❯ toEqual tests/siheom/tabs.test.tsx:86:49
+     84|   document.getElementById('outside-pointer')!.dispatchEvent(new Pointe…
+     85|   all()[2]!.focus(); expect(events).toEqual([{ value: 'second' }]);
+     86|   await user.keyboard('{Enter}'); expect(events).toEqual([{ value: 'se…
+       |                                                 ^
+     87|   await user.keyboard(' '); expect(events).toHaveLength(3);
+     88| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tab panels retain their context stop when text precedes a later or nested control
+AssertionError: expected -1 to be +0 // Object.is equality
+
+Failure screenshot:
+  - test-results/siheom-14043/tests/siheom/tabs.test.tsx/tab-panels-retain-their-context-stop-when-text-precedes-a-later-or-nested-control-1.png
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 0[39m
+[31m+ -1[39m
+
+ ❯ toBe tests/siheom/tabs.test.tsx:99:30
+     97|   </>);
+     98|   const panels = view.getAllByRole('tabpanel');
+     99|   expect(panels[0]!.tabIndex).toBe(0); expect(panels[1]!.hasAttribute(…
+       |                              ^
+    100|   const user = userEvent.setup(); view.getByRole('tab', { name: '본문' }…
+    101| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |chromium| tests/siheom/tabs.test.tsx > tabs reject blank primitive names and ignore blank naming overrides when another valid name exists
+AssertionError: expected function to throw an error, but it didn't
+
+Failure screenshot:
+  - test-results/siheom-14043/tests/siheom/tabs.test.tsx/tabs-reject-blank-primitive-names-and-ignore-blank-naming-overrides-when-another-valid-name-exists-1.png
+
+ ❯ toThrow tests/siheom/tabs.test.tsx:105:109
+    103| test('tabs reject blank primitive names and ignore blank naming overri…
+    104|   const Tabs = tabs();
+    105|   for (const label of ['', '   ', false]) expect(() => render(() => <T…
+       |                                                                                                             ^
+    106|   expect(() => render(() => <Tabs aria-label="   " items={items()} />)…
+    107|   expect(() => render(() => <Tabs aria-labelledby="   " items={items()…
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:302:11
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:1903:26
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2326:20
+ ❯ runWithCancel ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2323:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2305:20
+ ❯ runWithTimeout ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2272:10
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=f6c7cf45:2955:64
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  5 failed | 18 passed (23)
+   Start at  11:09:26
+   Duration  1.36s (transform 0ms, setup 143ms, import 309ms, tests 613ms, environment 0ms)
+

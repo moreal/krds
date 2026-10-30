@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:77801) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/native-probe.spec.ts:15:1 › native controlled state, disabled interaction, focus and event history (232ms)
+  ✓  2 tests/native-probe.spec.ts:44:1 › all canonical pilot routes stay healthy while declaring missing components (625ms)
+  ✓  3 tests/native-probe.spec.ts:60:1 › route navigation resets state and page lifecycle disposes the native root (168ms)
+
+  3 passed (1.5s)

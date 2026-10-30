@@ -1,0 +1,12 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-bottom-sheet',title:'KRDS/bottom-sheet',component:CatalogStory,args:{componentId:'bottom-sheet'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Modal:Story={name:"modal",args:{caseId:"modal"}};
+export const ShortContent:Story={name:"short-content",args:{caseId:"short-content"}};
+export const SelectCancel:Story={name:"select-cancel",args:{caseId:"select-cancel"}};
+export const DragClose:Story={name:"drag-close",args:{caseId:"drag-close"}};
+export const NarrowKeyboard:Story={name:"narrow-keyboard",args:{caseId:"narrow-keyboard"}};
+export const RemovedOpener:Story={name:"removed-opener",args:{caseId:"removed-opener"}};
+export const ReducedMotion:Story={name:"reduced-motion",args:{caseId:"reduced-motion"}};

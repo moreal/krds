@@ -1,0 +1,190 @@
+✖ review 1 chromium: non-first native selection exists before hydration and reuses the select (221.053ms)
+✖ review 2 chromium: range validity and native submission focus target the affected endpoint (223.126625ms)
+✖ review 3 chromium: explicit naming reaches semantic controls across actual host roots (181.30225ms)
+✖ review 4 chromium: an inert outer shadow host forces the supplied usable return target (207.086125ms)
+✖ review 1 webkit: non-first native selection exists before hydration and reuses the select (662.141083ms)
+✖ review 2 webkit: range validity and native submission focus target the affected endpoint (587.5185ms)
+✖ review 3 webkit: explicit naming reaches semantic controls across actual host roots (579.304333ms)
+✖ review 4 webkit: an inert outer shadow host forces the supplied usable return target (591.074667ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3570.198583
+
+✖ failing tests:
+
+test at tests/contract/review-fix1.test.mjs:15:3
+✖ review 1 chromium: non-first native selection exists before hydration and reuses the select (221.053ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'seoul',
+  +   'seoul'
+  -   'busan',
+  -   'busan'
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:27:14)
+      at runNextTicks (node:internal/process/task_queues:65:5)
+      at process.processImmediate (node:internal/timers:472:9)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'seoul', 'seoul' ],
+    expected: [ 'busan', 'busan' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/contract/review-fix1.test.mjs:43:3
+✖ review 2 chromium: range validity and native submission focus target the affected endpoint (223.126625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      changes: [],
+      endInvalid: 'true',
+      endValid: false,
+  +   focused: 'control',
+  +   startInvalid: 'true',
+  +   startValid: false,
+  -   focused: 'end',
+  -   startInvalid: null,
+  -   startValid: true,
+      submits: 0,
+      values: [
+        [
+          'period.start',
+          '2024-02-29'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:69:16)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { startValid: false, endValid: false, startInvalid: 'true', endInvalid: 'true', focused: 'control', values: [ [Array], [Array] ], changes: [], submits: 0 },
+    expected: { startValid: true, endValid: false, startInvalid: null, endInvalid: 'true', focused: 'end', values: [ [Array], [Array] ], changes: [], submits: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/contract/review-fix1.test.mjs:74:3
+✖ review 3 chromium: explicit naming reaches semantic controls across actual host roots (181.30225ms)
+  page.evaluate: TypeError: Invalid Tabs options or missing label
+      at Fr.willUpdate (http://127.0.0.1:62031/assets/dist-Bm4ILKek.js:369:3083)
+      at Fr.performUpdate (http://127.0.0.1:62031/assets/dist-Bm4ILKek.js:1:6226)
+      at Fr.scheduleUpdate (http://127.0.0.1:62031/assets/dist-Bm4ILKek.js:1:5819)
+      at Fr._$EP (http://127.0.0.1:62031/assets/dist-Bm4ILKek.js:1:5727)
+      at async eval (eval at evaluate (:370:30), <anonymous>:11:37)
+      at async <anonymous>:396:30
+      at TestContext.<anonymous> (/Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:82:18) {
+    log: []
+  }
+
+test at tests/contract/review-fix1.test.mjs:104:3
+✖ review 4 chromium: an inert outer shadow host forces the supplied usable return target (207.086125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:120:14)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/contract/review-fix1.test.mjs:15:3
+✖ review 1 webkit: non-first native selection exists before hydration and reuses the select (662.141083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'seoul',
+  +   'seoul'
+  -   'busan',
+  -   'busan'
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:27:14)
+      at runNextTicks (node:internal/process/task_queues:65:5)
+      at process.processImmediate (node:internal/timers:472:9)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'seoul', 'seoul' ],
+    expected: [ 'busan', 'busan' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/contract/review-fix1.test.mjs:43:3
+✖ review 2 webkit: range validity and native submission focus target the affected endpoint (587.5185ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      changes: [],
+      endInvalid: 'true',
+      endValid: false,
+  +   focused: 'control',
+  +   startInvalid: 'true',
+  +   startValid: false,
+  -   focused: 'end',
+  -   startInvalid: null,
+  -   startValid: true,
+      submits: 0,
+      values: [
+        [
+          'period.start',
+          '2024-02-29'
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:69:16)
+      at runNextTicks (node:internal/process/task_queues:65:5)
+      at process.processImmediate (node:internal/timers:472:9)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { startValid: false, endValid: false, startInvalid: 'true', endInvalid: 'true', focused: 'control', values: [ [Array], [Array] ], changes: [], submits: 0 },
+    expected: { startValid: true, endValid: false, startInvalid: null, endInvalid: 'true', focused: 'end', values: [ [Array], [Array] ], changes: [], submits: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/contract/review-fix1.test.mjs:74:3
+✖ review 3 webkit: explicit naming reaches semantic controls across actual host roots (579.304333ms)
+  page.evaluate: TypeError: Invalid Tabs options or missing label
+      at TestContext.<anonymous> (/Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:82:18) {
+    log: []
+  }
+
+test at tests/contract/review-fix1.test.mjs:104:3
+✖ review 4 webkit: an inert outer shadow host forces the supplied usable return target (591.074667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/apps/fixture-lit/tests/contract/review-fix1.test.mjs:120:14)
+      at runNextTicks (node:internal/process/task_queues:65:5)
+      at process.processImmediate (node:internal/timers:472:9)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,11 @@
+.pattern-page { max-width: 72rem; margin-inline: auto; padding: 1.5rem; overflow-wrap: anywhere; }
+.pattern-notice { padding: 1rem; border: 1px solid currentColor; margin-block: 1rem 2rem; }
+.pattern-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1.5rem; }
+.pattern-page form > [data-krds-component] { margin-block: 1rem; }
+.pattern-consent-section { min-height: 24rem; padding-block: 2rem; border-bottom: 1px solid currentColor; }
+.pattern-layout { min-height: 100dvh; display: flex; flex-direction: column; }
+.pattern-layout-body { flex: 1; display: grid; grid-template-columns: 16rem minmax(0,1fr); gap: 2rem; padding: 1.5rem; }
+.pattern-layout-body main { min-width: 0; max-width: none; padding: 0; margin: 0; }
+.pattern-layout [data-krds-component="header"][data-krds-part="identity"] img,.pattern-layout [data-krds-component="footer"][data-krds-part="logo"] { max-width: 14rem; height: auto; }
+@media(max-width: 48rem) {.pattern-page {padding:1rem;}.pattern-layout-body {display:block;padding:1rem;}.pattern-layout-body > [data-krds-component="side-navigation"] {display:none;}}
+@media(forced-colors:active) {.pattern-notice,.pattern-consent-section {border-color:CanvasText;}}

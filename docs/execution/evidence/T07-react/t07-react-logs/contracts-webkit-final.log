@@ -1,0 +1,18 @@
+
+Running 10 tests using 1 worker
+
+(node:60460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [webkit] › tools/testing/contract.spec.ts:13:29 › react button/disabled (484ms)
+  ✓   2 [webkit] › tools/testing/contract.spec.ts:13:29 › react native-select/controlled (346ms)
+  ✓   3 [webkit] › tools/testing/contract.spec.ts:13:29 › react native-select/form-reset (352ms)
+  ✓   4 [webkit] › tools/testing/contract.spec.ts:13:29 › react modal/focus-return (348ms)
+  ✓   5 [webkit] › tools/testing/contract.spec.ts:13:29 › react modal/trigger-removed (397ms)
+  ✓   6 [webkit] › tools/testing/contract.spec.ts:13:29 › react tabs/manual-activation (326ms)
+  ✓   7 [webkit] › tools/testing/contract.spec.ts:13:29 › react date-input/leap-year (368ms)
+  ✓   8 [webkit] › tools/testing/contract.spec.ts:13:29 › react date-input/ime (320ms)
+  ✓   9 [webkit] › tools/testing/contract.spec.ts:13:29 › react date-input/timezone-invariance (1.1s)
+  ✓  10 [webkit] › tools/testing/contract.spec.ts:13:29 › react calendar/selection-confirm (872ms)
+
+  10 passed (5.4s)
+Report: /Users/moreal/github/moreal/krds/test-results/t05/contract-1793330811786-60455-5581ff1e/report.json

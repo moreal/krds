@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-contextual-help', title: 'KRDS/contextual-help', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Information: Story = { name: "information", parameters: { __id: "krds-contextual-help--information" }, render: () => <CatalogStory componentId="contextual-help" caseId="information"/> };
+export const Help: Story = { name: "help", parameters: { __id: "krds-contextual-help--help" }, render: () => <CatalogStory componentId="contextual-help" caseId="help"/> };
+export const SixPlacements: Story = { name: "six-placements", parameters: { __id: "krds-contextual-help--six-placements" }, render: () => <CatalogStory componentId="contextual-help" caseId="six-placements"/> };
+export const InteractiveLink: Story = { name: "interactive-link", parameters: { __id: "krds-contextual-help--interactive-link" }, render: () => <CatalogStory componentId="contextual-help" caseId="interactive-link"/> };
+export const NarrowEdge: Story = { name: "narrow-edge", parameters: { __id: "krds-contextual-help--narrow-edge" }, render: () => <CatalogStory componentId="contextual-help" caseId="narrow-edge"/> };
+export const RemovedTrigger: Story = { name: "removed-trigger", parameters: { __id: "krds-contextual-help--removed-trigger" }, render: () => <CatalogStory componentId="contextual-help" caseId="removed-trigger"/> };
+export const ControlledRejected: Story = { name: "controlled-rejected", parameters: { __id: "krds-contextual-help--controlled-rejected" }, render: () => <CatalogStory componentId="contextual-help" caseId="controlled-rejected"/> };

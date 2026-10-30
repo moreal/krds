@@ -1,0 +1,28 @@
+{
+  "framework": "svelte",
+  "publicPackageConsumption": true,
+  "sourceCount": 54,
+  "selectedSvelte": "5.57.3",
+  "node": "24.18.0",
+  "yarn": "4.14.1",
+  "commands": [
+    {
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typecheck",
+      "exitCode": 0,
+      "log": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
+      "observed": "0 errors; 1 initial-value-capture warning in unrelated CatalogExamples.svelte"
+    },
+    {
+      "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte exec vite build --ssr src/catalog-consumer-ssr.ts --outDir dist/catalog-consumer-ssr",
+      "exitCode": 0,
+      "log": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log"
+    },
+    {
+      "command": "node tools/yarn.mjs exec node apps/fixture-svelte/dist/catalog-consumer-ssr/catalog-consumer-ssr.js",
+      "exitCode": 0,
+      "log": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log"
+    }
+  ],
+  "coverageAwarded": false,
+  "hydrationEvidence": false
+}

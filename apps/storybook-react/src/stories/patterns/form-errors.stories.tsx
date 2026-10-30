@@ -1,0 +1,11 @@
+import type {Meta,StoryObj} from '@storybook/react-vite';
+import {PatternPresentation} from '../../../../../packages/react/examples/patterns/PatternPresentation';
+import {snapshot} from './PatternStories';
+const meta={title:'KRDS Pattern/Form Errors',component:PatternPresentation} satisfies Meta<typeof PatternPresentation>;
+export default meta;
+type Story=StoryObj<typeof meta>;
+export const Editing:Story=snapshot('form-errors','editing');
+export const Invalid:Story=snapshot('form-errors','invalid');
+export const Loading:Story=snapshot('form-errors','loading');
+export const Error:Story=snapshot('form-errors','error');
+export const Success:Story=snapshot('form-errors','success');

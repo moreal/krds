@@ -1,0 +1,84 @@
+--- a/apps/fixture-react/tests/siheom/calendar.test.tsx
++++ b/apps/fixture-react/tests/siheom/calendar.test.tsx
+@@ -341,3 +341,64 @@
+   expect(input.value).toBe('2024-02-28');
+   expect(changes).toEqual([{ value: '2024-02-29' }]);
+ });
++
++test.each(['single', 'range'] as const)('review2 a new %s popup Confirm retries a rejected value exactly once', async mode => {
++  const changes: unknown[] = [];
++  const parent = mode === 'single' ? '2024-02-28' : { start: '2024-02-10', end: '2024-02-12' };
++  const requested = mode === 'single' ? '2024-02-29' : { start: '2024-02-20', end: '2024-02-22' };
++  render(mode === 'single'
++    ? <DateInput label="Retry date" value={parent as string} onValueChange={detail => changes.push(detail)} />
++    : <DateInput mode="range" label="Retry range" value={parent as { start: string; end: string }} onValueChange={detail => changes.push(detail)} />);
++  for (let attempt = 1; attempt <= 2; attempt++) {
++    await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
++    if (mode === 'single') {
++      await userEvent.click(screen.getByRole('button', { name: '2024년 2월 29일 목요일' }));
++    } else {
++      await userEvent.click(screen.getByRole('button', { name: '2024년 2월 20일 화요일' }));
++      await userEvent.click(screen.getByRole('button', { name: '2024년 2월 22일 목요일' }));
++    }
++    await userEvent.click(screen.getByRole('button', { name: '확인' }));
++    expect(screen.queryByRole('dialog')).toBeNull();
++    expect(changes).toEqual(Array.from({ length: attempt }, () => ({ value: requested })));
++    const fields = screen.getAllByRole('textbox') as HTMLInputElement[];
++    expect(fields.map(field => field.value)).toEqual(mode === 'single' ? [parent] : ['2024-02-10', '2024-02-12']);
++  }
++});
++
++test.each(['single', 'range'] as const)('review2 confirming authoritative %s parent value supersedes rejected intent before submit', async mode => {
++  const changes: unknown[] = [];
++  const parent = mode === 'single' ? '2024-02-28' : { start: '2024-02-10', end: '2024-02-12' };
++  const requested = mode === 'single' ? '2024-02-29' : { start: '2024-02-20', end: '2024-02-22' };
++  render(<form id="review2-confirm-form">
++    {mode === 'single'
++      ? <DateInput label="Current date" name="current" value={parent as string} onValueChange={detail => changes.push(detail)} />
++      : <DateInput mode="range" label="Current range" name="current" value={parent as { start: string; end: string }} onValueChange={detail => changes.push(detail)} />}
++    <Button type="submit">Submit confirmed parent</Button>
++  </form>);
++  const form = document.getElementById('review2-confirm-form') as HTMLFormElement;
++  const submissions: Array<{ blocked: boolean; data: Array<[string, FormDataEntryValue]> }> = [];
++  form.addEventListener('submit', event => {
++    submissions.push({ blocked: event.defaultPrevented, data: [...new FormData(form)] });
++    event.preventDefault();
++  });
++  await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
++  if (mode === 'single') {
++    await userEvent.click(screen.getByRole('button', { name: '2024년 2월 29일 목요일' }));
++  } else {
++    await userEvent.click(screen.getByRole('button', { name: '2024년 2월 20일 화요일' }));
++    await userEvent.click(screen.getByRole('button', { name: '2024년 2월 22일 목요일' }));
++  }
++  await userEvent.click(screen.getByRole('button', { name: '확인' }));
++  expect(changes).toEqual([{ value: requested }]);
++  // Reopening initializes the popup from authoritative A, not rejected B.
++  await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
++  await userEvent.click(screen.getByRole('button', { name: '확인' }));
++  expect(screen.queryByRole('dialog')).toBeNull();
++  expect(changes).toEqual([{ value: requested }]);
++  await userEvent.click(screen.getByRole('button', { name: 'Submit confirmed parent' }));
++  expect(submissions).toEqual([{
++    blocked: false,
++    data: mode === 'single' ? [['current', parent]] : [['current.start', '2024-02-10'], ['current.end', '2024-02-12']],
++  }]);
++  expect(changes).toEqual([{ value: requested }]);
++});
+--- a/packages/react/src/components/date-input/index.tsx
++++ b/packages/react/src/components/date-input/index.tsx
+@@ -112,7 +112,13 @@
+       const first = dialog.querySelector<HTMLButtonElement>('button[data-date]:not(:disabled):not([data-krds-state~="outside-month"])');
+       (selected ?? first ?? dialog.querySelector<HTMLButtonElement>('button:not(:disabled)') ?? dialog).focus();
+     }}>
+-      {open && <Calendar {...dateMode} min={props.min} max={props.max} referenceDate={props.referenceDate} today={props.today} locale={locale} translations={{ ...props.calendarTranslations, startLabel: t.startLabel, endLabel: t.endLabel }} required={props.required} onConfirm={({ value }) => { commitValue(value); setOpen(false); }} onCancel={() => setOpen(false)} />}
++      {open && <Calendar {...dateMode} min={props.min} max={props.max} referenceDate={props.referenceDate} today={props.today} locale={locale} translations={{ ...props.calendarTranslations, startLabel: t.startLabel, endLabel: t.endLabel }} required={props.required} onConfirm={({ value }) => {
++        // Confirm is a new deliberate action, unlike a following blur/submit phase.
++        // It supersedes an earlier rejected intent, including a retry of that value.
++        pending.current = null;
++        commitValue(value);
++        setOpen(false);
++      }} onCancel={() => setOpen(false)} />}
+     </Modal>
+   </fieldset>;
+ }

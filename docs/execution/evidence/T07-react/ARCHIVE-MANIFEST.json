@@ -1,0 +1,1627 @@
+{
+  "schemaVersion": 1,
+  "scope": "Approved T07 React six-pilot frozen archive; live T10 source is outside this archive",
+  "sourceHashing": "Only frozen copied/generated archival bytes were hashed",
+  "entries": [
+    {
+      "path": "README.md",
+      "source": "archive-generated concise index",
+      "bytes": 3017,
+      "sha256": "d2d204ecb3bb519bf3bbf081629446889ddff38816f1501abe8670e33cd9464d"
+    },
+    {
+      "path": "initial-native.diff",
+      "source": "derived verbatim from archived task-T07-react-review-package.md diff blocks",
+      "bytes": 93731,
+      "sha256": "040d898076e17ed61d649746427c0e7917dfabeda21959ff8b2d444dd5df0757"
+    },
+    {
+      "path": "t07-react-logs/contracts-chromium-final.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/contracts-chromium-final.log",
+      "bytes": 1350,
+      "sha256": "79404c3a4ec34715a815cf177fca1659a8b49bf8bf26953fba3efe54dea14d5d"
+    },
+    {
+      "path": "t07-react-logs/contracts-webkit-final.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/contracts-webkit-final.log",
+      "bytes": 1329,
+      "sha256": "473b73c38fb0074a2cf188838dc800e7a24c132da8b6ea4d20d01b3a2a9b6de4"
+    },
+    {
+      "path": "t07-react-logs/contracts-webkit.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/contracts-webkit.log",
+      "bytes": 4612,
+      "sha256": "6a824fda07fa22ee6b8cbed5d6bc28a6bbaf00e17be133e356cae7cea1a3ba75"
+    },
+    {
+      "path": "t07-react-logs/final-summary.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/final-summary.json",
+      "bytes": 683,
+      "sha256": "f9efbd9af76ef30761a273b4692f4ebe0ac9a87fc19acd5b58b8e49d27f2f578"
+    },
+    {
+      "path": "t07-react-logs/fixture-build.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/fixture-build.log",
+      "bytes": 347,
+      "sha256": "e17c14efd3c1b422b5504d3dc8ca85951b2dedc3dd0f2ad86827bf7d536f3361"
+    },
+    {
+      "path": "t07-react-logs/fixture-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/fixture-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/node-version.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/node-version.log",
+      "bytes": 9,
+      "sha256": "8f9258d5e9da5443c42966a661aee09292b49d1c64e718dcc5f72976500bac48"
+    },
+    {
+      "path": "t07-react-logs/package-build.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/package-build.log",
+      "bytes": 650,
+      "sha256": "6f06218fd8c66cdd4154343a8ff90c3e69d78f91ea035e35dae2533f0613f01d"
+    },
+    {
+      "path": "t07-react-logs/package-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/package-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/review1-contract-final.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-contract-final.log",
+      "bytes": 1350,
+      "sha256": "257a5381da19ca25be65771b3c92ec516c8793bd3f6a587b1b6701404421f6cd"
+    },
+    {
+      "path": "t07-react-logs/review1-diff.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-diff.json",
+      "bytes": 2073,
+      "sha256": "06c58a2bc19ce37237a48821372ccfaca90d64e9514b8655b86997e1a9dac4d7"
+    },
+    {
+      "path": "t07-react-logs/review1-final-summary.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-final-summary.json",
+      "bytes": 295,
+      "sha256": "f33f9aaf5ae5693af6798ba2b7d5212107e931702691ae62b5a6f27c1df0bbc8"
+    },
+    {
+      "path": "t07-react-logs/review1-first-green.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-first-green.json",
+      "bytes": 8994,
+      "sha256": "9afa30eb559a964467d63ea6978906017121dfe15f8713eab1626ae63a5dcff2"
+    },
+    {
+      "path": "t07-react-logs/review1-fixture-build.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-fixture-build.log",
+      "bytes": 348,
+      "sha256": "ee532611fb9e5dea3099024adc49a133d47c48aaf9bd99b571cf20395875537a"
+    },
+    {
+      "path": "t07-react-logs/review1-fixture-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-fixture-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/review1-green.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-green.json",
+      "bytes": 9844,
+      "sha256": "9dacd92befc2e1feadac09ec1d766158bb5a8ece69d75d5bd089cc55b037b538"
+    },
+    {
+      "path": "t07-react-logs/review1-native-final.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-native-final.log",
+      "bytes": 233,
+      "sha256": "68d33b0946f20b620cda92694c06ae589b11e0a250d10f6fdb3c4fb78940cff5"
+    },
+    {
+      "path": "t07-react-logs/review1-null-red.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-null-red.json",
+      "bytes": 9712,
+      "sha256": "5e73142b6d4c3c88f6afdf553d06b8bc484eb8250e7262c2fa337cb1fae8ce6a"
+    },
+    {
+      "path": "t07-react-logs/review1-package-build.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-package-build.log",
+      "bytes": 814,
+      "sha256": "4542a976984b04f8a2323781fd169f07d71200038b84b320da22d15ff8c72c3d"
+    },
+    {
+      "path": "t07-react-logs/review1-package-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-package-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/review1-red.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-red.json",
+      "bytes": 55294,
+      "sha256": "6b6c31c79d26b29cef9bd6d8e4c5e5570eb2cc857e6a5ad75761bb0cdf51ba3e"
+    },
+    {
+      "path": "t07-react-logs/review1-source-inventory.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-source-inventory.json",
+      "bytes": 9335,
+      "sha256": "3af0162016b323ed568e0372d9d2179519762c0aa306897545fa9cbebe8a0bb4"
+    },
+    {
+      "path": "t07-react-logs/review1-ssr.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-ssr.log",
+      "bytes": 535,
+      "sha256": "bac9ef67096ccb6e9133430adecfc0fd1bf75bda072c5994c1e2c8bda92ed8e1"
+    },
+    {
+      "path": "t07-react-logs/review1-storybook-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1-storybook-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/review1.diff",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review1.diff",
+      "bytes": 31895,
+      "sha256": "441c1cbd668348ea23a433cec4eb32a0938e77058729fc709c7522d8ae48e132"
+    },
+    {
+      "path": "t07-react-logs/review2-diff.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-diff.json",
+      "bytes": 602,
+      "sha256": "8b20c9ee8e1c290ac3bc7b9ef7538ddfd63418f26aace4d30c7050fc9fc6255c"
+    },
+    {
+      "path": "t07-react-logs/review2-final-summary.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-final-summary.json",
+      "bytes": 259,
+      "sha256": "1df2a9d86935ff3f49f61a3fc117389128adcf0621524976cb2085c1d229f813"
+    },
+    {
+      "path": "t07-react-logs/review2-fixture-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-fixture-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/review2-green.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-green.json",
+      "bytes": 12007,
+      "sha256": "083f35733cb3985b23dcae2bb750aac6f7d95c3eeb0cea9abcddd6d33c5e1268"
+    },
+    {
+      "path": "t07-react-logs/review2-package-build.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-package-build.log",
+      "bytes": 814,
+      "sha256": "7eb9df6e49f0b9f3f6c9c9f686e2988d2d1a7364145a413e906ddebbababf5f6"
+    },
+    {
+      "path": "t07-react-logs/review2-package-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-package-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/review2-red.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-red.json",
+      "bytes": 12403,
+      "sha256": "bf0036a72225eecc9a9b9bae1b794a0eb74f775a8d6747d195100c09e3d7aa10"
+    },
+    {
+      "path": "t07-react-logs/review2-source-inventory.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2-source-inventory.json",
+      "bytes": 9335,
+      "sha256": "760acfd429f5398387d343468fa22f858e9ba4972ea8d057dc820c1c3c40ffe9"
+    },
+    {
+      "path": "t07-react-logs/review2.diff",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/review2.diff",
+      "bytes": 5592,
+      "sha256": "106d56cb15b7f6f82999450f46caf38b84b8598208685959aa8151f53799c684"
+    },
+    {
+      "path": "t07-react-logs/siheom-final.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-final.json",
+      "bytes": 7772,
+      "sha256": "804cc74b37f989f7f59b0319990bb1df7f251c3be1d0b0ffd7a367eba01175d0"
+    },
+    {
+      "path": "t07-react-logs/siheom-first-green.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-first-green.json",
+      "bytes": 18465,
+      "sha256": "7b6e7c69666ec328cc6901cfe91be8960ce063bfa4efcf5f93cf436cfdf145ea"
+    },
+    {
+      "path": "t07-react-logs/siheom-fourth.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-fourth.json",
+      "bytes": 7457,
+      "sha256": "951d076216a823f06bef018e8a3a4f0dbc90299d2329f66b91fed7d6c0a4cb61"
+    },
+    {
+      "path": "t07-react-logs/siheom-nested-red.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-nested-red.json",
+      "bytes": 10562,
+      "sha256": "5fab16fa4736cf22cc970adb6c3a0548f1cd40462fc27523ed5910ccabc287a5"
+    },
+    {
+      "path": "t07-react-logs/siheom-runner-final.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-runner-final.log",
+      "bytes": 233,
+      "sha256": "68b07116d9a0da6e7aa7634a60c9e57248685afeb3d8d4e7b71b8e5c0c4c99d8"
+    },
+    {
+      "path": "t07-react-logs/siheom-second.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-second.json",
+      "bytes": 6526,
+      "sha256": "f2a417151750182ac22b46d4b0623e57b871643ce86fc62d45cb2d2e0e063c39"
+    },
+    {
+      "path": "t07-react-logs/siheom-submit-red.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-submit-red.json",
+      "bytes": 8091,
+      "sha256": "fb50da727b51a7a842e50823dfeac30c957115137bfc9367f47d351f9b7ccbc2"
+    },
+    {
+      "path": "t07-react-logs/siheom-third.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/siheom-third.json",
+      "bytes": 7888,
+      "sha256": "34d047e3366a941e1c6398d655ac00a47ad46431d296f17c8cdd844114624ac5"
+    },
+    {
+      "path": "t07-react-logs/source-inventory.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/source-inventory.json",
+      "bytes": 9170,
+      "sha256": "f2ed776f21fe521463f31819be87c53d7e7e049b1de1fd9d154266b25be7d706"
+    },
+    {
+      "path": "t07-react-logs/ssr-tests.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/ssr-tests.log",
+      "bytes": 539,
+      "sha256": "461a60f4a9e86039accf603f8502548deb50939a9a9c589d6a6fe22e46d6c5fd"
+    },
+    {
+      "path": "t07-react-logs/stories-final.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/stories-final.log",
+      "bytes": 107,
+      "sha256": "3ecc7a5e7dcc75118b8ba75ae5b193b84b8e36482e8488dd060df1cb67cb4d8f"
+    },
+    {
+      "path": "t07-react-logs/storybook-build.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/storybook-build.log",
+      "bytes": 2468,
+      "sha256": "63021b36978fe31e6bc5e4dd4710845758e7dcbeaa8bf37702e96e744292670e"
+    },
+    {
+      "path": "t07-react-logs/storybook-typecheck.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/storybook-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/visual/date-popup-footer-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/date-popup-footer-forced.png",
+      "bytes": 58485,
+      "sha256": "8809e04748fe41fb491f233684c6feffa47aef3b8e6ccb0feedc1f639e63cc4c"
+    },
+    {
+      "path": "t07-react-logs/visual/date-popup-footer-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/date-popup-footer-narrow200.png",
+      "bytes": 28416,
+      "sha256": "424d2b76d3c05972b12df7f583332f9777460917ace1cd3c9ca893f684132e14"
+    },
+    {
+      "path": "t07-react-logs/visual/date-popup-footer-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/date-popup-footer-zoom200.png",
+      "bytes": 87894,
+      "sha256": "9d8416c92fab4cf0112a4b6f62d685e1e24a560d39feca5da037ca7a79f10485"
+    },
+    {
+      "path": "t07-react-logs/visual/date-popup-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/date-popup-forced.png",
+      "bytes": 59253,
+      "sha256": "70d2e135e4b78866bc411640a24adec365d47d1a42e79dfddb8a7aa388a8db4e"
+    },
+    {
+      "path": "t07-react-logs/visual/date-popup-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/date-popup-narrow200.png",
+      "bytes": 28300,
+      "sha256": "99c37272e7ca5fbde89169803c6dceb56bec372ffb249f62649b5e3df028f44a"
+    },
+    {
+      "path": "t07-react-logs/visual/date-popup-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/date-popup-zoom200.png",
+      "bytes": 88911,
+      "sha256": "8c21508650dad7d711df0c29a95583dafc84c3084878938daff99238a4c63360"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-button--default-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-button--default-forced.png",
+      "bytes": 11351,
+      "sha256": "8195fdca86c575f8d323891f937f1618b2be4c93b1ee713b6a0bf57830e11fe8"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-button--default-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-button--default-narrow200.png",
+      "bytes": 13160,
+      "sha256": "37db0ac6f0691cdb86e7b0c0d749b293da07e54a290579201c04f4f0c20df3e5"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-button--default-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-button--default-zoom200.png",
+      "bytes": 16665,
+      "sha256": "98a86f6c4f62f6fb01cb868b5e0ec7a4064fa07af6f3543b748f8bba9fbd98eb"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-button--default.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-button--default.png",
+      "bytes": 10589,
+      "sha256": "6f2d9b09e65c10ef7acbfea8b6b15d544eac06b9ac27af9c46b2149526bc9cd1"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-button--disabled.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-button--disabled.png",
+      "bytes": 10862,
+      "sha256": "e505831796e3cf2324e852290b28faf7d21a3c90016e41ffb185b3efa914d5be"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-button--large.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-button--large.png",
+      "bytes": 10814,
+      "sha256": "fd54c97312e7962de0db05ca7d4b84462d56b892364cef8baabe75876120a63f"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-button--small.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-button--small.png",
+      "bytes": 10720,
+      "sha256": "fb1836bbcd6619d614c773f9608afcd65d4b16661fa18ac5efe91347f9de50db"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-calendar--selected-range-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-calendar--selected-range-forced.png",
+      "bytes": 45970,
+      "sha256": "304e5a46b90da1dc25da1ee6c9abdab97271696e8e8bae3a38f30fd54ecd94fb"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-calendar--selected-range-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-calendar--selected-range-narrow200.png",
+      "bytes": 54146,
+      "sha256": "92f4628b32ecedc9544d38c74d339309836d19035a34b4f5bc6b4ae7a1a0a073"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-calendar--selected-range-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-calendar--selected-range-zoom200.png",
+      "bytes": 85417,
+      "sha256": "5a2344140e643e4a41afd59fbf21f8574813b9e48e241181f84d945fc7e80a81"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-calendar--selected-range.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-calendar--selected-range.png",
+      "bytes": 47348,
+      "sha256": "b15d6e1461f1670c4f1cc4ffb6f73e0a2ec902ccede73005d0edf0975a4ac180"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-date-input--invalid-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-date-input--invalid-forced.png",
+      "bytes": 25844,
+      "sha256": "81cfb7f6497c5aa4839bd84319eb59174954469469253780ac1cccfeda29c67d"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-date-input--invalid-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-date-input--invalid-narrow200.png",
+      "bytes": 40651,
+      "sha256": "6f602601b74c251a5e52badd67183e12c2e1047b94c1085efb9a28b94b70077c"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-date-input--invalid-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-date-input--invalid-zoom200.png",
+      "bytes": 44623,
+      "sha256": "e63b8a4734de19c11e299efba31aab188e3f1cb2e6e06ff925d84079e5fc87a7"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-date-input--invalid.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-date-input--invalid.png",
+      "bytes": 26788,
+      "sha256": "2585e7277e09dd9b8aebbd2a547830240a14e6056f2129ec5d24273ad4d04d45"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-modal--open-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-modal--open-forced.png",
+      "bytes": 15013,
+      "sha256": "2d5404e354d871b1080e18d425dd65b4d55b6585df07e05cb76f30153dd2d616"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-modal--open-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-modal--open-narrow200.png",
+      "bytes": 20277,
+      "sha256": "b1f2061a7b0f8b5e28a47d71e2dd7d2dcb41e8b5791e146a39c3dff1c8dd6c39"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-modal--open-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-modal--open-zoom200.png",
+      "bytes": 24391,
+      "sha256": "9889f33688aba9f9a271f27c94193de29be7d68e07dc9492ba4ef5bd6f0a0c0c"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-modal--open.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-modal--open.png",
+      "bytes": 16942,
+      "sha256": "fa528359d18a7491afd2a3a1d089d6f9c4d14d8228ae0d730284bec3df74a4bb"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-native-select--invalid-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-native-select--invalid-forced.png",
+      "bytes": 16807,
+      "sha256": "b8091422a2ccab5c035c7bc7d566ddfcb6a75d06b7ca4429ec31a34e9f5c7fe5"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-native-select--invalid-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-native-select--invalid-narrow200.png",
+      "bytes": 22132,
+      "sha256": "2ef21aaf8589c4048444a62056544432a5ef0c199aa5b3b8bb754782d3ca7abd"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-native-select--invalid-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-native-select--invalid-zoom200.png",
+      "bytes": 26748,
+      "sha256": "754c7a7708a4868a31b3bcb177dc6b00c573a5a97b9055c413865123779d4e77"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-native-select--invalid.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-native-select--invalid.png",
+      "bytes": 16596,
+      "sha256": "411e74bdd8127c73193644a2fb97975e15199348301e81131b2894e43a170105"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-tabs--manual-forced.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-tabs--manual-forced.png",
+      "bytes": 15621,
+      "sha256": "315e5b60e3c3480a2e5d10fce52851bc72d5a50ff170f80f65252a9cae6bd853"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-tabs--manual-narrow200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-tabs--manual-narrow200.png",
+      "bytes": 17223,
+      "sha256": "151e51d3d3dac5658b3efaa8d918a0f0dade84a6548ac10f4afb8dcd8ee76238"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-tabs--manual-zoom200.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-tabs--manual-zoom200.png",
+      "bytes": 23911,
+      "sha256": "e9f749878cdfc29086a1e5b7f14c14a85332ea73871e1c340a8df82bc6aa8a3c"
+    },
+    {
+      "path": "t07-react-logs/visual/krds-tabs--manual.png",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/krds-tabs--manual.png",
+      "bytes": 15732,
+      "sha256": "dc618a0d02aa4b41db8ce37b21444f58a3cfeb5bc6738dfe02caa61503e2f4c9"
+    },
+    {
+      "path": "t07-react-logs/visual/observations.json",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual/observations.json",
+      "bytes": 13113,
+      "sha256": "043ac0bd89174bb8e5542b393be60ad71dca4f05e485b0a9cff20c7fd3f9fa0c"
+    },
+    {
+      "path": "t07-react-logs/visual-command.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/visual-command.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "t07-react-logs/yarn-version.log",
+      "source": ".superpowers/sdd/PLAN/t07-react-logs/yarn-version.log",
+      "bytes": 7,
+      "sha256": "c98d66bec33d12570c7b0ed9e5fd3ff39abce492a7adb64b8d61da0f7fc6f085"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/src/FixtureApp.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/src/FixtureApp.tsx",
+      "bytes": 1748,
+      "sha256": "130ef87dbc14f4c1a30a2911a4f87b7e90763e212fd01b67101ff0d92f17af8e"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/src/PilotFixture.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/src/PilotFixture.tsx",
+      "bytes": 2209,
+      "sha256": "b543f3946497f05f8f1a6fcd6708f302f2616424d5ee28a2de77f5b47ff7f65c"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/src/main.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/src/main.tsx",
+      "bytes": 288,
+      "sha256": "cb93bdcf30892e0b7e4794e4664fa82c23f0e6839a5d46f22bdec625f1a2ce7b"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/src/vite-env.d.ts",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/src/vite-env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/tests/inspect-react.mjs",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/tests/inspect-react.mjs",
+      "bytes": 4247,
+      "sha256": "0ea6e74d445dd5ef6233dc8bbbd5dc840e9e8563439bdcaeda3e8b61e408b331"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/tests/siheom/calendar.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/tests/siheom/calendar.test.tsx",
+      "bytes": 17926,
+      "sha256": "2d0ff49d4d9b41c805d1a1e719bea11fe9ad8f141c07166dd0e41e45c0f4fd28"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/tests/siheom/modal.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/tests/siheom/modal.test.tsx",
+      "bytes": 762,
+      "sha256": "646da2ca9e2b5f76357200a8030f3b858c63dbaa840ace279b3c7276afdacf4b"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/fixture-react/vitest.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/fixture-react/vitest.config.ts",
+      "bytes": 1246,
+      "sha256": "6fc9cba08e4d0331f549d6c5a1ecd0a8434b23ce12645435ae349d0a2ef1d3c4"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/.storybook/preview.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/.storybook/preview.tsx",
+      "bytes": 316,
+      "sha256": "b79103044223ccdbcb002e37c5628bceba012244474c0c1a0495ada346d8b592"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/src/stories/button.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/src/stories/button.stories.tsx",
+      "bytes": 634,
+      "sha256": "9e898cc9342436775e32eccac0315f5b98bbb6f74a00f327ac3a8c86cb75efa6"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/src/stories/calendar.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/src/stories/calendar.stories.tsx",
+      "bytes": 647,
+      "sha256": "e5b4b024afb170e3c18cc314ecb2566338423e0057a357c8ecdfe9e15d30dbc3"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/src/stories/date-input.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/src/stories/date-input.stories.tsx",
+      "bytes": 660,
+      "sha256": "76e4577e383921a56800ecec5c7161a4884a391a84ecf6449ef40f988eca01c0"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/src/stories/modal.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/src/stories/modal.stories.tsx",
+      "bytes": 521,
+      "sha256": "8f90f9a5b63656d70d4519b828672322e675cc7ea08a981394b53688280a951a"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/src/stories/native-select.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/src/stories/native-select.stories.tsx",
+      "bytes": 809,
+      "sha256": "6462038ae75ba53d51bad792db942297962c368d97cb645352580a4494f1c7f5"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/src/stories/tabs.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/src/stories/tabs.stories.tsx",
+      "bytes": 675,
+      "sha256": "9794d71ce131a70393ece2cf2c3aeea71fee858b339297d038641e749e21503f"
+    },
+    {
+      "path": "task-T07-react-fix1-base/apps/storybook-react/src/vite-env.d.ts",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/apps/storybook-react/src/vite-env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "task-T07-react-fix1-base/docs/compatibility/react.md",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/docs/compatibility/react.md",
+      "bytes": 2179,
+      "sha256": "e0095abc7377f7879a8c3ad5b2039f7f19741c4cb6075dd5768da340d925ed32"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/README.md",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/README.md",
+      "bytes": 3801,
+      "sha256": "f915c5f0e8eb5a40e29bccf4116f206de45ca5672de3ce95ae158e4600733870"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/package.json",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/package.json",
+      "bytes": 2440,
+      "sha256": "cf9b234c23352ebc206f03c837302531472fc8ed2668e45299fa6366626e6448"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/components/button/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/components/button/index.tsx",
+      "bytes": 739,
+      "sha256": "093bf97b5d4a4896227997e5649cfef529c94c64c705bd7c13724e2fb0a49a51"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/components/calendar/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/components/calendar/index.tsx",
+      "bytes": 11292,
+      "sha256": "3d62c46e39637e7691d74aa8965bb21ac1de9d89d8bc620af22181952bd7cde3"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/components/calendar/model.ts",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/components/calendar/model.ts",
+      "bytes": 2997,
+      "sha256": "30b73238c2ec74eaec656377a9d65962a3e87e362334650228fa6533c6712d4c"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/components/date-input/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/components/date-input/index.tsx",
+      "bytes": 11262,
+      "sha256": "efbcaebe0f0ea6ec14a260e48de8a6cc3e43bd3d9e2bbdc00eff79ee9c6c3e1b"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/components/modal/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/components/modal/index.tsx",
+      "bytes": 12224,
+      "sha256": "ee1665753f322c01da0350dee6afe810bced2f8f9eac225001e66d65bab0d3c3"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/components/native-select/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/components/native-select/index.tsx",
+      "bytes": 3414,
+      "sha256": "2eb3de06b0d15e69e0f7d6eb8750867360495b0ff1427b2398b61475ed49da17"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/components/tabs/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/components/tabs/index.tsx",
+      "bytes": 4446,
+      "sha256": "a827e1c9693c5b992b3557b0fd219a3cbadf06dbbbee0d5b00427d32ad70ffa9"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/index.ts",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/index.ts",
+      "bytes": 378,
+      "sha256": "c43f0fa60df0cc0eb340c2f8e0851eba33c46511dbd740d8f38de8cf44914df1"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/src/providers/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/src/providers/index.tsx",
+      "bytes": 922,
+      "sha256": "2df02dc0f3b1afeabfb90b04c5771e699650f82fdc1e551e6cdbbecd41a71c7e"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/tests/ssr.test.mjs",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/tests/ssr.test.mjs",
+      "bytes": 2697,
+      "sha256": "31f0f09b2d213533a906aee8f94656f8c46cadd4b5dfa89eee3d50c0f1ab91d3"
+    },
+    {
+      "path": "task-T07-react-fix1-base/packages/react/vite.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix1-base/packages/react/vite.config.ts",
+      "bytes": 827,
+      "sha256": "e0d84d2ee17b469058063e9462410989d4d1c9e59ff328fcb6d4c0020072d3ac"
+    },
+    {
+      "path": "task-T07-react-fix2-base/apps/fixture-react/tests/siheom/calendar.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix2-base/apps/fixture-react/tests/siheom/calendar.test.tsx",
+      "bytes": 27273,
+      "sha256": "0748ca429bd2d4383eece0cbd1ccf7eb71f9cc4dd0e8b54be9c430f186d37e6b"
+    },
+    {
+      "path": "task-T07-react-fix2-base/packages/react/src/components/calendar/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix2-base/packages/react/src/components/calendar/index.tsx",
+      "bytes": 11603,
+      "sha256": "ac4a291e40e1591a601de6753c7ff39dd283f0bde658c3155f54fd7403697b71"
+    },
+    {
+      "path": "task-T07-react-fix2-base/packages/react/src/components/date-input/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix2-base/packages/react/src/components/date-input/index.tsx",
+      "bytes": 12187,
+      "sha256": "75771facec7b5999faca76720136bf0cf561775f5132f019b371a0695fdfbbfd"
+    },
+    {
+      "path": "task-T07-react-fix2-base/packages/react/src/components/modal/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix2-base/packages/react/src/components/modal/index.tsx",
+      "bytes": 12370,
+      "sha256": "b2f0cc64782cd3ca22267f79fb8bc84185376f7ca68dace326abbcc785890ac5"
+    },
+    {
+      "path": "task-T07-react-fix2-base/packages/react/src/components/native-select/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix2-base/packages/react/src/components/native-select/index.tsx",
+      "bytes": 3528,
+      "sha256": "c0a0ff560229062841ffd1b1458747fdd3431b66e5675726b3500c4a571c6b16"
+    },
+    {
+      "path": "task-T07-react-fix2-base/packages/react/src/components/tabs/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix2-base/packages/react/src/components/tabs/index.tsx",
+      "bytes": 4592,
+      "sha256": "204e15c6819a3e247b43c74122467a5635c11700846dca5f524472313119fd2d"
+    },
+    {
+      "path": "task-T07-react-fix2-base/packages/react/src/use-controlled-mode.ts",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-fix2-base/packages/react/src/use-controlled-mode.ts",
+      "bytes": 604,
+      "sha256": "64a1dfbbf64fc163d465f799238732d946365ba44de3393d7aad7e525fc5ba19"
+    },
+    {
+      "path": "task-T07-react-report.md",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-report.md",
+      "bytes": 27524,
+      "sha256": "cda94c9b1d618d5c5134d6dacd4c246e39b95ef1eb570b09e09500a76c0bdfe8"
+    },
+    {
+      "path": "task-T07-react-review-package.md",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-review-package.md",
+      "bytes": 99455,
+      "sha256": "f63dc2889edcd904c11b090a94074a4bfd5b60d7489c0e318d8cf3921254d6e8"
+    },
+    {
+      "path": "task-T07-react-review.md",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-review.md",
+      "bytes": 14627,
+      "sha256": "0c72841a348567310e59fc6ec12e525b8903219a3b46e5be4ae79b7358e03973"
+    },
+    {
+      "path": "task-T07-react-snapshot.json",
+      "source": ".superpowers/sdd/PLAN/task-T07-react-snapshot.json",
+      "bytes": 3473,
+      "sha256": "5c40dbf6ae19eed523c76ca3c44e3981165d9988b25972812c020dbceb539770"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/index.html",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/index.html",
+      "bytes": 192,
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/package.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/package.json",
+      "bytes": 1439,
+      "sha256": "a3d179be15676db4a2806412ad356eecc7e0b65de47198564588b821791e043e"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/project.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/project.json",
+      "bytes": 2688,
+      "sha256": "c573d5577662f792bd8a0b9c0aee34279a9fe5cc3f3d9d530907d6e48539f411"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/src/FixtureApp.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/src/FixtureApp.tsx",
+      "bytes": 1748,
+      "sha256": "130ef87dbc14f4c1a30a2911a4f87b7e90763e212fd01b67101ff0d92f17af8e"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/src/NativeProbe.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/src/NativeProbe.tsx",
+      "bytes": 509,
+      "sha256": "623fff1010283eab80e21eb2a263dd208f2ee4cc87db00dd302783d9f97b2dfb"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/src/PilotFixture.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/src/PilotFixture.tsx",
+      "bytes": 2209,
+      "sha256": "b543f3946497f05f8f1a6fcd6708f302f2616424d5ee28a2de77f5b47ff7f65c"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/src/main.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/src/main.tsx",
+      "bytes": 288,
+      "sha256": "cb93bdcf30892e0b7e4794e4664fa82c23f0e6839a5d46f22bdec625f1a2ce7b"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/src/vite-env.d.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/src/vite-env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/inspect-react.mjs",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/inspect-react.mjs",
+      "bytes": 4247,
+      "sha256": "0ea6e74d445dd5ef6233dc8bbbd5dc840e9e8563439bdcaeda3e8b61e408b331"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/setup.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/setup.ts",
+      "bytes": 300,
+      "sha256": "4359b5ca4dcc076aa86825b635e4999cbb28f1af68644477e762c86dfc628fcd"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/siheom/button.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/siheom/button.test.tsx",
+      "bytes": 742,
+      "sha256": "31e238ddd9a860c4dc1a4a9616ba8497cd628e8fa0c41d4661beef11bfb6e0c1"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/siheom/calendar.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/siheom/calendar.test.tsx",
+      "bytes": 31168,
+      "sha256": "8df9dd4d479fc770ae65add7598e4955a2f15134183c4eaaffd71b3a7eb3ae3c"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/siheom/date-input.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/siheom/date-input.test.tsx",
+      "bytes": 781,
+      "sha256": "74f4ef3b842c77610f1974502929035f7dd9bdd6225bfe8953a2bf4313ea9521"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/siheom/modal.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/siheom/modal.test.tsx",
+      "bytes": 762,
+      "sha256": "646da2ca9e2b5f76357200a8030f3b858c63dbaa840ace279b3c7276afdacf4b"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/siheom/native-probe.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/siheom/native-probe.test.tsx",
+      "bytes": 1794,
+      "sha256": "bc22bc35cfe692d16233b2bb59dc0a44881d94cee3b6834cc37e150401a1aa7f"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/siheom/native-select.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/siheom/native-select.test.tsx",
+      "bytes": 773,
+      "sha256": "8fcab881c5a2106d0e60e03076fe1030cbac3d5be8d7d98544b2ab01537dbfc9"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tests/siheom/tabs.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tests/siheom/tabs.test.tsx",
+      "bytes": 747,
+      "sha256": "374744700fef41f56a616282df211563d102ee243e921d31946cdd68e8a679a6"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/tsconfig.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/tsconfig.json",
+      "bytes": 275,
+      "sha256": "84554ba103c964c2e8dcabb15f657fdc1280f3cd102d15b3d34d4567da49b4f3"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/vite.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/vite.config.ts",
+      "bytes": 159,
+      "sha256": "c688bbccbb01af74f753931f0d63a4b4d5acc46dd8ba370018b3bd74e0f9a14f"
+    },
+    {
+      "path": "task-T10-react-base/apps/fixture-react/vitest.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/fixture-react/vitest.config.ts",
+      "bytes": 1246,
+      "sha256": "6fc9cba08e4d0331f549d6c5a1ecd0a8434b23ce12645435ae349d0a2ef1d3c4"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/.storybook/main.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/.storybook/main.ts",
+      "bytes": 456,
+      "sha256": "b73e7ce8969d080e5a4e31b940f4912052c31b8442932efd99e3ced132e52366"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/.storybook/preview.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/.storybook/preview.tsx",
+      "bytes": 316,
+      "sha256": "b79103044223ccdbcb002e37c5628bceba012244474c0c1a0495ada346d8b592"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/package.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/package.json",
+      "bytes": 1300,
+      "sha256": "b2616ddeec5affff10605f35665700b5e52af69f266f0e97eef52c3df0deca26"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/project.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/project.json",
+      "bytes": 2233,
+      "sha256": "f69430c2f449929bc8329c5b009caa46af0e09294902fd07a6aaf7314b962351"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/stories/button.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/stories/button.stories.tsx",
+      "bytes": 634,
+      "sha256": "9e898cc9342436775e32eccac0315f5b98bbb6f74a00f327ac3a8c86cb75efa6"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/stories/calendar.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/stories/calendar.stories.tsx",
+      "bytes": 647,
+      "sha256": "e5b4b024afb170e3c18cc314ecb2566338423e0057a357c8ecdfe9e15d30dbc3"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/stories/date-input.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/stories/date-input.stories.tsx",
+      "bytes": 660,
+      "sha256": "76e4577e383921a56800ecec5c7161a4884a391a84ecf6449ef40f988eca01c0"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/stories/modal.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/stories/modal.stories.tsx",
+      "bytes": 521,
+      "sha256": "8f90f9a5b63656d70d4519b828672322e675cc7ea08a981394b53688280a951a"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/stories/native-probe.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/stories/native-probe.stories.tsx",
+      "bytes": 1907,
+      "sha256": "e8d60df326a9a546cd4cb50ffaed8cf99d73cbf8101153fcd1008e539d7c48f7"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/stories/native-select.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/stories/native-select.stories.tsx",
+      "bytes": 809,
+      "sha256": "6462038ae75ba53d51bad792db942297962c368d97cb645352580a4494f1c7f5"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/stories/tabs.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/stories/tabs.stories.tsx",
+      "bytes": 675,
+      "sha256": "9794d71ce131a70393ece2cf2c3aeea71fee858b339297d038641e749e21503f"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/src/vite-env.d.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/src/vite-env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "task-T10-react-base/apps/storybook-react/tsconfig.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/apps/storybook-react/tsconfig.json",
+      "bytes": 234,
+      "sha256": "6e44ece041223790560bc69427f2e2a024c55ad561e3f7c0540774ab3c42c0da"
+    },
+    {
+      "path": "task-T10-react-base/docs/compatibility/react.md",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/docs/compatibility/react.md",
+      "bytes": 2179,
+      "sha256": "e0095abc7377f7879a8c3ad5b2039f7f19741c4cb6075dd5768da340d925ed32"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/ATTRIBUTION.md",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/ATTRIBUTION.md",
+      "bytes": 237,
+      "sha256": "0eb6a56caa2927ee07416c124bc3bb321762bb523c1eb5a41037ea00c9983f54"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/LICENSE.md",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/LICENSE.md",
+      "bytes": 2362,
+      "sha256": "950495642dcd72e7a07898b4f07804f3e63104254075d8712e0ccd92330cf598"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/LICENSES/MIT.txt",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/LICENSES/MIT.txt",
+      "bytes": 1090,
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/LICENSES/README.md",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/LICENSES/README.md",
+      "bytes": 130,
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/README.md",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/README.md",
+      "bytes": 3801,
+      "sha256": "f915c5f0e8eb5a40e29bccf4116f206de45ca5672de3ce95ae158e4600733870"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/THIRD-PARTY-NOTICES.md",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/THIRD-PARTY-NOTICES.md",
+      "bytes": 182,
+      "sha256": "14619d9d084e42fbba923cb71f28eb1ebf483d8b3d8de9c840cb500c60ea5c42"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/package.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/package.json",
+      "bytes": 2440,
+      "sha256": "cf9b234c23352ebc206f03c837302531472fc8ed2668e45299fa6366626e6448"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/project.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/project.json",
+      "bytes": 966,
+      "sha256": "85dd5a975a4fd322c2d1966ecdf621f2052ed36bd3c390998a8189ab7d7a3159"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/provenance.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/provenance.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/WorkspaceProbe.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/WorkspaceProbe.tsx",
+      "bytes": 159,
+      "sha256": "70318141efcb3c3fbc8b1863240e00c06db6542c96cb7e1dc08a1fb6b03391b7"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/components/button/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/components/button/index.tsx",
+      "bytes": 739,
+      "sha256": "093bf97b5d4a4896227997e5649cfef529c94c64c705bd7c13724e2fb0a49a51"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/components/calendar/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/components/calendar/index.tsx",
+      "bytes": 11603,
+      "sha256": "ac4a291e40e1591a601de6753c7ff39dd283f0bde658c3155f54fd7403697b71"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/components/calendar/model.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/components/calendar/model.ts",
+      "bytes": 2997,
+      "sha256": "30b73238c2ec74eaec656377a9d65962a3e87e362334650228fa6533c6712d4c"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/components/date-input/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/components/date-input/index.tsx",
+      "bytes": 12412,
+      "sha256": "2e429f21821723fc861b13411bb8c158a10a311cf63771b2433cc6aabb2176bd"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/components/modal/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/components/modal/index.tsx",
+      "bytes": 12370,
+      "sha256": "b2f0cc64782cd3ca22267f79fb8bc84185376f7ca68dace326abbcc785890ac5"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/components/native-select/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/components/native-select/index.tsx",
+      "bytes": 3528,
+      "sha256": "c0a0ff560229062841ffd1b1458747fdd3431b66e5675726b3500c4a571c6b16"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/components/tabs/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/components/tabs/index.tsx",
+      "bytes": 4592,
+      "sha256": "204e15c6819a3e247b43c74122467a5635c11700846dca5f524472313119fd2d"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/index.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/index.ts",
+      "bytes": 378,
+      "sha256": "c43f0fa60df0cc0eb340c2f8e0851eba33c46511dbd740d8f38de8cf44914df1"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/providers/index.tsx",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/providers/index.tsx",
+      "bytes": 922,
+      "sha256": "2df02dc0f3b1afeabfb90b04c5771e699650f82fdc1e551e6cdbbecd41a71c7e"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/src/use-controlled-mode.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/src/use-controlled-mode.ts",
+      "bytes": 604,
+      "sha256": "64a1dfbbf64fc163d465f799238732d946365ba44de3393d7aad7e525fc5ba19"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/tests/ssr.test.mjs",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/tests/ssr.test.mjs",
+      "bytes": 2697,
+      "sha256": "31f0f09b2d213533a906aee8f94656f8c46cadd4b5dfa89eee3d50c0f1ab91d3"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/tsconfig.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/tsconfig.json",
+      "bytes": 273,
+      "sha256": "06490fcbe30dd8b1243135c24e0756f3b4a8b39b16a0e2dbfe2b88861ed4c342"
+    },
+    {
+      "path": "task-T10-react-base/packages/react/vite.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base/packages/react/vite.config.ts",
+      "bytes": 827,
+      "sha256": "e0d84d2ee17b469058063e9462410989d4d1c9e59ff328fcb6d4c0020072d3ac"
+    },
+    {
+      "path": "task-T10-react-base-hashes.json",
+      "source": ".superpowers/sdd/PLAN/task-T10-react-base-hashes.json",
+      "bytes": 6462,
+      "sha256": "848d08e9e73666d5d6cd749619eeab95537a39385024184ab8ba8e22a1decd4a"
+    },
+    {
+      "path": "task-native-pilots-base/BASELINE-MANIFEST.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/BASELINE-MANIFEST.json",
+      "bytes": 288351,
+      "sha256": "d414285a83ed920dd81c1a0569be47175c7351e62c9a758bc72828e9b43a0a89"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/index.html",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/index.html",
+      "bytes": 192,
+      "sha256": "bc345cb9d307febc03ef8c0f1db550d97ee234d38e958728c2d702d341182d00"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/package.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/package.json",
+      "bytes": 1439,
+      "sha256": "a3d179be15676db4a2806412ad356eecc7e0b65de47198564588b821791e043e"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/project.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/project.json",
+      "bytes": 2688,
+      "sha256": "c573d5577662f792bd8a0b9c0aee34279a9fe5cc3f3d9d530907d6e48539f411"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/src/FixtureApp.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/src/FixtureApp.tsx",
+      "bytes": 1699,
+      "sha256": "9b472b7e21619a2ab94bf67026e4c58dac2875d1f7e80ebdc86cf102f07df95d"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/src/NativeProbe.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/src/NativeProbe.tsx",
+      "bytes": 509,
+      "sha256": "623fff1010283eab80e21eb2a263dd208f2ee4cc87db00dd302783d9f97b2dfb"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/src/main.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/src/main.tsx",
+      "bytes": 158,
+      "sha256": "a4d90e1e5b8676329ee5c2d9ad94af9acc50580d5a0827eeb14675390f4e9388"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tests/setup.ts",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tests/setup.ts",
+      "bytes": 300,
+      "sha256": "4359b5ca4dcc076aa86825b635e4999cbb28f1af68644477e762c86dfc628fcd"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tests/siheom/button.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tests/siheom/button.test.tsx",
+      "bytes": 742,
+      "sha256": "31e238ddd9a860c4dc1a4a9616ba8497cd628e8fa0c41d4661beef11bfb6e0c1"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tests/siheom/date-input.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tests/siheom/date-input.test.tsx",
+      "bytes": 781,
+      "sha256": "74f4ef3b842c77610f1974502929035f7dd9bdd6225bfe8953a2bf4313ea9521"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tests/siheom/modal.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tests/siheom/modal.test.tsx",
+      "bytes": 769,
+      "sha256": "f4162d9b68aadb994a134c43f710722bf6cfe7c725b92f12e86037a0133d96e0"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tests/siheom/native-probe.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tests/siheom/native-probe.test.tsx",
+      "bytes": 1794,
+      "sha256": "bc22bc35cfe692d16233b2bb59dc0a44881d94cee3b6834cc37e150401a1aa7f"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tests/siheom/native-select.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tests/siheom/native-select.test.tsx",
+      "bytes": 773,
+      "sha256": "8fcab881c5a2106d0e60e03076fe1030cbac3d5be8d7d98544b2ab01537dbfc9"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tests/siheom/tabs.test.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tests/siheom/tabs.test.tsx",
+      "bytes": 747,
+      "sha256": "374744700fef41f56a616282df211563d102ee243e921d31946cdd68e8a679a6"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/tsconfig.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/tsconfig.json",
+      "bytes": 275,
+      "sha256": "84554ba103c964c2e8dcabb15f657fdc1280f3cd102d15b3d34d4567da49b4f3"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/vite.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/vite.config.ts",
+      "bytes": 159,
+      "sha256": "c688bbccbb01af74f753931f0d63a4b4d5acc46dd8ba370018b3bd74e0f9a14f"
+    },
+    {
+      "path": "task-native-pilots-base/apps/fixture-react/vitest.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-react/vitest.config.ts",
+      "bytes": 1035,
+      "sha256": "99792afc9c5043d7ae27402a2ca04dbe18920836839fb9d55df8aaf946988aef"
+    },
+    {
+      "path": "task-native-pilots-base/apps/storybook-react/.storybook/main.ts",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-react/.storybook/main.ts",
+      "bytes": 456,
+      "sha256": "b73e7ce8969d080e5a4e31b940f4912052c31b8442932efd99e3ced132e52366"
+    },
+    {
+      "path": "task-native-pilots-base/apps/storybook-react/package.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-react/package.json",
+      "bytes": 1300,
+      "sha256": "b2616ddeec5affff10605f35665700b5e52af69f266f0e97eef52c3df0deca26"
+    },
+    {
+      "path": "task-native-pilots-base/apps/storybook-react/project.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-react/project.json",
+      "bytes": 2233,
+      "sha256": "f69430c2f449929bc8329c5b009caa46af0e09294902fd07a6aaf7314b962351"
+    },
+    {
+      "path": "task-native-pilots-base/apps/storybook-react/src/stories/native-probe.stories.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-react/src/stories/native-probe.stories.tsx",
+      "bytes": 1907,
+      "sha256": "e8d60df326a9a546cd4cb50ffaed8cf99d73cbf8101153fcd1008e539d7c48f7"
+    },
+    {
+      "path": "task-native-pilots-base/apps/storybook-react/tsconfig.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-react/tsconfig.json",
+      "bytes": 234,
+      "sha256": "6e44ece041223790560bc69427f2e2a024c55ad561e3f7c0540774ab3c42c0da"
+    },
+    {
+      "path": "task-native-pilots-base/packages/react/README.md",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/react/README.md",
+      "bytes": 454,
+      "sha256": "99c8479e0b1d8b5c53e94992251618ef8f51233b4be7a7d48f1f49c56c6d03c7"
+    },
+    {
+      "path": "task-native-pilots-base/packages/react/package.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/react/package.json",
+      "bytes": 1638,
+      "sha256": "34e384d914bf171254e11e64320cc7614508d037c0e21265b43d514a4103ad88"
+    },
+    {
+      "path": "task-native-pilots-base/packages/react/project.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/react/project.json",
+      "bytes": 966,
+      "sha256": "85dd5a975a4fd322c2d1966ecdf621f2052ed36bd3c390998a8189ab7d7a3159"
+    },
+    {
+      "path": "task-native-pilots-base/packages/react/src/WorkspaceProbe.tsx",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/react/src/WorkspaceProbe.tsx",
+      "bytes": 159,
+      "sha256": "70318141efcb3c3fbc8b1863240e00c06db6542c96cb7e1dc08a1fb6b03391b7"
+    },
+    {
+      "path": "task-native-pilots-base/packages/react/src/index.ts",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/react/src/index.ts",
+      "bytes": 104,
+      "sha256": "4e5db44e6a2e131066bd58384281d9b0c3095a7c9195874da8a97216d2867b2b"
+    },
+    {
+      "path": "task-native-pilots-base/packages/react/tsconfig.json",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/react/tsconfig.json",
+      "bytes": 273,
+      "sha256": "06490fcbe30dd8b1243135c24e0756f3b4a8b39b16a0e2dbfe2b88861ed4c342"
+    },
+    {
+      "path": "task-native-pilots-base/packages/react/vite.config.ts",
+      "source": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/react/vite.config.ts",
+      "bytes": 469,
+      "sha256": "a5dd5683cea206c558cf9ef74d7616710df94367c99f519946564ddb1b83430d"
+    },
+    {
+      "path": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/.last-run.json",
+      "source": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/.last-run.json",
+      "bytes": 96,
+      "sha256": "04466f431eb0073f14a3b03d184122b9ba19b2c302d2c354fd3257902064fad7"
+    },
+    {
+      "path": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/contract-react-modal-focus-return-webkit/error-context.md",
+      "source": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/contract-react-modal-focus-return-webkit/error-context.md",
+      "bytes": 9200,
+      "sha256": "4aa40bdd0dba2ff7b6a2a005798ff922b45fad70942692c966fdd185d2f53671"
+    },
+    {
+      "path": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/contract-react-modal-focus-return-webkit/test-failed-1.png",
+      "source": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/contract-react-modal-focus-return-webkit/test-failed-1.png",
+      "bytes": 29019,
+      "sha256": "f44465db35f555ddc3bc4fdba71ed6dd4a78afac3d46cfc6e82854c6b2b4e611"
+    },
+    {
+      "path": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/contract-react-modal-focus-return-webkit/trace.zip",
+      "source": "test-results/t05/contract-1793330389417-56718-a90e6060/react/artifacts/contract-react-modal-focus-return-webkit/trace.zip",
+      "bytes": 60788,
+      "sha256": "667dc285118bdb4374d142a7400318d18dd7d2318829f98f32f9789a5a2eebf0"
+    },
+    {
+      "path": "test-results/t05/contract-1793330389417-56718-a90e6060/react/command.log",
+      "source": "test-results/t05/contract-1793330389417-56718-a90e6060/react/command.log",
+      "bytes": 4504,
+      "sha256": "3ab9a61fcfda073bfc44e3e71b196a94910603640b5a9e86d90f2cd3e599afac"
+    },
+    {
+      "path": "test-results/t05/contract-1793330389417-56718-a90e6060/react/playwright.json",
+      "source": "test-results/t05/contract-1793330389417-56718-a90e6060/react/playwright.json",
+      "bytes": 33803,
+      "sha256": "38b559af0563c0a51ae9c03442c1140e18fca0b73150ac1b01ff7c0075e53649"
+    },
+    {
+      "path": "test-results/t05/contract-1793330389417-56718-a90e6060/report.json",
+      "source": "test-results/t05/contract-1793330389417-56718-a90e6060/report.json",
+      "bytes": 3187,
+      "sha256": "419a3616395e6a3ef49f7540140f7e15de60d3d228a14d529e25fafb35afacc8"
+    },
+    {
+      "path": "test-results/t05/contract-1793330774635-60173-8275b87d/react/artifacts/.last-run.json",
+      "source": "test-results/t05/contract-1793330774635-60173-8275b87d/react/artifacts/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "test-results/t05/contract-1793330774635-60173-8275b87d/react/command.log",
+      "source": "test-results/t05/contract-1793330774635-60173-8275b87d/react/command.log",
+      "bytes": 1242,
+      "sha256": "3c525e2a830abe3094ca5cd37a2a0b1d525172950c97c2b1bbf7a9970fb1e16d"
+    },
+    {
+      "path": "test-results/t05/contract-1793330774635-60173-8275b87d/react/playwright.json",
+      "source": "test-results/t05/contract-1793330774635-60173-8275b87d/react/playwright.json",
+      "bytes": 25875,
+      "sha256": "a361dbe214bdf52e654df4fdf74d5586c9db89636216afbb0e17ef685e02a32a"
+    },
+    {
+      "path": "test-results/t05/contract-1793330774635-60173-8275b87d/report.json",
+      "source": "test-results/t05/contract-1793330774635-60173-8275b87d/report.json",
+      "bytes": 2432,
+      "sha256": "bb310c522bd780fdb5dd9632e732c190bb96850f44e4a170e5db87f40e28b409"
+    },
+    {
+      "path": "test-results/t05/contract-1793330811786-60455-5581ff1e/react/artifacts/.last-run.json",
+      "source": "test-results/t05/contract-1793330811786-60455-5581ff1e/react/artifacts/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "test-results/t05/contract-1793330811786-60455-5581ff1e/react/command.log",
+      "source": "test-results/t05/contract-1793330811786-60455-5581ff1e/react/command.log",
+      "bytes": 1221,
+      "sha256": "ee170bf88359386e75b847ca8d3f728ebe169e1c5250b6e3942672d9a12f0b5f"
+    },
+    {
+      "path": "test-results/t05/contract-1793330811786-60455-5581ff1e/react/playwright.json",
+      "source": "test-results/t05/contract-1793330811786-60455-5581ff1e/react/playwright.json",
+      "bytes": 25820,
+      "sha256": "df4ba28f7de8386a711b91a14ecc4f2b8c01096941f29454ea560fd7b9a337b4"
+    },
+    {
+      "path": "test-results/t05/contract-1793330811786-60455-5581ff1e/report.json",
+      "source": "test-results/t05/contract-1793330811786-60455-5581ff1e/report.json",
+      "bytes": 2412,
+      "sha256": "25c400b3c31e7332c513a5fff148b5f1805de41dea373dc8d4474a5f6495c0e0"
+    },
+    {
+      "path": "test-results/t05/contract-1793332414058-75111-86ce624d/react/artifacts/.last-run.json",
+      "source": "test-results/t05/contract-1793332414058-75111-86ce624d/react/artifacts/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "test-results/t05/contract-1793332414058-75111-86ce624d/react/command.log",
+      "source": "test-results/t05/contract-1793332414058-75111-86ce624d/react/command.log",
+      "bytes": 1242,
+      "sha256": "bd2a21ac264fc6b172dc0dfe25925fae90ff6fdee257f47410ea2c33ae33d00c"
+    },
+    {
+      "path": "test-results/t05/contract-1793332414058-75111-86ce624d/react/playwright.json",
+      "source": "test-results/t05/contract-1793332414058-75111-86ce624d/react/playwright.json",
+      "bytes": 25875,
+      "sha256": "00ebd7161864cb0a5094b1cb6c82744ea8ba2fbbba0b8e0bdf7013893f088f2a"
+    },
+    {
+      "path": "test-results/t05/contract-1793332414058-75111-86ce624d/report.json",
+      "source": "test-results/t05/contract-1793332414058-75111-86ce624d/report.json",
+      "bytes": 2463,
+      "sha256": "afd25ea03f315f2857c968360575a8845daf538c5fa223b3d21a7bcf1f864fbc"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/054d8809e0c88d23db68dcdf93e3e845418fd28a.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/054d8809e0c88d23db68dcdf93e3e845418fd28a.png",
+      "bytes": 14197,
+      "sha256": "aad6e88cdd556dedc396ea55eb8b1963b5b38d86d6c875b0e064350c571bb8a3"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/112dad833efed5906abbf6df36d4025fa7f186e3.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/112dad833efed5906abbf6df36d4025fa7f186e3.png",
+      "bytes": 14219,
+      "sha256": "91132fdb5413e9674fe010290bbb39922df90a225bd70ad6a55dbbae46e73e76"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/34ddb217dfa21597a57dd8253f6ae7b10ea38184.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/34ddb217dfa21597a57dd8253f6ae7b10ea38184.png",
+      "bytes": 14245,
+      "sha256": "94482c278c3829ebad8f279daf89902c79b782728ef47c29283142ca5e0efea4"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/397858bf963c52927af5a06a3b9a3ef9b9cda7ac.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/397858bf963c52927af5a06a3b9a3ef9b9cda7ac.png",
+      "bytes": 14457,
+      "sha256": "307384a4961c29446ff079a904fb8695056c820a90a6760de0708f1ac6e4b8d9"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/6aad0becc182c843a659aa4cba86679cf65ca89f.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/6aad0becc182c843a659aa4cba86679cf65ca89f.png",
+      "bytes": 14313,
+      "sha256": "812ce244c02f0c991a26d6035b5e58897870a5ec95bbf602957d639f80988bd0"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/917f69e75b7d31d220c5f42c68c72ef937d5a0e9.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/917f69e75b7d31d220c5f42c68c72ef937d5a0e9.png",
+      "bytes": 14910,
+      "sha256": "ee490db17d6feb45603cdfc4604464fa15726051628c4506bcca3e19d724eadb"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/b090788545d260fc53c16becae1703418c231491.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/b090788545d260fc53c16becae1703418c231491.png",
+      "bytes": 14016,
+      "sha256": "a2ba784a827661ea9be457d6602fdee3ec75a114075f40f90f61b6ca7e1eaf7d"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/d58dd93606ef91283dae89524552ecce8f435952.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/d58dd93606ef91283dae89524552ecce8f435952.png",
+      "bytes": 13980,
+      "sha256": "e38629e28179a72bc32339fe7b8a800b5bc3ba73e280adc16e4e6e52010a020b"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/ded45e2504df4af12d73e0f0f1ec4a68e47bd3ac.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/attachments/ded45e2504df4af12d73e0f0f1ec4a68e47bd3ac.png",
+      "bytes": 14320,
+      "sha256": "ec5337a6df8ea05952bec4f8e2c0ff0f7662fa609702346c9640d202b20c3259"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/button.test.tsx/button-disabled-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/button.test.tsx/button-disabled-requires-the-actual-KRDS-component-1.png",
+      "bytes": 13980,
+      "sha256": "e38629e28179a72bc32339fe7b8a800b5bc3ba73e280adc16e4e6e52010a020b"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/date-input.test.tsx/date-input-ime-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/date-input.test.tsx/date-input-ime-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14016,
+      "sha256": "a2ba784a827661ea9be457d6602fdee3ec75a114075f40f90f61b6ca7e1eaf7d"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/date-input.test.tsx/date-input-leap-year-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/date-input.test.tsx/date-input-leap-year-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14457,
+      "sha256": "307384a4961c29446ff079a904fb8695056c820a90a6760de0708f1ac6e4b8d9"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/date-input.test.tsx/date-input-timezone-invariance-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/date-input.test.tsx/date-input-timezone-invariance-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14910,
+      "sha256": "ee490db17d6feb45603cdfc4604464fa15726051628c4506bcca3e19d724eadb"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/modal.test.tsx/modal-focus-return-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/modal.test.tsx/modal-focus-return-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14197,
+      "sha256": "aad6e88cdd556dedc396ea55eb8b1963b5b38d86d6c875b0e064350c571bb8a3"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/modal.test.tsx/modal-trigger-removed-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/modal.test.tsx/modal-trigger-removed-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14313,
+      "sha256": "812ce244c02f0c991a26d6035b5e58897870a5ec95bbf602957d639f80988bd0"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/native-select.test.tsx/native-select-controlled-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/native-select.test.tsx/native-select-controlled-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14245,
+      "sha256": "94482c278c3829ebad8f279daf89902c79b782728ef47c29283142ca5e0efea4"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/native-select.test.tsx/native-select-form-reset-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/native-select.test.tsx/native-select-form-reset-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14320,
+      "sha256": "ec5337a6df8ea05952bec4f8e2c0ff0f7662fa609702346c9640d202b20c3259"
+    },
+    {
+      "path": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/tabs.test.tsx/tabs-manual-activation-requires-the-actual-KRDS-component-1.png",
+      "source": "test-results/t05/react-siheom-native-1793329464395-46752/screenshots/tests/siheom/tabs.test.tsx/tabs-manual-activation-requires-the-actual-KRDS-component-1.png",
+      "bytes": 14219,
+      "sha256": "91132fdb5413e9674fe010290bbb39922df90a225bd70ad6a55dbbae46e73e76"
+    },
+    {
+      "path": "test-results/t05/siheom-1793330745910-60008-a983928f/react-command.log",
+      "source": "test-results/t05/siheom-1793330745910-60008-a983928f/react-command.log",
+      "bytes": 127,
+      "sha256": "724ff0b05d0ad66bc6022ce18cce17bb915808def475f09a2eca766a6940ff78"
+    },
+    {
+      "path": "test-results/t05/siheom-1793330745910-60008-a983928f/react-vitest.json",
+      "source": "test-results/t05/siheom-1793330745910-60008-a983928f/react-vitest.json",
+      "bytes": 9008,
+      "sha256": "c55e45c1d85eb408bc1a7e4ab63dc8cbb4f586ce5280d765b49be356e0b40794"
+    },
+    {
+      "path": "test-results/t05/siheom-1793330745910-60008-a983928f/report.json",
+      "source": "test-results/t05/siheom-1793330745910-60008-a983928f/report.json",
+      "bytes": 1139,
+      "sha256": "44ad06718ebd69b1bb8c70ef75fc7bc85ab4d6e8aceb74b751d7378b61080136"
+    },
+    {
+      "path": "test-results/t05/siheom-1793332376433-74862-a750f8d8/react-command.log",
+      "source": "test-results/t05/siheom-1793332376433-74862-a750f8d8/react-command.log",
+      "bytes": 127,
+      "sha256": "5dde13a3ee1259ca63253137197630487f5a2debd0ef52960b40c9db5bae6fbf"
+    },
+    {
+      "path": "test-results/t05/siheom-1793332376433-74862-a750f8d8/react-vitest.json",
+      "source": "test-results/t05/siheom-1793332376433-74862-a750f8d8/react-vitest.json",
+      "bytes": 13446,
+      "sha256": "223b22c29dec83ede07ce36e38af4ef357c5992cab7662baba1b9778c360523b"
+    },
+    {
+      "path": "test-results/t05/siheom-1793332376433-74862-a750f8d8/report.json",
+      "source": "test-results/t05/siheom-1793332376433-74862-a750f8d8/report.json",
+      "bytes": 1139,
+      "sha256": "3a587b79befe7b2c6ccdfd213444d54a66b62e13c2b2bc0117dcd59242e471ca"
+    },
+    {
+      "path": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-button--disabled.png",
+      "source": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-button--disabled.png",
+      "bytes": 10245,
+      "sha256": "5549b2ec6d1b6b7be2b293f7184c053de2ed826e0b1a8daa3ac6f88a1664be83"
+    },
+    {
+      "path": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-calendar--selected-range.png",
+      "source": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-calendar--selected-range.png",
+      "bytes": 45787,
+      "sha256": "c7e3e72368671bb3ef05ffb3e682563bc575ffeb2da475f4ed03e79f6a1ce869"
+    },
+    {
+      "path": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-date-input--invalid.png",
+      "source": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-date-input--invalid.png",
+      "bytes": 26150,
+      "sha256": "ef2a354d676e93426412661870e573eafbeb9ccfdded996a275310f099660bfd"
+    },
+    {
+      "path": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-modal--open.png",
+      "source": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-modal--open.png",
+      "bytes": 16305,
+      "sha256": "cbda6c9a06a29420ab98339aafea34e83a29a9fac15a30eae38fa9468b757dcb"
+    },
+    {
+      "path": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-native-select--controlled.png",
+      "source": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-native-select--controlled.png",
+      "bytes": 10919,
+      "sha256": "131fc0c4d8f1436714fba0cbda421031dfa2b9d63a0f5e83b842b0461632f89b"
+    },
+    {
+      "path": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-tabs--manual.png",
+      "source": "test-results/t05/stories-1793329912778-52602-309a5d73/react/krds-tabs--manual.png",
+      "bytes": 15119,
+      "sha256": "20c458c16aa1d6ef7952ec13d667ab7b6011f6da52b1ac6fea69190129226b61"
+    },
+    {
+      "path": "test-results/t05/stories-1793329912778-52602-309a5d73/report.json",
+      "source": "test-results/t05/stories-1793329912778-52602-309a5d73/report.json",
+      "bytes": 12990,
+      "sha256": "8c9099d516a874a32e1dfcbde5a0e69f52bc048a22d207cf82b3f749432b73cb"
+    },
+    {
+      "path": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-button--disabled.png",
+      "source": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-button--disabled.png",
+      "bytes": 10245,
+      "sha256": "5549b2ec6d1b6b7be2b293f7184c053de2ed826e0b1a8daa3ac6f88a1664be83"
+    },
+    {
+      "path": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-calendar--selected-range.png",
+      "source": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-calendar--selected-range.png",
+      "bytes": 46735,
+      "sha256": "166e83fabde361ab81d9dd8c5a6db8bce513dea657e88ac5f4c76e0d626e563e"
+    },
+    {
+      "path": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-date-input--invalid.png",
+      "source": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-date-input--invalid.png",
+      "bytes": 26150,
+      "sha256": "ef2a354d676e93426412661870e573eafbeb9ccfdded996a275310f099660bfd"
+    },
+    {
+      "path": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-modal--open.png",
+      "source": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-modal--open.png",
+      "bytes": 16305,
+      "sha256": "cbda6c9a06a29420ab98339aafea34e83a29a9fac15a30eae38fa9468b757dcb"
+    },
+    {
+      "path": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-native-select--controlled.png",
+      "source": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-native-select--controlled.png",
+      "bytes": 10919,
+      "sha256": "131fc0c4d8f1436714fba0cbda421031dfa2b9d63a0f5e83b842b0461632f89b"
+    },
+    {
+      "path": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-tabs--manual.png",
+      "source": "test-results/t05/stories-1793330782953-60227-a7eb077f/react/krds-tabs--manual.png",
+      "bytes": 15119,
+      "sha256": "20c458c16aa1d6ef7952ec13d667ab7b6011f6da52b1ac6fea69190129226b61"
+    },
+    {
+      "path": "test-results/t05/stories-1793330782953-60227-a7eb077f/report.json",
+      "source": "test-results/t05/stories-1793330782953-60227-a7eb077f/report.json",
+      "bytes": 11623,
+      "sha256": "6f5e2f6ab7970714f449018e561b629f72a2c41c2e371e68bb30f4815e4fcecf"
+    }
+  ]
+}

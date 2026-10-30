@@ -1,0 +1,338 @@
+✖ copies exact terms and copyright only into the package that distributes the asset (45.301917ms)
+✖ rejects unresolved rights on a distributed asset (40.599833ms)
+✖ rejects distributed material without preserved full terms (40.894083ms)
+✖ rejects truncated or altered license terms using preserved source hash (38.590458ms)
+✖ accepts absent original web metadata with evidence, without inventing copyright (38.974875ms)
+✖ rejects whitespace metadata and unsupported fields instead of hiding missing values (39.640375ms)
+✖ rejects distributed source hash drift and untracked shipped binary assets (37.105583ms)
+✖ detects stale package notices and a missing files whitelist entry (38.069333ms)
+✖ allows an unresolved investigation record only when it is excluded from distribution (38.655542ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 0
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 413.563708
+
+✖ failing tests:
+
+test at tools/tests/notices.test.mjs:32:1
+✖ copies exact terms and copyright only into the package that distributes the asset (45.301917ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1520
+    throw err;
+    ^
+  
+  Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+      at Module._load (node:internal/modules/cjs/loader:1294:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.18.0
+  
+  
+  1 !== 0
+  
+      at good (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:29:32)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:33:31)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:39:1
+✖ rejects unresolved rights on a distributed asset (40.599833ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /unresolved|verified/. Input:
+  
+  'node:internal/modules/cjs/loader:1520\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1294:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.18.0\n'
+  
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:75)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:41:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1520\n  throw err;\n  ^\n\nError: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n    at Module._load (node:internal/modules/cjs/loader:1294:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.18.0\n",
+    expected: /unresolved|verified/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:43:1
+✖ rejects distributed material without preserved full terms (40.894083ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /license|terms|ENOENT/i. Input:
+  
+  'node:internal/modules/cjs/loader:1520\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1294:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.18.0\n'
+  
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:75)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:45:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1520\n  throw err;\n  ^\n\nError: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n    at Module._load (node:internal/modules/cjs/loader:1294:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.18.0\n",
+    expected: /license|terms|ENOENT/i,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:47:1
+✖ rejects truncated or altered license terms using preserved source hash (38.590458ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /hash|sha256/i. Input:
+  
+  'node:internal/modules/cjs/loader:1520\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1294:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.18.0\n'
+  
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:75)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:49:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1520\n  throw err;\n  ^\n\nError: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n    at Module._load (node:internal/modules/cjs/loader:1294:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.18.0\n",
+    expected: /hash|sha256/i,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:51:1
+✖ accepts absent original web metadata with evidence, without inventing copyright (38.974875ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1520
+    throw err;
+    ^
+  
+  Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+      at Module._load (node:internal/modules/cjs/loader:1294:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.18.0
+  
+  
+  1 !== 0
+  
+      at good (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:29:32)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:53:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:56:1
+✖ rejects whitespace metadata and unsupported fields instead of hiding missing values (39.640375ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /versionOrCommit|invented|schema/. Input:
+  
+  'node:internal/modules/cjs/loader:1520\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1294:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.18.0\n'
+  
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:75)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:58:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1520\n  throw err;\n  ^\n\nError: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n    at Module._load (node:internal/modules/cjs/loader:1294:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.18.0\n",
+    expected: /versionOrCommit|invented|schema/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:60:1
+✖ rejects distributed source hash drift and untracked shipped binary assets (37.105583ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /hash|sha256/i. Input:
+  
+  'node:internal/modules/cjs/loader:1520\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1294:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.18.0\n'
+  
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:75)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:62:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1520\n  throw err;\n  ^\n\nError: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\n    at Module._load (node:internal/modules/cjs/loader:1294:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.18.0\n",
+    expected: /hash|sha256/i,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:66:1
+✖ detects stale package notices and a missing files whitelist entry (38.069333ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1520
+    throw err;
+    ^
+  
+  Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+      at Module._load (node:internal/modules/cjs/loader:1294:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.18.0
+  
+  
+  1 !== 0
+  
+      at good (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:29:32)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:67:31)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/tests/notices.test.mjs:74:1
+✖ allows an unresolved investigation record only when it is excluded from distribution (38.655542ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1520
+    throw err;
+    ^
+  
+  Error: Cannot find module '/Users/moreal/github/moreal/krds/tools/generate-notices.mjs'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+      at Module._load (node:internal/modules/cjs/loader:1294:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.18.0
+  
+  
+  1 !== 0
+  
+      at good (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:29:32)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:76:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

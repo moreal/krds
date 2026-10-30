@@ -1,0 +1,17 @@
+# React compatibility
+
+The native React profile uses React/React DOM 19.3.1, TypeScript6.0.2 and Vite8.3.5. Public runtimes are peers, with exact development copies. All54 components have typed root and component-subpath ESM exports. Native DOM, state, refs, layout effects and portals belong to React; no foreign adapter or generic rendering descriptor is imported.
+
+The six approved pilot APIs remain supported. After independent review, Modal and native modal compositions share one document isolation registry; all45 affected pilot browser tests pass. The other approved component sources remain byte-identical to baseline. The48 additional components include native form participation/reset/composition, tables and navigation; native modal compositions and target-adjacent CoachMark portals; and explicit host-owned file, routing, locale, speech, notification and text-scale effects. Actual client mounting is required before server-rendered modal compositions become interactive.
+
+`node tools/yarn.mjs workspace @unofficial-krds/react build:local` performs a clean package build and emits declarations. Stale WorkspaceProbe compiler artifacts are rejected by the browser-free SSR suite. Strict compiler-checked public54 consumers are in `packages/react/examples/catalog.tsx`; pattern examples are separately owned.
+
+The explicit catalog selection is315 user-outcome cases and344 additional native Storybook states. The original ten pilot scenarios and six canonical pilot stories remain separate default selections. The native owner records raw execution, hashes, accessibility, network and PNG evidence in `.superpowers/sdd/PLAN/task-T10-react-report.md`; source availability does not award coverage or replace independent review.
+
+Current checks pass55 browser-free tests,133 supported native React browser tests and the strict public54 consumer compile;45 affected original pilot browser tests also passed. Source review closes the original findings and the exact later bounded repairs. The consolidated315 observation index records300 distinct automatic passes,13 manual requirements and2 genuine document-visibility capability failures, with every current case identity verified across retained production runs and exact replacements. It is not a single-build full315 success. The corresponding344 story observation index likewise preserves every source/build identity and replacement rather than claiming one new broad run. Visibility uses actual private headed Chromium with no property or event spoofing. Actual browser chrome zoom, touch scrolling/software keyboards, assistive technology and authentic media/sign equivalence remain required human/device evidence.
+
+The visual audit records actual component screenshots, raw axe and local request traces for344 states. The320px text-scale audit doubles measured computed font sizes after responsive layout settles and records before/after values; it does not claim browser chrome zoom. Forced colors are emulated separately.
+
+The local WAV is an independently authored arithmetic signal. Geometric video, VTT, transcript and icons have exact local provenance/hashes. Invalid local decoder fixtures deliberately exercise real native error events without external or untracked requests. Authentic sign-language content remains visibly blocked; no substituted speech/signing is presented as equivalent.
+
+Publication, pushing, tagging, full-catalog coverage promotion and release acceptance remain controller/user gates.

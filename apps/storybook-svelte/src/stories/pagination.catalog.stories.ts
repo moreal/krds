@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-pagination', title: 'KRDS/Catalog/Pagination', component: CatalogStory, args: {componentId: 'pagination'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const NumberLinks: Story = {name: "number-links", args: {caseId: "number-links"}};
+export const DirectPage: Story = {name: "direct-page", args: {caseId: "direct-page"}};
+export const LoadMore: Story = {name: "load-more", args: {caseId: "load-more"}};
+export const FirstLastBoundary: Story = {name: "first-last-boundary", args: {caseId: "first-last-boundary"}};
+export const NarrowSevenItems: Story = {name: "narrow-seven-items", args: {caseId: "narrow-seven-items"}};
+export const LoadFailure: Story = {name: "load-failure", args: {caseId: "load-failure"}};

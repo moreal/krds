@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "status": "fix2-implementation-ready-for-independent-review",
+  "releaseCandidateFrozen": false,
+  "recordedAt": "2026-10-30T08:49:32.554746+00:00",
+  "testCommand": "node tools/yarn.mjs test:release",
+  "testExitCode": 0,
+  "testCounters": {
+    "tests": 37,
+    "pass": 37,
+    "fail": 0,
+    "skipped": 0
+  },
+  "consumerInterfaceTests": {
+    "command": "node tools/yarn.mjs exec node --test tests/consumers/pipeline.test.mjs tests/consumers/interface.test.mjs",
+    "exitCode": 0,
+    "counters": {
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  "acceptanceCommand": "node tools/yarn.mjs verify:release",
+  "acceptanceExitCode": 1,
+  "acceptanceResult": {
+    "M1": "blocked",
+    "M2": "blocked",
+    "M3": "blocked",
+    "createdAt": "2026-10-30T08:47:48.538Z"
+  },
+  "limits": [
+    "No complete current seven-framework/human/hosted-CI acceptance bundle fabricated",
+    "Recorder describe/guard and parsers tested; actual --execute producer jobs remain lease-gated"
+  ],
+  "files": [
+    {
+      "path": "tools/verify-release.mjs",
+      "sha256": "4a9d0981a37d06234d9e75a81380c70244e7c7e3222ff174589c4c6bb9d3d9da",
+      "bytes": 39920
+    },
+    {
+      "path": "tools/verify-release.test.mjs",
+      "sha256": "607bba977843d385200aa1b54b5094a8e1f9b8367fa2660351d90f020bb94d61",
+      "bytes": 19064
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T16-report.md",
+      "sha256": "8e913daf4324a253e7a17eac8e8fafa0be5672fc35f15d980380e8a1857adfc2",
+      "bytes": 24588
+    },
+    {
+      "path": "tools/release-evidence/README.md",
+      "sha256": "0943b7d80c6a17918b4f4cb5d27fdccec1303157b40338607e428e76e4d2c1ad",
+      "bytes": 6677
+    },
+    {
+      "path": "tools/release-evidence/assemble.mjs",
+      "sha256": "ed498f01eba45f3a7c79209c84339aacee046dc33b00dbf109bc6e2919c2abf9",
+      "bytes": 4454
+    },
+    {
+      "path": "tools/release-evidence/docs-browser.mjs",
+      "sha256": "0f61407c07ce6fa4f27432363c0400fef155ef374ef502584648d81c1e958320",
+      "bytes": 3369
+    },
+    {
+      "path": "tools/release-evidence/producers.mjs",
+      "sha256": "1cec60e259f6bf9f762da0cfbabed9d33d35112180c162d38b93d7d0c83bd495",
+      "bytes": 34825
+    },
+    {
+      "path": "tools/release-evidence/producers.test.mjs",
+      "sha256": "275454572368c935b3e6f6fbfcd154e16eb5f88f5d21bc4b7becd5f32d0c606f",
+      "bytes": 11894
+    },
+    {
+      "path": "tools/release-evidence/receipts.mjs",
+      "sha256": "fd1dedeb781b0ced7d6ab2bdb4c567dd6c379e6f79a59fbe59ceb5b32e13934d",
+      "bytes": 996
+    },
+    {
+      "path": "tools/release-evidence/record-support.mjs",
+      "sha256": "ae9dc0ef2a8bc6ccf4ce4a429cb5c43f6ebd07268d64aa678c5556ef5aeb5c97",
+      "bytes": 161
+    },
+    {
+      "path": "tools/release-evidence/record.mjs",
+      "sha256": "610b6af551da049bb68b5d2bec4a092676990fb290f3437a6ac1ccfea97082b9",
+      "bytes": 4486
+    },
+    {
+      "path": "tools/release-evidence/snapshot.mjs",
+      "sha256": "803abde4596f32c2d71998662c1cc6c1cfd10b97cc65035d26401828a0b78019",
+      "bytes": 1626
+    },
+    {
+      "path": "docs/releases/0.0.0/README.md",
+      "sha256": "a7c4e8bc8a7d14c52ce16f587469ae5cadfd450141c447c86b38902c41f4c9d1",
+      "bytes": 3508
+    },
+    {
+      "path": "docs/releases/0.0.0/artifacts.json",
+      "sha256": "d7bf0a6dc0a79d5331f9177294a52cd93f8948393dacc4a2e1dcfe4ed384a580",
+      "bytes": 1764
+    },
+    {
+      "path": "docs/releases/0.0.0/compatibility.md",
+      "sha256": "d604400ea465826330080eb7f53675897656afcce26af1b6b8ef82a67b0d0cf7",
+      "bytes": 2204
+    },
+    {
+      "path": "docs/releases/0.0.0/consumer-interface-tests.command.log",
+      "sha256": "90a8e6dcbd5bd3a4907ff289088163e77f04614d33b78c6af24d3facf124e7d7",
+      "bytes": 888
+    },
+    {
+      "path": "docs/releases/0.0.0/licenses.md",
+      "sha256": "8cf91e17db964e84a8bf2ae89587404dba225e1a0b76494bcb4bfa656db2ffbb",
+      "bytes": 858
+    },
+    {
+      "path": "docs/releases/0.0.0/recorder-description.json",
+      "sha256": "c27bfe7880b877d46ed5e9288ac9153a34ef39ff7660d0a458ac78aa8f758b30",
+      "bytes": 2515
+    },
+    {
+      "path": "docs/releases/0.0.0/release-summary.md",
+      "sha256": "565b4163c6bee816ea1c39897bc3425d7866130fc507e1d8befb055a9cfac1ed",
+      "bytes": 6121
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix1-owned-files.sha256.json",
+      "sha256": "30d5d9365b508dcb57093353fd4f00e2cb83731e8b22d1de73c885ce56eee84e",
+      "bytes": 6490
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix1.patch",
+      "sha256": "aac6904dff7de5591eb029aa8c702b5bd8e5087a901365dd20e747a5b5fcc9a1",
+      "bytes": 64396
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-fix2.patch",
+      "sha256": "f8c6a6f8a296565d8b2c95340be97fe4f403e311a3463e0d54664ee08fcf6a2a",
+      "bytes": 100981
+    },
+    {
+      "path": "docs/releases/0.0.0/t16-source.patch",
+      "sha256": "68151df68a35673fd6454e45900762fa980fdebd70e31b0b458957b627d0ecc9",
+      "bytes": 130585
+    },
+    {
+      "path": "docs/releases/0.0.0/test-release.command.log",
+      "sha256": "9dc195a6477df45acf63ea1961196e514de790ad4d0ccc429eabdc6a386651a2",
+      "bytes": 3862
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.command.log",
+      "sha256": "dbd151f16a26a3e57f919491554e70256a59a4251b5c41cd08364bec0db97d48",
+      "bytes": 10569
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.exit-code.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.json",
+      "sha256": "190fb9abba625bad84b086b9b649b6b522fbe30a26d3853abaeed4ba1d946965",
+      "bytes": 10323
+    },
+    {
+      "path": "docs/releases/0.0.0/verification.md",
+      "sha256": "f7253a0a7f49b7a7639bba7894f783946c90dcf4f2463613331cc6bdaec879f0",
+      "bytes": 4562
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "tests/compatibility/stage-evidence.mjs",
+      "sha256": "a3d7fe4e8a2079cd3568a02e078db362d3e6a15a557612d31799862e5277f151",
+      "bytes": 3240
+    },
+    {
+      "path": "tests/compatibility/artifact-evidence.mjs",
+      "sha256": "d90e3efe7ccad87150877337ee26d4511667a1235017af7f60dab2348d7a1b7b",
+      "bytes": 2765
+    },
+    {
+      "path": "tests/compatibility/evidence.mjs",
+      "sha256": "87e65d1c9768cd497406d7a28e53320021ace68c15b6b6272de3ffca4ba02be9",
+      "bytes": 2706
+    },
+    {
+      "path": "tools/run-ssr-tests.mjs",
+      "sha256": "ad0c40f18d87680c3365cea829dca7cc5e5cd7f7a4442f813327fd62e507d435",
+      "bytes": 5358
+    },
+    {
+      "path": "tools/inspect-tarballs.mjs",
+      "sha256": "81093808c7d575b5538a2a746757a8c19f72db13863e27d098bdb897c13b0b28",
+      "bytes": 9442
+    },
+    {
+      "path": "tests/consumers/evidence.mjs",
+      "sha256": "3ab6bbce421ac574747be12d7b208878aab091b62ca8e06483e69c22b85e78f2",
+      "bytes": 19014
+    },
+    {
+      "path": "tests/consumers/scopes.mjs",
+      "sha256": "d4f01ba990f437866392fbc5df14fab628550989e939dd32b75be42d99d96f54",
+      "bytes": 4102
+    },
+    {
+      "path": "tests/consumers/lib.mjs",
+      "sha256": "c0e91393fa59dcf126ea7d2b3686b5fad1d55433abc49c68864f22f436faaa51",
+      "bytes": 5910
+    },
+    {
+      "path": "tools/check-coverage.mjs",
+      "sha256": "398795517cbfbbc2a917a0cc0c8e7acbf879f636765a0cc0702779f6af8f234f",
+      "bytes": 28935
+    },
+    {
+      "path": "package.json",
+      "sha256": "5e731a267a8b363d1d4aa201f03732208328d329d9876087482e003124e95a9d",
+      "bytes": 2051
+    },
+    {
+      "path": "yarn.lock",
+      "sha256": "4ca243c3a03ff4df3e29c921cdb6e4bb1d5d2c034e568ff59a63a5242a8aa694",
+      "bytes": 769977
+    },
+    {
+      "path": "apps/docs/tests/browser.mjs",
+      "sha256": "3e74fdda1107f10d1755f04fda9f8eddacc070c509d039de6e87705630fbaa11",
+      "bytes": 7535
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T11-react-review.md",
+      "sha256": "733ae2966cbf60c06a7dbdb664b9bef12c97dc63840c4da8cd8a125167b1fec5",
+      "bytes": 15816
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T11-solid-review.md",
+      "sha256": "14ec9ff33ddda36e72b9dd74e85019e59d31a8059704e795367cbcf9af61d1d5",
+      "bytes": 10224
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T11-vue-review.md",
+      "sha256": "7d57c51a85dfe86ae2c1aa61343e24f79c63c6e10319b58344b5081444335c0a",
+      "bytes": 11520
+    },
+    {
+      "path": ".superpowers/sdd/PLAN/task-T12-docs-core-review.md",
+      "sha256": "f00cf92393f18d786973b4c4153cd0161b65693bf120a9762030b224e2fc74e0",
+      "bytes": 5386
+    }
+  ]
+}

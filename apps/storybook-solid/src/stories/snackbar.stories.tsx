@@ -1,0 +1,18 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-snackbar', title: 'KRDS/snackbar', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Message: Story = { name: "message", parameters: { __id: "krds-snackbar--message" }, render: () => <CatalogStory componentId="snackbar" caseId="message"/> };
+export const WithAction: Story = { name: "with-action", parameters: { __id: "krds-snackbar--with-action" }, render: () => <CatalogStory componentId="snackbar" caseId="with-action"/> };
+export const WithIcon: Story = { name: "with-icon", parameters: { __id: "krds-snackbar--with-icon" }, render: () => <CatalogStory componentId="snackbar" caseId="with-icon"/> };
+export const UndoLocal: Story = { name: "undo-local", parameters: { __id: "krds-snackbar--undo-local" }, render: () => <CatalogStory componentId="snackbar" caseId="undo-local"/> };
+export const ActionError: Story = { name: "action-error", parameters: { __id: "krds-snackbar--action-error" }, render: () => <CatalogStory componentId="snackbar" caseId="action-error"/> };
+export const CloseFocused: Story = { name: "close-focused", parameters: { __id: "krds-snackbar--close-focused" }, render: () => <CatalogStory componentId="snackbar" caseId="close-focused"/> };
+export const TimerCleanup: Story = { name: "timer-cleanup", parameters: { __id: "krds-snackbar--timer-cleanup" }, render: () => <CatalogStory componentId="snackbar" caseId="timer-cleanup"/> };
+export const Narrow: Story = { name: "narrow", parameters: { __id: "krds-snackbar--narrow" }, render: () => <CatalogStory componentId="snackbar" caseId="narrow"/> };
+export const NavigationLink: Story = { name: "navigation-link", parameters: { __id: "krds-snackbar--navigation-link" }, render: () => <CatalogStory componentId="snackbar" caseId="navigation-link"/> };
+export const SameIdErrorActionUpdate: Story = { name: "same-id-error-action-update", parameters: { __id: "krds-snackbar--same-id-error-action-update" }, render: () => <CatalogStory componentId="snackbar" caseId="same-id-error-action-update"/> };
+export const DismissalRejected: Story = { name: "dismissal-rejected", parameters: { __id: "krds-snackbar--dismissal-rejected" }, render: () => <CatalogStory componentId="snackbar" caseId="dismissal-rejected"/> };
+export const HostQueueReplacement: Story = { name: "host-queue-replacement", parameters: { __id: "krds-snackbar--host-queue-replacement" }, render: () => <CatalogStory componentId="snackbar" caseId="host-queue-replacement"/> };
+export const GenerationTimerPauses: Story = { name: "generation-timer-pauses", parameters: { __id: "krds-snackbar--generation-timer-pauses" }, render: () => <CatalogStory componentId="snackbar" caseId="generation-timer-pauses"/> };

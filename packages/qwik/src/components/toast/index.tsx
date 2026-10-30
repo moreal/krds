@@ -1,0 +1,7 @@
+import { $, component$, useSignal, Slot, useId, useComputed$, useVisibleTask$, useTask$, type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { ToastContract } from '@unofficial-krds/contracts';
+import { owned, states, safeRel, useField, useReset, useNarrow, usable, focusTarget, restore, ignoredKey, type NativeContract } from '../../internal/catalog';
+import { useNotification } from '../../internal/notification';
+export type ToastProps = NativeContract<ToastContract>;
+export const Toast = component$<ToastProps>((props) => { const content=useComputed$(()=>props.message?.text??''),present=useComputed$(()=>Boolean(props.message)),tone=useComputed$(()=>props.message?.tone??''),messageId=useComputed$(()=>props.message?.id??'');const signature = useComputed$(() => props.message ? JSON.stringify([props.message.id, props.message.text, props.message.tone, props.durationMs]) : null), duration = useComputed$(() => props.durationMs ?? (props.message?.tone === 'warning' ? 4000 : 3000)), paused = useSignal(false); useNotification(signature, duration, paused, $(generation => { if (props.message)
+    return props.onDismiss$({ id: props.message.id, reason: 'timeout', generation }); })); return present.value ? <div {...owned('toast', 'root', `open ${tone.value}`)} data-krds-tone={tone.value}><span key={messageId.value} {...owned('toast', 'message')} role="status" aria-live="polite" aria-atomic="true">{content.value}</span></div> : null; });

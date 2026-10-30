@@ -1,0 +1,35 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-solid
+
+ ❯ |chromium| tests/siheom/button.test.tsx (8 tests | 2 failed) 473ms
+   × accepts a native action name from a local image text alternative 102ms
+   × accepts a native action name from a named image-role child 78ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/button.test.tsx > accepts a native action name from a local image text alternative
+ FAIL  |chromium| tests/siheom/button.test.tsx > accepts a native action name from a named image-role child
+TypeError: Button requires an accessible action name
+
+Failure screenshots:
+  - test-results/siheom-27004/tests/siheom/button.test.tsx/accepts-a-native-action-name-from-a-local-image-text-alternative-1.png
+  - test-results/siheom-27004/tests/siheom/button.test.tsx/accepts-a-native-action-name-from-a-named-image-role-child-1.png
+
+ ❯ runComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:753:21
+ ❯ updateComputation ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:735:2
+ ❯ runTop ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:858:6
+ ❯ runUserEffects ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:968:35
+ ❯ ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:925:33
+ ❯ runUpdates ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:874:16
+ ❯ completeUpdates ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:925:16
+ ❯ runUpdates ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:875:4
+ ❯ createRoot ../../node_modules/.store/solid-js-npm-1.9.18-e3c9e33d57/package/dist/dev.js:202:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 6 passed (8)
+   Start at  11:28:46
+   Duration  1.28s (transform 0ms, setup 54ms, import 121ms, tests 473ms, environment 0ms)
+

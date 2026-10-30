@@ -1,0 +1,13 @@
+/* KRDS-derived: frozen component.css lines 8478–8699; semantic guidance: specs/components/tag.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="tag"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-3); }
+[data-krds-component="tag"][data-krds-part="list"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-3); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="tag"][data-krds-part="item"] { display: inline-flex; align-items: center; gap: var(--krds-gap-2); min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-border-gray-light); border-radius: var(--krds-radius-max); background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-basic); font: inherit; }
+[data-krds-component="tag"][data-krds-part="item"]:is(button,a):hover { background: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="tag"][data-krds-part="item"][aria-pressed="true"], [data-krds-component="tag"][data-krds-part="item"][data-krds-state~="selected"] { border: var(--krds-number-3) double var(--krds-light-color-border-primary); font-weight: 700; background: var(--krds-light-color-action-secondary-selected); }
+[data-krds-component="tag"][data-krds-part="label"] { min-inline-size: 0; }
+[data-krds-component="tag"][data-krds-part="icon"] { flex: none; inline-size: 1em; block-size: 1em; }
+[data-krds-component="tag"][data-krds-part="remove"] { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--krds-size-height-5); min-block-size: var(--krds-size-height-5); border: 0; border-radius: var(--krds-radius-max); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+[data-krds-component="tag"][data-krds-part="clear"], [data-krds-component="tag"][data-krds-part="more"] { min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-action-secondary); color: inherit; font: inherit; }
+[data-krds-component="tag"][data-krds-part="item"][aria-disabled="true"], [data-krds-component="tag"][data-krds-part="item"]:disabled { color: var(--krds-light-color-text-disabled); border-style: dashed; cursor: not-allowed; }
+[data-krds-component="tag"][data-krds-part="root"][data-krds-mode="link"] [data-krds-component="tag"][data-krds-part="item"] { text-decoration: underline; text-underline-offset: .2em; }

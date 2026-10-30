@@ -1,0 +1,15 @@
+/* KRDS-derived: frozen component.css lines 5186–5694; semantic guidance: specs/components/footer.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="footer"][data-krds-part="root"] { padding: var(--krds-padding-8); background: var(--krds-light-color-surface-gray-subtler); color: var(--krds-light-color-text-basic); }
+[data-krds-component="footer"][data-krds-part="logo"] { display: block; max-inline-size: 16rem; block-size: auto; margin-block-end: var(--krds-gap-7); }
+[data-krds-component="footer"][data-krds-part="contacts"] { display: flex; flex-direction: column; gap: var(--krds-gap-3); font-style: normal; }
+[data-krds-component="footer"][data-krds-part="utilities"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-4); padding-block: var(--krds-padding-6); border-block: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); }
+[data-krds-component="footer"][data-krds-part="policies"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-5); padding-block: var(--krds-padding-6); }
+[data-krds-component="footer"][data-krds-part="privacy-link"] { color: var(--krds-light-color-text-primary); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+[data-krds-component="footer"][data-krds-part="copyright"] { margin-block: var(--krds-gap-4); font-size: var(--krds-pc-font-size-body-small); }
+[data-krds-component="footer"][data-krds-part="identifier"] { border-block-start: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); padding-block-start: var(--krds-padding-6); }
+@media (max-width: 767px) { [data-krds-component="footer"][data-krds-part="root"] { padding: var(--krds-padding-6); } [data-krds-component="footer"][data-krds-part="utilities"] { flex-direction: column; align-items: flex-start; } [data-krds-component="footer"][data-krds-part="copyright"] { font-size: var(--krds-mobile-font-size-body-small); } }
+
+/* Footer links use the readable footer text surface pair. Privacy keeps its
+ * separate primary emphasis, and link underlines/focus behavior remain intact. */
+[data-krds-component="footer"][data-krds-part="root"] a:not([data-krds-part="privacy-link"]) { color: inherit; }

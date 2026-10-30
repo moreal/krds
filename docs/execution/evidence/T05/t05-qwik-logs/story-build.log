@@ -1,0 +1,49 @@
+
+┌  Building storybook v10.6.5
+│
+◇  Cleaning outputDir: dist
+│
+◇  Loading presets
+│
+◇  Building manager..
+│
+●  Building open services..
+│
+●  Building preview..
+warning: vite's config.base must begin and end with /. This will be an error in v2. If you have a valid use case, please open an issue.
+│  Vite vite v7.3.1 building client environment for production...
+│  Vite transforming...
+│  Vite ✓ 30 modules transformed.
+│  Vite rendering chunks...
+│  Vite computing gzip size...
+│  Vite dist/assets/CJ3BCL1X-bundle-graph.json    0.12 kB │ gzip:   0.11
+│  kB
+│  Vite dist/q-manifest.json                      3.96 kB │ gzip:   1.08
+│  kB
+│  Vite dist/iframe.html                         21.70 kB │ gzip:   6.81
+│  kB
+│  Vite dist/build/q-CqmCbNEu.js                  1.39 kB │ gzip:   0.77
+│  kB
+│  Vite dist/build/q-naDMFAHy.js                  3.10 kB │ gzip:   1.68
+│  kB
+│  Vite dist/build/q-DPQ5ZV0Z.js                  5.24 kB │ gzip:   1.33
+│  kB
+│  Vite dist/build/q-O9C_hHyz.js                 65.37 kB │ gzip:  24.20
+│  kB
+│  Vite dist/build/q-DV4F__xS.js                866.37 kB │ gzip: 243.89
+│  kB
+│
+▲  Vite
+│  (!) Some chunks are larger than 500 kB after minification. Consider:
+│  - Using dynamic import() to code-split the application
+│  - Use build.rollupOptions.output.manualChunks to improve chunking:
+│  ]8;;https://rollupjs.org/configuration-options/#output-manualchunkshttps://rollupjs.org/configuration-options/#output-manualchunks]8;;
+│  - Adjust chunk size limit for this warning via
+│  build.chunkSizeWarningLimit.
+│  Vite ✓ built in 2.12s
+│
+◇  Output directory:
+│  /Users/moreal/github/moreal/krds/apps/storybook-qwik/dist
+│
+└  Storybook build completed successfully
+

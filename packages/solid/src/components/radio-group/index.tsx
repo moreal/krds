@@ -1,0 +1,20 @@
+import { For, createEffect, createUniqueId, onMount, onCleanup } from 'solid-js';
+import type { RadioGroupContract } from '@unofficial-krds/contracts';
+import { owned, keyedItems, stateValue, resetField, ignoredKey } from '../../internal/catalog';
+export type RadioGroupProps = RadioGroupContract;
+export function RadioGroup(props: RadioGroupProps) { const stableOptions = keyedItems(() => props.options, 'value'); const uid = createUniqueId(); const value = stateValue(() => props.value, props.defaultValue, null, v => props.onValueChange?.({ value: v })); let root!: HTMLFieldSetElement; let entryDirection: 'forward'|'backward'|undefined; onMount(()=>{const keydown=(event:KeyboardEvent)=>{entryDirection=event.key==='Tab'&&!root.contains(event.target as Node)?(event.shiftKey?'backward':'forward'):undefined;};const keyup=()=>{entryDirection=undefined;};document.addEventListener('keydown',keydown,true);document.addEventListener('keyup',keyup,true);onCleanup(()=>{document.removeEventListener('keydown',keydown,true);document.removeEventListener('keyup',keyup,true);});}); const sync = () => root?.querySelectorAll<HTMLInputElement>('input').forEach(input => input.checked = input.value === value.read()); createEffect(() => { const values = props.options.map(option => option.value); const ids=props.options.map((option,index)=>option.id??`${uid}-${index}`); if(ids.some(id=>!id.trim())||new Set(ids).size!==ids.length)throw new TypeError('Explicit Radio IDs must be nonempty and unique'); if (new Set(values).size !== values.length || value.read() !== null && !values.includes(value.read()!))
+    throw new TypeError('Radio values must be unique and committed choice must exist'); sync(); }); resetField(() => root, () => { value.reset(); sync(); }); return <fieldset ref={root} id={props.id} {...owned('radio-group', 'root', props.invalid ? 'invalid' : '')} disabled={props.disabled} aria-describedby={[props.helpId, props.invalid ? props.errorId : undefined].filter(Boolean).join(' ') || undefined} onFocusIn={event=>{if(!entryDirection||root.contains(event.relatedTarget as Node))return;const direction=entryDirection;entryDirection=undefined;const inputs=[...root.querySelectorAll<HTMLInputElement>('input:not(:disabled)')];(direction==='backward'?inputs.at(-1):inputs[0])?.focus();}} data-krds-appearance={props.appearance ?? 'default'} data-krds-size={props.size ?? 'medium'} onKeyDown={event => { if (ignoredKey(event) || !['Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key))
+    return; const inputs = [...root.querySelectorAll<HTMLInputElement>('input:not(:disabled)')]; const index = inputs.indexOf(document.activeElement as HTMLInputElement); if (index < 0)
+    return; const next = event.key === 'Home' ? 0 : event.key === 'End' ? inputs.length - 1 : index + (['ArrowLeft', 'ArrowUp'].includes(event.key) || (event.key === 'Tab' && event.shiftKey) ? -1 : 1); if (event.key === 'Tab') {
+    if (next < 0 || next >= inputs.length)
+        return;
+    event.preventDefault();
+    inputs[next]!.focus();
+}
+else {
+    event.preventDefault();
+    const input = inputs[(next + inputs.length) % inputs.length]!;
+    input.focus();
+    value.request(input.value);
+    sync();
+} }}><legend {...owned('radio-group', 'legend')}>{props.label}</legend><For each={stableOptions()}>{(option,index) => <label {...owned('radio-group', 'item', `${value.read() === option.value ? 'checked' : 'unchecked'}${props.disabled || option.disabled ? ' disabled' : ''}`)}><input id={option.id??`${uid}-${index()}`} {...owned('radio-group', 'control')} type="radio" name={props.name ?? uid} value={option.value} checked={value.read() === option.value} disabled={props.disabled || option.disabled} required={props.required} aria-invalid={props.invalid || undefined} tabIndex={0} onChange={event => { value.request(event.currentTarget.value); sync(); }}/><span {...owned('radio-group', 'indicator')} aria-hidden="true" hidden/><span {...owned('radio-group', 'label')}>{option.label}</span></label>}</For></fieldset>; }

@@ -1,0 +1,18 @@
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import CatalogStory from './CatalogStory.vue';
+const meta = {id: 'krds-tooltip', title: 'KRDS/Catalog/Tooltip', component: CatalogStory, parameters:{layout:'fullscreen'}, args: {componentId: 'tooltip'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const InformationIcon: Story = {name: "information-icon", args: {caseId: "information-icon"}};
+export const IconButton: Story = {name: "icon-button", args: {caseId: "icon-button"}};
+export const Vertical: Story = {name: "vertical", args: {caseId: "vertical"}};
+export const Box: Story = {name: "box", args: {caseId: "box"}};
+export const TouchToggle: Story = {name: "touch-toggle", args: {caseId: "touch-toggle"}};
+export const EscapeSuppression: Story = {name: "escape-suppression", args: {caseId: "escape-suppression"}};
+export const ViewportEdge: Story = {name: "viewport-edge", args: {caseId: "viewport-edge"}};
+export const RelationshipDescription: Story = {name: "relationship-description", args: {caseId: "relationship-description"}};
+export const RelationshipLabelClosed: Story = {name: "relationship-label-closed", args: {caseId: "relationship-label-closed"}};
+export const HoverEscapeReturn: Story = {name: "hover-escape-return", args: {caseId: "hover-escape-return"}};
+export const ControlledEscapeRejected: Story = {name: "controlled-escape-rejected", args: {caseId: "controlled-escape-rejected"}};
+export const TriggerRemoved: Story = {name: "trigger-removed", args: {caseId: "trigger-removed"}};
+export const ShadowRelationship: Story = {name: "shadow-relationship", args: {caseId: "shadow-relationship"}};

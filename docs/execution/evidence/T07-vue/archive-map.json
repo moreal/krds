@@ -1,0 +1,1542 @@
+{
+  "scope": "Approved T07 Vue six pilots, including fix round 1; frozen before T10",
+  "readsLiveImplementationTree": false,
+  "reviewedSnapshotPaths": 42,
+  "approvedPreT10Files": 86,
+  "runners": [
+    {
+      "log": "logs/siheom-final.log",
+      "runner": "runners/siheom-1793331213102-63846-e7ffc79d"
+    },
+    {
+      "log": "logs/contracts-chromium-final.log",
+      "runner": "runners/contract-1793331019458-62395-24c73092"
+    },
+    {
+      "log": "logs/contracts-webkit-final.log",
+      "runner": "runners/contract-1793330785493-60282-98f51f03"
+    },
+    {
+      "log": "logs/contracts-webkit.log",
+      "runner": "runners/contract-1793330560063-58752-ac8620c1"
+    },
+    {
+      "log": "logs/stories-chromium-final.log",
+      "runner": "runners/stories-1793331231963-64006-4d1dadd7"
+    }
+  ],
+  "files": [
+    {
+      "archivePath": "reports/task-T07-vue-report.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-report.md",
+      "bytes": 15067,
+      "sha256": "ae13d2b97f658d1224a5e98d996487980a919d752a399457b1448422ad7521fe"
+    },
+    {
+      "archivePath": "reviews/task-T07-vue-review.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-review.md",
+      "bytes": 15066,
+      "sha256": "3c1b0baf054d0727fdc3334211ef686bb071c70e8654dd01f54cce42100fd20f"
+    },
+    {
+      "archivePath": "reviews/task-T07-vue-review-package.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-review-package.md",
+      "bytes": 110021,
+      "sha256": "d55b06b92bb082b84fcc1f8ec50135ca76f67084fd393c5f41d6047a7df8271f"
+    },
+    {
+      "archivePath": "reviews/task-T07-vue-snapshot.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-snapshot.json",
+      "bytes": 4685,
+      "sha256": "ceadc19edee3e3970a3668a84fea74f1927b2e677895409c0f3929135ac01361"
+    },
+    {
+      "archivePath": "logs/build.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/build.log",
+      "bytes": 977,
+      "sha256": "223a9d97b9a56bf7f2041ed6353190c5c963e4d3c46d94c024d499fd555331ee"
+    },
+    {
+      "archivePath": "logs/contracts-chromium-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/contracts-chromium-final.log",
+      "bytes": 1330,
+      "sha256": "9a8b1122fe70eb8ed75d9ff11c3288a29f21b679684b16791c3e90f592dfc6df"
+    },
+    {
+      "archivePath": "logs/contracts-chromium.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/contracts-chromium.log",
+      "bytes": 1330,
+      "sha256": "ee295430b9717e32f8f6d514307478227b30e52c6f7b78d27bc66fd306f30cfe"
+    },
+    {
+      "archivePath": "logs/contracts-webkit-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/contracts-webkit-final.log",
+      "bytes": 1309,
+      "sha256": "c05e5ed071a9e565d6d75f6c24788c9734feb28bf5cfe013badd03e848af3b63"
+    },
+    {
+      "archivePath": "logs/contracts-webkit.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/contracts-webkit.log",
+      "bytes": 4578,
+      "sha256": "2ac4077ffbbf171e8aa8a89eee7f6e90f06c61225448911f72803c0eae6f7797"
+    },
+    {
+      "archivePath": "logs/fix1-affected-green-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-affected-green-final.log",
+      "bytes": 248,
+      "sha256": "8e887eafadd7b745f8ec0360e9bd1c220ce0897c85c04f29465066427e0a2422"
+    },
+    {
+      "archivePath": "logs/fix1-affected-green.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-affected-green.log",
+      "bytes": 248,
+      "sha256": "1ea7a82450372a60776e3b9efbd4c52a3f75e6d4c3fb267a517654200365fb19"
+    },
+    {
+      "archivePath": "logs/fix1-before-source-inventory.json",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-before-source-inventory.json",
+      "bytes": 9157,
+      "sha256": "c39d6762cd48880251b7f6cfabb4236185fa852f1521bf9836b53b413b0870dd"
+    },
+    {
+      "archivePath": "logs/fix1-build-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-build-final.log",
+      "bytes": 977,
+      "sha256": "dd1b8786e64be29d9cef649206120e269b7ed7126ac443e8232950b700ae41d2"
+    },
+    {
+      "archivePath": "logs/fix1-build.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-build.log",
+      "bytes": 977,
+      "sha256": "366f86088574a6758d26f66beb5e99c17fbfe4a19e90b850bce5975235dcf194"
+    },
+    {
+      "archivePath": "logs/fix1-fixture-build-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-fixture-build-final.log",
+      "bytes": 347,
+      "sha256": "fb75142ce5e6141c46595a85af345199de7a2b7f44bfb79d01cf2bd32fb00d17"
+    },
+    {
+      "archivePath": "logs/fix1-fixture-build.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-fixture-build.log",
+      "bytes": 347,
+      "sha256": "3b7300629534e8cfb0baf5eca9899f38972ef5b8a47ffca5693b4dff26227120"
+    },
+    {
+      "archivePath": "logs/fix1-fixture-typecheck-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-fixture-typecheck-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archivePath": "logs/fix1-fixture-typecheck.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-fixture-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archivePath": "logs/fix1-green.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-green.log",
+      "bytes": 247,
+      "sha256": "0c28d7559f9115dbfc806cd5762769dfd8f1ff1ed589342133966530ddbaa268"
+    },
+    {
+      "archivePath": "logs/fix1-red.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-red.log",
+      "bytes": 11540,
+      "sha256": "0efacb0b8effa4f2ee6161f3f1c1f14ea7698803494e8c432f44b4438e9734a3"
+    },
+    {
+      "archivePath": "logs/fix1-source-diff.patch",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-source-diff.patch",
+      "bytes": 15634,
+      "sha256": "028c2fa3f83eb9a238abdffe03717add0ed1303c31aebdf52cc007e2449a6583"
+    },
+    {
+      "archivePath": "logs/fix1-source-hashes.json",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-source-hashes.json",
+      "bytes": 1353,
+      "sha256": "7c39ceb541d295aab6aa28d4da9385908e94a1eec3dc9983a15dd6d140340264"
+    },
+    {
+      "archivePath": "logs/fix1-typecheck.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fix1-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archivePath": "logs/fixture-build.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fixture-build.log",
+      "bytes": 347,
+      "sha256": "db107e689d014bd3d5e518e07e6af60d5bc3099eeadebac91ef558b92722a0c0"
+    },
+    {
+      "archivePath": "logs/fixture-type.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/fixture-type.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archivePath": "logs/nx-build.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/nx-build.log",
+      "bytes": 214,
+      "sha256": "5a0203914f01a51fe7c20658a9ed727b2b9e23ef298b0e2e5bf3d36399037845"
+    },
+    {
+      "archivePath": "logs/nx-typecheck-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/nx-typecheck-final.log",
+      "bytes": 214,
+      "sha256": "e81f2fac48a3e0b8c0ed60c24e19de343f1cbe0bec8d2d9814f02948a400ac26"
+    },
+    {
+      "archivePath": "logs/nx-typecheck.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/nx-typecheck.log",
+      "bytes": 5313,
+      "sha256": "18696016d88bcb39787ed34933a43553a81c3a71b03783d1bd4d9613d5fd4444"
+    },
+    {
+      "archivePath": "logs/production-behavior.json",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/production-behavior.json",
+      "bytes": 417,
+      "sha256": "a5f10357519e7c854e6af375fae0559a981bbd232c68f1391a3cabd5975f0970"
+    },
+    {
+      "archivePath": "logs/production-behavior.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/production-behavior.log",
+      "bytes": 418,
+      "sha256": "b04c2b8aff7758b2ae47e90901a94201b08d7804d41afe370307dff6f2543948"
+    },
+    {
+      "archivePath": "logs/red-native.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/red-native.log",
+      "bytes": 3619,
+      "sha256": "e8ddc27eebc7576f3c465e458ccdebeb38c597e122bb43262f2af481d175b94c"
+    },
+    {
+      "archivePath": "logs/red.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/red.log",
+      "bytes": 1146,
+      "sha256": "842c1572be2181e41389c733a98da6e0e349d1f381be4034b8d1931fda6a0387"
+    },
+    {
+      "archivePath": "logs/siheom-expanded.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/siheom-expanded.log",
+      "bytes": 514,
+      "sha256": "6500a670ea2eabdb002ad0ac1e1f4847d77ed10dbff0b41f8a3dc7f0c19881e4"
+    },
+    {
+      "archivePath": "logs/siheom-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/siheom-final.log",
+      "bytes": 1949,
+      "sha256": "6ea6fb78afd88c884702142b70efaa4b225bf688a7afaa4f2df5ff91730dc05e"
+    },
+    {
+      "archivePath": "logs/siheom-initial.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/siheom-initial.log",
+      "bytes": 8817,
+      "sha256": "5f2b67beed756618a268ef6b1a36beb118c979f1a94d0e35088e20278b5342f6"
+    },
+    {
+      "archivePath": "logs/siheom-second.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/siheom-second.log",
+      "bytes": 512,
+      "sha256": "81af06d285907f81ec68bd3eda4ff2937875a3d4e82714d99a4b957b0a479543"
+    },
+    {
+      "archivePath": "logs/source-inventory.json",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/source-inventory.json",
+      "bytes": 9284,
+      "sha256": "ab5c75d1cd03c37401d6c94f15e53c4d9cb6ce1238c3686d715e2249dcbffab4"
+    },
+    {
+      "archivePath": "logs/ssr-consumer.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/ssr-consumer.log",
+      "bytes": 69,
+      "sha256": "6b9e20662c4fefedff65c4272ecbee3a4031895d98946ade502ef32b2665678a"
+    },
+    {
+      "archivePath": "logs/stories-chromium-final.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/stories-chromium-final.log",
+      "bytes": 107,
+      "sha256": "367f9e8f0c8d9497abdd1d7466c66c5ca74a1c54eab65973b88304e9cfec4b00"
+    },
+    {
+      "archivePath": "logs/stories-chromium.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/stories-chromium.log",
+      "bytes": 107,
+      "sha256": "d1ee420db0806625e30a69ce44b63d0eb3cbcf1b39c19fb033f23e5162b96c27"
+    },
+    {
+      "archivePath": "logs/story-type.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/story-type.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archivePath": "logs/storybook-build.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/storybook-build.log",
+      "bytes": 2882,
+      "sha256": "73f0ae6d8ae275cec989a98109edb2cbe53c43a9520e54a97f888c0d7621dcdb"
+    },
+    {
+      "archivePath": "logs/typecheck-formatted.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/typecheck-formatted.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archivePath": "logs/typecheck-initial.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/typecheck-initial.log",
+      "bytes": 375,
+      "sha256": "a85d9c90223c930eca5a7943b3d9df4761708652057d48850cf30e79047d8073"
+    },
+    {
+      "archivePath": "logs/typecheck-native.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/typecheck-native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archivePath": "logs/verification-summary.json",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/verification-summary.json",
+      "bytes": 4607,
+      "sha256": "c8d766d0794eb3a53aef88121e70ccc5b38b1d8a8a8bfc371492c0659ebefc2d"
+    },
+    {
+      "archivePath": "logs/visual/focused-calendar.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/focused-calendar.png",
+      "bytes": 122972,
+      "sha256": "9434d55a124b74f7054f980ac917cff4e50890b6c8d2bc29550f230011cfd89d"
+    },
+    {
+      "archivePath": "logs/visual/focused-date-input.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/focused-date-input.png",
+      "bytes": 123059,
+      "sha256": "d8e48eb75198160e48967356a0513c0e1102bede5650f83526343997536cf4dd"
+    },
+    {
+      "archivePath": "logs/visual/focused-select.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/focused-select.png",
+      "bytes": 123054,
+      "sha256": "8b4903286c1c8527f40c7eaded063b7841c5a817910c1fdc1790b88d1dd8aa84"
+    },
+    {
+      "archivePath": "logs/visual/focused-tabs.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/focused-tabs.png",
+      "bytes": 122499,
+      "sha256": "a3bc3f756425c0dbc6d52b7185ac26724e6f8eca874804c01c4328f3f58c0b6b"
+    },
+    {
+      "archivePath": "logs/visual/forced-colors-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/forced-colors-modal.png",
+      "bytes": 125212,
+      "sha256": "4a9c864bdb521c798b929b4a4ad841af1a56ed8d68169fa0811962df552e9c2c"
+    },
+    {
+      "archivePath": "logs/visual/forced-colors.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/forced-colors.png",
+      "bytes": 118952,
+      "sha256": "9427ca90fdd1efb0b46c1e98d165e34035023e38db9cf8eff8b8ef56c97819a3"
+    },
+    {
+      "archivePath": "logs/visual/narrow-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/narrow-modal.png",
+      "bytes": 101874,
+      "sha256": "a3692c90a0b602c3f202600da621c52730eb7241ec016f14a8412003e57ad1ee"
+    },
+    {
+      "archivePath": "logs/visual/narrow.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/narrow.png",
+      "bytes": 106681,
+      "sha256": "9156a4207f566b4490bee6ad94ede5bfd0f189610933d0184d6f07367e914c57"
+    },
+    {
+      "archivePath": "logs/visual/normal-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/normal-modal.png",
+      "bytes": 128517,
+      "sha256": "54144f81b9c6d06b7aac9fa22c38effc1640997da42cad033f4a2e7cb7fed02a"
+    },
+    {
+      "archivePath": "logs/visual/normal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/normal.png",
+      "bytes": 123127,
+      "sha256": "94e583cf637a2e7bac727f277e98adc70373e17228e2fdef0d906391caff3405"
+    },
+    {
+      "archivePath": "logs/visual/raw-results.json",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/raw-results.json",
+      "bytes": 1716,
+      "sha256": "f3a05412e66f6b7ad59ce4ef6ad102717a692573d231361ef6fd055787427020"
+    },
+    {
+      "archivePath": "logs/visual/text200-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/text200-modal.png",
+      "bytes": 331143,
+      "sha256": "e40fd9cc5b1f2c93c543b4295b01d6934298fb898b011a028bd319e653c09a6e"
+    },
+    {
+      "archivePath": "logs/visual/text200.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/text200.png",
+      "bytes": 370361,
+      "sha256": "efa1f61a60759523fd8c625c672682d8909b6ba9236504aa72c437da1ef99c50"
+    },
+    {
+      "archivePath": "logs/visual/zoom200-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/zoom200-modal.png",
+      "bytes": 216032,
+      "sha256": "4bbb321d4544c85e67e492b84b7be5e80649ccc6fd545b3815aeb1e9ff72b098"
+    },
+    {
+      "archivePath": "logs/visual/zoom200.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual/zoom200.png",
+      "bytes": 235466,
+      "sha256": "fcec5c1067f70b9e9296686431d3ab99fe1cb8a5d8a5ba2b5c5d5740f6dc3b81"
+    },
+    {
+      "archivePath": "logs/visual-initial/forced-colors-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/forced-colors-modal.png",
+      "bytes": 124349,
+      "sha256": "b44aa1020ba8a2e3bae6fffaeac45b0b4102670190dbd416b8f71ed5ce320e29"
+    },
+    {
+      "archivePath": "logs/visual-initial/forced-colors.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/forced-colors.png",
+      "bytes": 118375,
+      "sha256": "7090a5db997d13939d38e66ad0e50aee267606363e23ca68cda52d7f4e920e0f"
+    },
+    {
+      "archivePath": "logs/visual-initial/narrow-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/narrow-modal.png",
+      "bytes": 101425,
+      "sha256": "5386d99eaabaa8ec09bc4cc9c67ff0f1c3e1e4dfc99c718deb715b46657e7a79"
+    },
+    {
+      "archivePath": "logs/visual-initial/narrow.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/narrow.png",
+      "bytes": 105889,
+      "sha256": "1e466da3280e4ffd82ed6e50241c669dd695cea9ceba9c7e3f3cdbd701579a6b"
+    },
+    {
+      "archivePath": "logs/visual-initial/normal-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/normal-modal.png",
+      "bytes": 127751,
+      "sha256": "5aec409373ccbc52c19cea04e69ae1c910afecd46a4f6e79683ed824ce3e4134"
+    },
+    {
+      "archivePath": "logs/visual-initial/normal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/normal.png",
+      "bytes": 122855,
+      "sha256": "7974e5d1097bc6f8a7435fe9b6814ce040ec6d6d949405b21e615b4e076b7d95"
+    },
+    {
+      "archivePath": "logs/visual-initial/raw-results.json",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/raw-results.json",
+      "bytes": 5768,
+      "sha256": "14a69f6c8666fbde960a1b6d8132fbcb99fa2a246bc8492ebbf7f65eef0c9c46"
+    },
+    {
+      "archivePath": "logs/visual-initial/zoom200-modal.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/zoom200-modal.png",
+      "bytes": 217031,
+      "sha256": "0160e5d8fd04d34262f684fa1409954da4e2b139f1d0c04bb19af68e6556d7ae"
+    },
+    {
+      "archivePath": "logs/visual-initial/zoom200.png",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual-initial/zoom200.png",
+      "bytes": 236493,
+      "sha256": "79e73cb52d9d5fff2d4ee94044091196d38241cc3b9e36afe2939ade63a0d43e"
+    },
+    {
+      "archivePath": "logs/visual.log",
+      "originalPath": ".superpowers/sdd/PLAN/t07-vue-logs/visual.log",
+      "bytes": 1717,
+      "sha256": "e2c08f59938987878b0f206e9f4c69ad18389164210ecd035ae4e4a2f5983477"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/package.json",
+      "bytes": 1535,
+      "sha256": "f8fdf65e64c4bb30c2c70c9f99bc9208b47fc0679749e572ebc34f1fecb3e3ca"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/src/ConsumerExample.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/src/ConsumerExample.vue",
+      "bytes": 1035,
+      "sha256": "c7c607e17cf50712e67b7d213ae574127363098d5d41e27b5f1a9ba23af01d36"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/src/FixtureApp.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/src/FixtureApp.ts",
+      "bytes": 149,
+      "sha256": "cbe2ac307b9e6b05e0a38cebd26b04aa3fed98339ea710eed6fb3e8e503c8e50"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/src/VisualMatrix.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/src/VisualMatrix.vue",
+      "bytes": 2153,
+      "sha256": "db5b569e252b290bee8f66ac17e3c95d9ff5c4c73384f1dae1341a4680222f51"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/src/VuePilots.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/src/VuePilots.vue",
+      "bytes": 3391,
+      "sha256": "01b9fc78ff042c1c82578dcabd6985df946337019258fe7126283081abaafe36"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/src/env.d.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/src/env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/src/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/src/main.ts",
+      "bytes": 334,
+      "sha256": "0bedb61086ab369aeed43cd3cd2ca7b682cf4b614962381ed4e02aaa3106d161"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/tests/production-behavior.mjs",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/tests/production-behavior.mjs",
+      "bytes": 3807,
+      "sha256": "d29c781f375e346f2bf8ac76d0a7328e05d70f65bd8bbe9503ad72a30ef2096c"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/tests/siheom/native-behavior.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/tests/siheom/native-behavior.test.ts",
+      "bytes": 19081,
+      "sha256": "a8ae97e20ce0a3a76ef51cc4f838dec6c06de4a3c611d33e26d4619dd3d1deb0"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/tests/siheom/pilots.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/tests/siheom/pilots.test.ts",
+      "bytes": 660,
+      "sha256": "e2ed7be8367ed62adc29a4864f2ad5914c727ae8e2a8b8854b3e3f0692b91a15"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/tests/ssr-consumer.mjs",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/tests/ssr-consumer.mjs",
+      "bytes": 1070,
+      "sha256": "33a4cf6cb1b9df3ce12c55e46d3e5b5b4ad37354c1236c54df810b799348c454"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/tests/visual-inspect.mjs",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/tests/visual-inspect.mjs",
+      "bytes": 3584,
+      "sha256": "d604ac5730d5a8c77d07ec74264f3b515cf0dea5f81f02c260b06e8da6df07fc"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/fixture-vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/fixture-vue/tsconfig.json",
+      "bytes": 270,
+      "sha256": "1d89f859d46642e503162e5abf63469fee6fdf02fca719e23ba9a7eb1890c42e"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/.storybook/preview.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/.storybook/preview.ts",
+      "bytes": 256,
+      "sha256": "89dbf431bb32ad74a2864d195c547a2234df03e76527de70638a20a818af4008"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/env.d.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/main.ts",
+      "bytes": 134,
+      "sha256": "265c9c39fdf9ab1195bddd138a0271020bb4c4bc7a5528a7cdd45a9a66a5a307"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "bytes": 953,
+      "sha256": "3588a0e1886f3756bdb16b0dcc86a372ff86197009c8cc4b5b1eb8333f474ea9"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/Pilots.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/Pilots.vue",
+      "bytes": 1339,
+      "sha256": "def387552417519ef79271cfa36d4877c63a7e19c8d11c5266b94104b56afb2b"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/calendar.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/calendar.stories.ts",
+      "bytes": 151,
+      "sha256": "5f79036dbff729e8f5e1bdf6d7921785258ee4b2e363559250042c866b4a4153"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/date-input.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/date-input.stories.ts",
+      "bytes": 149,
+      "sha256": "164c51c451bfb4b1b8d65ba2ad1cdceb9ef4d892b8fe4a6307bae6027ad1dd02"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/modal.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/modal.stories.ts",
+      "bytes": 136,
+      "sha256": "56baa02ab092ca701462684c6cf3942ca19b9124022dac85ec851b44ec574d21"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/pilots.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/pilots.stories.ts",
+      "bytes": 271,
+      "sha256": "9190a22f5c7fcee9a03251d55ce2a5ddd1634a4d135cb57cfe91e587664272cb"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/select.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/select.stories.ts",
+      "bytes": 158,
+      "sha256": "9d26de81a5201647e3e9d6985128146ca474e23b5a2fff79368a488e8f44578d"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/src/stories/tabs.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/src/stories/tabs.stories.ts",
+      "bytes": 136,
+      "sha256": "27d1403a4abd63855b08812b58a3ea7733ab4df918163bc06e6ca233ead5d33c"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/apps/storybook-vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/apps/storybook-vue/tsconfig.json",
+      "bytes": 270,
+      "sha256": "1d89f859d46642e503162e5abf63469fee6fdf02fca719e23ba9a7eb1890c42e"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/docs/compatibility/vue.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/docs/compatibility/vue.md",
+      "bytes": 2745,
+      "sha256": "4e7a9932566287fe36a57bd6581da3a67f770bce62ae753472f0d1ae30a54950"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/README.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/README.md",
+      "bytes": 1478,
+      "sha256": "012eabd12bff3f50a651323496dc07ed2e2fcc9f4cf5c2146991a65fe95143b3"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/package.json",
+      "bytes": 2286,
+      "sha256": "75ecf0841693eac4c95fe4c094c0437aeb7add3131576d36e7688702672686d5"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/button/Button.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/button/Button.vue",
+      "bytes": 1509,
+      "sha256": "b31f76761a5c5bbc3cbf135e4d4f59c9613ba9f0ed9a2ab2fdc79f4a3adb1b28"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/calendar/Calendar.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/calendar/Calendar.vue",
+      "bytes": 9978,
+      "sha256": "5d26c2c6b9f6d52c70475a71426768088e1f54f36ceedaaea55621ba7d815614"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/context.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/context.ts",
+      "bytes": 1104,
+      "sha256": "e3b247a53ed67e4d2e7630d7c9f6ec08f71e9cbd5db7e8ce984df1b68c8e5d73"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/control.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/control.ts",
+      "bytes": 1048,
+      "sha256": "766c6fd427e735050f9967e3fa3810e8ce39750f4d9230c31b4eda5521aa1d88"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/date-input/DateInput.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/date-input/DateInput.vue",
+      "bytes": 10931,
+      "sha256": "0739f67ea3e9608b92275eada01a44e49b60e1a6711bb5a8f81004a7a28bb416"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/date-model.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/date-model.ts",
+      "bytes": 4714,
+      "sha256": "55050d793ed8c232c9ab9b37e17d224e7e38c8cf3cfbe9c6c9ff8a05cc82e60a"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/modal/Modal.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/modal/Modal.vue",
+      "bytes": 7318,
+      "sha256": "1833f5093c368f01224300b8b3b7a5058bb2d0d533ab6bf63b4f31974eee9fe6"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/modal/stack.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/modal/stack.ts",
+      "bytes": 3093,
+      "sha256": "e9a38ade998ca2958fca75c45f6be51d84a341cf69b96249088fa939dc65bcb0"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/native-select/NativeSelect.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/native-select/NativeSelect.vue",
+      "bytes": 4252,
+      "sha256": "459e132029152e533bd1a20de2b3c0b3cf344ad711d30966ae91da8eae629463"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/tabs/Tabs.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/tabs/Tabs.vue",
+      "bytes": 4838,
+      "sha256": "6b30fdc5b301e21f3dd38d0b0c071ea1c4ce7f41961515d5b301baf14b7ec994"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/components/types.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/components/types.ts",
+      "bytes": 1156,
+      "sha256": "33d9ec9e9e1ba778651abced19b0adecde1d3d2b9701b655254d2d8e31028283"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/src/index.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/src/index.ts",
+      "bytes": 673,
+      "sha256": "e69fda4f5ebba35a44e5b4e749ca045a69c3837581c5d78c3e936198f790b948"
+    },
+    {
+      "archivePath": "snapshots/reviewed-before-fix1/packages/vue/vite.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T07-vue-fix1-base/packages/vue/vite.config.ts",
+      "bytes": 785,
+      "sha256": "3755a59116205f49be0fccb622d829647e0038043df34ed83782d06349967055"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/1cc3e7e0d17babb7c139212eece5bb6eda56e364.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/1cc3e7e0d17babb7c139212eece5bb6eda56e364.png",
+      "bytes": 12280,
+      "sha256": "22c40be18858766716bc3c9162f205991fd3e5fe13f4ff3a8d825deaa4027dfd"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/32bb9dc7a0f748bd1e8342d3f44506c2451cf86e.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/32bb9dc7a0f748bd1e8342d3f44506c2451cf86e.png",
+      "bytes": 11478,
+      "sha256": "fda78cc0cc02207a475ae738fa53ba0d11f9ec3383f2f9d597dbbc18da12b75a"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/65fdb285476e6426a8d5757c4e204ad2df3db48d.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/65fdb285476e6426a8d5757c4e204ad2df3db48d.png",
+      "bytes": 10093,
+      "sha256": "0cdcff2336c9f195d3ee5dfed46e5adf8feab016b19b01d383d65f7557c1c3d5"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/6a710526694ba5ac5c0b50e8feb10e7b99806258.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/6a710526694ba5ac5c0b50e8feb10e7b99806258.png",
+      "bytes": 9545,
+      "sha256": "9ca512a2e13500e3206d6800b10daa1dc6cf7cdc2e801046cba64df9685d90bf"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/6c5752dfba1c10d8caec3550b87807bac8551e5a.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/6c5752dfba1c10d8caec3550b87807bac8551e5a.png",
+      "bytes": 10806,
+      "sha256": "c2929cc4864783b06470a21e38b728bbc22ba0c17da647e6d5763bbfd9d7034f"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/89e630c786ba7f6699a4c7e148e1640690ce94f7.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/89e630c786ba7f6699a4c7e148e1640690ce94f7.png",
+      "bytes": 6725,
+      "sha256": "a95e6798f5cf771903b1eb4439a76aa635e0f5b27c952fa3c133e5c79c15ea66"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/982abc766b0aed4d58016c8be18eed7f04ebcea0.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/982abc766b0aed4d58016c8be18eed7f04ebcea0.png",
+      "bytes": 13828,
+      "sha256": "dd942cc0d8b9f1fbdbdc440209361fc66f8ec2551922f2853c114282ce869729"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/de9d7ab5b0e168b84914d0331b0badfc6e4cc41c.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/de9d7ab5b0e168b84914d0331b0badfc6e4cc41c.png",
+      "bytes": 13263,
+      "sha256": "5d6f653ada7d90f9c732394005ab8b96fd6d90ed68f99a5a1696664d166a1eb7"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/e07f1ea839923370951b820145d35e756fa66b93.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/e07f1ea839923370951b820145d35e756fa66b93.png",
+      "bytes": 8097,
+      "sha256": "f2c97dfbf35b5ea6d0bdb7c9e4c3474595f1b3677933b955c6fe4eab0e6ca3da"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/e928276a338fca3534d893552318fa43ba459f04.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/e928276a338fca3534d893552318fa43ba459f04.png",
+      "bytes": 13328,
+      "sha256": "d71c6f291c9b6b50d8efbb21cc70e42327610947f13b8e3029591f8a0c075d4d"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/f331a861d72c6dd9f92860b91b3ce6dea3a1b7b6.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/f331a861d72c6dd9f92860b91b3ce6dea3a1b7b6.png",
+      "bytes": 5533,
+      "sha256": "6215c2dcbfa3fbd9e45fdd20c2776bca12f2a1d36aa4e49a8cdb6ee4290c96df"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/.vitest-attachments/f679f1d0253e6257dd415b43e390cd58007b8a4c.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/.vitest-attachments/f679f1d0253e6257dd415b43e390cd58007b8a4c.png",
+      "bytes": 5073,
+      "sha256": "dd4cda4820639dbf3d783002f594e7ab1e73a30e9fb6bb801a7e21147b27c83a"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/index.html",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/index.html",
+      "bytes": 191,
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/package.json",
+      "bytes": 1535,
+      "sha256": "f8fdf65e64c4bb30c2c70c9f99bc9208b47fc0679749e572ebc34f1fecb3e3ca"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/project.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/project.json",
+      "bytes": 2256,
+      "sha256": "dcf13a657feb00071996ed4c8ac9461c132b9fd5dde929733c97f64cb2ddfcb7"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/src/ConsumerExample.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/src/ConsumerExample.vue",
+      "bytes": 1035,
+      "sha256": "c7c607e17cf50712e67b7d213ae574127363098d5d41e27b5f1a9ba23af01d36"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/src/FixtureApp.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/src/FixtureApp.ts",
+      "bytes": 149,
+      "sha256": "cbe2ac307b9e6b05e0a38cebd26b04aa3fed98339ea710eed6fb3e8e503c8e50"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/src/VisualMatrix.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/src/VisualMatrix.vue",
+      "bytes": 2153,
+      "sha256": "db5b569e252b290bee8f66ac17e3c95d9ff5c4c73384f1dae1341a4680222f51"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/src/VuePilots.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/src/VuePilots.vue",
+      "bytes": 3391,
+      "sha256": "01b9fc78ff042c1c82578dcabd6985df946337019258fe7126283081abaafe36"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/src/env.d.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/src/env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/src/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/src/main.ts",
+      "bytes": 334,
+      "sha256": "0bedb61086ab369aeed43cd3cd2ca7b682cf4b614962381ed4e02aaa3106d161"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/production-behavior.mjs",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/production-behavior.mjs",
+      "bytes": 3807,
+      "sha256": "d29c781f375e346f2bf8ac76d0a7328e05d70f65bd8bbe9503ad72a30ef2096c"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/setup.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/setup.ts",
+      "bytes": 155,
+      "sha256": "8bae50ccc30f29f780a00ae617f30e612abf5572346d101625d19737dc928397"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/button.test.ts/button-disabled--healthy-route-must-expose-the-actual-disabled-KRDS-button-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/button.test.ts/button-disabled--healthy-route-must-expose-the-actual-disabled-KRDS-button-1.png",
+      "bytes": 10806,
+      "sha256": "c2929cc4864783b06470a21e38b728bbc22ba0c17da647e6d5763bbfd9d7034f"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/DateInput-controlled-rejected-commit-restores-prop-and-never-replays-prop-changes-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/DateInput-controlled-rejected-commit-restores-prop-and-never-replays-prop-changes-1.png",
+      "bytes": 12280,
+      "sha256": "22c40be18858766716bc3c9162f205991fd3e5fe13f4ff3a8d825deaa4027dfd"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/DateInput-retains-invalid-draft--IME--canonical-FormData-and-zero-event-reset-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/DateInput-retains-invalid-draft--IME--canonical-FormData-and-zero-event-reset-1.png",
+      "bytes": 13263,
+      "sha256": "5d6f653ada7d90f9c732394005ab8b96fd6d90ed68f99a5a1696664d166a1eb7"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/Modal-rejected-Escape-stays-isolated--actual-close-and-unmount-restore-opener-and-body-states-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/Modal-rejected-Escape-stays-isolated--actual-close-and-unmount-restore-opener-and-body-states-1.png",
+      "bytes": 5073,
+      "sha256": "dd4cda4820639dbf3d783002f594e7ab1e73a30e9fb6bb801a7e21147b27c83a"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/NativeSelect-rejects-controlled-input--emits-once-and-retains-exact-uncontrolled-reset-baseline-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/NativeSelect-rejects-controlled-input--emits-once-and-retains-exact-uncontrolled-reset-baseline-1.png",
+      "bytes": 5533,
+      "sha256": "6215c2dcbfa3fbd9e45fdd20c2776bca12f2a1d36aa4e49a8cdb6ee4290c96df"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/Tabs-preserve-all-sequential-stops--manual-arrows--mounted-panels-and-rejected-selection-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/Tabs-preserve-all-sequential-stops--manual-arrows--mounted-panels-and-rejected-selection-1.png",
+      "bytes": 8097,
+      "sha256": "f2c97dfbf35b5ea6d0bdb7c9e4c3474595f1b3677933b955c6fe4eab0e6ca3da"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-DateInput-blocks-a-rejected-pending-controlled-draft-on-the-new-native-form-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-DateInput-blocks-a-rejected-pending-controlled-draft-on-the-new-native-form-1.png",
+      "bytes": 13328,
+      "sha256": "d71c6f291c9b6b50d8efbb21cc70e42327610947f13b8e3029591f8a0c075d4d"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-DateInput-submits-a-pending-draft-through-its-new-native-form-and-resets-only-there-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-DateInput-submits-a-pending-draft-through-its-new-native-form-and-resets-only-there-1.png",
+      "bytes": 13828,
+      "sha256": "dd942cc0d8b9f1fbdbdc440209361fc66f8ec2551922f2853c114282ce869729"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-Modal-accepts-its-first-native-summary-as-the-explicit-initial-focus-target-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-Modal-accepts-its-first-native-summary-as-the-explicit-initial-focus-target-1.png",
+      "bytes": 9545,
+      "sha256": "9ca512a2e13500e3206d6800b10daa1dc6cf7cdc2e801046cba64df9685d90bf"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-Modal-reaches-native-summary-in-both-Tab-directions-and-activates-its-disclosure-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-Modal-reaches-native-summary-in-both-Tab-directions-and-activates-its-disclosure-1.png",
+      "bytes": 10093,
+      "sha256": "0cdcff2336c9f195d3ee5dfed46e5adf8feab016b19b01d383d65f7557c1c3d5"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-NativeSelect-follows-current-external-form-for-reset-and-isolates-the-old-owner-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/native-behavior.test.ts/fix1-NativeSelect-follows-current-external-form-for-reset-and-isolates-the-old-owner-1.png",
+      "bytes": 6725,
+      "sha256": "a95e6798f5cf771903b1eb4439a76aa635e0f5b27c952fa3c133e5c79c15ea66"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/__screenshots__/pilots.test.ts/native-six-pilots-expose-semantic-controls-rather-than-probe-placeholders-1.png",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/__screenshots__/pilots.test.ts/native-six-pilots-expose-semantic-controls-rather-than-probe-placeholders-1.png",
+      "bytes": 11478,
+      "sha256": "fda78cc0cc02207a475ae738fa53ba0d11f9ec3383f2f9d597dbbc18da12b75a"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/button.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/button.test.ts",
+      "bytes": 831,
+      "sha256": "9d01949ba3572f74717090006477afb1368050dfc6fb7c6ff45f0f2f92800560"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/native-behavior.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/native-behavior.test.ts",
+      "bytes": 27620,
+      "sha256": "6d36bcf0a09ae944fa58f6a594ac002d0f3ec3847cf521e22f57931af9a0f1c9"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/native-probe.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/native-probe.test.ts",
+      "bytes": 2141,
+      "sha256": "41f0684135602f715acf7571d45608e245f56c7478d8ef383b8fe98330f26d86"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/siheom/pilots.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/siheom/pilots.test.ts",
+      "bytes": 660,
+      "sha256": "e2ed7be8367ed62adc29a4864f2ad5914c727ae8e2a8b8854b3e3f0692b91a15"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/ssr-consumer.mjs",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/ssr-consumer.mjs",
+      "bytes": 1070,
+      "sha256": "33a4cf6cb1b9df3ce12c55e46d3e5b5b4ad37354c1236c54df810b799348c454"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tests/visual-inspect.mjs",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tests/visual-inspect.mjs",
+      "bytes": 3584,
+      "sha256": "d604ac5730d5a8c77d07ec74264f3b515cf0dea5f81f02c260b06e8da6df07fc"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/tsconfig.json",
+      "bytes": 270,
+      "sha256": "1d89f859d46642e503162e5abf63469fee6fdf02fca719e23ba9a7eb1890c42e"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/vite.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/vite.config.ts",
+      "bytes": 153,
+      "sha256": "c2c2d88bba74475f45aefe37ed01e62cc126d6ea59227d5723b11cab975d9031"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/fixture-vue/vitest.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/fixture-vue/vitest.config.ts",
+      "bytes": 768,
+      "sha256": "5792f81adc2d35319d57881b37b17cde6f97b143f8827f623ff16e622bc8419e"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/.storybook/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/.storybook/main.ts",
+      "bytes": 454,
+      "sha256": "598070b37a80b2af72e3a464abed12e2a165f30b0ba5c4256ad9825591bf7fdb"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/.storybook/preview.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/.storybook/preview.ts",
+      "bytes": 256,
+      "sha256": "89dbf431bb32ad74a2864d195c547a2234df03e76527de70638a20a818af4008"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/index.html",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/index.html",
+      "bytes": 191,
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/package.json",
+      "bytes": 1301,
+      "sha256": "9b018c07cbba73195d83ada6f0e88b72d10cf8666033f31901c9f1d41c2e1fd5"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/project.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/project.json",
+      "bytes": 1911,
+      "sha256": "d07d549bdfdf4f248e8a074e6274fb8e4911643a9039b9cd5a5eeb9a19e88170"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/env.d.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/main.ts",
+      "bytes": 134,
+      "sha256": "265c9c39fdf9ab1195bddd138a0271020bb4c4bc7a5528a7cdd45a9a66a5a307"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "bytes": 953,
+      "sha256": "3588a0e1886f3756bdb16b0dcc86a372ff86197009c8cc4b5b1eb8333f474ea9"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/Pilots.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/Pilots.vue",
+      "bytes": 1339,
+      "sha256": "def387552417519ef79271cfa36d4877c63a7e19c8d11c5266b94104b56afb2b"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/calendar.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/calendar.stories.ts",
+      "bytes": 151,
+      "sha256": "5f79036dbff729e8f5e1bdf6d7921785258ee4b2e363559250042c866b4a4153"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/date-input.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/date-input.stories.ts",
+      "bytes": 149,
+      "sha256": "164c51c451bfb4b1b8d65ba2ad1cdceb9ef4d892b8fe4a6307bae6027ad1dd02"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/modal.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/modal.stories.ts",
+      "bytes": 136,
+      "sha256": "56baa02ab092ca701462684c6cf3942ca19b9124022dac85ec851b44ec574d21"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/pilots.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/pilots.stories.ts",
+      "bytes": 271,
+      "sha256": "9190a22f5c7fcee9a03251d55ce2a5ddd1634a4d135cb57cfe91e587664272cb"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/probe.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/probe.stories.ts",
+      "bytes": 1221,
+      "sha256": "254fe593df21594fdcb82ba4a13d8c6e21b717ff0e3e607371924dd3701808f3"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/select.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/select.stories.ts",
+      "bytes": 158,
+      "sha256": "9d26de81a5201647e3e9d6985128146ca474e23b5a2fff79368a488e8f44578d"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/src/stories/tabs.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/src/stories/tabs.stories.ts",
+      "bytes": 136,
+      "sha256": "27d1403a4abd63855b08812b58a3ea7733ab4df918163bc06e6ca233ead5d33c"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/tsconfig.json",
+      "bytes": 270,
+      "sha256": "1d89f859d46642e503162e5abf63469fee6fdf02fca719e23ba9a7eb1890c42e"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/apps/storybook-vue/vite.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/apps/storybook-vue/vite.config.ts",
+      "bytes": 153,
+      "sha256": "c2c2d88bba74475f45aefe37ed01e62cc126d6ea59227d5723b11cab975d9031"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/docs/compatibility/vue.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/docs/compatibility/vue.md",
+      "bytes": 2745,
+      "sha256": "4e7a9932566287fe36a57bd6581da3a67f770bce62ae753472f0d1ae30a54950"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/ATTRIBUTION.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/ATTRIBUTION.md",
+      "bytes": 235,
+      "sha256": "e7a2791d02dea8ab0890f79f643e190f431a234e3db59cbc408bb52528a26f0d"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/LICENSE.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/LICENSE.md",
+      "bytes": 2360,
+      "sha256": "5d85de6132fa5c46ca63a42e8d9fe7c1ab88fd05108ac054befc305488812c05"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/LICENSES/MIT.txt",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/LICENSES/MIT.txt",
+      "bytes": 1090,
+      "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/LICENSES/README.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/LICENSES/README.md",
+      "bytes": 130,
+      "sha256": "a3f7a03a3bf557a10608d51a9365b2893e3a37645ae84257e7cfdc802c1ecaba"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/README.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/README.md",
+      "bytes": 1478,
+      "sha256": "012eabd12bff3f50a651323496dc07ed2e2fcc9f4cf5c2146991a65fe95143b3"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/THIRD-PARTY-NOTICES.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/THIRD-PARTY-NOTICES.md",
+      "bytes": 180,
+      "sha256": "36de76156e4d8af0da87c8971b39ac0b727e414cc42875e8d079959aa760f035"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/package.json",
+      "bytes": 2286,
+      "sha256": "75ecf0841693eac4c95fe4c094c0437aeb7add3131576d36e7688702672686d5"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/project.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/project.json",
+      "bytes": 950,
+      "sha256": "bd2f564170cf147adb71488dcc0047a8fe15f4b2a610eb79b1501e621c0b40fb"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/provenance.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/provenance.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/button/Button.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/button/Button.vue",
+      "bytes": 1509,
+      "sha256": "b31f76761a5c5bbc3cbf135e4d4f59c9613ba9f0ed9a2ab2fdc79f4a3adb1b28"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/calendar/Calendar.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/calendar/Calendar.vue",
+      "bytes": 9978,
+      "sha256": "5d26c2c6b9f6d52c70475a71426768088e1f54f36ceedaaea55621ba7d815614"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/context.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/context.ts",
+      "bytes": 1104,
+      "sha256": "e3b247a53ed67e4d2e7630d7c9f6ec08f71e9cbd5db7e8ce984df1b68c8e5d73"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/control.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/control.ts",
+      "bytes": 1048,
+      "sha256": "766c6fd427e735050f9967e3fa3810e8ce39750f4d9230c31b4eda5521aa1d88"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/date-input/DateInput.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/date-input/DateInput.vue",
+      "bytes": 11281,
+      "sha256": "9fb413d733620c6f022cf4d26ff33c61e5c2548c88ec04bf2dc97fca2052dab8"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/date-model.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/date-model.ts",
+      "bytes": 4714,
+      "sha256": "55050d793ed8c232c9ab9b37e17d224e7e38c8cf3cfbe9c6c9ff8a05cc82e60a"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/modal/Modal.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/modal/Modal.vue",
+      "bytes": 7318,
+      "sha256": "1833f5093c368f01224300b8b3b7a5058bb2d0d533ab6bf63b4f31974eee9fe6"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/modal/stack.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/modal/stack.ts",
+      "bytes": 3407,
+      "sha256": "230f89196a717f833f610576ef9fc16ab009db17dfa3b9329fb095e17bd33a53"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/native-select/NativeSelect.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/native-select/NativeSelect.vue",
+      "bytes": 4504,
+      "sha256": "45c9e29a500d427a167bb7f467b269d9ac001d89bdc3e9d0a4594adf0fa1adf4"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/tabs/Tabs.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/tabs/Tabs.vue",
+      "bytes": 4838,
+      "sha256": "6b30fdc5b301e21f3dd38d0b0c071ea1c4ce7f41961515d5b301baf14b7ec994"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/components/types.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/components/types.ts",
+      "bytes": 1156,
+      "sha256": "33d9ec9e9e1ba778651abced19b0adecde1d3d2b9701b655254d2d8e31028283"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/src/index.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/src/index.ts",
+      "bytes": 673,
+      "sha256": "e69fda4f5ebba35a44e5b4e749ca045a69c3837581c5d78c3e936198f790b948"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/tsconfig.json",
+      "bytes": 269,
+      "sha256": "08f673469190d1c46b202d9e25c919af0fb44e4ea96bae0920fc996bc057a8a8"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10/packages/vue/vite.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base/packages/vue/vite.config.ts",
+      "bytes": 785,
+      "sha256": "3755a59116205f49be0fccb622d829647e0038043df34ed83782d06349967055"
+    },
+    {
+      "archivePath": "snapshots/approved-pre-T10-hashes.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-T10-vue-base-hashes.json",
+      "bytes": 11509,
+      "sha256": "df575a01070db1c65599e2347498fc2b369fbfc99b93bedce571cddaeb90df06"
+    },
+    {
+      "archivePath": "snapshots/pre-native/packages/vue/README.md",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/vue/README.md",
+      "bytes": 452,
+      "sha256": "47060de6c36b989f822ee939cd7d68968c6e57acf501b6658ffd74158fe459dd"
+    },
+    {
+      "archivePath": "snapshots/pre-native/packages/vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/vue/package.json",
+      "bytes": 1574,
+      "sha256": "8d40e7c7492d8ff67ccdd8944133e013b32e61bb642e179f0d8c03a66e660694"
+    },
+    {
+      "archivePath": "snapshots/pre-native/packages/vue/project.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/vue/project.json",
+      "bytes": 950,
+      "sha256": "bd2f564170cf147adb71488dcc0047a8fe15f4b2a610eb79b1501e621c0b40fb"
+    },
+    {
+      "archivePath": "snapshots/pre-native/packages/vue/src/WorkspaceProbe.vue",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/vue/src/WorkspaceProbe.vue",
+      "bytes": 114,
+      "sha256": "a9d83b812890cea38935f74e5738acc5fe0a897f9c4b7b5cc6afc870388700a1"
+    },
+    {
+      "archivePath": "snapshots/pre-native/packages/vue/src/index.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/vue/src/index.ts",
+      "bytes": 119,
+      "sha256": "b8f15ddff411114b05c3659c7d66f954f551610cd6c0d4cb8bea0f63abddab06"
+    },
+    {
+      "archivePath": "snapshots/pre-native/packages/vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/vue/tsconfig.json",
+      "bytes": 269,
+      "sha256": "08f673469190d1c46b202d9e25c919af0fb44e4ea96bae0920fc996bc057a8a8"
+    },
+    {
+      "archivePath": "snapshots/pre-native/packages/vue/vite.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/packages/vue/vite.config.ts",
+      "bytes": 463,
+      "sha256": "488ddca8cdb14c1c5f6381155b3e96f1f6cb4c2199fb93f9fdbd7f73ac14d336"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/index.html",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/index.html",
+      "bytes": 191,
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/package.json",
+      "bytes": 1431,
+      "sha256": "9dc900deafc131a81f6b8a5157211af464f0263b27c074bca392e5c5ba25b7ab"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/project.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/project.json",
+      "bytes": 2256,
+      "sha256": "dcf13a657feb00071996ed4c8ac9461c132b9fd5dde929733c97f64cb2ddfcb7"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/src/FixtureApp.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/src/FixtureApp.ts",
+      "bytes": 1729,
+      "sha256": "0a06c0c8d8f0cd965a34cb8a76d637687722b0b0539e0d2360fff879ffdd2702"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/src/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/src/main.ts",
+      "bytes": 204,
+      "sha256": "debf203614269d042c07c4ab66b766fed2481c07ba377c16332f4d7c6594ac10"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/tests/setup.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/tests/setup.ts",
+      "bytes": 155,
+      "sha256": "8bae50ccc30f29f780a00ae617f30e612abf5572346d101625d19737dc928397"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/tests/siheom/button.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/tests/siheom/button.test.ts",
+      "bytes": 831,
+      "sha256": "9d01949ba3572f74717090006477afb1368050dfc6fb7c6ff45f0f2f92800560"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/tests/siheom/native-probe.test.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/tests/siheom/native-probe.test.ts",
+      "bytes": 2141,
+      "sha256": "41f0684135602f715acf7571d45608e245f56c7478d8ef383b8fe98330f26d86"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/tsconfig.json",
+      "bytes": 250,
+      "sha256": "d798d7020ebf395ca3b02ac6a7d60cb86fc0b4e853ff70d217487b30706d463d"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/vite.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/vite.config.ts",
+      "bytes": 153,
+      "sha256": "c2c2d88bba74475f45aefe37ed01e62cc126d6ea59227d5723b11cab975d9031"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/fixture-vue/vitest.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/fixture-vue/vitest.config.ts",
+      "bytes": 768,
+      "sha256": "5792f81adc2d35319d57881b37b17cde6f97b143f8827f623ff16e622bc8419e"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/.storybook/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/.storybook/main.ts",
+      "bytes": 454,
+      "sha256": "598070b37a80b2af72e3a464abed12e2a165f30b0ba5c4256ad9825591bf7fdb"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/index.html",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/index.html",
+      "bytes": 191,
+      "sha256": "eef2b3a2529fe133b93b94b4663f43e516568a476f147c04de724996bbb446ce"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/package.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/package.json",
+      "bytes": 1301,
+      "sha256": "9b018c07cbba73195d83ada6f0e88b72d10cf8666033f31901c9f1d41c2e1fd5"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/project.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/project.json",
+      "bytes": 1911,
+      "sha256": "d07d549bdfdf4f248e8a074e6274fb8e4911643a9039b9cd5a5eeb9a19e88170"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/src/main.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/src/main.ts",
+      "bytes": 185,
+      "sha256": "2d24717976966092428cde54f88507e5edcb495047b7f1069710617f45c5062b"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/src/stories/NativeProbe.ts",
+      "bytes": 942,
+      "sha256": "82eea0adbb07448b2ede293e0b404f153f84477b6301680b47d471cc8132cc17"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/src/stories/probe.stories.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/src/stories/probe.stories.ts",
+      "bytes": 1221,
+      "sha256": "254fe593df21594fdcb82ba4a13d8c6e21b717ff0e3e607371924dd3701808f3"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/tsconfig.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/tsconfig.json",
+      "bytes": 250,
+      "sha256": "d798d7020ebf395ca3b02ac6a7d60cb86fc0b4e853ff70d217487b30706d463d"
+    },
+    {
+      "archivePath": "snapshots/pre-native/apps/storybook-vue/vite.config.ts",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/apps/storybook-vue/vite.config.ts",
+      "bytes": 153,
+      "sha256": "c2c2d88bba74475f45aefe37ed01e62cc126d6ea59227d5723b11cab975d9031"
+    },
+    {
+      "archivePath": "snapshots/pre-native/BASELINE-MANIFEST.json",
+      "originalPath": ".superpowers/sdd/PLAN/task-native-pilots-base/BASELINE-MANIFEST.json",
+      "bytes": 288351,
+      "sha256": "d414285a83ed920dd81c1a0569be47175c7351e62c9a758bc72828e9b43a0a89"
+    },
+    {
+      "archivePath": "runners/siheom-1793331213102-63846-e7ffc79d/report.json",
+      "originalPath": "test-results/t05/siheom-1793331213102-63846-e7ffc79d/report.json",
+      "bytes": 1046,
+      "sha256": "2e0aeba8f46cb2b2e332f1056a9b1f5fbc6d3988fd9a6216cbc72a96b218dddf"
+    },
+    {
+      "archivePath": "runners/siheom-1793331213102-63846-e7ffc79d/vue-command.log",
+      "originalPath": "test-results/t05/siheom-1793331213102-63846-e7ffc79d/vue-command.log",
+      "bytes": 1843,
+      "sha256": "3551b612547394d56c86d16e25edb09d18b18e3c61b325a58ffee47ce948ef9d"
+    },
+    {
+      "archivePath": "runners/siheom-1793331213102-63846-e7ffc79d/vue-vitest.json",
+      "originalPath": "test-results/t05/siheom-1793331213102-63846-e7ffc79d/vue-vitest.json",
+      "bytes": 7144,
+      "sha256": "489e0020a35e6cfb31e2568ea991a7082ac9e299d36cb73ca5ef9cc4d9cd03d1"
+    },
+    {
+      "archivePath": "runners/contract-1793331019458-62395-24c73092/report.json",
+      "originalPath": "test-results/t05/contract-1793331019458-62395-24c73092/report.json",
+      "bytes": 2408,
+      "sha256": "a6fdd81e2447899ed93d851224ccade97e9b3799f3d3d3e77f002200b27291f3"
+    },
+    {
+      "archivePath": "runners/contract-1793331019458-62395-24c73092/vue/artifacts/.last-run.json",
+      "originalPath": "test-results/t05/contract-1793331019458-62395-24c73092/vue/artifacts/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archivePath": "runners/contract-1793331019458-62395-24c73092/vue/command.log",
+      "originalPath": "test-results/t05/contract-1793331019458-62395-24c73092/vue/command.log",
+      "bytes": 1222,
+      "sha256": "b6d7146d5baa8c80ecba97a8e45dedd45682968d7a77291e92c24b6636047058"
+    },
+    {
+      "archivePath": "runners/contract-1793331019458-62395-24c73092/vue/playwright.json",
+      "originalPath": "test-results/t05/contract-1793331019458-62395-24c73092/vue/playwright.json",
+      "bytes": 25814,
+      "sha256": "a1813d342fc6c16153682e30a8b2edf20d833305ee23497bdfbb2dc996278043"
+    },
+    {
+      "archivePath": "runners/contract-1793330785493-60282-98f51f03/report.json",
+      "originalPath": "test-results/t05/contract-1793330785493-60282-98f51f03/report.json",
+      "bytes": 2388,
+      "sha256": "4f72c4e319600d9d195562a0d781cb51322f03580835b8dccfd9da4250e64f09"
+    },
+    {
+      "archivePath": "runners/contract-1793330785493-60282-98f51f03/vue/artifacts/.last-run.json",
+      "originalPath": "test-results/t05/contract-1793330785493-60282-98f51f03/vue/artifacts/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "archivePath": "runners/contract-1793330785493-60282-98f51f03/vue/command.log",
+      "originalPath": "test-results/t05/contract-1793330785493-60282-98f51f03/vue/command.log",
+      "bytes": 1201,
+      "sha256": "7aa06bcceb59457e812d7683353b5e4ac7085568fa774b3c7d0dc52141b049d5"
+    },
+    {
+      "archivePath": "runners/contract-1793330785493-60282-98f51f03/vue/playwright.json",
+      "originalPath": "test-results/t05/contract-1793330785493-60282-98f51f03/vue/playwright.json",
+      "bytes": 25769,
+      "sha256": "060ceb7a696ac265ebd6c3a80f5a5828935455f24c4dac8e9fe6be8fb004c8b3"
+    },
+    {
+      "archivePath": "runners/contract-1793330560063-58752-ac8620c1/report.json",
+      "originalPath": "test-results/t05/contract-1793330560063-58752-ac8620c1/report.json",
+      "bytes": 3163,
+      "sha256": "e02d7a4f485f6f8de20918413b4ffd476b2c70f5511abcf389189bbf22cdcec2"
+    },
+    {
+      "archivePath": "runners/contract-1793330560063-58752-ac8620c1/vue/artifacts/.last-run.json",
+      "originalPath": "test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/.last-run.json",
+      "bytes": 96,
+      "sha256": "47826a9c3f263c8844e6ab83e76a4a29447a5f9eee14050bbe339193df72636f"
+    },
+    {
+      "archivePath": "runners/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/error-context.md",
+      "originalPath": "test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/error-context.md",
+      "bytes": 9198,
+      "sha256": "69f19db2d1abbd67b6048ead6eebbe2df3028f76a8d8a0de7969963805ad6ce2"
+    },
+    {
+      "archivePath": "runners/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/test-failed-1.png",
+      "originalPath": "test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/test-failed-1.png",
+      "bytes": 25211,
+      "sha256": "e8a8627c6f11c4c6aa750173ba3ffd932f53baf6e822fd24b4481f920d758150"
+    },
+    {
+      "archivePath": "runners/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/trace.zip",
+      "originalPath": "test-results/t05/contract-1793330560063-58752-ac8620c1/vue/artifacts/contract-vue-modal-focus-return-webkit/trace.zip",
+      "bytes": 47109,
+      "sha256": "ebd525c890645bc7b182459d2660e1a42556dee08a9024a3d3f3a5f7bc2b4b16"
+    },
+    {
+      "archivePath": "runners/contract-1793330560063-58752-ac8620c1/vue/command.log",
+      "originalPath": "test-results/t05/contract-1793330560063-58752-ac8620c1/vue/command.log",
+      "bytes": 4470,
+      "sha256": "ef1666fd9621b79f0cf7f251ebdc3bf2c83ddf64ddb574ef3d6826cde952450c"
+    },
+    {
+      "archivePath": "runners/contract-1793330560063-58752-ac8620c1/vue/playwright.json",
+      "originalPath": "test-results/t05/contract-1793330560063-58752-ac8620c1/vue/playwright.json",
+      "bytes": 33730,
+      "sha256": "69f47de4b3465eac3fb8ab3c085a887e6556e492dd5684236a103676b0b56fd6"
+    },
+    {
+      "archivePath": "runners/stories-1793331231963-64006-4d1dadd7/report.json",
+      "originalPath": "test-results/t05/stories-1793331231963-64006-4d1dadd7/report.json",
+      "bytes": 10864,
+      "sha256": "43d9007f8756580ea7eea4a2192ddc1d1cd8495c86e070bbba6240da28ee6ea9"
+    },
+    {
+      "archivePath": "runners/stories-1793331231963-64006-4d1dadd7/vue/krds-button--disabled.png",
+      "originalPath": "test-results/t05/stories-1793331231963-64006-4d1dadd7/vue/krds-button--disabled.png",
+      "bytes": 6620,
+      "sha256": "f8db4df946f2e9d6f523824517fedc5bd169b0fe418a1d5bdcc567b9f5e3b920"
+    },
+    {
+      "archivePath": "runners/stories-1793331231963-64006-4d1dadd7/vue/krds-calendar--selected-range.png",
+      "originalPath": "test-results/t05/stories-1793331231963-64006-4d1dadd7/vue/krds-calendar--selected-range.png",
+      "bytes": 38502,
+      "sha256": "a5aed5230810353ab95f092a59a1fe0efdc164ff4305e4a8aad1189e33e175b3"
+    },
+    {
+      "archivePath": "runners/stories-1793331231963-64006-4d1dadd7/vue/krds-date-input--invalid.png",
+      "originalPath": "test-results/t05/stories-1793331231963-64006-4d1dadd7/vue/krds-date-input--invalid.png",
+      "bytes": 22501,
+      "sha256": "e7f5024f1840e32f378040062ca004ae329b760754fe6148ea3cd3fb32f4095c"
+    },
+    {
+      "archivePath": "runners/stories-1793331231963-64006-4d1dadd7/vue/krds-modal--open.png",
+      "originalPath": "test-results/t05/stories-1793331231963-64006-4d1dadd7/vue/krds-modal--open.png",
+      "bytes": 12155,
+      "sha256": "98c98ce03a012aec49acff7841a8a588b8c71beaefe7f744a93d94b4a9fa7849"
+    },
+    {
+      "archivePath": "runners/stories-1793331231963-64006-4d1dadd7/vue/krds-native-select--controlled.png",
+      "originalPath": "test-results/t05/stories-1793331231963-64006-4d1dadd7/vue/krds-native-select--controlled.png",
+      "bytes": 7055,
+      "sha256": "86183a0892167c59d538a3651c8f77ac0ec2a7cb9d5a84088875ec575c276db4"
+    },
+    {
+      "archivePath": "runners/stories-1793331231963-64006-4d1dadd7/vue/krds-tabs--manual.png",
+      "originalPath": "test-results/t05/stories-1793331231963-64006-4d1dadd7/vue/krds-tabs--manual.png",
+      "bytes": 9174,
+      "sha256": "199e1e03d0151a59541fb5f0013bfd2e836b2d4676032688007de1c6a0012436"
+    }
+  ]
+}

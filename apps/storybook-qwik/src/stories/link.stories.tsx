@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-link',title:'KRDS/link',component:CatalogStory,args:{componentId:'link'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Standalone:Story={name:"standalone",args:{caseId:"standalone"}};
+export const Inline:Story={name:"inline",args:{caseId:"inline"}};
+export const Group:Story={name:"group",args:{caseId:"group"}};
+export const External:Story={name:"external",args:{caseId:"external"}};
+export const Disabled:Story={name:"disabled",args:{caseId:"disabled"}};
+export const MailtoTel:Story={name:"mailto-tel",args:{caseId:"mailto-tel"}};

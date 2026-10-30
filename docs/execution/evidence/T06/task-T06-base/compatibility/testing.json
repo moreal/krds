@@ -1,0 +1,946 @@
+{
+  "schemaVersion": 1,
+  "krdsBaselineId": "krds-web-2026-10-30-kit-1.1.0-d6bb184c823e",
+  "requiredSiheomFrameworks": [
+    "react",
+    "solid",
+    "svelte",
+    "vue",
+    "angular",
+    "qwik"
+  ],
+  "requiredStorybookFrameworks": [
+    "react",
+    "solid",
+    "svelte",
+    "vue",
+    "lit",
+    "qwik",
+    "angular"
+  ],
+  "requiredListsMayNotShrinkOnFailure": true,
+  "siheomCore": {
+    "package": "@siheom/core",
+    "version": "0.4.1",
+    "manifest": "upstream/krds/raw/npm/@siheom__core.json"
+  },
+  "siheom": [
+    {
+      "framework": "react",
+      "required": true,
+      "adapter": {
+        "package": "@siheom/react",
+        "version": "0.4.1",
+        "manifest": "upstream/krds/raw/npm/@siheom__react.json",
+        "peerDependencies": {
+          "react": "^18.0.0 || ^19.0.0",
+          "vitest": "^4.1.10",
+          "react-dom": "^18.0.0 || ^19.0.0",
+          "@testing-library/dom": "^10.0.0",
+          "@testing-library/react": "^16.0.0",
+          "@testing-library/jest-dom": "^6.0.0 || ^7.0.0",
+          "@testing-library/user-event": "^14.0.0"
+        },
+        "dependencies": {
+          "@siheom/core": "0.4.1"
+        }
+      },
+      "testingLibrary": {
+        "package": "@testing-library/react",
+        "version": "16.3.3",
+        "manifest": "upstream/krds/raw/npm/@testing-library__react.json",
+        "peerDependencies": {
+          "react": "^18.0.0 || ^19.0.0",
+          "react-dom": "^18.0.0 || ^19.0.0",
+          "@types/react": "^18.0.0 || ^19.0.0",
+          "@types/react-dom": "^18.0.0 || ^19.0.0",
+          "@testing-library/dom": "^10.0.0"
+        }
+      },
+      "directDevDependencies": {
+        "@testing-library/dom": "10.4.2",
+        "@testing-library/user-event": "14.6.8",
+        "@testing-library/jest-dom": "7.0.1",
+        "@siheom/react": "0.4.1",
+        "@siheom/core": "0.4.1",
+        "@testing-library/react": "16.3.3",
+        "vitest": "4.1.10",
+        "@vitest/browser-playwright": "4.1.10",
+        "playwright": "1.64.1"
+      },
+      "compilerToolchain": "native-vite8",
+      "provider": {
+        "package": "@vitest/browser-playwright",
+        "version": "4.1.10",
+        "factory": "playwright()",
+        "headless": true
+      },
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "types": "passed-native-app-and-test-typecheck",
+        "browser": "passed-native-smoke-and-separate-focus",
+        "scope": "Actual Vitest browser-mode native adapter render/click/controlled update/cleanup plus separate focus test; test-only probes, no KRDS coverage.",
+        "typesEvidence": ".superpowers/sdd/PLAN/task-T05-react-report.md"
+      },
+      "status": "verified",
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:siheom --framework react --probe",
+        "report": "test-results/t05/siheom-1793321635018-77077-0d056012/report.json",
+        "vitestReport": "test-results/t05/siheom-1793321635018-77077-0d056012/react-vitest.json",
+        "tests": [
+          "native React render, provider click, controlled update and cleanup",
+          "provider click moves focus onto the native button"
+        ],
+        "input": "vitest/browser userEvent via createReactSiheom: real Playwright provider input",
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-react-report.md"
+      }
+    },
+    {
+      "framework": "solid",
+      "required": true,
+      "adapter": {
+        "package": "@siheom/solid",
+        "version": "0.3.2",
+        "manifest": "upstream/krds/raw/npm/@siheom__solid.json",
+        "peerDependencies": {
+          "vitest": "^4.1.10",
+          "solid-js": "^1.9.0",
+          "@testing-library/dom": "^10.0.0",
+          "@solidjs/testing-library": "^0.8.0",
+          "@testing-library/jest-dom": "^6.0.0 || ^7.0.0",
+          "@testing-library/user-event": "^14.0.0"
+        },
+        "dependencies": {
+          "@siheom/core": "0.4.1"
+        }
+      },
+      "testingLibrary": {
+        "package": "@solidjs/testing-library",
+        "version": "0.8.10",
+        "manifest": "upstream/krds/raw/npm/@solidjs__testing-library.json",
+        "peerDependencies": {
+          "solid-js": ">=1.0.0",
+          "@solidjs/router": ">=0.9.0"
+        }
+      },
+      "directDevDependencies": {
+        "@testing-library/dom": "10.4.2",
+        "@testing-library/user-event": "14.6.8",
+        "@testing-library/jest-dom": "7.0.1",
+        "@siheom/solid": "0.3.2",
+        "@siheom/core": "0.4.1",
+        "@solidjs/testing-library": "0.8.10",
+        "@solidjs/router": "1.0.0",
+        "vitest": "4.1.10",
+        "@vitest/browser-playwright": "4.1.10",
+        "playwright": "1.64.1"
+      },
+      "compilerToolchain": "native-vite8",
+      "provider": {
+        "package": "@vitest/browser-playwright",
+        "version": "4.1.10",
+        "factory": "playwright()",
+        "headless": true
+      },
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "types": "passed-native-app-and-test-typecheck",
+        "browser": "passed-native-smoke-and-separate-focus",
+        "scope": "Actual Vitest browser-mode native adapter render/click/controlled update/cleanup plus separate focus test; test-only probes, no KRDS coverage.",
+        "typesEvidence": ".superpowers/sdd/PLAN/task-T05-solid-report.md"
+      },
+      "status": "verified",
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:siheom --framework solid --probe",
+        "report": "test-results/t05/siheom-1793321768664-78596-1ad8da0b/report.json",
+        "vitestReport": "test-results/t05/siheom-1793321768664-78596-1ad8da0b/solid-vitest.json",
+        "tests": [
+          "native adapter renders, clicks, applies controlled bridge updates and cleans up",
+          "native adapter reports focus separately after its synthetic click"
+        ],
+        "input": "adapter default Testing Library synthetic user-event in actual Playwright browser",
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-solid-report.md"
+      }
+    },
+    {
+      "framework": "svelte",
+      "required": true,
+      "adapter": {
+        "package": "@siheom/svelte",
+        "version": "0.3.2",
+        "manifest": "upstream/krds/raw/npm/@siheom__svelte.json",
+        "peerDependencies": {
+          "svelte": "^5.0.0",
+          "vitest": "^4.1.10",
+          "@testing-library/dom": "^10.0.0",
+          "@testing-library/svelte": "^5.0.0",
+          "@testing-library/jest-dom": "^6.0.0 || ^7.0.0",
+          "@testing-library/user-event": "^14.0.0"
+        },
+        "dependencies": {
+          "@siheom/core": "0.4.1"
+        }
+      },
+      "testingLibrary": {
+        "package": "@testing-library/svelte",
+        "version": "5.4.2",
+        "manifest": "upstream/krds/raw/npm/@testing-library__svelte.json",
+        "peerDependencies": {
+          "vite": "*",
+          "svelte": "^3 || ^4 || ^5 || ^5.0.0-next.0",
+          "vitest": "*"
+        }
+      },
+      "directDevDependencies": {
+        "@testing-library/dom": "10.4.2",
+        "@testing-library/user-event": "14.6.8",
+        "@testing-library/jest-dom": "7.0.1",
+        "@siheom/svelte": "0.3.2",
+        "@siheom/core": "0.4.1",
+        "@testing-library/svelte": "5.4.2",
+        "vitest": "4.1.10",
+        "@vitest/browser-playwright": "4.1.10",
+        "playwright": "1.64.1"
+      },
+      "compilerToolchain": "native-vite8",
+      "provider": {
+        "package": "@vitest/browser-playwright",
+        "version": "4.1.10",
+        "factory": "playwright()",
+        "headless": true
+      },
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "types": "passed-native-app-and-test-typecheck",
+        "browser": "passed-native-smoke-and-separate-focus",
+        "scope": "Actual Vitest browser-mode native adapter render/click/controlled update/cleanup plus separate focus test; test-only probes, no KRDS coverage.",
+        "typesEvidence": ".superpowers/sdd/PLAN/task-T05-svelte-report.md"
+      },
+      "status": "verified",
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:siheom --framework svelte --probe",
+        "report": "test-results/t05/siheom-1793321905375-79486-7eceff9a/report.json",
+        "vitestReport": "test-results/t05/siheom-1793321905375-79486-7eceff9a/svelte-vitest.json",
+        "tests": [
+          "native Svelte render, click, controlled update and cleanup",
+          "siheom Playwright provider click focuses the native button"
+        ],
+        "input": "adapter default synthetic user-event smoke; separate trusted vitest/browser userEvent focus via native svelteEffects",
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-svelte-report.md",
+        "commonRunnerReexecution": "test-results/t05/siheom-1793322908537-91540-370214f1/report.json"
+      }
+    },
+    {
+      "framework": "vue",
+      "required": true,
+      "adapter": {
+        "package": "@siheom/vue",
+        "version": "0.3.2",
+        "manifest": "upstream/krds/raw/npm/@siheom__vue.json",
+        "peerDependencies": {
+          "vue": "^3.5.0",
+          "vitest": "^4.1.10",
+          "@testing-library/dom": "^10.0.0",
+          "@testing-library/vue": "^8.0.0",
+          "@testing-library/jest-dom": "^6.0.0 || ^7.0.0",
+          "@testing-library/user-event": "^14.0.0"
+        },
+        "dependencies": {
+          "@siheom/core": "0.4.1"
+        }
+      },
+      "testingLibrary": {
+        "package": "@testing-library/vue",
+        "version": "8.1.0",
+        "manifest": "upstream/krds/raw/npm/@testing-library__vue.json",
+        "peerDependencies": {
+          "vue": ">= 3",
+          "@vue/compiler-sfc": ">= 3"
+        }
+      },
+      "directDevDependencies": {
+        "@testing-library/dom": "10.4.2",
+        "@testing-library/user-event": "14.6.8",
+        "@testing-library/jest-dom": "7.0.1",
+        "@siheom/vue": "0.3.2",
+        "@siheom/core": "0.4.1",
+        "@testing-library/vue": "8.1.0",
+        "vitest": "4.1.10",
+        "@vitest/browser-playwright": "4.1.10",
+        "playwright": "1.64.1",
+        "@vue/server-renderer": "3.5.44"
+      },
+      "compilerToolchain": "native-vite8",
+      "provider": {
+        "package": "@vitest/browser-playwright",
+        "version": "4.1.10",
+        "factory": "playwright()",
+        "headless": true
+      },
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "types": "passed-native-app-and-test-typecheck",
+        "browser": "passed-native-smoke-and-separate-focus",
+        "scope": "Actual Vitest browser-mode native adapter render/click/controlled update/cleanup plus separate focus test; test-only probes, no KRDS coverage.",
+        "typesEvidence": ".superpowers/sdd/PLAN/task-T05-vue-report.md"
+      },
+      "status": "verified",
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:siheom --framework vue --probe",
+        "report": "test-results/t05/siheom-1793321960834-81478-4b00bcfc/report.json",
+        "vitestReport": "test-results/t05/siheom-1793321960834-81478-4b00bcfc/vue-vitest.json",
+        "tests": [
+          "native render, click, controlled state, disabled input and cleanup",
+          "real provider click focus is checked separately with the published adapter"
+        ],
+        "input": "adapter default synthetic user-event smoke; separate vitest/browser real Playwright provider focus",
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-vue-report.md"
+      }
+    },
+    {
+      "framework": "angular",
+      "required": true,
+      "adapter": {
+        "package": "@siheom/angular",
+        "version": "0.3.2",
+        "manifest": "upstream/krds/raw/npm/@siheom__angular.json",
+        "peerDependencies": {
+          "vitest": "^4.1.10",
+          "@angular/core": "^22.0.0",
+          "@testing-library/dom": "^10.0.0",
+          "@testing-library/angular": "^19.0.0",
+          "@angular/platform-browser": "^22.0.0",
+          "@testing-library/jest-dom": "^6.0.0 || ^7.0.0",
+          "@testing-library/user-event": "^14.0.0"
+        },
+        "dependencies": {
+          "tslib": "^2.8.1",
+          "@siheom/core": "0.4.1"
+        }
+      },
+      "testingLibrary": {
+        "package": "@testing-library/angular",
+        "version": "19.6.0",
+        "manifest": "upstream/krds/raw/npm/@testing-library__angular.json",
+        "peerDependencies": {
+          "@angular/core": ">= 21.0.0",
+          "@angular/router": ">= 21.0.0",
+          "@testing-library/dom": "^10.0.0"
+        }
+      },
+      "directDevDependencies": {
+        "@testing-library/dom": "10.4.2",
+        "@testing-library/user-event": "14.6.8",
+        "@testing-library/jest-dom": "7.0.1",
+        "@siheom/angular": "0.3.2",
+        "@siheom/core": "0.4.1",
+        "@testing-library/angular": "19.6.0",
+        "vitest": "4.1.10",
+        "@vitest/browser-playwright": "4.1.10",
+        "playwright": "1.64.1"
+      },
+      "compilerToolchain": "angular22",
+      "provider": {
+        "package": "@vitest/browser-playwright",
+        "version": "4.1.10",
+        "factory": "playwright()",
+        "headless": true
+      },
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "types": "passed-native-app-and-test-typecheck",
+        "browser": "passed-native-smoke-and-separate-focus",
+        "scope": "Actual Vitest browser-mode native adapter render/click/controlled update/cleanup plus separate focus test; test-only probes, no KRDS coverage.",
+        "typesEvidence": ".superpowers/sdd/PLAN/task-T05-angular-report.md"
+      },
+      "status": "verified",
+      "concerns": [
+        "Angular compiler requires TS6 despite siheom repository dev metadata using TS5.9.3; follow published Angular peer constraints."
+      ],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:siheom --framework angular --probe",
+        "report": "test-results/t05/siheom-1793321915160-80108-1f66a7ad/report.json",
+        "vitestReport": "test-results/t05/siheom-1793321915160-80108-1f66a7ad/angular-vitest.json",
+        "tests": [
+          "native adapter render, click, controlled state update and cleanup",
+          "native adapter synthetic click focuses the native button",
+          "Playwright provider trusted click focuses the native button"
+        ],
+        "input": "adapter default synthetic user-event smoke and focus; separate trusted vitest/browser userEvent focus",
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-angular-report.md"
+      }
+    },
+    {
+      "framework": "qwik",
+      "required": true,
+      "adapter": {
+        "package": "@siheom/qwik",
+        "version": "0.3.2",
+        "manifest": "upstream/krds/raw/npm/@siheom__qwik.json",
+        "peerDependencies": {
+          "vitest": "^4.1.10",
+          "@builder.io/qwik": "^1.12.0",
+          "@testing-library/dom": "^10.0.0",
+          "@testing-library/jest-dom": "^6.0.0 || ^7.0.0",
+          "@testing-library/user-event": "^14.0.0",
+          "@noma.to/qwik-testing-library": "^1.0.0"
+        },
+        "dependencies": {
+          "@siheom/core": "0.4.1"
+        }
+      },
+      "testingLibrary": {
+        "package": "@noma.to/qwik-testing-library",
+        "version": "1.7.1",
+        "manifest": "upstream/krds/raw/selected/@noma.to__qwik-testing-library-latest.json",
+        "peerDependencies": {
+          "@qwik.dev/core": ">= 2.0.0-rc.0 < 3",
+          "@builder.io/qwik": ">= 1.12.0 < 2",
+          "@testing-library/dom": ">= 10.1.0 < 11"
+        }
+      },
+      "directDevDependencies": {
+        "@testing-library/dom": "10.4.2",
+        "@testing-library/user-event": "14.6.8",
+        "@testing-library/jest-dom": "7.0.1",
+        "@siheom/qwik": "0.3.2",
+        "@siheom/core": "0.4.1",
+        "@noma.to/qwik-testing-library": "1.7.1",
+        "vitest": "4.1.10",
+        "@vitest/browser-playwright": "4.1.10",
+        "playwright": "1.64.1"
+      },
+      "compilerToolchain": "qwik-vite7",
+      "provider": {
+        "package": "@vitest/browser-playwright",
+        "version": "4.1.10",
+        "factory": "playwright()",
+        "headless": true
+      },
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "types": "passed-native-app-and-test-typecheck",
+        "browser": "passed-native-smoke-and-separate-focus",
+        "scope": "Actual Vitest browser-mode native adapter render/click/controlled update/cleanup plus separate focus test; test-only probes, no KRDS coverage.",
+        "typesEvidence": ".superpowers/sdd/PLAN/task-T05-qwik-report.md"
+      },
+      "status": "verified",
+      "concerns": [
+        "Published Qwik adapter dev metadata used patched Qwik 1.20.0 and patched Testing Library 1.6.0; these patches are not assumed to be in the published dependencies. Test unpatched selected Qwik 1.20.3 + TL1.7.1.",
+        "Optional @qwik.dev/core peer is not installed for the Qwik 1 target. Use TL setup/qwik-v1."
+      ],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:siheom --framework qwik --probe",
+        "report": "test-results/t05/siheom-1793321856165-79234-bcf967d1/report.json",
+        "vitestReport": "test-results/t05/siheom-1793321856165-79234-bcf967d1/qwik-vitest.json",
+        "tests": [
+          "published native siheom render, click, controlled update and cleanup",
+          "native siheom focus is a separate browser result"
+        ],
+        "input": "adapter default Testing Library synthetic user-event in actual Playwright browser",
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-qwik-report.md"
+      }
+    }
+  ],
+  "storybook": [
+    {
+      "framework": "react",
+      "required": true,
+      "integration": "@storybook/react-vite",
+      "version": "10.6.5",
+      "storybook": "10.6.5",
+      "manifest": "upstream/krds/raw/npm/@storybook__react-vite.json",
+      "peerDependencies": {
+        "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+        "storybook": "^10.6.5",
+        "typescript": ">= 4.9.x"
+      },
+      "dependencies": {
+        "resolve": "^1.22.8",
+        "empathic": "^2.0.0",
+        "magic-string": "^1.1.0",
+        "react-docgen": "^8.0.2",
+        "tsconfig-paths": "^4.2.0",
+        "@storybook/react": "10.6.5",
+        "@rollup/pluginutils": "^5.0.2",
+        "@storybook/builder-vite": "10.6.5",
+        "@joshwooding/vite-plugin-react-docgen-typescript": "^0.7.0"
+      },
+      "toolchain": "native-vite8",
+      "status": "verified",
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "staticBuild": "passed",
+        "nativeRender": "passed-infrastructure-probe",
+        "scope": "Native production integration and three test-only state stories; no canonical KRDS story coverage."
+      },
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:stories --framework react --probe",
+        "report": "test-results/t05/stories-1793321744668-78305-5307b430/report.json",
+        "nativeSources": [
+          "apps/storybook-react/src/stories/native-probe.stories.tsx"
+        ],
+        "storyIds": [
+          "infrastructure-native-probe--default",
+          "infrastructure-native-probe--loading",
+          "infrastructure-native-probe--error"
+        ],
+        "blockedRequests": 0,
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-react-report.md"
+      }
+    },
+    {
+      "framework": "solid",
+      "required": true,
+      "integration": "storybook-solidjs-vite",
+      "version": "10.7.4",
+      "storybook": "10.6.5",
+      "manifest": "upstream/krds/raw/npm/storybook-solidjs-vite.json",
+      "peerDependencies": {
+        "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+        "solid-js": "^1.8.0-0 || ^2.0.0-0",
+        "storybook": "^0.0.0-0 || ^10.0.0",
+        "typescript": "*",
+        "@solidjs/web": "^2.0.0-0",
+        "vite-plugin-solid": "^2.0.0-0 || ^3.0.0-0"
+      },
+      "dependencies": {
+        "semver": "^7.8.5",
+        "@storybook/global": "^5.0.0",
+        "@volar/typescript": "^2.4.28",
+        "@volar/language-core": "^2.4.28",
+        "@storybook/builder-vite": "^10.6.0",
+        "@typescript/typescript6": "^6.0.2"
+      },
+      "toolchain": "native-vite8",
+      "status": "verified",
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "staticBuild": "passed",
+        "nativeRender": "passed-infrastructure-probe",
+        "scope": "Native production integration and three test-only state stories; no canonical KRDS story coverage."
+      },
+      "concerns": [
+        "Community adapter includes optional @solidjs/web peer for Solid2. Keep it absent in Solid1 workspace; verify native compiler resolution."
+      ],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:stories --framework solid --probe",
+        "report": "test-results/t05/stories-1793321577318-76222-739759f3/report.json",
+        "nativeSources": [
+          "apps/storybook-solid/src/stories/probe.stories.tsx"
+        ],
+        "storyIds": [
+          "infrastructure-native-probe--default",
+          "infrastructure-native-probe--loading",
+          "infrastructure-native-probe--error"
+        ],
+        "blockedRequests": 0,
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-solid-report.md"
+      }
+    },
+    {
+      "framework": "svelte",
+      "required": true,
+      "integration": "@storybook/svelte-vite",
+      "version": "10.6.5",
+      "storybook": "10.6.5",
+      "manifest": "upstream/krds/raw/npm/@storybook__svelte-vite.json",
+      "peerDependencies": {
+        "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+        "svelte": "^5.0.0",
+        "storybook": "^10.6.5",
+        "@sveltejs/vite-plugin-svelte": "^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
+      },
+      "dependencies": {
+        "svelte2tsx": "^0.7.55",
+        "typescript": "^4.9.4 || ^5.0.0",
+        "magic-string": "^1.1.0",
+        "@storybook/svelte": "10.6.5",
+        "@storybook/builder-vite": "10.6.5"
+      },
+      "toolchain": "native-vite8",
+      "status": "verified",
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "staticBuild": "passed",
+        "nativeRender": "passed-infrastructure-probe",
+        "scope": "Native production integration and three test-only state stories; no canonical KRDS story coverage."
+      },
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:stories --framework svelte --probe",
+        "report": "test-results/t05/stories-1793321902129-79436-ad13a18b/report.json",
+        "nativeSources": [
+          "apps/storybook-svelte/src/stories/probe.stories.ts"
+        ],
+        "storyIds": [
+          "infrastructure-native-probe--default",
+          "infrastructure-native-probe--loading",
+          "infrastructure-native-probe--error"
+        ],
+        "blockedRequests": 0,
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-svelte-report.md",
+        "commonRunnerReexecution": "test-results/t05/stories-1793322905119-91525-dbcd4827/report.json"
+      }
+    },
+    {
+      "framework": "vue",
+      "required": true,
+      "integration": "@storybook/vue3-vite",
+      "version": "10.6.5",
+      "storybook": "10.6.5",
+      "manifest": "upstream/krds/raw/npm/@storybook__vue3-vite.json",
+      "peerDependencies": {
+        "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+        "storybook": "^10.6.5",
+        "typescript": ">= 4.9.x"
+      },
+      "dependencies": {
+        "magic-string": "^1.1.0",
+        "@storybook/vue3": "10.6.5",
+        "@storybook/builder-vite": "10.6.5"
+      },
+      "toolchain": "native-vite8",
+      "status": "verified",
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "staticBuild": "passed",
+        "nativeRender": "passed-infrastructure-probe",
+        "scope": "Native production integration and three test-only state stories; no canonical KRDS story coverage."
+      },
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:stories --framework vue --probe",
+        "report": "test-results/t05/stories-1793321580648-76270-ac0458ff/report.json",
+        "nativeSources": [
+          "apps/storybook-vue/src/stories/probe.stories.ts"
+        ],
+        "storyIds": [
+          "infrastructure-native-probe--default",
+          "infrastructure-native-probe--loading",
+          "infrastructure-native-probe--error"
+        ],
+        "blockedRequests": 0,
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-vue-report.md"
+      }
+    },
+    {
+      "framework": "lit",
+      "required": true,
+      "integration": "@storybook/web-components-vite",
+      "version": "10.6.5",
+      "storybook": "10.6.5",
+      "manifest": "upstream/krds/raw/npm/@storybook__web-components-vite.json",
+      "peerDependencies": {
+        "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
+        "storybook": "^10.6.5"
+      },
+      "dependencies": {
+        "@storybook/builder-vite": "10.6.5",
+        "@storybook/web-components": "10.6.5"
+      },
+      "toolchain": "native-vite8",
+      "status": "verified",
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "staticBuild": "passed",
+        "nativeRender": "passed-infrastructure-probe",
+        "scope": "Native production integration and three test-only state stories; no canonical KRDS story coverage."
+      },
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:stories --framework lit --probe",
+        "report": "test-results/t05/stories-1793321641659-77200-88a35458/report.json",
+        "nativeSources": [
+          "apps/storybook-lit/src/stories/probe.stories.ts"
+        ],
+        "storyIds": [
+          "infrastructure-native-probe--default",
+          "infrastructure-native-probe--loading",
+          "infrastructure-native-probe--error"
+        ],
+        "blockedRequests": 0,
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-lit-report.md"
+      }
+    },
+    {
+      "framework": "qwik",
+      "required": true,
+      "integration": "storybook-framework-qwik",
+      "version": "0.6.1",
+      "storybook": "10.6.5",
+      "manifest": "upstream/krds/raw/npm/storybook-framework-qwik.json",
+      "peerDependencies": {
+        "@builder.io/qwik": ">=1.0.0"
+      },
+      "dependencies": {
+        "magic-string": "^0.30.21",
+        "@storybook/builder-vite": "^10.3.3",
+        "react-docgen-typescript": "^2.2.2"
+      },
+      "toolchain": "qwik-vite7",
+      "status": "verified",
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "staticBuild": "passed",
+        "nativeRender": "passed-infrastructure-probe",
+        "scope": "Native production integration and three test-only state stories; no canonical KRDS story coverage."
+      },
+      "concerns": [
+        "README main still says Storybook7, but published0.6.1 depends on @storybook/builder-vite ^10.3.3 and dev Storybook10.3.3. Select10.6.5 by published dependency range; native runtime execution is pending.",
+        "Stories run client/dev rendering; no SSR or serialization coverage."
+      ],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:stories --framework qwik --probe",
+        "report": "test-results/t05/stories-1793321571496-76068-6fc4225a/report.json",
+        "nativeSources": [
+          "apps/storybook-qwik/src/stories/probe.stories.tsx"
+        ],
+        "storyIds": [
+          "infrastructure-native-probe--default",
+          "infrastructure-native-probe--loading",
+          "infrastructure-native-probe--error"
+        ],
+        "blockedRequests": 0,
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-qwik-report.md"
+      }
+    },
+    {
+      "framework": "angular",
+      "required": true,
+      "integration": "@storybook/angular",
+      "version": "10.6.5",
+      "storybook": "10.6.5",
+      "manifest": "upstream/krds/raw/npm/@storybook__angular.json",
+      "peerDependencies": {
+        "rxjs": "^6.5.3 || ^7.4.0",
+        "zone.js": ">=0.14.0",
+        "storybook": "^10.6.5",
+        "typescript": "^4.9.0 || ^5.0.0 || ^6.0.0",
+        "@angular/cli": ">=18.0.0 < 23.0.0",
+        "@angular/core": ">=18.0.0 < 23.0.0",
+        "@angular/common": ">=18.0.0 < 23.0.0",
+        "@angular/compiler": ">=18.0.0 < 23.0.0",
+        "@angular/animations": ">=18.0.0 < 23.0.0",
+        "@angular-devkit/core": ">=18.0.0 < 23.0.0",
+        "@angular/compiler-cli": ">=18.0.0 < 23.0.0",
+        "@angular-devkit/architect": ">=0.1800.0 < 0.2300.0",
+        "@angular/platform-browser": ">=18.0.0 < 23.0.0",
+        "@angular-devkit/build-angular": ">=18.0.0 < 23.0.0",
+        "@angular/platform-browser-dynamic": ">=18.0.0 < 23.0.0"
+      },
+      "dependencies": {
+        "webpack": "5",
+        "telejson": "8.0.0",
+        "ts-dedent": "^2.0.0",
+        "@storybook/global": "^5.0.0",
+        "@storybook/builder-webpack5": "10.6.5",
+        "tsconfig-paths-webpack-plugin": "^4.0.1"
+      },
+      "toolchain": "angular22",
+      "status": "verified",
+      "validation": {
+        "publishedMetadata": "retrieved",
+        "directPeerRanges": "passed-metadata-only",
+        "install": "passed",
+        "staticBuild": "passed",
+        "nativeRender": "passed-infrastructure-probe",
+        "scope": "Official Angular CLI native production integration and three test-only state stories; no canonical KRDS story coverage."
+      },
+      "concerns": [],
+      "executionEvidence": {
+        "command": "node tools/yarn.mjs test:stories --framework angular --probe",
+        "report": "test-results/t05/stories-1793322095524-82290-051d2368/report.json",
+        "nativeSources": [
+          "apps/storybook-angular/src/stories/probe.stories.ts"
+        ],
+        "storyIds": [
+          "infrastructure-native-probe--default",
+          "infrastructure-native-probe--loading",
+          "infrastructure-native-probe--error"
+        ],
+        "blockedRequests": 0,
+        "canonicalCoverage": false,
+        "ownerReport": ".superpowers/sdd/PLAN/task-T05-angular-report.md"
+      }
+    }
+  ],
+  "unsupportedOrSeparate": [
+    {
+      "framework": "lit",
+      "siheom": {
+        "status": "unsupported-upstream",
+        "evidenceUrl": "https://registry.npmjs.org/@siheom/lit/latest",
+        "observedResult": "404 in collection-initial.json",
+        "projectOwnedAdapter": "not-created"
+      },
+      "requiredAlternative": "Native fixture + Playwright including custom events and Shadow DOM; optional project-owned siheom bridge needs separate proof."
+    },
+    {
+      "framework": "solid-next",
+      "siheom": {
+        "status": "unsupported-upstream",
+        "reason": "@siheom/solid0.3.2 peer solid-js ^1.9.0 excludes2.0.0-rc.19."
+      },
+      "storybook": {
+        "integration": "storybook-solidjs-vite",
+        "version": "10.7.4",
+        "status": "pending-preview-validation",
+        "evidence": "Published peers include Solid2 prereleases; renderer/compiler execution on exact rc.19 unverified.",
+        "compilerConcern": "Adapter peer uses the specifier vite-plugin-solid; selected Solid2 compiler package is @solidjs/vite-plugin 3.0.0-next.53. A workspace-local alias or adapter configuration must be tested; no working integration is claimed."
+      },
+      "requiredAlternative": "Native Solid2 production fixture + Playwright/types/SSR; never wrap Solid1 or widen its siheom peer."
+    }
+  ],
+  "playwright": {
+    "testPackage": "@playwright/test",
+    "version": "1.64.1",
+    "browserProviderPackage": "playwright",
+    "browserProviderVersion": "1.64.1",
+    "browserInstallation": {
+      "status": "installed",
+      "command": "PLAYWRIGHT_BROWSERS_PATH=/private/tmp/krds-playwright-1.64.1 node tools/yarn.mjs workspace @krds-native/fixture-react exec playwright install chromium firefox webkit",
+      "path": "/private/tmp/krds-playwright-1.64.1",
+      "platform": "mac-arm64",
+      "evidence": ".superpowers/sdd/PLAN/t05-core-logs/browser-install-approved.log",
+      "browsers": [
+        {
+          "name": "chromium",
+          "revision": "1248",
+          "version": "156.0.8078.4",
+          "execution": "passed-native-probe"
+        },
+        {
+          "name": "firefox",
+          "revision": "1555",
+          "version": "157.0",
+          "execution": "blocked-before-tests",
+          "reason": "Firefox1555 reports Could not find profile folder in standard macOS TMPDIR and /private/tmp; installation succeeds but browser launch does not.",
+          "evidence": ".superpowers/sdd/PLAN/t05-solid-next-logs/11-probe-firefox-private-tmp.log"
+        },
+        {
+          "name": "webkit",
+          "revision": "2370",
+          "version": "27.2",
+          "execution": "passed-native-solid2-probe",
+          "evidence": "test-results/t05/contract-1793321573891-76135-5d13d6a7/report.json"
+        }
+      ]
+    },
+    "requiredBrowserProjects": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "axe": "@axe-core/playwright@4.14.0",
+    "role": "Standalone production consumer E2E; siheom browser tests remain separate.",
+    "determinism": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "locale": "ko-KR",
+      "timezoneId": "Asia/Seoul",
+      "colorScheme": "light",
+      "reducedMotion": "reduce",
+      "fonts": "await document.fonts.ready; built local assets only",
+      "axe": "4.14.0"
+    }
+  },
+  "storyContract": {
+    "network": "No API/auth/CDN/remote fonts/images or same-origin data-preparation requests. Use local args/inputs/slots and pure state fixtures.",
+    "behaviorTests": "Separate *.siheom.* or behavior files; no duplicate end-to-end scenario in story play.",
+    "shared": "Pure fixture data and observable role/name/state contracts only.",
+    "networkValidation": {
+      "status": "passed",
+      "command": "node tools/yarn.mjs exec node --test tools/tests/story-network.test.mjs",
+      "evidence": ".superpowers/sdd/PLAN/t05-core-logs/network-negative-approved.log",
+      "scope": "Actual Chromium production negative fixture; external and same-origin API fetch, WebSocket, EventSource, service worker attempts blocked before sending; visible content still fails policy. GET/HEAD built-asset allowlist registered before iframe."
+    }
+  },
+  "evidence": [
+    "upstream/krds/raw/siheom-install.md",
+    "upstream/krds/raw/siheom-vitest-browser.ts",
+    "upstream/krds/raw/siheom-commit.json",
+    "upstream/krds/raw/qwik-storybook-README.md",
+    "upstream/krds/raw/solid-storybook-README.md"
+  ],
+  "verificationPolicy": "Metadata and peer-range validation are distinct from successful installation, compiler, browser and production consumer execution. Pending entries remain mandatory.",
+  "metadataVerification": {
+    "checker": "semver 7.8.5 (registry SRI matched), executed on Node 24.18.0",
+    "nativeProfilePackages": 85,
+    "engineChecks": 91,
+    "peerChecks": 269,
+    "missingRequiredPeers": 0,
+    "failures": 0,
+    "verifiedAt": "2026-10-29T23:36:51.557406+00:00",
+    "scope": "Historical T00 metadata-only verification of exact framework/compiler, stable Storybook and siheom direct dependencies. Current native installation/type/browser results are recorded per combination in T05 executionEvidence."
+  },
+  "infrastructureCoveragePolicy": "Verified T05 entries below refer only to native test harness probes; no KRDS implementation, component, visual, SSR/resume, real IME or manual accessibility coverage is awarded. Canonical pilot suites and stories remain required and missing cases fail nonzero.",
+  "commonHarnessVerification": {
+    "scope": "T05 common infrastructure only; correct and deliberately incorrect plain-DOM inspection fixtures award no canonical/native-adapter coverage.",
+    "root": {
+      "command": "node tools/yarn.mjs test:harness",
+      "passed": 13,
+      "failed": 0,
+      "log": ".superpowers/sdd/PLAN/t05-core-logs/fix1-root-harness.log"
+    },
+    "owningWorkspace": {
+      "command": "node tools/yarn.mjs workspace @krds-native/test-contracts test",
+      "passed": 12,
+      "failed": 0,
+      "log": ".superpowers/sdd/PLAN/t05-core-logs/fix1-workspace-test.log"
+    },
+    "currentRunnerReports": {
+      "contractProbe": "test-results/t05/contract-1793322899548-91498-d2d6d57d/report.json",
+      "healthyMissingPilot": "test-results/t05/contract-1793322902390-91510-09bc7a49/report.json",
+      "storyProbe": "test-results/t05/stories-1793322905119-91525-dbcd4827/report.json",
+      "siheomProbe": "test-results/t05/siheom-1793322908537-91540-370214f1/report.json"
+    },
+    "sourceHashes": ".superpowers/sdd/PLAN/t05-core-logs/fix1-source-hashes.json",
+    "historicalEvidence": "Earlier native reports retain their original schema and candidate timestamps; the current common runner reports above use canonicalSelection and coverageAwarded:false."
+  }
+}

@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CatalogExample } from '../CatalogExample';
+const meta = { id: 'krds-visually-hidden', title: 'KRDS/VisuallyHidden', component: CatalogExample } satisfies Meta<typeof CatalogExample>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Text: Story = { args: {"componentId": "visually-hidden", "initialState": {"id": "hidden-help", "content": "신청 내용을 확인하세요", "variant": "text", "lang": "ko"}, "host": {"localOnly": true, "acceptChanges": true, "visibleControlLabel": "신청 제출", "textZoomPercent": 100, "manualScreenReaderRequired": false}} };
+export const AriaAssociation: Story = { args: {"componentId": "visually-hidden", "initialState": {"id": "hidden-help", "content": "신청 내용을 확인하세요", "variant": "aria-association", "lang": "ko"}, "host": {"localOnly": true, "acceptChanges": true, "visibleControlLabel": "신청 제출", "textZoomPercent": 100, "manualScreenReaderRequired": false}} };
+export const InteractiveOverlay: Story = { args: {"componentId": "visually-hidden", "initialState": {"id": "hidden-help", "content": "신청 내용을 확인하세요", "variant": "interactive-overlay", "lang": "ko"}, "host": {"localOnly": true, "acceptChanges": true, "visibleControlLabel": "신청 제출", "textZoomPercent": 100, "manualScreenReaderRequired": false}} };
+export const Zoom: Story = { args: {"componentId": "visually-hidden", "initialState": {"id": "hidden-help", "content": "신청 내용을 확인하세요", "variant": "text", "lang": "ko"}, "host": {"localOnly": true, "acceptChanges": true, "visibleControlLabel": "신청 제출", "textZoomPercent": 200, "manualScreenReaderRequired": false}} };
+export const Translated: Story = { args: {"componentId": "visually-hidden", "initialState": {"id": "hidden-help", "content": "Please review the application", "variant": "text", "lang": "en"}, "host": {"localOnly": true, "acceptChanges": true, "visibleControlLabel": "신청 제출", "textZoomPercent": 100, "manualScreenReaderRequired": false}} };
+export const ManualAt: Story = { args: {"componentId": "visually-hidden", "initialState": {"id": "hidden-help", "content": "신청 내용을 확인하세요", "variant": "text", "lang": "ko"}, "host": {"localOnly": true, "acceptChanges": true, "visibleControlLabel": "신청 제출", "textZoomPercent": 100, "manualScreenReaderRequired": true}} };

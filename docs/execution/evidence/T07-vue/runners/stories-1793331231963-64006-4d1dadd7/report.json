@@ -1,0 +1,345 @@
+{
+  "kind": "stories",
+  "mode": "pilot",
+  "results": [
+    {
+      "framework": "vue",
+      "canonicalSelection": true,
+      "coverageAwarded": false,
+      "stories": [
+        {
+          "id": "krds-button--disabled",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:59197/iframe.html?id=krds-button--disabled&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:59197/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Cits5iEp.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-B8sAiJxY.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Bi1DtbVX.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:59197/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/pilots.stories-CGwt01lI.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Pilots-BsRNvzQJ.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Button-yhopEGU_-Bk_p7vp3.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-native-select--controlled",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:59197/iframe.html?id=krds-native-select--controlled&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:59197/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Cits5iEp.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-B8sAiJxY.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Bi1DtbVX.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:59197/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/select.stories-CBY36Pez.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Pilots-BsRNvzQJ.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Button-yhopEGU_-Bk_p7vp3.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-modal--open",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:59197/iframe.html?id=krds-modal--open&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:59197/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Cits5iEp.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-B8sAiJxY.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Bi1DtbVX.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:59197/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/modal.stories-D6HmeWQw.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Pilots-BsRNvzQJ.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Button-yhopEGU_-Bk_p7vp3.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-tabs--manual",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:59197/iframe.html?id=krds-tabs--manual&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:59197/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Cits5iEp.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-B8sAiJxY.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Bi1DtbVX.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:59197/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/tabs.stories-BzUOBroy.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Pilots-BsRNvzQJ.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Button-yhopEGU_-Bk_p7vp3.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-date-input--invalid",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:59197/iframe.html?id=krds-date-input--invalid&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:59197/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Cits5iEp.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-B8sAiJxY.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Bi1DtbVX.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:59197/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/date-input.stories-B2m4IxzO.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Pilots-BsRNvzQJ.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Button-yhopEGU_-Bk_p7vp3.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        },
+        {
+          "id": "krds-calendar--selected-range",
+          "status": "passed",
+          "requests": [
+            {
+              "url": "http://127.0.0.1:59197/iframe.html?id=krds-calendar--selected-range&viewMode=story",
+              "kind": "document"
+            },
+            {
+              "url": "http://127.0.0.1:59197/vite-inject-mocker-entry.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Cits5iEp.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/rolldown-runtime-Dh6celcD.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/preload-helper-_1ZBrL1G.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-B8sAiJxY.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/iframe-Bi1DtbVX.css",
+              "kind": "stylesheet"
+            },
+            {
+              "url": "http://127.0.0.1:59197/index.json",
+              "kind": "fetch"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/calendar.stories-BSWnAIyQ.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Pilots-BsRNvzQJ.js",
+              "kind": "script"
+            },
+            {
+              "url": "http://127.0.0.1:59197/assets/Button-yhopEGU_-Bk_p7vp3.js",
+              "kind": "script"
+            }
+          ],
+          "violations": [],
+          "axe": {
+            "version": "4.14.0",
+            "violations": []
+          }
+        }
+      ],
+      "sourceFiles": 7,
+      "status": "passed"
+    }
+  ]
+}

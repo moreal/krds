@@ -1,0 +1,31 @@
+# Lit compatibility
+
+The selected native profile uses Lit 3.3.3, TypeScript 6.0.2, Vite 8.3.5 and Playwright 1.64.1. Build/test commands run through `node tools/yarn.mjs`, which launches selected Node 24.18.0 and Yarn 4.14.1 without changing global tools.
+
+The six pilots render native Lit templates in open Shadow DOM. Registration is explicit and import-safe; native names and relationships remain within the owned shadow root. Native dialogs use the browser top layer and inherit the same token cascade. ElementInternals owns successful values and validity; the browser tests inspect actual FormData, native disabled-fieldset behavior, cancelable reset, restoration and named submitter submission.
+
+The official Vanilla Zag interpreter runs through a Lit ReactiveController. The Tabs consumer applies the public KRDS sequential-focus/manual-activation policy while the actual service handles requested selection. `machineProps` handles the official normalizer's lowercase event names and removes old listeners, attributes, properties and styles; tests cover replacement, disconnection and reconnection. No foreign renderer is imported.
+
+Standalone server rendering uses Lit Labs SSR 4.1.0. Chromium and WebKit hydrate all six custom elements with official SSR-client 1.1.8 support, reuse server-rendered native controls and execute first actions. The fixture splits lit-html into a shared chunk and dynamically loads element definitions after the hydration hook, avoiding evaluation-order loss of hydration support. Application JSON restores property-only options/items/value before upgrade; automatic arbitrary property serialization is not claimed.
+
+Storybook uses the native Web Components renderer 10.6.5. Stories are local args/state/templates and separate from behavior tests. The canonical runner's raw axe 4.14 findings and network results must both be inspected; exit zero alone is insufficient. The selected siheom release has no official Lit adapter, so Lit siheom execution is explicitly unsupported. Native Playwright suites remain mandatory.
+
+Chromium and WebKit provide native evidence. The inherited Firefox profile-creation failure is a tool/environment limitation, not a passing Firefox implementation result. The final T08 report records exact commands, visual artifacts and residual acceptance limits; no catalog coverage is promoted by this document.
+
+The first Lit review revision adds explicit option `selected` serialization for matched controlled/default values before hydration. Static single-select HTML cannot represent an unmatched empty/no-selection state while enabled options exist; that specific state needs hydration and is excluded from the pre-hydration equivalence claim. Native range validation identifies affected endpoints, so an end-only error keeps the start field valid and uses the end input as the ElementInternals anchor/focus target.
+
+Tabs/Calendar host `aria-label` and `aria-labelledby` reach the actual internal tablist/region. Browser element-reference ARIA is preferred and live reference text updates are observed. In standalone SSR only, external `aria-labelledby` needs application-owned plain text in `.labelReferences`; no unresolved external IDREF is copied into the shadow root and no full accessible-name algorithm or AT acceptance is claimed. Modal return-target usability now traverses assigned slots and shadow hosts for effective inertness and ancestor fallback.
+
+## T10 full catalog candidate
+
+The adapter now contains 54 explicit native classes and 54 typed component subpaths. The original six-component acceptance is preserved in `docs/execution/evidence/T08-lit/INDEX.md`; it does not accept this expansion. New source, tests, examples and stories are tracked separately under `.superpowers/sdd/PLAN/t10-lit-logs/`.
+
+All new form-bearing controls use ElementInternals as their sole successful contribution. Internal native controls have real names and same-root labels but do not acquire a light-DOM form owner across the shadow boundary. Tests must inspect the FACE owner's actual form rather than invent a second hidden input. Native `dialog.showModal()` supplies browser isolation even when no literal `inert` attribute is added to background elements. Focus observations must traverse open shadow roots and composed ancestry.
+
+Every component has a compiler-checked public-package construction example in `apps/fixture-lit/src/examples/catalog.ts`. The selected standalone SSR/hydration path covers all 48 additions with actual SSR node reuse and first events where interactive. This establishes that selected standalone configuration, without implying host-framework wrapper, arbitrary server environment or release acceptance. Favicon SSR uses the explicit `faviconLinks` head helper. Coach presentation requires connected real targets and adjacent registered boundaries.
+
+Full-catalog stories use native Web Components, local state and actual local host mocks. Real File objects, native media/VTT, local route state, persistent result history and native anchors remain observable. Authentic sign-language content is explicitly blocked rather than replaced with an unrelated geometric clip. Physical AT, authentic caption/content equivalence and browser-capability limits remain fail-closed requirements.
+
+TextInput follows the accepted host boundary: “Native normal Enter form submission remains host/browser behavior after composition.” An input inside Shadow DOM has no light-DOM native form owner, so the component does not synthesize implicit submission. A composing or already-canceled Enter must remain inert. A composition may handle an uncanceled, noncomposing Enter by activating its actual default submit button; this preserves native validation, the real submitter and name/value, and canceled-click behavior. T11 exercises that explicit host integration; it does not imply an additional TextInput keyboard API.
+
+The original pilot deltas are explicit: Modal skips browser-only opener capture during standalone SSR when no ownerDocument/defaultView exists; NativeSelect clears barred-control validity before disabled/reset transitions. The native reset regression covers required select and text controls in Chromium and WebKit. Neither guard substitutes a hidden form control or changes the single FACE contribution.

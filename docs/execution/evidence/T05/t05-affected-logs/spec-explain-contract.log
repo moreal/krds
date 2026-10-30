@@ -1,0 +1,54 @@
+{
+  "affected": {
+    "fixture-angular:contract": [
+      {
+        "kind": "input-file",
+        "file": "specs/components/button.md",
+        "pattern": "specs/components/**/*"
+      }
+    ],
+    "fixture-lit:contract": [
+      {
+        "kind": "input-file",
+        "file": "specs/components/button.md",
+        "pattern": "specs/components/**/*"
+      }
+    ],
+    "fixture-react:contract": [
+      {
+        "kind": "input-file",
+        "file": "specs/components/button.md",
+        "pattern": "specs/components/**/*"
+      }
+    ],
+    "fixture-solid-next:contract": [
+      {
+        "kind": "input-file",
+        "file": "specs/components/button.md",
+        "pattern": "specs/components/**/*"
+      }
+    ]
+  },
+  "upstream": {
+    "krds-styles:build": [
+      {
+        "kind": "input-file",
+        "file": "specs/components/button.md",
+        "pattern": "specs/components/*.md"
+      }
+    ]
+  },
+  "touched": [
+    "fixture-angular:contract",
+    "fixture-lit:contract",
+    "fixture-react:contract",
+    "fixture-solid-next:contract",
+    "krds-styles:build"
+  ],
+  "requested": {
+    "targets": [
+      "contract"
+    ],
+    "total": 8
+  }
+}

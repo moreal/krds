@@ -1,0 +1,79 @@
+{
+  "name": "storybook-svelte",
+  "root": "apps/storybook-svelte",
+  "sourceRoot": "apps/storybook-svelte/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:svelte"
+  ],
+  "implicitDependencies": [
+    "krds-svelte",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte test"
+      },
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte lint"
+      }
+    },
+    "storybook-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte storybook-build:local"
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-svelte stories"
+      },
+      "cache": false,
+      "dependsOn": [
+        "storybook-build",
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/catalog/story-coverage.json",
+        "{workspaceRoot}/compatibility/testing.json",
+        "{workspaceRoot}/tools/testing/**/*",
+        "{workspaceRoot}/tools/run-story-tests.mjs"
+      ]
+    }
+  }
+}

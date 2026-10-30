@@ -1,0 +1,35 @@
+nx show projects
+
+Show a list of projects in the workspace.
+
+Run command using --base=[SHA1] (affected by the committed, uncommitted and untracked changes):
+      --base  Base of the current branch (usually main).  [string]
+
+or using --base=[SHA1] --head=[SHA2] (affected by the committed changes):
+      --base  Base of the current branch (usually main).  [string]
+      --head  Latest commit of the current branch (usually HEAD).  [string]
+
+or using:
+      --files        Change the way Nx is calculating the affected command by providing directly changed files, list of files delimited by commas or spaces.  [string]
+      --uncommitted  Uncommitted changes.  [boolean]
+      --untracked    Untracked changes.  [boolean]
+
+Options:
+      --version     Show version number  [boolean]
+      --json        Output JSON.  [boolean]
+      --exclude     Exclude certain projects from being processed.  [string]
+      --stdin       Change the way Nx is calculating the affected command by providing directly changed files from stdin, one file per line.  [boolean]
+      --explain     Print why each task was considered affected, instead of running anything. Not available with affected.legacy in nx.json. Pass a file path to save the reasons as JSON instead. Pass "stdout" to print the JSON to the terminal.  [string]
+      --verbose     Prints additional information about the commands (e.g., stack traces).  [boolean]
+      --affected    Show only affected projects.  [boolean]
+  -p, --projects    Show only projects that match a given pattern.  [string]
+  -t, --withTarget  Show only projects that have a specific target.  [string]
+      --type        Select only projects of the given type.  [string] [choices: "app", "lib", "e2e"]
+      --sep         Outputs projects with the specified seperator.  [string]
+
+Examples:
+  nx show projects --projects "apps/*"         Show all projects in the apps directory
+  nx show projects --projects "shared-*"       Show all projects that start with "shared-"
+  nx show projects --affected                  Show affected projects in the workspace
+  nx show projects --type app --affected       Show affected apps in the workspace
+  nx show projects --affected --exclude=*-e2e  Show affected projects in the workspace, excluding end-to-end projects

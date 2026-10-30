@@ -1,0 +1,5 @@
+{
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {"outDir": "./generated", "rootDir": "../../../..", "declaration": false, "sourceMap": false},
+  "include": ["../../../../packages/lit/examples/patterns/**/*.ts"]
+}

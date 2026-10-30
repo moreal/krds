@@ -1,0 +1,877 @@
+{
+  "sourceReport": "test-results/t05/stories-1793325286793-6802-70c4c487/report.json",
+  "sourceSha256": "a8849e257fd619abd87ed8e567970b276e4049b9e3adc5e3e8f08ba4ac2994a5",
+  "scope": "Historical actual KRDS Calendar story evidence, copied read-only; not a fresh run",
+  "story": {
+    "id": "krds-calendar--selected-range",
+    "status": "passed",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:55436/iframe.html?id=krds-calendar--selected-range&viewMode=story",
+        "kind": "document"
+      },
+      {
+        "url": "http://127.0.0.1:55436/vite-inject-mocker-entry.js",
+        "kind": "script"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/iframe-DeAqaLKg.js",
+        "kind": "script"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/rolldown-runtime-Dh6celcD.js",
+        "kind": "script"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/preload-helper-_1ZBrL1G.js",
+        "kind": "script"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/iframe-DGzGaEOI.js",
+        "kind": "script"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/iframe-BTx9cplv.css",
+        "kind": "stylesheet"
+      },
+      {
+        "url": "http://127.0.0.1:55436/index.json",
+        "kind": "fetch"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/calendar.stories-CJrW9gxl.js",
+        "kind": "script"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/calendar-DYc4VcpF-DhbcctSw.js",
+        "kind": "script"
+      },
+      {
+        "url": "http://127.0.0.1:55436/assets/providers-4LHHUrT_-B6AuAy_6.js",
+        "kind": "script"
+      }
+    ],
+    "violations": [],
+    "axe": {
+      "version": "4.14.0",
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "tags": [
+            "cat.semantics",
+            "wcag21a",
+            "wcag253",
+            "EN-301-549",
+            "EN-9.2.5.3",
+            "RGAAv4",
+            "RGAA-6.1.5"
+          ],
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-01-28\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 1월 28일 일요일, 다른 달\" aria-pressed=\"false\">28</button>",
+              "target": [
+                "button[data-date=\"2024-01-28\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-01-29\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 1월 29일 월요일, 다른 달\" aria-pressed=\"false\">29</button>",
+              "target": [
+                "button[data-date=\"2024-01-29\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-01-30\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 1월 30일 화요일, 다른 달\" aria-pressed=\"false\">30</button>",
+              "target": [
+                "button[data-date=\"2024-01-30\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-01-31\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 1월 31일 수요일, 다른 달\" aria-pressed=\"false\">31</button>",
+              "target": [
+                "button[data-date=\"2024-01-31\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-01\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 1일 목요일\" aria-pressed=\"false\">1</button>",
+              "target": [
+                "button[data-date=\"2024-02-01\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-02\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 2일 금요일\" aria-pressed=\"false\">2</button>",
+              "target": [
+                "button[data-date=\"2024-02-02\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-03\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 3일 토요일\" aria-pressed=\"false\">3</button>",
+              "target": [
+                "button[data-date=\"2024-02-03\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-04\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 4일 일요일\" aria-pressed=\"false\">4</button>",
+              "target": [
+                "button[data-date=\"2024-02-04\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-05\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 5일 월요일\" aria-pressed=\"false\">5</button>",
+              "target": [
+                "button[data-date=\"2024-02-05\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-06\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 6일 화요일\" aria-pressed=\"false\">6</button>",
+              "target": [
+                "button[data-date=\"2024-02-06\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-07\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 7일 수요일\" aria-pressed=\"false\">7</button>",
+              "target": [
+                "button[data-date=\"2024-02-07\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-08\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 8일 목요일\" aria-pressed=\"false\">8</button>",
+              "target": [
+                "button[data-date=\"2024-02-08\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-09\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 9일 금요일\" aria-pressed=\"false\">9</button>",
+              "target": [
+                "button[data-date=\"2024-02-09\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-10\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 10일 토요일\" aria-pressed=\"false\">10</button>",
+              "target": [
+                "button[data-date=\"2024-02-10\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-11\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 11일 일요일\" aria-pressed=\"false\">11</button>",
+              "target": [
+                "button[data-date=\"2024-02-11\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-12\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-start\" aria-label=\"2024년 2월 12일 월요일, 선택됨, 시작일\" aria-pressed=\"true\">12</button>",
+              "target": [
+                "button[data-date=\"2024-02-12\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-13\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected in-range\" aria-label=\"2024년 2월 13일 화요일, 선택됨\" aria-pressed=\"true\">13</button>",
+              "target": [
+                "button[data-date=\"2024-02-13\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-14\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected in-range\" aria-label=\"2024년 2월 14일 수요일, 선택됨\" aria-pressed=\"true\">14</button>",
+              "target": [
+                "button[data-date=\"2024-02-14\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-15\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"today selected in-range\" aria-label=\"2024년 2월 15일 목요일, 오늘, 선택됨\" aria-current=\"date\" aria-pressed=\"true\">15</button>",
+              "target": [
+                "button[data-date=\"2024-02-15\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-16\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected in-range\" aria-label=\"2024년 2월 16일 금요일, 선택됨\" aria-pressed=\"true\">16</button>",
+              "target": [
+                "button[data-date=\"2024-02-16\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-17\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected in-range\" aria-label=\"2024년 2월 17일 토요일, 선택됨\" aria-pressed=\"true\">17</button>",
+              "target": [
+                "button[data-date=\"2024-02-17\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-18\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"selected range-end\" aria-label=\"2024년 2월 18일 일요일, 선택됨, 종료일\" aria-pressed=\"true\">18</button>",
+              "target": [
+                "button[data-date=\"2024-02-18\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-19\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 19일 월요일\" aria-pressed=\"false\">19</button>",
+              "target": [
+                "button[data-date=\"2024-02-19\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-20\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 20일 화요일\" aria-pressed=\"false\">20</button>",
+              "target": [
+                "button[data-date=\"2024-02-20\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-21\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 21일 수요일\" aria-pressed=\"false\">21</button>",
+              "target": [
+                "button[data-date=\"2024-02-21\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-22\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 22일 목요일\" aria-pressed=\"false\">22</button>",
+              "target": [
+                "button[data-date=\"2024-02-22\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-23\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 23일 금요일\" aria-pressed=\"false\">23</button>",
+              "target": [
+                "button[data-date=\"2024-02-23\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-24\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 24일 토요일\" aria-pressed=\"false\">24</button>",
+              "target": [
+                "button[data-date=\"2024-02-24\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-25\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 25일 일요일\" aria-pressed=\"false\">25</button>",
+              "target": [
+                "button[data-date=\"2024-02-25\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-26\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 26일 월요일\" aria-pressed=\"false\">26</button>",
+              "target": [
+                "button[data-date=\"2024-02-26\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-27\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 27일 화요일\" aria-pressed=\"false\">27</button>",
+              "target": [
+                "button[data-date=\"2024-02-27\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-28\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 28일 수요일\" aria-pressed=\"false\">28</button>",
+              "target": [
+                "button[data-date=\"2024-02-28\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-02-29\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"\" aria-label=\"2024년 2월 29일 목요일\" aria-pressed=\"false\">29</button>",
+              "target": [
+                "button[data-date=\"2024-02-29\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-01\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 1일 금요일, 다른 달\" aria-pressed=\"false\">1</button>",
+              "target": [
+                "button[data-date=\"2024-03-01\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-02\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 2일 토요일, 다른 달\" aria-pressed=\"false\">2</button>",
+              "target": [
+                "button[data-date=\"2024-03-02\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-03\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 3일 일요일, 다른 달\" aria-pressed=\"false\">3</button>",
+              "target": [
+                "button[data-date=\"2024-03-03\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-04\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 4일 월요일, 다른 달\" aria-pressed=\"false\">4</button>",
+              "target": [
+                "button[data-date=\"2024-03-04\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-05\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 5일 화요일, 다른 달\" aria-pressed=\"false\">5</button>",
+              "target": [
+                "button[data-date=\"2024-03-05\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-06\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 6일 수요일, 다른 달\" aria-pressed=\"false\">6</button>",
+              "target": [
+                "button[data-date=\"2024-03-06\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-07\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 7일 목요일, 다른 달\" aria-pressed=\"false\">7</button>",
+              "target": [
+                "button[data-date=\"2024-03-07\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-08\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 8일 금요일, 다른 달\" aria-pressed=\"false\">8</button>",
+              "target": [
+                "button[data-date=\"2024-03-08\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "any": [
+                {
+                  "id": "label-content-name-mismatch",
+                  "data": null,
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Text inside the element is not included in the accessible name"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button type=\"button\" data-date=\"2024-03-09\" data-krds-component=\"calendar\" data-krds-part=\"day\" data-krds-state=\"outside-month\" aria-label=\"2024년 3월 9일 토요일, 다른 달\" aria-pressed=\"false\">9</button>",
+              "target": [
+                "button[data-date=\"2024-03-09\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

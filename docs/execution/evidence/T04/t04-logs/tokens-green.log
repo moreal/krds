@@ -1,0 +1,13 @@
+✔ rejects alias cycles with the complete reference chain (0.797417ms)
+✔ rejects a missing alias target and identifies the referring key (0.115125ms)
+✔ rejects conflicting alias types before CSS generation (0.147666ms)
+✔ preserves source values and aliases while resolving chained references (0.491417ms)
+✔ rejects CSS output name collisions rather than overwriting tokens (0.117041ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 79.407667

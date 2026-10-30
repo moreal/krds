@@ -1,0 +1,82 @@
+{
+  "name": "@krds-native/solid",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit"
+  },
+  "devDependencies": {
+    "@babel/core": "7.28.5",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "babel-preset-solid": "1.9.16",
+    "playwright": "1.64.1",
+    "solid-js": "1.9.18",
+    "typescript": "6.0.2",
+    "vite": "8.3.5",
+    "vite-plugin-solid": "2.11.14",
+    "vitest": "4.1.10"
+  },
+  "description": "Native Solid 1 KRDS pilot components",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./provider": {
+      "types": "./dist/providers/index.d.ts",
+      "import": "./dist/provider.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/index.d.ts",
+      "import": "./dist/button.js"
+    },
+    "./native-select": {
+      "types": "./dist/components/native-select/index.d.ts",
+      "import": "./dist/native-select.js"
+    },
+    "./modal": {
+      "types": "./dist/components/modal/index.d.ts",
+      "import": "./dist/modal.js"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs/index.d.ts",
+      "import": "./dist/tabs.js"
+    },
+    "./date-input": {
+      "types": "./dist/components/date-input/index.d.ts",
+      "import": "./dist/date-input.js"
+    },
+    "./calendar": {
+      "types": "./dist/components/calendar/index.d.ts",
+      "import": "./dist/calendar.js"
+    }
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.18"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "5.40.0",
+    "@krds-native/contracts": "workspace:^",
+    "@krds-native/styles": "workspace:^",
+    "@krds-native/tokens": "workspace:^"
+  }
+}

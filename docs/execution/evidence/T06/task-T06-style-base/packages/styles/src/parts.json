@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "identity": "data-krds-component",
+  "part": "data-krds-part",
+  "state": "data-krds-state",
+  "stateMatch": "space-separated token membership (~=)",
+  "variant": "data-krds-variant",
+  "size": "data-krds-size",
+  "orientation": "data-krds-orientation",
+  "components": {
+    "button": {
+      "parts": [
+        "root",
+        "label",
+        "icon"
+      ],
+      "states": {
+        "root": [
+          "disabled"
+        ]
+      },
+      "variants": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "text",
+        "icon"
+      ],
+      "sizes": [
+        "xsmall",
+        "small",
+        "medium",
+        "large",
+        "xlarge"
+      ]
+    },
+    "native-select": {
+      "parts": [
+        "root",
+        "label",
+        "control",
+        "hint",
+        "error",
+        "icon"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "invalid"
+        ],
+        "control": [
+          "disabled",
+          "invalid"
+        ]
+      },
+      "sizes": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "modal": {
+      "parts": [
+        "root",
+        "trigger",
+        "backdrop",
+        "content",
+        "title",
+        "description",
+        "body",
+        "actions",
+        "close"
+      ],
+      "states": {
+        "root": [
+          "open",
+          "closed"
+        ],
+        "backdrop": [
+          "open",
+          "closed"
+        ],
+        "content": [
+          "open",
+          "closed"
+        ]
+      }
+    },
+    "tabs": {
+      "parts": [
+        "root",
+        "list",
+        "trigger",
+        "panel",
+        "indicator"
+      ],
+      "states": {
+        "trigger": [
+          "selected",
+          "disabled"
+        ],
+        "panel": [
+          "active",
+          "inactive"
+        ]
+      },
+      "orientations": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "date-input": {
+      "parts": [
+        "root",
+        "label",
+        "control",
+        "start-input",
+        "end-input",
+        "trigger",
+        "hint",
+        "error",
+        "popup"
+      ],
+      "states": {
+        "root": [
+          "disabled",
+          "invalid"
+        ],
+        "control": [
+          "disabled",
+          "invalid"
+        ],
+        "start-input": [
+          "disabled",
+          "invalid"
+        ],
+        "end-input": [
+          "disabled",
+          "invalid"
+        ],
+        "trigger": [
+          "open",
+          "closed"
+        ],
+        "popup": [
+          "open",
+          "closed"
+        ]
+      }
+    },
+    "calendar": {
+      "parts": [
+        "root",
+        "header",
+        "heading",
+        "previous",
+        "next",
+        "table",
+        "weekday",
+        "cell",
+        "day",
+        "footer",
+        "today",
+        "clear",
+        "cancel",
+        "confirm"
+      ],
+      "states": {
+        "day": [
+          "today",
+          "selected",
+          "range-start",
+          "range-end",
+          "in-range",
+          "outside-month",
+          "disabled"
+        ],
+        "previous": [
+          "disabled"
+        ],
+        "next": [
+          "disabled"
+        ],
+        "today": [
+          "disabled"
+        ],
+        "clear": [
+          "disabled"
+        ],
+        "cancel": [
+          "disabled"
+        ],
+        "confirm": [
+          "disabled"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+import { $, component$, useSignal, Slot, useId, useComputed$, useVisibleTask$, useTask$, type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { SkipLinkContract } from '@unofficial-krds/contracts';
+import { owned, states, safeRel, useField, useReset, useNarrow, usable, focusTarget, restore, ignoredKey, type NativeContract } from '../../internal/catalog';
+export type SkipLinkProps = NativeContract<SkipLinkContract> & {onConfigurationError$?:QRL<(detail:{targetId:string;message:string})=>void>};
+export const SkipLink = component$<SkipLinkProps>((props) => { return <nav {...owned('skip-link')} data-krds-visibility={props.visibility ?? 'focus-revealed'} aria-label="건너뛰기">{props.links.map(link => <a key={link.id} {...owned('skip-link', 'link')} href={`#${link.targetId}`} preventdefault:click onClick$={async () => { const target = document.getElementById(link.targetId); if(!target){const error=new TypeError(`SkipLink target not found: ${link.targetId}`);await props.onConfigurationError$?.({targetId:link.targetId,message:String(error)});throw error;} focusTarget(target); target.scrollIntoView({ block: 'start' }); }}>{link.label}</a>)}</nav>; });

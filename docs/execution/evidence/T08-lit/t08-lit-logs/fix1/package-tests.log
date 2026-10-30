@@ -1,0 +1,17 @@
+✔ Lit pilots expose native classes without global registration at source import (0.522708ms)
+✔ Lit SSR emits declarative open Shadow DOM and actual six-pilot semantics (15.710667ms)
+✔ explicit registration is idempotent only for the same class and preflights collisions (0.330209ms)
+✔ native SSR rejects duplicate options, incompatible modes and invalid date configuration (0.883625ms)
+✔ review 1: SSR serializes a non-first controlled selected option (9.047959ms)
+✔ review 1: SSR serializes a non-first uncontrolled baseline (0.650917ms)
+✔ review 3: SSR applies explicit aria-label to the actual tablist and Calendar region (5.218833ms)
+✔ review 3: SSR resolves external labelledby through supplied plain-text reference context (1.63525ms)
+✔ review 3: empty or unresolved SSR naming references are configuration errors (0.654042ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 153.680833

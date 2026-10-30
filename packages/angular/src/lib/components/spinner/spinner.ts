@@ -1,0 +1,6 @@
+import {booleanAttribute, Component, Input, Output, EventEmitter, ChangeDetectionStrategy, signal, inject, ElementRef, afterEveryRender, ViewChild, type OnInit, type OnChanges, type OnDestroy } from '@angular/core';
+import type * as C from '@unofficial-krds/contracts';
+import { ControlMode, usable, focusables, composing, KRDS_ENVIRONMENT } from '../../internal/behavior';
+
+@Component({selector: 'krds-spinner', standalone:true, changeDetection:ChangeDetectionStrategy.OnPush,  template: `<div data-krds-component="spinner" data-krds-part="root" [attr.data-krds-state]="pending?'pending':'complete'" [attr.data-krds-size]="size">@if(pending){<div data-krds-component="spinner" data-krds-part="indicator" role="progressbar" [attr.aria-label]="label" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="value??null">{{value===undefined?'진행 중':value+'%'}}</div>}<span role="status" aria-live="polite" data-krds-component="spinner" data-krds-part="status">{{pending?label:completionMessage}}</span></div>`})
+export class Spinner implements OnChanges{@Input({transform:booleanAttribute}) pending=false;@Input() value:number|undefined;@Input() label='';@Input() completionMessage='';@Input() size:C.Size='medium';ngOnChanges():void{if(this.value!==undefined&&(!Number.isFinite(this.value)||this.value<0||this.value>100))throw new RangeError('Progress must be 0–100.');}}

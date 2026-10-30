@@ -1,0 +1,78 @@
+
+ RUN  v4.1.10 /Users/moreal/github/moreal/krds/apps/fixture-vue
+
+ ❯ |chromium| tests/siheom/pilots.test.ts (1 test | 1 failed) 120ms
+   × native six pilots expose semantic controls rather than probe placeholders 119ms
+ ❯ |chromium| tests/siheom/button.test.ts (1 test | 1 failed) 1120ms
+   × button/disabled: healthy route must expose the actual disabled KRDS button 1120ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chromium| tests/siheom/button.test.ts > button/disabled: healthy route must expose the actual disabled KRDS button
+Error: [Logs]
+
+disabled    : button "저장"
+
+[Original Error Message]
+
+Unable to find role="button" and name "저장"
+
+
+
+[A11y Snapshot]
+
+generic:
+  - interaction: [focused=true]
+  main:
+    status: "Fixture health"
+      "ready"
+    note:
+      "Component not implemented: button/disabled"
+    complementary: "Built public entry bootstrap"
+      "T01 compiler probe"
+
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/button.test.ts/button-disabled--healthy-route-must-expose-the-actual-disabled-KRDS-button-1.png
+
+ ❯ wrapStepError ../../node_modules/.store/@siheom-core-virtual-41351ad493/package/dist/esm/runner.mjs:9:7
+ ❯ handleError ../../node_modules/.store/@siheom-core-virtual-41351ad493/package/dist/esm/siheom.mjs:45:32
+ ❯ runLoggedStep ../../node_modules/.store/@siheom-core-virtual-41351ad493/package/dist/esm/runner.mjs:13:1
+ ❯ runAssertStep ../../node_modules/.store/@siheom-core-virtual-41351ad493/package/dist/esm/siheom.mjs:18:1
+ ❯ runOneStep ../../node_modules/.store/@siheom-core-virtual-41351ad493/package/dist/esm/siheom.mjs:38:2
+ ❯ runSteps ../../node_modules/.store/@siheom-core-virtual-41351ad493/package/dist/esm/siheom.mjs:46:27
+ ❯ runSiheom ../../node_modules/.store/@siheom-core-virtual-41351ad493/package/dist/esm/siheom.mjs:61:2
+ ❯ tests/siheom/button.test.ts:11:2
+      9|   expect(window.__KRDS_FIXTURE__?.framework).toBe('vue');
+     10|   await window.__KRDS_FIXTURE__!.setState({ disabled: true, label: '저장…
+     11|   await runSiheom(assertions.disabled(query.button('저장')), actions.cli…
+       |  ^
+     12|   expect(window.__KRDS_FIXTURE__!.readEvents()).toEqual([]);
+     13| });
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=0a39e2bd:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |chromium| tests/siheom/pilots.test.ts > native six pilots expose semantic controls rather than probe placeholders
+AssertionError: expected null not to be null
+
+Failure screenshot:
+  - tests/siheom/__screenshots__/pilots.test.ts/native-six-pilots-expose-semantic-controls-rather-than-probe-placeholders-1.png
+
+ ❯ tests/siheom/pilots.test.ts:8:70
+      6|   history.replaceState(null, '', '/fixtures/calendar?case=selection-co…
+      7|   await runSiheom(given.render(FixtureApp), assertions.textContent(que…
+      8|   expect(document.querySelector('table[data-krds-part="table"]')).not.…
+       |                                                                      ^
+      9|   expect(document.querySelectorAll('tbody tr')).toHaveLength(6);
+     10|   expect(document.querySelectorAll('tbody td')).toHaveLength(42);
+ ❯ ../../node_modules/.store/@vitest-runner-npm-4.1.10-d7436101c9/package/dist/chunk-artifact.js?v=0a39e2bd:1903:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed (2)
+   Start at  12:05:02
+   Duration  2.41s (transform 0ms, setup 1.09s, import 51ms, tests 1.24s, environment 0ms)
+

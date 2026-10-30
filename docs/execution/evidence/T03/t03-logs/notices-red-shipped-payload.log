@@ -1,0 +1,37 @@
+✔ copies exact terms and copyright only into the package that distributes the asset (99.593625ms)
+✔ rejects unresolved rights on a distributed asset (44.479875ms)
+✔ rejects distributed material without preserved full terms (45.2455ms)
+✔ rejects truncated or altered license terms using preserved source hash (42.831083ms)
+✔ accepts absent original web metadata with evidence, without inventing copyright (96.5285ms)
+✔ rejects whitespace metadata and unsupported fields instead of hiding missing values (41.826875ms)
+✔ rejects distributed source hash drift and untracked shipped binary assets (85.763791ms)
+✔ detects stale package notices and a missing files whitelist entry (179.866042ms)
+✔ allows an unresolved investigation record only when it is excluded from distribution (95.625125ms)
+✖ rejects a shipped binary outside the configured asset roots (49.346417ms)
+✔ rejects missing rights evidence and missing original copyright even with a replacement license hash (84.773292ms)
+✔ requires explanation for original metadata absence (42.685167ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 961.321459
+
+✖ failing tests:
+
+test at tools/tests/notices.test.mjs:78:1
+✖ rejects a shipped binary outside the configured asset roots (49.346417ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at bad (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:30:40)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/tools/tests/notices.test.mjs:81:3)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

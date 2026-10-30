@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-resize', title: 'KRDS/resize', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const FiveLevels: Story = { name: "five-levels", parameters: { __id: "krds-resize--five-levels" }, render: () => <CatalogStory componentId="resize" caseId="five-levels"/> };
+export const CustomLevels: Story = { name: "custom-levels", parameters: { __id: "krds-resize--custom-levels" }, render: () => <CatalogStory componentId="resize" caseId="custom-levels"/> };
+export const NarrowReflow: Story = { name: "narrow-reflow", parameters: { __id: "krds-resize--narrow-reflow" }, render: () => <CatalogStory componentId="resize" caseId="narrow-reflow"/> };
+export const BrowserZoom: Story = { name: "browser-zoom", parameters: { __id: "krds-resize--browser-zoom" }, render: () => <CatalogStory componentId="resize" caseId="browser-zoom"/> };
+export const ControlledRejected: Story = { name: "controlled-rejected", parameters: { __id: "krds-resize--controlled-rejected" }, render: () => <CatalogStory componentId="resize" caseId="controlled-rejected"/> };
+export const SharedValuePayload: Story = { name: "shared-value-payload", parameters: { __id: "krds-resize--shared-value-payload" }, render: () => <CatalogStory componentId="resize" caseId="shared-value-payload"/> };
+export const CollapsedArrowRejected: Story = { name: "collapsed-arrow-rejected", parameters: { __id: "krds-resize--collapsed-arrow-rejected" }, render: () => <CatalogStory componentId="resize" caseId="collapsed-arrow-rejected"/> };

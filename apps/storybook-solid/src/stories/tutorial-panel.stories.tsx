@@ -1,0 +1,17 @@
+import type { Meta, StoryObj } from 'storybook-solidjs-vite';
+import { CatalogStory } from '../catalog-story';
+const meta = { id: 'krds-tutorial-panel', title: 'KRDS/tutorial-panel', parameters: { layout: 'padded' } } satisfies Meta;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const TaskOverview: Story = { name: "task-overview", parameters: { __id: "krds-tutorial-panel--task-overview" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="task-overview"/> };
+export const ActiveStep: Story = { name: "active-step", parameters: { __id: "krds-tutorial-panel--active-step" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="active-step"/> };
+export const SuspendedPanel: Story = { name: "suspended-panel", parameters: { __id: "krds-tutorial-panel--suspended-panel" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="suspended-panel"/> };
+export const HelpTabReturn: Story = { name: "help-tab-return", parameters: { __id: "krds-tutorial-panel--help-tab-return" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="help-tab-return"/> };
+export const NarrowModal: Story = { name: "narrow-modal", parameters: { __id: "krds-tutorial-panel--narrow-modal" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="narrow-modal"/> };
+export const RouteChange: Story = { name: "route-change", parameters: { __id: "krds-tutorial-panel--route-change" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="route-change"/> };
+export const StopAfterFold: Story = { name: "stop-after-fold", parameters: { __id: "krds-tutorial-panel--stop-after-fold" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="stop-after-fold"/> };
+export const StopAfterHelpTab: Story = { name: "stop-after-help-tab", parameters: { __id: "krds-tutorial-panel--stop-after-help-tab" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="stop-after-help-tab"/> };
+export const NarrowStopReturn: Story = { name: "narrow-stop-return", parameters: { __id: "krds-tutorial-panel--narrow-stop-return" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="narrow-stop-return"/> };
+export const ControlledStopExposureRejected: Story = { name: "controlled-stop-exposure-rejected", parameters: { __id: "krds-tutorial-panel--controlled-stop-exposure-rejected" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="controlled-stop-exposure-rejected"/> };
+export const StartActionRemoved: Story = { name: "start-action-removed", parameters: { __id: "krds-tutorial-panel--start-action-removed" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="start-action-removed"/> };
+export const StopPartialNarrowHelp: Story = { name: "stop-partial-narrow-help", parameters: { __id: "krds-tutorial-panel--stop-partial-narrow-help" }, render: () => <CatalogStory componentId="tutorial-panel" caseId="stop-partial-narrow-help"/> };

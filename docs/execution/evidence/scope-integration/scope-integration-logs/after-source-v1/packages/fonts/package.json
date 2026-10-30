@@ -1,0 +1,48 @@
+{
+  "name": "@unofficial-krds/fonts",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node ../../tools/verify-licenses.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "typescript": "6.0.2"
+  },
+  "description": "Official unmodified Pretendard GOV WOFF2 fonts with OFL and RFN notices",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json",
+    "fonts",
+    "fonts.css"
+  ],
+  "sideEffects": [
+    "./fonts.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./fonts/*": "./fonts/*",
+    "./fonts.css": "./fonts.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/fonts"
+  }
+}

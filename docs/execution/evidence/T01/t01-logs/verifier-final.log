@@ -1,0 +1,18 @@
+▶ workspace configuration and source boundaries
+  ✔ rejects linker (194.022417ms)
+  ✔ rejects second lockfile (272.14125ms)
+  ✔ rejects nested npm lockfile (159.19925ms)
+  ✔ rejects public app (178.835541ms)
+  ✔ rejects runtime resolution (181.166334ms)
+  ✔ rejects upward relative import (233.959958ms)
+  ✔ rejects foreign renderer (384.346709ms)
+  ✔ rejects native source alias (382.419166ms)
+✔ workspace configuration and source boundaries (2167.871125ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2231.067709

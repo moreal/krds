@@ -1,0 +1,65 @@
+{
+  "name": "@unofficial-krds/qwik",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../../tools/workspace-probe.test.mjs",
+    "lint": "node ../../tools/check-workspace.mjs",
+    "prepublishOnly": "node ../../tools/block-publish.mjs",
+    "build:local": "vite build --mode lib && tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "1.20.3",
+    "@builder.io/qwik-city": "1.20.3",
+    "@types/node": "24.13.3",
+    "@vitest/browser-playwright": "4.1.10",
+    "playwright": "1.64.1",
+    "typescript": "6.0.2",
+    "vite": "7.3.1",
+    "vitest": "4.1.10"
+  },
+  "description": "KRDS Native qwik: T01 toolchain probe only",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md",
+    "LICENSES",
+    "ATTRIBUTION.md",
+    "THIRD-PARTY-NOTICES.md",
+    "provenance.json"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.qwik.cjs",
+  "module": "./dist/index.qwik.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "qwik": "./dist/index.qwik.mjs",
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
+    }
+  },
+  "peerDependencies": {
+    "@builder.io/qwik": "^1.20.3"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.12.4",
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/styles": "workspace:^",
+    "@unofficial-krds/tokens": "workspace:^",
+    "@zag-js/core": "1.47.0",
+    "@zag-js/date-picker": "1.47.0",
+    "@zag-js/dialog": "1.47.0",
+    "@zag-js/tabs": "1.47.0",
+    "@zag-js/vanilla": "1.47.0"
+  },
+  "qwik": "./dist/index.qwik.mjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moreal/krds",
+    "directory": "packages/qwik"
+  }
+}

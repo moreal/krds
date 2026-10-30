@@ -1,0 +1,11 @@
+import type { Meta,StoryObj } from 'storybook-framework-qwik';
+import { CatalogStory } from '../catalog-story';
+const meta={id:'krds-visually-hidden',title:'KRDS/visually-hidden',component:CatalogStory,args:{componentId:'visually-hidden'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story=StoryObj<typeof CatalogStory>;
+export const Text:Story={name:"text",args:{caseId:"text"}};
+export const AriaAssociation:Story={name:"aria-association",args:{caseId:"aria-association"}};
+export const InteractiveOverlay:Story={name:"interactive-overlay",args:{caseId:"interactive-overlay"}};
+export const Zoom:Story={name:"zoom",args:{caseId:"zoom"}};
+export const Translated:Story={name:"translated",args:{caseId:"translated"}};
+export const ManualAt:Story={name:"manual-at",args:{caseId:"manual-at"}};

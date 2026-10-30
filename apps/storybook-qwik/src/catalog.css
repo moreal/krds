@@ -1,0 +1,16 @@
+body { margin: 0; }
+main { max-width: 90rem; margin-inline: auto; padding: 3.2rem; }
+main > h1 { margin-block: 0 1.6rem; font-size: 2.4rem; }
+main > [aria-label="Fixture health"] { margin-block-end: 2.4rem; }
+main form { display: grid; gap: 2.4rem; }
+@media (max-width: 40rem) { main { padding: 1.6rem; } }
+[data-krds-component="tab-bar"][data-krds-part="root"] { position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 60; }
+.catalog-outline { display: block; }
+@media (min-width:768px) { .catalog-outline { display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,20rem);align-items:start;gap:2rem; }.catalog-outline-navigation{grid-column:2;grid-row:1}.catalog-outline-body{grid-column:1;grid-row:1} }
+
+/* The example host measures its real navigation; fixed overlays clear that content. */
+[data-krds-host="bottom-layout"] [data-krds-component="fab"][data-krds-part="root"],
+[data-krds-host="bottom-layout"] [data-krds-component="toast"][data-krds-part="root"],
+[data-krds-host="bottom-layout"] [data-krds-component="snackbar"][data-krds-part="root"] { inset-block-end: calc(var(--krds-host-navigation-height, 0px) + 1rem + env(safe-area-inset-bottom, 0px)); }
+
+[data-krds-host-layout="catalog"] [data-krds-component] { font-family: var(--krds-typo-font-type), system-ui, sans-serif; }

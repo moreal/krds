@@ -1,0 +1,58 @@
+
+ NX   Running target test for project krds-styles and 2 tasks it depends on:
+
+
+
+> nx run krds-tokens:build
+
+> node tools/yarn.mjs workspace @krds-native/tokens build:local
+
+(node:65062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Generated 768 tokens, CSS, types and original-key mappings.
+
+> nx run krds-styles:build
+
+> node tools/yarn.mjs workspace @krds-native/styles build:local
+
+(node:65097) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Parsed/validated 9 CSS sources; generated 10 CSS entries and identical plain strings for six component contracts.
+
+> nx run krds-styles:test
+
+> node tools/yarn.mjs workspace @krds-native/styles test
+
+(node:65100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65118) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65125) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ unknown token references fail the build with the file name [90m(1.82475ms)[39m[39m
+[32m✔ invalid public parts are rejected [90m(0.658625ms)[39m[39m
+[32m✔ malformed CSS fails actual parsing [90m(0.512625ms)[39m[39m
+Parsed/validated 9 CSS sources; generated 10 CSS entries and identical plain strings for six component contracts.
+[32m✔ each CSS string is byte-identical to its ordinary generated CSS [90m(17.970458ms)[39m[39m
+[32m✔ exports exist and default CSS never opts into reset or fonts [90m(0.561667ms)[39m[39m
+[32m✔ a valid state on the wrong part is rejected [90m(0.214ms)[39m[39m
+[32m✔ variant misspellings cannot silently ship an unstyled branch [90m(0.129084ms)[39m[39m
+[32m✔ all six part inventories match the pilot documents [90m(0.963666ms)[39m[39m
+[34mℹ tests 8[39m
+[34mℹ suites 0[39m
+[34mℹ pass 8[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 111.781417[39m
+
+
+
+ NX   Successfully ran target test for project krds-styles and 2 tasks it depends on
+
+
+  Run duration:      2.3s
+  Cache:             Skipped (--skip-nx-cache)
+  Critical path:     2.2s (3 tasks)
+  Recoverable time:  <1ms

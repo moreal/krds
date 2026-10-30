@@ -1,0 +1,48 @@
+{
+  "name": "fixture-lit",
+  "root": "apps/fixture-lit",
+  "sourceRoot": "apps/fixture-lit/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:lit"
+  ],
+  "implicitDependencies": [
+    "krds-lit",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit lint"
+      }
+    },
+    "contract": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @krds-native/fixture-lit contract"
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+✖ unknown token references fail the build with the file name (0.796041ms)
+✖ invalid public parts are rejected (0.092375ms)
+✖ malformed CSS fails actual parsing (0.066917ms)
+✖ each CSS string is byte-identical to its ordinary generated CSS (0.45575ms)
+✖ exports exist and default CSS never opts into reset or fonts (0.365875ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 79.222583
+
+✖ failing tests:
+
+test at src/build.test.ts:6:1
+✖ unknown token references fail the build with the file name (0.796041ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:7:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.start (node:internal/test_runner/test:1191:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /button.css.*unknown.*--krds-does-not-exist/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at src/build.test.ts:9:1
+✖ invalid public parts are rejected (0.092375ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:10:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /button.*unknown.*part.*typo/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at src/build.test.ts:12:1
+✖ malformed CSS fails actual parsing (0.066917ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:13:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /unclosed block/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at src/build.test.ts:15:1
+✖ each CSS string is byte-identical to its ordinary generated CSS (0.45575ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/moreal/github/moreal/krds/packages/styles/dist/lit.js' imported from /Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///Users/moreal/github/moreal/krds/packages/styles/dist/lit.js?test=1793320372154'
+  }
+
+test at src/build.test.ts:22:1
+✖ exports exist and default CSS never opts into reset or fonts (0.365875ms)
+  Error: ENOENT: no such file or directory, open '/Users/moreal/github/moreal/krds/packages/styles/dist/all.css'
+      at readFileSync (node:fs:441:20)
+      at read (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:5:32)
+      at TestContext.<anonymous> (file:///Users/moreal/github/moreal/krds/packages/styles/src/build.test.ts:25:15)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/moreal/github/moreal/krds/packages/styles/dist/all.css'
+  }

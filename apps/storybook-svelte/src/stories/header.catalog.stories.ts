@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import CatalogStory from './CatalogStory.svelte';
+const meta = {id: 'krds-header', title: 'KRDS/Catalog/Header', component: CatalogStory, args: {componentId: 'header'}} satisfies Meta<typeof CatalogStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const HorizontalActions: Story = {name: "horizontal-actions", args: {caseId: "horizontal-actions"}};
+export const VerticalActions: Story = {name: "vertical-actions", args: {caseId: "vertical-actions"}};
+export const FiveUtilities: Story = {name: "five-utilities", args: {caseId: "five-utilities"}};
+export const MobileMenu: Story = {name: "mobile-menu", args: {caseId: "mobile-menu"}};
+export const StickyLongPage: Story = {name: "sticky-long-page", args: {caseId: "sticky-long-page"}};
+export const TranslatedLongLabels: Story = {name: "translated-long-labels", args: {caseId: "translated-long-labels"}};

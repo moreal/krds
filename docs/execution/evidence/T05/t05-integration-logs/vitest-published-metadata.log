@@ -1,0 +1,60 @@
+{
+  "path": "/Users/moreal/github/moreal/krds/node_modules/.store/@vitest-browser-playwright-virtual-669faebde9/package/package.json",
+  "name": "@vitest/browser-playwright",
+  "version": "4.1.10",
+  "dependencies": {
+    "tinyrainbow": "^3.1.0",
+    "@vitest/browser": "4.1.10",
+    "@vitest/mocker": "4.1.10"
+  },
+  "peerDependencies": {
+    "playwright": "*",
+    "vitest": "4.1.10"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": false
+    }
+  }
+}
+{
+  "path": "/Users/moreal/github/moreal/krds/node_modules/.store/@vitest-browser-virtual-f5a2752833/package/package.json",
+  "name": "@vitest/browser",
+  "version": "4.1.10",
+  "dependencies": {
+    "@blazediff/core": "1.9.1",
+    "magic-string": "^0.30.21",
+    "pngjs": "^7.0.0",
+    "sirv": "^3.0.2",
+    "tinyrainbow": "^3.1.0",
+    "ws": "^8.19.0",
+    "@vitest/mocker": "4.1.10",
+    "@vitest/utils": "4.1.10"
+  },
+  "peerDependencies": {
+    "vitest": "4.1.10"
+  }
+}
+{
+  "path": "/Users/moreal/github/moreal/krds/node_modules/.store/@vitest-mocker-virtual-d24ee94b7e/package/package.json",
+  "name": "@vitest/mocker",
+  "version": "4.1.10",
+  "dependencies": {
+    "estree-walker": "^3.0.3",
+    "magic-string": "^0.30.21",
+    "@vitest/spy": "4.1.10"
+  },
+  "peerDependencies": {
+    "msw": "^2.4.9",
+    "vite": "^6.0.0 || ^7.0.0 || ^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "msw": {
+      "optional": true
+    },
+    "vite": {
+      "optional": true
+    }
+  }
+}
+Actual node-entry Vite import: import { createFilter } from 'vite';

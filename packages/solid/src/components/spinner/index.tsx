@@ -1,0 +1,5 @@
+import { Show, createEffect } from 'solid-js';
+import type { SpinnerContract } from '@unofficial-krds/contracts';
+import { owned } from '../../internal/catalog';
+export type SpinnerProps = SpinnerContract;
+export function Spinner(props: SpinnerProps) { createEffect(()=>{if(props.value!==undefined&&(!Number.isFinite(props.value)||props.value<0||props.value>100))throw new TypeError('Spinner progress must be finite and between zero and one hundred');}); return <div {...owned('spinner', 'root', props.pending ? 'pending' : 'complete')} aria-busy={props.pending} data-krds-size={props.size ?? 'medium'}><Show when={props.pending}><progress {...owned('spinner', 'indicator', props.value === undefined ? 'indeterminate' : 'determinate')} aria-label={props.label} max="100" value={props.value} aria-valuemin="0" aria-valuemax="100" aria-valuenow={props.value}/></Show><span {...owned('spinner', 'label')}><span role="status" aria-live="polite" {...owned('spinner', 'status')}>{props.pending ? props.label : props.completionMessage}</span></span></div>; }

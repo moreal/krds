@@ -1,0 +1,27 @@
+✔ CLI selects exactly requested frameworks and rejects empty/unsupported selections (0.989917ms)
+✔ story allowlist permits only real production assets and blocks APIs/external paths (0.125208ms)
+✔ fixture bridge merges serializable state, notifies subscribers and snapshots events (3.679458ms)
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (20.424875ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 74.764208
+
+✖ failing tests:
+
+test at tools/tests/harness.test.mjs:47:1
+✖ production server assigns unique ports, serves allowlisted assets, rejects traversal and closes (20.424875ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }

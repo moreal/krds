@@ -1,0 +1,34 @@
+{
+  "name": "krds-workspace",
+  "root": "tools",
+  "projectType": "library",
+  "tags": [
+    "layer:tooling"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/build.mjs"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs tsc -p tools/tsconfig.json"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node --test tools/check-workspace.test.mjs tools/check-coverage.test.mjs"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/check-workspace.mjs"
+      }
+    }
+  }
+}

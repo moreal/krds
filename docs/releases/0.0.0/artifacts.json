@@ -1,0 +1,52 @@
+{
+  "status": "intermediate",
+  "candidate": {
+    "sourceCommit": null,
+    "sourceFingerprint": "284b8e91ab059b569cbc0f5e7220a0fe1ffb17cd7bf57089fe9621ea721dd591",
+    "repositorySourceSha256": "a2519c7cb2dcb92ce4f6a4e7706e4622884c4d6d2c58767fa363c8e16fcff932",
+    "repositorySourceFileCount": 8194,
+    "lockfileSha256": "4ca243c3a03ff4df3e29c921cdb6e4bb1d5d2c034e568ff59a63a5242a8aa694",
+    "artifactManifestSha256": null
+  },
+  "packages": [],
+  "scopes": {},
+  "evidence": [
+    {
+      "path": "compatibility/toolchain.json",
+      "sha256": "db7f1a5f81fb31e81228317f7b887d22aa7e1378b7d45598af9b4d737099bee8"
+    },
+    {
+      "path": "yarn.lock",
+      "sha256": "4ca243c3a03ff4df3e29c921cdb6e4bb1d5d2c034e568ff59a63a5242a8aa694"
+    },
+    {
+      "path": ".yarnrc.yml",
+      "sha256": "aa1a69e61ee9e317637a3fcd238c8a45855b12f8556778ab7f793a4bb0d61efc"
+    },
+    {
+      "path": "packages/solid-next/package.json",
+      "sha256": "378061d448a1e1e0161112b292472d4f67f199cfbcbe6c2a8ae47515100786e6"
+    },
+    {
+      "path": "packages/solid-next/README.md",
+      "sha256": "418d99503f6fca8f95054b561dc6cbedf5e86c8bed7d2b0ded90c27e41fbc1a2"
+    },
+    {
+      "path": "catalog/COVERAGE.md",
+      "sha256": "c43330bcc654b268465a69ad3a6b163dbb2d8e7be355602a2d421ca9c0d0cc34"
+    },
+    {
+      "path": "compliance/project-identity.json",
+      "sha256": "2ff1cc154406c85c75a307c04f3c7dae0b792ec2d6d010601e4487e6f99c43f1"
+    },
+    {
+      "path": "compliance/provenance.json",
+      "sha256": "cfa5a542717958c9024e3ff25aae444c9598d2e188176ff59506927c7ebc7609"
+    },
+    {
+      "path": "compliance/license-policy.json",
+      "sha256": "b503c300f40a756698b61bac0c99b32ceb2e2526e7ca397e82398fae83377843"
+    }
+  ],
+  "publicationAuthorized": false
+}

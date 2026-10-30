@@ -1,0 +1,19 @@
+import {Component,signal} from '@angular/core';
+import {render,screen} from '@testing-library/angular';
+import userEvent from '@testing-library/user-event';
+import {Tooltip,ContextualHelp,Modal} from '@unofficial-krds/angular';
+import {expect,test} from 'vitest';
+@Component({standalone:true,imports:[ContextualHelp],template:`<div tabindex="-1" id="help-ancestor"><krds-contextual-help id="external-help" triggerLabel="문맥 도움" title="문맥 설명" content="내용" [open]="open()" fallbackFocusId="popup-fallback" (openChange)="requests.push($event.open)"><button>팝오버 작업</button></krds-contextual-help></div><button id="popup-fallback">대체 팝오버 초점</button>`})
+class ContextHarness{readonly open=signal(true);readonly requests:boolean[]=[];}
+test('S12 accepted external contextual close restores displaced focus via usable fallback, then saved ancestor',async()=>{
+ const view=await render(ContextHarness);const instance=view.fixture.componentInstance;const trigger=screen.getByRole('button',{name:'문맥 도움'}) as HTMLButtonElement;trigger.disabled=true;screen.getByRole('button',{name:'팝오버 작업'}).focus();instance.open.set(false);view.fixture.detectChanges();await view.fixture.whenStable();expect(screen.getByRole('button',{name:'대체 팝오버 초점'})).toHaveFocus();expect(instance.requests).toEqual([]);
+});
+@Component({standalone:true,imports:[Tooltip],template:`<div tabindex="-1" id="tooltip-ancestor"><krds-tooltip text="추가 설명" triggerLabel="설명 보기" triggerId="review-tooltip" textId="review-tooltip-text" [open]="open()" (openChange)="open.set($event.open)"/></div><button>다음 초점</button>`})
+class TooltipHarness{readonly open=signal(false);}
+test('S12 Tooltip suppression clears on actual uncanceled keyboard departure/reentry and unusable trigger falls back to ancestry',async()=>{
+ const view=await render(TooltipHarness);const instance=view.fixture.componentInstance;const user=userEvent.setup();const trigger=screen.getByRole('button',{name:'설명 보기'}) as HTMLButtonElement;trigger.focus();view.fixture.detectChanges();await user.keyboard('{Escape}');expect(instance.open()).toBe(false);const cancel=(event:KeyboardEvent)=>{if(event.key==='Tab')event.preventDefault();};document.addEventListener('keydown',cancel);await user.tab();document.removeEventListener('keydown',cancel);await user.hover(trigger.closest('[data-krds-part="root"]')!);view.fixture.detectChanges();expect(instance.open()).toBe(false);
+ await user.tab();expect(screen.getByRole('button',{name:'다음 초점'})).toHaveFocus();await user.tab({shift:true});expect(trigger).toHaveFocus();expect(instance.open()).toBe(true);trigger.disabled=true;document.body.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));view.fixture.detectChanges();await view.fixture.whenStable();expect(document.getElementById('tooltip-ancestor')).toHaveFocus();
+});
+@Component({standalone:true,imports:[Modal,ContextualHelp,Tooltip],template:`<krds-contextual-help id="background-help" triggerLabel="배경 설명" title="배경 설명 내용" [open]="true" (openChange)="backgroundRequests.push($event.open)"/><krds-modal id="popup-modal" title="상위 모달" [open]="true"><krds-tooltip text="모달 안 설명" triggerLabel="내부 설명" triggerId="inner-tooltip" textId="inner-tooltip-text" [open]="innerOpen()" (openChange)="innerOpen.set($event.open)"/></krds-modal>`})
+class OwnershipHarness{readonly innerOpen=signal(true);readonly backgroundRequests:boolean[]=[];}
+test('S12 Escape is owned by the focused inner popup and does not close a background popup or outer modal',async()=>{const view=await render(OwnershipHarness);const instance=view.fixture.componentInstance;screen.getByRole('button',{name:'내부 설명'}).focus();await userEvent.setup().keyboard('{Escape}');expect(instance.innerOpen()).toBe(false);expect(instance.backgroundRequests).toEqual([]);expect(screen.getByRole('dialog',{name:'상위 모달'})).toBeVisible();});

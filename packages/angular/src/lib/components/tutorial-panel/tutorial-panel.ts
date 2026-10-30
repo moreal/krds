@@ -1,0 +1,60 @@
+import {CatalogIds} from '../../internal/catalog-ids';
+import {booleanAttribute,Component,Input,Output,EventEmitter,ChangeDetectionStrategy,signal,inject,ElementRef,afterEveryRender,ViewChild,type OnDestroy} from '@angular/core';
+import {NgTemplateOutlet} from '@angular/common';
+import type {TutorialPanelContract,TutorialStep,TutorialStartDetails,TutorialStopDetails} from '@unofficial-krds/contracts';
+import {CatalogOpen,OwnedState} from '../../internal/catalog-state';
+import {NativeLayer} from '../../internal/native-layer';
+import {restoreCatalogFocus} from '../../internal/catalog-focus';
+import {hasActiveCoach} from '../../internal/coach-registry';
+import {KRDS_ENVIRONMENT,usable} from '../../internal/behavior';
+import {Tabs} from '../tabs/tabs';
+@Component({selector:'krds-tutorial-panel',standalone:true,imports:[Tabs,NgTemplateOutlet,NativeLayer],changeDetection:ChangeDetectionStrategy.OnPush,template:`
+<button data-krds-component="tutorial-panel" data-krds-part="opener" type="button" [id]="id+'-opener'" (click)="setOpen(!isOpen())">튜토리얼 열기</button>
+@if(narrow()){
+ <dialog [krdsLayer]="isOpen()" [layerRestore]="false" [layerEntryFocus]="false" (layerClose)="setOpen(false)" tabindex="-1" data-krds-component="tutorial-panel" data-krds-part="root" [attr.data-krds-state]="isRunning()?'running':'idle'" [attr.aria-labelledby]="id+'-title'"><ng-container [ngTemplateOutlet]="content"/></dialog>
+}@else{
+ <aside #wide tabindex="-1" data-krds-component="tutorial-panel" data-krds-part="root" [hidden]="!isOpen()" [attr.data-krds-state]="isRunning()?'running':'idle'" [attr.aria-labelledby]="id+'-title'"><ng-container [ngTemplateOutlet]="content"/></aside>
+}
+<ng-template #content><header data-krds-component="tutorial-panel" data-krds-part="header"><h2 data-krds-component="tutorial-panel" data-krds-part="title" [id]="id+'-title'">튜토리얼</h2><button type="button" data-krds-component="tutorial-panel" data-krds-part="close" (click)="setOpen(false)">튜토리얼 닫기</button></header>
+ <krds-tabs data-krds-component="tutorial-panel" data-krds-part="tabs" [id]="id+'-tabs'" label="안내 종류" [items]="[{value:'help',label:'도움말',panel:help},{value:'tutorial',label:'튜토리얼',panel:tutorial}]" [value]="panelValue()" (valueChange)="selectPanel($event.value)"/>
+ @if(isRunning()){<button data-krds-component="tutorial-panel" data-krds-part="stop" type="button" (click)="stopRun()">따라하기 중지</button>}
+</ng-template>
+<ng-template #help><h3>도움말</h3><p>항목을 선택하여 관련 도움말을 확인하세요.</p><ng-content select="[help-content]"/></ng-template>
+<ng-template #tutorial>@if(viewTask()){<button type="button" data-krds-component="tutorial-panel" data-krds-part="back" (click)="overview()">작업 목록으로</button>}<ul data-krds-component="tutorial-panel" data-krds-part="task-list">@for(task of visibleTasks();track task.id){<li data-krds-component="tutorial-panel" data-krds-part="task"><h3 [id]="id+'-'+task.id+'-title'">{{task.title}}</h3>@if(showStart){<button type="button" [id]="actualStartId(task.id)" [disabled]="isRunning()||!task.steps.length" [attr.aria-describedby]="id+'-'+task.id+'-title'" (click)="startTask(task.id)">따라하기 시작</button>}<button type="button" [id]="id+'-'+task.id+'-disclosure'" [attr.aria-expanded]="viewTask()===task.id" [attr.aria-controls]="id+'-'+task.id+'-steps'" (click)="toggleTask(task.id)">{{task.title}} 단계 보기</button>@if(viewTask()===task.id){<ol [id]="id+'-'+task.id+'-steps'" data-krds-component="tutorial-panel" data-krds-part="step-list">@for(step of task.steps;track step.id){<li [attr.aria-current]="activeStepId===step.id?'step':null"><button type="button" (click)="selectStep(task.id,step.id)">{{step.title}}</button></li>}</ol>}</li>}</ul></ng-template>
+`})
+export class TutorialPanel extends CatalogOpen implements OnDestroy {
+ @Input() id=inject(CatalogIds).allocate('tutorial');@Input() tasks:TutorialPanelContract['tasks']=[];@Input() activeTaskId:string|null=null;@Input() activeStepId:string|null=null;@Input() running:boolean|undefined;@Input() defaultRunning:boolean|undefined;@Input() activePanel:'help'|'tutorial'|undefined;@Input() defaultActivePanel:'help'|'tutorial'|undefined;@Input() startActionId='';@Input() fallbackFocusId='';@Input({transform:booleanAttribute}) showStart=true;
+ @Output() readonly start=new EventEmitter<TutorialStartDetails>();@Output() readonly taskChange=new EventEmitter<{id:string|null}>();@Output() readonly stepChange=new EventEmitter<{id:string|null}>();@Output() readonly activePanelChange=new EventEmitter<{value:'help'|'tutorial'}>();@Output() readonly stop=new EventEmitter<TutorialStopDetails>();
+ @ViewChild(NativeLayer) layer?:NativeLayer;@ViewChild('wide') wide?:ElementRef<HTMLElement>;protected override initialOpen=true;readonly narrow=signal(false);readonly viewTask=signal<string|null>(null);
+ private readonly runningState=new OwnedState<boolean>();private readonly panelState=new OwnedState<'help'|'tutorial'>();private readonly document=inject(KRDS_ENVIRONMENT).document;private readonly element=inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;private media:MediaQueryList|undefined;private mutation:MutationObserver|undefined;private previousOpen=false;private pendingStop=false;private pendingStart:TutorialStartDetails|null=null;private startSource:HTMLElement|null=null;private initiator:HTMLElement|null=null;private ancestors:HTMLElement[]=[];private pendingBackTask:string|null=null;private lastTask:string|null|undefined;private lastStep:string|null|undefined;private queued=false;private destroyed=false;
+ private readonly resize=()=>this.narrow.set(this.media?.matches??false);private readonly focusChanged=(event:FocusEvent)=>{if(this.pendingStart&&!this.acceptedStart()&&event.target!==this.startSource&&!this.panelElement()?.contains(event.target as Node))this.pendingStart=null;};
+ constructor(){super();this.media=this.document.defaultView?.matchMedia?.('(max-width:767px)');this.resize();this.initialOpen=!this.narrow();this.media?.addEventListener('change',this.resize);this.document.addEventListener('focusin',this.focusChanged);const Observer=this.document.defaultView?.MutationObserver;if(Observer){this.mutation=new Observer(()=>{if(this.pendingStop)this.schedule();});this.mutation.observe(this.document.body,{childList:true,subtree:true});}afterEveryRender(()=>{if(this.pendingStop&&this.running!==undefined&&this.isRunning())this.pendingStop=false;this.schedule();});}
+ private schedule():void{if(this.queued||this.destroyed)return;this.queued=true;queueMicrotask(()=>{this.queued=false;if(!this.destroyed)this.reconcile();});}
+ private panelElement():HTMLElement|undefined{return this.narrow()?this.layer?.element:this.wide?.nativeElement;}
+ private reconcile():void{
+  const open=this.isOpen(),panel=this.panelElement();if(open&&!this.previousOpen){this.capture();if(!this.pendingStop)panel?.focus();}else if(!open&&this.previousOpen){this.layer?.closeForOwner();if(!this.pendingStop)this.restore(false);}
+  if(this.pendingStop&&!this.isRunning()&&!hasActiveCoach(this.document,this.startActionId)){this.pendingStop=false;this.pendingStart=null;if(!open)this.layer?.closeForOwner();this.restore(true);}
+  if(this.pendingStart&&this.acceptedStart()){this.pendingStart=null;if(open)panel?.focus();}
+  if(this.pendingBackTask){const target=this.document.getElementById(this.id+'-'+this.pendingBackTask+'-disclosure');if(usable(target)){this.pendingBackTask=null;target.focus();}}
+  this.previousOpen=open;
+ }
+ private capture():void{const active=this.document.activeElement as HTMLElement|null;if(usable(active)&&active!==this.document.body&&!this.panelElement()?.contains(active)){this.initiator=active;this.ancestors=[];for(let parent=active.parentElement;parent;parent=parent.parentElement)this.ancestors.push(parent);}}
+ private restore(stop:boolean,destroying=false):void{const candidates=[stop?this.document.getElementById(this.startActionId):null,this.document.getElementById(this.id+'-opener'),this.document.getElementById(this.fallbackFocusId),this.initiator,...this.ancestors].filter(node=>!destroying||!node||!this.element.contains(node));restoreCatalogFocus(this.document,candidates);}
+ override ngOnInit():void{super.ngOnInit();this.check();}override ngOnChanges():void{super.ngOnChanges();this.check();if(this.pendingStart&&(this.activeTaskId!==null&&this.activeTaskId!==this.pendingStart.taskId||this.activeStepId!==null&&this.activeStepId!==this.pendingStart.stepId))this.pendingStart=null;}
+ private check():void{if(this.activeTaskId&&this.activeStepId&&(this.lastTask!==this.activeTaskId||this.lastStep!==this.activeStepId))this.viewTask.set(this.activeTaskId);this.lastTask=this.activeTaskId;this.lastStep=this.activeStepId;this.runningState.initialize(this.running,this.defaultRunning,false);this.panelState.initialize(this.activePanel,this.defaultActivePanel,'tutorial');}
+ isRunning():boolean{return this.runningState.current(this.running);}panelValue():'help'|'tutorial'{return this.panelState.current(this.activePanel);}
+ override setOpen(open:boolean):void{if(!open)this.pendingStart=null;else this.capture();super.setOpen(open);}
+ selectPanel(value:string):void{if(value!=='help'&&value!=='tutorial')return;this.pendingStart=null;this.panelState.request(this.activePanel,value,next=>this.activePanelChange.emit({value:next}));}
+ currentStep():TutorialStep|undefined{return this.tasks.find(task=>task.id===this.activeTaskId)?.steps.find(step=>step.id===this.activeStepId);}
+ visibleTasks():TutorialPanelContract['tasks']{return this.viewTask()?this.tasks.filter(task=>task.id===this.viewTask()):this.tasks;}
+ actualStartId(taskId:string):string{return taskId===this.tasks[0]?.id&&this.startActionId?this.startActionId:this.id+'-'+taskId+'-start';}
+ toggleTask(id:string):void{this.pendingStart=null;this.viewTask.update(current=>current===id?null:id);}overview():void{this.pendingStart=null;this.pendingBackTask=this.viewTask();this.viewTask.set(null);}
+ selectStep(taskId:string,stepId:string):void{this.pendingStart=null;if(taskId!==this.activeTaskId)this.taskChange.emit({id:taskId});if(stepId!==this.activeStepId)this.stepChange.emit({id:stepId});}
+ private acceptedStart():boolean{return !!this.pendingStart&&this.isRunning()&&this.activeTaskId===this.pendingStart.taskId&&this.activeStepId===this.pendingStart.stepId;}
+ startTask(taskId?:string):void{if(this.isRunning())return;const task=this.tasks.find(task=>task.id===(taskId??this.activeTaskId)&&task.steps.length)??this.tasks.find(task=>task.steps.length);const step=task?.steps.find(step=>step.id===this.activeStepId)??task?.steps[0];if(!task||!step)return;if(this.pendingStart?.taskId===task.id&&this.pendingStart.stepId===step.id)return;this.capture();this.startSource=this.document.activeElement as HTMLElement|null;this.pendingStart={taskId:task.id,stepId:step.id};if(this.running===undefined)this.runningState.local.set(true);this.start.emit(this.pendingStart);}
+ private stopTransaction(details:TutorialStopDetails):void{if(this.pendingStop)return;this.pendingStop=true;this.pendingStart=null;if(this.running===undefined)this.runningState.local.set(false);if(this.activePanel===undefined)this.panelState.local.set('tutorial');if(this.open===undefined)this.visibility.local.set(true);this.stop.emit(details);this.schedule();}
+ stopRun():void{if(!this.isRunning())return;this.stopTransaction({reason:'stop',running:false,returnTo:{panel:'tutorial',open:true,startActionId:this.startActionId}});}
+ /** The linked coach delegates the entire accepted Stop/exposure/focus transaction. */
+ requestStop(details:TutorialStopDetails):void{this.stopTransaction(details);}
+ ngOnDestroy():void{this.destroyed=true;this.pendingStart=null;this.media?.removeEventListener('change',this.resize);this.document.removeEventListener('focusin',this.focusChanged);this.mutation?.disconnect();this.layer?.closeForOwner();if(this.previousOpen||this.pendingStop)this.restore(this.pendingStop,true);}
+}

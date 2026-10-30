@@ -1,0 +1,5 @@
+import { $, component$, useSignal, Slot, useId, useComputed$, useVisibleTask$, useTask$, type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { SpinnerContract } from '@unofficial-krds/contracts';
+import { owned, states, safeRel, useField, useReset, useNarrow, usable, focusTarget, restore, ignoredKey, type NativeContract } from '../../internal/catalog';
+export type SpinnerProps = NativeContract<SpinnerContract>;
+export const Spinner = component$<SpinnerProps>((props) => { return <div {...owned('spinner', 'root', props.pending ? 'pending' : 'complete')} aria-busy={props.pending} data-krds-size={props.size ?? 'medium'}>{props.pending && <><progress {...owned('spinner', 'indicator', props.value === undefined ? 'indeterminate' : 'determinate')} aria-label={props.label} max={100} value={props.value} aria-valuemin={0} aria-valuemax={100} aria-valuenow={props.value}/><span {...owned('spinner', 'label')}>{props.label}</span></>}<span role="status" aria-live="polite" {...owned('spinner', 'status', props.pending ? 'pending' : 'complete')}>{props.pending ? props.label : props.completionMessage}</span></div>; });

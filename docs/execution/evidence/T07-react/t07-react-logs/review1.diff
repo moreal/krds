@@ -1,0 +1,419 @@
+--- a/apps/fixture-react/tests/siheom/calendar.test.tsx
++++ b/apps/fixture-react/tests/siheom/calendar.test.tsx
+@@ -2,7 +2,7 @@
+ import { assertions, createReactSiheom, given, query } from '@siheom/react';
+ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+ import userEvent from '@testing-library/user-event';
+-import { StrictMode, useState } from 'react';
++import { Component, StrictMode, useState, type ReactNode } from 'react';
+ import { Button, Calendar, DateInput, KrdsProvider, Modal, NativeSelect, Tabs } from '@unofficial-krds/react';
+ import { FixtureApp } from '../../src/FixtureApp';
+ const { runSiheom } = createReactSiheom();
+@@ -166,3 +166,178 @@
+   expect(screen.getByRole('dialog', { name: 'Inner initial' })).toHaveFocus(); mounted.unmount();
+   expect(document.body.style.overflow).toBe('clip'); expect(document.querySelector('[data-krds-component="modal"][data-krds-part="root"]')).toBeNull(); document.body.style.overflow = overflow;
+ });
++
++// Independent review regressions: preserve the real native event sequence.
++test.each([false, true])('review1 disabled DateInput does not intercept valid form submit (external=%s)', async external => {
++  const changes: unknown[] = [];
++  render(<>
++    <form id="review-disabled-form">
++      <input name="other" defaultValue="retained" />
++      {!external && <DateInput label="Disabled date" name="date" disabled required onValueChange={detail => changes.push(detail)} />}
++      <Button type="submit">Send disabled form</Button>
++    </form>
++    {external && <DateInput label="Disabled date" name="date" form="review-disabled-form" disabled required onValueChange={detail => changes.push(detail)} />}
++  </>);
++  const form = document.getElementById('review-disabled-form') as HTMLFormElement;
++  let blocked: boolean | undefined;
++  let data: Array<[string, FormDataEntryValue]> = [];
++  form.addEventListener('submit', event => {
++    blocked = event.defaultPrevented;
++    data = [...new FormData(form)];
++    event.preventDefault();
++  });
++  await userEvent.click(screen.getByRole('button', { name: 'Send disabled form' }));
++  expect(blocked).toBe(false);
++  expect(data).toEqual([['other', 'retained']]);
++  expect(changes).toEqual([]);
++});
++
++test.each([
++  { accepts: false, requested: '2024-02-29' },
++  { accepts: true, requested: '2024-02-29' },
++  { accepts: false, requested: null },
++  { accepts: true, requested: null },
++])('review1 pointer blur then submit retains controlled intent ($accepts, $requested)', async ({ accepts, requested }) => {
++  const changes: unknown[] = [];
++  function ControlledForm() {
++    const [value, setValue] = useState<string | null>('2024-02-28');
++    return <form id="review-controlled-form">
++      <DateInput label="Requested date" name="requested" value={value} withCalendar={false}
++        onValueChange={detail => { changes.push(detail); if (accepts) setValue(detail.value); }} />
++      <Button type="submit">Send requested date</Button>
++      <Button onClick={() => setValue(requested)}>Reconcile parent</Button>
++    </form>;
++  }
++  render(<ControlledForm />);
++  const form = document.getElementById('review-controlled-form') as HTMLFormElement;
++  const submissions: Array<{ blocked: boolean; value: FormDataEntryValue | null }> = [];
++  form.addEventListener('submit', event => {
++    submissions.push({ blocked: event.defaultPrevented, value: new FormData(form).get('requested') });
++    event.preventDefault();
++  });
++  const input = screen.getByRole('textbox') as HTMLInputElement;
++  await userEvent.clear(input);
++  if (requested) await userEvent.type(input, requested);
++  // A real click blurs the field before the submit event, unlike requestSubmit().
++  await userEvent.click(screen.getByRole('button', { name: 'Send requested date' }));
++  expect(changes).toEqual([{ value: requested }]);
++  expect(submissions).toEqual([{ blocked: !accepts, value: accepts ? requested ?? '' : '2024-02-28' }]);
++  expect(input.value).toBe(accepts ? requested ?? '' : '2024-02-28');
++  if (!accepts) {
++    await userEvent.click(screen.getByRole('button', { name: 'Send requested date' }));
++    expect(submissions.at(-1)?.blocked).toBe(true);
++    expect(changes).toHaveLength(1);
++    await userEvent.click(screen.getByRole('button', { name: 'Reconcile parent' }));
++    expect(input.value).toBe(requested ?? '');
++    await userEvent.click(screen.getByRole('button', { name: 'Send requested date' }));
++    expect(submissions.at(-1)).toEqual({ blocked: false, value: requested ?? '' });
++    expect(changes).toHaveLength(1);
++  }
++});
++
++test.each(['single', 'range'] as const)('review1 Calendar cannot confirm a %s draft invalidated by new bounds', async mode => {
++  const changes: unknown[] = [];
++  const confirms: unknown[] = [];
++  const calendar = (min?: string) => mode === 'single'
++    ? <Calendar value={null} min={min} referenceDate="2024-02-15" onValueChange={detail => changes.push(detail)} onConfirm={detail => confirms.push(detail)} />
++    : <Calendar mode="range" value={{ start: null, end: null }} min={min} referenceDate="2024-02-15" onValueChange={detail => changes.push(detail)} onConfirm={detail => confirms.push(detail)} />;
++  const mounted = render(calendar());
++  await userEvent.click(screen.getByRole('button', { name: '2024년 2월 10일 토요일' }));
++  if (mode === 'range') await userEvent.click(screen.getByRole('button', { name: '2024년 2월 20일 화요일' }));
++  expect(screen.getByRole('button', { name: '확인' })).toBeEnabled();
++  mounted.rerender(calendar('2024-02-15'));
++  const confirm = screen.getByRole('button', { name: '확인' });
++  expect(confirm).toBeDisabled();
++  fireEvent.click(confirm);
++  expect(changes).toEqual([]);
++  expect(confirms).toEqual([]);
++});
++
++test.each(['single', 'range'] as const)('review1 DateInput popup revalidates a %s draft when max changes', async mode => {
++  const changes: unknown[] = [];
++  const input = (max?: string) => mode === 'single'
++    ? <DateInput label="Bounded date" value={null} max={max} referenceDate="2024-02-15" onValueChange={detail => changes.push(detail)} />
++    : <DateInput mode="range" label="Bounded dates" value={{ start: null, end: null }} max={max} referenceDate="2024-02-15" onValueChange={detail => changes.push(detail)} />;
++  const mounted = render(input());
++  await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
++  await userEvent.click(screen.getByRole('button', { name: '2024년 2월 10일 토요일' }));
++  if (mode === 'range') await userEvent.click(screen.getByRole('button', { name: '2024년 2월 20일 화요일' }));
++  mounted.rerender(input('2024-02-05'));
++  expect(screen.getByRole('button', { name: '확인' })).toBeDisabled();
++  expect(changes).toEqual([]);
++  await userEvent.click(screen.getByRole('button', { name: '취소' }));
++  expect(screen.queryByRole('dialog')).toBeNull();
++  expect(changes).toEqual([]);
++});
++
++class ReviewConfigurationBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
++  state: { error: Error | null } = { error: null };
++  static getDerivedStateFromError(error: Error) { return { error }; }
++  render() { return this.state.error ? <output role="alert">{this.state.error.name}</output> : this.props.children; }
++}
++const reviewOwnershipCases = [
++  {
++    name: 'NativeSelect',
++    controlled: () => <NativeSelect label="Ownership" value="" options={[{ value: '', label: 'Empty' }]} />,
++    uncontrolled: () => <NativeSelect label="Ownership" options={[{ value: '', label: 'Empty' }]} />,
++    conflict: () => <NativeSelect label="Ownership" value="" defaultValue="" options={[{ value: '', label: 'Empty' }]} />,
++  },
++  {
++    name: 'Tabs',
++    controlled: () => <Tabs aria-label="Ownership" value="" items={[]} />,
++    uncontrolled: () => <Tabs aria-label="Ownership" items={[]} />,
++    conflict: () => <Tabs aria-label="Ownership" value="" defaultValue="" items={[]} />,
++  },
++  {
++    name: 'Calendar',
++    controlled: () => <Calendar value={null} />,
++    uncontrolled: () => <Calendar />,
++    conflict: () => <Calendar value={null} defaultValue={null} />,
++  },
++  {
++    name: 'DateInput',
++    controlled: () => <DateInput label="Ownership" value={null} />,
++    uncontrolled: () => <DateInput label="Ownership" />,
++    conflict: () => <DateInput label="Ownership" value={null} defaultValue={null} />,
++  },
++  {
++    name: 'Modal',
++    controlled: () => <Modal title="Ownership" open={false} />,
++    uncontrolled: () => <Modal title="Ownership" />,
++    conflict: () => <Modal title="Ownership" open={false} defaultOpen={false} />,
++  },
++];
++for (const widget of reviewOwnershipCases) {
++  test(`review1 ${widget.name} rejects conflicting defaults and both ownership changes`, () => {
++    const options = { onCaughtError: () => {} };
++    const wrap = (child: ReactNode) => <ReviewConfigurationBoundary>{child}</ReviewConfigurationBoundary>;
++    const conflicting = render(wrap(widget.conflict()), options);
++    expect(screen.getByRole('alert')).toHaveTextContent('TypeError');
++    conflicting.unmount();
++    for (const [before, after] of [[widget.controlled, widget.uncontrolled], [widget.uncontrolled, widget.controlled], [widget.controlled, widget.conflict]]) {
++      const mounted = render(wrap(before()), options);
++      expect(screen.queryByRole('alert')).toBeNull();
++      mounted.rerender(wrap(after()));
++      expect(screen.getByRole('alert')).toHaveTextContent('TypeError');
++      mounted.unmount();
++    }
++  });
++}
++
++test('review1 DateInput reads the uncontrolled default only once, including its reset baseline', async () => {
++  const changes: unknown[] = [];
++  const field = (defaultValue: string) => <form>
++    <DateInput label="Initial default" name="initial" defaultValue={defaultValue} withCalendar={false} onValueChange={detail => changes.push(detail)} />
++    <Button type="reset">Restore initial default</Button>
++  </form>;
++  const mounted = render(field('2024-02-28'));
++  mounted.rerender(field('2023-02-29'));
++  const input = screen.getByRole('textbox') as HTMLInputElement;
++  expect(input.value).toBe('2024-02-28');
++  expect(changes).toEqual([]);
++  await userEvent.clear(input);
++  await userEvent.type(input, '2024-02-29{Enter}');
++  await userEvent.click(screen.getByRole('button', { name: 'Restore initial default' }));
++  expect(input.value).toBe('2024-02-28');
++  expect(changes).toEqual([{ value: '2024-02-29' }]);
++});
+--- a/packages/react/src/components/calendar/index.tsx
++++ b/packages/react/src/components/calendar/index.tsx
+@@ -1,3 +1,4 @@
++import { useControlledMode } from '../../use-controlled-mode.js';
+ import { useId, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+ import { addDays, addMonths, calendarMonthGrid, daysInMonth, formatIsoDate, parseIsoDate, weekday, type ValueChangeDetails } from '@unofficial-krds/contracts';
+ import { useKrdsEnvironment, type KrdsLocale } from '../../providers/index.js';
+@@ -12,11 +13,12 @@
+ }
+ export type CalendarProps = DateModeProps & { min?: string; max?: string; referenceDate?: string; today?: string; disabled?: boolean; required?: boolean; locale?: KrdsLocale; translations?: Partial<CalendarTranslations>; label?: ReactNode; 'aria-label'?: string; 'aria-labelledby'?: string; id?: string; onConfirm?: (details: ValueChangeDetails<DateValue>) => void; onCancel?: () => void; /** Popup integration focuses a selected/first date after mount. */ autoFocus?: boolean; };
+ export function Calendar(props: CalendarProps) {
++  const controlled = useControlledMode(props.value, props.defaultValue, 'Calendar');
+   const environment = useKrdsEnvironment(); const locale = props.locale ?? environment.locale;
+   const t = calendarTranslations(locale, props.translations); const { min, max, referenceDate } = configuration(props);
+   const range = props.mode === 'range'; const initialMode = useRef(range); if (initialMode.current !== range) throw new TypeError('Calendar mode is immutable.');
+   const [local, setLocal] = useState<DateValue>(() => clone(validate(props.defaultValue ?? empty(range), range, min, max)));
+-  const committed = validate(props.value !== undefined ? props.value : local, range, min, max);
++  const committed = validate(controlled ? props.value! : local, range, min, max);
+   const firstMonth = (value: DateValue) => { const date = pair(value)[0] ?? referenceDate; return (date.slice(0, 7) < min.slice(0, 7) ? min : date.slice(0, 7) > max.slice(0, 7) ? max : date).slice(0, 7) + '-01'; };
+   const [draft, setDraft] = useState<DateValue>(() => clone(committed)); const [month, setMonth] = useState(() => firstMonth(committed));
+   const key = JSON.stringify(committed); const previous = useRef(key);
+@@ -35,7 +37,8 @@
+   const navigate = (delta: number) => { const target = addMonths(month, delta); if (target && monthAllowed(target)) setMonth(target); };
+   const [start, end] = pair(draft); const selected = (date: string) => range ? !!(start && end && date >= start && date <= end) || date === start : date === start;
+   const complete = !range || (start === null && end === null) || !!(start && end);
+-  const canConfirm = !props.disabled && complete && (!props.required || !!start);
++  const draftWithinBounds = [start, ...(range ? [end] : [])].every(date => date === null || (date >= min && date <= max));
++  const canConfirm = !props.disabled && complete && draftWithinBounds && (!props.required || !!start);
+   function keyboard(event: KeyboardEvent<HTMLButtonElement>, date: string) {
+     if (event.nativeEvent.isComposing || event.keyCode === 229 || props.disabled) return;
+     let target: string | null = null; let step = 1; let withinMonth = false; let limit: string | null = null;
+@@ -70,7 +73,7 @@
+       {props.today && <button {...attrs('today')} type="button" disabled={!available(props.today)} onClick={() => focusDate(props.today!)}>{t.today}</button>}
+       {!props.required && <button {...attrs('clear')} type="button" disabled={props.disabled} onClick={() => setDraft(empty(range))}>{t.clear}</button>}
+       <button {...attrs('cancel')} type="button" disabled={props.disabled} onClick={() => { setDraft(clone(committed)); props.onCancel?.(); }}>{t.cancel}</button>
+-      <button {...attrs('confirm')} type="button" disabled={!canConfirm} onClick={() => { if (!equal(draft, committed)) { if (props.value === undefined) setLocal(clone(draft)); notify(props, draft); } props.onConfirm?.({ value: clone(draft) }); if (props.value !== undefined) { setDraft(clone(committed)); setMonth(firstMonth(committed)); } }}>{t.confirm}</button>
++      <button {...attrs('confirm')} type="button" disabled={!canConfirm} onClick={() => { if (!canConfirm) return; validate(draft, range, min, max); if (!equal(draft, committed)) { if (!controlled) setLocal(clone(draft)); notify(props, draft); } props.onConfirm?.({ value: clone(draft) }); if (controlled) { setDraft(clone(committed)); setMonth(firstMonth(committed)); } }}>{t.confirm}</button>
+     </div>
+   </div>;
+ }
+--- a/packages/react/src/components/date-input/index.tsx
++++ b/packages/react/src/components/date-input/index.tsx
+@@ -1,3 +1,4 @@
++import { useControlledMode } from '../../use-controlled-mode.js';
+ import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+ import { flushSync } from 'react-dom';
+ import { parseIsoDate } from '@unofficial-krds/contracts';
+@@ -12,15 +13,17 @@
+   return dictionary({ startLabel: en ? 'Start date' : '시작일', endLabel: en ? 'End date' : '종료일', formatHint: en ? 'Enter YYYY-MM-DD, for example 2024-02-29' : 'YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29', openCalendar: en ? 'Open calendar' : '달력 열기', calendarTitle: en ? 'Choose date' : '날짜 선택', requiredError: en ? 'Enter a date' : '날짜를 입력하세요', formatError: en ? 'Enter a valid date in YYYY-MM-DD format' : 'YYYY-MM-DD 형식의 올바른 날짜를 입력하세요', incompleteRangeError: en ? 'Enter both start and end dates' : '시작일과 종료일을 모두 입력하세요', orderError: en ? 'End date must not precede start date' : '종료일은 시작일보다 빠를 수 없습니다', minError: en ? 'Enter a date on or after {min}' : '{min} 이후 날짜를 입력하세요 (당일 포함)', maxError: en ? 'Enter a date on or before {max}' : '{max} 이전 날짜를 입력하세요 (당일 포함)' }, overrides);
+ }
+ export function DateInput(props: DateInputProps) {
++  const controlled = useControlledMode(props.value, props.defaultValue, 'DateInput');
+   const env = useKrdsEnvironment(); const locale = props.locale ?? env.locale; const t = translations(locale, props.translations);
+   const range = props.mode === 'range'; const originalMode = useRef(range); if (range !== originalMode.current) throw new TypeError('DateInput mode is immutable.');
+   const bounds = configuration(props); const generatedId = useId(); const id = props.id ?? generatedId;
+-  const baseline = useRef<DateValue>(clone(validate(props.defaultValue ?? empty(range), range, bounds.min, bounds.max)));
+-  const [local, setLocal] = useState<DateValue>(() => clone(baseline.current)); const committed = validate(props.value !== undefined ? props.value : local, range, bounds.min, bounds.max);
++  const [baseline] = useState<DateValue>(() => clone(validate(props.defaultValue ?? empty(range), range, bounds.min, bounds.max)));
++  const [local, setLocal] = useState<DateValue>(() => clone(baseline)); const committed = validate(controlled ? props.value! : local, range, bounds.min, bounds.max);
+   const toDraft = (value: DateValue) => pair(value).map(date => date ?? '') as [string, string];
+   const [draft, setDraft] = useState<[string, string]>(() => toDraft(committed)); const raw = useRef(draft); raw.current = draft;
+   const [error, setError] = useState(''); const [open, setOpen] = useState(false); const composing = useRef(false);
+   const inputs = useRef<Array<HTMLInputElement | null>>([]); const root = useRef<HTMLFieldSetElement>(null);
++  const pending = useRef<{ value: DateValue } | null>(null);
+   const current = useRef(committed); current.current = committed; const key = JSON.stringify(committed); const previous = useRef(key);
+   function validation(values: [string, string]): { value: DateValue; error: string } {
+     const [start, end] = values;
+@@ -34,30 +37,64 @@
+     return { value: range ? { start: start || null, end: end || null } : start || null, error: '' };
+   }
+   const validity = (values: [string, string]) => { const result = validation(values); for (const input of inputs.current) input?.setCustomValidity(composing.current ? '' : result.error); return result; };
+-  const replace = (value: DateValue) => { const next = toDraft(value); raw.current = next; setDraft(next); setError(''); validity(next); };
++  const replace = (value: DateValue, retainPending = false) => {
++    if (!retainPending) pending.current = null;
++    const next = toDraft(value);
++    raw.current = next;
++    setDraft(next);
++    setError('');
++    validity(next);
++  };
+   useLayoutEffect(() => { if (key !== previous.current) { previous.current = key; replace(committed); } });
+   useLayoutEffect(() => { validity(raw.current); });
+   useLayoutEffect(() => { if (props.disabled) setOpen(false); }, [props.disabled]);
+   const commitValue = (next: DateValue): boolean => {
+-    if (!equal(next, current.current)) { if (props.value === undefined) { current.current = clone(next); setLocal(clone(next)); } notify(props, next); }
+-    if (props.value !== undefined) { replace(current.current); return equal(next, current.current); }
+-    replace(next); return true;
++    if (controlled) {
++      if (!equal(next, current.current) && (!pending.current || !equal(next, pending.current.value))) {
++        pending.current = { value: clone(next) };
++        notify(props, next);
++      }
++      const unresolved = pending.current !== null && !equal(pending.current.value, current.current);
++      // Restore parent-truth display without losing the intent rejected during blur.
++      // A following submit must evaluate that request, not the restored old text.
++      replace(current.current, unresolved);
++      return !unresolved;
++    }
++    if (!equal(next, current.current)) {
++      current.current = clone(next);
++      setLocal(clone(next));
++      notify(props, next);
++    }
++    replace(next);
++    return true;
+   };
+   function commit(): boolean { if (props.disabled || composing.current) return false; const result = validity(raw.current); setError(result.error); return !result.error && commitValue(result.value); }
+-  const latest = useRef({ commit, reset: () => { replace(props.value !== undefined ? current.current : baseline.current); if (props.value === undefined) setLocal(clone(baseline.current)); setOpen(false); } });
+-  latest.current = { commit, reset: () => { replace(props.value !== undefined ? current.current : baseline.current); if (props.value === undefined) setLocal(clone(baseline.current)); setOpen(false); } };
++  const latest = useRef({ commit, reset: () => { replace(controlled ? current.current : baseline); if (!controlled) setLocal(clone(baseline)); setOpen(false); } });
++  latest.current = { commit, reset: () => { replace(controlled ? current.current : baseline); if (!controlled) setLocal(clone(baseline)); setOpen(false); } };
+   useLayoutEffect(() => {
+     const form = inputs.current[0]?.form; if (!form) return;
+     const reset = (event: Event) => queueMicrotask(() => { if (!event.defaultPrevented) latest.current.reset(); });
+-    const submit = (event: Event) => { const desired = validation(raw.current); const allowed = !props.disabled && !composing.current; flushSync(() => { latest.current.commit(); }); const accepted = allowed && !desired.error && equal(desired.value, current.current); if (!accepted) { event.preventDefault(); inputs.current.find(input => input && !input.validity.valid)?.reportValidity(); } };
++    const submit = (event: Event) => {
++      // Disabled fields are omitted successful controls, never form-wide barriers.
++      if (props.disabled) return;
++      const result = validation(raw.current);
++      const desired = pending.current ? pending.current.value : result.value;
++      const allowed = !composing.current;
++      flushSync(() => { latest.current.commit(); });
++      const accepted = allowed && !result.error && equal(desired, current.current);
++      if (!accepted) {
++        event.preventDefault();
++        inputs.current.find(input => input && !input.validity.valid)?.reportValidity();
++      }
++    };
+     form.addEventListener('reset', reset); form.addEventListener('submit', submit, true);
+     return () => { form.removeEventListener('reset', reset); form.removeEventListener('submit', submit, true); };
+   });
+   const invalid = !!error || !!props.invalid || props.error != null; const describedBy = `${id}-hint${invalid ? ` ${id}-error` : ''}`;
+   const attrs = (part: string) => ({ 'data-krds-component': 'date-input', 'data-krds-part': part });
+   const field = (index: number) => <input {...attrs(range ? index ? 'end-input' : 'start-input' : 'control')} ref={node => { inputs.current[index] = node; }} id={`${id}-${index}`} type="text" inputMode="numeric" placeholder="YYYY-MM-DD" autoComplete={props.autoComplete} form={props.form} required={props.required} disabled={props.disabled} value={draft[index]} aria-describedby={describedBy} aria-invalid={invalid || undefined} data-krds-state={[invalid && 'invalid', props.disabled && 'disabled'].filter(Boolean).join(' ') || undefined}
+-    onChange={event => { const next = [...raw.current] as [string, string]; next[index] = event.currentTarget.value; raw.current = next; setDraft(next); validity(next); }}
+-    onCompositionStart={() => { composing.current = true; inputs.current.forEach(input => input?.setCustomValidity('')); }}
++    onChange={event => { pending.current = null; const next = [...raw.current] as [string, string]; next[index] = event.currentTarget.value; raw.current = next; setDraft(next); validity(next); }}
++    onCompositionStart={() => { pending.current = null; composing.current = true; inputs.current.forEach(input => input?.setCustomValidity('')); }}
+     onCompositionEnd={event => { composing.current = false; const next = [...raw.current] as [string, string]; next[index] = event.currentTarget.value; raw.current = next; setDraft(next); }}
+     onInvalid={() => { if (!composing.current) setError(validation(raw.current).error); }}
+     onKeyDown={event => { if (event.key === 'Enter' && !composing.current && !event.nativeEvent.isComposing && event.keyCode !== 229) { event.preventDefault(); commit(); } }} />;
+--- a/packages/react/src/components/modal/index.tsx
++++ b/packages/react/src/components/modal/index.tsx
+@@ -1,3 +1,4 @@
++import { useControlledMode } from '../../use-controlled-mode.js';
+ import { useId, useLayoutEffect, useRef, useState, type ReactNode, type CSSProperties } from 'react';
+ import { createPortal } from 'react-dom';
+ import type { OpenChangeDetails } from '@unofficial-krds/contracts';
+@@ -67,11 +68,12 @@
+   if (target) target.focus(); else { const old = doc.body.getAttribute('tabindex'); doc.body.tabIndex = -1; doc.body.focus(); if (old === null) doc.body.removeAttribute('tabindex'); else doc.body.setAttribute('tabindex', old); }
+ }
+ export function Modal(props: ModalProps) {
+-  const env = useKrdsEnvironment(); const locale = props.locale ?? env.locale; const [local, setLocal] = useState(props.defaultOpen ?? false); const open = props.open ?? local;
++  const controlled = useControlledMode(props.open, props.defaultOpen, 'Modal');
++  const env = useKrdsEnvironment(); const locale = props.locale ?? env.locale; const [local, setLocal] = useState(props.defaultOpen ?? false); const open = controlled ? props.open! : local;
+   const initiallyOpen = useRef(open); const hasClosed = useRef(!open); if (!open) hasClosed.current = true;
+   const [portal, setPortal] = useState<HTMLDivElement | null>(null); const content = useRef<HTMLDivElement>(null); const gestureOpener = useRef<HTMLElement | null>(null); const activeOpen = useRef(open); activeOpen.current = open;
+   const currentProps = useRef(props); currentProps.current = props; const generatedId = useId(); const id = props.id ?? generatedId;
+-  const request = (next: boolean) => { if (activeOpen.current === next) return; if (props.open === undefined) setLocal(next); props.onOpenChange?.({ open: next }); };
++  const request = (next: boolean) => { if (activeOpen.current === next) return; if (!controlled) setLocal(next); props.onOpenChange?.({ open: next }); };
+   const requestRef = useRef(request); requestRef.current = request;
+   useLayoutEffect(() => { const doc = env.getDocument(); if (!doc) return; const node = doc.createElement('div'); node.dataset.krdsComponent = 'modal'; node.dataset.krdsPart = 'root'; node.dir = env.direction; node.lang = locale; doc.body.append(node); setPortal(node);
+     const rememberOpeningControl = (event: MouseEvent) => {
+--- a/packages/react/src/components/native-select/index.tsx
++++ b/packages/react/src/components/native-select/index.tsx
+@@ -1,3 +1,4 @@
++import { useControlledMode } from '../../use-controlled-mode.js';
+ import { useId, useLayoutEffect, useRef, useState, type ReactNode, type SelectHTMLAttributes } from 'react';
+ import type { SelectOption, ValueChangeDetails } from '@unofficial-krds/contracts';
+ export interface NativeSelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' | 'multiple' | 'value' | 'defaultValue' | 'onChange' | 'children'> {
+@@ -12,15 +13,15 @@
+   onValueChange?: (details: ValueChangeDetails<string>) => void;
+ }
+ export function NativeSelect({ options, value, defaultValue, label, hint, error, invalid = false, size = 'medium', onValueChange, id: suppliedId, ...native }: NativeSelectProps) {
++  const controlled = useControlledMode(value, defaultValue, 'NativeSelect');
+   const generatedId = useId(); const id = suppliedId ?? generatedId;
+   if (new Set(options.map(option => option.value)).size !== options.length) throw new TypeError('Select option values must be unique.');
+   const initial = useRef(defaultValue ?? options.find(option => !option.disabled)?.value ?? '');
+   const [local, setLocal] = useState(initial.current);
+-  const current = value ?? local;
++  const current = controlled ? value! : local;
+   if (current !== '' && !options.some(option => option.value === current)) throw new RangeError('Select value must identify an option.');
+   const control = useRef<HTMLSelectElement>(null);
+   const latest = useRef(current); latest.current = current;
+-  const controlled = value !== undefined;
+   const apply = (next: string) => { if (control.current) { control.current.value = next; if (!options.some(option => option.value === next)) control.current.selectedIndex = -1; } };
+   useLayoutEffect(() => { apply(current); });
+   useLayoutEffect(() => {
+--- a/packages/react/src/components/tabs/index.tsx
++++ b/packages/react/src/components/tabs/index.tsx
+@@ -1,17 +1,19 @@
++import { useControlledMode } from '../../use-controlled-mode.js';
+ import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+ import type { ValueChangeDetails } from '@unofficial-krds/contracts';
+ export interface TabItem { value: string; label: ReactNode; panel: ReactNode; disabled?: boolean; id?: string; }
+ export interface TabsProps { items: TabItem[]; value?: string; defaultValue?: string; onValueChange?: (details: ValueChangeDetails<string>) => void; activationMode?: 'manual' | 'automatic'; orientation?: 'horizontal' | 'vertical'; id?: string; label?: ReactNode; 'aria-label'?: string; 'aria-labelledby'?: string; }
+ export function Tabs(props: TabsProps) {
++  const controlled = useControlledMode(props.value, props.defaultValue, 'Tabs');
+   const generatedId = useId(); const id = props.id ?? generatedId;
+   const enabled = props.items.filter(item => !item.disabled);
+   if (props.items.some(item => !item.value) || new Set(props.items.map(item => item.value)).size !== props.items.length) throw new TypeError('Tabs require unique nonempty values.');
+   const [local, setLocal] = useState(props.defaultValue ?? enabled[0]?.value ?? '');
+-  const selected = props.value ?? local;
++  const selected = controlled ? props.value! : local;
+   if (enabled.length ? !enabled.some(item => item.value === selected) : selected !== '') throw new RangeError('Selected tab must be enabled.');
+   const root = useRef<HTMLDivElement>(null); const focusRequest = useRef<string | null>(null);
+   const orientation = props.orientation ?? 'horizontal'; const automatic = props.activationMode === 'automatic';
+-  const select = (value: string) => { if (value !== selected) { if (props.value === undefined) setLocal(value); props.onValueChange?.({ value }); } };
++  const select = (value: string) => { if (value !== selected) { if (!controlled) setLocal(value); props.onValueChange?.({ value }); } };
+   useLayoutEffect(() => {
+     root.current?.querySelectorAll<HTMLElement>('[role="tabpanel"]').forEach(panel => {
+       const first = panel.firstElementChild as HTMLElement | null;
+--- /dev/null
++++ b/packages/react/src/use-controlled-mode.ts
+@@ -0,0 +1,14 @@
++import { useRef } from 'react';
++
++/** Defined values include false, null and empty strings; ownership cannot switch. */
++export function useControlledMode(value: unknown, defaultValue: unknown, component: string): boolean {
++  const controlled = value !== undefined;
++  const initial = useRef(controlled);
++  if (controlled && defaultValue !== undefined) {
++    throw new TypeError(`${component} cannot combine a controlled prop with its default.`);
++  }
++  if (initial.current !== controlled) {
++    throw new TypeError(`${component} cannot change controlled mode after mount.`);
++  }
++  return initial.current;
++}

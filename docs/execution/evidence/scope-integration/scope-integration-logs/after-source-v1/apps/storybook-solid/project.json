@@ -1,0 +1,92 @@
+{
+  "name": "storybook-solid",
+  "root": "apps/storybook-solid",
+  "sourceRoot": "apps/storybook-solid/src",
+  "projectType": "application",
+  "tags": [
+    "layer:app",
+    "framework:solid"
+  ],
+  "implicitDependencies": [
+    "krds-solid",
+    "krds-test-contracts",
+    "krds-tokens",
+    "krds-styles"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid build:local"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid typecheck"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid test"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid lint"
+      }
+    },
+    "storybook-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid storybook-build:local"
+      },
+      "cache": false,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/fixture-cases.json",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/compatibility/testing.json",
+        "{workspaceRoot}/playwright.config.ts",
+        "{workspaceRoot}/tools/run-contract-tests.mjs",
+        "{workspaceRoot}/tools/run-story-tests.mjs",
+        "{workspaceRoot}/tools/run-siheom-tests.mjs"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs test:stories --framework solid"
+      },
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/catalog/fixture-cases.json",
+        "{workspaceRoot}/catalog/story-cases.json",
+        "{workspaceRoot}/compatibility/testing.json",
+        "{workspaceRoot}/playwright.config.ts",
+        "{workspaceRoot}/tools/run-contract-tests.mjs",
+        "{workspaceRoot}/tools/run-story-tests.mjs",
+        "{workspaceRoot}/tools/run-siheom-tests.mjs",
+        "{workspaceRoot}/catalog/story-coverage.json",
+        "{workspaceRoot}/packages/test-contracts/**/*",
+        "{workspaceRoot}/packages/contracts/src/specs/**/*",
+        "{workspaceRoot}/tools/testing/**/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/svelte-vite';
+import { getPresentation } from '@unofficial-krds/test-contracts/patterns';
+import PatternStory from './PatternStory.svelte';
+const meta = { id: 'krds-pattern-search-results', title: 'KRDS/Patterns/search-results', component: PatternStory } satisfies Meta<typeof PatternStory>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Success: Story = { args: { state: getPresentation('search-results', 'success').state } };
+export const Loading: Story = { args: { state: getPresentation('search-results', 'loading').state } };
+export const Error: Story = { args: { state: getPresentation('search-results', 'error').state } };
+export const Empty: Story = { args: { state: getPresentation('search-results', 'empty').state } };

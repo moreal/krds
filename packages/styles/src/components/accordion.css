@@ -1,0 +1,17 @@
+/* KRDS-derived: frozen component.css lines 2319–2488; semantic guidance: specs/components/accordion.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="accordion"][data-krds-part="root"] { border-block: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); padding-block: var(--krds-padding-2); }
+[data-krds-component="accordion"][data-krds-part="item"] { padding-block: var(--krds-padding-2); }
+[data-krds-component="accordion"][data-krds-part="heading"] { margin: 0; }
+[data-krds-component="accordion"][data-krds-part="trigger"] { display: flex; align-items: center; justify-content: space-between; gap: var(--krds-gap-5); inline-size: 100%; padding: var(--krds-padding-8); border: 0; border-radius: var(--krds-radius-large2); background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-basic); font: inherit; font-weight: 700; text-align: start; cursor: pointer; }
+[data-krds-component="accordion"][data-krds-part="trigger"]:hover { background: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="accordion"][data-krds-part="trigger"]:active { background: var(--krds-light-color-action-secondary-pressed); }
+[data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"] { color: var(--krds-light-color-text-secondary); border-block-end: var(--krds-number-2) solid currentColor; }
+[data-krds-component="accordion"][data-krds-part="icon"] { flex: none; inline-size: 1em; block-size: 1em; }
+[data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"] [data-krds-component="accordion"][data-krds-part="icon"] { transform: rotate(180deg); }
+[data-krds-component="accordion"][data-krds-part="panel"] { padding: var(--krds-padding-8); }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="trigger"] { padding-inline: 0; border-radius: 0; background: transparent; }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="panel"] { padding-inline: 0; }
+[data-krds-component="accordion"][data-krds-part="trigger"]:disabled { color: var(--krds-light-color-text-disabled); cursor: not-allowed; border-style: dashed; }
+@media (max-width: 767px) { [data-krds-component="accordion"][data-krds-part="trigger"], [data-krds-component="accordion"][data-krds-part="panel"] { padding: var(--krds-padding-6); } }
+[data-krds-component="accordion"][data-krds-part="panel"][data-krds-state~="closed"] { display: none; }

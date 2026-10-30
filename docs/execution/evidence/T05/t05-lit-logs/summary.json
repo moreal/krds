@@ -1,0 +1,83 @@
+{
+  "framework": "lit",
+  "versions": {
+    "node": "24.18.0",
+    "yarn": "4.14.1",
+    "lit": "3.3.3",
+    "vite": "8.3.5",
+    "typescript": "6.0.2",
+    "storybook": "10.6.5",
+    "playwright": "1.64.1",
+    "axe": "4.14.0"
+  },
+  "fixtureProbePassed": 1,
+  "nativeLifecycleTestsPassed": 1,
+  "storybookProbeStatesPassed": 3,
+  "canonicalScenarioResults": [
+    {
+      "scenario": "lit button/disabled",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: button/disabled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit native-select/controlled",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: native-select/controlled; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit native-select/form-reset",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: native-select/form-reset; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit modal/focus-return",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: modal/focus-return; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit modal/trigger-removed",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: modal/trigger-removed; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit tabs/manual-activation",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: tabs/manual-activation; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit date-input/leap-year",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: date-input/leap-year; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit date-input/ime",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: date-input/ime; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    },
+    {
+      "scenario": "lit date-input/timezone-invariance",
+      "status": "failed",
+      "nativeHealthAttachments": 1,
+      "error": "Error: Required KRDS feature not implemented: date-input/timezone-invariance; native health passed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m"
+    }
+  ],
+  "canonicalStoriesMissing": 5,
+  "siheom": "unsupported-no-upstream-native-adapter",
+  "reports": {
+    "contract-probe": "contract-1793321567701-76001-b63e32da",
+    "contract-pilot-red": "contract-1793321594130-76539-ed19d7bc",
+    "stories-probe": "stories-1793321594088-76538-0029fd16",
+    "stories-final": "stories-1793321641659-77200-88a35458",
+    "stories-pilot-red": "stories-1793321594294-76542-fe18859b",
+    "siheom-unsupported": "siheom-1793321591445-76516-0073ca5d"
+  },
+  "inputEvidence": "Native Playwright Chromium browser provider; synthetic browser click and programmatic focus. No OS automation, physical keyboard, IME, or assistive-technology verification."
+}
