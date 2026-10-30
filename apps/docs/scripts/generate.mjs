@@ -229,7 +229,7 @@ for (const inventory of artifactEvidence) {
   artifactsPage += `## ${inventory.path}\n\nHistorical recorded status: \`${inventory.status}\`. Debug-only at capture: **${inventory.debugOnly ? 'yes' : 'no'}**. This checkpoint authorizes no publication.\n\n| Package | Captured version | Historical local path | Recorded SHA-256 | Captured observed SHA-256 | Integrity at capture |\n| --- | --- | --- | --- | --- | --- |\n`;
   for (const entry of inventory.packages) artifactsPage += `| \`${entry.name}\` | \`${entry.version}\` | \`${entry.path}\` | \`${entry.recordedSha256}\` | \`${entry.observedSha256 ?? 'not observed'}\` | ${entry.integrity} |\n`;
 }
-artifactsPage += `\n${link('.superpowers/sdd/PLAN/task-T14-report.md', 'Original T14 producer report')} · [Sources and rights](../legal/). The separate original and repaired-Solid debug inventories must not be combined into a final acceptance claim.\n`;
+artifactsPage += `\n${link('docs/execution/evidence/T14/reports/task-T14-report.md', 'Original T14 producer report')} · [Sources and rights](../legal/). The separate original and repaired-Solid debug inventories must not be combined into a final acceptance claim.\n`;
 await write(resolve(site, 'getting-started/artifacts.md'), artifactsPage);
 const distributedSources = [];
 for (const path of sourceLinks) {

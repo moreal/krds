@@ -2,11 +2,11 @@
 
 This compiler checkpoint binds the exact source below to its producer's public built-package check. It includes the original imports and local state. It does not certify the latest native candidate, behavior, SSR/resume, or a release.
 
-- Refreshed native Vue SFC compiler checkpoint against public package exports; source bytes remain unchanged. Native behavioral and final-candidate acceptance remain separate.
+- Fresh compiler checkpoint after the completed Nx version application; public @unofficial-krds/vue version 0.1.0. The exact source and retained command/log bytes are hash-bound. Compiler success does not award native behavior, SSR/hydration/resume, manual checks or final release acceptance.
 
 Source: [apps/fixture-vue/src/ConsumerExample.vue](/sources/apps/fixture-vue/src/ConsumerExample.vue.txt). SHA-256: `c7c607e17cf50712e67b7d213ae574127363098d5d41e27b5f1a9ba23af01d36`.
 
-Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck`. [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json.txt) · [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log.txt).
+Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck`. [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/proof.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/stderr.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log.txt).
 
 
 ```vue

@@ -14,6 +14,23 @@ on:
           - prepare-versions
           - verify-candidate
 
+      pattern-review-extras:
+        description: Optional repository-relative JSON path to authentic current pattern reviews
+        required: false
+        type: string
+      docs-review-extras:
+        description: Optional repository-relative JSON path to authentic current docs review and metadata
+        required: false
+        type: string
+      manual-accessibility-extras:
+        description: Optional repository-relative JSON path to performed human sessions and original media
+        required: false
+        type: string
+      independent-review-extras:
+        description: Optional repository-relative JSON path to authentic current independent release review
+        required: false
+        type: string
+
 permissions:
   contents: read
 
@@ -24,6 +41,7 @@ env:
   NX_TUI: 'false'
   NX_INTERACTIVE: 'false'
   NG_BUILD_MAX_WORKERS: '2'
+  PLAYWRIGHT_BROWSERS_PATH: /private/tmp/krds-playwright-1.64.1
   KRDS_RELEASE_SOURCE_SHA: ${{ github.sha }}
   KRDS_RELEASE_CANDIDATE_MANIFEST: artifacts/manifest.json
   KRDS_RELEASE_EVIDENCE_DIRECTORY: test-results/ci
@@ -83,48 +101,17 @@ jobs:
         with:
           node-version: '24.18.0'
       - run: node tools/ci/check-toolchain.mjs
-      - run: node tools/yarn.mjs install --immutable
-      - run: node tools/ci/check-toolchain.mjs --installed
-      - name: Require exact candidate versions and unchanged reviewed HEAD source
-        run: node tools/ci/check-release-phase.mjs --phase verify-candidate
-      - name: Require all implemented release gates (preparing until present)
-        run: node tools/ci/required-gates.mjs
-      - run: node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
-      - name: Rebuild and retest every stable framework and the separate exact RC preview
-        run: |
-          node tools/yarn.mjs verify:workspace
-          node tools/yarn.mjs verify:catalog
-          node tools/ci/check-affected.mjs
-          node tools/ci/selection.mjs --full
-          node tools/ci/run-targets.mjs
-          node tools/ci/verify-cache.mjs
-          node tools/yarn.mjs verify:coverage
-      - name: Require pilot 10 and catalog 315 native contracts in all three browsers
-        run: |
-          for browser in chromium firefox webkit; do
-            node tools/yarn.mjs test:contract --all-stable --browser "$browser"
-            node tools/yarn.mjs test:contract --all-stable --catalog --browser "$browser"
-          done
-      - name: Require canonical 6 and staged catalog 344 story states in all three browsers
-        run: |
-          for browser in chromium firefox webkit; do
-            node tools/yarn.mjs test:stories --all-stable --browser "$browser"
-            node tools/yarn.mjs test:stories --all-stable --catalog --browser "$browser"
-          done
-      - name: Require the full support version and browser matrix
-        run: node tools/yarn.mjs verify:compatibility
-      - name: Require native SSR, hydration and Qwik resume
-        run: node tools/yarn.mjs test:ssr
-      - name: Regenerate and verify candidate notices
-        run: |
-          node tools/yarn.mjs generate:notices
-          node tools/yarn.mjs verify:licenses
-      - name: Pack and inspect the actual versioned tarballs
-        run: |
-          node tools/yarn.mjs pack:all --build
-          node tools/yarn.mjs inspect:tarballs
-      - name: Require independent consumers against those exact tarballs
-        run: node tools/yarn.mjs test:consumers
+      - name: Prepare the browser cache path required by the native pattern producers
+        run: sudo install -d -o "$(id -un)" -g "$(id -gn)" "$PLAYWRIGHT_BROWSERS_PATH"
+      - name: Capture every accepted producer against this reviewed HEAD
+        # The helper checks source before install and again via check-release-phase.mjs --phase verify-candidate.
+        # Missing authored reviews/sessions remain failing assembly gates; no synthetic extras are created.
+        env:
+          KRDS_RELEASE_PATTERN_REVIEW_EXTRAS: ${{ inputs.pattern-review-extras }}
+          KRDS_RELEASE_DOCS_REVIEW_EXTRAS: ${{ inputs.docs-review-extras }}
+          KRDS_RELEASE_MANUAL_ACCESSIBILITY_EXTRAS: ${{ inputs.manual-accessibility-extras }}
+          KRDS_RELEASE_INDEPENDENT_REVIEW_EXTRAS: ${{ inputs.independent-review-extras }}
+        run: node tools/ci/collect-release-evidence.mjs
       - name: Preserve the exact candidate for the final mandatory job
         run: node tools/ci/create-candidate.mjs
       - uses: actions/upload-artifact@v4

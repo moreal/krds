@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {root} from './common.mjs';
+import {releaseSteps} from './collect-release-evidence.mjs';
 const phases = await import('./check-release-phase.mjs').catch(() => ({}));
 const workflow = readFileSync(`${root}/.github/workflows/release-prepare.yml`, 'utf8');
 function job(name) {
@@ -51,7 +52,9 @@ test('version preparation is an explicit dry-run-only preview with retained fail
 test('reviewed candidate verification never reapplies consumed plans and keeps final acceptance mandatory', () => {
   const validation = job('prepare');
   assert.ok(validation.includes("inputs.phase == 'verify-candidate'"));
-  assert.ok(validation.includes('check-release-phase.mjs --phase verify-candidate'));
+  assert.ok(validation.includes('node tools/ci/collect-release-evidence.mjs'));
+  const steps=releaseSteps({directory:'test-results/release/phases',ssrDirectory:'test-results/t13/ssr-runs/phases'});
+  assert.deepEqual(steps.find(step=>step.id==='phase').args,['tools/ci/check-release-phase.mjs','--phase','verify-candidate']);
   for (const forbidden of ['check-plans.mjs', 'prepare-release.mjs', '--apply']) assert.ok(!validation.includes(forbidden), `Versioned candidate must not execute ${forbidden}`);
   assert.ok(validation.includes('create-candidate.mjs'));
   const final = job('verify-release');

@@ -1,6 +1,6 @@
 /** Lossless, source-bound selected-Node command receipts. */
 import {node} from '../../tests/consumers/lib.mjs';
-import {captureStep as capture,validateStep} from '../../tests/consumers/evidence.mjs';
+import {captureStep as capture,validateStep} from './receipt-step.mjs';
 import {patternEnvironment} from './patterns.mjs';
 export {validateStep};
 export function producerEnvironment(root,kind,framework){return kind==='patterns'?patternEnvironment(root,framework):{};}

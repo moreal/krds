@@ -40,7 +40,7 @@ This is a concrete local inspection filename, not a release artifact identity. I
 
 The release task owns the authoritative candidate artifact index, final filenames, hashes and isolated installation evidence. Until that index exists and its checks pass, this guide makes no release-ready installation claim. The package version and dependency ranges remain those in the actual manifests; do not invent a release version or substitute an unavailable registry package.
 
-The [recorded local artifact page](./artifacts) derives versions, filenames and hashes from the actual available T14 inventories and checks their existing bytes. It explicitly identifies debug-only records and a missing final candidate manifest. No historical debug record is promoted to current-candidate acceptance.
+The [historical local artifact page](./artifacts) preserves versions, filenames and recorded/observed hashes captured from T14 inventories in a reviewed documentation checkpoint. It does not inspect current artifact files or report whether a current candidate manifest exists. Use the actual T14/T16 candidate records for current tarball bytes and acceptance; historical debug observations do not establish current availability.
 
 ## Build and read these docs
 

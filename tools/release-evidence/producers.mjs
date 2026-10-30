@@ -3,10 +3,10 @@ import {readFile,readdir,realpath,stat} from 'node:fs/promises';
 import {resolve,join,relative,dirname} from 'node:path';
 import {createHash} from 'node:crypto';
 import {validateStep,nodeCommand,producerEnvironment} from './receipts.mjs';
-import {validateCIResultBinding,validateCapturedNative,validateCapturedSiheom} from './ci-outputs.mjs';
+import {validateCIResultBinding,validateCapturedNative,validateCapturedSiheom,validateCapturedPreview} from './ci-outputs.mjs';
 import {patternProducer,patternArtifactRoots,validatePatternStdout,validatePatternResultBinding} from './patterns.mjs';
 export {patternProducer,validatePatternStdout,validatePatternResultBinding} from './patterns.mjs';
-export {prepareCIOutputs,retainCIOutputs,validateCIResultBinding,validateCapturedNative,validateCapturedSiheom} from './ci-outputs.mjs';
+export {prepareCIOutputs,retainCIOutputs,validateCIResultBinding,validateCapturedNative,validateCapturedSiheom,validateCapturedPreview} from './ci-outputs.mjs';
 export const stable=['solid','react','svelte','vue','lit','qwik','angular'];
 export const hash=value=>createHash('sha256').update(value).digest('hex');
 export const blocked=message=>Object.assign(new Error(message),{code:'EVIDENCE_BLOCKED'});
@@ -154,7 +154,7 @@ export async function inspectReleaseEvidence(root,name,index,candidate,scopes={}
    let groups=0;for(const channel of ['stable','preview'])for(const target of ['lint','typecheck','test','build','contract','siheom','storybook-build','stories']){const expected=selection.targets[target].filter(id=>selection[`${channel}Projects`].includes(id)),rows=results.filter(row=>row.channel===channel&&row.target===target);if(!expected.length){requireFact(!rows.length,'Unexpected unsupported/empty target execution');continue;}groups++;requireFact(rows.length===1&&rows[0].status==='passed'&&exact(rows[0].projects,expected),'CI actual target result/project set missing/failed');}requireFact(results.length===groups,'CI target aggregate has extra/duplicate groups');
    const cache=JSON.parse(await readRef(root,report.cache));requireFact(cache.status==='passed'&&cache.first?.length&&identical(cache.first,cache.restored),'Actual cold/cache restoration mismatch');
   }else if(name==='preview'){
-   await validateCapture(root,report.typeCapture,report,expected,'preview-types',report.types);await validateCapture(root,report.buildCapture,report,expected,'preview-build',report.build);await validateCapture(root,report.contractCapture,report,expected,'preview-contracts',report.contractExecution,report.contractRaw);await step(root,report.types,'preview-types');await step(root,report.build,'preview-build');await step(root,report.contractExecution,'preview-contracts');const canonical=JSON.parse(await bytes(root,'catalog/fixture-cases.json')).cases.map(row=>`solid-next ${row.componentId}/${row.caseId}`);parsePlaywright(JSON.parse(await readRef(root,report.contractRaw)),canonical);
+   await validateCapture(root,report.typeCapture,report,expected,'preview-types',report.types);await validateCapture(root,report.buildCapture,report,expected,'preview-build',report.build);const capture=await validateCapture(root,report.contractCapture,report,expected,'preview-contracts',report.contractExecution,report.contractRaw);await step(root,report.types,'preview-types');await step(root,report.build,'preview-build');await step(root,report.contractExecution,'preview-contracts');const canonical=JSON.parse(await bytes(root,'catalog/fixture-cases.json')).cases.map(row=>`solid-next ${row.componentId}/${row.caseId}`);await validateCapturedPreview(root,capture,report.contractRaw,canonical);
   }else throw blocked('Unknown required producer kind');
   return {status:'passed',paths,details:[`${name}: typed genuine producer execution/source/artifact/review evidence validated`]};
  }catch(error){return {status:error.code==='EVIDENCE_FAILED'?'failed':'blocked',details:[error.message]};}

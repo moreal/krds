@@ -1,6 +1,6 @@
 {
   "name": "@unofficial-krds/solid-next",
-  "version": "0.0.0-next.0",
+  "version": "0.1.0-preview.0",
   "type": "module",
   "scripts": {
     "test": "node audit-versions.mjs --check && node ssr-build.mjs && node native-test.mjs && node fix1-test.mjs",

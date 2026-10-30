@@ -1,4 +1,5 @@
 import './catalog-layout.css';
+import {LocalSpeechDriver} from './LocalSpeechDriver';
 import {NativeConfigurationBoundary} from './NativeConfigurationBoundary';
 import { useEffect, useLayoutEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import * as K from '@unofficial-krds/react';
@@ -15,7 +16,7 @@ export interface CatalogExampleProps {
 export function CatalogExample({ componentId, initialState, host: initialHost = {}, state: remote = {}, onEvent, onCommit }: CatalogExampleProps) {
     const [local, setLocal] = useState<Data>({});
     const data = { ...initialState, ...local, ...remote };
-    const host = { ...initialHost, ...remote.__host, routeChange:remote.__host?.routeChange??false };
+    const host = { ...initialHost, ...remote.__host };
     const [result, setResult] = useState('');
     const [appended,setAppended]=useState(false);
     const loadTimer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
@@ -29,7 +30,10 @@ export function CatalogExample({ componentId, initialState, host: initialHost = 
     const finishBackConfirmation=(value:boolean)=>{const resolve=confirmationResolver.current;confirmationResolver.current=null;confirmationPromise.current=null;setConfirmationOpen(false);resolve?.(value);};
     useEffect(()=>()=>{confirmationResolver.current?.(false);confirmationResolver.current=null;},[]);
     const [selection, setSelection] = useState(host.selection ?? 'seoul');
+    const speechDriver = useRef<LocalSpeechDriver | null>(null);
+    if (!speechDriver.current) speechDriver.current = new LocalSpeechDriver();
     const [speech, setSpeech] = useState(data.state ?? 'idle');
+    useEffect(() => () => speechDriver.current?.dispose(), []);
     const [summary, setSummary] = useState('');
     const [applied, setApplied] = useState<string[]>([]);
     const [barHeight,setBarHeight]=useState(0);
@@ -80,9 +84,10 @@ export function CatalogExample({ componentId, initialState, host: initialHost = 
             return;
         document.documentElement.lang = data.currentLocale;
     }, [data.currentLocale]);
-    useEffect(()=>{if(componentId==='tts'&&(host.mounted===false||host.routeChange)&&speech!=='idle'){record('request',{action:'stop',summary:data.summary,locale:data.locale});setSpeech('idle');}},[host.mounted,host.routeChange]);
+    useEffect(()=>{if(componentId==='tts'&&(host.mounted===false||host.routeChange)&&speech!=='idle'){const command={action:'stop' as const,summary:data.summary,locale:data.locale};record('request',command);speechDriver.current?.request(command);setSpeech('idle');}},[host.mounted,host.routeChange]);
     const outside = <button type="button" id="outside-action" data-krds-host="outside-action" onClick={() => setResult('예제 작업 완료')}>다음 작업</button>;
     const fallback = <button type="button" id={data.fallbackFocusId ?? host.fallbackFocusId ?? 'panel-fallback'}>{host.fallbackLabel??'다음 작업으로 돌아가기'}</button>;
+    const speechReceipts = <><p data-krds-host="speech-state">{speech}</p><p data-krds-host="speech-driver-active">{String(speechDriver.current.active)}</p><p data-krds-host="speech-driver-lifecycle">{speechDriver.current.lifecycle}</p></>;
     const targetFields = <div data-krds-host="tour-targets">
     {!host.targetRemoved && <><label htmlFor="applicant-name">신청인 이름</label><input id="applicant-name" defaultValue={host.targetInputs?.['applicant-name'] ?? ''} onChange={e => setResult(e.currentTarget.value)}/><div id="applicant-name-after"/>
       <button id="save-application" type="button" onClick={() => setResult('신청 저장 완료')}>신청 저장</button><div id="save-application-after"/></>}
@@ -99,7 +104,7 @@ export function CatalogExample({ componentId, initialState, host: initialHost = 
     let content: ReactNode;
     const mainContent = !host.removeTarget ? <main id="main-content" tabIndex={-1}><h2>본문</h2><button type="button">본문 작업</button></main> : null;
     if (host.mounted === false || host.routeChange)
-        return <>{componentId==='favicon'&&<K.Favicon {...data as K.FaviconProps}/ >}{outside}{fallback}<p data-krds-host="result">{result}</p>{componentId==='tts'&&<p data-krds-host="speech-state">{speech}</p>}{componentId==='resize'&&<section data-krds-host="resize-content" style={{fontSize:'100%'}}><h2>신청 안내</h2><p>화면 설정에 따라 이 내용과 버튼이 함께 커집니다.</p><button type="button">예제 작업</button></section>}</>;
+        return <>{componentId==='favicon'&&<K.Favicon {...data as K.FaviconProps}/ >}{outside}{fallback}<p data-krds-host="result">{result}</p>{componentId==='tts'&&speechReceipts}{componentId==='resize'&&<section data-krds-host="resize-content" style={{fontSize:'100%'}}><h2>신청 안내</h2><p>화면 설정에 따라 이 내용과 버튼이 함께 커집니다.</p><button type="button">예제 작업</button></section>}</>;
     if (host.testConfiguration) {
         const configuration = host.testConfiguration;
         if (componentId === 'badge') return <>{outside}<NativeConfigurationBoundary key={JSON.stringify(configuration)}><K.Badge {...data as K.BadgeProps} {...configuration}/></NativeConfigurationBoundary></>;
@@ -241,7 +246,7 @@ export function CatalogExample({ componentId, initialState, host: initialHost = 
                 commit({ open: d.open }); }}>{['information-icon','icon-button','vertical','box'].includes(host.presentation)&&<button type="button" style={{display:'inline-flex',flexDirection:host.presentation==='vertical'?'column':'row',alignItems:'center',gap:'.5rem',padding:host.presentation==='box'?'1rem':'.5rem'}}><svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2"/><path d="M12 10v7M12 6v2" fill="none" stroke="currentColor" strokeWidth="2"/></svg>{['vertical','box'].includes(host.presentation)&&<span>{data.triggerLabel}</span>}</button>}</K.Tooltip> : fallback;
             break;
         case 'tts':
-            content = <><K.TTS {...data as K.TTSProps} state={speech} onRequest={d => { record('request', d); setSummary(d.summary); setSpeech(d.action === 'pause' ? 'paused' : d.action === 'stop' ? 'idle' : 'playing'); }}/><p data-krds-host="speech-summary">{summary}</p><p data-krds-host="speech-state">{speech}</p><button type="button" onClick={() => setSpeech('error')}>음성 오류 모의</button></>;
+            content = <><K.TTS {...data as K.TTSProps} state={speech} onRequest={d => { record('request', d); const next=speechDriver.current!.request(d);setSummary(speechDriver.current!.summary);setSpeech(next); }}/><p data-krds-host="speech-summary">{summary}</p>{speechReceipts}<button type="button" onClick={() => {speechDriver.current!.fail();setSpeech('error');}}>음성 오류 모의</button></>;
             break;
         case 'textarea':
             content = body(<K.Textarea {...data as K.TextareaProps} help={host.helpText} error={data.invalid ? host.errorText : undefined} onValueChange={d => change('valueChange', 'value', d)}/>);

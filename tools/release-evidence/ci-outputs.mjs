@@ -10,7 +10,7 @@ const staticOutputs={
  'ci:affected':['test-results/ci/affected-regressions.json'],
  'ci:cache':['test-results/ci/cache-restoration.json','test-results/ci/cache-first.log','test-results/ci/cache-second.log']
 };
-const dynamic=recipe=>recipe.startsWith('ci:contracts:')?'contract':recipe.startsWith('ci:stories:')?'stories':recipe.startsWith('ci:siheom:')?'siheom':null;
+const dynamic=recipe=>(recipe==='preview-contracts'||recipe.startsWith('ci:contracts:'))?'contract':recipe.startsWith('ci:stories:')?'stories':recipe.startsWith('ci:siheom:')?'siheom':null;
 async function directoryNames(path){try{return (await readdir(path,{withFileTypes:true})).filter(entry=>entry.isDirectory()).map(entry=>entry.name).sort();}catch(error){if(error.code==='ENOENT')return [];throw error;}}
 export async function prepareCIOutputs(root,recipe,destination){
  const state={schemaVersion:1,recipe,beforeDirectories:await directoryNames(join(root,'test-results/t05')),preparedOutputs:staticOutputs[recipe]??[],clearedBeforeExecution:true,backups:[]};
@@ -24,7 +24,8 @@ export async function retainCIOutputs(root,recipe,destination,state,execution,ca
  if(kind){const stdout=(await readFile(join(root,execution.stdout.path))).toString(),matches=[...stdout.matchAll(/^Report: (.+)$/gmu)];check(matches.length===1,'Actual native invocation did not identify one new producer report');const original=resolve(root,matches[0][1]),directory=dirname(original),expectedRoot=resolve(root,'test-results/t05');check(dirname(directory)===expectedRoot&&basename(original)==='report.json'&&basename(directory).startsWith(`${kind}-`)&&!state.beforeDirectories.includes(basename(directory)),'Historical/foreign native output cannot become current execution evidence');await copyTree(root,directory,output);result.sourceDirectory=relative(root,directory);result.sourceResult=relative(root,original);primary=join(output,'report.json');
  }else if(staticOutputs[recipe]){await mkdir(output,{recursive:true});for(const path of staticOutputs[recipe]){const target=join(output,basename(path));await writeFile(target,await bytes(root,path));}result.sourceResult=staticOutputs[recipe][0];primary=join(output,basename(result.sourceResult));}
  else{result.kind='stdout-only';return result;}
- result.kind='retained-producer-output';result.retainedDirectory=relative(root,output);result.inventory=await inventory(root,[result.retainedDirectory],{outputs:true});result.files=result.inventory.files;result.result=await ref(root,primary);return result;
+ result.kind='retained-producer-output';result.retainedDirectory=relative(root,output);result.inventory=await inventory(root,[result.retainedDirectory],{outputs:true});result.files=result.inventory.files;if(recipe==='preview-contracts'){result.summary=await ref(root,primary);primary=join(output,'solid-next/playwright.json');}
+ result.result=recipe==='preview-contracts'?await ref(root,primary).catch(()=>null):await ref(root,primary);return result;
 }
 export async function validateCIResultBinding(root,capture,submitted){
  const output=capture.outputs;check(output?.schemaVersion===1&&output.recipe===capture.recipe&&same(output.inputBinding,capture.candidate)&&same(output.ci,capture.ci)&&output.executionResultSha256===capture.execution.rawResult.sha256,'Original CI output does not belong to captured source/run/process');
@@ -48,3 +49,17 @@ export async function validateCapturedNative(root,capture,submitted,{framework,t
  return report;
 }
 export async function validateCapturedSiheom(root,capture,submitted,framework){const report=await validateCIResultBinding(root,capture,submitted),run=report.results?.find(row=>row.framework===framework);check(report.kind==='siheom'&&report.mode==='pilot'&&run?.status==='passed'&&run.commandExitCode===0,'Wrong actual native siheom report');const raw=JSON.parse(await retainedFile(root,capture.outputs,`${framework}-vitest.json`));check(raw.success===true&&raw.numTotalTests>0&&raw.numPassedTests===raw.numTotalTests&&raw.numFailedTests===0&&(raw.numPendingTests??0)===0,'Actual siheom tests missing/failed/skipped');const assertions=raw.testResults?.flatMap(row=>row.assertionResults??[])??[];check(assertions.length===raw.numTotalTests&&assertions.every(row=>row.status==='passed')&&run.tests===raw.numTotalTests&&run.passed===raw.numPassedTests&&run.failed===0,'Actual siheom raw assertions differ from summary');return report;}
+
+/** Preview keeps the public raw-result interface, with its runner summary retained beside it. */
+export async function validateCapturedPreview(root,capture,submitted,identities){
+ check(capture.recipe==='preview-contracts'&&(!capture.framework||capture.framework==='solid-next')&&!capture.outputError,'Wrong/failed preview output capture');
+ await validateCIResultBinding(root,capture,submitted);
+ const output=capture.outputs,state=output.producerState,directory=dirname(dirname(capture.execution.rawResult.path));
+ check(state?.schemaVersion===1&&state.recipe==='preview-contracts'&&Array.isArray(state.beforeDirectories)&&output.retainedDirectory===`${directory}/outputs/current`&&submitted?.path===`${output.retainedDirectory}/solid-next/playwright.json`,'Wrong original preview output source');
+ check(output.summary?.path===`${output.retainedDirectory}/report.json`&&output.files.some(file=>same(file,output.summary)),'Preview summary missing from complete retained output');
+ const summary=JSON.parse(await readRef(root,output.summary));
+ check(summary.results?.length===1,'Preview must contain exactly its actual framework result');
+ parseNativeRunner(summary,{framework:'solid-next',tool:'contracts',mode:'pilot',count:10,identities});
+ await servedSnapshot(root,summary.results[0],'solid-next',false);
+ const raw=JSON.parse(await retainedFile(root,output,'solid-next/playwright.json'));parsePlaywright(raw,identities);return raw;
+}

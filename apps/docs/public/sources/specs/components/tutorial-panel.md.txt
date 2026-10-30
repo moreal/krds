@@ -72,6 +72,10 @@ All rendered owned parts use `data-krds-component="tutorial-panel"`, one `data-k
 
 These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
 
+## Independent canonical default names
+
+Independent canonical default action names are “따라하기 시작” and “따라하기 중지”. This local UI wording does not change the accepted Start request, controlled/uncontrolled ownership, or joint Stop transaction, and adds no label prop. It is not attributed as a mandatory official KRDS literal.
+
 ## Required native stories
 
 `tutorial-panel--task-overview`, `tutorial-panel--active-step`, `tutorial-panel--suspended-panel`, `tutorial-panel--help-tab-return`, `tutorial-panel--narrow-modal`, `tutorial-panel--route-change`, `tutorial-panel--stop-after-fold`, `tutorial-panel--stop-after-help-tab`, `tutorial-panel--narrow-stop-return`, `tutorial-panel--controlled-stop-exposure-rejected`, `tutorial-panel--start-action-removed`, `tutorial-panel--stop-partial-narrow-help`.

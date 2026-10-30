@@ -2,11 +2,11 @@
 
 This compiler checkpoint binds the exact source below to its producer's public built-package check. It includes the original imports and local state. It does not certify the latest native candidate, behavior, SSR/resume, or a release.
 
-- Historical producer-build compiler checkpoint; these example bytes are unchanged. The Solid owner is repairing the native implementation and must supply the next public-build/typecheck checkpoint before a current-native-candidate claim.
+- Fresh compiler checkpoint after the completed Nx version application; public @unofficial-krds/solid version 0.1.0. The exact source and retained command/log bytes are hash-bound. Compiler success does not award native behavior, SSR/hydration/resume, manual checks or final release acceptance.
 
 Source: [apps/fixture-solid/src/catalog-examples.tsx](/sources/apps/fixture-solid/src/catalog-examples.tsx.txt). SHA-256: `92672a7d08d81ba64f999450da0ec3355091fabfdf211bfc44175157632b739f`.
 
-Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck`. [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json.txt) · [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log.txt).
+Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck`. [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/proof.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/stderr.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stderr.log.txt).
 
 
 ```tsx

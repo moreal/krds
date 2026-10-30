@@ -2,11 +2,11 @@
 
 This compiler checkpoint binds the exact source below to its producer's public built-package check. It includes the original imports and local state. It does not certify the latest native candidate, behavior, SSR/resume, or a release.
 
-- Exact current example bytes include the shared Masthead disclaimer correction. This compiler checkpoint does not accept the native source review, full behavior catalog, or final release candidate.
+- Fresh compiler checkpoint after the completed Nx version application; public @unofficial-krds/react version 0.1.0. The exact source and retained command/log bytes are hash-bound. Compiler success does not award native behavior, SSR/hydration/resume, manual checks or final release acceptance.
 
 Source: [packages/react/examples/catalog.tsx](/sources/packages/react/examples/catalog.tsx.txt). SHA-256: `c632e819c3668069d082757708e3a0e371dbe894be820c3e68cda26346d10536`.
 
-Command: `node tools/yarn.mjs workspace @unofficial-krds/react exec tsc -p examples/tsconfig.json`. [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json.txt) · [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log.txt).
+Command: `node tools/yarn.mjs workspace @unofficial-krds/react exec tsc -p examples/tsconfig.json`. [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/proof.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/stderr.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stderr.log.txt).
 
 
 ```tsx

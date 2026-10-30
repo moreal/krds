@@ -1,0 +1,1576 @@
+{
+  "schemaVersion": 1,
+  "framework": "svelte",
+  "kind": "native-public-package-compiler-checkpoint",
+  "checkpointOnly": true,
+  "currentCandidate": false,
+  "releaseAccepted": false,
+  "publicationAuthorized": false,
+  "sourceCheckpointHead": "fa1a13fd63f107549669155aa3ca6e1321c71c10",
+  "metadataState": "after completed Nx version apply; before final metadata commit",
+  "publicPackageVersion": "0.1.0",
+  "toolchain": {
+    "node": "24.18.0",
+    "yarn": "4.14.1",
+    "launcher": "node tools/yarn.mjs"
+  },
+  "sourceExamples": [
+    {
+      "path": "apps/fixture-svelte/src/public-examples/MastheadExample.svelte",
+      "bytes": 277,
+      "sha256": "6df9efbc6edd9549030fc41c73c54944987d560a3b0ac4639f8a889521ca9cd2",
+      "componentIds": [
+        "masthead"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/IdentifierExample.svelte",
+      "bytes": 528,
+      "sha256": "e77921b67cb2e4410197bfcb6d975adb4060f9801bf58c12cb2be194d2ee3316",
+      "componentIds": [
+        "identifier"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/HeaderExample.svelte",
+      "bytes": 1116,
+      "sha256": "e838fa4ef72a748067476d3e3563742302b9b47a6e881c81aa5d233ff27d670a",
+      "componentIds": [
+        "header"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/FooterExample.svelte",
+      "bytes": 824,
+      "sha256": "684b7233cead62f93943b35607411e389cb874dfe9ec0b3da3b4c65219330d23",
+      "componentIds": [
+        "footer"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/SkipLinkExample.svelte",
+      "bytes": 397,
+      "sha256": "8128a4ccce8fad8e87ad77aea8db8204d177d281e9b7921912bdc1ba8719b0d5",
+      "componentIds": [
+        "skip-link"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/MainMenuExample.svelte",
+      "bytes": 528,
+      "sha256": "4e13b72574802115da829e5f536ac57b048c67013c6c2826ff1a044113942bd0",
+      "componentIds": [
+        "main-menu"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/BreadcrumbExample.svelte",
+      "bytes": 542,
+      "sha256": "19686c4b356eab13bca4948d1913f3f4fc9e6e619d6ad58fe151183f0508bf09",
+      "componentIds": [
+        "breadcrumb"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/SideNavigationExample.svelte",
+      "bytes": 872,
+      "sha256": "6726d1d314f23df711ac12232fdac462b1020723e94781c4fa959fe833bb5aea",
+      "componentIds": [
+        "side-navigation"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/InPageNavigationExample.svelte",
+      "bytes": 549,
+      "sha256": "a4da0b7107c3170dc080dd6f8b08704a8bd808988500e5811aa2d8fe9644f39a",
+      "componentIds": [
+        "in-page-navigation"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/PaginationExample.svelte",
+      "bytes": 377,
+      "sha256": "f82dd4067eb0a40f6365036e9e8ff8823ee4318c728c20758e2b6bbf2c084a56",
+      "componentIds": [
+        "pagination"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/StructuredListExample.svelte",
+      "bytes": 843,
+      "sha256": "d56874681350ff75d421c3c036293f7be23eccb916760210fd9f379def01c1fc",
+      "componentIds": [
+        "structured-list"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/CriticalAlertExample.svelte",
+      "bytes": 536,
+      "sha256": "94873f7ecadcb9be71794c40c5be66cf54b2850ace590004b309ce32fdff6a02",
+      "componentIds": [
+        "critical-alert"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/CalendarExample.svelte",
+      "bytes": 288,
+      "sha256": "c9853101738fff8cf7d190e6168a1a9e9582ac89697b8694915c535b9a216756",
+      "componentIds": [
+        "calendar"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/DisclosureExample.svelte",
+      "bytes": 349,
+      "sha256": "65617d5b332a4fbed9bbd1e19c89d3120e02c33f53c93e98c66b94c84ac38ee4",
+      "componentIds": [
+        "disclosure"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/ModalExample.svelte",
+      "bytes": 261,
+      "sha256": "7df84ab27e927ddfa41ae232da342d777eea98a44edbfb49576d27ac394751ff",
+      "componentIds": [
+        "modal"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/BadgeExample.svelte",
+      "bytes": 346,
+      "sha256": "3a4344a9121b1a71bb287d738c5383e753b82c88df2b83a9276d1c02b64131d8",
+      "componentIds": [
+        "badge"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/AccordionExample.svelte",
+      "bytes": 574,
+      "sha256": "de645efeca94a27c28b41b204f390eb81b1bd89b6553e57b477abc4cd25acfd8",
+      "componentIds": [
+        "accordion"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/ImageExample.svelte",
+      "bytes": 387,
+      "sha256": "3bf9f94697b8753d14f893f29286a8f94ec4c26bcde4182be27855bf6145d845",
+      "componentIds": [
+        "image"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/CarouselExample.svelte",
+      "bytes": 685,
+      "sha256": "cb00d8e33c8ec1a12b8a0b7e16714f5549c0c972bc5e7c0172cf98c5ac9f9072",
+      "componentIds": [
+        "carousel"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TabsExample.svelte",
+      "bytes": 302,
+      "sha256": "e2ffab42a47cdabb61e24cc215a3b10cd156bff1bad4a810d538ae8bff47aac1",
+      "componentIds": [
+        "tabs"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TableExample.svelte",
+      "bytes": 673,
+      "sha256": "dc525578086455b029fbc4ee71427846d600a3a06f4f38df678a82d9fe18433f",
+      "componentIds": [
+        "table"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TextListExample.svelte",
+      "bytes": 449,
+      "sha256": "fd22d06b6f0ec586c2aa9586f31630fad12a71d41d7750b357b4121c6fb675f4",
+      "componentIds": [
+        "text-list"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/FaviconExample.svelte",
+      "bytes": 477,
+      "sha256": "0416f6820888c3ae116bfb8dadf85c69ea63be5544a7ee732055d5f053f7d4a3",
+      "componentIds": [
+        "favicon"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/LinkExample.svelte",
+      "bytes": 349,
+      "sha256": "1c249b87284e5615b26b65dae4f4e002a8816160f7579e7154a13740fb9ac332",
+      "componentIds": [
+        "link"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/ButtonExample.svelte",
+      "bytes": 266,
+      "sha256": "cf9645fe83ea54f609df91cf30e94da177f472dc15d3a78227ecbd593954376a",
+      "componentIds": [
+        "button"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/FABExample.svelte",
+      "bytes": 288,
+      "sha256": "e314203f36096c3967d2042ebbe6058fd851c19f254335f4cbfaba484fb85b63",
+      "componentIds": [
+        "fab"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/RadioGroupExample.svelte",
+      "bytes": 581,
+      "sha256": "8642fd041578bef34cbbbfa5c71b0a3f99d0768aeb768343b00523f5894ab636",
+      "componentIds": [
+        "radio-group"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/CheckboxExample.svelte",
+      "bytes": 376,
+      "sha256": "9e11da4a12f61a9df647a4ff681779595a2280e85a4bc80eabd68b2f6f0ae0e3",
+      "componentIds": [
+        "checkbox"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/NativeSelectExample.svelte",
+      "bytes": 333,
+      "sha256": "c9f6e16607434aaffc9c3bf24c4c5ebdf5013a9ac36e1a0d66f3f8913564ba66",
+      "componentIds": [
+        "native-select"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TagExample.svelte",
+      "bytes": 443,
+      "sha256": "cb5cec51e7a40e3cdbae894e39328a017ee61d18c2ba38b3b2e1af4108844f03",
+      "componentIds": [
+        "tag"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/SwitchExample.svelte",
+      "bytes": 343,
+      "sha256": "22d63b1e4b7365320e6931038cf9ddcca015bbf5628d5bc5f8f0d92c2e87a5f7",
+      "componentIds": [
+        "switch"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/StepIndicatorExample.svelte",
+      "bytes": 585,
+      "sha256": "0ca32726208376a9cdb10662755a1ef06728a287a114d57ba28fa252a7169778",
+      "componentIds": [
+        "step-indicator"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/SpinnerExample.svelte",
+      "bytes": 403,
+      "sha256": "438abdcc6babda29864c1fad95506bfdf0c2cc0c604d32915fb0b8d87158efe9",
+      "componentIds": [
+        "spinner"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/HelpPanelExample.svelte",
+      "bytes": 803,
+      "sha256": "895574a712051b406315570aca044a3eb8c33462ad7408c94ba2b79bb281a2ee",
+      "componentIds": [
+        "help-panel"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TutorialPanelExample.svelte",
+      "bytes": 973,
+      "sha256": "b5267b8375a597d171bfdc9e4fb3d0a37394c8f88a705754de228b2bdb079735",
+      "componentIds": [
+        "tutorial-panel"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/ContextualHelpExample.svelte",
+      "bytes": 515,
+      "sha256": "eb999a408c81a6d001406010259f52f58f9a76bc7d91152fd119d6319e06d43a",
+      "componentIds": [
+        "contextual-help"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/CoachMarkExample.svelte",
+      "bytes": 814,
+      "sha256": "fbc8a42dc6532a0ef2993e57ba6dbad52b5e66c515f7729ba5a4f1f2c995e823",
+      "componentIds": [
+        "coach-mark"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TooltipExample.svelte",
+      "bytes": 469,
+      "sha256": "aba6ac09930ca07c283ca7f56645414a863cf742b9111dafd543dc748fb8f0d7",
+      "componentIds": [
+        "tooltip"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TTSExample.svelte",
+      "bytes": 421,
+      "sha256": "2f0106dc51fc7088da6071cf0db25a77804d8b1a7088320d5f274f07d38b8234",
+      "componentIds": [
+        "tts"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/DateInputExample.svelte",
+      "bytes": 308,
+      "sha256": "012b40366400ac99c62e3086e7a21732b203c63940f714502a5dff36b3c32b10",
+      "componentIds": [
+        "date-input"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TextareaExample.svelte",
+      "bytes": 350,
+      "sha256": "acb9bf2b33d238f1daa024a11f1c8df55933ce04b30d8c0b9611b2be6d161aab",
+      "componentIds": [
+        "textarea"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TextInputExample.svelte",
+      "bytes": 396,
+      "sha256": "7cc1ad3f7c60298b6060aaea55036230c657c92d34d3568ec6bb2c4103a96a5a",
+      "componentIds": [
+        "text-input"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/FileUploadExample.svelte",
+      "bytes": 439,
+      "sha256": "376cdb52498118c9fb8535791fc0495323166d85340001c6030b3e274c16675f",
+      "componentIds": [
+        "file-upload"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/LanguageSwitcherExample.svelte",
+      "bytes": 626,
+      "sha256": "9001984571fbabc3b02aaad418817a61b3be877e95e5e7e585986409eb2e2f22",
+      "componentIds": [
+        "language-switcher"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/ResizeExample.svelte",
+      "bytes": 679,
+      "sha256": "51fafda76351bf338e5c3dff1426cb51516bc1fb162270227d095d4705e566b4",
+      "componentIds": [
+        "resize"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/AccessibleMediaExample.svelte",
+      "bytes": 613,
+      "sha256": "3d7eba9538212f2025eb72d98c04290eb80a531d3db778b29d59403b7c26fffa",
+      "componentIds": [
+        "accessible-media"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/VisuallyHiddenExample.svelte",
+      "bytes": 394,
+      "sha256": "1402be2cf2b6d74eb7b0cabf991143bb77d5383a897d5fb0ff6e3398ba761bb2",
+      "componentIds": [
+        "visually-hidden"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/RangeSliderExample.svelte",
+      "bytes": 354,
+      "sha256": "80a26ee2c8961fc9d1103bcdfb7e8862e8e8831267f281aeda6d5b1db6bfa57e",
+      "componentIds": [
+        "range-slider"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/BackButtonExample.svelte",
+      "bytes": 388,
+      "sha256": "985f61059accfc8c6124de2d2875921840757b1fc2370d2a1af0a2dd5e1e6d21",
+      "componentIds": [
+        "back-button"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/BottomSheetExample.svelte",
+      "bytes": 400,
+      "sha256": "e52c65756551eb2d6f7d3f0447f7b037dbe71c6b90ecbf3a24ef00c837fc2465",
+      "componentIds": [
+        "bottom-sheet"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/QuantityToggleExample.svelte",
+      "bytes": 390,
+      "sha256": "70bb958f8476e6e62ad5d73529a2a5d811a152e87cd4cc68dada6aadab262a5f",
+      "componentIds": [
+        "quantity-toggle"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/ToastExample.svelte",
+      "bytes": 428,
+      "sha256": "98f5e6bc09ae7e86ddcc76678d6ec67a2d6e277edcff8a400abd5822a8fc2518",
+      "componentIds": [
+        "toast"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/SnackbarExample.svelte",
+      "bytes": 411,
+      "sha256": "192ef5bd01beeae32f0a55ca31638390c8a4992429274a2883797171f17fb42b",
+      "componentIds": [
+        "snackbar"
+      ]
+    },
+    {
+      "path": "apps/fixture-svelte/src/public-examples/TabBarExample.svelte",
+      "bytes": 616,
+      "sha256": "2bdd49ebcc16852af08d42a5ff7af7019929df1b5e282876b5e622a163e16d5d",
+      "componentIds": [
+        "tab-bar"
+      ]
+    }
+  ],
+  "compiler": {
+    "name": "compiler-svelte",
+    "argv": [
+      "node",
+      "tools/yarn.mjs",
+      "workspace",
+      "@unofficial-krds/fixture-svelte",
+      "typecheck"
+    ],
+    "cwd": "/Users/moreal/github/moreal/krds",
+    "environmentOverrides": {
+      "NG_BUILD_MAX_WORKERS": "1",
+      "STORYBOOK_DISABLE_TELEMETRY": "1"
+    },
+    "startedAt": "2026-10-30T14:06:00.831864+00:00",
+    "finishedAt": "2026-10-30T14:06:03.878182+00:00",
+    "exitCode": 0
+  },
+  "compilerLogs": [
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/svelte/stdout.log",
+      "bytes": 162,
+      "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515"
+    },
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/svelte/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "packageBuild": {
+    "name": "package-svelte",
+    "argv": [
+      "node",
+      "tools/yarn.mjs",
+      "workspace",
+      "@unofficial-krds/svelte",
+      "build:local"
+    ],
+    "cwd": "/Users/moreal/github/moreal/krds",
+    "environmentOverrides": {
+      "NG_BUILD_MAX_WORKERS": "1",
+      "STORYBOOK_DISABLE_TELEMETRY": "1"
+    },
+    "startedAt": "2026-10-30T14:05:38.369453+00:00",
+    "finishedAt": "2026-10-30T14:05:40.351576+00:00",
+    "exitCode": 0
+  },
+  "packageBuildLogs": [
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stdout.log",
+      "bytes": 16,
+      "sha256": "1cff3a15b64eec658c1cc9cf77f8d3579688147204a80d9fde225dac5d71b3ff"
+    },
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stderr.log",
+      "bytes": 4173,
+      "sha256": "f2263de5d1986e311e7cb2406f813bdb6083d2e39d20219488a23e7307719bb6"
+    }
+  ],
+  "configurationInputs": [
+    {
+      "path": "tsconfig.base.json",
+      "bytes": 415,
+      "sha256": "778cbfbad474360eb2a92eb892b6e6ad1bf9787cb13570c2e30b815c26ae2390"
+    },
+    {
+      "path": "packages/svelte/package.json",
+      "bytes": 12112,
+      "sha256": "64e452160f5e1e0e7baee74b1daf5746e1d6cf352378476e4e9ec3f932f03f89"
+    },
+    {
+      "path": "packages/svelte/tsconfig.json",
+      "bytes": 264,
+      "sha256": "b3e2ed43a63f741699a5ee427839326f602e765cc6dfaf81d596589890280024"
+    },
+    {
+      "path": "apps/fixture-svelte/package.json",
+      "bytes": 1466,
+      "sha256": "77e8c50e264a7ed63e9af513988d649cf2ca259095f0a98c2d586defded11a29"
+    },
+    {
+      "path": "apps/fixture-svelte/tsconfig.json",
+      "bytes": 252,
+      "sha256": "274ed6fda91687d6661096f75e325d013b0d9bab610d8c7e79824c4265b5be5d"
+    }
+  ],
+  "consumedPackageOutputs": [
+    {
+      "path": "packages/svelte/dist/components/AccessibleMedia.svelte",
+      "bytes": 1768,
+      "sha256": "a9590eeb34d3653cfad75445d3357a362dabcb6c0b2ad481e20cb492806669d8"
+    },
+    {
+      "path": "packages/svelte/dist/components/AccessibleMedia.svelte.d.ts",
+      "bytes": 270,
+      "sha256": "5b23c491be7c5727a276fcbe9507c1a9b6586c0fa0eeae81927829847f5f4a8e"
+    },
+    {
+      "path": "packages/svelte/dist/components/AccessibleMedia.svelte.d.ts.map",
+      "bytes": 487,
+      "sha256": "e17fe096c7f4e1e34a65817462685152e4b98d95daaabe82e59a4e3427b28a6a"
+    },
+    {
+      "path": "packages/svelte/dist/components/Accordion.svelte",
+      "bytes": 2110,
+      "sha256": "89ed60cd74d26047ae3b7828b662dc343749a9e3c8c960e169d78ae8034f7580"
+    },
+    {
+      "path": "packages/svelte/dist/components/Accordion.svelte.d.ts",
+      "bytes": 310,
+      "sha256": "c1aa3707583810256b2e730a5f1af1c300952916eceb81c1e1ae102ac765e7b7"
+    },
+    {
+      "path": "packages/svelte/dist/components/Accordion.svelte.d.ts.map",
+      "bytes": 462,
+      "sha256": "6e0ae4bc525f24ed0af6ad20d66b82fad598c8c0375a6707294902c55816c13e"
+    },
+    {
+      "path": "packages/svelte/dist/components/BackButton.svelte",
+      "bytes": 1080,
+      "sha256": "97e2eb9db6c3d75c0f4f31afaaadd8b46d48f7fc39f1fe735ec909d71e658033"
+    },
+    {
+      "path": "packages/svelte/dist/components/BackButton.svelte.d.ts",
+      "bytes": 250,
+      "sha256": "268d1435d67ab83eeb8b47ec638a96239dceda8951ac860f4551998bf79cc00a"
+    },
+    {
+      "path": "packages/svelte/dist/components/BackButton.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "dd3794b6059e0a1c5234c988c164a46e74497a020159a6061685628827a9198c"
+    },
+    {
+      "path": "packages/svelte/dist/components/Badge.svelte",
+      "bytes": 654,
+      "sha256": "61cb1cd28262125d402a9446f2f98c4c14ebe007d832081f7cc5e6004ac4d94e"
+    },
+    {
+      "path": "packages/svelte/dist/components/Badge.svelte.d.ts",
+      "bytes": 230,
+      "sha256": "36fe78604f0cfd52acdb3348327984fe9d29bd4dd062a935cdc19634a8c5f8be"
+    },
+    {
+      "path": "packages/svelte/dist/components/Badge.svelte.d.ts.map",
+      "bytes": 454,
+      "sha256": "3e606ca3e53b748914c7ce89a4518edd41e25f98b1c4af2a85c69c39c84e92e9"
+    },
+    {
+      "path": "packages/svelte/dist/components/BottomSheet.svelte",
+      "bytes": 2046,
+      "sha256": "9193ea7d761e98e48951faff186e66b13b4178a1c5bc42e8dffdce2e390a10d1"
+    },
+    {
+      "path": "packages/svelte/dist/components/BottomSheet.svelte.d.ts",
+      "bytes": 277,
+      "sha256": "03c0258bf913ad5070d423f47ec97c56ced287e14927ad2c52f8ea7137f1a3dc"
+    },
+    {
+      "path": "packages/svelte/dist/components/BottomSheet.svelte.d.ts.map",
+      "bytes": 478,
+      "sha256": "51e4e730a33115f6021bdf28e8d059d46a82ff0d8b9134a442521f8a35a00fc4"
+    },
+    {
+      "path": "packages/svelte/dist/components/Breadcrumb.svelte",
+      "bytes": 1742,
+      "sha256": "4ba924f50f16d754adc85de8ea394bf27b2e8f00c5ea9f5b3970c0908cb15a3f"
+    },
+    {
+      "path": "packages/svelte/dist/components/Breadcrumb.svelte.d.ts",
+      "bytes": 250,
+      "sha256": "822a345c790e435b2f6be41687b8f6817052ce0bcaaf194d3bdb370c54950ec6"
+    },
+    {
+      "path": "packages/svelte/dist/components/Breadcrumb.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "9b597b34db0a3f044882dbd7906da9c2e68755bc31cd8cbcd3b72ef62f9cfd08"
+    },
+    {
+      "path": "packages/svelte/dist/components/Button.svelte",
+      "bytes": 632,
+      "sha256": "c8d096fc063348114839f10c43465980156f9a4d637bf43ce5389354286c4e94"
+    },
+    {
+      "path": "packages/svelte/dist/components/Button.svelte.d.ts",
+      "bytes": 172,
+      "sha256": "73c158200ba5170cf0166dce40a4c10382fd5c00e12b785d4314a8aa65bde588"
+    },
+    {
+      "path": "packages/svelte/dist/components/Button.svelte.d.ts.map",
+      "bytes": 492,
+      "sha256": "152e568a3e56c65bfc4c0cfa4c484b5a0ae5865c2f5c29f665c9aa204aef5c9c"
+    },
+    {
+      "path": "packages/svelte/dist/components/Calendar.svelte",
+      "bytes": 9564,
+      "sha256": "9193086c1855896fc09d27a1856ccadf1ba98771a5be1f97014b6f37101dd068"
+    },
+    {
+      "path": "packages/svelte/dist/components/Calendar.svelte.d.ts",
+      "bytes": 165,
+      "sha256": "2ac72cf9fe34629b1e40918769ef1875929371f4ed30d3cf6f1857329d6b0ccc"
+    },
+    {
+      "path": "packages/svelte/dist/components/Calendar.svelte.d.ts.map",
+      "bytes": 496,
+      "sha256": "1be77a30c012b9badc4721269611d73bcdb883d7a7bc0d6dc495fcd8242cdda0"
+    },
+    {
+      "path": "packages/svelte/dist/components/Carousel.svelte",
+      "bytes": 5239,
+      "sha256": "98391744eeb5938460117c9300c54009aa27ba87029e852867d9d1b8502e28df"
+    },
+    {
+      "path": "packages/svelte/dist/components/Carousel.svelte.d.ts",
+      "bytes": 305,
+      "sha256": "f8cb44df0f825ff80cfd6ee2bb42ba2fe141b4c5635117a266d98fa77fd3df4b"
+    },
+    {
+      "path": "packages/svelte/dist/components/Carousel.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "0638650579546c30cf7c18a77a69722eae401b480c5ec1eb17642fb6209810c1"
+    },
+    {
+      "path": "packages/svelte/dist/components/Checkbox.svelte",
+      "bytes": 1625,
+      "sha256": "f2f96d015b6b0edbfd8528fc0346975d7a8943057129787817a29fef475bf774"
+    },
+    {
+      "path": "packages/svelte/dist/components/Checkbox.svelte.d.ts",
+      "bytes": 242,
+      "sha256": "922d6ff9558a04ca972b8a16420ce865a8d2c8c234700089ad1556986afcade2"
+    },
+    {
+      "path": "packages/svelte/dist/components/Checkbox.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "51d708d9fc1b25189f112f716a8b30c9ed73abed233fcc1f5ef5364d451b7c1b"
+    },
+    {
+      "path": "packages/svelte/dist/components/CoachMark.svelte",
+      "bytes": 6854,
+      "sha256": "cd7449e884dc3f180a1dfa073c079e219420267e6a144f63ccbdf45245e511b7"
+    },
+    {
+      "path": "packages/svelte/dist/components/CoachMark.svelte.d.ts",
+      "bytes": 267,
+      "sha256": "2cf129ba6f81bb65f296a2316e8879e48c6fbabd653d630fc70008fb0b7dc3db"
+    },
+    {
+      "path": "packages/svelte/dist/components/CoachMark.svelte.d.ts.map",
+      "bytes": 462,
+      "sha256": "153b67d312c1162c372005240189d22cca458bf7a39a992f87bf1b800962ad42"
+    },
+    {
+      "path": "packages/svelte/dist/components/CoachPopover.svelte",
+      "bytes": 3237,
+      "sha256": "43f021dd914c3611b8dd918966fa8b6b2315d5ce1ff8eb926d990a000299671a"
+    },
+    {
+      "path": "packages/svelte/dist/components/CoachPopover.svelte.d.ts",
+      "bytes": 608,
+      "sha256": "9a4f061de095c9ede25160785d3a0f2b4502c6ef5fc34f6ddc4a569cd8e3f4dd"
+    },
+    {
+      "path": "packages/svelte/dist/components/CoachPopover.svelte.d.ts.map",
+      "bytes": 479,
+      "sha256": "e4dd4fd7dceb0b2d88e5dff6506041c17d386cbc3e54ec248f9aa412647d0e44"
+    },
+    {
+      "path": "packages/svelte/dist/components/ContextualHelp.svelte",
+      "bytes": 3660,
+      "sha256": "cb85cb357d3e897db434288f275140401cedc3c75d14798710d0311836df8fab"
+    },
+    {
+      "path": "packages/svelte/dist/components/ContextualHelp.svelte.d.ts",
+      "bytes": 289,
+      "sha256": "87b14105ca4530c1e13137e59dffea8414d714c7d5e70694e4f2eec358830083"
+    },
+    {
+      "path": "packages/svelte/dist/components/ContextualHelp.svelte.d.ts.map",
+      "bytes": 484,
+      "sha256": "9cd7e3fb3d59121889ba1b42e03d6be60ecc660e63b8cfb944539becec03a189"
+    },
+    {
+      "path": "packages/svelte/dist/components/CriticalAlert.svelte",
+      "bytes": 688,
+      "sha256": "cce88576e64549364e9394c22a678ba4af45783403dcbd75a734e7956c1f17fe"
+    },
+    {
+      "path": "packages/svelte/dist/components/CriticalAlert.svelte.d.ts",
+      "bytes": 262,
+      "sha256": "813ed678eca2f8fa6a11df304b6de3a3c666a37b675853674492a60766ffc7a3"
+    },
+    {
+      "path": "packages/svelte/dist/components/CriticalAlert.svelte.d.ts.map",
+      "bytes": 482,
+      "sha256": "ff498d6b8d80ea110c701cf17aa0e0a6ffef04ea8ff620e74a5146826f44b276"
+    },
+    {
+      "path": "packages/svelte/dist/components/DateInput.svelte",
+      "bytes": 11802,
+      "sha256": "fb089eb673c6a50a22789178b15ab6aee10c887556cb0dbd2098a5f89a641596"
+    },
+    {
+      "path": "packages/svelte/dist/components/DateInput.svelte.d.ts",
+      "bytes": 169,
+      "sha256": "bde680e98e662dfa49f8933ba13e3668b337ab8af4ceb2b91e832f6f4e51795f"
+    },
+    {
+      "path": "packages/svelte/dist/components/DateInput.svelte.d.ts.map",
+      "bytes": 498,
+      "sha256": "d55ef5bf6b09166822b191b8dd2b2521f3234ddb1a7eca3b471d87a2b67c00d9"
+    },
+    {
+      "path": "packages/svelte/dist/components/Disclosure.svelte",
+      "bytes": 1183,
+      "sha256": "620c08d18643e3a000ec498b5cd0790661b5b69010c76bf728916e04bf441ad3"
+    },
+    {
+      "path": "packages/svelte/dist/components/Disclosure.svelte.d.ts",
+      "bytes": 274,
+      "sha256": "9575146914c349bf1a841a3edcc15159e8e89999f77333e880088e5cda49de64"
+    },
+    {
+      "path": "packages/svelte/dist/components/Disclosure.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "4c6230ce327832b3471a08cdc559d9686430b0f3f2dacd45239cd448a0d22d2f"
+    },
+    {
+      "path": "packages/svelte/dist/components/FAB.svelte",
+      "bytes": 1935,
+      "sha256": "face02b6a28b5c59ce412b2ed5db624a46575f0d5da325662f68f1b19e9dba52"
+    },
+    {
+      "path": "packages/svelte/dist/components/FAB.svelte.d.ts",
+      "bytes": 241,
+      "sha256": "a592c5e0bca1b064dad0fe7b494b2dae3947801b8c7b5e806a2cd7956d4b606e"
+    },
+    {
+      "path": "packages/svelte/dist/components/FAB.svelte.d.ts.map",
+      "bytes": 450,
+      "sha256": "64f5a9abd860bc87ba588fa1e565fd6175c56bbcc707b42b69287aad19cd74a1"
+    },
+    {
+      "path": "packages/svelte/dist/components/Favicon.svelte",
+      "bytes": 714,
+      "sha256": "ceb3e6bd15fcf929eaec03b4523e4e1cf732be8440880e07de5aa724b42e236f"
+    },
+    {
+      "path": "packages/svelte/dist/components/Favicon.svelte.d.ts",
+      "bytes": 238,
+      "sha256": "9f94a1ae027bf1d79c13f655f222ca83c9faee194a8791599da3bda7399f9817"
+    },
+    {
+      "path": "packages/svelte/dist/components/Favicon.svelte.d.ts.map",
+      "bytes": 458,
+      "sha256": "fc8bcbc4a6bc86a9d55887e5e0b1f8e4249e5cf788595ec2f9fc595421b7928e"
+    },
+    {
+      "path": "packages/svelte/dist/components/FileUpload.svelte",
+      "bytes": 6358,
+      "sha256": "436c2744dbc0fdb5a01a967734cac4015369517d8b385bab2eebb7f582399a81"
+    },
+    {
+      "path": "packages/svelte/dist/components/FileUpload.svelte.d.ts",
+      "bytes": 298,
+      "sha256": "4fee8da87e541d74fdbc980e0a5a3833c15106654cabfedf7616f31083097b97"
+    },
+    {
+      "path": "packages/svelte/dist/components/FileUpload.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "3812fb3eaaf7dc8245930c583e92fd42bcb0c176186d7a22e08db13bdcc40a49"
+    },
+    {
+      "path": "packages/svelte/dist/components/Footer.svelte",
+      "bytes": 1218,
+      "sha256": "32d32eadee02321f84f998a0321e340232dfff1d6fb8727a2863e3cf6a784fa6"
+    },
+    {
+      "path": "packages/svelte/dist/components/Footer.svelte.d.ts",
+      "bytes": 234,
+      "sha256": "5daa6a5dab2a8bce8a014e95845b31ed7959bc576ab265d89657374a6f910169"
+    },
+    {
+      "path": "packages/svelte/dist/components/Footer.svelte.d.ts.map",
+      "bytes": 456,
+      "sha256": "c7f76c3ae09cf5679a10089ef7bde6f2ded14ed525e9f55a5178ad6617e0946c"
+    },
+    {
+      "path": "packages/svelte/dist/components/Header.svelte",
+      "bytes": 2278,
+      "sha256": "dbd12c56af7cdb9423f6161aa499ea1e410d1d2635e1f0d9f3d76d7b123bb162"
+    },
+    {
+      "path": "packages/svelte/dist/components/Header.svelte.d.ts",
+      "bytes": 234,
+      "sha256": "736395c6424ca16a1fe367848012a587ae55dc94667c62da601455d1e65c2086"
+    },
+    {
+      "path": "packages/svelte/dist/components/Header.svelte.d.ts.map",
+      "bytes": 456,
+      "sha256": "300baf6661020d782c477017946cc9c3c0d2620191772d25b3b8fe4432ac105a"
+    },
+    {
+      "path": "packages/svelte/dist/components/HelpPanel.svelte",
+      "bytes": 3121,
+      "sha256": "21902ec93b4673dc82981372e3e7c99c24c687bb0eaa5628a06c211ef8d637cc"
+    },
+    {
+      "path": "packages/svelte/dist/components/HelpPanel.svelte.d.ts",
+      "bytes": 317,
+      "sha256": "7ad9cd899fa44ad3895669ac53231ec8a4b87a01e953dca1c07303ec231abcbd"
+    },
+    {
+      "path": "packages/svelte/dist/components/HelpPanel.svelte.d.ts.map",
+      "bytes": 462,
+      "sha256": "5e65d8f681cee8310ad4b8324d9dd5cea1c5eefef74e81035b9cb01dffc6c418"
+    },
+    {
+      "path": "packages/svelte/dist/components/Identifier.svelte",
+      "bytes": 542,
+      "sha256": "663b55ed4e3ded03f38f16f57c981ae664cf73afefbcef72d0e769ee64adb63e"
+    },
+    {
+      "path": "packages/svelte/dist/components/Identifier.svelte.d.ts",
+      "bytes": 250,
+      "sha256": "91e45813a2b4208e1ff51efeec38ea57a3f6a2c37234412f4f8bb1938795f753"
+    },
+    {
+      "path": "packages/svelte/dist/components/Identifier.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "e3a751144965a4398fd3162d231cb908f3e20b0a1a8b64c29114f2fc14286c68"
+    },
+    {
+      "path": "packages/svelte/dist/components/Image.svelte",
+      "bytes": 1341,
+      "sha256": "51e3c38220f24431dce6850ae8038252b20442697f286abc459e50417b1b6c8e"
+    },
+    {
+      "path": "packages/svelte/dist/components/Image.svelte.d.ts",
+      "bytes": 230,
+      "sha256": "51eee53dde6f8dff3c9ddbca753591f6cdbbcfc40e148a667f00a720772d58e9"
+    },
+    {
+      "path": "packages/svelte/dist/components/Image.svelte.d.ts.map",
+      "bytes": 454,
+      "sha256": "0448c807886c9be9a196722c64c3ed4326634874bfb1fb50de63ee7e8e3d796e"
+    },
+    {
+      "path": "packages/svelte/dist/components/InPageNavigation.svelte",
+      "bytes": 3797,
+      "sha256": "bd4467022a428c614bb5e70fa44404e05534b0b492b0a2e681f4ddcb2f82fd3f"
+    },
+    {
+      "path": "packages/svelte/dist/components/InPageNavigation.svelte.d.ts",
+      "bytes": 274,
+      "sha256": "5d92eb7bb1668d96c840ffd3c4351df3476ebe5ca81e64821f7eacc0fedb72df"
+    },
+    {
+      "path": "packages/svelte/dist/components/InPageNavigation.svelte.d.ts.map",
+      "bytes": 490,
+      "sha256": "5b9d7fbbc59f93ebe732f6dd64c3bff65181a7b38624f179064de8fb1e6c6c95"
+    },
+    {
+      "path": "packages/svelte/dist/components/KrdsProvider.svelte",
+      "bytes": 475,
+      "sha256": "c196ca4f044aa94f1c3d9f5f52dd5b153c203527e36c812d499b3fab69f061f7"
+    },
+    {
+      "path": "packages/svelte/dist/components/KrdsProvider.svelte.d.ts",
+      "bytes": 209,
+      "sha256": "b8b245f6509903f5a9d92ddc32b630d38f46fde72751bd454fffb71fc7cf8fe8"
+    },
+    {
+      "path": "packages/svelte/dist/components/KrdsProvider.svelte.d.ts.map",
+      "bytes": 480,
+      "sha256": "998ebfb4c9107d405768f148028f70f91027a59ef7c7a3dabdd895f63b21bcd6"
+    },
+    {
+      "path": "packages/svelte/dist/components/LanguageSwitcher.svelte",
+      "bytes": 2344,
+      "sha256": "4dfae908b0b3a4179b55dee3b5f02bdd28aa951c2ac87e7374991b37861de8b7"
+    },
+    {
+      "path": "packages/svelte/dist/components/LanguageSwitcher.svelte.d.ts",
+      "bytes": 274,
+      "sha256": "68aa46f7a7465bc1fd972f6c88f6da252472ce244cd73b1d1866ca5e61c4343e"
+    },
+    {
+      "path": "packages/svelte/dist/components/LanguageSwitcher.svelte.d.ts.map",
+      "bytes": 490,
+      "sha256": "b37e23c74165e993b8af6325635d4e63758eb6731e6380c2186a1f82b89e38d4"
+    },
+    {
+      "path": "packages/svelte/dist/components/Link.svelte",
+      "bytes": 758,
+      "sha256": "76fae23988cdc3bd270f458540b37714f031f43c14ca5de9f7e151f813b87284"
+    },
+    {
+      "path": "packages/svelte/dist/components/Link.svelte.d.ts",
+      "bytes": 226,
+      "sha256": "71cfcd306c7a66bdbaf7c1e515f219979489a15be91ebbcdc59bd90b8426e7d7"
+    },
+    {
+      "path": "packages/svelte/dist/components/Link.svelte.d.ts.map",
+      "bytes": 452,
+      "sha256": "8e26a0322104e17f1730ed5970c8a11772211eeb29011675ed973bf365f2658a"
+    },
+    {
+      "path": "packages/svelte/dist/components/MainMenu.svelte",
+      "bytes": 4159,
+      "sha256": "4b73a0f5611e85b592508e2c8667e65f7fcc0d670fae34f642293ea6a9118aab"
+    },
+    {
+      "path": "packages/svelte/dist/components/MainMenu.svelte.d.ts",
+      "bytes": 293,
+      "sha256": "a977ed71d62f7ae695dcc17b71335dee789fede0996b05f879b4a4ac932e37f1"
+    },
+    {
+      "path": "packages/svelte/dist/components/MainMenu.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "655b42591f7733f042f63fcb706cfbde6f93a0a3ab833bd240099fd489cf88e3"
+    },
+    {
+      "path": "packages/svelte/dist/components/Masthead.svelte",
+      "bytes": 523,
+      "sha256": "ffb5e499158e48b533f685f9af374089f5ebabb902ea35ef72e6264e82eda662"
+    },
+    {
+      "path": "packages/svelte/dist/components/Masthead.svelte.d.ts",
+      "bytes": 242,
+      "sha256": "a7a89ba91f9eada312abe4c9784a9b1979e4fc52f46b09e481f09ff8ed97bc73"
+    },
+    {
+      "path": "packages/svelte/dist/components/Masthead.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "136fd80833c6ac3c40d92a596c36d1936c359428702158386d897ba47e9d6c38"
+    },
+    {
+      "path": "packages/svelte/dist/components/Modal.svelte",
+      "bytes": 5696,
+      "sha256": "1df1c1d9d36fc35319b2669b1cd68c5ec64183b98e3a1066e6c57c245faf7007"
+    },
+    {
+      "path": "packages/svelte/dist/components/Modal.svelte.d.ts",
+      "bytes": 153,
+      "sha256": "7d9220f6352acb00fd8d55a666e2ff724c077781995d1899783e318991c3586d"
+    },
+    {
+      "path": "packages/svelte/dist/components/Modal.svelte.d.ts.map",
+      "bytes": 490,
+      "sha256": "554a37a6c50cff0e6043e086b6463b1c673bb4a340cb36d3140f38ce77f0a9c9"
+    },
+    {
+      "path": "packages/svelte/dist/components/NativeSelect.svelte",
+      "bytes": 3528,
+      "sha256": "8c14ae31a4d7d4ae9b891a6989c34b226085b26136d36d0eae07bc7ed4aeff38"
+    },
+    {
+      "path": "packages/svelte/dist/components/NativeSelect.svelte.d.ts",
+      "bytes": 181,
+      "sha256": "66c8e97be87d1384f3456adb3dcbb82461e190fd45e8c35ca32f6e22c2804a3f"
+    },
+    {
+      "path": "packages/svelte/dist/components/NativeSelect.svelte.d.ts.map",
+      "bytes": 520,
+      "sha256": "cc513e1be3dabb239aa6be455a749622fc2f37d4113b636d8a0fc67dd39fa6c8"
+    },
+    {
+      "path": "packages/svelte/dist/components/Pagination.svelte",
+      "bytes": 2967,
+      "sha256": "64c1c9f0f45628f6626e85ebc0f889f24abeefeb7e0426914467110c01ed2c06"
+    },
+    {
+      "path": "packages/svelte/dist/components/Pagination.svelte.d.ts",
+      "bytes": 250,
+      "sha256": "3f570975023c714af7b141911283854f073d6984b20334c48eb1532332e27292"
+    },
+    {
+      "path": "packages/svelte/dist/components/Pagination.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "674ece32a53afb9f6049210309ade0a19cdc0e818a2c232289942a15ae91d77e"
+    },
+    {
+      "path": "packages/svelte/dist/components/PanelShell.svelte",
+      "bytes": 3976,
+      "sha256": "2d04defbc15113b704a31d9f6dcefae7e8711680801f363e8cde763e0a765875"
+    },
+    {
+      "path": "packages/svelte/dist/components/PanelShell.svelte.d.ts",
+      "bytes": 592,
+      "sha256": "c823464909c5026d5e6f5712062bb4ea5b06220e0d9496833ea4b7e0707fff4b"
+    },
+    {
+      "path": "packages/svelte/dist/components/PanelShell.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "fac10d679b3ffa683fa54b5e11ba312944e890c4210830956653d7b06b69aa99"
+    },
+    {
+      "path": "packages/svelte/dist/components/QuantityToggle.svelte",
+      "bytes": 2155,
+      "sha256": "140ce90f2f164a476be7ffdb1b980580c634ed228126e2b6ea96616aa175caad"
+    },
+    {
+      "path": "packages/svelte/dist/components/QuantityToggle.svelte.d.ts",
+      "bytes": 266,
+      "sha256": "e3ee349de83ad493479568c33c96474994be20afd12ddea35e4958ce3808b629"
+    },
+    {
+      "path": "packages/svelte/dist/components/QuantityToggle.svelte.d.ts.map",
+      "bytes": 484,
+      "sha256": "08a37d1b39a483cca7539535da2e5945017a7283c871f3c0ae2c04b3d15f0f94"
+    },
+    {
+      "path": "packages/svelte/dist/components/RadioGroup.svelte",
+      "bytes": 3015,
+      "sha256": "120863ecf5080d89ec318cae2d9c7fa22fb19ca12f84391f358746afd6bf3f62"
+    },
+    {
+      "path": "packages/svelte/dist/components/RadioGroup.svelte.d.ts",
+      "bytes": 250,
+      "sha256": "5c644c673ab867eea87e2e9e969d96e7169c60309434d80ce3ff8b7db49bf52f"
+    },
+    {
+      "path": "packages/svelte/dist/components/RadioGroup.svelte.d.ts.map",
+      "bytes": 468,
+      "sha256": "efe0b55b715927e850ca4586843150fdc0e90e826b69d44146234c1e338affab"
+    },
+    {
+      "path": "packages/svelte/dist/components/RangeSlider.svelte",
+      "bytes": 2397,
+      "sha256": "cf1aa3050a349074969044f7da3f1f4433f6477fde4515942eb70ebed05e492c"
+    },
+    {
+      "path": "packages/svelte/dist/components/RangeSlider.svelte.d.ts",
+      "bytes": 254,
+      "sha256": "8453948dd1536d796f220b769659a5793d3e53a1b9b2102e4cdd566e6cf29e35"
+    },
+    {
+      "path": "packages/svelte/dist/components/RangeSlider.svelte.d.ts.map",
+      "bytes": 478,
+      "sha256": "f11dda54f46cb84ff18a32d1226f15e2b5811476a0c5e3914126982ab8e1bf71"
+    },
+    {
+      "path": "packages/svelte/dist/components/Resize.svelte",
+      "bytes": 2097,
+      "sha256": "7ce86e5331b17472b9b88d5f137eea33b303e82f904197f34ce0166d21c191c1"
+    },
+    {
+      "path": "packages/svelte/dist/components/Resize.svelte.d.ts",
+      "bytes": 234,
+      "sha256": "f70f69619e024e1bc27d142c37bb7e75d1bfeebffa684ac29306c1c25e82f27f"
+    },
+    {
+      "path": "packages/svelte/dist/components/Resize.svelte.d.ts.map",
+      "bytes": 456,
+      "sha256": "51f823a3f3e83a91de88ec1df8b830a9f649376ebecc94e5f5066bd8cf5c20e5"
+    },
+    {
+      "path": "packages/svelte/dist/components/SideNavigation.svelte",
+      "bytes": 4705,
+      "sha256": "2e84bc8e38b9a12a604d34b2ae69388ae767fe90fc44c658e5172bf7dcd5c53b"
+    },
+    {
+      "path": "packages/svelte/dist/components/SideNavigation.svelte.d.ts",
+      "bytes": 266,
+      "sha256": "99a8d938a3a9b5b4039fd40320573ae3ff8081fbf87772fa79a5452c02e67be6"
+    },
+    {
+      "path": "packages/svelte/dist/components/SideNavigation.svelte.d.ts.map",
+      "bytes": 484,
+      "sha256": "5dce57ccfc4fa10f92d29211ffaf236aff7e152dc4a6d1bd9e57bbb788149d46"
+    },
+    {
+      "path": "packages/svelte/dist/components/SkipLink.svelte",
+      "bytes": 1105,
+      "sha256": "221f6d252d5369cbb3e73821e052e263c5a08d40bce14255ce4e7a4180a01641"
+    },
+    {
+      "path": "packages/svelte/dist/components/SkipLink.svelte.d.ts",
+      "bytes": 242,
+      "sha256": "4835f2665e20a6c938b298cdc5dc32f0e1df4192ac41fbf64b79af6aaf12b4a5"
+    },
+    {
+      "path": "packages/svelte/dist/components/SkipLink.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "3b707ea84aa994d75dd3312c9c0c769ba2376d7f815841d7cc0f7a6a8a39d283"
+    },
+    {
+      "path": "packages/svelte/dist/components/Snackbar.svelte",
+      "bytes": 3276,
+      "sha256": "113c7405042fce7db80e2c4f961acb7ff84b88be70193478110166f62c653284"
+    },
+    {
+      "path": "packages/svelte/dist/components/Snackbar.svelte.d.ts",
+      "bytes": 261,
+      "sha256": "757a0a20bba309597dc70a1ff7a937d09d0073b1fc3d55bcf240f426bdea60cb"
+    },
+    {
+      "path": "packages/svelte/dist/components/Snackbar.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "abeabc0d9dff9769debac4fbd73684fa1e47ca429517e36642bc6dd488951a9c"
+    },
+    {
+      "path": "packages/svelte/dist/components/Spinner.svelte",
+      "bytes": 1232,
+      "sha256": "43a29c152f54a582dc7e3f67ee50eb4d22ecb834082d2ad8b5c1abc06f872ded"
+    },
+    {
+      "path": "packages/svelte/dist/components/Spinner.svelte.d.ts",
+      "bytes": 238,
+      "sha256": "ba8a53e23fb149fecd899a81726a38aa9b296e27058d437dc3591a1b6a74bf03"
+    },
+    {
+      "path": "packages/svelte/dist/components/Spinner.svelte.d.ts.map",
+      "bytes": 458,
+      "sha256": "b149b44b59f3ced24704cad8baf014fee7f29c12857bcff27b2dfa9cd5ef9c0f"
+    },
+    {
+      "path": "packages/svelte/dist/components/StepIndicator.svelte",
+      "bytes": 1772,
+      "sha256": "3ad7fbbc876dbcd12317d5e542e909719268d78663081e237cdab1c4319f2f9e"
+    },
+    {
+      "path": "packages/svelte/dist/components/StepIndicator.svelte.d.ts",
+      "bytes": 382,
+      "sha256": "443a11e8b3083f6dc10d8e98eb31abff99e23a5a65231eb1d61ca8b868e5f10f"
+    },
+    {
+      "path": "packages/svelte/dist/components/StepIndicator.svelte.d.ts.map",
+      "bytes": 482,
+      "sha256": "182618524cd2539e7527625dc1df28be6a0aec72749eb5ff062cc6deb3e72235"
+    },
+    {
+      "path": "packages/svelte/dist/components/StructuredList.svelte",
+      "bytes": 2459,
+      "sha256": "e6e24cedd0cf455adbb2a1c3deb45d372ce3eba5e02a1280de4a2b1225e80c97"
+    },
+    {
+      "path": "packages/svelte/dist/components/StructuredList.svelte.d.ts",
+      "bytes": 372,
+      "sha256": "c8e92f06891b99b2c6ca1041e3f21affbd54506361c30629b0b90f68b77f1b1b"
+    },
+    {
+      "path": "packages/svelte/dist/components/StructuredList.svelte.d.ts.map",
+      "bytes": 484,
+      "sha256": "62712fe76dcbdb469e8e8d55f323db7ae97b51c00b48634b7e8939408a7c60aa"
+    },
+    {
+      "path": "packages/svelte/dist/components/Switch.svelte",
+      "bytes": 1639,
+      "sha256": "ca4f987776fb0d78831d80f1a43d6ba924dc4591d807556a28f82ac0701b798e"
+    },
+    {
+      "path": "packages/svelte/dist/components/Switch.svelte.d.ts",
+      "bytes": 234,
+      "sha256": "24dcc9c3a72ea779c0b7d9cb7913cb5ae316c27a059f1dcfca439c8c7b8263f4"
+    },
+    {
+      "path": "packages/svelte/dist/components/Switch.svelte.d.ts.map",
+      "bytes": 456,
+      "sha256": "ef43bc751250ff37fe2855c3b0f903417f66ea3d251be497b46dc327720e3004"
+    },
+    {
+      "path": "packages/svelte/dist/components/TTS.svelte",
+      "bytes": 1259,
+      "sha256": "a98b0fa359bb6400e53bc87a4a20ac1251b216bbe2f758c9888fdc0fed4ea5f3"
+    },
+    {
+      "path": "packages/svelte/dist/components/TTS.svelte.d.ts",
+      "bytes": 222,
+      "sha256": "61758f304c352bc8f5cf888a3e22fc6c7bcacaf2cbd8efe2a8f64c51eba3a202"
+    },
+    {
+      "path": "packages/svelte/dist/components/TTS.svelte.d.ts.map",
+      "bytes": 450,
+      "sha256": "7b6ad77d4fca2ca2a5b7349bec968b4d90ea8340cbe2594bbb8754073f1eb9ca"
+    },
+    {
+      "path": "packages/svelte/dist/components/TabBar.svelte",
+      "bytes": 2154,
+      "sha256": "8e490ce2d9be17121cc253d9b15e993e347b4ddd048521fe31ad6059606e0ce1"
+    },
+    {
+      "path": "packages/svelte/dist/components/TabBar.svelte.d.ts",
+      "bytes": 279,
+      "sha256": "14b0bcbd0c19b8a9587f11e8cdd57b5cecf5f3f4217ae64c40f78263a6f703f9"
+    },
+    {
+      "path": "packages/svelte/dist/components/TabBar.svelte.d.ts.map",
+      "bytes": 456,
+      "sha256": "b4208bf5eb59536c7d1affd494c09100c9a221178ce0f40a89f82196f6a0210b"
+    },
+    {
+      "path": "packages/svelte/dist/components/Table.svelte",
+      "bytes": 2806,
+      "sha256": "42f8e2975dd859f98680753eb13b2fd7ee6ff78f53d890cbf84767376edba5ce"
+    },
+    {
+      "path": "packages/svelte/dist/components/Table.svelte.d.ts",
+      "bytes": 230,
+      "sha256": "a96540e2ed7ede01c32815ee8d3711c1c917bd16f94b62a0138287a3037e1f8b"
+    },
+    {
+      "path": "packages/svelte/dist/components/Table.svelte.d.ts.map",
+      "bytes": 454,
+      "sha256": "a7d8399856f92df3983c1328b9abee4efc641c46a7067f6d615abb17688f9967"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tabs.svelte",
+      "bytes": 4278,
+      "sha256": "2c1da4fe3db051a500cc5084d62e13009f30912fee40a331ccc1e1ce5cd42d12"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tabs.svelte.d.ts",
+      "bytes": 149,
+      "sha256": "382c598a31ff2f5005445d21842bdacb8a93855e2460d680160715b14f9db769"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tabs.svelte.d.ts.map",
+      "bytes": 488,
+      "sha256": "04cd956c53c608b7b16ee48ab6e49d16aca45de62e520cd9ac5a410e94f683fa"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tag.svelte",
+      "bytes": 3288,
+      "sha256": "a65615bd85b032b5e59aadf864c59020b0094547fabcf6cc77339ecb2eaf1df9"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tag.svelte.d.ts",
+      "bytes": 222,
+      "sha256": "91714ddceb751de1dd7c6a6ae319c08a7564a15b264ac403993d0fa33174d480"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tag.svelte.d.ts.map",
+      "bytes": 450,
+      "sha256": "94da566ec7bfe1553725b7ab61bc7676b5ada029e51b65a9d97203d42ee73cdb"
+    },
+    {
+      "path": "packages/svelte/dist/components/TextInput.svelte",
+      "bytes": 2695,
+      "sha256": "f6c10f657c14da7562b84bb9a688cafaf4a5bf5a3e261cd2a3aff9d4238f76ed"
+    },
+    {
+      "path": "packages/svelte/dist/components/TextInput.svelte.d.ts",
+      "bytes": 246,
+      "sha256": "f3e8dc97b216bc6bfe991d24be5fa5a75895033c3ccd930ef4d83aa0ebcd636c"
+    },
+    {
+      "path": "packages/svelte/dist/components/TextInput.svelte.d.ts.map",
+      "bytes": 462,
+      "sha256": "611ed0ad09e0c0baf316e1ca3dbb4f30a817c398ad34cae5220419e367baa264"
+    },
+    {
+      "path": "packages/svelte/dist/components/TextList.svelte",
+      "bytes": 782,
+      "sha256": "073fefb3767319a780171c52eba51f812a695895112c3e5ffef51e67cd04b490"
+    },
+    {
+      "path": "packages/svelte/dist/components/TextList.svelte.d.ts",
+      "bytes": 242,
+      "sha256": "e50cabb49b4115720991a9f324085b26ad5a5f13ec23a05ff8f3462e5680f75a"
+    },
+    {
+      "path": "packages/svelte/dist/components/TextList.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "f1f04ae7a52df78ca39f424e21e5e873c809bd129f53e62fc4fbb5fa27fe51c3"
+    },
+    {
+      "path": "packages/svelte/dist/components/Textarea.svelte",
+      "bytes": 2439,
+      "sha256": "30f11e79aa48c1eb1829ae5c987d6ad6e6786b19d9e330b3d41bee377a6163e3"
+    },
+    {
+      "path": "packages/svelte/dist/components/Textarea.svelte.d.ts",
+      "bytes": 242,
+      "sha256": "9a0a37107de5ad79277d0d28fbe5afea35f56fca385ec0775a582d429d6c56ea"
+    },
+    {
+      "path": "packages/svelte/dist/components/Textarea.svelte.d.ts.map",
+      "bytes": 460,
+      "sha256": "470465944d8760bfff195cca564034fbb7b6448a4de0a6e98dd020fef806de80"
+    },
+    {
+      "path": "packages/svelte/dist/components/Toast.svelte",
+      "bytes": 905,
+      "sha256": "57ea1f66ab3d48c1a504d509e717b503cc53aa64289f2e57a56619c207dac88d"
+    },
+    {
+      "path": "packages/svelte/dist/components/Toast.svelte.d.ts",
+      "bytes": 249,
+      "sha256": "0dfa7a01df1d0b76d331e21fe853f3c3e0ea5913441f6feb18e2a929a7bdb5ff"
+    },
+    {
+      "path": "packages/svelte/dist/components/Toast.svelte.d.ts.map",
+      "bytes": 454,
+      "sha256": "96abec11290a38230235037be049183aae3c5ef9ddb40d1c29e28aa95b0de1d0"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tooltip.svelte",
+      "bytes": 4040,
+      "sha256": "baf82f6997fe6743e7c15dfa3cac74771b4ce0d39766c129a0f76ed2a0852d89"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tooltip.svelte.d.ts",
+      "bytes": 238,
+      "sha256": "460d10c3425607c7e67bd4bf9a92b0d98c96ecfcb7fff7109a412375e564682a"
+    },
+    {
+      "path": "packages/svelte/dist/components/Tooltip.svelte.d.ts.map",
+      "bytes": 458,
+      "sha256": "4a3ecad6a208b5dadf292ff14a0f809fcfb94c42ec92f2f24bc4e22678c865be"
+    },
+    {
+      "path": "packages/svelte/dist/components/TutorialPanel.svelte",
+      "bytes": 4257,
+      "sha256": "444abd172617a2ac8dc78d1b933d0f0b6385baedcb4e7cd0d2fa4f0374ced84d"
+    },
+    {
+      "path": "packages/svelte/dist/components/TutorialPanel.svelte.d.ts",
+      "bytes": 364,
+      "sha256": "eca76c08c8d6a122522acc417cc5a14c57dfbd12edd81bd5d41f8e1ec25c394e"
+    },
+    {
+      "path": "packages/svelte/dist/components/TutorialPanel.svelte.d.ts.map",
+      "bytes": 482,
+      "sha256": "6a0de2cbac5016658c108d0335b5cb468459387675d1f27a89e37870b43dcca4"
+    },
+    {
+      "path": "packages/svelte/dist/components/VisuallyHidden.svelte",
+      "bytes": 2290,
+      "sha256": "50009ecf0c1e49ce177e183514c65d071320624d594ff9178fd3ddeb801ccfdd"
+    },
+    {
+      "path": "packages/svelte/dist/components/VisuallyHidden.svelte.d.ts",
+      "bytes": 309,
+      "sha256": "4bf9dd819b7b5acfd2bda719a7e327b3aea2d0093b68ad0266e4521f4d512b9f"
+    },
+    {
+      "path": "packages/svelte/dist/components/VisuallyHidden.svelte.d.ts.map",
+      "bytes": 484,
+      "sha256": "96f6cd6e3b10c924af0c54c31234b93ddb68f1715d5bed89690af3aea6c9c37d"
+    },
+    {
+      "path": "packages/svelte/dist/components/catalog-state.svelte.d.ts",
+      "bytes": 662,
+      "sha256": "675e1bbccd81a2cfa5ad6ee2e42164fada47c16604eef8e191ae517b87828e96"
+    },
+    {
+      "path": "packages/svelte/dist/components/catalog-state.svelte.d.ts.map",
+      "bytes": 633,
+      "sha256": "50c583f603f520f11d48ec912eff27862fe2a694632185c0a1f0cd58208a4dd5"
+    },
+    {
+      "path": "packages/svelte/dist/components/catalog-state.svelte.js",
+      "bytes": 1670,
+      "sha256": "abea2ff4059fc6a297d06960defb773f7e0aa942de430cc0924879c74768f290"
+    },
+    {
+      "path": "packages/svelte/dist/components/coach-state.d.ts",
+      "bytes": 119,
+      "sha256": "c0de7ae504e658fa66179b4d8ff0f7046d2967835016970c99b6c27159ec369d"
+    },
+    {
+      "path": "packages/svelte/dist/components/coach-state.d.ts.map",
+      "bytes": 196,
+      "sha256": "1eda46720af9181c6da4370808c1d9bb58c662c69532e0e10e3d0a6bf846a479"
+    },
+    {
+      "path": "packages/svelte/dist/components/coach-state.js",
+      "bytes": 313,
+      "sha256": "03d8dd4f248ed3b8fa7e957f016d1e125dacea91db4c222f957c336981c8a331"
+    },
+    {
+      "path": "packages/svelte/dist/components/context.d.ts",
+      "bytes": 286,
+      "sha256": "cf19052f965746b649d95f9c1bf8b405c1ceab2aa39cf2b1ec980ddbba982ae1"
+    },
+    {
+      "path": "packages/svelte/dist/components/context.d.ts.map",
+      "bytes": 365,
+      "sha256": "c94da254925598339a2c2d3b4c0aa3efbd36e1c37b35ac4bae3db0056f84a51f"
+    },
+    {
+      "path": "packages/svelte/dist/components/context.js",
+      "bytes": 184,
+      "sha256": "4b5645f1047ee31384a22bf9523494e5470392a8f589066b864e10ccb4643a48"
+    },
+    {
+      "path": "packages/svelte/dist/components/control-ownership.svelte.d.ts",
+      "bytes": 229,
+      "sha256": "c1597447fb631fc927af2a37a2cf7501488d0d8ed3c196d42a512b27960e654e"
+    },
+    {
+      "path": "packages/svelte/dist/components/control-ownership.svelte.d.ts.map",
+      "bytes": 281,
+      "sha256": "cbf12f8771002e13937d902642ca4df94be3fe1a76c0a6051aac9f60a0b0946d"
+    },
+    {
+      "path": "packages/svelte/dist/components/control-ownership.svelte.js",
+      "bytes": 475,
+      "sha256": "a3422a3f232a62b7bfcf4960fa3cdad2ae761130dea16438d2baee4c21061ab8"
+    },
+    {
+      "path": "packages/svelte/dist/components/date-utils.d.ts",
+      "bytes": 1109,
+      "sha256": "cd65c0e50b4d8ccf448fa122115001b0a2c5d597068ee1dcb9ffb44b14145e94"
+    },
+    {
+      "path": "packages/svelte/dist/components/date-utils.d.ts.map",
+      "bytes": 1148,
+      "sha256": "8d20b53b66b937aebdf9c8f478d1f6dd4df93c59a0b6a6873c70561d96429f8c"
+    },
+    {
+      "path": "packages/svelte/dist/components/date-utils.js",
+      "bytes": 4462,
+      "sha256": "d79a1fadb3e066e9916b9b148be4d81857bd6c586c10f6899038ac891fb18306"
+    },
+    {
+      "path": "packages/svelte/dist/components/file-form.d.ts",
+      "bytes": 499,
+      "sha256": "ef4d5b558cdde5bc1354403ed332b514a51324107c52f9d9ed55cc80c412d058"
+    },
+    {
+      "path": "packages/svelte/dist/components/file-form.d.ts.map",
+      "bytes": 440,
+      "sha256": "bfcbb0bd20dddbb5eca9fd129de813508ec342d767f167bea8b339083fbcde9e"
+    },
+    {
+      "path": "packages/svelte/dist/components/file-form.js",
+      "bytes": 1316,
+      "sha256": "190ee0903501e4e9ae7959544f31f23ee54f987f2d04a5a0696acc0395f0bf4b"
+    },
+    {
+      "path": "packages/svelte/dist/components/help-position.d.ts",
+      "bytes": 607,
+      "sha256": "78a6e26d8319e97e241f82b3a91e3d5135d42acf771966e0a5c9fd7382ebf8fb"
+    },
+    {
+      "path": "packages/svelte/dist/components/help-position.d.ts.map",
+      "bytes": 587,
+      "sha256": "a6ddfaa3b8770208b26e24b4994aff24cfa57616c03e16f1d55ad971de04e21a"
+    },
+    {
+      "path": "packages/svelte/dist/components/help-position.js",
+      "bytes": 1243,
+      "sha256": "0deff32b674a137a82280a9da549277b2052ecd768428c23c6e9a687163ad73d"
+    },
+    {
+      "path": "packages/svelte/dist/components/modal-state.d.ts",
+      "bytes": 976,
+      "sha256": "55dbd520c79ce3be90b8953d7a1531449861d1fa81cb6714b269fe56ba1c97ec"
+    },
+    {
+      "path": "packages/svelte/dist/components/modal-state.d.ts.map",
+      "bytes": 793,
+      "sha256": "cac9f58142deb737dff310f34dd97df30359d862cc85139267a94d058d98bf5a"
+    },
+    {
+      "path": "packages/svelte/dist/components/modal-state.js",
+      "bytes": 3768,
+      "sha256": "6a447bce5b5ff97a9c38ac556fb0d6d8fcfe33362c973fe1a8aca11282f9e50e"
+    },
+    {
+      "path": "packages/svelte/dist/components/notification-life.svelte.d.ts",
+      "bytes": 262,
+      "sha256": "2cb4bd020e61d7ad4590b8d8a868f2b2aa8e32c32ac937dd9b1d5703d1da04b2"
+    },
+    {
+      "path": "packages/svelte/dist/components/notification-life.svelte.d.ts.map",
+      "bytes": 325,
+      "sha256": "b1c457ba7545f3d773ff0ee347a220b98194599ef36e898b572bf1ef2e827df7"
+    },
+    {
+      "path": "packages/svelte/dist/components/notification-life.svelte.js",
+      "bytes": 1789,
+      "sha256": "6c6ed659924c7e71bda0d11df1baa118468bc806f0e1eadeba6f595505b8b5ad"
+    },
+    {
+      "path": "packages/svelte/dist/components/tab-bar-icons.d.ts",
+      "bytes": 626,
+      "sha256": "9533259149bcb5937a78242a7efba9ef4565e55555e01b7aa5e7451532c08916"
+    },
+    {
+      "path": "packages/svelte/dist/components/tab-bar-icons.d.ts.map",
+      "bytes": 221,
+      "sha256": "d80f002134b138f9a9017763f1f2b13d98f2c162e719e88b6527823ee1cf7821"
+    },
+    {
+      "path": "packages/svelte/dist/components/tab-bar-icons.js",
+      "bytes": 429,
+      "sha256": "44943d5ac371a32ceae3e84d385309d852461a3fc9e15a1678c25a2c3773a29c"
+    },
+    {
+      "path": "packages/svelte/dist/components/types.d.ts",
+      "bytes": 4323,
+      "sha256": "ac75b0cbb9c43e22ea22b7d2819b5df4e17a160651074fec79d090a4a4833c39"
+    },
+    {
+      "path": "packages/svelte/dist/components/types.d.ts.map",
+      "bytes": 4668,
+      "sha256": "9201b4332468447e7ea929bb1d0d35b8ac5feb480d3dbd5b12becac71dc555fa"
+    },
+    {
+      "path": "packages/svelte/dist/components/types.js",
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    {
+      "path": "packages/svelte/dist/index.d.ts",
+      "bytes": 7526,
+      "sha256": "ab2183d90f3f266969c6082516295ca0ab4d43c3e71854242ca5da8dcc812f12"
+    },
+    {
+      "path": "packages/svelte/dist/index.d.ts.map",
+      "bytes": 5329,
+      "sha256": "1085fa8f199f13753e1f0cabc0425543620f9123a4b545d40fdf0748a4e98800"
+    },
+    {
+      "path": "packages/svelte/dist/index.js",
+      "bytes": 4026,
+      "sha256": "aed5841d302970b84397cecf7d8514d76bfd9d696a690e474e87d39f35f84928"
+    }
+  ],
+  "scope": "Actual fresh compiler command against public built package exports and exact source bytes. No native behavior, SSR/hydration/resume, manual, same-metadata-HEAD, hosted-CI or release acceptance."
+}

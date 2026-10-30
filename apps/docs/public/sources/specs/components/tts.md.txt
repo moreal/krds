@@ -55,6 +55,10 @@ All rendered owned parts use `data-krds-component="tts"`, one `data-krds-part` t
 
 These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
 
+## Independent canonical default names
+
+Use the actual supplied label in control names. The canonical paused/resume action name is “{label} 다시 재생”; activating it still requests resume and preserves the current playback position rather than restarting. Error retry uses the same “{label} 다시 재생” name with its existing retry request semantics. This is independent default UI wording, not a new action/prop or an instruction to reset playback; supplied labels remain authoritative.
+
 ## Required native stories
 
 `tts--page`, `tts--region`, `tts--play-pause-stop-mock`, `tts--icon`, `tts--sizes`, `tts--unsupported`, `tts--error`.

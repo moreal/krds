@@ -2,11 +2,11 @@
 
 This compiler checkpoint binds the exact source below to its producer's public built-package check. It includes the original imports and local state. It does not certify the latest native candidate, behavior, SSR/resume, or a release.
 
-- Historical producer-build compiler checkpoint; the exact typed custom-element example bytes remain unchanged. Material native source-review repairs are active; a refreshed producer build/typecheck is required before claiming the latest native candidate.
+- Fresh compiler checkpoint after the completed Nx version application; public @unofficial-krds/lit version 0.1.0. The exact source and retained command/log bytes are hash-bound. Compiler success does not award native behavior, SSR/hydration/resume, manual checks or final release acceptance.
 
 Source: [apps/fixture-lit/src/examples/catalog.ts](/sources/apps/fixture-lit/src/examples/catalog.ts.txt). SHA-256: `31eda727a5cbf37dd2c329a8d61c5fe8a4bbcc549d663e8a3bc0b0d98ee16292`.
 
-Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-lit typecheck`. [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json.txt) · [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log.txt).
+Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-lit typecheck`. [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/proof.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stderr.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log.txt).
 
 
 ```ts

@@ -2,11 +2,11 @@
 
 This compiler checkpoint binds the exact source below to its producer's public built-package check. It includes the original imports and local state. It does not certify the latest native candidate, behavior, SSR/resume, or a release.
 
-- Official Angular CLI strict AOT source-fix1 checkpoint against the sealed public partial-APF input. This does not accept native315, stories344, SSR/runtime forms, manual checks, or the final candidate.
+- Fresh compiler checkpoint after the completed Nx version application; public @unofficial-krds/angular version 0.1.0. The exact source and retained command/log bytes are hash-bound. Compiler success does not award native behavior, SSR/hydration/resume, manual checks or final release acceptance.
 
 Source: [apps/fixture-angular/src/public-catalog-examples.ts](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt). SHA-256: `d3ab112ccc88d186fdf177e25022d4cc433c5e168d595b751401e5691666d4c1`.
 
-Command: `NG_BUILD_MAX_WORKERS=1 node tools/yarn.mjs workspace @unofficial-krds/fixture-angular build:local`. [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json.txt) · [Original compiler evidence](/sources/.superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log.txt).
+Command: `NG_BUILD_MAX_WORKERS=1 node tools/yarn.mjs workspace @unofficial-krds/fixture-angular build:local`. [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/proof.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/stderr.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log.txt).
 
 
 ```ts

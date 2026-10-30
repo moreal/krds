@@ -1,0 +1,18 @@
+{
+  "name": "package-lit",
+  "argv": [
+    "node",
+    "tools/yarn.mjs",
+    "workspace",
+    "@unofficial-krds/lit",
+    "build:local"
+  ],
+  "cwd": "/Users/moreal/github/moreal/krds",
+  "environmentOverrides": {
+    "NG_BUILD_MAX_WORKERS": "1",
+    "STORYBOOK_DISABLE_TELEMETRY": "1"
+  },
+  "startedAt": "2026-10-30T14:05:43.810990+00:00",
+  "finishedAt": "2026-10-30T14:05:45.676596+00:00",
+  "exitCode": 0
+}

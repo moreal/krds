@@ -1,0 +1,1437 @@
+{
+  "schemaVersion": 1,
+  "framework": "vue",
+  "kind": "native-public-package-compiler-checkpoint",
+  "checkpointOnly": true,
+  "currentCandidate": false,
+  "releaseAccepted": false,
+  "publicationAuthorized": false,
+  "sourceCheckpointHead": "fa1a13fd63f107549669155aa3ca6e1321c71c10",
+  "metadataState": "after completed Nx version apply; before final metadata commit",
+  "publicPackageVersion": "0.1.0",
+  "toolchain": {
+    "node": "24.18.0",
+    "yarn": "4.14.1",
+    "launcher": "node tools/yarn.mjs"
+  },
+  "sourceExamples": [
+    {
+      "path": "apps/fixture-vue/src/PublicCatalogExamples.vue",
+      "bytes": 10178,
+      "sha256": "4ccde4d891310f5367d4b333be2faacb057a1e8e228bff50d82f08ee316d44f7",
+      "componentIds": [
+        "accessible-media",
+        "accordion",
+        "back-button",
+        "badge",
+        "bottom-sheet",
+        "breadcrumb",
+        "carousel",
+        "checkbox",
+        "coach-mark",
+        "contextual-help",
+        "critical-alert",
+        "disclosure",
+        "fab",
+        "favicon",
+        "file-upload",
+        "footer",
+        "header",
+        "help-panel",
+        "identifier",
+        "image",
+        "in-page-navigation",
+        "language-switcher",
+        "link",
+        "main-menu",
+        "masthead",
+        "pagination",
+        "quantity-toggle",
+        "radio-group",
+        "range-slider",
+        "resize",
+        "side-navigation",
+        "skip-link",
+        "snackbar",
+        "spinner",
+        "step-indicator",
+        "structured-list",
+        "switch",
+        "tab-bar",
+        "table",
+        "tag",
+        "text-input",
+        "text-list",
+        "textarea",
+        "toast",
+        "tooltip",
+        "tts",
+        "tutorial-panel",
+        "visually-hidden"
+      ]
+    },
+    {
+      "path": "apps/fixture-vue/src/ConsumerExample.vue",
+      "bytes": 1035,
+      "sha256": "c7c607e17cf50712e67b7d213ae574127363098d5d41e27b5f1a9ba23af01d36",
+      "componentIds": [
+        "button",
+        "calendar",
+        "date-input",
+        "modal",
+        "native-select",
+        "tabs"
+      ]
+    }
+  ],
+  "compiler": {
+    "name": "compiler-vue",
+    "argv": [
+      "node",
+      "tools/yarn.mjs",
+      "workspace",
+      "@unofficial-krds/fixture-vue",
+      "typecheck"
+    ],
+    "cwd": "/Users/moreal/github/moreal/krds",
+    "environmentOverrides": {
+      "NG_BUILD_MAX_WORKERS": "1",
+      "STORYBOOK_DISABLE_TELEMETRY": "1"
+    },
+    "startedAt": "2026-10-30T14:06:03.878636+00:00",
+    "finishedAt": "2026-10-30T14:06:06.965816+00:00",
+    "exitCode": 0
+  },
+  "compilerLogs": [
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/vue/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/vue/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "packageBuild": {
+    "name": "package-vue",
+    "argv": [
+      "node",
+      "tools/yarn.mjs",
+      "workspace",
+      "@unofficial-krds/vue",
+      "build:local"
+    ],
+    "cwd": "/Users/moreal/github/moreal/krds",
+    "environmentOverrides": {
+      "NG_BUILD_MAX_WORKERS": "1",
+      "STORYBOOK_DISABLE_TELEMETRY": "1"
+    },
+    "startedAt": "2026-10-30T14:05:40.351979+00:00",
+    "finishedAt": "2026-10-30T14:05:43.810593+00:00",
+    "exitCode": 0
+  },
+  "packageBuildLogs": [
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log",
+      "bytes": 7474,
+      "sha256": "468f64893264abce2a608dd61a0e945e29039bacda77efa2487b85f514a8dcd6"
+    },
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "configurationInputs": [
+    {
+      "path": "tsconfig.base.json",
+      "bytes": 415,
+      "sha256": "778cbfbad474360eb2a92eb892b6e6ad1bf9787cb13570c2e30b815c26ae2390"
+    },
+    {
+      "path": "packages/vue/package.json",
+      "bytes": 8702,
+      "sha256": "d810f02c481036a0fd9d9013df5985281c8f8bc3551fdda5a65956c027b60df2"
+    },
+    {
+      "path": "packages/vue/tsconfig.json",
+      "bytes": 269,
+      "sha256": "08f673469190d1c46b202d9e25c919af0fb44e4ea96bae0920fc996bc057a8a8"
+    },
+    {
+      "path": "apps/fixture-vue/package.json",
+      "bytes": 1535,
+      "sha256": "f8fdf65e64c4bb30c2c70c9f99bc9208b47fc0679749e572ebc34f1fecb3e3ca"
+    },
+    {
+      "path": "apps/fixture-vue/tsconfig.json",
+      "bytes": 270,
+      "sha256": "1d89f859d46642e503162e5abf63469fee6fdf02fca719e23ba9a7eb1890c42e"
+    }
+  ],
+  "consumedPackageOutputs": [
+    {
+      "path": "packages/vue/dist/AccessibleMedia-CBjNW7hq.js",
+      "bytes": 3714,
+      "sha256": "3e0133fda9d81483e2ab93b94a0f28fbb9f832c3bb35fedcc9c123085a4e32b4"
+    },
+    {
+      "path": "packages/vue/dist/Accordion-DpOhCVDG.js",
+      "bytes": 2939,
+      "sha256": "b1ee358971322a5b6bb99e3d6226edb32209d79193f08e1639b42fdb5ab42488"
+    },
+    {
+      "path": "packages/vue/dist/BackButton-B7anQoKl.js",
+      "bytes": 2252,
+      "sha256": "43a18c7efa4c12df3e39e42e2876bdd01e4990608949ca87554e0e411bcc0096"
+    },
+    {
+      "path": "packages/vue/dist/Badge-BC4IFEuC.js",
+      "bytes": 1462,
+      "sha256": "8e69e752532ba3b3e0be6082268064c280ac6701af74958289623d22c8894d5f"
+    },
+    {
+      "path": "packages/vue/dist/BottomSheet-BFTHndM_.js",
+      "bytes": 3615,
+      "sha256": "f1b32aa4e3afe624211a812e509271c2ebe64c56cf45b1bd61a7c4d28b1cdb79"
+    },
+    {
+      "path": "packages/vue/dist/Breadcrumb-CE3EjgIp.js",
+      "bytes": 3153,
+      "sha256": "ca2f9d888889ade41389be6d71a1353e9a95cd83871e585df3cc1e627e099519"
+    },
+    {
+      "path": "packages/vue/dist/Button-B5-dzXXS.js",
+      "bytes": 1891,
+      "sha256": "da2909184dec59cf1b86784ea33dbbed852cf691b3f198590737d9d48a89088b"
+    },
+    {
+      "path": "packages/vue/dist/Calendar-Bdcs1dqL.js",
+      "bytes": 13556,
+      "sha256": "e4f26563ea1adea99b31456e2e4a1d58ceef043fbbaefd8b460c7564ad2b549c"
+    },
+    {
+      "path": "packages/vue/dist/Carousel-qK61EaLJ.js",
+      "bytes": 8598,
+      "sha256": "f7a7accd793ab7ba2bca0da86927e58057eabdd926be176d18f5d3b3d830eef7"
+    },
+    {
+      "path": "packages/vue/dist/Checkbox-CjPgBE5o.js",
+      "bytes": 3326,
+      "sha256": "7ac25aa6135e321d0b7f3caeab7f18188a3d466a55214efa72efd65349d34481"
+    },
+    {
+      "path": "packages/vue/dist/CoachMark-Cc3cLhFm.js",
+      "bytes": 8614,
+      "sha256": "fb5af8702d3cc7e6fe157f37407aefb0e93983f9ca8efde67c7ce496cf3de52a"
+    },
+    {
+      "path": "packages/vue/dist/ContextualHelp-BmbJcjDJ.js",
+      "bytes": 3692,
+      "sha256": "6a3fb99f04d470fb677e64458c255979146926d7ab19e78a8470228f21fb3464"
+    },
+    {
+      "path": "packages/vue/dist/CriticalAlert-Cd_YMTrj.js",
+      "bytes": 1471,
+      "sha256": "5e22ce50363b3b38d541ca97a5275d160c7cb624ed6cbbbbcf84272d65a4127f"
+    },
+    {
+      "path": "packages/vue/dist/DateInput-DYKnVv4p.js",
+      "bytes": 11432,
+      "sha256": "c0e86b96939c2a8b5464218d0b200ff13c831615ed5a69e39f4f62faf534e8b8"
+    },
+    {
+      "path": "packages/vue/dist/Disclosure-Dv3qqLUn.js",
+      "bytes": 2364,
+      "sha256": "6b7ec6b7d74da98fd952358bbf2faaf6a1beae94eea7bc870cf089b8090d088a"
+    },
+    {
+      "path": "packages/vue/dist/FAB-CL28zp1s.js",
+      "bytes": 3339,
+      "sha256": "efbcb66b4e139015556ab2538da00f1bf1f243d47b320e773b37374ddb1ca77b"
+    },
+    {
+      "path": "packages/vue/dist/Favicon-D4FZJwGx.js",
+      "bytes": 1069,
+      "sha256": "bef405b69514dc20400c8a5edd8466df7a8acd4ab5b95b53661c6e6077caabe5"
+    },
+    {
+      "path": "packages/vue/dist/FileUpload-BVcxVUIh.js",
+      "bytes": 9678,
+      "sha256": "73a92d7dce4e73f53a0ce14066f69834999fedc95ed38d10b3fab21b14d0e483"
+    },
+    {
+      "path": "packages/vue/dist/Footer-T7Xns9Yy.js",
+      "bytes": 3095,
+      "sha256": "c6eabca720fc8cc8fb0ec3ac0d803f46c22a069a3fb752ac91344ad3037b84b5"
+    },
+    {
+      "path": "packages/vue/dist/Header-CgChWn-Y.js",
+      "bytes": 4464,
+      "sha256": "fd4dc3577bb33e9f45f603ec2329a7cfee4b2b27227ab803e78f16f706096d1c"
+    },
+    {
+      "path": "packages/vue/dist/HelpPanel-CgSEt-YL.js",
+      "bytes": 5566,
+      "sha256": "7e6f75e76307302fc25ddd91ff65b18dfeb985af4f190c06265adcdc8b72c087"
+    },
+    {
+      "path": "packages/vue/dist/Identifier-Cj54gyI-.js",
+      "bytes": 918,
+      "sha256": "f1c90a11488d43ec256febb5c06433cd89aa80c901e53d710bf965687a136d52"
+    },
+    {
+      "path": "packages/vue/dist/Image-CFNBtv5P.js",
+      "bytes": 1745,
+      "sha256": "a3a8c3f39a652ed3e31b3b425b610b406bb76c15288abdfd28e017e76b02242e"
+    },
+    {
+      "path": "packages/vue/dist/InPageNavigation-lvDkMjgR.js",
+      "bytes": 5536,
+      "sha256": "ad9c1545af6de35a9bf415cf371bc8825de3fd8de5dfb5cd50677207820119f6"
+    },
+    {
+      "path": "packages/vue/dist/LanguageSwitcher-acmmLsMc.js",
+      "bytes": 3269,
+      "sha256": "7f6d5b7e9a974d178b1be7b284cbdcd0a1618cea09270ee569a59fbd1ca90076"
+    },
+    {
+      "path": "packages/vue/dist/Link-Bdg0eQ_-.js",
+      "bytes": 1620,
+      "sha256": "05d7fb0feee82d524ac0d8492e777d894c979c4ccdc9f72258814fdc06ba7e8c"
+    },
+    {
+      "path": "packages/vue/dist/MainMenu-D1gW3Yns.js",
+      "bytes": 9274,
+      "sha256": "ccce2ce2ecb4464aa95a3ca14ea3ecd24a42e90cef6cabbaef7c80541bb938b9"
+    },
+    {
+      "path": "packages/vue/dist/Masthead-DVVbmqbz.js",
+      "bytes": 877,
+      "sha256": "0912a89f0c2d79dbd414022494a304fb44d0e1bb3320d96c91fe6927ee20d8d1"
+    },
+    {
+      "path": "packages/vue/dist/Modal-D8wC6bvt.js",
+      "bytes": 6717,
+      "sha256": "6ad88c274c94a2174587d74afa5474ad4582a245a40c1ee7e56075b9ff9941e3"
+    },
+    {
+      "path": "packages/vue/dist/NativeSelect-at62bsgE.js",
+      "bytes": 4954,
+      "sha256": "17365625764cd85e8f8afa67e2a88561c9e2c37a8991a5870d753e30ed3bd17d"
+    },
+    {
+      "path": "packages/vue/dist/Pagination-hsYmCaMq.js",
+      "bytes": 5732,
+      "sha256": "7036262944f79d658142dc1a2cb8c195bd3c444be20bda4dff5d0b943e92814d"
+    },
+    {
+      "path": "packages/vue/dist/QuantityToggle-DYYDFede.js",
+      "bytes": 3964,
+      "sha256": "a904ca3b482eba99f819340a313fa0cf8b2869b4361c490e417eca91a371770a"
+    },
+    {
+      "path": "packages/vue/dist/RadioGroup-BX7EV-JV.js",
+      "bytes": 4274,
+      "sha256": "df12d02fbe9233d90f2c6ea9f45355759cd51852f63f1913c5fc2ad9737aeeeb"
+    },
+    {
+      "path": "packages/vue/dist/RangeSlider-fzBeKdtq.js",
+      "bytes": 3505,
+      "sha256": "84fda08c07acca72f9fbfd2bf84f1460378c476831bff760d826958e03bf4d45"
+    },
+    {
+      "path": "packages/vue/dist/Resize-eBEsqlV9.js",
+      "bytes": 3036,
+      "sha256": "824252224160f61c00d7e8d3d4da31453e3db47de334dafbf7d16dde5aff3709"
+    },
+    {
+      "path": "packages/vue/dist/SideNavigation-w6ZtM2Km.js",
+      "bytes": 5536,
+      "sha256": "0cdc10953277bc4f35cd342ba28cfabdb177c75522be9b87432229634561f144"
+    },
+    {
+      "path": "packages/vue/dist/SkipLink-DKIzOxHw.js",
+      "bytes": 1227,
+      "sha256": "71c754ed730350fa067541b5d9c56f389de144ddfc48e78027a93d8e12c6e8c4"
+    },
+    {
+      "path": "packages/vue/dist/Snackbar-CFof2qG1.js",
+      "bytes": 4385,
+      "sha256": "fec3879152fec39582541a56f42ee31911e222c9bb2314325c2be145225e7752"
+    },
+    {
+      "path": "packages/vue/dist/Spinner-ro05YXVE.js",
+      "bytes": 1944,
+      "sha256": "52f236ec429954ee4e1dbeda6c2a3e6ddd18374edbe99a620bd19a2df40a9f46"
+    },
+    {
+      "path": "packages/vue/dist/StepIndicator-CsSvQ0Uq.js",
+      "bytes": 2532,
+      "sha256": "f82c57b9acef1666935c402617da7d67d1c58de7f5f111d1d22643f9831a9933"
+    },
+    {
+      "path": "packages/vue/dist/StructuredList-ByJug6Hp.js",
+      "bytes": 6038,
+      "sha256": "c3139d85e735a8a3de9183315d046ca496f59035d256158171301bff80942937"
+    },
+    {
+      "path": "packages/vue/dist/Switch-CBxHoQyW.js",
+      "bytes": 3190,
+      "sha256": "d952717b6a5f90def8264892ce3a5fd788f18c4b5517bd21e42d950588c0496e"
+    },
+    {
+      "path": "packages/vue/dist/TTS-BgndlKkD.js",
+      "bytes": 3197,
+      "sha256": "27b669bef0d89f27331f50e489da345f650d0d03b6ce2f76b6ff61c2c6af318c"
+    },
+    {
+      "path": "packages/vue/dist/TabBar-DbCsdMqy.js",
+      "bytes": 3501,
+      "sha256": "9d8e4e98ee2501548ab0ef902169a89ec7aad438720ddf69430de65bfb482172"
+    },
+    {
+      "path": "packages/vue/dist/Table-D6nz7Ar3.js",
+      "bytes": 4679,
+      "sha256": "dd0ea2c702591153196bd6498b2cf5690fa623e8ec5816fbc8821d1f38917080"
+    },
+    {
+      "path": "packages/vue/dist/Tabs-D5V2l-ST.js",
+      "bytes": 4838,
+      "sha256": "a24d9074d610ed4aab5f49b2a53e007c65d28dbddeaaa2aee8e4d25046a092e7"
+    },
+    {
+      "path": "packages/vue/dist/Tag-CuMYmVn0.js",
+      "bytes": 5207,
+      "sha256": "23f20e3ab82d37fc60ef84a08e16b28864d17834b8ea6b3271719e8049570bb7"
+    },
+    {
+      "path": "packages/vue/dist/TextInput-jiI1Wo2M.js",
+      "bytes": 4432,
+      "sha256": "bb50e16d76a3a878a3aaa479c4998b8ec479e6c027cbbf53e376a6fab65b9f73"
+    },
+    {
+      "path": "packages/vue/dist/TextList-6ZkBgG5y.js",
+      "bytes": 1560,
+      "sha256": "86f07f6b0eb083ffba3966de542470e395a4b96c191f10b92535031708936eb5"
+    },
+    {
+      "path": "packages/vue/dist/Textarea-DJnhlZyH.js",
+      "bytes": 3507,
+      "sha256": "d9f31635c5cc53bbfa471184920a470aaa8be91b322c861d7fe82fb77ef07bcb"
+    },
+    {
+      "path": "packages/vue/dist/Toast-3J_s1SWU.js",
+      "bytes": 1338,
+      "sha256": "c7c817ecced8e9151b095d937e261f4ce15b718a4cba5e843e833bd69cdb5b1c"
+    },
+    {
+      "path": "packages/vue/dist/Tooltip-BmfM2uXx.js",
+      "bytes": 4780,
+      "sha256": "8da873aed49230b80bc368a54f2b48ed097d5520ba217e7c6f920454cfb2be3c"
+    },
+    {
+      "path": "packages/vue/dist/TutorialPanel-B-BN5QM8.js",
+      "bytes": 6844,
+      "sha256": "8e9ff51068399b421e93b833ca50d38acea2e4128fe7c35ec5a87f2d400e0c1e"
+    },
+    {
+      "path": "packages/vue/dist/VisuallyHidden-BWFpPRlh.js",
+      "bytes": 2170,
+      "sha256": "aa2a37b06cd0c2b6d4243fb5f8583bb2b067f08a8e190cb8375c8af886b1dbef"
+    },
+    {
+      "path": "packages/vue/dist/accessible-media.js",
+      "bytes": 62,
+      "sha256": "c5ac512bcb10222e1f550ceca49c4e1f7002f455846a97d615aac39d0b782604"
+    },
+    {
+      "path": "packages/vue/dist/accordion.js",
+      "bytes": 56,
+      "sha256": "cc6aea28e853e9ad95279c006b1e673b9ee58e87156f5dc98a3cffd90d7e6d05"
+    },
+    {
+      "path": "packages/vue/dist/back-button.js",
+      "bytes": 57,
+      "sha256": "cf477ba2a0aa86f7df21c6aaeadd09b0490a6d38cbee602c543915e9e081c649"
+    },
+    {
+      "path": "packages/vue/dist/badge.js",
+      "bytes": 52,
+      "sha256": "468ade68842b086cdf520756ff880d8440ccb32ccd904bc0c5110c159a6177aa"
+    },
+    {
+      "path": "packages/vue/dist/bottom-sheet.js",
+      "bytes": 58,
+      "sha256": "7901fb7bbdfe6f04cd6ca1b67c733d56571205222de8860cc1efcfba11473e4e"
+    },
+    {
+      "path": "packages/vue/dist/breadcrumb.js",
+      "bytes": 57,
+      "sha256": "a9684cd75c287994efb83efcdbd7e8bbe778b1b251bedaea965ad41b76c39a25"
+    },
+    {
+      "path": "packages/vue/dist/button.js",
+      "bytes": 53,
+      "sha256": "42132967385b1995eb02299e80955d9da59ae1383c3ef72e0003c43d0b24d8f5"
+    },
+    {
+      "path": "packages/vue/dist/calendar.js",
+      "bytes": 55,
+      "sha256": "4afa3321cae3c63f2b269dc5d9e790e1a917db9bc086c2bbf445ae07b06b6e9d"
+    },
+    {
+      "path": "packages/vue/dist/carousel.js",
+      "bytes": 55,
+      "sha256": "1a0b5de60df55721dc5a9c0a1cc16792094bac16bf669c5fa5fe5615081bbfe8"
+    },
+    {
+      "path": "packages/vue/dist/catalog-layer-Y9P5b3jR.js",
+      "bytes": 2025,
+      "sha256": "1659b72666968414aae03b550e4a2e35b200a542cb9703fc1c4cef1b0d8d1773"
+    },
+    {
+      "path": "packages/vue/dist/catalog-state-Cq1D1w7H.js",
+      "bytes": 2565,
+      "sha256": "df31f432dce3321d4bed049fb66bde2075e237d3264ede7df6bf77fba05f39a6"
+    },
+    {
+      "path": "packages/vue/dist/checkbox.js",
+      "bytes": 55,
+      "sha256": "7e8173b0d43706f37f2a286fe00a4a7e6e21d55e067e0f5a31f497790572accc"
+    },
+    {
+      "path": "packages/vue/dist/coach-mark.js",
+      "bytes": 56,
+      "sha256": "57a2f7cd2356ee868c1c028956591118114009579c9dc955d46597c380e98d4f"
+    },
+    {
+      "path": "packages/vue/dist/components/accessible-media/AccessibleMedia.vue.d.ts",
+      "bytes": 536,
+      "sha256": "24375d0c66d207ea29ef1fe3bd995c26a365ef793e136a9896ab34e6b11e179a"
+    },
+    {
+      "path": "packages/vue/dist/components/accessible-media/AccessibleMedia.vue.d.ts.map",
+      "bytes": 276,
+      "sha256": "91e8df311f3dd6fd97f442bf269767294e6c35f346f64d9c043310f2ecf919ea"
+    },
+    {
+      "path": "packages/vue/dist/components/accordion/Accordion.vue.d.ts",
+      "bytes": 1023,
+      "sha256": "bedc6afb26933e8e651c94629f293f06ebaa799babea5ecfd96eb1fa930ed6e1"
+    },
+    {
+      "path": "packages/vue/dist/components/accordion/Accordion.vue.d.ts.map",
+      "bytes": 589,
+      "sha256": "49e0de10103a23a6281b9dc08bfd8a97c5e22e8706baaa80d5f38bc88bfb68a2"
+    },
+    {
+      "path": "packages/vue/dist/components/back-button/BackButton.vue.d.ts",
+      "bytes": 705,
+      "sha256": "c150e8449d25e7220da504612c7a6d6cd14525ad942e67074d6f9352c96264d8"
+    },
+    {
+      "path": "packages/vue/dist/components/back-button/BackButton.vue.d.ts.map",
+      "bytes": 311,
+      "sha256": "ccd193913772966a2373d4f7382205249592c521620c4a1d6ab12599211c64de"
+    },
+    {
+      "path": "packages/vue/dist/components/badge/Badge.vue.d.ts",
+      "bytes": 496,
+      "sha256": "2d07045dc656ecf05ce03dac18f5446cce1d50f8aa0535c426af582a78640de3"
+    },
+    {
+      "path": "packages/vue/dist/components/badge/Badge.vue.d.ts.map",
+      "bytes": 242,
+      "sha256": "d7c65e4740395a5fb34c5f9ff8392f215504eedd09ca32e78957e01283219d74"
+    },
+    {
+      "path": "packages/vue/dist/components/badge/validation.d.ts",
+      "bytes": 175,
+      "sha256": "d7e25d9f50b78b310e5eae8afa6694dc345c39f8b3082ff824e396191f00798d"
+    },
+    {
+      "path": "packages/vue/dist/components/badge/validation.d.ts.map",
+      "bytes": 273,
+      "sha256": "f9905a43cd061c21d8ac1ab8bc59fd2d6df02e3a077b952a0522bf6978096035"
+    },
+    {
+      "path": "packages/vue/dist/components/bottom-sheet/BottomSheet.vue.d.ts",
+      "bytes": 1306,
+      "sha256": "f8f1612009780929289abebea9a94be3da33b866558f73fa476bb6a6bb636c67"
+    },
+    {
+      "path": "packages/vue/dist/components/bottom-sheet/BottomSheet.vue.d.ts.map",
+      "bytes": 718,
+      "sha256": "18d5e64a51521031bedd40d4419d1277f3c6445116439702eb18b6f3718514a4"
+    },
+    {
+      "path": "packages/vue/dist/components/breadcrumb/Breadcrumb.vue.d.ts",
+      "bytes": 543,
+      "sha256": "fe8b849022d0c12eeb124e16573fbba68142123ba9e6107bb913bcf1fd9b3478"
+    },
+    {
+      "path": "packages/vue/dist/components/breadcrumb/Breadcrumb.vue.d.ts.map",
+      "bytes": 261,
+      "sha256": "d67c3a95206e7900c4c2d9267a5b00582f2b4d700e0ada4dda3a3c072191d055"
+    },
+    {
+      "path": "packages/vue/dist/components/button/Button.vue.d.ts",
+      "bytes": 1277,
+      "sha256": "6047a70d71fb816f8637d310e27aa5d0f68b286d0b9b7d4429663928595db2c1"
+    },
+    {
+      "path": "packages/vue/dist/components/button/Button.vue.d.ts.map",
+      "bytes": 883,
+      "sha256": "9640369e39db9c4ab066efcd6958e4e949ad3b841b5a682d108f2e25ab43d2f0"
+    },
+    {
+      "path": "packages/vue/dist/components/calendar/Calendar.vue.d.ts",
+      "bytes": 1504,
+      "sha256": "ecdbc6312fc842e58eafd1f566d62d8d2628e29ed6ec7f39d3ee8f871ae2547c"
+    },
+    {
+      "path": "packages/vue/dist/components/calendar/Calendar.vue.d.ts.map",
+      "bytes": 820,
+      "sha256": "32dabbaed1e1b040a252582f9293366a85847cc27a474386316a33d55b3a45c6"
+    },
+    {
+      "path": "packages/vue/dist/components/carousel/Carousel.vue.d.ts",
+      "bytes": 1452,
+      "sha256": "3d7b3b2e330c055335cd88e44a2ec9cb6f59b454cb577934bd729912a2f2326d"
+    },
+    {
+      "path": "packages/vue/dist/components/carousel/Carousel.vue.d.ts.map",
+      "bytes": 761,
+      "sha256": "9484fd3ef005f1d3d4f928bfd5b6e21667d06efc90ec0a7d81ba5f937f690ae9"
+    },
+    {
+      "path": "packages/vue/dist/components/catalog-layer.d.ts",
+      "bytes": 464,
+      "sha256": "b11d852fdf034a427ac5784b7754d38a9ffe47e6b07e7194086e7aa1850d6190"
+    },
+    {
+      "path": "packages/vue/dist/components/catalog-layer.d.ts.map",
+      "bytes": 491,
+      "sha256": "42c6d42fe77555e62f80ead5a6cd6f8930fa22964436898822e0ba1de48b3402"
+    },
+    {
+      "path": "packages/vue/dist/components/catalog-state.d.ts",
+      "bytes": 968,
+      "sha256": "8c63e7875a31be867727ea8f402078ff102295935c5bef3fb4bf83a73bdfb613"
+    },
+    {
+      "path": "packages/vue/dist/components/catalog-state.d.ts.map",
+      "bytes": 777,
+      "sha256": "fc4975ed3dd3f50c2f986deb5bbc8cfad4cdb695d983c5100a631c160db4acdf"
+    },
+    {
+      "path": "packages/vue/dist/components/checkbox/Checkbox.vue.d.ts",
+      "bytes": 1359,
+      "sha256": "e19a93d309399985df226e581757997bc824cc07f56a5ff50460da97382acd46"
+    },
+    {
+      "path": "packages/vue/dist/components/checkbox/Checkbox.vue.d.ts.map",
+      "bytes": 764,
+      "sha256": "74789fb27f104e93197b4978aeee197c6be41cb0c56f8afb079bb5623f580c63"
+    },
+    {
+      "path": "packages/vue/dist/components/coach-mark/CoachMark.vue.d.ts",
+      "bytes": 1158,
+      "sha256": "a7ec54fff4b154b703694a6df45e876e0d5575c796c8e55318b878dcbdb197fc"
+    },
+    {
+      "path": "packages/vue/dist/components/coach-mark/CoachMark.vue.d.ts.map",
+      "bytes": 465,
+      "sha256": "bd018dc5e76ed74166e111aa840cca9b63f9e43261e36b01d62c53fe0e39a9db"
+    },
+    {
+      "path": "packages/vue/dist/components/context.d.ts",
+      "bytes": 1319,
+      "sha256": "c3e7d2b037eb1b48d8b5bb2f8745de3c215f794b14ca25af0d88bd560fd9ef24"
+    },
+    {
+      "path": "packages/vue/dist/components/context.d.ts.map",
+      "bytes": 654,
+      "sha256": "568fda3c0972f152a066b3950ad86c6c7be50131576c36fb9e0e6042760e6c4b"
+    },
+    {
+      "path": "packages/vue/dist/components/contextual-help/ContextualHelp.vue.d.ts",
+      "bytes": 1054,
+      "sha256": "4e9943b9973d962e1cd20e8ec05a27f141a3a439b732888937f56330bbe5a4ac"
+    },
+    {
+      "path": "packages/vue/dist/components/contextual-help/ContextualHelp.vue.d.ts.map",
+      "bytes": 607,
+      "sha256": "c9a9ee002b2ee0d2721da14cea567793420572b9ddd2e8893843f21f6037d93e"
+    },
+    {
+      "path": "packages/vue/dist/components/control.d.ts",
+      "bytes": 368,
+      "sha256": "a76b40d58beafe26249963b4f573fd6600bbb5bbc9e6dfea324129ffa3134252"
+    },
+    {
+      "path": "packages/vue/dist/components/control.d.ts.map",
+      "bytes": 350,
+      "sha256": "2c93db378d359b995d1a07a6945eb72105fb6b2c047e3bc671e44dd34df695be"
+    },
+    {
+      "path": "packages/vue/dist/components/critical-alert/CriticalAlert.vue.d.ts",
+      "bytes": 528,
+      "sha256": "a182a9f345f1a2a0987dd263b5248f7ef0fecab5301494020ee6e7829995affd"
+    },
+    {
+      "path": "packages/vue/dist/components/critical-alert/CriticalAlert.vue.d.ts.map",
+      "bytes": 269,
+      "sha256": "17323b52394b42f7546cdbe38871e6ee430f1eac37739862bb3202e78a8f3cd1"
+    },
+    {
+      "path": "packages/vue/dist/components/date-input/DateInput.vue.d.ts",
+      "bytes": 1981,
+      "sha256": "92c544c8e9946080f78bdad8d0aba1e07ac176822d7ac0abdeb69d4f6de48f0c"
+    },
+    {
+      "path": "packages/vue/dist/components/date-input/DateInput.vue.d.ts.map",
+      "bytes": 1478,
+      "sha256": "38a7eca20ca9e7212dfa5875567e6c634b67bf6f80c2e9f616fe9279bad245f3"
+    },
+    {
+      "path": "packages/vue/dist/components/date-model.d.ts",
+      "bytes": 1035,
+      "sha256": "b1fb22f747e5aaf42c7dfd8327ae59019dc6a43a579394a26a31046e743a2721"
+    },
+    {
+      "path": "packages/vue/dist/components/date-model.d.ts.map",
+      "bytes": 1097,
+      "sha256": "3d08bafc7aed659d9eac791dc808cb74f8b60dc249181e547e4eba6f98f65a93"
+    },
+    {
+      "path": "packages/vue/dist/components/disclosure/Disclosure.vue.d.ts",
+      "bytes": 1257,
+      "sha256": "6a9bb0277e11469126a716387963510358255ccb968f959efb0fde38e6f819e6"
+    },
+    {
+      "path": "packages/vue/dist/components/disclosure/Disclosure.vue.d.ts.map",
+      "bytes": 702,
+      "sha256": "22d071a52f19e9254f1fcf64d42f6dd2066e90aa0e58a4f15ea6f990ff5c20d2"
+    },
+    {
+      "path": "packages/vue/dist/components/fab/FAB.vue.d.ts",
+      "bytes": 1118,
+      "sha256": "bc1a14656dc0755dffbd0ddf401b2ff006ba0241d0322c966f1814726dd48999"
+    },
+    {
+      "path": "packages/vue/dist/components/fab/FAB.vue.d.ts.map",
+      "bytes": 575,
+      "sha256": "84fab0bb5ec9bd78ca1f35b92da0552a08e986f317869841c90b6636952134f2"
+    },
+    {
+      "path": "packages/vue/dist/components/favicon/Favicon.vue.d.ts",
+      "bytes": 504,
+      "sha256": "8f90705cea0a5ea2bae175e9f4381def83eae539ca529b1c6641c5044d0f6d94"
+    },
+    {
+      "path": "packages/vue/dist/components/favicon/Favicon.vue.d.ts.map",
+      "bytes": 249,
+      "sha256": "34ee81523607043a9c044d722275f52defcc28486b3d430c42f0ea18ab64f29e"
+    },
+    {
+      "path": "packages/vue/dist/components/file-upload/FileUpload.vue.d.ts",
+      "bytes": 1274,
+      "sha256": "4f50c8f0329e9dc314bc8bde94301bcdf602157db31eafd70ef2f4d429a9d7a5"
+    },
+    {
+      "path": "packages/vue/dist/components/file-upload/FileUpload.vue.d.ts.map",
+      "bytes": 647,
+      "sha256": "2f6ee896655b0ad6ca44bc9c49f9e55ac4c637f518bc4c5d2c392c2b5dfb10dc"
+    },
+    {
+      "path": "packages/vue/dist/components/footer/Footer.vue.d.ts",
+      "bytes": 500,
+      "sha256": "5cde5c6e5dc627c21d08b9fd988233077c67fe9892d7ad40d5ee6e65ff95c8d0"
+    },
+    {
+      "path": "packages/vue/dist/components/footer/Footer.vue.d.ts.map",
+      "bytes": 246,
+      "sha256": "ed31d0252521a0480ef05a65a22099bed59b4e084b26f0bec7225a8225bc3b99"
+    },
+    {
+      "path": "packages/vue/dist/components/form-contributions.d.ts",
+      "bytes": 527,
+      "sha256": "f106f6bd8ccd6884c32b1038fb1dbde910ed51e3ef3d9d5acf42c2597ffb7935"
+    },
+    {
+      "path": "packages/vue/dist/components/form-contributions.d.ts.map",
+      "bytes": 313,
+      "sha256": "9b332c11a6ddb6ed0447de8f47b01f43787f38e7cc80cc9300bccb789fa25f61"
+    },
+    {
+      "path": "packages/vue/dist/components/header/Header.vue.d.ts",
+      "bytes": 1147,
+      "sha256": "5fbf43719e0b4eb1e0e24a2efb9e0d7ebda321643f8f983a1413fc7d3bc78f4f"
+    },
+    {
+      "path": "packages/vue/dist/components/header/Header.vue.d.ts.map",
+      "bytes": 648,
+      "sha256": "65a1e4b39b2477239cc50d89ea65e25b8c4dacc5d7e2b756343d2b10904ba7fb"
+    },
+    {
+      "path": "packages/vue/dist/components/help-panel/HelpPanel.vue.d.ts",
+      "bytes": 1470,
+      "sha256": "db55d4f5732669ce01f0c94de0799ce397eb72706b98973942f2402b0e7f7da6"
+    },
+    {
+      "path": "packages/vue/dist/components/help-panel/HelpPanel.vue.d.ts.map",
+      "bytes": 841,
+      "sha256": "e561d97ef70cc5b31afd4dcdcfa0e6ca36a1ee92e4cf452902ec2667fcc2f153"
+    },
+    {
+      "path": "packages/vue/dist/components/identifier/Identifier.vue.d.ts",
+      "bytes": 516,
+      "sha256": "f07fc1fc8eea481810a5b98b0546c5a655921a75d81e2bc09ea78dcf172d3c14"
+    },
+    {
+      "path": "packages/vue/dist/components/identifier/Identifier.vue.d.ts.map",
+      "bytes": 259,
+      "sha256": "a27d750f17a308929346d79d12cb419086dae955a74f54005b2a8d8fe2a59453"
+    },
+    {
+      "path": "packages/vue/dist/components/image/Image.vue.d.ts",
+      "bytes": 496,
+      "sha256": "2b341cfc4f0d8f2d46933935c37491b9914ed9b94c7436cf76334cb3b676bfe1"
+    },
+    {
+      "path": "packages/vue/dist/components/image/Image.vue.d.ts.map",
+      "bytes": 243,
+      "sha256": "9a93270f87309e1b596d74959a7a64e9eda21f257a53ecf16ac3102ec5f8d36a"
+    },
+    {
+      "path": "packages/vue/dist/components/in-page-navigation/InPageNavigation.vue.d.ts",
+      "bytes": 769,
+      "sha256": "e4b9b3fbcd86d3c611baeb4e7f110b0e10c762192b42edd774eba078dafdb5f2"
+    },
+    {
+      "path": "packages/vue/dist/components/in-page-navigation/InPageNavigation.vue.d.ts.map",
+      "bytes": 350,
+      "sha256": "8bab1cde87254be980a2f43dcca863b94d68e38714a007b24aa35a61120dc02f"
+    },
+    {
+      "path": "packages/vue/dist/components/language-switcher/LanguageSwitcher.vue.d.ts",
+      "bytes": 934,
+      "sha256": "c1e8d719e908462cf01abdd8ac1050ed48ee0b4335bbaf2e3b7b95726677ad6c"
+    },
+    {
+      "path": "packages/vue/dist/components/language-switcher/LanguageSwitcher.vue.d.ts.map",
+      "bytes": 355,
+      "sha256": "086ac009e0c9daf51838df53ddc40c2de09159a23beb8263e573ec45cee02a86"
+    },
+    {
+      "path": "packages/vue/dist/components/link/Link.vue.d.ts",
+      "bytes": 916,
+      "sha256": "e2f3d425a760a2359252d0abf79d6789e99ed1919bd0d5c3aae9d18e113010ee"
+    },
+    {
+      "path": "packages/vue/dist/components/link/Link.vue.d.ts.map",
+      "bytes": 546,
+      "sha256": "463cdc61893fb137d510aefdc4bafb5f956d8314b17b49715e265f1fa8cc6319"
+    },
+    {
+      "path": "packages/vue/dist/components/main-menu/MainMenu.vue.d.ts",
+      "bytes": 1445,
+      "sha256": "5ac4fa17739003796a9bf82b4f10881c432ba97f867cb65325abe4dc6d59cbb2"
+    },
+    {
+      "path": "packages/vue/dist/components/main-menu/MainMenu.vue.d.ts.map",
+      "bytes": 659,
+      "sha256": "1dc59fd1c8bae5fb812e569f7f3f074d032abe013f7e95455544c1d4ed426cc5"
+    },
+    {
+      "path": "packages/vue/dist/components/main-menu/MainMenuBranch.vue.d.ts",
+      "bytes": 710,
+      "sha256": "7f7056db6017692ec244f849c6ad999b0b866689b6708182fe22849ebb05f2c6"
+    },
+    {
+      "path": "packages/vue/dist/components/main-menu/MainMenuBranch.vue.d.ts.map",
+      "bytes": 417,
+      "sha256": "b62752c5e8addd72c7a612f8694964a09fa67b3e3e58d31a165c38fb9241ddae"
+    },
+    {
+      "path": "packages/vue/dist/components/masthead/Masthead.vue.d.ts",
+      "bytes": 508,
+      "sha256": "942fcca2ade96638205beda0f2cce6859724c7b03760eecc49d8334ac4807d26"
+    },
+    {
+      "path": "packages/vue/dist/components/masthead/Masthead.vue.d.ts.map",
+      "bytes": 253,
+      "sha256": "b789cd1dc0a719cb5d26f043522277677d4439e0a5c35ad54ffbf2787a15bfad"
+    },
+    {
+      "path": "packages/vue/dist/components/modal/Modal.vue.d.ts",
+      "bytes": 1899,
+      "sha256": "98796853f4a15f0e1b4b70d1ea093c1a1e4aafa73f538c7eb977681ca2edd30a"
+    },
+    {
+      "path": "packages/vue/dist/components/modal/Modal.vue.d.ts.map",
+      "bytes": 1109,
+      "sha256": "a0041d4aee580d50f8cdf9c6d2cb3dee6b485bf058ea75460850d5bdd0d56ebb"
+    },
+    {
+      "path": "packages/vue/dist/components/modal/stack.d.ts",
+      "bytes": 718,
+      "sha256": "955b84e540170748d85538a3b70730314174a6cf7999fbed42dc542ed07f34ef"
+    },
+    {
+      "path": "packages/vue/dist/components/modal/stack.d.ts.map",
+      "bytes": 727,
+      "sha256": "5c8a2705f83688ffde682c3819aa8f33d3427806b37a6af863a15037ba7a70cc"
+    },
+    {
+      "path": "packages/vue/dist/components/native-select/NativeSelect.vue.d.ts",
+      "bytes": 1622,
+      "sha256": "1782fcc8336bf46641ea9d8fd2cb8bb7dbdc90f983be55bea9037238e93e8cfd"
+    },
+    {
+      "path": "packages/vue/dist/components/native-select/NativeSelect.vue.d.ts.map",
+      "bytes": 1145,
+      "sha256": "7c39f12747cd1ee8d8234a364e50c284e480b053478f93fb76c580af51d3c44c"
+    },
+    {
+      "path": "packages/vue/dist/components/notification-life.d.ts",
+      "bytes": 366,
+      "sha256": "42f2222d135d37bb998eac7aa2845b591dff8ebd3003fa797d588b048085691d"
+    },
+    {
+      "path": "packages/vue/dist/components/notification-life.d.ts.map",
+      "bytes": 368,
+      "sha256": "c173e348556e17f65a1a29469184d4eacbb7e0821a36e4a48915c57366ee1e95"
+    },
+    {
+      "path": "packages/vue/dist/components/pagination/Pagination.vue.d.ts",
+      "bytes": 663,
+      "sha256": "0f6ee612afad0b91a6b925d477f52ec68daba5beef1fde2a3d7b769f3e0b6be4"
+    },
+    {
+      "path": "packages/vue/dist/components/pagination/Pagination.vue.d.ts.map",
+      "bytes": 287,
+      "sha256": "aafff2d3617045818d6aaea0ddb9f320fe6cde943b1dcd5ef2565174b103bc40"
+    },
+    {
+      "path": "packages/vue/dist/components/popup-position.d.ts",
+      "bytes": 424,
+      "sha256": "db809c202cad1f9c97ea6eb84f8706b6d459febda49f788b7363250e547d1057"
+    },
+    {
+      "path": "packages/vue/dist/components/popup-position.d.ts.map",
+      "bytes": 373,
+      "sha256": "46e3a82f287615d61c2fa7955064c47082209f1f15c8b5430bcafdc481101bcf"
+    },
+    {
+      "path": "packages/vue/dist/components/quantity-toggle/QuantityToggle.vue.d.ts",
+      "bytes": 869,
+      "sha256": "d2b1731a3875aa522dd60b411804151491ab6f5c7c48b55e222caa4170fecd10"
+    },
+    {
+      "path": "packages/vue/dist/components/quantity-toggle/QuantityToggle.vue.d.ts.map",
+      "bytes": 406,
+      "sha256": "0f8f3c66040e2479d02e0eb8520a08add37ff5f726710f4700193fb93d0046e7"
+    },
+    {
+      "path": "packages/vue/dist/components/quantity-toggle/validation.d.ts",
+      "bytes": 190,
+      "sha256": "351fc504f5ff63145c7ffc00c482fbe695f33e6bbdbcc88d2be6cc81adc86621"
+    },
+    {
+      "path": "packages/vue/dist/components/quantity-toggle/validation.d.ts.map",
+      "bytes": 312,
+      "sha256": "9533877cf236785f1e2c91e135dcc9ffe3b8b4bbdfe41d5edb15edf4271cb161"
+    },
+    {
+      "path": "packages/vue/dist/components/radio-group/RadioGroup.vue.d.ts",
+      "bytes": 1262,
+      "sha256": "c08ac861d81a1b6722627f4b98e19e6f644002e70ec54031318e43ffa19017f5"
+    },
+    {
+      "path": "packages/vue/dist/components/radio-group/RadioGroup.vue.d.ts.map",
+      "bytes": 761,
+      "sha256": "7262f01217a0ca313ec3b30a9666bdd00846ebcb242e7db8eb35dfb9a46cfaf3"
+    },
+    {
+      "path": "packages/vue/dist/components/range-slider/RangeSlider.vue.d.ts",
+      "bytes": 860,
+      "sha256": "50aba0364920422d9f78d2602403589b318a6de23bd5c63911a9b0dd079a9ade"
+    },
+    {
+      "path": "packages/vue/dist/components/range-slider/RangeSlider.vue.d.ts.map",
+      "bytes": 397,
+      "sha256": "f921c06cc92b023d32d1a85cae1be803a8171cd9a5d988d9ba13efb7ab2a042d"
+    },
+    {
+      "path": "packages/vue/dist/components/resize/Resize.vue.d.ts",
+      "bytes": 844,
+      "sha256": "e6cce9ad46ce76e834743906591c298b844cbc5cfbff18c2850e9db42ec1b183"
+    },
+    {
+      "path": "packages/vue/dist/components/resize/Resize.vue.d.ts.map",
+      "bytes": 300,
+      "sha256": "122913878cf7c11d0360a0401ea8262f7315b7b463b40fcafc36d1140a2249c8"
+    },
+    {
+      "path": "packages/vue/dist/components/side-navigation/SideNavigation.vue.d.ts",
+      "bytes": 707,
+      "sha256": "d87bb546f154182e33132f27cb73f7e397aaed1a5624c5a2271be964cbbd7525"
+    },
+    {
+      "path": "packages/vue/dist/components/side-navigation/SideNavigation.vue.d.ts.map",
+      "bytes": 322,
+      "sha256": "03feb49df7702ceae3bc81ae096d382cb1e89aea02c99e6d88f9f0bd586e843b"
+    },
+    {
+      "path": "packages/vue/dist/components/skip-link/SkipLink.vue.d.ts",
+      "bytes": 508,
+      "sha256": "3bb2bdd677c3a7dd2a4f523ed17c86d7defd280823ba95d3b4664defea326dd0"
+    },
+    {
+      "path": "packages/vue/dist/components/skip-link/SkipLink.vue.d.ts.map",
+      "bytes": 255,
+      "sha256": "368082d9d027f7eb9b6d2e5124b843b3ad80f932db133252cd33227609c020c6"
+    },
+    {
+      "path": "packages/vue/dist/components/snackbar/Snackbar.vue.d.ts",
+      "bytes": 1016,
+      "sha256": "bd8c621a72cb43974f3bb55f27851366db7a630b3514ba2c059daf89af446e56"
+    },
+    {
+      "path": "packages/vue/dist/components/snackbar/Snackbar.vue.d.ts.map",
+      "bytes": 413,
+      "sha256": "3d433750bcbf35ced001b75489f6d6c3a4137f80b39d9f364f1ffedbb6b3a056"
+    },
+    {
+      "path": "packages/vue/dist/components/spinner/Spinner.vue.d.ts",
+      "bytes": 504,
+      "sha256": "2eb9dddaf56f52076163c6840624576d500205be7e0f3a830f3e8dd4f80f28ee"
+    },
+    {
+      "path": "packages/vue/dist/components/spinner/Spinner.vue.d.ts.map",
+      "bytes": 249,
+      "sha256": "7b8e6a8bd0f74971cde8c3a19b815382d683ad4bf86d5ec7e4b2ae580720fab6"
+    },
+    {
+      "path": "packages/vue/dist/components/step-indicator/StepIndicator.vue.d.ts",
+      "bytes": 673,
+      "sha256": "ef75ba6fb9f7dba53fa5a36fb4e207a0634cb3514267709738a85a7bec7107e8"
+    },
+    {
+      "path": "packages/vue/dist/components/step-indicator/StepIndicator.vue.d.ts.map",
+      "bytes": 297,
+      "sha256": "c9019e5037a5184d277141a728fc3981274932683ffe7af35da0750cdd9ea1c5"
+    },
+    {
+      "path": "packages/vue/dist/components/structured-list/StructuredList.vue.d.ts",
+      "bytes": 1472,
+      "sha256": "abd26a6caea22f71cb3b8a2214bfba596a1e443c240bfa660fdda836987ba254"
+    },
+    {
+      "path": "packages/vue/dist/components/structured-list/StructuredList.vue.d.ts.map",
+      "bytes": 723,
+      "sha256": "98e819883a4f22fb77382a3a543514fb383d33189e98f594df57ae75256e34b4"
+    },
+    {
+      "path": "packages/vue/dist/components/switch/Switch.vue.d.ts",
+      "bytes": 1259,
+      "sha256": "8f3053ecd3742566f23d08fa81e5fbd4ce1aa676c6beeb7d03e16d896cfcb510"
+    },
+    {
+      "path": "packages/vue/dist/components/switch/Switch.vue.d.ts.map",
+      "bytes": 686,
+      "sha256": "2b92c909a2df970b4c4b4ae2421dc826681c68a8ee918071143718b7af5b6bac"
+    },
+    {
+      "path": "packages/vue/dist/components/tab-bar/TabBar.vue.d.ts",
+      "bytes": 1066,
+      "sha256": "98953addfc7fe5e357b64c0d7e4672d6b890acaeac36c8ce9255fac71cedf746"
+    },
+    {
+      "path": "packages/vue/dist/components/tab-bar/TabBar.vue.d.ts.map",
+      "bytes": 557,
+      "sha256": "3c0762261b3fe6a855a41a4a90f92f6fe0fab439878aca4357a388c1fe98763f"
+    },
+    {
+      "path": "packages/vue/dist/components/table/Table.vue.d.ts",
+      "bytes": 1233,
+      "sha256": "54dfc9bb38bec43b7cbe017fa366617caea8c6bcb401c50f394b9c0aff0f049f"
+    },
+    {
+      "path": "packages/vue/dist/components/table/Table.vue.d.ts.map",
+      "bytes": 603,
+      "sha256": "03c9c51faae3d24cff469c9c5b2729538d9aeadc8b6bd7400acc39c698de0d12"
+    },
+    {
+      "path": "packages/vue/dist/components/tabs/Tabs.vue.d.ts",
+      "bytes": 1529,
+      "sha256": "8d1a52ddb101fe07279b31ce9ed9c393b9d2e1001a6a08066a12d13db13f907a"
+    },
+    {
+      "path": "packages/vue/dist/components/tabs/Tabs.vue.d.ts.map",
+      "bytes": 885,
+      "sha256": "14d01396cae1417fb0471b123cb63bff21cbd5946bf68aa6a8dd4dee48a954d6"
+    },
+    {
+      "path": "packages/vue/dist/components/tag/Tag.vue.d.ts",
+      "bytes": 986,
+      "sha256": "c9af7c329151ef1e1bd3a4a5db0d2b91fd7e6d7af8ea1d850cc75311f48c3042"
+    },
+    {
+      "path": "packages/vue/dist/components/tag/Tag.vue.d.ts.map",
+      "bytes": 335,
+      "sha256": "c99c7b7a09d42916b8c9365584a5910bb5dce159fde343480eb7993e457fec75"
+    },
+    {
+      "path": "packages/vue/dist/components/text-input/TextInput.vue.d.ts",
+      "bytes": 1250,
+      "sha256": "fb8595b5484bac2dde401dda96d033aedf90ae125c42ad1a6302fefe4d972ea8"
+    },
+    {
+      "path": "packages/vue/dist/components/text-input/TextInput.vue.d.ts.map",
+      "bytes": 759,
+      "sha256": "4a2d582dc84259185469de7cbb48a5585a5fd69d11b1487784fae217af4084e5"
+    },
+    {
+      "path": "packages/vue/dist/components/text-list/TextList.vue.d.ts",
+      "bytes": 925,
+      "sha256": "02a48e9a5ffaa24df2a32153377ed8aa536f8db5b05deb3549c887b550697dfa"
+    },
+    {
+      "path": "packages/vue/dist/components/text-list/TextList.vue.d.ts.map",
+      "bytes": 613,
+      "sha256": "c224a7ffb490f8064d3e2e74f54198286da44591e0a06156d4c53dd5dc254339"
+    },
+    {
+      "path": "packages/vue/dist/components/textarea/Textarea.vue.d.ts",
+      "bytes": 1247,
+      "sha256": "06db57388cddfbf1faf3e573fb35661254f6f934c744a227e683877bc75051bb"
+    },
+    {
+      "path": "packages/vue/dist/components/textarea/Textarea.vue.d.ts.map",
+      "bytes": 755,
+      "sha256": "16f4e754e1c3dd47aa0f55c52f92270fa7aaa4d6b02f31e4049241867c984d98"
+    },
+    {
+      "path": "packages/vue/dist/components/toast/Toast.vue.d.ts",
+      "bytes": 743,
+      "sha256": "4b77b0d0426fbed56cbde3f99d11b506a41b5de359eea0a28097eeb592d2b3a9"
+    },
+    {
+      "path": "packages/vue/dist/components/toast/Toast.vue.d.ts.map",
+      "bytes": 314,
+      "sha256": "077c25369659fff28fd5442b0ec84d845d4fcc490b73aa85f57506edbc951b51"
+    },
+    {
+      "path": "packages/vue/dist/components/tooltip/Tooltip.vue.d.ts",
+      "bytes": 1026,
+      "sha256": "0e89779908d3d39f9e4b411df11d90441ba101379686ebcea07513495579d05d"
+    },
+    {
+      "path": "packages/vue/dist/components/tooltip/Tooltip.vue.d.ts.map",
+      "bytes": 583,
+      "sha256": "d5a01f0ac54cc229734c61efdf80e53b27c5c9255901feda4084116da9f8f878"
+    },
+    {
+      "path": "packages/vue/dist/components/tts/TTS.vue.d.ts",
+      "bytes": 791,
+      "sha256": "22c0f122d25e49815350ebb08a35c29771ab6bac35581a4d451c20b31bc53a04"
+    },
+    {
+      "path": "packages/vue/dist/components/tts/TTS.vue.d.ts.map",
+      "bytes": 372,
+      "sha256": "c1c5d765b7b9fc0f6f6b67613587ff3f59db0f9852b696815aa55574bd247b11"
+    },
+    {
+      "path": "packages/vue/dist/components/tutorial-panel/TutorialPanel.vue.d.ts",
+      "bytes": 2034,
+      "sha256": "8704c81a688878bcd7df5002bb3bbe63f1f383adaba7dc38ccf9c406d0b98d5d"
+    },
+    {
+      "path": "packages/vue/dist/components/tutorial-panel/TutorialPanel.vue.d.ts.map",
+      "bytes": 909,
+      "sha256": "d6f3a9a00f04e7bfdef32b3b563bbf483757fb093c649419ae3d7f53255a802b"
+    },
+    {
+      "path": "packages/vue/dist/components/types.d.ts",
+      "bytes": 1191,
+      "sha256": "7f25a23d6de2cfe05c3712af2aaead75af8655dd1bbe91d20429b38b65c3cc10"
+    },
+    {
+      "path": "packages/vue/dist/components/types.d.ts.map",
+      "bytes": 1271,
+      "sha256": "d2c1a2a08cfbf44ced75173647123e0e0b5a93242258b4b6e1efc3855245f0c9"
+    },
+    {
+      "path": "packages/vue/dist/components/visually-hidden/VisuallyHidden.vue.d.ts",
+      "bytes": 909,
+      "sha256": "612b160280ac9fd54cdd5748d6dd615d3460a904065f902c25d2411cfbbefb2a"
+    },
+    {
+      "path": "packages/vue/dist/components/visually-hidden/VisuallyHidden.vue.d.ts.map",
+      "bytes": 610,
+      "sha256": "e8b1e65c389c0cd820de8f0a0cdc2e1682eac5a2af0bb8b1d4bca48114019d08"
+    },
+    {
+      "path": "packages/vue/dist/context-nHCvl8hV.js",
+      "bytes": 730,
+      "sha256": "61686afb4d5032c9b17cad6b5cf95750161074baf2bda205b045dffead695f38"
+    },
+    {
+      "path": "packages/vue/dist/contextual-help.js",
+      "bytes": 61,
+      "sha256": "38f5408da3a1a33fba6e9db767c849e7895d8151e66a24be52290da87c3527ed"
+    },
+    {
+      "path": "packages/vue/dist/control-BMcW8im7.js",
+      "bytes": 658,
+      "sha256": "35b2d45d36f7a870ff0ed2a3d466fc0dd05271a0b863dfb170af84b41942cd3b"
+    },
+    {
+      "path": "packages/vue/dist/critical-alert.js",
+      "bytes": 60,
+      "sha256": "bce4680521a083728ab5d4e848e5b15fd2641f23867838b30500a994351da426"
+    },
+    {
+      "path": "packages/vue/dist/date-input.js",
+      "bytes": 56,
+      "sha256": "547814d60418ce794f923477676173282c51e92359b40ab91193ebf6157787a3"
+    },
+    {
+      "path": "packages/vue/dist/disclosure.js",
+      "bytes": 57,
+      "sha256": "27c9b8f339a9b34d1c7b59d5c07b381a0f7d489017bf36aa79da2ab7fa63823e"
+    },
+    {
+      "path": "packages/vue/dist/fab.js",
+      "bytes": 50,
+      "sha256": "13ec490617b6de11c5703a9c03a33386d28f6998f24ec504f60a16ec0a82ed75"
+    },
+    {
+      "path": "packages/vue/dist/favicon.js",
+      "bytes": 54,
+      "sha256": "955d6e47f46cd2073e084f6cfd666e90a11ef35efae5541bd7917ad7cd236277"
+    },
+    {
+      "path": "packages/vue/dist/file-upload.js",
+      "bytes": 57,
+      "sha256": "c6f8a39de708e1cdfd6b5b2ed1f3db38f13fd29d53d64f31d8d5a73b26cc3f81"
+    },
+    {
+      "path": "packages/vue/dist/footer.js",
+      "bytes": 53,
+      "sha256": "652ae5b1fca8b6391a6c926c34902d4a38bcd107439f2b934bc45a896e727791"
+    },
+    {
+      "path": "packages/vue/dist/header.js",
+      "bytes": 53,
+      "sha256": "1ba1044a81701b4b9b50cbdf8b7253511a8db763c0f37bd56ed924649c917c29"
+    },
+    {
+      "path": "packages/vue/dist/help-panel.js",
+      "bytes": 56,
+      "sha256": "1649271a9d9a708da78911d782f153e7533e083c56b08525c7306981363cdc90"
+    },
+    {
+      "path": "packages/vue/dist/identifier.js",
+      "bytes": 57,
+      "sha256": "727abea2a2e60be92cc6d3c3c73a67e52fe26e92b9342481bdc74fde7cf54f7a"
+    },
+    {
+      "path": "packages/vue/dist/image.js",
+      "bytes": 52,
+      "sha256": "d457fe910206ed217c85899a8c604b14c7daeb8c2b9467b0e126d96acd980bf7"
+    },
+    {
+      "path": "packages/vue/dist/in-page-navigation.js",
+      "bytes": 63,
+      "sha256": "267d919e9dbd7aec7228bf6a48da55ff92c89ad15559bdeed79873b3716ea19e"
+    },
+    {
+      "path": "packages/vue/dist/index.d.ts",
+      "bytes": 4564,
+      "sha256": "e89cf3ffe73b028d1d4005c473a3a965eeb5cb965a9789af73456a75e7a13a15"
+    },
+    {
+      "path": "packages/vue/dist/index.d.ts.map",
+      "bytes": 3203,
+      "sha256": "ab01701e7687c4563522a012650f5e71a9bea9b8386675e1c398b375504fc32c"
+    },
+    {
+      "path": "packages/vue/dist/index.js",
+      "bytes": 3708,
+      "sha256": "18422b300ab369d731dc01892833817ef3802f9ed179f73a52b7d5d7d422b6e1"
+    },
+    {
+      "path": "packages/vue/dist/language-switcher.js",
+      "bytes": 63,
+      "sha256": "a1481c318524bb42a1536f185571c4a6eb9ed9cb954ace8631970f1fa3c472ae"
+    },
+    {
+      "path": "packages/vue/dist/link.js",
+      "bytes": 51,
+      "sha256": "7260be9f0562a245daba6bdbd104260b709382b1c76bc111c8a5a89cb88ecc67"
+    },
+    {
+      "path": "packages/vue/dist/main-menu.js",
+      "bytes": 55,
+      "sha256": "4ad2df7348e8530f72026e758402e34f0fb884f91b8749b3769742f099efd095"
+    },
+    {
+      "path": "packages/vue/dist/masthead.js",
+      "bytes": 55,
+      "sha256": "1fd84a0666c9bb6be422af89f0f23545b9d9e057f7e2d9aeef3b99e46b0f1e0e"
+    },
+    {
+      "path": "packages/vue/dist/modal.js",
+      "bytes": 52,
+      "sha256": "774e0ca827b2fcd21e6d7500fe65400169eae62d6c448953a5b5b9068a162669"
+    },
+    {
+      "path": "packages/vue/dist/native-select.js",
+      "bytes": 59,
+      "sha256": "c528c40b58f27baab62000b906518d076b7f6888945f16c689ab6fde5a353336"
+    },
+    {
+      "path": "packages/vue/dist/notification-life-DQ7fhKr6.js",
+      "bytes": 1173,
+      "sha256": "116b2901c80bcd7a39e559f57dd3b1f24308a4843dc82fadd58f923f071ac62b"
+    },
+    {
+      "path": "packages/vue/dist/pagination.js",
+      "bytes": 57,
+      "sha256": "cd7fec99dfe2efe6ca10a35c9c094b1e174e02ff04d48a277f4970b8faf74ae6"
+    },
+    {
+      "path": "packages/vue/dist/popup-position-CBJrhgVH.js",
+      "bytes": 3088,
+      "sha256": "8a9a8156014eca8e332c0d103b9debaa2a7fb664a8f4848919e6a9258bb71c52"
+    },
+    {
+      "path": "packages/vue/dist/quantity-toggle.js",
+      "bytes": 61,
+      "sha256": "d2deabadec5d1478646309a38dec920820a12db1e7ac2c94b71b747c7a413053"
+    },
+    {
+      "path": "packages/vue/dist/radio-group.js",
+      "bytes": 57,
+      "sha256": "46b1aa27a5950300113b8dcc6175edcfc8e903639c6b09c9b0efdd322da08b3e"
+    },
+    {
+      "path": "packages/vue/dist/range-slider.js",
+      "bytes": 58,
+      "sha256": "5023fbddec2055b0dce483bf4b3713bb38d1eb02391701845a28e02dd1417242"
+    },
+    {
+      "path": "packages/vue/dist/resize.js",
+      "bytes": 53,
+      "sha256": "4cd950908c7a2bdb558dde8e48f72471020bd132a659c263b090489e26e2094d"
+    },
+    {
+      "path": "packages/vue/dist/side-navigation.js",
+      "bytes": 61,
+      "sha256": "ac4254dbc5d7ba1bff999f3d10db0b7a5c4a9958cc98e0402c562ff50c9d656c"
+    },
+    {
+      "path": "packages/vue/dist/skip-link.js",
+      "bytes": 55,
+      "sha256": "6d544fa3c0293b54cec37fe21203bfa84b171506e043ef2b7f543bed33a27d23"
+    },
+    {
+      "path": "packages/vue/dist/snackbar.js",
+      "bytes": 55,
+      "sha256": "ebf82597fb83b78d05f9ebd3e4296b82ee27e67d0f20ce3dda60acf1d25de140"
+    },
+    {
+      "path": "packages/vue/dist/spinner.js",
+      "bytes": 54,
+      "sha256": "d411c1166b0a050121a8b4c80abf95aa9cf8143e313781cc2dc754776e695f0e"
+    },
+    {
+      "path": "packages/vue/dist/stack-BDYFYqDR.js",
+      "bytes": 2078,
+      "sha256": "b1789613a0cc59a5833e857dde60604c14067d2da2ff30a192fa065945e19140"
+    },
+    {
+      "path": "packages/vue/dist/step-indicator.js",
+      "bytes": 60,
+      "sha256": "c29865728cc44c8408466d89a59b5287321977f30fe41611dc1bea0f58bee4d1"
+    },
+    {
+      "path": "packages/vue/dist/structured-list.js",
+      "bytes": 61,
+      "sha256": "f543b45bb3cc5efa6bfc01df1bf217ecd06b888ad7b152e8b612d77ee46ac427"
+    },
+    {
+      "path": "packages/vue/dist/switch.js",
+      "bytes": 53,
+      "sha256": "d1132885f926c07a91ba51672c0d6e5debebb01ec71c4e8e94651772a46e7ff7"
+    },
+    {
+      "path": "packages/vue/dist/tab-bar.js",
+      "bytes": 53,
+      "sha256": "305848230dc9a19b9949bdcd327751cb1e7486723694a27addda5862eb0e57ee"
+    },
+    {
+      "path": "packages/vue/dist/table.js",
+      "bytes": 52,
+      "sha256": "4a882e2f24bf3df7c45ba71ba0a0ceafbe7d1355d09891aeaddf931b09a6cd03"
+    },
+    {
+      "path": "packages/vue/dist/tabs.js",
+      "bytes": 51,
+      "sha256": "e2bc43b631ec6aeaf234ba3d08888b74c7d770904430ccdf68f80e4b9e314989"
+    },
+    {
+      "path": "packages/vue/dist/tag.js",
+      "bytes": 50,
+      "sha256": "3b84cf04418cf8493433dc453eb0e5d46477d9ff9f28a0da0a69d262a5a730f9"
+    },
+    {
+      "path": "packages/vue/dist/text-input.js",
+      "bytes": 56,
+      "sha256": "ebb9c26b83c9d3efd6cc44e7bcb07b187e4baa07826add1fddc77460f56fb103"
+    },
+    {
+      "path": "packages/vue/dist/text-list.js",
+      "bytes": 55,
+      "sha256": "06f0f2e75b75a5a02eab5e9f37d9d01483bd93729a642c500f6b156330f78584"
+    },
+    {
+      "path": "packages/vue/dist/textarea.js",
+      "bytes": 55,
+      "sha256": "4368bdfbb795711075f40b0fb3c61351d95f7cfe7f49289efd3fdc1eb1d7c3d0"
+    },
+    {
+      "path": "packages/vue/dist/toast.js",
+      "bytes": 52,
+      "sha256": "5b563a91cc4ed6ed3ff63731fb94b833deee71faeea1c36abad11b32efe5e96c"
+    },
+    {
+      "path": "packages/vue/dist/tooltip.js",
+      "bytes": 54,
+      "sha256": "fb74b87bda46c76cf9002469269b43646f765d68300020b0e81ab5b0e6f9a016"
+    },
+    {
+      "path": "packages/vue/dist/tts.js",
+      "bytes": 50,
+      "sha256": "7bf5edd49047a52ee376593fe7e9b173d56af01135fb817a40873a98bde2a0fd"
+    },
+    {
+      "path": "packages/vue/dist/tutorial-panel.js",
+      "bytes": 60,
+      "sha256": "62ea9d2ada2d494e03ceb9880b55109ca5e3acb3d2d000b5b8ede88abc4a465d"
+    },
+    {
+      "path": "packages/vue/dist/visually-hidden.js",
+      "bytes": 61,
+      "sha256": "469c99a824063beb939e8ce5122256b6b7f9a7119e9076d95e275ae46bd40ee8"
+    }
+  ],
+  "scope": "Actual fresh compiler command against public built package exports and exact source bytes. No native behavior, SSR/hydration/resume, manual, same-metadata-HEAD, hosted-CI or release acceptance."
+}

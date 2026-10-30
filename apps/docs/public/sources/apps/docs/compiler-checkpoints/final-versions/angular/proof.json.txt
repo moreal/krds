@@ -1,0 +1,1041 @@
+{
+  "schemaVersion": 1,
+  "framework": "angular",
+  "kind": "native-public-package-compiler-checkpoint",
+  "checkpointOnly": true,
+  "currentCandidate": false,
+  "releaseAccepted": false,
+  "publicationAuthorized": false,
+  "sourceCheckpointHead": "fa1a13fd63f107549669155aa3ca6e1321c71c10",
+  "metadataState": "after completed Nx version apply; before final metadata commit",
+  "publicPackageVersion": "0.1.0",
+  "toolchain": {
+    "node": "24.18.0",
+    "yarn": "4.14.1",
+    "launcher": "node tools/yarn.mjs"
+  },
+  "sourceExamples": [
+    {
+      "path": "apps/fixture-angular/src/public-catalog-examples.ts",
+      "bytes": 9335,
+      "sha256": "d3ab112ccc88d186fdf177e25022d4cc433c5e168d595b751401e5691666d4c1",
+      "componentIds": [
+        "accessible-media",
+        "accordion",
+        "back-button",
+        "badge",
+        "bottom-sheet",
+        "breadcrumb",
+        "button",
+        "calendar",
+        "carousel",
+        "checkbox",
+        "coach-mark",
+        "contextual-help",
+        "critical-alert",
+        "date-input",
+        "disclosure",
+        "fab",
+        "favicon",
+        "file-upload",
+        "footer",
+        "header",
+        "help-panel",
+        "identifier",
+        "image",
+        "in-page-navigation",
+        "language-switcher",
+        "link",
+        "main-menu",
+        "masthead",
+        "modal",
+        "native-select",
+        "pagination",
+        "quantity-toggle",
+        "radio-group",
+        "range-slider",
+        "resize",
+        "side-navigation",
+        "skip-link",
+        "snackbar",
+        "spinner",
+        "step-indicator",
+        "structured-list",
+        "switch",
+        "tab-bar",
+        "table",
+        "tabs",
+        "tag",
+        "text-input",
+        "text-list",
+        "textarea",
+        "toast",
+        "tooltip",
+        "tts",
+        "tutorial-panel",
+        "visually-hidden"
+      ]
+    }
+  ],
+  "compiler": {
+    "name": "compiler-angular-escalated",
+    "argv": [
+      "node",
+      "tools/yarn.mjs",
+      "workspace",
+      "@unofficial-krds/fixture-angular",
+      "build:local"
+    ],
+    "cwd": "/Users/moreal/github/moreal/krds",
+    "environmentOverrides": {
+      "NG_BUILD_MAX_WORKERS": "1",
+      "STORYBOOK_DISABLE_TELEMETRY": "1"
+    },
+    "startedAt": "2026-10-30T14:08:06.686539+00:00",
+    "finishedAt": "2026-10-30T14:08:10.772736+00:00",
+    "exitCode": 0
+  },
+  "compilerLogs": [
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/angular/stdout.log",
+      "bytes": 491,
+      "sha256": "decb1cccc9cdea364347022a4fd3345231f5595820175b6408ab43ed4c0a9001"
+    },
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/angular/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "packageBuild": {
+    "name": "package-angular",
+    "argv": [
+      "node",
+      "tools/yarn.mjs",
+      "workspace",
+      "@unofficial-krds/angular",
+      "build:local"
+    ],
+    "cwd": "/Users/moreal/github/moreal/krds",
+    "environmentOverrides": {
+      "NG_BUILD_MAX_WORKERS": "1",
+      "STORYBOOK_DISABLE_TELEMETRY": "1"
+    },
+    "startedAt": "2026-10-30T14:05:49.018004+00:00",
+    "finishedAt": "2026-10-30T14:05:54.248024+00:00",
+    "exitCode": 0
+  },
+  "packageBuildLogs": [
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log",
+      "bytes": 12533,
+      "sha256": "ebcebffef05f4b6ee9a5e41b73f2b0b98f9a1039dfbf45e78b966f1d2b2a3d53"
+    },
+    {
+      "path": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log",
+      "bytes": 29332,
+      "sha256": "9a09cb98da8d7616e75959b39750b86ea687430909f857a8be58db5c2d220f82"
+    }
+  ],
+  "configurationInputs": [
+    {
+      "path": "tsconfig.base.json",
+      "bytes": 415,
+      "sha256": "778cbfbad474360eb2a92eb892b6e6ad1bf9787cb13570c2e30b815c26ae2390"
+    },
+    {
+      "path": "packages/angular/package.json",
+      "bytes": 11990,
+      "sha256": "6f2ca28dc003545ae273842023240c079510c8d4c7f48a29ffbc9fc58d7888de"
+    },
+    {
+      "path": "packages/angular/tsconfig.json",
+      "bytes": 321,
+      "sha256": "6da1d593511ff95c66e84a58ab4471ce8a22c1d8c3cf8a11dc2c5e7033b9e11a"
+    },
+    {
+      "path": "apps/fixture-angular/package.json",
+      "bytes": 2167,
+      "sha256": "cc59371c5c494a6592d8d0c0ba1a886caf6de0a226ea080ef95ba8b8369fe522"
+    },
+    {
+      "path": "apps/fixture-angular/tsconfig.json",
+      "bytes": 220,
+      "sha256": "6e90fa9ad598de3557f9a222ef04210d8b76ba11f763ab3f68cfa17ec933f61c"
+    },
+    {
+      "path": "apps/fixture-angular/angular.json",
+      "bytes": 777,
+      "sha256": "996b71af6f749a79286d11c7a08a8bc33accadd782892e7f55b3cebfba5f86bf"
+    },
+    {
+      "path": "packages/angular/ng-package.json",
+      "bytes": 326,
+      "sha256": "630370d429024ea24c4b5b89afd4756c3acba3f2528138a736751d9a448cc705"
+    }
+  ],
+  "consumedPackageOutputs": [
+    {
+      "path": "packages/angular/dist/.npmignore",
+      "bytes": 1333,
+      "sha256": "3c90d7d4cb6937fa535d47efc0d31b3513d38b4f5487be15bbdaa5f7b0c1c524"
+    },
+    {
+      "path": "packages/angular/dist/README.md",
+      "bytes": 4029,
+      "sha256": "5f86b0cfafc36b6717f1c1907056b0771dd150d5afb0089b0e65dfcaa5eb6969"
+    },
+    {
+      "path": "packages/angular/dist/accessible-media/package.json",
+      "bytes": 145,
+      "sha256": "698ef1fa6306a416a934617fd0eafa4dae7a56ff2d33e8d273865eaf634fe8c8"
+    },
+    {
+      "path": "packages/angular/dist/accordion/package.json",
+      "bytes": 131,
+      "sha256": "79909df0994f51a92a44a3a0a16817e13a16ea03598cacf84bda81de6b9224f9"
+    },
+    {
+      "path": "packages/angular/dist/back-button/package.json",
+      "bytes": 135,
+      "sha256": "c6fa67faa25414ced529026961fc8f6606143d930d723969dd918baea3e28de4"
+    },
+    {
+      "path": "packages/angular/dist/badge/package.json",
+      "bytes": 123,
+      "sha256": "c25965cb6f3febaac593a0b3f948578d9fae5c25500ecd20af0e92fb51ab9de3"
+    },
+    {
+      "path": "packages/angular/dist/bottom-sheet/package.json",
+      "bytes": 137,
+      "sha256": "66a1c1c09ff1b00a890e7fd8b3ec01470e7343e239fe0725393d73d0a839db06"
+    },
+    {
+      "path": "packages/angular/dist/breadcrumb/package.json",
+      "bytes": 133,
+      "sha256": "9235c72ec9977ae0cfcbe340d22741973f3248d65dab3ec689ad51208e2748e2"
+    },
+    {
+      "path": "packages/angular/dist/button/package.json",
+      "bytes": 125,
+      "sha256": "f648a9c81cb4b6ed075467948849689968c2d985c5631a8497131ce19f87cb43"
+    },
+    {
+      "path": "packages/angular/dist/calendar/package.json",
+      "bytes": 129,
+      "sha256": "805f884113d76fef4e262ce9a5cd62de745a4cfab68cb430775e6dc565c0fd63"
+    },
+    {
+      "path": "packages/angular/dist/carousel/package.json",
+      "bytes": 129,
+      "sha256": "8f7fdf984acec7e74df16b1907b4752964a664bca961229c5f1272e058a90116"
+    },
+    {
+      "path": "packages/angular/dist/checkbox/package.json",
+      "bytes": 129,
+      "sha256": "b4dc6e58b9c2229278f7f7e8fae4e217a67025f70637f092e36c1004cd8bfcd6"
+    },
+    {
+      "path": "packages/angular/dist/coach-mark/package.json",
+      "bytes": 133,
+      "sha256": "4fa228dec1f093ffebf533ede2d8e4906ca30bbbd99a171855d32f593f6e3c99"
+    },
+    {
+      "path": "packages/angular/dist/contextual-help/package.json",
+      "bytes": 143,
+      "sha256": "a5e2d066d3e9701ff9116620c2f0da85c2c84b55c4bf4f4d1aaa0767cf9ee852"
+    },
+    {
+      "path": "packages/angular/dist/critical-alert/package.json",
+      "bytes": 141,
+      "sha256": "e9edfdc0fae8b8cb8c42b1b2ea6457e13b59ff1e7e2a43e19854635162310de6"
+    },
+    {
+      "path": "packages/angular/dist/date-input/package.json",
+      "bytes": 133,
+      "sha256": "a51991ad10457c02b20f2fc566642a51c05fd7620c315f2fe830f502de800e12"
+    },
+    {
+      "path": "packages/angular/dist/disclosure/package.json",
+      "bytes": 133,
+      "sha256": "7b643c4d27a95ff0ea5343ef5479df01e2da9c05ce58b0ede18563d16e5b812f"
+    },
+    {
+      "path": "packages/angular/dist/fab/package.json",
+      "bytes": 119,
+      "sha256": "99385af7cf9da9a8597b80f88c2cc2f2f51183b1b70eb42ed0b03ea49bf213f5"
+    },
+    {
+      "path": "packages/angular/dist/favicon/package.json",
+      "bytes": 127,
+      "sha256": "1aa2effe4d03a7da7d114a9ad3777eb901c59e3c4dd7a454b2641d8bf465f925"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-accessible-media.mjs",
+      "bytes": 60,
+      "sha256": "790604520642034f46d5b40dc2153193d7a1be82f4724748ad8d43cd752206be"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-accordion.mjs",
+      "bytes": 54,
+      "sha256": "c608d8c6da9136e03558704ec1e028728eda158e7efb38b9797d1488b77111e0"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-back-button.mjs",
+      "bytes": 55,
+      "sha256": "a330457136494572a539890d3b77e3c8ca7d2cfb1cc07dc7fb078e23092ada98"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-badge.mjs",
+      "bytes": 50,
+      "sha256": "76f0db8b93772b2257090bd31dacd72900c5d4dc92be67008546f9ff10e2ff2e"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-bottom-sheet.mjs",
+      "bytes": 56,
+      "sha256": "00458bef036c6de1ab28da06193aa35e527da89facf43ff58f1d0f317c6aaf15"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-breadcrumb.mjs",
+      "bytes": 55,
+      "sha256": "14d1a998c95cf9425e0c6b9d6c1644dd2583544342d6e08629f7598a54887e9f"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-button.mjs",
+      "bytes": 51,
+      "sha256": "91d216be80cf42ec5076250e128a54225099364859f9f6d57e0bbb19ede74895"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-calendar.mjs",
+      "bytes": 53,
+      "sha256": "92fd8b653d2f98f355b940c46cc74ac0093baed3298639cc5065505083f4c416"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-carousel.mjs",
+      "bytes": 53,
+      "sha256": "4e778c30688bd16d12571256e682fa41817e4b41a041957a2da17a8d242addb2"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-checkbox.mjs",
+      "bytes": 53,
+      "sha256": "dc9d59be93755ddcdac9f66ee5c88a9b80342efb0e6b54aaa978bf9373fc1551"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-coach-mark.mjs",
+      "bytes": 54,
+      "sha256": "37ad19553dfcea6e6157607ae0c719e4f274a130da15bf38d7d9493d86c191c6"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-contextual-help.mjs",
+      "bytes": 59,
+      "sha256": "ab0d8881882094b359a33ade6ccf3c5c008a4b1c6ea980eb3073cd3dd492b80e"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-critical-alert.mjs",
+      "bytes": 58,
+      "sha256": "b1d66b21e14b5bbe42f37846ac2ec9e0e6e40a1f0a54796aea532897464f097f"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-date-input.mjs",
+      "bytes": 54,
+      "sha256": "be76d675b7951dd152c2a9fafd76f44a46242de76e9ad70edd3eaa603ae3fb10"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-disclosure.mjs",
+      "bytes": 55,
+      "sha256": "2b88dc3e7d0876ea90ef88b973df750fcb894768dc92ef2a50af70dde874f059"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-fab.mjs",
+      "bytes": 48,
+      "sha256": "4027e5d324d2567c6b5ab4d1566cedbb524ddb7ee29087de7f19d1397efe1d03"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-favicon.mjs",
+      "bytes": 52,
+      "sha256": "2cb38fcd55f306fd0d6867e033fe1a0a6a842fb6dc86aad133123107f55d3510"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-file-upload.mjs",
+      "bytes": 55,
+      "sha256": "4d5212e848e87d2a40e4bba1d714ad107f55c229c6fef3e4ec7d6296f94d125c"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-footer.mjs",
+      "bytes": 51,
+      "sha256": "4d83d20ba57ba3e2ccb413231f1666b7e1ecba28201b7a8c1bf79517d43f4300"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-forms.mjs",
+      "bytes": 148,
+      "sha256": "3fb8f2c5cbc5d6e55484577e6b99c51ba4ff37f2adbc9178d09fb5fb059c8b97"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-header.mjs",
+      "bytes": 51,
+      "sha256": "596b2054ee32520c57b957712e0776595713bd5f31267a1e8397e842f023ec9d"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-help-panel.mjs",
+      "bytes": 54,
+      "sha256": "44806d772b8176dc31d57fe19e745a3828100b2a92d12b04a0a8990036758dbf"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-identifier.mjs",
+      "bytes": 55,
+      "sha256": "da890d2de479db03ef742f3c32cbcdcfe87609716753957b2c2020add6d87b9f"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-image.mjs",
+      "bytes": 50,
+      "sha256": "8b5d82440cab56a7577c671dc37bec72a1c99037afdf99946856ad0e6f6fa912"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-in-page-navigation.mjs",
+      "bytes": 61,
+      "sha256": "acb188212af479b1f8b3bedc26e4bda8f2b05e57b07b3a3400e154fa4f15d0bb"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-language-switcher.mjs",
+      "bytes": 61,
+      "sha256": "4e1346b6adbeda1691e507c2fdd2a1050530e47d3c1e2480877af7877416c1f0"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-link.mjs",
+      "bytes": 49,
+      "sha256": "83fe531018543335cc532b298328ca659f2be48be1d821ece2613e58524db550"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-main-menu.mjs",
+      "bytes": 53,
+      "sha256": "708e4229778325e3803a934c87bf6d0a7741a83068b7e994c77fa745383d91b9"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-masthead.mjs",
+      "bytes": 53,
+      "sha256": "2f2fec41cafca5bdac28855b7ac441893896ceb4a4439112dc6644bd06bfdd76"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-modal.mjs",
+      "bytes": 50,
+      "sha256": "61c9ab62eed4b88e8f57416b7d765466f19175b5487aa24be9f73ef1c5b0adf2"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-native-select.mjs",
+      "bytes": 57,
+      "sha256": "d3e58d7039a2b399a32402eee75e973d358b9f1335011cffedfd91dc396b8995"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-pagination.mjs",
+      "bytes": 55,
+      "sha256": "637f47219caa883189a85102671ec78791809625da28be02f683e3a2876ee83f"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-quantity-toggle.mjs",
+      "bytes": 59,
+      "sha256": "626cc365be543188df3df792ffbd67b66e3b780a3c6491054c65953cd80affdf"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-radio-group.mjs",
+      "bytes": 55,
+      "sha256": "c0769e650b5319ee50b908673f4fa8436dee87e2e81a7773cfe1df9efc653baa"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-range-slider.mjs",
+      "bytes": 56,
+      "sha256": "d695f03269518c454c8f90ecab87d0344d799e318f44de80d34bc3858b229f01"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-resize.mjs",
+      "bytes": 51,
+      "sha256": "0fd485dcf1ef1fa673f0b45b2af8f4c9f23a14430c7fe00e59fdf859506e9bd4"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-side-navigation.mjs",
+      "bytes": 59,
+      "sha256": "cf0d14f57e4ba6c821dbac716f172ce588443504e34362c1855bd6871214acfd"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-skip-link.mjs",
+      "bytes": 53,
+      "sha256": "d3f9d1f62676192269d485edd6a249c010aab276898cce2f552b24cfd65c675f"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-snackbar.mjs",
+      "bytes": 53,
+      "sha256": "d5da39c2bab8ad1d2db320cbdecabeea4cf76d48be9730e6fa91065ae49bbcca"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-spinner.mjs",
+      "bytes": 52,
+      "sha256": "70495123988b54b549b953e47b174de78719f36c04308b7cc20728a944144ce1"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-step-indicator.mjs",
+      "bytes": 58,
+      "sha256": "52ad1724f9833f198f57db538bdd8df2ce99767abf4dcabce5db64eb909d4b95"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-structured-list.mjs",
+      "bytes": 59,
+      "sha256": "cf64e8e74dca0ebf2f8d0318d38728530f96d1c135a964480010364a51376cfd"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-switch.mjs",
+      "bytes": 51,
+      "sha256": "dc76938c20207d6b451c24733a6f44d1847d3e5045c8b099dddaa73933e1c60f"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-tab-bar.mjs",
+      "bytes": 51,
+      "sha256": "47cd77fe616544502391a36b1c4817b24b65f6ba289c97d146d4f86666f27e83"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-table.mjs",
+      "bytes": 50,
+      "sha256": "c91617df3d5be158295a3621a9440dd8b39d23da269363212e50736c403f409a"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-tabs.mjs",
+      "bytes": 49,
+      "sha256": "059f8808f65a2e15c8a1e85044cda9ddcc8b32c5c1c4083308ddbcc50af450de"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-tag.mjs",
+      "bytes": 48,
+      "sha256": "47687f1c21f227668046fc03c7c1d6c021ca305b05828ca1b4f0a5500d1c7ee4"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-text-input.mjs",
+      "bytes": 54,
+      "sha256": "cb238e113dfe51a2c39a8e1280ac58b410a295cc7f834b5929ab9619e19d2b4e"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-text-list.mjs",
+      "bytes": 53,
+      "sha256": "dc50d2d09c7bb4fcbeb83797f817bdf7efcc4c021f225a01cf58e3ab4b1ba34d"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-textarea.mjs",
+      "bytes": 53,
+      "sha256": "156b9fff53158789ef6ee7974b24dfc6c62dada2187edab022f27af061a91f0e"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-toast.mjs",
+      "bytes": 50,
+      "sha256": "05cd983dc608755221a3a288c597105a3f9d540eb85698089ba17e79e779bd6d"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-tooltip.mjs",
+      "bytes": 52,
+      "sha256": "acf10cf0bb7b56e50eabf874c2c244f913f97dda221aeb5e9bc0a24367469b53"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-tts.mjs",
+      "bytes": 48,
+      "sha256": "e1e7231b514f2fa8acd09c7179fa554bad8afd167491fc6315a3355eac97df10"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-tutorial-panel.mjs",
+      "bytes": 58,
+      "sha256": "90147feebf23a6806e9c0a2152857d8cb2eb78afec0a1b23a95ea7429f3d4f5c"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular-visually-hidden.mjs",
+      "bytes": 59,
+      "sha256": "360392384e3994dad71cd4dc7f3ffb986a15f2a1cc5f2db4c2ac326adefacfed"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular.mjs",
+      "bytes": 386001,
+      "sha256": "0a4f5c68136455fc163fd662a6096b5e68f362ea5bbffb71d7c459f797850df4"
+    },
+    {
+      "path": "packages/angular/dist/fesm2022/unofficial-krds-angular.mjs.map",
+      "bytes": 443301,
+      "sha256": "2ab12e8f469300eb2c2841225785f2a4b64ea74fa8c76d2905f57df7e301be37"
+    },
+    {
+      "path": "packages/angular/dist/file-upload/package.json",
+      "bytes": 135,
+      "sha256": "92e972d8627044d2d470d5486cfa006524e74d730daaf62436d4cc7993345d3c"
+    },
+    {
+      "path": "packages/angular/dist/footer/package.json",
+      "bytes": 125,
+      "sha256": "ff88b042506da505fe81bac3f503f538bb833648f591177deadacb94e4cdeb49"
+    },
+    {
+      "path": "packages/angular/dist/forms/package.json",
+      "bytes": 123,
+      "sha256": "44484c994f2805a8e79807626fa249a0d32d741d66f9e526d53369a2d8a87088"
+    },
+    {
+      "path": "packages/angular/dist/header/package.json",
+      "bytes": 125,
+      "sha256": "a461f1bb9096e3da2d6415fe5034ae450843c754b102a68e2dc089c99243dbe7"
+    },
+    {
+      "path": "packages/angular/dist/help-panel/package.json",
+      "bytes": 133,
+      "sha256": "ec0b5fd62fa9316d76b17acef4141cb7067b9affbc97e35a1eb120ecb1617cd6"
+    },
+    {
+      "path": "packages/angular/dist/identifier/package.json",
+      "bytes": 133,
+      "sha256": "d66210cc086f0013cd1144d166656bcef9c0026fb8818b82da17811e18fca441"
+    },
+    {
+      "path": "packages/angular/dist/image/package.json",
+      "bytes": 123,
+      "sha256": "0c15df137e094f2ca102077d8ff0373973f614b6b09969a2a1a861d9b915e6d8"
+    },
+    {
+      "path": "packages/angular/dist/in-page-navigation/package.json",
+      "bytes": 149,
+      "sha256": "9a4368d5cde4e2b7d79b62928a82bc4adcea6fa0ab8ae3d50e872f71625aff8b"
+    },
+    {
+      "path": "packages/angular/dist/language-switcher/package.json",
+      "bytes": 147,
+      "sha256": "dd7ff67693aa2ab7b51e0908f72f6c17ded5f4d3a939d05a33300855089c00ee"
+    },
+    {
+      "path": "packages/angular/dist/link/package.json",
+      "bytes": 121,
+      "sha256": "ce743f7bd35d5fe9bfc0e576cadbc059f81e84fac3b17171cf486e9e51c09da0"
+    },
+    {
+      "path": "packages/angular/dist/main-menu/package.json",
+      "bytes": 131,
+      "sha256": "4c48769af35b5a04e9d9abfe488dcd8fc844cd71e0c8db5dc57bbcbaa81fbae2"
+    },
+    {
+      "path": "packages/angular/dist/masthead/package.json",
+      "bytes": 129,
+      "sha256": "68dc65b292c04832027b38219f13fd1643430c4266f3a6361b3ab953696290ee"
+    },
+    {
+      "path": "packages/angular/dist/modal/package.json",
+      "bytes": 123,
+      "sha256": "1e1521a5b7f8947a60cf77ba66c3b5dcc8ed23fd203b3a25e4f6257c10bb6027"
+    },
+    {
+      "path": "packages/angular/dist/native-select/package.json",
+      "bytes": 139,
+      "sha256": "772858b635654623af91e8a915fbc76d07b762077365b75568542f44c8aafb80"
+    },
+    {
+      "path": "packages/angular/dist/package.json",
+      "bytes": 10253,
+      "sha256": "79ba2fe505a681c710ae1420db94a30579bc08da103b3628e677be3acc96e184"
+    },
+    {
+      "path": "packages/angular/dist/pagination/package.json",
+      "bytes": 133,
+      "sha256": "37e39c01036279a836911b5e5f099861491a7cdc9d186e0d94a9f950abbe9842"
+    },
+    {
+      "path": "packages/angular/dist/quantity-toggle/package.json",
+      "bytes": 143,
+      "sha256": "ed1878ea7604f79bf5d1e2e692f5a29463d1bffc0919ced062d16ed457814d87"
+    },
+    {
+      "path": "packages/angular/dist/radio-group/package.json",
+      "bytes": 135,
+      "sha256": "bd2d9275ed6304dc8d604c8b6556199330271378c05af47630b9ed3931cebab1"
+    },
+    {
+      "path": "packages/angular/dist/range-slider/package.json",
+      "bytes": 137,
+      "sha256": "dbf28ae782a869b303bc016959a6daf12916b6c9ddd70dd6efd6033c963db90f"
+    },
+    {
+      "path": "packages/angular/dist/resize/package.json",
+      "bytes": 125,
+      "sha256": "cb07409e04f1d54cbd6d9f6b5e770e2edd9bb6f55d831851d5c6931cd973f8a4"
+    },
+    {
+      "path": "packages/angular/dist/side-navigation/package.json",
+      "bytes": 143,
+      "sha256": "485d1bb358380c7d6e32b65af806644b3e53b53dcd9349011d5c35582a315e63"
+    },
+    {
+      "path": "packages/angular/dist/skip-link/package.json",
+      "bytes": 131,
+      "sha256": "9196187f3a0b1e85d657f0b292583bacb74a7ddee2bf0ba00ef6614322ec9150"
+    },
+    {
+      "path": "packages/angular/dist/snackbar/package.json",
+      "bytes": 129,
+      "sha256": "b27636e1e49175edc5d42eb378a86bf14a4bd4e433b67284e9135eaf50a7a59a"
+    },
+    {
+      "path": "packages/angular/dist/spinner/package.json",
+      "bytes": 127,
+      "sha256": "182b6ac4fb981204016b436885023ae60e3bbf89fd900cb1bb923d6e9970fe76"
+    },
+    {
+      "path": "packages/angular/dist/step-indicator/package.json",
+      "bytes": 141,
+      "sha256": "3eba6c68f9dbdfc55957b33cbde051a276ee1bb49d50942d5feec46d1bd48bef"
+    },
+    {
+      "path": "packages/angular/dist/structured-list/package.json",
+      "bytes": 143,
+      "sha256": "388935abc5df0268b9382d9f230136379950a96c5de74103c5a258115e491eec"
+    },
+    {
+      "path": "packages/angular/dist/switch/package.json",
+      "bytes": 125,
+      "sha256": "66bbd2c048d2c9e8220bd0aed785c9f0a6d1f6c5541d2f4436ba7acd3e2fe722"
+    },
+    {
+      "path": "packages/angular/dist/tab-bar/package.json",
+      "bytes": 127,
+      "sha256": "b597a10b76306856111ca50c65709970f159e14797d33db06f7bb7d9c47261a1"
+    },
+    {
+      "path": "packages/angular/dist/table/package.json",
+      "bytes": 123,
+      "sha256": "5e823b3cfe9bfa27b4e0352677769e051b5c77a60427fa279247601d4f0fd6ee"
+    },
+    {
+      "path": "packages/angular/dist/tabs/package.json",
+      "bytes": 121,
+      "sha256": "e3a48c1a57ce15089b41eba7bdc983f72e4f7dd897cad4e862862cee6b039e43"
+    },
+    {
+      "path": "packages/angular/dist/tag/package.json",
+      "bytes": 119,
+      "sha256": "d775c31ea6e8c690e351da791a4985313008e35aad1f3496a8a3d6754634f760"
+    },
+    {
+      "path": "packages/angular/dist/text-input/package.json",
+      "bytes": 133,
+      "sha256": "51aa73d75bfc760e900d10003a7a0efacf0a80956de80ba9645a61ffa99f1b8c"
+    },
+    {
+      "path": "packages/angular/dist/text-list/package.json",
+      "bytes": 131,
+      "sha256": "59472578e3a38a21d969df5140d8eb044d5555d3a02f7c64e2f976d844a7391e"
+    },
+    {
+      "path": "packages/angular/dist/textarea/package.json",
+      "bytes": 129,
+      "sha256": "4cb282fe77c06f9f317bf70ffbbdd1555af565c7b3aacd70a02b0a7e5b4c323b"
+    },
+    {
+      "path": "packages/angular/dist/toast/package.json",
+      "bytes": 123,
+      "sha256": "1ce50bde3f21fea3d3b20851f66af092aaac14d1a3acd023da783a72a6d90ca4"
+    },
+    {
+      "path": "packages/angular/dist/tooltip/package.json",
+      "bytes": 127,
+      "sha256": "bf432d47b0d7bc829f772f47b705e7fae3e461dd80e4f23e38cbb1a664ea785e"
+    },
+    {
+      "path": "packages/angular/dist/tts/package.json",
+      "bytes": 119,
+      "sha256": "ab04332ea3af25c6a78334b5ffd762d435e409453073724c45346b3a9a6b3bfd"
+    },
+    {
+      "path": "packages/angular/dist/tutorial-panel/package.json",
+      "bytes": 141,
+      "sha256": "3dbb992771c41f1e255861700e4e0afa085d2dce607a97afacf391cbb690a1a8"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-accessible-media.d.ts",
+      "bytes": 87,
+      "sha256": "112becbf0951b9ddbe21a9dd5efec29be377812568e3632ceba112641cdc9d34"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-accordion.d.ts",
+      "bytes": 75,
+      "sha256": "17597d3b44e991abd8fe50b6fcd7ca6d9e78a410bb1bd1e14a3c937bb0231ce3"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-back-button.d.ts",
+      "bytes": 77,
+      "sha256": "67fe2f5d5a2b1f8657dea9ecc4354dc9f7a98482f012feed439ece2ea6bea3e8"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-badge.d.ts",
+      "bytes": 67,
+      "sha256": "0887ba0867c8b71d04c6b526f46b176c781a3d2b31aed96e61c98eaeb25b8cd0"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-bottom-sheet.d.ts",
+      "bytes": 79,
+      "sha256": "68e99d38d04caa2ec98b0d8d1a272043ab6e56cb900e92fb2101e5510ec0cf1a"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-breadcrumb.d.ts",
+      "bytes": 77,
+      "sha256": "0240387258cb36f6322480b66115335f4f134e393f67b09ecc2d08b714a6dc22"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-button.d.ts",
+      "bytes": 69,
+      "sha256": "0a7910129182cb8b49c91070d11747eb46fdff948e81c81dcf29e405c04a448e"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-calendar.d.ts",
+      "bytes": 73,
+      "sha256": "d5d726b870efa7bd6020706b41bff26612fe74cc85447a7358c5e06e55afcfc3"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-carousel.d.ts",
+      "bytes": 73,
+      "sha256": "f56555521dfedcde795969b00bfde0bba1f0cb4a73bbe853903672a95d76dc6b"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-checkbox.d.ts",
+      "bytes": 73,
+      "sha256": "7b59a9095e80a165a667fded9f9de21b9b506d2d8edc7f54c2c209a53f1f7151"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-coach-mark.d.ts",
+      "bytes": 75,
+      "sha256": "f6477d9cce5d2efeed299ffa582ecffa5a5f44d198f1d70d109e695e22f2b6d3"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-contextual-help.d.ts",
+      "bytes": 85,
+      "sha256": "38cfeb51012407f5a540d15af5575d30fbd33c5f144863506026badd0dbad391"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-critical-alert.d.ts",
+      "bytes": 83,
+      "sha256": "8c6bc515352e5f1b5d1d8b9e9fb3cc3d273c0914b5b86b028d0a1826d9e64b37"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-date-input.d.ts",
+      "bytes": 75,
+      "sha256": "edf94422e67ad8d43e3ec3962c70aa27dd5376ee92457ed72ec1069c8ce91531"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-disclosure.d.ts",
+      "bytes": 77,
+      "sha256": "9bbef3f91f57685b94b410ddf15a00c756f102605de5c6c98bdc45ad4cfedecd"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-fab.d.ts",
+      "bytes": 63,
+      "sha256": "be2761e6da3ec94ecc82a377ee5ffde29dbf111a043a75a5e4a5d71248806489"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-favicon.d.ts",
+      "bytes": 71,
+      "sha256": "8b229cc2a21ed07f41c2687cbbe0b572aba502c55a55893a104838918fca1f1c"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-file-upload.d.ts",
+      "bytes": 77,
+      "sha256": "63d0f29660c3421a0b75eb6e1e283731eb4c3f99ee3b8f4d1e6f7b834a4ec658"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-footer.d.ts",
+      "bytes": 69,
+      "sha256": "bfb942e71d3c52bb3566b8baa2cf6bae244a3510fe7fb712e2409535c2d3d376"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-forms.d.ts",
+      "bytes": 263,
+      "sha256": "c174204d32cdbb17da4cc05f2bb271fd8f84cbdfad16097be44ffdc5b10a2c4b"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-header.d.ts",
+      "bytes": 69,
+      "sha256": "b774d72414786c6140cd4c7482f2de601367cf254e0da3136c333c4ed69c5fce"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-help-panel.d.ts",
+      "bytes": 75,
+      "sha256": "ddb35508d1aa84bdfd50e3ab68a61968fa910a9580ec9aa3c91ff83d052e6f55"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-identifier.d.ts",
+      "bytes": 77,
+      "sha256": "71d14dc96d84010fe0ac43c9cf34d258148400d0a0309d517438d4be6ad14a1d"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-image.d.ts",
+      "bytes": 67,
+      "sha256": "c140cd44ef569b78fd8c4cca51abcb2fdaa26c54d1b3e35ce7775c533ac8d20c"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-in-page-navigation.d.ts",
+      "bytes": 89,
+      "sha256": "d000e405b92f0db1d297f6e0bf3e3eda39670b662974f4af1d392e0e614a0b9d"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-language-switcher.d.ts",
+      "bytes": 89,
+      "sha256": "ea121a502763574b315433e6e51473252e20c3b4a5eddc6c9bb8a92108c6708d"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-link.d.ts",
+      "bytes": 65,
+      "sha256": "a581517bcf1fc7e822dee573876fd794e5c21363ff905279096822ecc82d3823"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-main-menu.d.ts",
+      "bytes": 73,
+      "sha256": "fb3558db742f659f062457923091c4aa667d752272846703e21e667f524bd26e"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-masthead.d.ts",
+      "bytes": 73,
+      "sha256": "c5afe491c89f1193a6785f40dc4700ab6e3d3a6bcf002f96eba129a1a45d38a1"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-modal.d.ts",
+      "bytes": 67,
+      "sha256": "49786b48295b3a8db2434974158ad9100373a0cf2e649e2c24ce74fcc9fe41a6"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-native-select.d.ts",
+      "bytes": 81,
+      "sha256": "1c7ac59056bf3d3c811547269cd645540bc8d651d5838da31e580fd2a2b48a1f"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-pagination.d.ts",
+      "bytes": 77,
+      "sha256": "04c8897a98b4976b34a8c351328d1d38b854bb422d40e3fc2ea0c168b5b52cfb"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-quantity-toggle.d.ts",
+      "bytes": 85,
+      "sha256": "cd356d00b3b0471a35790a10f82b482e453e6282572d817902f7a432bbdaa305"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-radio-group.d.ts",
+      "bytes": 77,
+      "sha256": "adf9f5ca67c6df86424f0dddf9dbdfed045dba1f46ddcf6b7add002009c8c8a2"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-range-slider.d.ts",
+      "bytes": 79,
+      "sha256": "d5c68387c143e177e0b768c18162214874f59a7d950a3c5c1f2baaac2404917f"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-resize.d.ts",
+      "bytes": 69,
+      "sha256": "6690dfa19b9669bf631d0814f12ff270bba3e930e18e50475d4e2881fac93871"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-side-navigation.d.ts",
+      "bytes": 85,
+      "sha256": "c55d999158412f7f7c7078e25c8cf6b6817fae708b793ee4063dc64091f30529"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-skip-link.d.ts",
+      "bytes": 73,
+      "sha256": "839b7cfddcc97d393549285babea1411a1f9378b2e369a3cb5cf80845deec76d"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-snackbar.d.ts",
+      "bytes": 73,
+      "sha256": "89259a83fc01bf858e5a2236fa12ee123ab208fc6860692505a30bb274bd2b6b"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-spinner.d.ts",
+      "bytes": 71,
+      "sha256": "5f993276b5586f07cad23e0e868dd6ba9ef1683687a906959eaf2770e3b6b993"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-step-indicator.d.ts",
+      "bytes": 83,
+      "sha256": "4b11b64fe35f80d4bdbba806eb107882df0e083bea168664d44e76cb82883aa9"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-structured-list.d.ts",
+      "bytes": 85,
+      "sha256": "b2f769c36e955df95357c740e170faa91873e1eeff3c015d6c430dfa6f891e2e"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-switch.d.ts",
+      "bytes": 69,
+      "sha256": "ce010ec6348c68737198bfda80fe799ee15a61dccf76e3740fb2fe1172bf3d7f"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-tab-bar.d.ts",
+      "bytes": 69,
+      "sha256": "6c8279a10e8a84eecf28334fc58384030e3834363519930144f0a273c3dfeb3f"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-table.d.ts",
+      "bytes": 67,
+      "sha256": "d428892ffc5e3023a32e1099f6cf915acd6078ad39d8a91f8d55a68a8e676cbc"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-tabs.d.ts",
+      "bytes": 65,
+      "sha256": "3a70e93a05c838b9fa1d1fb0e05e6b04ddcb0300a72998c51d0bed24001b791d"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-tag.d.ts",
+      "bytes": 63,
+      "sha256": "77dc7d92aa89ab6770332a81c22fc43c9d86afa3bddb6ceeb3adbe4b65503faa"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-text-input.d.ts",
+      "bytes": 75,
+      "sha256": "4699c2dfbab06b75b889afa3848ad2b2f5f6db4e75e969f4e875508f0300f3da"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-text-list.d.ts",
+      "bytes": 73,
+      "sha256": "d3ca71feb9bacc2b5f57f4389cac0d7c340a80416589a718cfeb2e526da4422f"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-textarea.d.ts",
+      "bytes": 73,
+      "sha256": "8a4d1e6360c8772572e51d7580c4537b580ae4f49bd67143e3b1635830c03a82"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-toast.d.ts",
+      "bytes": 67,
+      "sha256": "31cafba5cd9bc7859ab09c4e6d9a9a118fa59ad6c5463e60ca3be7a2df52e697"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-tooltip.d.ts",
+      "bytes": 71,
+      "sha256": "282f98aebe7b987d1c017bb2e31f6d0f04868b543211815ce2fbaf361e3b19d4"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-tts.d.ts",
+      "bytes": 63,
+      "sha256": "7c569429381180acbe34e26582f4b81d46b008d9120fc4bd9697ab151e8b889b"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-tutorial-panel.d.ts",
+      "bytes": 83,
+      "sha256": "5b0954245fcb36ddbe56f8b98948980764dc643ad57230b01dd982406ee046ef"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular-visually-hidden.d.ts",
+      "bytes": 85,
+      "sha256": "6dc8d84437ef07e81446b7ccf705f2c3bd5c846efec301b147bddd396def8ec1"
+    },
+    {
+      "path": "packages/angular/dist/types/unofficial-krds-angular.d.ts",
+      "bytes": 91048,
+      "sha256": "af826065b9e735666af625d61f4d4ecc5d542ed38de86285b2ae5f680bfc174b"
+    },
+    {
+      "path": "packages/angular/dist/visually-hidden/package.json",
+      "bytes": 143,
+      "sha256": "7ed39022ca83d493b5394e6fa51c0fac72bdaab2bc465f70cf0df806a059da96"
+    }
+  ],
+  "scope": "Actual fresh compiler command against public built package exports and exact source bytes. No native behavior, SSR/hydration/resume, manual, same-metadata-HEAD, hosted-CI or release acceptance.",
+  "consumedArtifact": {
+    "path": "apps/docs/compiler-checkpoints/final-versions/angular/consumed-apf.tgz",
+    "bytes": 188036,
+    "sha256": "924356477d02a22f89dbf20a54218738cd5f0befda4669655665cf160c2562cb"
+  },
+  "environmentNote": "Original two sandbox attempts exited129 without compiler diagnostics; the exact bounded-worker command succeeded outside sandbox. Original failed attempts remain in ignored session evidence."
+}

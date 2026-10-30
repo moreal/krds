@@ -1,0 +1,18 @@
+{
+  "name": "package-react",
+  "argv": [
+    "node",
+    "tools/yarn.mjs",
+    "workspace",
+    "@unofficial-krds/react",
+    "build:local"
+  ],
+  "cwd": "/Users/moreal/github/moreal/krds",
+  "environmentOverrides": {
+    "NG_BUILD_MAX_WORKERS": "1",
+    "STORYBOOK_DISABLE_TELEMETRY": "1"
+  },
+  "startedAt": "2026-10-30T14:05:32.520166+00:00",
+  "finishedAt": "2026-10-30T14:05:35.014465+00:00",
+  "exitCode": 0
+}

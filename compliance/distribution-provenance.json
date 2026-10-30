@@ -8988,8 +8988,8 @@
       },
       {
         "sourcePath": "compliance/provenance.json",
-        "sha256": "cfa5a542717958c9024e3ff25aae444c9598d2e188176ff59506927c7ebc7609",
-        "bytes": 2046615,
+        "sha256": "8fc7b60fed8416c4e8f9eefe3db057e479ecbc2a0f5df7f91cfa02c834644436",
+        "bytes": 2047105,
         "destination": "apps/docs/public/sources/compliance/provenance.json.txt",
         "rights": "mixed-record"
       },
@@ -9547,8 +9547,8 @@
       },
       {
         "sourcePath": "THIRD-PARTY-NOTICES.md",
-        "sha256": "4cf84372bb3db32c222428a8105c84bf31abf180d9945127cc3400d29aa390d5",
-        "bytes": 39839,
+        "sha256": "295d2401966acc1c523620661c57f59154658f0f611f823fcf98bb2f6098dd8c",
+        "bytes": 40329,
         "destination": "apps/docs/public/sources/THIRD-PARTY-NOTICES.md.txt",
         "rights": "mixed-record"
       },
@@ -9800,17 +9800,52 @@
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json",
-        "sha256": "eb793c6ef3368ea12be3e6bbb17c0df86c728ab087eeeb82e8947d5fc5df9d8e",
-        "bytes": 1429,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-react-logs/public-examples-evidence.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/proof.json",
+        "sha256": "31ec9a0c700338a968d3700c2715485957a64d6f3111c69029a33268b9d2ec42",
+        "bytes": 39004,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/react/proof.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/result.json",
+        "sha256": "8dc3e07a91bd2429ae18d4e92cfcbb6c2f991f2d71e519c04065e6e2a855cb99",
+        "bytes": 461,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/react/result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/stdout.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "bytes": 0,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-react-logs/fixround1/public-examples-source-candidate.log.txt",
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/react/stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/react/stderr.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/package-build-result.json",
+        "sha256": "6a35480d465d3e09581f157860b4d52b2b0bbf46ba6f7bc664706606eebf7cdc",
+        "bytes": 416,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/package-build-stdout.log",
+        "sha256": "88da4f27066eeac828a165f07c36a3d0d0b730115c14a1155a0dfee531468438",
+        "bytes": 4259,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/package-build-stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stderr.log.txt",
         "rights": "independent"
       },
       {
@@ -9821,17 +9856,52 @@
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json",
-        "sha256": "430de6363a9dd6661c886b46b9894dc33d93a6574f7997bb78cf47780bb84fac",
-        "bytes": 607,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-solid-logs/docs-example-evidence.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/proof.json",
+        "sha256": "6925fd251afe8a8a688e1a480a310aa40ec40e6c8bc58cce023f81a3b09bf1d4",
+        "bytes": 50981,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/solid/proof.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/result.json",
+        "sha256": "216f80fead653cbce427fcbb4566032bd001e2cc1c2d2250a0742ee1c8d9aa50",
+        "bytes": 423,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/solid/result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/stdout.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "bytes": 0,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-solid-logs/final-public-fixture-typecheck.log.txt",
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/solid/stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/solid/stderr.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/package-build-result.json",
+        "sha256": "09299de67b3e7578ddb104a6cbb3cadd5adf2c101f822d07c48ea1b33a166757",
+        "bytes": 416,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/package-build-stdout.log",
+        "sha256": "72de18f4d844a41dfe7f14ef20dff7aff156c84386886e655ec7f0b7fec16db6",
+        "bytes": 8635,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/package-build-stderr.log",
+        "sha256": "d5be3733d7cee4a7a6b8ff5485a6099619141ae66c0b5c9d79591f4cd2d7f23b",
+        "bytes": 332,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stderr.log.txt",
         "rights": "independent"
       },
       {
@@ -9849,45 +9919,52 @@
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json",
-        "sha256": "9612555157dfd7af311a34eced513f87bd59e60d51d80ae6acaadaa45a230e70",
-        "bytes": 14373,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-inventory.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/proof.json",
+        "sha256": "419779d2087bd8e3c4498c1c0d768ec50d128e0c82f7311e1f3b0b352f48864d",
+        "bytes": 55521,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/svelte/proof.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json",
-        "sha256": "25a4d5d18808e766c5cffd2aea36e021a2ee43447cac88580fedbad314577206",
-        "bytes": 1054,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-svelte-logs/public-examples-evidence.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/result.json",
+        "sha256": "2643e64dcea75fa4fc67f59699c4699c41e0f14c76877ad21d00626437ed418f",
+        "bytes": 425,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/svelte/result.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log",
-        "sha256": "52302f13fcec2825b7b521afa91f670e5383bba1b26875e2a96755739245d2a1",
-        "bytes": 1747,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-examples-types.log.txt",
-        "rights": "independent"
-      },
-      {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log",
-        "sha256": "9e66f3d8a0bc4680f1bd45722635f9f07cfc4fbbdbfedd2d0abe883156ffd028",
-        "bytes": 3405,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-build.log.txt",
-        "rights": "independent"
-      },
-      {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log",
-        "sha256": "551125083197b27c2e647938bcf5288718026bafffeb1cc818bf5140052926c5",
-        "bytes": 729,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-svelte-logs/svelte-t10-ssr-render.log.txt",
-        "rights": "independent"
-      },
-      {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/stdout.log",
         "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515",
         "bytes": 162,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-svelte-logs/integration-deltas/svelte-integration-deltas-types.log.txt",
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/svelte/stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/svelte/stderr.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-result.json",
+        "sha256": "bbd186e5ed1c13145cde3e5e5c59d60feeefc94fd7cddd29df128a33c7f641e1",
+        "bytes": 418,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stdout.log",
+        "sha256": "1cff3a15b64eec658c1cc9cf77f8d3579688147204a80d9fde225dac5d71b3ff",
+        "bytes": 16,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stderr.log",
+        "sha256": "f2263de5d1986e311e7cb2406f813bdb6083d2e39d20219488a23e7307719bb6",
+        "bytes": 4173,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stderr.log.txt",
         "rights": "independent"
       },
       {
@@ -10269,17 +10346,52 @@
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json",
-        "sha256": "5db745746105eeceb2f4d74a8cb5b2ff6d00b56ab03600bae7ec9af944ca73b2",
-        "bytes": 1812,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-vue-logs/public-example-evidence.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/proof.json",
+        "sha256": "a18810ec1c65605923c3880a6a987a0b214731adf62c65ef3ceb360434b1773e",
+        "bytes": 50574,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/vue/proof.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/result.json",
+        "sha256": "7eb2acc429af72305522e801dfbf4425a7bca1106aa6a6646340fbd6beab00c5",
+        "bytes": 419,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/vue/result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/stdout.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "bytes": 0,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-vue-logs/242-final-fixture-types.log.txt",
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/vue/stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/vue/stderr.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-result.json",
+        "sha256": "b2c7262e972b78d16abd68de849bc71f9cd5b7ff8b04b48b5e7e3a946497b5b8",
+        "bytes": 412,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log",
+        "sha256": "468f64893264abce2a608dd61a0e945e29039bacda77efa2487b85f514a8dcd6",
+        "bytes": 7474,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log.txt",
         "rights": "independent"
       },
       {
@@ -10297,38 +10409,108 @@
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json",
-        "sha256": "9da86845faedffb6466c64acacd853cdb5a33078e9d6148e6d48baf0d17bd1e3",
-        "bytes": 403,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-compiler.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/proof.json",
+        "sha256": "4260369fa95fbb5af86b4418c5ec7dc11d773eb354ae9ba5b78f62f1652d38fa",
+        "bytes": 41135,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/lit/proof.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/result.json",
+        "sha256": "6735331f757cd9bdafb823d27bc53aa210f7e5e408b52ebce06c1f63e6e4c851",
+        "bytes": 419,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/lit/result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/stdout.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "bytes": 0,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-lit-logs/public-examples-typecheck.log.txt",
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/lit/stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/lit/stderr.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json",
+        "sha256": "7dc8b17d7cc6c6855e7862bb45d6b876b026885c031f1fbe1bdd793d9393a623",
+        "bytes": 412,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log",
+        "sha256": "3e057afc33fa6d019c2c1d697d68d083120cc346f8a98df4579a70bfe82685f0",
+        "bytes": 4772,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log.txt",
         "rights": "independent"
       },
       {
         "sourcePath": "apps/fixture-qwik/src/catalog-examples.tsx",
-        "sha256": "5c118523600304d9f4dde9c12c99b882a7ffc42552761954f549ae2b559420e0",
-        "bytes": 14531,
+        "sha256": "bbc15bd26bd38eb323fb666532031ca204c7930b8ca8ef0b2e843e61b37c4a30",
+        "bytes": 15684,
         "destination": "apps/docs/public/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json",
-        "sha256": "b652a606672a7c8880f5b33f33e4d4fd1e838d0e2c9960e798c315f30e5a5929",
-        "bytes": 1526,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/proof.json",
+        "sha256": "3d63337ed2e9158595d687acc10630faf4c45336c4cf4d5f6338384b2626306f",
+        "bytes": 30925,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/qwik/proof.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/result.json",
+        "sha256": "5aee4dbec394feaf3995e63a9a387f0c0a909ff0a3c1a044df83fa98b53bcedf",
+        "bytes": 483,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/qwik/result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/stdout.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "bytes": 0,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-qwik-logs/public-examples-types.log.txt",
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/qwik/stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/qwik/stderr.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/package-build-result.json",
+        "sha256": "9b993104bd27782e1e520105a993969cb5f492da78f5204d05688d19e7eb68ad",
+        "bytes": 414,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stdout.log",
+        "sha256": "60ecd63264b0dcd9d31d406d7127846d8432f22642ef4ad02cf9040b56de53b4",
+        "bytes": 257,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stderr.log.txt",
         "rights": "independent"
       },
       {
@@ -10339,17 +10521,52 @@
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json",
-        "sha256": "17053a1a1cedc821c645ffd407a9910686efc45844e4da78421fd995c9925fa1",
-        "bytes": 10444,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-angular-logs/public-examples-compiler-source-fix1.json.txt",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/proof.json",
+        "sha256": "70f705367a99430b770c7eb50e0c620956dc88dfa0de2dfc2764466bd98845c9",
+        "bytes": 38519,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/angular/proof.json.txt",
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log",
-        "sha256": "8fa83558008d045b5d2358eb6e777ecbdb970c8cd1eaad200657bc560ff8aa29",
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/result.json",
+        "sha256": "b2daa533bca2c3e6c276c8062ee24fe4b65397f47e76831fecf7df8832812a12",
+        "bytes": 439,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/angular/result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/stdout.log",
+        "sha256": "decb1cccc9cdea364347022a4fd3345231f5595820175b6408ab43ed4c0a9001",
         "bytes": 491,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/t10-angular-logs/review-s13-official-aot.log.txt",
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/angular/stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/angular/stderr.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-result.json",
+        "sha256": "58baa1dbacae141eb9b1db2048f601fa3ec5b5ed267e7cc08c50d561a5af0bb4",
+        "bytes": 420,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-result.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log",
+        "sha256": "ebcebffef05f4b6ee9a5e41b73f2b0b98f9a1039dfbf45e78b966f1d2b2a3d53",
+        "bytes": 12533,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log",
+        "sha256": "9a09cb98da8d7616e75959b39750b86ea687430909f857a8be58db5c2d220f82",
+        "bytes": 29332,
+        "destination": "apps/docs/public/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log.txt",
         "rights": "independent"
       },
       {
@@ -10418,8 +10635,8 @@
       },
       {
         "sourcePath": "catalog/full-catalog-stories.json",
-        "sha256": "776ce496bcefe3de9aff13ef63a2019afd137c8829c0ac61d248ac226befb757",
-        "bytes": 754610,
+        "sha256": "7b0b27e91ad2c056c4c249bc9391e1b5e0acaa01896b18da8754e2fbec0ea6da",
+        "bytes": 754582,
         "destination": "apps/docs/public/sources/catalog/full-catalog-stories.json.txt",
         "rights": "krds-reference-adaptation",
         "upstreamReferences": [
@@ -10948,15 +11165,15 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/structured-list/index.d.ts",
-        "sha256": "dce4da9636032f059de7f575238bd74d9ac21ce55dfaf8a823d2744a9f23a337",
-        "bytes": 887,
+        "sha256": "0ef6e658989d834e9a20768a96f0290773864ba1a7d971ef590245945bbcdd20",
+        "bytes": 908,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/structured-list/index.d.ts.txt",
         "rights": "independent"
       },
       {
         "sourcePath": "packages/qwik/dist/components/structured-list/index.d.ts",
-        "sha256": "d15aedbc38c4422525ee7028b2510d7d619056f719dba6b4dbab23c8258bf26f",
-        "bytes": 785,
+        "sha256": "098d3d550795e49f1119851c41e8907434172972cde37b9bf42de5018815057b",
+        "bytes": 586,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/structured-list/index.d.ts.txt",
         "rights": "independent"
       },
@@ -11161,8 +11378,8 @@
       },
       {
         "sourcePath": "packages/qwik/dist/components/disclosure/index.d.ts",
-        "sha256": "d64fc59da8c7cdcbb1499f823747e807085d54831697cbe204fe8d12ff9b7063",
-        "bytes": 461,
+        "sha256": "c2dc6fff99d733020b97a6c6ea7e4adc49028324cd3fa1fe30008308b1b7092a",
+        "bytes": 408,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/disclosure/index.d.ts.txt",
         "rights": "independent"
       },
@@ -11203,8 +11420,8 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/modal/index.d.ts",
-        "sha256": "30d118c0c4d6f7120ad0d45baf1b5df400474c65a074ac88652225c925013a82",
-        "bytes": 1759,
+        "sha256": "b973413f382ab2e55d619e5f05859ed36a2d507a266974647a58fd238dcc54d7",
+        "bytes": 1785,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/modal/index.d.ts.txt",
         "rights": "independent"
       },
@@ -11345,8 +11562,8 @@
       },
       {
         "sourcePath": "packages/qwik/dist/components/accordion/index.d.ts",
-        "sha256": "9b7cc832150fda1f2922efeb51fa0272ab74b6f0e26b881e5b22d2571f3e6889",
-        "bytes": 514,
+        "sha256": "1be945b51a591d613dc85ed7f048df4420821b70d5be03103fd3c614932b6514",
+        "bytes": 432,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/accordion/index.d.ts.txt",
         "rights": "independent"
       },
@@ -11402,8 +11619,8 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/image/index.d.ts",
-        "sha256": "c7a193ebadc830fe866d6d3503e20354e3167f898c639d5d6539d247c4b9681a",
-        "bytes": 1285,
+        "sha256": "9f240a55eec76b890b00b23cce029c8f7a68bf51bf64b821768d4253afb09a6a",
+        "bytes": 1384,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/image/index.d.ts.txt",
         "rights": "independent"
       },
@@ -11466,8 +11683,8 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/carousel/index.d.ts",
-        "sha256": "0aa5d41b9289cea93ec515bc1f9ba0938dacff16f73988a93d8d7d2c36057bc6",
-        "bytes": 1750,
+        "sha256": "c23027fbfacd27eef72f9c9df9e6ae90682acfd28def7401c5ed8d59c925f4a7",
+        "bytes": 2197,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/carousel/index.d.ts.txt",
         "rights": "independent"
       },
@@ -11601,8 +11818,8 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/table/index.d.ts",
-        "sha256": "1bb471f65ebf0482844791104bebac228630a7e399dbb0574397d5fa115894b1",
-        "bytes": 1221,
+        "sha256": "063a90e82480342b62905d9861d03346f32bd8451c8fab822665904c5382d7df",
+        "bytes": 1198,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/table/index.d.ts.txt",
         "rights": "independent"
       },
@@ -12146,8 +12363,8 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/tag/index.d.ts",
-        "sha256": "0e9769e20a76f8047972c77919a84c03b5fbef1a1ec6ef693cbe9b06e20f5285",
-        "bytes": 849,
+        "sha256": "13068aeff5e24d028b03205ebbfef09f2e904bd819c45c0700215d236653addc",
+        "bytes": 1352,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/tag/index.d.ts.txt",
         "rights": "independent"
       },
@@ -12408,8 +12625,8 @@
       },
       {
         "sourcePath": "specs/components/tutorial-panel.md",
-        "sha256": "e2f9a778fb45c9d2a925c296648404b8f9feed1b5399acd1366169183c6f8973",
-        "bytes": 26732,
+        "sha256": "6408086d162b3f8e7f58fc6deeab286fccdefabd9d6923ea0e96a32e93e05dcf",
+        "bytes": 27088,
         "destination": "apps/docs/public/sources/specs/components/tutorial-panel.md.txt",
         "rights": "krds-reference-adaptation",
         "upstreamReferences": [
@@ -12451,15 +12668,15 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/tutorial-panel/index.d.ts",
-        "sha256": "f03a89d24211224f22a37d92513e097054224be74679710689fc72d7e0ab91fd",
+        "sha256": "8c63d5348ab47dd184a097f0c3de29101115626278daf66b211a2d859b4ecbff",
         "bytes": 2625,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/tutorial-panel/index.d.ts.txt",
         "rights": "independent"
       },
       {
         "sourcePath": "packages/qwik/dist/components/tutorial-panel/index.d.ts",
-        "sha256": "7425d3e641051bcb1c965b38e645843e944a3a7fd905e22f1a147664e58f52e2",
-        "bytes": 606,
+        "sha256": "c10ceee7cb6ec48227dd13fe2e838df3fd5746a0e7db50134134fc5e8d62a1d5",
+        "bytes": 488,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/tutorial-panel/index.d.ts.txt",
         "rights": "independent"
       },
@@ -12515,15 +12732,15 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/contextual-help/index.d.ts",
-        "sha256": "553f6b0e9f1da6e07bc21eb8cf9af931f271a3e3ef9bf08be42f0416faee9636",
-        "bytes": 1606,
+        "sha256": "5c672cd0156bce5535902e233471dc5716bd1f99e20ca60da5a9847aaa664b98",
+        "bytes": 1637,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/contextual-help/index.d.ts.txt",
         "rights": "independent"
       },
       {
         "sourcePath": "packages/qwik/dist/components/contextual-help/index.d.ts",
-        "sha256": "40b846f6dc9252503b3d45d4e63fbc5871db68b8ecc8b6bafd224789c1274b46",
-        "bytes": 481,
+        "sha256": "bbeda753548107d7cdfbc0f8c4090bf7c1c23b4e74f80c5ad915adc4e7ba63f1",
+        "bytes": 428,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/contextual-help/index.d.ts.txt",
         "rights": "independent"
       },
@@ -12586,8 +12803,8 @@
       },
       {
         "sourcePath": "packages/qwik/dist/components/coach-mark/index.d.ts",
-        "sha256": "9e7d83007fc38f66f9998985e208b01cdc9339127bfd72059f002832448ad1eb",
-        "bytes": 335,
+        "sha256": "0ce10aa8dde394763ab9f149c1c36a8bfe14e0e6b2ea5cb04dc35529828b2b57",
+        "bytes": 744,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/coach-mark/index.d.ts.txt",
         "rights": "independent"
       },
@@ -12643,8 +12860,8 @@
       },
       {
         "sourcePath": "packages/lit/dist/components/tooltip/index.d.ts",
-        "sha256": "9e366bba182d774b8256e8609384916a88f757a2fc2dd2503177a92b11047605",
-        "bytes": 1841,
+        "sha256": "a38f3c37e4c3eadc61fc7e7e610e21cd5b8ef7c25cfa6b06187a3d7fa6e2dd99",
+        "bytes": 2079,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/tooltip/index.d.ts.txt",
         "rights": "independent"
       },
@@ -12664,8 +12881,8 @@
       },
       {
         "sourcePath": "specs/components/tts.md",
-        "sha256": "64a1a337b199d2d189f615e483d1981130fbf5e210932830a82df9e0b1ce2dc0",
-        "bytes": 13882,
+        "sha256": "57925bfe8fd384cb1c5a93187ad03242d51a94cf2916805a681cab0da4303145",
+        "bytes": 14386,
         "destination": "apps/docs/public/sources/specs/components/tts.md.txt",
         "rights": "krds-reference-adaptation",
         "upstreamReferences": [
@@ -12947,8 +13164,8 @@
       },
       {
         "sourcePath": "packages/qwik/dist/components/file-upload/index.d.ts",
-        "sha256": "0bdb2d2be7f933111e0c2d46fafec5a1d5f7ed524c23a69ec9b7a845667b2519",
-        "bytes": 538,
+        "sha256": "4f0e4caaa713c04390b9194f501a01dff5e55ca21e834920d0c2255c4f9b35d6",
+        "bytes": 627,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/file-upload/index.d.ts.txt",
         "rights": "independent"
       },
@@ -13203,8 +13420,8 @@
       },
       {
         "sourcePath": "packages/qwik/dist/components/visually-hidden/index.d.ts",
-        "sha256": "09fe4c1bb0fb78b2e96bfee84c30fe05544f5119313336e9ed1f478276abaf60",
-        "bytes": 593,
+        "sha256": "7a799d9c9e833aa19ebbb4da46939bf198afe211668ce3188bef4f2abc7c3025",
+        "bytes": 484,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/visually-hidden/index.d.ts.txt",
         "rights": "independent"
       },
@@ -13395,8 +13612,8 @@
       },
       {
         "sourcePath": "packages/qwik/dist/components/bottom-sheet/index.d.ts",
-        "sha256": "12636f676b7dad3f7c1b3e239d1a1a0c3f9e13a44f509ae47827b12ce47d7711",
-        "bytes": 520,
+        "sha256": "151353c391918a616001d2ba9b4c6e54999ee92b9ebfe3a97c3149dcf3afae93",
+        "bytes": 440,
         "destination": "apps/docs/public/sources/packages/qwik/dist/components/bottom-sheet/index.d.ts.txt",
         "rights": "independent"
       },
@@ -13665,7 +13882,7 @@
       },
       {
         "sourcePath": "packages/react/package.json",
-        "sha256": "af1be1ef14abc9a6b465c06408f275f03538dba2809ac0d45e7279f06bef6b05",
+        "sha256": "5ec4cfb8ed7e5780cf7fabf5e3712f173085c68a7df38054103c6b5a6777f385",
         "bytes": 8406,
         "destination": "apps/docs/public/sources/packages/react/package.json.txt",
         "rights": "independent"
@@ -13679,15 +13896,15 @@
       },
       {
         "sourcePath": "docs/compatibility/react.md",
-        "sha256": "a86bd980f10c983ae2bbdf6488141791a46f5e22837f59599b3b7c47c61be5a8",
-        "bytes": 3188,
+        "sha256": "6ffe0492427a577949d94b0eae9fc753b0f3c37d228caa99efca95e63cdda891",
+        "bytes": 3482,
         "destination": "apps/docs/public/sources/docs/compatibility/react.md.txt",
         "rights": "independent"
       },
       {
         "sourcePath": "apps/fixture-react/src/CatalogExample.tsx",
-        "sha256": "d5cf8e77da7acae62eaebca0b2f85e7db167237efb45fdd3697697ea4235d959",
-        "bytes": 37134,
+        "sha256": "03fcb9c87e04cb962f9792f65e3455e0240c6cada98567d3452081e536fa5ac7",
+        "bytes": 37626,
         "destination": "apps/docs/public/sources/apps/fixture-react/src/CatalogExample.tsx.txt",
         "rights": "independent"
       },
@@ -13700,7 +13917,7 @@
       },
       {
         "sourcePath": "packages/solid/package.json",
-        "sha256": "ed3a80423b220a56769edfce43b44d531ab3b3dbba0534061fa4ac62c2825be4",
+        "sha256": "cc4097697cdeb607093b50b8997654304517f2e47c1cf57adc2c92f4c2b6782d",
         "bytes": 13214,
         "destination": "apps/docs/public/sources/packages/solid/package.json.txt",
         "rights": "independent"
@@ -13728,7 +13945,7 @@
       },
       {
         "sourcePath": "packages/svelte/package.json",
-        "sha256": "d714d3618337b3da02c03e76ca689705149e5ee38e85f12dbf883449f5a0c872",
+        "sha256": "64e452160f5e1e0e7baee74b1daf5746e1d6cf352378476e4e9ec3f932f03f89",
         "bytes": 12112,
         "destination": "apps/docs/public/sources/packages/svelte/package.json.txt",
         "rights": "independent"
@@ -13742,8 +13959,8 @@
       },
       {
         "sourcePath": "docs/compatibility/svelte.md",
-        "sha256": "d250ece76b71f6d2fd1061767c6427e62f6b58856f82ab95c18a2a55d00b69fb",
-        "bytes": 3436,
+        "sha256": "8bc223e598439aa8619900c86399d3f5a4b407d6cd2cb635067431dd5edc2423",
+        "bytes": 3421,
         "destination": "apps/docs/public/sources/docs/compatibility/svelte.md.txt",
         "rights": "independent"
       },
@@ -13756,7 +13973,7 @@
       },
       {
         "sourcePath": "packages/vue/package.json",
-        "sha256": "356ef769e8307f2d9e88e20b30c13f304f8abdc4cb7ecff26ef2f970d1682890",
+        "sha256": "d810f02c481036a0fd9d9013df5985281c8f8bc3551fdda5a65956c027b60df2",
         "bytes": 8702,
         "destination": "apps/docs/public/sources/packages/vue/package.json.txt",
         "rights": "independent"
@@ -13770,21 +13987,21 @@
       },
       {
         "sourcePath": "docs/compatibility/vue.md",
-        "sha256": "de39bd1539ee383fe5979af653d66767d01cc5b66ba95d51d3d7694b5d7278f6",
-        "bytes": 2173,
+        "sha256": "e96ef68f932be638db6671f7d6e48f6fe2b8b964adba9e2d3085aac39122369b",
+        "bytes": 2379,
         "destination": "apps/docs/public/sources/docs/compatibility/vue.md.txt",
         "rights": "independent"
       },
       {
         "sourcePath": "apps/fixture-vue/src/CatalogExamples.vue",
-        "sha256": "43a70c3a0751a573ef216be708a3a7acbe593fd6cbcd5c0f3c931f556b18f732",
-        "bytes": 27274,
+        "sha256": "49c6e734da07ed5d5465812da47bb6db95f7bc53471ec681a77b76d28cf22f9b",
+        "bytes": 28372,
         "destination": "apps/docs/public/sources/apps/fixture-vue/src/CatalogExamples.vue.txt",
         "rights": "independent"
       },
       {
         "sourcePath": "packages/lit/package.json",
-        "sha256": "465b0bda64ba5ec61e6edc1a5481aa8126527d3bf9af10d3d2b15f59dc12ccca",
+        "sha256": "9392fcc939fc1df1702aec7c0294d47f40b0aed50966cae036e3ce893900e66e",
         "bytes": 9464,
         "destination": "apps/docs/public/sources/packages/lit/package.json.txt",
         "rights": "independent"
@@ -13812,7 +14029,7 @@
       },
       {
         "sourcePath": "packages/qwik/package.json",
-        "sha256": "a57269ae471056970d874e2839027ecf00c1c55b5873fdd690a70622a60c3353",
+        "sha256": "a683c9ec4841bb3dd40b578c15c9a9ab11e1806f9c9bf87265a2bee1d9736da0",
         "bytes": 13030,
         "destination": "apps/docs/public/sources/packages/qwik/package.json.txt",
         "rights": "independent"
@@ -13826,8 +14043,8 @@
       },
       {
         "sourcePath": "docs/compatibility/qwik.md",
-        "sha256": "7c475e84b49384e08406dfdb56b3b2fd0c29fb2d668ff5463f799612790b7a56",
-        "bytes": 3825,
+        "sha256": "d1d8795663bf7548b33ae6e7058de9400f84977a3d8d0fbb0d66b90cbbfc8da9",
+        "bytes": 5176,
         "destination": "apps/docs/public/sources/docs/compatibility/qwik.md.txt",
         "rights": "independent"
       },
@@ -13840,7 +14057,7 @@
       },
       {
         "sourcePath": "packages/angular/package.json",
-        "sha256": "af5b4eaec5a165c92853a7f36cd5b5a3e7837a79300e98fc42e68983f651ed86",
+        "sha256": "6f2ca28dc003545ae273842023240c079510c8d4c7f48a29ffbc9fc58d7888de",
         "bytes": 11990,
         "destination": "apps/docs/public/sources/packages/angular/package.json.txt",
         "rights": "independent"
@@ -13854,8 +14071,8 @@
       },
       {
         "sourcePath": "docs/compatibility/angular.md",
-        "sha256": "b98a42ab32e41f46ad2aa28f2442c6ce3ddf4e80b8bbd97d75b4c38b6317c58e",
-        "bytes": 8591,
+        "sha256": "1762e8fbebac182965b1b4cf596f478733054b556e549079fbb24be632f72248",
+        "bytes": 10402,
         "destination": "apps/docs/public/sources/docs/compatibility/angular.md.txt",
         "rights": "independent"
       },
@@ -13868,8 +14085,8 @@
       },
       {
         "sourcePath": "packages/solid-next/package.json",
-        "sha256": "378061d448a1e1e0161112b292472d4f67f199cfbcbe6c2a8ae47515100786e6",
-        "bytes": 3177,
+        "sha256": "e601d0dc31995383361515c33a94db9bd89401e5b13596ffb8f0d4b1f5a18d19",
+        "bytes": 3180,
         "destination": "apps/docs/public/sources/packages/solid-next/package.json.txt",
         "rights": "independent"
       },
@@ -13895,10 +14112,17 @@
         "rights": "independent"
       },
       {
-        "sourcePath": ".superpowers/sdd/PLAN/task-T14-report.md",
+        "sourcePath": "apps/docs/artifact-checkpoint.json",
+        "sha256": "a81678d8973d4754840c87ee2de95b65fb622b7885d9a38497bedaaba1d3952b",
+        "bytes": 11325,
+        "destination": "apps/docs/public/sources/apps/docs/artifact-checkpoint.json.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "docs/execution/evidence/T14/reports/task-T14-report.md",
         "sha256": "06768af169ccc32a6c9b2a5ab7ad8a1d05de0f68b1816d424051d32665eefecf",
         "bytes": 11091,
-        "destination": "apps/docs/public/sources/.superpowers/sdd/PLAN/task-T14-report.md.txt",
+        "destination": "apps/docs/public/sources/docs/execution/evidence/T14/reports/task-T14-report.md.txt",
         "rights": "independent"
       }
     ],
@@ -14156,8 +14380,8 @@
         "url": "https://www.krds.go.kr/html/site/service/service_02_04.html"
       }
     ],
-    "metadataSha256": "3b864fdf29a22498a5cfdb4ea58945ac6744eae75be052c2d8c162f3309bd7c2",
-    "reboundAt": "2026-10-30T09:09:00.645Z"
+    "metadataSha256": "6f2de0e1d020be59d0276f09e7221014124fb89f0a684a09cfa2470e5778ab77",
+    "reboundAt": "2026-10-30T14:28:09.027Z"
   },
   "exclusions": [
     {

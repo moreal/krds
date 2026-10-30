@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TutorialExample from './TutorialExample.vue';
+import { LocalSpeechDriver, type LocalSpeechSnapshot } from './local-speech-driver';
 import type * as Contracts from '@unofficial-krds/vue';
 import { computed, ref, watch, nextTick, onUnmounted, onMounted, onErrorCaptured } from 'vue';
 import { Masthead, Identifier, Header, Footer, SkipLink, MainMenu, Breadcrumb, SideNavigation, InPageNavigation, Pagination, StructuredList, CriticalAlert, Disclosure, Badge, Accordion, Image, Carousel, Table, TextList, Favicon, Link, FAB, RadioGroup, Checkbox, Tag, Switch, StepIndicator, Spinner, HelpPanel, TutorialPanel, ContextualHelp, CoachMark, Tooltip, TTS, Textarea, TextInput, FileUpload, LanguageSwitcher, Resize, AccessibleMedia, VisuallyHidden, RangeSlider, BackButton, BottomSheet, QuantityToggle, Toast, Snackbar, TabBar, Modal, validateQuantityConfiguration, validateBadgeConfiguration } from '@unofficial-krds/vue';
@@ -14,6 +15,15 @@ const mounted = computed(() => host.value.mounted !== false && (p.componentId ==
 const result = ref(''), query = ref(''), saved = ref<string[]>([]), speech = ref('idle'), summary = ref(''), locale = ref('ko-KR'), confirmation = ref(false), draft = ref(''), submitted = ref<any[]>([]);
 const appended = ref(false);
 const receipt = ref(''), configurationError = ref('');
+const speechDriver = p.componentId === 'tts' ? new LocalSpeechDriver() : undefined;
+const speechDriverState = ref<LocalSpeechSnapshot>(speechDriver?.snapshot ?? { active: false, state: 'idle', lifecycle: 'idle', summary: '', locale: '' });
+const unsubscribeSpeech = speechDriver?.subscribe(snapshot => {
+    speechDriverState.value = snapshot;
+    speech.value = snapshot.state;
+    summary.value = snapshot.summary;
+    p.patch({ state: snapshot.state });
+}) ?? (() => {});
+watch(mounted, present => { if (!present) speechDriver?.dispose(); }, { flush: 'sync' });
 const route = ref(host.value.history?.at(-1) ?? '');
 const persistentText = ref(host.value.persistentResult?.text ?? s.value.message?.text ?? '');
 watch(() => s.value.message?.text, text => {
@@ -100,7 +110,14 @@ function stop(detail: any) {
     }
     p.patch(next);
 }
-function speechRequest(detail: any) { p.emit('request', detail); summary.value = detail.summary; speech.value = detail.action === 'stop' ? 'idle' : detail.action === 'pause' ? 'paused' : 'playing'; p.patch({ state: speech.value }); }
+function speechRequest(detail: { action: 'play' | 'pause' | 'resume' | 'stop'; summary: string; locale: string }) {
+    p.emit('request', detail);
+    if (!speechDriver) return;
+    if (detail.action === 'play') speechDriver.play(detail.summary, detail.locale);
+    else if (detail.action === 'pause') speechDriver.pause();
+    else if (detail.action === 'resume') speechDriver.resume();
+    else speechDriver.stop();
+}
 function localeRequest(detail: any) {
     p.emit('localeRequest', detail);
     if (host.value.samePageLocalization || host.value.applyDocumentLanguage || host.value.driver === 'local-language-mock' || p.componentId === 'language-switcher') {
@@ -158,7 +175,7 @@ watch(() => host.value.testConfiguration, configuration => {
         configurationError.value = (error as Error).name + ': ' + (error as Error).message;
     }
 }, { deep: true });
-onUnmounted(() => { confirmResolve?.(false); });
+onUnmounted(() => { unsubscribeSpeech(); speechDriver?.dispose(); confirmResolve?.(false); });
 </script>
 <template>
 <div style="min-height:100vh;display:flex;flex-direction:column" :dir="s.__environment?.direction??'ltr'" :style="{fontSize:host.textZoomPercent===200?'200%':undefined}">
@@ -330,6 +347,8 @@ onUnmounted(() => { confirmResolve?.(false); });
 <p data-krds-host="configuration-error">{{configurationError}}</p>
 <pre data-krds-host="upload-receipt">{{receipt}}</pre>
 <p data-krds-host="speech-state">{{speech}}</p>
+<p v-if="componentId==='tts'" data-krds-host="speech-driver-active">{{String(speechDriverState.active)}}</p>
+<p v-if="componentId==='tts'" data-krds-host="speech-driver-lifecycle">{{speechDriverState.lifecycle}}</p>
 <p data-krds-host="speech-summary">{{summary}}</p>
 <p data-krds-host="locale-content">{{result|| (locale.startsWith('ko')?'한국어 본문':'English local content')}}</p>
 <button v-if="componentId==='visually-hidden'&&host.visibleControlLabel" type="button" :aria-describedby="s.id">{{host.visibleControlLabel}}</button>

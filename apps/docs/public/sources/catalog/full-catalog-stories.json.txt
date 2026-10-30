@@ -11443,7 +11443,7 @@
       "state": {
         "label": "모두 선택",
         "name": "consent",
-        "defaultChecked": false,
+        "checked": false,
         "indeterminate": true,
         "value": "agreed"
       },
@@ -11847,7 +11847,7 @@
       "state": {
         "label": "모두 선택",
         "name": "consent",
-        "defaultChecked": false,
+        "checked": false,
         "indeterminate": true,
         "value": "agreed"
       },
@@ -16224,7 +16224,7 @@
             "insertionBoundaryId": "save-application-after"
           }
         ],
-        "defaultOpen": true,
+        "open": true,
         "defaultStepId": "one",
         "startActionId": "tutorial-start",
         "fallbackFocusId": "coach-fallback"
@@ -17431,7 +17431,7 @@
             "insertionBoundaryId": "save-application-after"
           }
         ],
-        "defaultOpen": true,
+        "open": true,
         "defaultStepId": "one",
         "startActionId": "tutorial-start",
         "fallbackFocusId": "coach-fallback"

@@ -39,7 +39,7 @@ async function fixture() {
     'upstream/example.html': official,
     'specs/components/example.md': '# Example\n\n## Plain semantic API\n\nSynthetic regression data.\n',
     'apps/fixture-fixture/src/consumer.ts': source,
-    '.superpowers/sdd/PLAN/task-T14-report.md': '# Synthetic report location\n'
+    'docs/execution/evidence/T14/reports/task-T14-report.md': '# Synthetic report location\n'
   })) await write(directory, path, bytes);
   await mkdir(resolve(directory, 'docs/getting-started'), { recursive: true });
   await mkdir(resolve(directory, 'docs/legal'), { recursive: true });

@@ -21,7 +21,7 @@ test('missing history and invalid SHA require full verification', () => {
   assert.equal(typeof api.resolveScope, 'function');
   for (const input of [
     {},
-    {base: 'main', head: 'b'.repeat(40)},
+    {base: 'main', head: 'b'.repeat(40), git: () => 'b'.repeat(40)},
     {base: 'a'.repeat(40), head: 'b'.repeat(40), git: () => { throw new Error('unavailable history'); }},
   ]) assert.equal(api.resolveScope(input).mode, 'full');
 });

@@ -9,23 +9,10 @@ export function blocked(message){return Object.assign(new Error(message),{code:'
 export function failed(message){return Object.assign(new Error(message),{code:'EVIDENCE_FAILED'});}
 const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;
 const equal=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
-function local(baseRoot,path){const result=resolve(baseRoot,path);if(!result.startsWith(`${resolve(baseRoot)}/`))throw blocked(`Evidence path escapes root: ${path}`);return result;}
-export async function evidenceRef(path,baseRoot=root){const bytes=await readFile(path);return {path:relative(baseRoot,path),size:bytes.length,sha256:hash(bytes)};}
-export async function validateRef(ref,baseRoot=root){if(!ref||!Number.isInteger(ref.size)||!/^[a-f0-9]{64}$/u.test(ref.sha256))throw blocked('Missing hash-bound evidence bytes');const path=local(baseRoot,ref.path);let bytes;try{if(!(await realpath(path)).startsWith(`${await realpath(baseRoot)}/`))throw blocked('Evidence symlink escapes root');bytes=await readFile(path);}catch(error){if(error.code==='ENOENT')throw blocked(`Missing evidence bytes ${ref.path}`);throw error;}if(bytes.length!==ref.size||hash(bytes)!==ref.sha256)throw blocked(`Evidence bytes/hash changed: ${ref.path}`);return bytes;}
+import {evidenceRef,validateRef,captureStep,validateStep} from '../../tools/release-evidence/receipt-step.mjs';
+export {evidenceRef,validateRef,captureStep,validateStep};
 export const yarnCommand=(args,cwd)=>({executable:node,args:[join(root,'.yarn/releases',`yarn-${config.packageManager.version}.cjs`),...args],cwd});
-export async function captureStep(name,command,{baseRoot=root,output}={}){
- if(command.executable!==node)throw new Error('Step must use the selected exact Node');await mkdir(output,{recursive:true});const startedAt=new Date().toISOString();const result=run(command.args,{cwd:command.cwd,allowFailure:true});
- const raw={schemaVersion:2,name,command,executed:true,exitCode:result.status,signal:result.signal??null,stdout:result.stdout,stderr:result.stderr};
- for(const [file,bytes] of [['stdout.log',raw.stdout],['stderr.log',raw.stderr],['combined.log',raw.stdout+raw.stderr],['result.json',JSON.stringify(raw,null,2)+'\n']])await writeFile(join(output,file),bytes);
- return {schemaVersion:2,name,command,executed:true,exitCode:raw.exitCode,signal:raw.signal,startedAt,finishedAt:new Date().toISOString(),stdout:await evidenceRef(join(output,'stdout.log'),baseRoot),stderr:await evidenceRef(join(output,'stderr.log'),baseRoot),log:await evidenceRef(join(output,'combined.log'),baseRoot),rawResult:await evidenceRef(join(output,'result.json'),baseRoot)};
-}
-export async function validateStep(step,{baseRoot=root,expectedCommand}={}){
- if(!step||step.schemaVersion!==2||step.executed!==true||!equal(step.command,expectedCommand))throw blocked('Missing or changed actual command identity');
- const [stdout,stderr,log,rawBytes]=await Promise.all([step.stdout,step.stderr,step.log,step.rawResult].map(ref=>validateRef(ref,baseRoot)));let raw;try{raw=JSON.parse(rawBytes);}catch{throw blocked('Invalid raw subprocess result');}
- if(raw.executed!==true||!equal(raw.command,expectedCommand)||raw.name!==step.name||raw.exitCode!==step.exitCode||raw.signal!==step.signal||raw.stdout!==stdout.toString()||raw.stderr!==stderr.toString()||!log.equals(Buffer.concat([stdout,stderr])))throw blocked('Raw subprocess result differs from accepted command/log bytes');
- if(raw.exitCode!==0||raw.signal!==null)throw failed(`${step.name}: actual execution failed (${raw.exitCode??raw.signal})`);return raw;
-}
-export async function harnessSnapshot(baseRoot=root){const paths=[...(await files(join(baseRoot,'tests/consumers'))).map(path=>`tests/consumers/${path}`),'tools/test-consumers.mjs','tools/inspect-tarballs.mjs','tools/pack-all.mjs'];const records=await Promise.all(paths.sort().map(async path=>({path,sha256:hash(await readFile(join(baseRoot,path)))})));return {schemaVersion:2,records,sha256:hash(JSON.stringify(records))};}
+export async function harnessSnapshot(baseRoot=root){const paths=[...(await files(join(baseRoot,'tests/consumers'))).map(path=>`tests/consumers/${path}`),'tools/test-consumers.mjs','tools/inspect-tarballs.mjs','tools/pack-all.mjs','tools/release-evidence/receipt-step.mjs'];const records=await Promise.all(paths.sort().map(async path=>({path,sha256:hash(await readFile(join(baseRoot,path)))})));return {schemaVersion:2,records,sha256:hash(JSON.stringify(records))};}
 export async function captureConsumerReceipt({directory,output,manifest,id,expectedPins,resolutions,baseRoot=root,outputClosure}){
  await mkdir(output,{recursive:true});const refs=[];
  for(const path of await files(directory)){if(path.startsWith('dist/')||path.startsWith('candidates/')||path.endsWith('.tsbuildinfo'))continue;const destination=join(output,'config',path);await mkdir(resolve(destination,'..'),{recursive:true});await copyFile(join(directory,path),destination);refs.push({consumerPath:path,...await evidenceRef(destination,baseRoot)});}
