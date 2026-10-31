@@ -115,7 +115,8 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
   await navigation.click();
   await page.locator('.VPNavScreen').getByRole('link', { name: '빠른 시작', exact: true }).waitFor();
   await navigation.click();
-  await page.screenshot({ path: resolve(evidence, `${name}-text-200.png`), fullPage: true });
+  // Linux font metrics can push the doubled-text reference past WebKit's
+  // 32767px image limit. Retain viewport and API captures below as evidence.
   await page.screenshot({ path: resolve(evidence, `${name}-text-200-viewport.png`) });
   await page.getByRole('heading', { name: /^Props, events/, level: 2 }).scrollIntoViewIfNeeded();
   await page.screenshot({ path: resolve(evidence, `${name}-text-200-api.png`) });
