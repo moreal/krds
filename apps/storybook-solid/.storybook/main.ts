@@ -9,5 +9,7 @@ export default {
   stories: ['../src/stories/**/*.stories.tsx'],
   addons: [],
   staticDirs: ['../public'],
+  // Storybook staticDirs owns these bytes; avoid racing Vite's second public copy.
+  viteFinal: async config => ({ ...config, build: { ...config.build, copyPublicDir: false } }),
   core: { disableTelemetry: true },
 } satisfies StorybookConfig;

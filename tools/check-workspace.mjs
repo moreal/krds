@@ -2,6 +2,8 @@ import { readFile, readdir, access } from 'node:fs/promises';
 import { resolve, relative, dirname, basename } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
+import { quarantinedStorybooks } from './ci/capabilities.mjs';
+
 const json = async (path) => JSON.parse(await readFile(path, 'utf8'));
 const exists = async (path) => { try { await access(path); return true; } catch { return false; } };
 export async function workspaces(root) {
@@ -41,7 +43,9 @@ export async function inspectWorkspace(root) {
   // Root overrides defeat generation isolation, even if today's value happens to match.
   if (Object.keys(pkg.resolutions ?? {}).length) fail('root resolutions are prohibited; declare exact workspace tools instead');
   if (pkg.devDependencies?.nx !== toolchain.orchestration.nx || pkg.devDependencies?.['@nx/js'] !== toolchain.orchestration['@nx/js']) fail('Nx versions differ from selected interface');
+  const quarantines = quarantinedStorybooks(testing);
   const entries = await workspaces(root);
+  for (const quarantine of quarantines) if (!entries.some(entry => entry.project.name === quarantine.project)) fail(`Missing quarantined workspace ${quarantine.project}`);
   const byName = new Map(entries.map((entry) => [entry.pkg.name, entry]));
   const byProject = new Map(entries.map((entry) => [entry.project.name, entry]));
   if (byName.size !== entries.length || byProject.size !== entries.length) fail('duplicate package/project names');
@@ -65,8 +69,17 @@ export async function inspectWorkspace(root) {
     for (const filename of ['yarn.lock', ...toolchain.packageManager.prohibitedFiles]) if (await exists(`${root}/${dir}/${filename}`)) fail(`${dir}: prohibited nested lock/config: ${filename}`);
     const frameworkId = project.tags.find((tag) => tag.startsWith('framework:'))?.slice(10);
     if ((dir.startsWith('apps/') || dir === 'packages/test-contracts') && manifest.private !== true) fail(`${dir} must be private`);
-    for (const target of ['build', 'typecheck', 'test', 'lint']) if (!project.targets[target]) fail(`${dir} missing ${target} target`);
-    if (!manifest.scripts?.['build:local']) fail(`${dir} missing build:local`);
+    const quarantine = quarantines.find(row => row.project === project.name);
+    if (quarantine) {
+      if (project.metadata?.capabilityStatus !== quarantine.status) fail(`${dir}: missing explicit quarantine inventory`);
+      if (Object.keys(project.targets ?? {}).length || Object.keys(manifest.scripts ?? {}).length) fail(`${dir}: quarantined workspace must have no executable targets or scripts`);
+      if (await exists(`${root}/${dir}/dist/index.html`)) fail(`${dir}: quarantined workspace retains an obsolete production entry`);
+      for (const [alternative, targets] of Object.entries(quarantine.requiredAlternativeTargets)) for (const target of targets) if (!byProject.get(alternative)?.project.targets?.[target]) fail(`${dir}: quarantine native alternative ${alternative} missing ${target}`);
+    } else {
+      if (project.metadata?.capabilityStatus === 'quarantined-unsupported-preview') fail(`${dir}: quarantine requires explicit compatibility metadata`);
+      for (const target of ['build', 'typecheck', 'test', 'lint']) if (!project.targets[target]) fail(`${dir} missing ${target} target`);
+      if (!manifest.scripts?.['build:local']) fail(`${dir} missing build:local`);
+    }
     if (!await exists(`${root}/${dir}/tsconfig.json`)) fail(`${dir} missing tsconfig.json`);
     if (dir.startsWith('packages/') && dir !== 'packages/test-contracts') {
       for (const field of ['version', 'type', 'exports', 'files', 'license']) if (!manifest[field]) fail(`${dir} missing ${field}`);

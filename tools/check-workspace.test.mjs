@@ -133,3 +133,15 @@ test('VitePress generated caches preserve authored import boundaries', async () 
     assert.match((await inspectWorkspace(dir)).join('\n'), /undeclared direct import review-ordinary-temp/);
   });
 });
+
+test('quarantined unsupported preview cannot regain executable scripts, targets, or a stale production entry', async t => {
+  const root = resolve(import.meta.dirname, '..');
+  for (const [name, mutate] of [
+    ['script', async dir => { const path = `${dir}/apps/storybook-solid-next/package.json`; const pkg = JSON.parse(await readFile(path)); pkg.scripts = {typecheck: 'tsc --noEmit'}; await writeFile(path, JSON.stringify(pkg)); }],
+    ['target', async dir => { const path = `${dir}/apps/storybook-solid-next/project.json`; const project = JSON.parse(await readFile(path)); project.targets.build = {}; await writeFile(path, JSON.stringify(project)); }],
+    ['production entry', async dir => { await mkdir(`${dir}/apps/storybook-solid-next/dist`, {recursive: true}); await writeFile(`${dir}/apps/storybook-solid-next/dist/index.html`, '<html>obsolete probe</html>'); }],
+  ]) await t.test(name, async () => withWorkspaceCopy(root, async dir => {
+    await mutate(dir);
+    assert.match((await inspectWorkspace(dir)).join('\n'), /quarantin/i);
+  }));
+});

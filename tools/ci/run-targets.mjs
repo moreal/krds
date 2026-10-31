@@ -3,6 +3,7 @@ import {targets} from './selection.mjs';
 assertNode();
 const selection = readJson('test-results/ci/selection.json');
 const results = [];
+for (const omitted of selection.omittedProjects ?? []) console.log(`omitted unsupported capability: ${omitted.project}: ${omitted.reason}`);
 // Stable and exact Solid 2 preview are reported separately; neither failure is hidden.
 for (const channel of ['stable', 'preview']) {
   const projects = selection[`${channel}Projects`];

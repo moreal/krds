@@ -4,6 +4,8 @@ import {join} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {assertNode, readJson, yarn, git as runGit, writeJson} from './common.mjs';
 
+import {quarantinedStorybooks} from './capabilities.mjs';
+
 export const targets = ['lint', 'typecheck', 'test', 'build', 'contract', 'siheom', 'storybook-build', 'stories'];
 export function resolveScope({base, head, git = runGit} = {}) {
   if (/^[a-f0-9]{40}$/i.test(head ?? '')) {
@@ -26,14 +28,30 @@ export function resolveScope({base, head, git = runGit} = {}) {
 
 export function buildSelection(nodes, projects, testing) {
   if (!projects.length) throw new Error('Zero projects selected; refusing a vacuous CI success');
-  const result = {projects: [...projects].sort(), targets: Object.fromEntries(targets.map(target => [target, []])), unsupported: testing.unsupportedOrSeparate};
+  const quarantines = quarantinedStorybooks(testing);
+  const selected = new Set(projects);
+  const omittedProjects = [];
+  for (const quarantine of quarantines) {
+    const project = nodes[quarantine.project]?.data;
+    if (!project || project.metadata?.capabilityStatus !== quarantine.status) throw new Error(`Missing explicit quarantine inventory for ${quarantine.project}`);
+    if (Object.keys(project.targets ?? {}).length) throw new Error(`${quarantine.project}: quarantined project has executable targets`);
+    for (const [alternative, required] of Object.entries(quarantine.requiredAlternativeTargets)) {
+      for (const target of required) if (!nodes[alternative]?.data.targets?.[target]) throw new Error(`${quarantine.project}: native alternative ${alternative} missing ${target}`);
+    }
+    if (!selected.has(quarantine.project)) continue;
+    selected.delete(quarantine.project);
+    for (const alternative of Object.keys(quarantine.requiredAlternativeTargets)) selected.add(alternative);
+    omittedProjects.push({project: quarantine.project, capability: 'storybook', status: quarantine.status, reason: quarantine.reason});
+  }
+  const result = {projects: [...selected].sort(), omittedProjects, targets: Object.fromEntries(targets.map(target => [target, []])), unsupported: testing.unsupportedOrSeparate};
   for (const name of result.projects) {
     const project = nodes[name]?.data;
     if (!project) throw new Error(`Unknown selected project ${name}`);
     for (const target of targets) if (project.targets[target]) result.targets[target].push(name);
     const framework = name.replace(/^(fixture|storybook)-/, '');
+    if (name.startsWith('storybook-') && !testing.requiredStorybookFrameworks.includes(framework)) throw new Error(`${name}: Storybook capability must be required or explicitly quarantined`);
     const required = name.startsWith('fixture-') ? ['contract', ...(testing.requiredSiheomFrameworks.includes(framework) ? ['siheom'] : [])]
-      : name.startsWith('storybook-') ? ['storybook-build', 'stories'] : [];
+      : name.startsWith('storybook-') && testing.requiredStorybookFrameworks.includes(framework) ? ['storybook-build', 'stories'] : [];
     for (const target of required) if (!project.targets[target]) throw new Error(`${name} is missing mandatory ${target}`);
     if (name.startsWith('fixture-') && testing.unsupportedOrSeparate.some(row => row.framework === framework && row.siheom?.status === 'unsupported-upstream') && project.targets.siheom) {
       throw new Error(`${name} invents an unsupported upstream siheom target`);

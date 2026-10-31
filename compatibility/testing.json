@@ -830,7 +830,23 @@
         "version": "10.7.4",
         "status": "pending-preview-validation",
         "evidence": "Published peers include Solid2 prereleases; renderer/compiler execution on exact rc.19 unverified.",
-        "compilerConcern": "Adapter peer uses the specifier vite-plugin-solid; selected Solid2 compiler package is @solidjs/vite-plugin 3.0.0-next.53. A workspace-local alias or adapter configuration must be tested; no working integration is claimed."
+        "compilerConcern": "Adapter peer uses the specifier vite-plugin-solid; selected Solid2 compiler package is @solidjs/vite-plugin 3.0.0-next.53. A workspace-local alias or adapter configuration must be tested; no working integration is claimed.",
+        "ci": {
+          "status": "quarantined-unsupported-preview",
+          "project": "storybook-solid-next",
+          "reason": "Storybook is unsupported in the exact Solid 2 RC preview; the obsolete T01 scaffold is quarantined until native renderer/compiler integration is validated.",
+          "requiredAlternativeTargets": {
+            "krds-solid-next": [
+              "typecheck",
+              "build"
+            ],
+            "fixture-solid-next": [
+              "typecheck",
+              "build",
+              "contract"
+            ]
+          }
+        }
       },
       "requiredAlternative": "Native Solid2 production fixture + Playwright/types/SSR; never wrap Solid1 or widen its siheom peer."
     }
@@ -908,7 +924,7 @@
     "upstream/krds/raw/qwik-storybook-README.md",
     "upstream/krds/raw/solid-storybook-README.md"
   ],
-  "verificationPolicy": "Metadata and peer-range validation are distinct from successful installation, compiler, browser and production consumer execution. Pending entries remain mandatory.",
+  "verificationPolicy": "Metadata and peer-range validation are distinct from successful installation, compiler, browser and production consumer execution. Pending entries remain mandatory. The explicitly quarantined unsupported Solid 2 Storybook scaffold is not an executable pending gate; its package and native fixture alternative targets remain mandatory. Quarantine does not validate the pending integration.",
   "metadataVerification": {
     "checker": "semver 7.8.5 (registry SRI matched), executed on Node 24.18.0",
     "nativeProfilePackages": 85,

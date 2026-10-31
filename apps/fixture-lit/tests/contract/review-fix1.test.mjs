@@ -1,6 +1,8 @@
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, cp, mkdtemp, rm } from 'node:fs/promises';
 import { render } from '@lit-labs/ssr';
 import { html } from 'lit';
 import { registerKrdsElements } from '@unofficial-krds/lit';
@@ -12,13 +14,16 @@ registerKrdsElements(customElements);
 const options = [{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }];
 
 for (const engine of ['chromium', 'webkit']) {
-  test(`review 1 ${engine}: non-first native selection exists before hydration and reuses the select`, async () => {
+  test(`review 1 ${engine}: non-first native selection exists before hydration and reuses the select`, async t => {
+    const hydrationDist = await mkdtemp(join(tmpdir(), 'krds-lit-selection-hydration-'));
+    t.after(() => rm(hydrationDist, { recursive: true, force: true }));
+    await cp(new URL('../../dist', import.meta.url), hydrationDist, { recursive: true });
     const markup = [...render(html`<krds-native-select id="controlled" defer-hydration label="제어 지역" .options=${options} .value=${'busan'}></krds-native-select><krds-native-select id="uncontrolled" defer-hydration label="기본 지역" .options=${options} .defaultValue=${'busan'}></krds-native-select>`)].join('');
-    const skeleton = await readFile(new URL('../../dist/hydrate.html', import.meta.url), 'utf8');
+    const skeleton = await readFile(join(hydrationDist, 'hydrate.html'), 'utf8');
     const state = { controlled: { options, value: 'busan' }, uncontrolled: { options, defaultValue: 'busan' } };
     const document = skeleton.replace('<main id="app"></main>', `<main id="app">${markup}</main><script id="krds-hydration-state" type="application/json">${JSON.stringify(state)}</script>`);
-    await writeFile(new URL(`../../dist/review-selection-${engine}.html`, import.meta.url), document);
-    const server = await serveProduction(new URL('../../dist', import.meta.url).pathname);
+    await writeFile(join(hydrationDist, `review-selection-${engine}.html`), document);
+    const server = await serveProduction(hydrationDist);
     const browser = await ({ chromium, webkit })[engine].launch();
     try {
       const page = await browser.newPage();

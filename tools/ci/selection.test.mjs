@@ -47,3 +47,30 @@ test('unsupported siheom stays explicitly separate from required suites', () => 
   assert.deepEqual(selection.targets.siheom, []);
   assert.equal(selection.unsupported[0].framework, 'lit');
 });
+
+test('explicit unsupported Storybook quarantine preserves stable gates and executes its native alternatives', () => {
+  const stable = ['react', 'solid', 'svelte', 'vue', 'lit', 'qwik', 'angular'];
+  const testing = {requiredStorybookFrameworks: stable, requiredSiheomFrameworks: [], unsupportedOrSeparate: [{framework: 'solid-next', storybook: {status: 'pending-preview-validation', ci: {status: 'quarantined-unsupported-preview', project: 'storybook-solid-next', reason: 'Exact RC renderer integration remains unverified; native preview is required.', requiredAlternativeTargets: {'krds-solid-next': ['typecheck', 'build'], 'fixture-solid-next': ['typecheck', 'build', 'contract']}}}}]};
+  const nodes = Object.fromEntries(stable.map(framework => [`storybook-${framework}`, {data: {targets: {build: {}, test: {}, 'storybook-build': {}, stories: {}}}}]));
+  nodes['krds-solid-next'] = {data: {targets: {build: {}, typecheck: {}, test: {}}}};
+  nodes['fixture-solid-next'] = {data: {targets: {build: {}, typecheck: {}, test: {}, contract: {}}}};
+  nodes['storybook-solid-next'] = {data: {metadata: {capabilityStatus: 'quarantined-unsupported-preview'}, targets: {}}};
+  const selection = api.buildSelection(nodes, Object.keys(nodes), testing);
+  assert.deepEqual(selection.targets['storybook-build'], stable.map(framework => `storybook-${framework}`).sort());
+  assert.deepEqual(selection.targets.stories, stable.map(framework => `storybook-${framework}`).sort());
+  assert.deepEqual(selection.targets.contract, ['fixture-solid-next']);
+  assert.ok(selection.targets.build.includes('krds-solid-next'));
+  assert.ok(selection.targets.typecheck.includes('fixture-solid-next'));
+  assert.equal(selection.projects.includes('storybook-solid-next'), false);
+  assert.deepEqual(selection.omittedProjects, [{project: 'storybook-solid-next', capability: 'storybook', status: 'quarantined-unsupported-preview', reason: testing.unsupportedOrSeparate[0].storybook.ci.reason}]);
+  const affected = api.buildSelection(nodes, ['storybook-solid-next'], testing);
+  assert.deepEqual(affected.projects, ['fixture-solid-next', 'krds-solid-next']);
+  for (const target of ['build', 'typecheck', 'test', 'storybook-build', 'stories']) {
+    const resurrected = structuredClone(nodes); resurrected['storybook-solid-next'].data.targets[target] = {};
+    assert.throws(() => api.buildSelection(resurrected, Object.keys(nodes), testing), /quarantin.*executable/i);
+  }
+  const missing = structuredClone(nodes); delete missing['fixture-solid-next'].data.targets.contract;
+  assert.throws(() => api.buildSelection(missing, Object.keys(nodes), testing), /alternative.*contract/i);
+  const stableExemption = structuredClone(testing); stableExemption.requiredStorybookFrameworks.push('solid-next');
+  assert.throws(() => api.buildSelection(nodes, Object.keys(nodes), stableExemption), /required.*storybook.*quarantin/i);
+});

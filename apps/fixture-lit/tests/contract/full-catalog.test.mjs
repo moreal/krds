@@ -48,7 +48,21 @@ for (const engine of ['chromium', 'webkit']) {
           if (id === 'range-slider') { await host.getByRole('slider').press('End'); assert.deepEqual(await page.evaluate(() => [...new FormData(document.getElementById('catalog-form'))]), [['amount', '10']]); }
           if (id === 'quantity-toggle') { await host.getByRole('button', { name: '수량 늘리기' }).click(); assert.deepEqual(await page.evaluate(() => [...new FormData(document.getElementById('catalog-form'))]), [['quantity', '3']]); }
           if (id === 'carousel') { await host.getByRole('button', { name: '다음 슬라이드', exact: true }).click(); assert.equal(await host.getByText('다음 내용', { exact: true }).isVisible(), true); assert.equal(await host.getByText('첫 내용', { exact: true }).isVisible(), false); }
-          if (id === 'table') { await host.getByRole('button', { name: /신청자/ }).click(); assert.equal(await host.getByRole('columnheader').getAttribute('aria-sort'), 'ascending'); assert.deepEqual(await host.locator('tbody td').allTextContents(), ['가', '나']); }
+          if (id === 'table') {
+            assert.equal(await host.getByRole('button', { name: '신청자', exact: true }).count(), 0);
+            await host.evaluate(async element => {
+              element.sort = { columnId: 'name', direction: 'descending' };
+              element.addEventListener('sort-change', event => { element.sort = event.detail; });
+              await element.updateComplete;
+            });
+            assert.equal(await host.getByRole('columnheader').getAttribute('aria-sort'), 'descending');
+            assert.deepEqual(await host.locator('tbody td').allTextContents(), ['나', '가']);
+            await host.getByRole('button', { name: '신청자', exact: true }).click();
+            await host.evaluate(element => element.updateComplete);
+            assert.deepEqual(await page.evaluate(() => window.requests), [{ name: 'sort-change', detail: { columnId: 'name', direction: 'ascending' } }]);
+            assert.equal(await host.getByRole('columnheader').getAttribute('aria-sort'), 'ascending');
+            assert.deepEqual(await host.locator('tbody td').allTextContents(), ['가', '나']);
+          }
           if (id === 'contextual-help') { await host.getByRole('button').click(); assert.equal(await host.getByText('기관을 선택하세요').isVisible(), true); await page.keyboard.press('Escape'); assert.equal(await host.getByText('기관을 선택하세요').isVisible(), false); }
           if (id === 'tooltip') { await host.getByRole('button').focus(); assert.equal(await host.getByRole('tooltip').isVisible(), true); await page.keyboard.press('Escape'); assert.equal(await host.getByRole('tooltip').isVisible(), false); }
           if (id === 'fab') { await host.getByRole('button', { name: '빠른 작업' }).click(); assert.equal(await host.getByRole('button', { name: '저장' }).isVisible(), true); await page.keyboard.press('Escape'); assert.equal(await host.getByRole('button', { name: '저장' }).isVisible(), false); }
@@ -56,7 +70,7 @@ for (const engine of ['chromium', 'webkit']) {
           if (id === 'bottom-sheet') { assert.equal(await host.getByRole('dialog').isVisible(), true); await page.keyboard.press('Escape'); assert.equal(await host.getByRole('dialog').isVisible(), false); }
           if (id === 'snackbar') { await host.getByRole('button', { name: '실행 취소' }).click(); assert.equal(await page.evaluate(() => window.requests.filter(request => request.name === 'action').length), 1); }
           if (id === 'back-button') { await host.getByRole('button').click(); assert.equal(await page.evaluate(() => window.requests.filter(request => request.name === 'back-request').length), 1); }
-          if (id === 'tts') { await host.getByRole('button', { name: '안내 듣기' }).click(); assert.equal(await page.evaluate(() => window.requests.filter(request => request.name === 'request').length), 1); }
+          if (id === 'tts') { await host.getByRole('button', { name: '안내 듣기 재생', exact: true }).click(); assert.deepEqual(await page.evaluate(() => window.requests), [{ name: 'request', detail: { action: 'play', summary: '로컬 안내', locale: 'ko-KR' } }]); assert.equal(await host.getByRole('button', { name: '안내 듣기 일시정지', exact: true }).isDisabled(), true); assert.equal(await host.getByRole('button', { name: '안내 듣기 중지', exact: true }).isDisabled(), true); assert.equal(await host.evaluate(element => element.state), 'idle'); }
           if (id === 'tab-bar') assert.equal(await host.getByRole('link', { name: '홈' }).getAttribute('aria-current'), 'page');
         } finally { await page.close(); }
       });

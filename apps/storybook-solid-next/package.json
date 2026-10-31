@@ -3,14 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "test": "node --test ../../tools/workspace-probe.test.mjs",
-    "lint": "node ../../tools/check-workspace.mjs",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "build:local": "storybook build --output-dir dist",
-    "storybook-build": "storybook build --output-dir dist",
-    "stories": "playwright test"
-  },
+  "scripts": {},
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
     "@babel/core": "7.28.5",

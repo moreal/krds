@@ -13,42 +13,8 @@
     "krds-tokens",
     "krds-styles"
   ],
-  "targets": {
-    "build": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next build:local"
-      }
-    },
-    "typecheck": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next typecheck"
-      }
-    },
-    "test": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next test"
-      }
-    },
-    "lint": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next lint"
-      }
-    },
-    "storybook-build": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next storybook-build"
-      }
-    },
-    "stories": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "node tools/yarn.mjs workspace @unofficial-krds/storybook-solid-next stories"
-      }
-    }
+  "targets": {},
+  "metadata": {
+    "capabilityStatus": "quarantined-unsupported-preview"
   }
 }
