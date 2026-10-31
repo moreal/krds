@@ -1,0 +1,4 @@
+import type { RangeSliderContract } from '@unofficial-krds/contracts';
+export type RangeSliderProps = RangeSliderContract;
+export declare function RangeSlider({ value, defaultValue, onValueChange, label, id: provided, name, min, max, step, disabled, valueText, helpId, errorId }: RangeSliderProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

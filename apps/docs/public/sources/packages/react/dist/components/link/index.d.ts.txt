@@ -1,0 +1,8 @@
+import type { LinkContract } from '@unofficial-krds/contracts';
+import type { ReactNode, MouseEventHandler } from 'react';
+export interface LinkProps extends LinkContract {
+    children?: ReactNode;
+    onClick?: MouseEventHandler<HTMLAnchorElement>;
+}
+export declare function Link({ href, label, target, rel, disabled, appearance, size, underline, children, onClick }: LinkProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

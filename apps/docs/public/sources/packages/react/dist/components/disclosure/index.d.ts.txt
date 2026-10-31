@@ -1,0 +1,7 @@
+import { type ReactNode } from 'react';
+import type { DisclosureContract } from '@unofficial-krds/contracts';
+export interface DisclosureProps extends DisclosureContract {
+    children?: ReactNode;
+}
+export declare function Disclosure({ open, defaultOpen, onOpenChange, label, contentId, children }: DisclosureProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

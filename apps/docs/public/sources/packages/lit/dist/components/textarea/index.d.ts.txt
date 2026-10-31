@@ -1,0 +1,41 @@
+import { type PropertyValues } from 'lit';
+import { FormElement } from '../catalog-support.js';
+export declare class Textarea extends FormElement {
+    static formAssociated: boolean;
+    static properties: {
+        value: {
+            type: StringConstructor;
+        };
+        defaultValue: {
+            attribute: string;
+        };
+        rows: {
+            type: NumberConstructor;
+        };
+        readOnly: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        maxLength: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+    };
+    value: string | undefined;
+    defaultValue: string | undefined;
+    rows: number;
+    readOnly: boolean;
+    maxLength: number | undefined;
+    private state;
+    private composing;
+    private compositionDraft;
+    private initialText;
+    constructor();
+    get committedValue(): string;
+    resetControl(): void;
+    restoreControl(value: string | FormData | File | null): void;
+    updated(_changed: PropertyValues): void;
+    private input;
+    render(): import("lit").TemplateResult;
+}
+//# sourceMappingURL=index.d.ts.map

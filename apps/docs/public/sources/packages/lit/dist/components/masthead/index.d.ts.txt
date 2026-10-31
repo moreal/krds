@@ -1,0 +1,13 @@
+import { KrdsElement } from '../base.js';
+export declare class Masthead extends KrdsElement {
+    static properties: {
+        governmentService: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+    };
+    governmentService: boolean;
+    constructor();
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

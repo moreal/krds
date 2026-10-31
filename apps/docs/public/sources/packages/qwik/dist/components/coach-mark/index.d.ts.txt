@@ -1,0 +1,14 @@
+import { type JSXChildren } from '@builder.io/qwik';
+import type { CoachMarkContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type CoachMarkProps = NativeContract<CoachMarkContract> & {
+    children?: JSXChildren;
+};
+/** One resumable owner. Real targets and their outlets remain declarative children. */
+export declare const CoachMark: import("@builder.io/qwik").Component<CoachMarkProps>;
+export interface CoachMarkOutletProps {
+    targetId: string;
+}
+/** Place inside the registered boundary immediately after its unchanged native target. */
+export declare const CoachMarkOutlet: import("@builder.io/qwik").Component<CoachMarkOutletProps>;
+//# sourceMappingURL=index.d.ts.map

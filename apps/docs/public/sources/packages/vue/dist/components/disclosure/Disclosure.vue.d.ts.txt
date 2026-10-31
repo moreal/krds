@@ -1,0 +1,35 @@
+import type { DisclosureContract } from '@unofficial-krds/contracts';
+type __VLS_Props = DisclosureContract & {
+    content?: string;
+    modelValue?: boolean;
+};
+declare const __VLS_template: () => {
+    __VLS_Slots: {
+        default?: (props: {}) => any;
+    };
+};
+type __VLS_Slots = ReturnType<typeof __VLS_template>['__VLS_Slots'];
+declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    openChange: (detail: {
+        open: boolean;
+    }) => any;
+    "update:modelValue": (open: boolean) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    onOpenChange?: ((detail: {
+        open: boolean;
+    }) => any) | undefined;
+    "onUpdate:modelValue"?: ((open: boolean) => any) | undefined;
+}>, {
+    open: boolean;
+    defaultOpen: boolean;
+    modelValue: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+//# sourceMappingURL=Disclosure.vue.d.ts.map

@@ -1,0 +1,15 @@
+import { type ReactNode, type SelectHTMLAttributes } from 'react';
+import type { SelectOption, ValueChangeDetails } from '@unofficial-krds/contracts';
+export interface NativeSelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' | 'multiple' | 'value' | 'defaultValue' | 'onChange' | 'children'> {
+    options: SelectOption[];
+    value?: string;
+    defaultValue?: string;
+    label?: ReactNode;
+    hint?: ReactNode;
+    error?: ReactNode;
+    invalid?: boolean;
+    size?: 'small' | 'medium' | 'large';
+    onValueChange?: (details: ValueChangeDetails<string>) => void;
+}
+export declare function NativeSelect({ options, value, defaultValue, label, hint, error, invalid, size, onValueChange, id: suppliedId, ...native }: NativeSelectProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

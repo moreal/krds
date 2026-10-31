@@ -1,0 +1,11 @@
+import { type ReactNode } from 'react';
+import type { HelpPanelContract } from '@unofficial-krds/contracts';
+export interface HelpPanelProps extends HelpPanelContract {
+    tutorialContent?: ReactNode;
+    onModeRequest?: (mode: 'help' | 'tutorial') => void;
+    delegateRestoration?: boolean;
+    showOpener?: boolean;
+    showTopicTriggers?: boolean;
+}
+export declare function HelpPanel({ topics, open, defaultOpen, onOpenChange, selectedTopicId, defaultSelectedTopicId, onTopicChange, mode, fallbackFocusId, tutorialContent, onModeRequest, delegateRestoration, showOpener, showTopicTriggers }: HelpPanelProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

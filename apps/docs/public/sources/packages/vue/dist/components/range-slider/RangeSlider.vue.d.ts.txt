@@ -1,0 +1,19 @@
+import type { RangeSliderContract } from '@unofficial-krds/contracts';
+type __VLS_Props = RangeSliderContract & {
+    form?: string;
+    modelValue?: number;
+};
+declare const __VLS_export: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (value: number) => any;
+    valueChange: (detail: {
+        value: number;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    "onUpdate:modelValue"?: ((value: number) => any) | undefined;
+    onValueChange?: ((detail: {
+        value: number;
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=RangeSlider.vue.d.ts.map

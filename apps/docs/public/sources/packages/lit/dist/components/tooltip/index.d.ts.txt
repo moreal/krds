@@ -1,0 +1,80 @@
+import { KrdsElement } from '../base.js';
+import { AnchoredController } from '../../controllers/anchored-controller.js';
+export declare class Tooltip extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        text: {
+            type: StringConstructor;
+        };
+        relationship: {
+            type: StringConstructor;
+        };
+        triggerLabel: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        triggerId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        textId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        placement: {
+            type: StringConstructor;
+        };
+        fallbackFocusId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        touchToggle: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        suppressed: {
+            state: boolean;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    text: string;
+    relationship: string;
+    triggerLabel: string;
+    triggerId: string;
+    textId: string;
+    placement: string;
+    fallbackFocusId: string;
+    touchToggle: boolean;
+    private suppressed;
+    private state;
+    private fallbackBoundary?;
+    private pendingEscape;
+    private escapeOrigin;
+    private closeTimer?;
+    private hovered;
+    private blurGeneration;
+    private keyboardDeparture;
+    private tabDeparturePending;
+    private handleFocus;
+    private handleBlur;
+    readonly anchor: AnchoredController;
+    constructor();
+    get committedOpen(): boolean;
+    private show;
+    private leave;
+    private key;
+    private keyUp;
+    private outside;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    updated(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

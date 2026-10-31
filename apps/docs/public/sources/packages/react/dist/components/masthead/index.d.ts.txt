@@ -1,0 +1,5 @@
+import type { MastheadContract } from '@unofficial-krds/contracts';
+export type MastheadProps = MastheadContract;
+/** The caller's real eligibility flag is authoritative; examples label their simulation outside this component. */
+export declare function Masthead({ governmentService }: MastheadProps): import("react").JSX.Element | null;
+//# sourceMappingURL=index.d.ts.map

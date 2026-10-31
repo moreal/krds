@@ -1,0 +1,8 @@
+import type { FileUploadContract, FileRecord } from '@unofficial-krds/contracts';
+export interface FileUploadProps extends FileUploadContract {
+    variant?: 'button' | 'dropzone';
+}
+/** Append one enabled committed store. The ephemeral chooser is deliberately unnamed, so unrelated same-name native fields and other uploaders remain intact. */
+export declare function appendFileUploadFormData(data: FormData, name: string, files: readonly FileRecord[], disabled?: boolean): FormData;
+export declare function FileUpload({ files, name, label, multiple, accept, maxFiles, maxBytes, disabled, onFilesChange, onFilesRejected, variant }: FileUploadProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

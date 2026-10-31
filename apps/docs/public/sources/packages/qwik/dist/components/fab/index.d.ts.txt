@@ -1,0 +1,5 @@
+import type { FABContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type FABProps = NativeContract<FABContract>;
+export declare const FAB: import("@builder.io/qwik").Component<NativeContract<FABContract>>;
+//# sourceMappingURL=index.d.ts.map

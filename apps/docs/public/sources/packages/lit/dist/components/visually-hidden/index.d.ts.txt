@@ -1,0 +1,20 @@
+import { KrdsElement } from '../base.js';
+export declare class VisuallyHidden extends KrdsElement {
+    static styles: import("lit").CSSResult[];
+    static properties: {
+        content: {
+            type: StringConstructor;
+        };
+        variant: {
+            type: StringConstructor;
+            reflect: boolean;
+        };
+    };
+    content: string;
+    variant: string;
+    constructor();
+    private control;
+    private showFocus;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

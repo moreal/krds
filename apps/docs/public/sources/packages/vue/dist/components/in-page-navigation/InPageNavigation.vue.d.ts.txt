@@ -1,0 +1,15 @@
+import type { InPageNavigationContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<InPageNavigationContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    activeChange: (detail: {
+        id: string;
+        reason: "scroll" | "activation";
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<InPageNavigationContract> & Readonly<{
+    onActiveChange?: ((detail: {
+        id: string;
+        reason: "scroll" | "activation";
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=InPageNavigation.vue.d.ts.map

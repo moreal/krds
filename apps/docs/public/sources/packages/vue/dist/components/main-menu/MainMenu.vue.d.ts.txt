@@ -1,0 +1,43 @@
+import type { MainMenuContract } from '@unofficial-krds/contracts';
+declare const __VLS_template: () => {
+    __VLS_Slots: {
+        'mobile-trigger'?: (props: {
+            open: boolean;
+            openMenu: () => void;
+        }) => any;
+    };
+};
+type __VLS_Slots = ReturnType<typeof __VLS_template>['__VLS_Slots'];
+declare const __VLS_base: import("vue").DefineComponent<MainMenuContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    expandedChange: (detail: {
+        id: string | null;
+    }) => any;
+    mobileOpenChange: (detail: {
+        open: boolean;
+    }) => any;
+    queryChange: (detail: {
+        value: string;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<MainMenuContract> & Readonly<{
+    onExpandedChange?: ((detail: {
+        id: string | null;
+    }) => any) | undefined;
+    onMobileOpenChange?: ((detail: {
+        open: boolean;
+    }) => any) | undefined;
+    onQueryChange?: ((detail: {
+        value: string;
+    }) => any) | undefined;
+}>, {
+    mobileOpen: boolean;
+    defaultMobileOpen: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+//# sourceMappingURL=MainMenu.vue.d.ts.map

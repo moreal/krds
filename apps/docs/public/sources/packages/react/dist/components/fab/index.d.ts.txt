@@ -1,0 +1,6 @@
+import type { FABContract } from '@unofficial-krds/contracts';
+export interface FABProps extends FABContract {
+    clearance?: number;
+}
+export declare function FAB({ label, icon, disabled, onAction, expanded, defaultExpanded, onExpandedChange, actions, clearance, showLabel }: FABProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

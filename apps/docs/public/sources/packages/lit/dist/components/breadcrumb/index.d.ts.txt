@@ -1,0 +1,39 @@
+import type { BreadcrumbContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class Breadcrumb extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        home: {
+            attribute: boolean;
+        };
+        currentItem: {
+            attribute: boolean;
+        };
+        omitCurrent: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        maxVisible: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        narrow: {
+            state: boolean;
+        };
+    };
+    items: BreadcrumbContract['items'];
+    home: BreadcrumbContract['home'];
+    currentItem: BreadcrumbContract['currentItem'];
+    omitCurrent: boolean;
+    maxVisible: number;
+    private narrow;
+    private media?;
+    constructor();
+    private resize;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

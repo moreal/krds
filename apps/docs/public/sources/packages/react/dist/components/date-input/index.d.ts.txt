@@ -1,0 +1,39 @@
+import { type ReactNode } from 'react';
+import { type KrdsLocale } from '../../providers/index.js';
+import { type CalendarTranslations } from '../calendar/index.js';
+import { type DateModeProps } from '../calendar/model.js';
+export interface DateInputTranslations {
+    startLabel: string;
+    endLabel: string;
+    formatHint: string;
+    openCalendar: string;
+    calendarTitle: string;
+    requiredError: string;
+    formatError: string;
+    incompleteRangeError: string;
+    orderError: string;
+    minError: string;
+    maxError: string;
+}
+export type DateInputProps = DateModeProps & {
+    label: ReactNode;
+    id?: string;
+    name?: string;
+    required?: boolean;
+    disabled?: boolean;
+    form?: string;
+    autoComplete?: string;
+    min?: string;
+    max?: string;
+    referenceDate?: string;
+    today?: string;
+    locale?: KrdsLocale;
+    translations?: Partial<DateInputTranslations>;
+    calendarTranslations?: Partial<CalendarTranslations>;
+    withCalendar?: boolean;
+    hint?: ReactNode;
+    error?: ReactNode;
+    invalid?: boolean;
+};
+export declare function DateInput(props: DateInputProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

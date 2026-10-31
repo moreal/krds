@@ -1,0 +1,27 @@
+import type { IdentifierContract, LogoData } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class Identifier extends KrdsElement {
+    static properties: {
+        institutionName: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        logo: {
+            attribute: boolean;
+        };
+        relationshipText: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        theme: {
+            type: StringConstructor;
+        };
+    };
+    institutionName: string;
+    logo: LogoData;
+    relationshipText: string;
+    theme: IdentifierContract['theme'];
+    constructor();
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

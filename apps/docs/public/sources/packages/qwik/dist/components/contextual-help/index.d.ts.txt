@@ -1,0 +1,8 @@
+import { type JSXChildren } from '@builder.io/qwik';
+import type { ContextualHelpContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type ContextualHelpProps = NativeContract<ContextualHelpContract> & {
+    children?: JSXChildren;
+};
+export declare const ContextualHelp: import("@builder.io/qwik").Component<ContextualHelpProps>;
+//# sourceMappingURL=index.d.ts.map

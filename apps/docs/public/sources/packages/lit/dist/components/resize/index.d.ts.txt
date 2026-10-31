@@ -1,0 +1,50 @@
+import type { ResizeContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class Resize extends KrdsElement {
+    static properties: {
+        levels: {
+            attribute: boolean;
+        };
+        value: {
+            type: StringConstructor;
+        };
+        defaultValue: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        scaleTargetId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+    };
+    levels: NonNullable<ResizeContract['levels']>;
+    value: string | undefined;
+    defaultValue: string | undefined;
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    scaleTargetId: string;
+    private selection;
+    private disclosure;
+    private scaled;
+    private priorSize;
+    constructor();
+    get committedValue(): string;
+    get committedOpen(): boolean;
+    private choose;
+    private show;
+    updated(): void;
+    private restore;
+    private outside;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    private key;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

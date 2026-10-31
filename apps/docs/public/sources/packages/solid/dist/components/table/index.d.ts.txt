@@ -1,0 +1,4 @@
+import type { TableContract } from '@unofficial-krds/contracts';
+export type TableProps = TableContract;
+export declare function Table(props: TableProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

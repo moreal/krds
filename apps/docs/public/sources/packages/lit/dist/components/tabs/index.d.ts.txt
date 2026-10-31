@@ -1,0 +1,50 @@
+import { type PropertyValues } from 'lit';
+import * as tabs from '@zag-js/tabs';
+import type { Machine } from '@zag-js/core';
+type TabsSchema = tabs.Machine extends Machine<infer T> ? T : never;
+import { KrdsElement } from '../base.js';
+import { ZagController } from '../../controllers/zag-controller.js';
+export interface TabItem {
+    value: string;
+    label: unknown;
+    content: unknown;
+    disabled?: boolean;
+    id?: string;
+}
+export declare class Tabs extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        value: {
+            type: StringConstructor;
+        };
+        defaultValue: {
+            attribute: string;
+        };
+        activationMode: {
+            attribute: string;
+        };
+        orientation: {
+            type: StringConstructor;
+        };
+    };
+    items: readonly TabItem[];
+    value: string | undefined;
+    defaultValue: string | undefined;
+    activationMode: 'manual' | 'automatic';
+    orientation: 'horizontal' | 'vertical';
+    private state;
+    readonly machine: ZagController<TabsSchema, ReturnType<typeof tabs.connect>>;
+    private pointerFocus?;
+    private pointerDown;
+    constructor();
+    get selectedValue(): string;
+    protected willUpdate(_changed: PropertyValues): void;
+    private request;
+    private key;
+    updated(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+export {};
+//# sourceMappingURL=index.d.ts.map

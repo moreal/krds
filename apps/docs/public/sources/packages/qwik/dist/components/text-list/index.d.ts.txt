@@ -1,0 +1,5 @@
+import type { TextListContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type TextListProps = NativeContract<TextListContract>;
+export declare const TextList: import("@builder.io/qwik").Component<NativeContract<TextListContract>>;
+//# sourceMappingURL=index.d.ts.map

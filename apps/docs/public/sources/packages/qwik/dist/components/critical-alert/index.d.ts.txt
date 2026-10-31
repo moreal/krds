@@ -1,0 +1,5 @@
+import type { CriticalAlertContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type CriticalAlertProps = NativeContract<CriticalAlertContract>;
+export declare const CriticalAlert: import("@builder.io/qwik").Component<NativeContract<CriticalAlertContract>>;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,4 @@
+import type { CriticalAlertContract } from '@unofficial-krds/contracts';
+export type CriticalAlertProps = CriticalAlertContract;
+export declare function CriticalAlert(props: CriticalAlertProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

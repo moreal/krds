@@ -1,0 +1,65 @@
+type __VLS_Props = {
+    open?: boolean;
+    modelValue?: boolean;
+    defaultOpen?: boolean;
+    title?: string;
+    description?: string;
+    id?: string;
+    titleId?: string;
+    descriptionId?: string;
+    closeLabel?: string;
+    showCloseButton?: boolean;
+    closeOnOutsideClick?: boolean;
+    initialFocusId?: string;
+    returnFocusId?: string;
+};
+declare const __VLS_template: () => {
+    __VLS_Slots: {
+        trigger?: (props: {
+            open: () => void;
+            isOpen: boolean;
+        }) => any;
+    } & {
+        title?: (props: {}) => any;
+    } & {
+        description?: (props: {}) => any;
+    } & {
+        default?: (props: {
+            close: () => void;
+        }) => any;
+    } & {
+        actions?: (props: {
+            close: () => void;
+        }) => any;
+    };
+};
+type __VLS_Slots = ReturnType<typeof __VLS_template>['__VLS_Slots'];
+declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {
+    open: () => void;
+    close: () => void;
+}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    openChange: (detail: {
+        open: boolean;
+    }) => any;
+    "update:modelValue": (open: boolean) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    onOpenChange?: ((detail: {
+        open: boolean;
+    }) => any) | undefined;
+    "onUpdate:modelValue"?: ((open: boolean) => any) | undefined;
+}>, {
+    open: boolean;
+    defaultOpen: boolean;
+    modelValue: boolean;
+    showCloseButton: boolean;
+    closeOnOutsideClick: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+//# sourceMappingURL=Modal.vue.d.ts.map

@@ -1,0 +1,5 @@
+import type { StepIndicatorContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type StepIndicatorProps = NativeContract<StepIndicatorContract>;
+export declare const StepIndicator: import("@builder.io/qwik").Component<NativeContract<StepIndicatorContract>>;
+//# sourceMappingURL=index.d.ts.map

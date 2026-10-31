@@ -1,0 +1,46 @@
+import type { TabItem } from '../types';
+type __VLS_Props = {
+    items: TabItem[];
+    value?: string;
+    modelValue?: string;
+    defaultValue?: string;
+    label?: string;
+    id?: string;
+    activationMode?: 'manual' | 'automatic';
+    orientation?: 'horizontal' | 'vertical';
+};
+declare const __VLS_template: () => {
+    __VLS_Slots: {
+        [x: string]: ((props: {
+            item: TabItem;
+        }) => any) | undefined;
+    } & {
+        label?: (props: {
+            item: TabItem;
+        }) => any;
+    };
+};
+type __VLS_Slots = ReturnType<typeof __VLS_template>['__VLS_Slots'];
+declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (value: string) => any;
+    valueChange: (detail: {
+        value: string;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
+    onValueChange?: ((detail: {
+        value: string;
+    }) => any) | undefined;
+}>, {
+    activationMode: "manual" | "automatic";
+    orientation: "vertical" | "horizontal";
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+//# sourceMappingURL=Tabs.vue.d.ts.map

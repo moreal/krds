@@ -1,0 +1,4 @@
+import type { SideNavigationContract } from '@unofficial-krds/contracts';
+export type SideNavigationProps = SideNavigationContract;
+export declare function SideNavigation({ items, currentId, expandedIds, defaultExpandedIds, onExpandedChange, title, parentLink }: SideNavigationProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

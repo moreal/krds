@@ -1,0 +1,5 @@
+import type { ToastContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type ToastProps = NativeContract<ToastContract>;
+export declare const Toast: import("@builder.io/qwik").Component<NativeContract<ToastContract>>;
+//# sourceMappingURL=index.d.ts.map

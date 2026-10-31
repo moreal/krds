@@ -1,0 +1,5 @@
+import type { MastheadContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type MastheadProps = NativeContract<MastheadContract>;
+export declare const Masthead: import("@builder.io/qwik").Component<NativeContract<MastheadContract>>;
+//# sourceMappingURL=index.d.ts.map

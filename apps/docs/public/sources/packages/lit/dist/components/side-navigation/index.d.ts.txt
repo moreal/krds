@@ -1,0 +1,39 @@
+import { type TemplateResult } from 'lit';
+import type { NavigationItem, LinkData } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class SideNavigation extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        currentId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        expandedIds: {
+            attribute: boolean;
+        };
+        defaultExpandedIds: {
+            attribute: boolean;
+        };
+        title: {
+            type: StringConstructor;
+        };
+        parentLink: {
+            attribute: boolean;
+        };
+    };
+    items: readonly NavigationItem[];
+    currentId: string;
+    expandedIds: readonly string[] | undefined;
+    defaultExpandedIds: readonly string[] | undefined;
+    parentLink: LinkData | undefined;
+    private state;
+    constructor();
+    private initial;
+    get committedIds(): readonly string[];
+    private toggle;
+    private list;
+    render(): TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

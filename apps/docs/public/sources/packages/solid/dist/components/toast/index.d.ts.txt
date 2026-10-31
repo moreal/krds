@@ -1,0 +1,4 @@
+import type { ToastContract } from '@unofficial-krds/contracts';
+export type ToastProps = ToastContract;
+export declare function Toast(props: ToastProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

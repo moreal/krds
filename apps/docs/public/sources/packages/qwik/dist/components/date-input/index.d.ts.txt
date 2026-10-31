@@ -1,0 +1,33 @@
+import { type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { ValueChangeDetails } from '@unofficial-krds/contracts';
+import { type DateValue, type Locale } from '../../internal/behavior';
+import { type CalendarTranslations } from '../calendar';
+import { type DateInputTranslations } from './model';
+export type { DateInputTranslations } from './model';
+export interface DateInputProps {
+    id?: string;
+    mode?: 'single' | 'range';
+    value?: DateValue;
+    defaultValue?: DateValue;
+    onValueChange$?: QRL<(detail: ValueChangeDetails<DateValue>) => void>;
+    label: JSXChildren;
+    name?: string;
+    form?: string;
+    autocomplete?: string;
+    returnFocusId?: string;
+    hint?: JSXChildren;
+    error?: JSXChildren;
+    invalid?: boolean;
+    required?: boolean;
+    disabled?: boolean;
+    min?: string;
+    max?: string;
+    locale?: Locale;
+    translations?: Partial<DateInputTranslations>;
+    calendarTranslations?: Partial<CalendarTranslations>;
+    withCalendar?: boolean;
+    referenceDate?: string;
+    today?: string;
+}
+export declare const DateInput: import("@builder.io/qwik").Component<DateInputProps>;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,7 @@
+import { type ButtonHTMLAttributes } from 'react';
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'icon';
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+}
+export declare const Button: import("react").ForwardRefExoticComponent<ButtonProps & import("react").RefAttributes<HTMLButtonElement>>;
+//# sourceMappingURL=index.d.ts.map

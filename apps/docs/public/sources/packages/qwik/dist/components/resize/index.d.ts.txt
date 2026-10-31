@@ -1,0 +1,5 @@
+import type { ResizeContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type ResizeProps = NativeContract<ResizeContract>;
+export declare const Resize: import("@builder.io/qwik").Component<NativeContract<ResizeContract>>;
+//# sourceMappingURL=index.d.ts.map

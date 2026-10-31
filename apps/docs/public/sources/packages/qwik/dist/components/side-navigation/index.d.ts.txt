@@ -1,0 +1,5 @@
+import type { SideNavigationContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type SideNavigationProps = NativeContract<SideNavigationContract>;
+export declare const SideNavigation: import("@builder.io/qwik").Component<NativeContract<SideNavigationContract>>;
+//# sourceMappingURL=index.d.ts.map

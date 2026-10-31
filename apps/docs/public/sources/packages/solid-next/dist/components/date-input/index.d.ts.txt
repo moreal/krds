@@ -1,0 +1,42 @@
+import type { JSX } from '@solidjs/web';
+import { type DateModeProps } from '../../internal/date';
+import { type CalendarTranslations } from '../calendar';
+export interface DateInputTranslations {
+    startLabel: string;
+    endLabel: string;
+    formatHint: string;
+    openCalendar: string;
+    calendarTitle: string;
+    requiredError: string;
+    formatError: string;
+    incompleteRangeError: string;
+    orderError: string;
+    minError: string;
+    maxError: string;
+}
+interface Base {
+    id?: string;
+    name?: string;
+    form?: string;
+    label: JSX.Element;
+    hint?: JSX.Element;
+    error?: JSX.Element;
+    errorMessage?: JSX.Element;
+    invalid?: boolean;
+    required?: boolean;
+    disabled?: boolean;
+    autocomplete?: JSX.InputHTMLAttributes<HTMLInputElement>['autocomplete'];
+    min?: string;
+    max?: string;
+    referenceDate?: string;
+    today?: string;
+    locale?: 'ko-KR' | 'en-US';
+    translations?: Partial<DateInputTranslations>;
+    calendarTranslations?: Partial<CalendarTranslations>;
+    withCalendar?: boolean;
+    returnFocusId?: string;
+}
+export type DateInputProps = Base & DateModeProps;
+export declare function DateInput(props: DateInputProps): JSX.Element;
+export {};
+//# sourceMappingURL=index.d.ts.map

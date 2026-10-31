@@ -1,0 +1,23 @@
+import { type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { ValueChangeDetails } from '@unofficial-krds/contracts';
+export interface TabItem {
+    value: string;
+    label: JSXChildren;
+    content: JSXChildren;
+    disabled?: boolean;
+    id?: string;
+}
+export interface TabsProps {
+    id?: string;
+    items: readonly TabItem[];
+    label?: JSXChildren;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    value?: string;
+    defaultValue?: string;
+    onValueChange$?: QRL<(detail: ValueChangeDetails<string>) => void>;
+    activationMode?: 'manual' | 'automatic';
+    orientation?: 'horizontal' | 'vertical';
+}
+export declare const Tabs: import("@builder.io/qwik").Component<TabsProps>;
+//# sourceMappingURL=index.d.ts.map

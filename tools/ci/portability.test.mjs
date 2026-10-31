@@ -20,13 +20,19 @@ function successful(args, options) {
 }
 const json = async path => JSON.parse(await readFile(join(root, path), 'utf8'));
 
-test('APF consumer launches the selected current executable despite foreign installedBinary metadata', async () => {
+for (const entry of ['fixture', 'canonical package']) test(`${entry} APF consumer launches the selected current executable despite foreign installedBinary metadata`, async () => {
   const directory = await mkdtemp(join(tmpdir(), 'krds-apf-portability-'));
   try {
-    const script = 'apps/fixture-angular/tests/apf/verify.mjs';
+    const packageTest = (await json('packages/angular/package.json')).scripts.test;
+    assert.equal(packageTest, 'node ../../tests/ssr/angular/verify.mjs');
+    const script = entry === 'fixture' ? 'apps/fixture-angular/tests/apf/verify.mjs' : resolve(root, 'packages/angular', packageTest.slice('node '.length)).slice(root.length + 1);
     for (const path of [dirname(script), 'tools', 'compatibility', 'packages/angular/node_modules']) await mkdir(join(directory, path), {recursive: true});
     await copyFile(join(root, script), join(directory, script));
     await copyFile(join(root, 'tools/check-node.mjs'), join(directory, 'tools/check-node.mjs'));
+    if (entry === 'canonical package') {
+      await mkdir(join(directory, 'tests/compatibility'), {recursive: true});
+      for (const file of ['evidence.mjs', 'artifact-evidence.mjs']) await copyFile(join(root, 'tests/compatibility', file), join(directory, 'tests/compatibility', file));
+    }
     await writeFile(join(directory, 'package.json'), '{"type":"module"}');
     await writeFile(join(directory, 'packages/angular/package.json'), '{"name":"apf-test-consumer"}');
     await writeFile(join(directory, 'compatibility/toolchain.json'), JSON.stringify({node: {...selected.node, installedBinary: '/foreign-workstation/node'}}));
@@ -35,17 +41,47 @@ test('APF consumer launches the selected current executable despite foreign inst
     // The first real Node child records its executable and deliberately stops
     // before packing/building. An ENOENT from the foreign path cannot pass.
     await writeFile(join(directory, 'tools/yarn.mjs'), `import {writeFileSync} from 'node:fs'; writeFileSync(${JSON.stringify(receipt)}, JSON.stringify({executable:process.execPath,version:process.versions.node})); process.exit(51);`);
-    const result = execute([join(directory, script)], {env: {...process.env, TMPDIR: directory, KRDS_SSR_OUTPUT: join(directory, 'evidence')}});
+    const childEnv = {...process.env, TMPDIR: directory, KRDS_SSR_OUTPUT: join(directory, 'evidence'), KRDS_SSR_SOURCE_SHA256: 'controlled-first-child-boundary'};
+    delete childEnv.KRDS_ANGULAR_SSR_TARBALL;
+    const result = execute([join(directory, script)], {env: childEnv});
     assert.notEqual(result.status, 0, 'Controlled pack boundary must stop the consumer');
     assert.deepEqual(JSON.parse(await readFile(receipt, 'utf8').catch(() => 'null')), {executable: process.execPath, version: selected.node.version}, result.stderr);
 
     await rm(receipt);
     await writeFile(join(directory, 'compatibility/toolchain.json'), JSON.stringify({node: {version: '0.0.0', installedBinary: '/foreign-workstation/node'}}));
-    const wrongVersion = execute([join(directory, script)], {env: {...process.env, TMPDIR: directory, KRDS_SSR_OUTPUT: join(directory, 'evidence')}});
+    const wrongVersion = execute([join(directory, script)], {env: childEnv});
     assert.notEqual(wrongVersion.status, 0);
     assert.match(wrongVersion.stderr, /Use Node 0\.0\.0; received/);
     await assert.rejects(access(receipt), {code: 'ENOENT'});
   } finally { await rm(directory, {recursive: true, force: true}); }
+});
+
+test('all registered docs snapshots preserve their exact bytes and rights and are Git-includable', async () => {
+  const distribution = await json('compliance/distribution-provenance.json');
+  const docs = distribution.documentation;
+  const metadataBytes = await readFile(join(root, docs.metadataPath));
+  assert.equal(createHash('sha256').update(metadataBytes).digest('hex'), docs.metadataSha256);
+  const metadata = JSON.parse(metadataBytes);
+  assert.equal(docs.records.length, 609); assert.equal(metadata.distributedSources.length, 609); assert.equal(metadata.sourceInputs.length, 683);
+  const snapshots = new Map(metadata.distributedSources.map(record => [`apps/docs/public/${record.outputPath}`, record]));
+  const git = spawnSync('git', ['-c', 'core.fsmonitor=false', 'ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', docs.publicRoot], {cwd: root, encoding: 'utf8'});
+  assert.equal(git.status, 0, git.stderr);
+  const included = new Set(git.stdout.split('\0')); const missing = [];
+  for (const record of docs.records) {
+    const original = snapshots.get(record.destination);
+    assert.ok(original, record.destination);
+    for (const key of ['sourcePath', 'bytes', 'sha256']) assert.equal(record[key], original[key], `${record.destination}: ${key}`);
+    assert.ok(['independent', 'krds-reference-adaptation', 'mixed-record', 'preserved-terms'].includes(record.rights), record.destination);
+    const bytes = await readFile(join(root, record.destination));
+    assert.equal(bytes.length, record.bytes, record.destination);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256, record.destination);
+    if (!included.has(record.destination)) missing.push(record.destination);
+  }
+  assert.deepEqual(missing, [], `${missing.length} registered docs snapshots are absent from the Git source inventory`);
+  const builds = ['packages/react/dist/index.d.ts', 'apps/docs/dist/index.html', 'apps/fixture-react/dist/index.html', 'apps/docs/public/sources/packages/react/dist/generated.js'];
+  const ignored = spawnSync('git', ['-c', 'core.fsmonitor=false', 'check-ignore', '--no-index', '--stdin'], {cwd: root, encoding: 'utf8', input: builds.join('\n') + '\n'});
+  assert.equal(ignored.status, 0, ignored.stderr);
+  assert.deepEqual(ignored.stdout.trim().split('\n'), builds, 'Source exceptions must not admit generated package/app outputs');
 });
 
 test('browser preload chooses a portable runner temporary default before the cache exists', () => {

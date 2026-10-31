@@ -1,0 +1,34 @@
+import type { LanguageOption } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class LanguageSwitcher extends KrdsElement {
+    static properties: {
+        currentLocale: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        options: {
+            attribute: boolean;
+        };
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+    };
+    currentLocale: string;
+    options: readonly LanguageOption[];
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    private state;
+    constructor();
+    get committedOpen(): boolean;
+    private show;
+    private outside;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    private option;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

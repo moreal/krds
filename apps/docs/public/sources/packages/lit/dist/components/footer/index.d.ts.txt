@@ -1,0 +1,38 @@
+import type { FooterContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class Footer extends KrdsElement {
+    static properties: {
+        serviceLogo: {
+            attribute: boolean;
+        };
+        contacts: {
+            attribute: boolean;
+        };
+        utilityLinks: {
+            attribute: boolean;
+        };
+        privacyPolicy: {
+            attribute: boolean;
+        };
+        policyLinks: {
+            attribute: boolean;
+        };
+        copyrightText: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        institution: {
+            attribute: boolean;
+        };
+    };
+    serviceLogo: FooterContract['serviceLogo'];
+    contacts: FooterContract['contacts'];
+    utilityLinks: FooterContract['utilityLinks'];
+    privacyPolicy: FooterContract['privacyPolicy'];
+    policyLinks: FooterContract['policyLinks'];
+    copyrightText: string;
+    institution: FooterContract['institution'];
+    constructor();
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

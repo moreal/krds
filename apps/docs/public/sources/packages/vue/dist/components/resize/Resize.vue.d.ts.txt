@@ -1,0 +1,22 @@
+import type { ResizeContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<ResizeContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    openChange: (detail: {
+        open: boolean;
+    }) => any;
+    valueChange: (detail: {
+        value: string;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<ResizeContract> & Readonly<{
+    onOpenChange?: ((detail: {
+        open: boolean;
+    }) => any) | undefined;
+    onValueChange?: ((detail: {
+        value: string;
+    }) => any) | undefined;
+}>, {
+    open: boolean;
+    defaultOpen: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=Resize.vue.d.ts.map

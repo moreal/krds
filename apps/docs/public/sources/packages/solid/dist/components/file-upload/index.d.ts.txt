@@ -1,0 +1,9 @@
+import type { FileUploadContract, FileRecord } from '@unofficial-krds/contracts';
+export interface FileUploadProps extends FileUploadContract {
+    variant?: 'button' | 'dropzone';
+    description?: string;
+}
+/** Explicit submit helpers append the committed set, never the ephemeral chooser list. */
+export declare function appendCommittedFiles(data: FormData, name: string, files: readonly FileRecord[], disabled?: boolean): FormData;
+export declare function FileUpload(props: FileUploadProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

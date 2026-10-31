@@ -1,0 +1,8 @@
+import { type JSXChildren } from '@builder.io/qwik';
+import type { DisclosureContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type DisclosureProps = NativeContract<DisclosureContract> & {
+    children?: JSXChildren;
+};
+export declare const Disclosure: import("@builder.io/qwik").Component<DisclosureProps>;
+//# sourceMappingURL=index.d.ts.map

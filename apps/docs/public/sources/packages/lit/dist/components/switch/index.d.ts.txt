@@ -1,0 +1,33 @@
+import { type PropertyValues } from 'lit';
+import { FormElement } from '../catalog-support.js';
+export declare class Switch extends FormElement {
+    static formAssociated: boolean;
+    static properties: {
+        checked: {
+            type: BooleanConstructor;
+        };
+        defaultChecked: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        value: {
+            type: StringConstructor;
+        };
+        size: {
+            type: StringConstructor;
+        };
+    };
+    checked: boolean | undefined;
+    defaultChecked: boolean | undefined;
+    value: string;
+    size: string;
+    private state;
+    constructor();
+    get committedChecked(): boolean;
+    resetControl(): void;
+    restoreControl(value: string | FormData | File | null): void;
+    updated(_changed: PropertyValues): void;
+    private change;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

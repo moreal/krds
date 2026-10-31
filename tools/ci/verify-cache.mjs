@@ -4,6 +4,7 @@ import {existsSync, lstatSync, mkdtempSync, readFileSync, readdirSync, readlinkS
 import {tmpdir} from 'node:os';
 import {dirname, join, relative, resolve, sep} from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {stripVTControlCharacters} from 'node:util';
 import {assertNode, env, readJson, root, writeJson} from './common.mjs';
 import {loadGraph} from './selection.mjs';
 import {runCommand} from './process-runner.mjs';
@@ -48,12 +49,12 @@ export async function verifyCache({projects, graph, rootDir = root, reportPath =
       assert.equal(outcome.status, 'passed', `Cache ${phase} build ${outcome.status}`);
       return readFileSync(logPath, 'utf8');
     };
-    const firstLog = await build('first');
+    const firstLog = stripVTControlCharacters(await build('first'));
     assert.ok(!firstLog.includes('[local cache]') && !firstLog.includes('[remote cache]'), 'The isolated first build unexpectedly used a cache');
     report.first = outputs.map(({project, path}) => ({project, files: inventory(path)})); writeJson(reportPath, report);
     // Only the explicitly selected own dist outputs are removed in this worker checkout.
     for (const output of outputs) rmSync(output.path, {recursive: true, force: true});
-    const secondLog = await build('second');
+    const secondLog = stripVTControlCharacters(await build('second'));
     for (const {project} of outputs) assert.ok(secondLog.split('\n').some(line => line.includes(`nx run ${project}:build `) && line.includes('[local cache]')), `${project}:build did not restore from local cache`);
     report.restored = outputs.map(({project, path}) => ({project, files: inventory(path)}));
     assert.deepEqual(report.restored, report.first, 'Cache restoration changed emitted files, bytes or permissions');

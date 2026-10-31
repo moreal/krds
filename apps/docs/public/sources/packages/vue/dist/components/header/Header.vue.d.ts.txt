@@ -1,0 +1,32 @@
+import type { HeaderContract } from '@unofficial-krds/contracts';
+declare const __VLS_template: () => {
+    __VLS_Slots: {
+        'skip-link'?: (props: {}) => any;
+    } & {
+        masthead?: (props: {}) => any;
+    } & {
+        actions?: (props: {}) => any;
+    };
+};
+type __VLS_Slots = ReturnType<typeof __VLS_template>['__VLS_Slots'];
+declare const __VLS_base: import("vue").DefineComponent<HeaderContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    mobileOpenChange: (detail: {
+        open: boolean;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<HeaderContract> & Readonly<{
+    onMobileOpenChange?: ((detail: {
+        open: boolean;
+    }) => any) | undefined;
+}>, {
+    mobileOpen: boolean;
+    defaultMobileOpen: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+//# sourceMappingURL=Header.vue.d.ts.map

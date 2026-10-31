@@ -1,0 +1,8 @@
+import type { TextareaContract } from '@unofficial-krds/contracts';
+export interface TextareaProps extends TextareaContract {
+    placeholder?: string;
+    help?: string;
+    error?: string;
+}
+export declare function Textarea({ value, defaultValue, onValueChange, label, id: provided, name, required, disabled, readOnly, rows, maxLength, invalid, helpId, errorId, placeholder, help, error }: TextareaProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

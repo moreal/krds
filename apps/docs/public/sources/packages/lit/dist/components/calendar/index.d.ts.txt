@@ -1,0 +1,73 @@
+import { type PropertyValues } from 'lit';
+import { KrdsElement } from '../base.js';
+import { type DateValue, type CalendarTranslations } from './model.js';
+export declare class Calendar extends KrdsElement {
+    static properties: {
+        mode: {
+            type: StringConstructor;
+        };
+        value: {
+            attribute: boolean;
+        };
+        defaultValue: {
+            attribute: boolean;
+        };
+        min: {
+            type: StringConstructor;
+        };
+        max: {
+            type: StringConstructor;
+        };
+        disabled: {
+            type: BooleanConstructor;
+        };
+        required: {
+            type: BooleanConstructor;
+        };
+        referenceDate: {
+            attribute: string;
+        };
+        today: {
+            type: StringConstructor;
+        };
+        translations: {
+            attribute: boolean;
+        };
+        tentative: {
+            state: boolean;
+        };
+        view: {
+            state: boolean;
+        };
+    };
+    mode: 'single' | 'range';
+    value: DateValue | undefined;
+    defaultValue: DateValue | undefined;
+    min: string | undefined;
+    max: string | undefined;
+    disabled: boolean;
+    required: boolean;
+    referenceDate: string;
+    today: string | undefined;
+    translations: Partial<CalendarTranslations>;
+    private tentative;
+    private view;
+    private state;
+    private previous;
+    private initialMode?;
+    constructor();
+    get committedValue(): DateValue;
+    willUpdate(_changed: PropertyValues): void;
+    private unavailable;
+    private selected;
+    private select;
+    private canConfirm;
+    private confirm;
+    private navigate;
+    private canNavigate;
+    focusDate(date: string): Promise<void>;
+    private key;
+    updated(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

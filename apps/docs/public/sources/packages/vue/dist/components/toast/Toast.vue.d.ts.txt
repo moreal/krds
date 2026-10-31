@@ -1,0 +1,17 @@
+import type { ToastContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<ToastContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    dismiss: (detail: {
+        id: string;
+        reason: "timeout";
+        generation: number;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<ToastContract> & Readonly<{
+    onDismiss?: ((detail: {
+        id: string;
+        reason: "timeout";
+        generation: number;
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=Toast.vue.d.ts.map

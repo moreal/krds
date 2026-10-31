@@ -1,0 +1,10 @@
+import { type JSX } from 'solid-js';
+export interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'icon';
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+    /** Decorative content after the action label; excluded from the accessible name. */
+    icon?: JSX.Element;
+}
+/** Native button activation and form algorithms remain owned by the browser. */
+export declare function Button(props: ButtonProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

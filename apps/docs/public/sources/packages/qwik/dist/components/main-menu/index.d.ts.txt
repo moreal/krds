@@ -1,0 +1,9 @@
+import type { MainMenuContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type MainMenuProps = NativeContract<MainMenuContract & {
+    mobileTriggerId?: string;
+}>;
+export declare const MainMenu: import("@builder.io/qwik").Component<NativeContract<MainMenuContract & {
+    mobileTriggerId?: string;
+}>>;
+//# sourceMappingURL=index.d.ts.map

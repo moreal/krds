@@ -1,0 +1,6 @@
+import type { SpinnerContract } from '@unofficial-krds/contracts';
+export interface SpinnerProps extends SpinnerContract {
+    layout?: 'inline' | 'region';
+}
+export declare function Spinner({ pending, value, label, completionMessage, size, layout }: SpinnerProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

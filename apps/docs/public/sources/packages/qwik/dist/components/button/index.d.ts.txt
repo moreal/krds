@@ -1,0 +1,7 @@
+import { type QwikIntrinsicElements } from '@builder.io/qwik';
+export type ButtonProps = QwikIntrinsicElements['button'] & {
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'icon';
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+};
+export declare const Button: import("@builder.io/qwik").Component<ButtonProps>;
+//# sourceMappingURL=index.d.ts.map

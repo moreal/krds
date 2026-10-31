@@ -1,0 +1,4 @@
+import type { SpinnerContract } from '@unofficial-krds/contracts';
+export type SpinnerProps = SpinnerContract;
+export declare function Spinner(props: SpinnerProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

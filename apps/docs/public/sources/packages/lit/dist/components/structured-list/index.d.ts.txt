@@ -1,0 +1,32 @@
+import type { StructuredListContract, StructuredListItem } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class StructuredList extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        variant: {
+            type: StringConstructor;
+        };
+        toolbar: {
+            attribute: boolean;
+        };
+        selection: {
+            attribute: boolean;
+        };
+        sort: {
+            attribute: boolean;
+        };
+    };
+    items: readonly StructuredListItem[];
+    variant: string;
+    toolbar: StructuredListContract['toolbar'];
+    selection: StructuredListContract['selection'];
+    sort: StructuredListContract['sort'];
+    constructor();
+    updated(): void;
+    private choose;
+    private content;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

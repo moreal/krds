@@ -1,0 +1,38 @@
+import { type TemplateResult } from 'lit';
+import { KrdsElement } from '../base.js';
+export interface AccordionItem {
+    id: string;
+    title: string;
+    content: string | TemplateResult;
+}
+export declare class Accordion extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        openIds: {
+            attribute: boolean;
+        };
+        defaultOpenIds: {
+            attribute: boolean;
+        };
+        multiple: {
+            type: BooleanConstructor;
+        };
+        variant: {
+            type: StringConstructor;
+        };
+    };
+    items: readonly AccordionItem[];
+    openIds: readonly string[] | undefined;
+    defaultOpenIds: readonly string[] | undefined;
+    multiple: boolean;
+    variant: string;
+    private state;
+    constructor();
+    get committedIds(): readonly string[];
+    private toggle;
+    willUpdate(): void;
+    render(): TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,17 @@
+import type { StepIndicatorContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class StepIndicator extends KrdsElement {
+    static properties: {
+        steps: {
+            attribute: boolean;
+        };
+        mode: {
+            type: StringConstructor;
+        };
+    };
+    steps: StepIndicatorContract['steps'];
+    mode: NonNullable<StepIndicatorContract['mode']>;
+    constructor();
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

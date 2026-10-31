@@ -1,0 +1,25 @@
+import { KrdsElement } from '../base.js';
+export declare class Spinner extends KrdsElement {
+    static properties: {
+        pending: {
+            type: BooleanConstructor;
+        };
+        value: {
+            type: NumberConstructor;
+        };
+        completionMessage: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        size: {
+            type: StringConstructor;
+        };
+    };
+    pending: boolean;
+    value: number | undefined;
+    completionMessage: string;
+    size: string;
+    constructor();
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

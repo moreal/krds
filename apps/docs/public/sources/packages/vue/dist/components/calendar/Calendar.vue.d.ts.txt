@@ -1,0 +1,46 @@
+import type { CalendarTranslations, DateValue, DateMode } from '../types';
+type __VLS_Props = {
+    mode?: DateMode;
+    value?: DateValue;
+    modelValue?: DateValue;
+    defaultValue?: DateValue;
+    min?: string;
+    max?: string;
+    disabled?: boolean;
+    required?: boolean;
+    locale?: 'ko-KR' | 'en-US';
+    translations?: Partial<CalendarTranslations>;
+    referenceDate?: string;
+    today?: string;
+    label?: string;
+    id?: string;
+};
+declare const __VLS_export: import("vue").DefineComponent<__VLS_Props, {
+    focusInitial: () => Promise<void>;
+}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    cancel: () => any;
+    confirm: (detail: {
+        value: DateValue;
+    }) => any;
+    "update:modelValue": (value: DateValue) => any;
+    valueChange: (detail: {
+        value: DateValue;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    onCancel?: (() => any) | undefined;
+    onConfirm?: ((detail: {
+        value: DateValue;
+    }) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: DateValue) => any) | undefined;
+    onValueChange?: ((detail: {
+        value: DateValue;
+    }) => any) | undefined;
+}>, {
+    disabled: boolean;
+    required: boolean;
+    mode: DateMode;
+    referenceDate: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=Calendar.vue.d.ts.map

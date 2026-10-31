@@ -1,0 +1,130 @@
+import { type PropertyValues } from 'lit';
+import { KrdsElement } from '../base.js';
+import { FormControlController } from '../../controllers/form-control-controller.js';
+import { type DateValue } from '../calendar/model.js';
+export interface DateInputTranslations {
+    startLabel: string;
+    endLabel: string;
+    formatHint: string;
+    openCalendar: string;
+    calendarTitle: string;
+    requiredError: string;
+    formatError: string;
+    incompleteRangeError: string;
+    orderError: string;
+    minError: string;
+    maxError: string;
+}
+export declare class DateInput extends KrdsElement {
+    static formAssociated: boolean;
+    static properties: {
+        mode: {
+            type: StringConstructor;
+        };
+        value: {
+            attribute: boolean;
+        };
+        defaultValue: {
+            attribute: boolean;
+        };
+        name: {
+            type: StringConstructor;
+            reflect: boolean;
+        };
+        required: {
+            type: BooleanConstructor;
+        };
+        disabled: {
+            type: BooleanConstructor;
+            reflect: boolean;
+        };
+        min: {
+            type: StringConstructor;
+        };
+        max: {
+            type: StringConstructor;
+        };
+        withCalendar: {
+            attribute: string;
+            type: BooleanConstructor;
+        };
+        referenceDate: {
+            attribute: string;
+        };
+        today: {
+            type: StringConstructor;
+        };
+        translations: {
+            attribute: boolean;
+        };
+        error: {
+            type: StringConstructor;
+        };
+        invalid: {
+            type: BooleanConstructor;
+        };
+        autocomplete: {
+            type: StringConstructor;
+        };
+        draftStart: {
+            state: boolean;
+        };
+        draftEnd: {
+            state: boolean;
+        };
+        localError: {
+            state: boolean;
+        };
+        popup: {
+            state: boolean;
+        };
+    };
+    mode: 'single' | 'range';
+    value: DateValue | undefined;
+    defaultValue: DateValue | undefined;
+    name: string;
+    required: boolean;
+    disabled: boolean;
+    min: string | undefined;
+    max: string | undefined;
+    withCalendar: boolean;
+    referenceDate: string;
+    today: string | undefined;
+    translations: Partial<DateInputTranslations>;
+    error: string;
+    invalid: boolean;
+    autocomplete: string;
+    private draftStart;
+    private draftEnd;
+    private localError;
+    private popup;
+    readonly formControl: FormControlController;
+    private state;
+    private previous;
+    private initialMode?;
+    private composing;
+    private localAffected;
+    constructor();
+    get committedValue(): DateValue;
+    private display;
+    willUpdate(_changed: PropertyValues): void;
+    updated(): void;
+    private focusCalendar;
+    private rawValue;
+    private validation;
+    private validationAnchor;
+    private syncForm;
+    private commit;
+    validateSubmission(): boolean;
+    resetControl(): void;
+    restoreControl(state: string | FormData | File | null): void;
+    formResetCallback(): void;
+    formDisabledCallback(value: boolean): void;
+    formStateRestoreCallback(state: string | FormData | File | null): void;
+    private input;
+    private key;
+    private groupBlur;
+    private accept;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

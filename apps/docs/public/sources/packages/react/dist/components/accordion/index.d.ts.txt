@@ -1,0 +1,8 @@
+import { type ReactNode } from 'react';
+import type { AccordionContract } from '@unofficial-krds/contracts';
+export interface AccordionProps extends AccordionContract {
+    headingLevel?: 2 | 3 | 4 | 5 | 6;
+    content?: Readonly<Record<string, ReactNode>>;
+}
+export declare function Accordion({ items, openIds, defaultOpenIds, onOpenChange, multiple, variant, headingLevel, content }: AccordionProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

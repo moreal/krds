@@ -1,0 +1,22 @@
+import type { TabBarContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class TabBar extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        currentId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        menuAction: {
+            attribute: boolean;
+        };
+    };
+    items: TabBarContract['items'];
+    currentId: string;
+    menuAction: TabBarContract['menuAction'];
+    constructor();
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

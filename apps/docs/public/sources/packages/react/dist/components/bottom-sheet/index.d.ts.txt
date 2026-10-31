@@ -1,0 +1,10 @@
+import { type ReactNode } from 'react';
+import type { BottomSheetContract } from '@unofficial-krds/contracts';
+export interface BottomSheetProps extends BottomSheetContract {
+    id?: string;
+    children?: ReactNode;
+    actions?: ReactNode;
+    trigger?: ReactNode;
+}
+export declare function BottomSheet({ open, defaultOpen, onOpenChange, title, description, onCancel, returnFocusId, dismissOnOutside, children, actions, trigger, initialFocusId, id: providedId }: BottomSheetProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

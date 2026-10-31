@@ -1,0 +1,13 @@
+import type { StepIndicatorContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<StepIndicatorContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    stepRequest: (detail: {
+        id: string;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<StepIndicatorContract> & Readonly<{
+    onStepRequest?: ((detail: {
+        id: string;
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=StepIndicator.vue.d.ts.map

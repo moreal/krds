@@ -1,0 +1,38 @@
+import { type PropertyValues } from 'lit';
+import type { RadioGroupOption } from '@unofficial-krds/contracts';
+import { FormElement } from '../catalog-support.js';
+export declare class RadioGroup extends FormElement {
+    static formAssociated: boolean;
+    static properties: {
+        options: {
+            attribute: boolean;
+        };
+        value: {
+            attribute: boolean;
+        };
+        defaultValue: {
+            attribute: boolean;
+        };
+        size: {
+            type: StringConstructor;
+        };
+        appearance: {
+            type: StringConstructor;
+        };
+    };
+    options: readonly RadioGroupOption[];
+    value: string | null | undefined;
+    defaultValue: string | null | undefined;
+    size: string;
+    appearance: string;
+    private state;
+    constructor();
+    get committedValue(): string | null;
+    resetControl(): void;
+    restoreControl(value: string | FormData | File | null): void;
+    updated(_changed: PropertyValues): void;
+    private choose;
+    private key;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,22 @@
+import { type JSX } from 'solid-js';
+import type { ValueChangeDetails } from '@unofficial-krds/contracts';
+export interface TabItem {
+    value: string;
+    label: JSX.Element;
+    content: JSX.Element;
+    disabled?: boolean;
+    /** Stable tab ID; its panel uses this ID followed by "-panel". */
+    id?: string;
+}
+export interface TabsProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'children' | 'onChange'> {
+    items: readonly TabItem[];
+    label?: JSX.Element;
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (details: ValueChangeDetails<string>) => void;
+    activationMode?: 'manual' | 'automatic';
+    orientation?: 'horizontal' | 'vertical';
+}
+/** Native Solid tabs. All enabled tabs participate in sequential keyboard navigation. */
+export declare function Tabs(props: TabsProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

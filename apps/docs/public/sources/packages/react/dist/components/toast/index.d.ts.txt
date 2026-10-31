@@ -1,0 +1,6 @@
+import type { ToastContract } from '@unofficial-krds/contracts';
+export interface ToastProps extends ToastContract {
+    clearance?: number;
+}
+export declare function Toast({ message, durationMs, onDismiss, clearance }: ToastProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

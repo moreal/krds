@@ -1,0 +1,67 @@
+import { type PropertyValues } from 'lit';
+import { KrdsElement } from '../base.js';
+/** Native top-layer dialog preserves same-root names and inherited theme tokens. */
+export declare class Modal extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            attribute: string;
+            type: BooleanConstructor;
+        };
+        title: {
+            type: StringConstructor;
+        };
+        description: {
+            type: StringConstructor;
+        };
+        body: {
+            attribute: boolean;
+        };
+        actions: {
+            attribute: boolean;
+        };
+        showCloseButton: {
+            attribute: string;
+            type: BooleanConstructor;
+        };
+        closeOnOutsideClick: {
+            attribute: string;
+            type: BooleanConstructor;
+        };
+        initialFocusId: {
+            attribute: string;
+        };
+        returnFocusId: {
+            attribute: string;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    title: string;
+    description: string;
+    body: unknown;
+    actions: unknown;
+    showCloseButton: boolean;
+    closeOnOutsideClick: boolean;
+    initialFocusId: string | undefined;
+    returnFocusId: string | undefined;
+    private state;
+    private opener;
+    private active;
+    private activeDialog;
+    private outside;
+    constructor();
+    get isOpen(): boolean;
+    requestOpen(open: boolean): void;
+    willUpdate(_changed: PropertyValues): void;
+    updated(): void;
+    private focusables;
+    private usable;
+    private cleanup;
+    disconnectedCallback(): void;
+    private key;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

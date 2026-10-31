@@ -1,0 +1,57 @@
+import { KrdsElement } from '../base.js';
+export declare class Image extends KrdsElement {
+    static properties: {
+        src: {
+            type: StringConstructor;
+        };
+        alt: {
+            type: StringConstructor;
+        };
+        width: {
+            type: NumberConstructor;
+        };
+        height: {
+            type: NumberConstructor;
+        };
+        srcset: {
+            type: StringConstructor;
+        };
+        sizes: {
+            type: StringConstructor;
+        };
+        loading: {
+            type: StringConstructor;
+        };
+        decorative: {
+            type: BooleanConstructor;
+        };
+        caption: {
+            type: StringConstructor;
+        };
+        descriptionId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        status: {
+            state: boolean;
+        };
+    };
+    src: string;
+    alt: string;
+    width: number | undefined;
+    height: number | undefined;
+    srcset: string | undefined;
+    sizes: string | undefined;
+    loading: 'eager' | 'lazy';
+    decorative: boolean;
+    caption: string;
+    descriptionId: string;
+    private status;
+    private descriptionObserver?;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    constructor();
+    updated(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

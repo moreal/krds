@@ -1,0 +1,7 @@
+import { type ReactNode } from 'react';
+import type { TooltipContract } from '@unofficial-krds/contracts';
+export interface TooltipProps extends TooltipContract {
+    children?: ReactNode;
+}
+export declare function Tooltip({ open, defaultOpen, onOpenChange, text, relationship, triggerLabel, triggerId, textId, placement, fallbackFocusId, touchToggle, children }: TooltipProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

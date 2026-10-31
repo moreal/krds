@@ -1,0 +1,45 @@
+import { KrdsElement } from '../base.js';
+import { FormControlController } from '../../controllers/form-control-controller.js';
+/** Native Shadow DOM button; bridges activation to the host's external form. */
+export declare class Button extends KrdsElement {
+    static formAssociated: boolean;
+    static properties: {
+        type: {
+            type: StringConstructor;
+        };
+        disabled: {
+            type: BooleanConstructor;
+            reflect: boolean;
+        };
+        name: {
+            type: StringConstructor;
+            reflect: boolean;
+        };
+        value: {
+            type: StringConstructor;
+        };
+        variant: {
+            type: StringConstructor;
+        };
+        size: {
+            type: StringConstructor;
+        };
+    };
+    type: 'button' | 'submit' | 'reset';
+    disabled: boolean;
+    name: string;
+    value: string;
+    variant: string;
+    size: string;
+    readonly formControl: FormControlController;
+    constructor();
+    get form(): HTMLFormElement | null;
+    resetControl(): void;
+    restoreControl(): void;
+    formDisabledCallback(value: boolean): void;
+    formResetCallback(): void;
+    formStateRestoreCallback(): void;
+    private activate;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

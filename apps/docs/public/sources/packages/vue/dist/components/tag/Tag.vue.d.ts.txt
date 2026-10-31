@@ -1,0 +1,27 @@
+import type { TagContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<TagContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    clear: () => any;
+    add: (detail: {
+        id: string;
+    }) => any;
+    remove: (detail: {
+        id: string;
+    }) => any;
+    selectionChange: (detail: {
+        ids: readonly string[];
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<TagContract> & Readonly<{
+    onClear?: (() => any) | undefined;
+    onAdd?: ((detail: {
+        id: string;
+    }) => any) | undefined;
+    onRemove?: ((detail: {
+        id: string;
+    }) => any) | undefined;
+    onSelectionChange?: ((detail: {
+        ids: readonly string[];
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=Tag.vue.d.ts.map

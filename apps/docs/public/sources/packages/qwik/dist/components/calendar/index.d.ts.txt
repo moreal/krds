@@ -1,0 +1,27 @@
+import { type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { ValueChangeDetails } from '@unofficial-krds/contracts';
+import { type DateValue, type Locale } from '../../internal/behavior';
+import { type CalendarTranslations } from './model';
+export type { CalendarTranslations } from './model';
+export interface CalendarProps {
+    id?: string;
+    mode?: 'single' | 'range';
+    value?: DateValue;
+    defaultValue?: DateValue;
+    onValueChange$?: QRL<(details: ValueChangeDetails<DateValue>) => void>;
+    onConfirm$?: QRL<(details: ValueChangeDetails<DateValue>) => void>;
+    onCancel$?: QRL<() => void>;
+    label?: JSXChildren;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    min?: string;
+    max?: string;
+    disabled?: boolean;
+    required?: boolean;
+    locale?: Locale;
+    translations?: Partial<CalendarTranslations>;
+    referenceDate?: string;
+    today?: string;
+}
+export declare const Calendar: import("@builder.io/qwik").Component<CalendarProps>;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,10 @@
+import { type JSXChildren } from '@builder.io/qwik';
+import type { VisuallyHiddenContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type VisuallyHiddenProps = NativeContract<VisuallyHiddenContract> & {
+    children?: JSXChildren;
+    surrogate?: JSXChildren;
+    control?: JSXChildren;
+};
+export declare const VisuallyHidden: import("@builder.io/qwik").Component<VisuallyHiddenProps>;
+//# sourceMappingURL=index.d.ts.map

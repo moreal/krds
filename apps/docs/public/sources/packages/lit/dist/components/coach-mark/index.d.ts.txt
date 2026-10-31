@@ -1,0 +1,91 @@
+import type { CoachMarkStep, CoachMarkBoundary, CoachMarkContract, TutorialStopDetails } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+/** Adjacent native insertion preserves the actual host target, its input state and IME. */
+export declare class CoachMark extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        steps: {
+            attribute: boolean;
+        };
+        boundaries: {
+            attribute: boolean;
+        };
+        stepId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        defaultStepId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        onTargetAction: {
+            attribute: boolean;
+        };
+        startActionId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        fallbackFocusId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        waiting: {
+            state: boolean;
+        };
+        missing: {
+            state: boolean;
+        };
+        linked: {
+            type: BooleanConstructor;
+        };
+        verificationFailed: {
+            state: boolean;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    steps: readonly CoachMarkStep[];
+    boundaries: readonly CoachMarkBoundary[];
+    stepId: string | undefined;
+    defaultStepId: string | undefined;
+    onTargetAction: CoachMarkContract['onTargetAction'];
+    startActionId: string;
+    fallbackFocusId: string;
+    private waiting;
+    private missing;
+    linked: boolean;
+    private verificationFailed;
+    private presentStepId;
+    private focusStepId;
+    private openState;
+    private stepState;
+    private boundary;
+    private nativeTarget;
+    private observer?;
+    private generation;
+    private pendingStop;
+    constructor();
+    get committedOpen(): boolean;
+    get committedStep(): CoachMarkStep;
+    private route;
+    private resize;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    private stopDetails;
+    start(): void;
+    stop(reason?: TutorialStopDetails['reason']): void;
+    private clear;
+    private change;
+    private targetAction;
+    updated(): void;
+    private recovery;
+    private position;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

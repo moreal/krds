@@ -1,0 +1,57 @@
+import type { HelpTopic } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+import { SurfaceController } from '../../controllers/surface-controller.js';
+export declare class HelpPanel extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        topics: {
+            attribute: boolean;
+        };
+        selectedTopicId: {
+            attribute: boolean;
+        };
+        defaultSelectedTopicId: {
+            attribute: boolean;
+        };
+        mode: {
+            type: StringConstructor;
+        };
+        fallbackFocusId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        narrow: {
+            state: boolean;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    topics: readonly HelpTopic[];
+    selectedTopicId: string | null | undefined;
+    defaultSelectedTopicId: string | null | undefined;
+    mode: 'help' | 'tutorial';
+    fallbackFocusId: string;
+    private narrow;
+    private state;
+    private topicState;
+    private media?;
+    private focusPanel;
+    readonly surface: SurfaceController;
+    constructor();
+    get committedOpen(): boolean;
+    get committedTopic(): string | null;
+    private resize;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    show(open: boolean): void;
+    selectTopic(id: string): void;
+    updated(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

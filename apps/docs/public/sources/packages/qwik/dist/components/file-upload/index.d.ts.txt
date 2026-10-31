@@ -1,0 +1,10 @@
+import type { FileUploadContract, FileRecord } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type FileUploadProps = NativeContract<FileUploadContract> & {
+    variant?: 'button' | 'dropzone';
+    description?: string;
+};
+/** Append one uploader's committed set once; preserve same-name successful siblings. */
+export declare function appendCommittedFiles(data: FormData, name: string, files: readonly FileRecord[], disabled?: boolean): FormData;
+export declare const FileUpload: import("@builder.io/qwik").Component<FileUploadProps>;
+//# sourceMappingURL=index.d.ts.map

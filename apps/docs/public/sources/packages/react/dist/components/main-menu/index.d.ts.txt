@@ -1,0 +1,6 @@
+import type { MainMenuContract } from '@unofficial-krds/contracts';
+export interface MainMenuProps extends MainMenuContract {
+    mobileTriggerComponent?: 'main-menu' | 'header';
+}
+export declare function MainMenu({ items, currentId, expandedId, defaultExpandedId, onExpandedChange, mobileOpen, defaultMobileOpen, onMobileOpenChange, query, onQueryChange, mobileTriggerComponent, label, mobileTriggerId, mobileTriggerLabel }: MainMenuProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

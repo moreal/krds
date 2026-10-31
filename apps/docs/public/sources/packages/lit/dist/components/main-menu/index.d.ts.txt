@@ -1,0 +1,88 @@
+import { type TemplateResult } from 'lit';
+import type { NavigationItem } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+import { SurfaceController } from '../../controllers/surface-controller.js';
+export declare class MainMenu extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        currentId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        expandedId: {
+            attribute: boolean;
+        };
+        defaultExpandedId: {
+            attribute: boolean;
+        };
+        mobileOpen: {
+            type: BooleanConstructor;
+        };
+        defaultMobileOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        query: {
+            type: StringConstructor;
+        };
+        mobileVariant: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        narrow: {
+            state: boolean;
+        };
+        embedded: {
+            type: BooleanConstructor;
+        };
+        mobileTriggerId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        mobileTriggerLabel: {
+            type: StringConstructor;
+            attribute: string;
+        };
+    };
+    items: readonly NavigationItem[];
+    currentId: string;
+    expandedId: string | null | undefined;
+    defaultExpandedId: string | null | undefined;
+    mobileOpen: boolean | undefined;
+    defaultMobileOpen: boolean | undefined;
+    query: string | undefined;
+    mobileVariant: 'simple' | 'sections' | 'drilldown';
+    private narrow;
+    embedded: boolean;
+    mobileTriggerId: string;
+    mobileTriggerLabel: string;
+    private media?;
+    private expanded;
+    private mobile;
+    private queryState;
+    private queryComposing;
+    private queryDraft;
+    private branchReturn?;
+    readonly surface: SurfaceController;
+    constructor();
+    get committedExpanded(): string | null;
+    get committedMobile(): boolean;
+    private get committedQuery();
+    private path;
+    private expand;
+    private collapse;
+    private showMobile;
+    private containsBranch;
+    private editQuery;
+    private list;
+    private escape;
+    private resize;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    updated(): void;
+    private content;
+    render(): TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

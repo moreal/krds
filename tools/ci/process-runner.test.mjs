@@ -62,6 +62,40 @@ test('cache verification runs exactly scoped cold/restored builds through bounde
   await assert.rejects(() => cache.verifyCache({projects: ['krds-tokens', 'krds-tokens'], graph, rootDir: dir, reportPath, timeoutMs: 1000}), /duplicate/i);
 });
 
+test('cache semantics accept hosted ANSI headers while preserving raw logs and exact project/byte/mode guards', async t => {
+  const {mkdirSync, writeFileSync, chmodSync} = await import('node:fs');
+  const {verifyCache} = await import('./verify-cache.mjs');
+  // Exact target-header shape from hosted run 41188558471, shared worker.
+  const header = project => `2026-10-31T09:29:19.557Z [cache:second] ::group::🔁 \x1b[2m> \x1b[22m\x1b[2mnx run\x1b[22m ${project}:build  \x1b[2m[local cache]\x1b[22m\n`;
+  for (const scenario of ['hosted', 'wrong-project', 'project-suffix', 'cold-local', 'cold-remote', 'bytes', 'mode']) {
+    await t.test(scenario, async t => {
+      const dir = temp(t); const reportPath = join(dir, 'cache-restoration.json');
+      const graph = {nodes: {'krds-tokens': {data: {root: 'packages/tokens', targets: {build: {cache: true, outputs: ['{projectRoot}/dist']}}}}}};
+      const logs = []; let calls = 0;
+      const pending = verifyCache({projects: ['krds-tokens'], graph, rootDir: dir, reportPath, timeoutMs: 3000, runner: async ({logPath}) => {
+        calls++;
+        mkdirSync(join(dir, 'packages/tokens/dist'), {recursive: true});
+        const file = join(dir, 'packages/tokens/dist/token.txt');
+        writeFileSync(file, scenario === 'bytes' && calls === 2 ? 'different bytes' : 'same bytes');
+        chmodSync(file, scenario === 'mode' && calls === 2 ? 0o600 : 0o644);
+        const log = calls === 1
+          ? (scenario.startsWith('cold-') ? `nx run krds-tokens:build [${scenario === 'cold-local' ? 'local' : 'remote'} \x1b[2mcache\x1b[22m]\n` : 'cold build\n')
+          : header(scenario === 'wrong-project' ? 'krds-styles' : scenario === 'project-suffix' ? 'krds-tokens-extra' : 'krds-tokens');
+        logs.push({logPath, log}); writeFileSync(logPath, log);
+        return {status: 'passed', exitCode: 0};
+      }});
+      if (scenario === 'hosted') {
+        const report = await pending;
+        assert.equal(report.status, 'passed'); assert.deepEqual(report.restored, report.first);
+      } else {
+        await assert.rejects(pending, scenario.startsWith('cold-') ? /first build unexpectedly used a cache/ : ['bytes', 'mode'].includes(scenario) ? /changed emitted files, bytes or permissions/ : /krds-tokens:build did not restore/);
+        assert.equal(JSON.parse(readFileSync(reportPath)).status, 'failed');
+      }
+      for (const {logPath, log} of logs) assert.equal(readFileSync(logPath, 'utf8'), log, 'Semantic normalization must not rewrite raw evidence');
+    });
+  }
+});
+
 test('outer timeout also cleans up nested runners with their own detached grandchildren', async t => {
   const {resolve} = await import('node:path');
   const {pathToFileURL} = await import('node:url');

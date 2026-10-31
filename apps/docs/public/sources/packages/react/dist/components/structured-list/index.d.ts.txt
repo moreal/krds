@@ -1,0 +1,12 @@
+import type { ReactNode } from 'react';
+import type { StructuredListContract } from '@unofficial-krds/contracts';
+export interface StructuredListProps extends StructuredListContract {
+    title?: string;
+    onToolbarAction?: (detail: {
+        id: string;
+    }) => void;
+    itemActions?: Readonly<Record<string, ReactNode>>;
+    pagination?: ReactNode;
+}
+export declare function StructuredList({ items, variant, toolbar, selection, sort, title, onToolbarAction, itemActions, pagination }: StructuredListProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

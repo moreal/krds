@@ -1,0 +1,6 @@
+import type { TagContract } from '@unofficial-krds/contracts';
+export interface TagProps extends TagContract {
+    visibleCount?: number;
+}
+export declare function Tag({ items, mode, selectedIds, onSelectionChange, onRemove, onAdd, onClear, appliedBarId, visibleCount }: TagProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,52 @@
+import type { SelectOption } from '../types';
+type __VLS_Props = {
+    options: SelectOption[];
+    value?: string;
+    modelValue?: string;
+    defaultValue?: string;
+    id?: string;
+    name?: string;
+    form?: string;
+    label?: string;
+    hint?: string;
+    error?: string;
+    required?: boolean;
+    disabled?: boolean;
+    invalid?: boolean;
+    size?: 'small' | 'medium' | 'large';
+};
+declare const __VLS_template: () => {
+    __VLS_Slots: {
+        label?: (props: {}) => any;
+    } & {
+        hint?: (props: {}) => any;
+    } & {
+        error?: (props: {}) => any;
+    };
+};
+type __VLS_Slots = ReturnType<typeof __VLS_template>['__VLS_Slots'];
+declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (value: string) => any;
+    valueChange: (detail: {
+        value: string;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
+    onValueChange?: ((detail: {
+        value: string;
+    }) => any) | undefined;
+}>, {
+    size: "small" | "medium" | "large";
+    invalid: boolean;
+    disabled: boolean;
+    required: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+//# sourceMappingURL=NativeSelect.vue.d.ts.map

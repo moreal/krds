@@ -1,0 +1,23 @@
+import { type JSXChildren, type QRL } from '@builder.io/qwik';
+import type { OpenChangeDetails } from '@unofficial-krds/contracts';
+import { type Locale } from '../../internal/behavior';
+export interface ModalProps {
+    id?: string;
+    title: JSXChildren;
+    titleId?: string;
+    description?: JSXChildren;
+    descriptionId?: string;
+    actions?: JSXChildren;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange$?: QRL<(details: OpenChangeDetails) => void>;
+    closeOnOutsideClick?: boolean;
+    showCloseButton?: boolean;
+    initialFocusId?: string;
+    returnFocusId?: string;
+    closeLabel?: string;
+    locale?: Locale;
+    children?: JSXChildren;
+}
+export declare const Modal: import("@builder.io/qwik").Component<ModalProps>;
+//# sourceMappingURL=index.d.ts.map

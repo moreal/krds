@@ -1,0 +1,4 @@
+import type { CoachMarkContract } from '@unofficial-krds/contracts';
+export type CoachMarkProps = CoachMarkContract;
+export declare function CoachMark({ steps, boundaries, stepId, defaultStepId, onStepChange, open, defaultOpen, onOpenChange, onTargetAction, onStop, startActionId, fallbackFocusId }: CoachMarkProps): import("react").JSX.Element | null;
+//# sourceMappingURL=index.d.ts.map

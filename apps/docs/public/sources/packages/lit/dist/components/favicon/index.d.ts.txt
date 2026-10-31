@@ -1,0 +1,27 @@
+import type { FaviconContract, IconAsset } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+/** Use inside the actual document head for standalone SSR. Imports have no DOM effects. */
+export declare function faviconLinks({ light, dark, touchIcon }: FaviconContract): import("lit").TemplateResult<1>;
+export declare class Favicon extends KrdsElement {
+    static properties: {
+        light: {
+            attribute: boolean;
+        };
+        dark: {
+            attribute: boolean;
+        };
+        touchIcon: {
+            attribute: boolean;
+        };
+    };
+    light: IconAsset;
+    dark: IconAsset | undefined;
+    touchIcon: IconAsset | undefined;
+    private links;
+    private configuration;
+    updated(): void;
+    private clear;
+    disconnectedCallback(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

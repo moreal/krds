@@ -1,0 +1,5 @@
+import type { RadioGroupContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type RadioGroupProps = NativeContract<RadioGroupContract>;
+export declare const RadioGroup: import("@builder.io/qwik").Component<NativeContract<RadioGroupContract>>;
+//# sourceMappingURL=index.d.ts.map

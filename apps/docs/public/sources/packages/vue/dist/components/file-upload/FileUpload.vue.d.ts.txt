@@ -1,0 +1,29 @@
+import type { FileUploadContract, FileRecord, FileValidationFailure } from '@unofficial-krds/contracts';
+type __VLS_Props = FileUploadContract & {
+    form?: string;
+    variant?: 'button' | 'dropzone';
+};
+declare const __VLS_export: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    filesChange: (detail: {
+        value: readonly FileRecord[];
+        reason: "picker" | "drop" | "remove";
+        addedIds: readonly string[];
+        removedIds: readonly string[];
+    }) => any;
+    filesRejected: (detail: {
+        rejected: readonly FileValidationFailure[];
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    onFilesChange?: ((detail: {
+        value: readonly FileRecord[];
+        reason: "picker" | "drop" | "remove";
+        addedIds: readonly string[];
+        removedIds: readonly string[];
+    }) => any) | undefined;
+    onFilesRejected?: ((detail: {
+        rejected: readonly FileValidationFailure[];
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=FileUpload.vue.d.ts.map

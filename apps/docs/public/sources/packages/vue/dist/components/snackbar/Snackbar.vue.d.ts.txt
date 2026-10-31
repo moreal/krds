@@ -1,0 +1,27 @@
+import type { SnackbarContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<SnackbarContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    action: (detail: {
+        id: string;
+        generation: number;
+        actionId: string;
+    }) => any;
+    dismiss: (detail: {
+        id: string;
+        reason: "close" | "timeout";
+        generation: number;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<SnackbarContract> & Readonly<{
+    onAction?: ((detail: {
+        id: string;
+        generation: number;
+        actionId: string;
+    }) => any) | undefined;
+    onDismiss?: ((detail: {
+        id: string;
+        reason: "close" | "timeout";
+        generation: number;
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=Snackbar.vue.d.ts.map

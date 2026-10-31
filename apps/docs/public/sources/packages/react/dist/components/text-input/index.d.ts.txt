@@ -1,0 +1,10 @@
+import { type InputHTMLAttributes } from 'react';
+import type { TextInputContract } from '@unofficial-krds/contracts';
+export interface TextInputProps extends TextInputContract {
+    placeholder?: string;
+    help?: string;
+    error?: string;
+    nativeAttributes?: Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'defaultValue' | 'onChange' | 'type' | 'id' | 'name' | 'disabled'>;
+}
+export declare function TextInput({ value, defaultValue, onValueChange, label, id: provided, name, type, autocomplete, inputMode, required, disabled, readOnly, minLength, maxLength, pattern, status, invalid, helpId, errorId, size, iconAction, placeholder, help, error, nativeAttributes }: TextInputProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

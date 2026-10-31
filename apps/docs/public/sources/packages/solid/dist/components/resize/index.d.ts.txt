@@ -1,0 +1,4 @@
+import type { ResizeContract } from '@unofficial-krds/contracts';
+export type ResizeProps = ResizeContract;
+export declare function Resize(props: ResizeProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

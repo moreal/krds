@@ -1,0 +1,5 @@
+import type { RangeSliderContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type RangeSliderProps = NativeContract<RangeSliderContract>;
+export declare const RangeSlider: import("@builder.io/qwik").Component<NativeContract<RangeSliderContract>>;
+//# sourceMappingURL=index.d.ts.map

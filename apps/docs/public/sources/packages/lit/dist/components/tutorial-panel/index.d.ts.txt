@@ -1,0 +1,90 @@
+import type { TutorialPanelContract, TutorialStopDetails } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+import { SurfaceController } from '../../controllers/surface-controller.js';
+export declare class TutorialPanel extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        tasks: {
+            attribute: boolean;
+        };
+        activeTaskId: {
+            attribute: boolean;
+        };
+        activeStepId: {
+            attribute: boolean;
+        };
+        running: {
+            type: BooleanConstructor;
+        };
+        defaultRunning: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        activePanel: {
+            type: StringConstructor;
+        };
+        defaultActivePanel: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        startActionId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        fallbackFocusId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        narrow: {
+            state: boolean;
+        };
+        coordinatedStop: {
+            type: BooleanConstructor;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    tasks: TutorialPanelContract['tasks'];
+    activeTaskId: string | null;
+    activeStepId: string | null;
+    running: boolean | undefined;
+    defaultRunning: boolean | undefined;
+    activePanel: 'help' | 'tutorial' | undefined;
+    defaultActivePanel: 'help' | 'tutorial' | undefined;
+    startActionId: string;
+    fallbackFocusId: string;
+    private narrow;
+    coordinatedStop: boolean;
+    private openState;
+    private runningState;
+    private panelState;
+    private media?;
+    private observer?;
+    private stopPending;
+    private exposurePending;
+    private observedTarget;
+    private pendingStart;
+    readonly surface: SurfaceController;
+    constructor();
+    get committedOpen(): boolean;
+    get committedRunning(): boolean;
+    get committedPanel(): "tutorial" | "help";
+    private resize;
+    private route;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    private stopDetails;
+    private show;
+    private selectPanel;
+    start(taskId?: string | undefined, stepId?: string): void;
+    stop(reason?: TutorialStopDetails['reason']): void;
+    updated(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

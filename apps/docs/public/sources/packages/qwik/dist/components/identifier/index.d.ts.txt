@@ -1,0 +1,5 @@
+import type { IdentifierContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type IdentifierProps = NativeContract<IdentifierContract>;
+export declare const Identifier: import("@builder.io/qwik").Component<NativeContract<IdentifierContract>>;
+//# sourceMappingURL=index.d.ts.map

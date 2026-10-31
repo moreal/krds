@@ -1,3 +1,4 @@
+import '../../../tools/check-node.mjs';
 import { mkdtemp, cp, mkdir, readdir, symlink, readFile, writeFile, realpath, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -8,7 +9,7 @@ import {snapshot,sha256} from '../../compatibility/evidence.mjs';
 import {retainArtifactCopies,captureArtifactInventory} from '../../compatibility/artifact-evidence.mjs';
 const root = resolve(import.meta.dirname, '../../..');
 const require = createRequire(join(root, 'packages/angular/package.json'));
-const node = JSON.parse(await readFile(join(root, 'compatibility/toolchain.json'), 'utf8')).node.installedBinary;
+const node = process.execPath;
 const directory = await mkdtemp(join(tmpdir(), 'krds-angular-apf-consumer-'));
 // Standalone evidence must never reuse a retained consumer or pollute aggregate SSR matrices.
 const standaloneEvidence = join(root, 'test-results/standalone-angular-ssr');

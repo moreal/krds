@@ -1,0 +1,51 @@
+import { type PropertyValues } from 'lit';
+import type { TagContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class Tag extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        mode: {
+            type: StringConstructor;
+        };
+        selectedIds: {
+            attribute: boolean;
+        };
+        appliedBarId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        activeId: {
+            state: boolean;
+        };
+        clearActive: {
+            state: boolean;
+        };
+    };
+    items: TagContract['items'];
+    mode: NonNullable<TagContract['mode']>;
+    selectedIds: readonly string[] | undefined;
+    appliedBarId: string;
+    private activeId;
+    private clearActive;
+    private localSelected;
+    private removal?;
+    private restoreRemoval;
+    private pendingAdd;
+    private pendingClear;
+    private enterControl;
+    private enterIdentity;
+    private enterMode;
+    constructor();
+    private toggle;
+    willUpdate(_changed: PropertyValues): void;
+    private controls;
+    private focusControl;
+    private key;
+    private keyUp;
+    updated(): void;
+    disconnectedCallback(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

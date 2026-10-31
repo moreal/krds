@@ -1,0 +1,71 @@
+import { type PropertyValues } from 'lit';
+import { FormElement } from '../catalog-support.js';
+import type { TextInputContract } from '@unofficial-krds/contracts';
+export declare class TextInput extends FormElement {
+    static formAssociated: boolean;
+    static properties: {
+        value: {
+            type: StringConstructor;
+        };
+        defaultValue: {
+            attribute: string;
+        };
+        type: {
+            type: StringConstructor;
+        };
+        autocomplete: {
+            type: StringConstructor;
+        };
+        inputMode: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        readOnly: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        minLength: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        maxLength: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        pattern: {
+            type: StringConstructor;
+        };
+        status: {
+            type: StringConstructor;
+        };
+        size: {
+            type: StringConstructor;
+        };
+        iconAction: {
+            attribute: boolean;
+        };
+    };
+    value: string | undefined;
+    defaultValue: string | undefined;
+    type: NonNullable<TextInputContract['type']>;
+    autocomplete: string;
+    inputMode: string;
+    readOnly: boolean;
+    minLength: number | undefined;
+    maxLength: number | undefined;
+    pattern: string | undefined;
+    status: NonNullable<TextInputContract['status']>;
+    size: NonNullable<TextInputContract['size']>;
+    iconAction: TextInputContract['iconAction'];
+    private state;
+    private composing;
+    private compositionDraft;
+    constructor();
+    get committedValue(): string;
+    resetControl(): void;
+    restoreControl(value: string | FormData | File | null): void;
+    updated(_changed: PropertyValues): void;
+    private input;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

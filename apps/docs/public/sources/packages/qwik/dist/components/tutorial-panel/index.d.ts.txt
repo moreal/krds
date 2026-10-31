@@ -1,0 +1,10 @@
+import { type JSXChildren } from '@builder.io/qwik';
+import type { TutorialPanelContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type TutorialPanelProps = NativeContract<TutorialPanelContract> & {
+    startActionVisible?: boolean;
+    children?: JSXChildren;
+    helpContent?: JSXChildren;
+};
+export declare const TutorialPanel: import("@builder.io/qwik").Component<TutorialPanelProps>;
+//# sourceMappingURL=index.d.ts.map

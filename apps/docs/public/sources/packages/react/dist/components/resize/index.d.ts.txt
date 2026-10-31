@@ -1,0 +1,4 @@
+import type { ResizeContract } from '@unofficial-krds/contracts';
+export type ResizeProps = ResizeContract;
+export declare function Resize({ levels, value, defaultValue, onValueChange, open, defaultOpen, onOpenChange }: ResizeProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

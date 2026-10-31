@@ -1,0 +1,47 @@
+import type { AccessibleMediaContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class AccessibleMedia extends KrdsElement {
+    static properties: {
+        media: {
+            attribute: boolean;
+        };
+        captionTracks: {
+            attribute: boolean;
+        };
+        transcript: {
+            attribute: boolean;
+        };
+        descriptionTrack: {
+            attribute: boolean;
+        };
+        signLanguageSource: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        title: {
+            type: StringConstructor;
+        };
+        controls: {
+            type: BooleanConstructor;
+        };
+        autoplay: {
+            type: BooleanConstructor;
+        };
+        state: {
+            state: boolean;
+        };
+    };
+    media: AccessibleMediaContract['media'];
+    captionTracks: AccessibleMediaContract['captionTracks'];
+    transcript: AccessibleMediaContract['transcript'];
+    descriptionTrack: AccessibleMediaContract['descriptionTrack'];
+    signLanguageSource: string | undefined;
+    controls: boolean;
+    autoplay: boolean;
+    private state;
+    constructor();
+    disconnectedCallback(): void;
+    private tracks;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

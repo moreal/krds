@@ -1,0 +1,10 @@
+import type { JSX } from 'solid-js';
+import type { VisuallyHiddenContract } from '@unofficial-krds/contracts';
+export interface VisuallyHiddenProps extends VisuallyHiddenContract {
+    children?: JSX.Element;
+    surrogate?: JSX.Element;
+    /** Native input transport keeps the owned overlay token on the actual control. */
+    control?: (attributes: JSX.InputHTMLAttributes<HTMLInputElement>) => JSX.Element;
+}
+export declare function VisuallyHidden(props: VisuallyHiddenProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

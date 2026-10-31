@@ -1,0 +1,13 @@
+import type { BackButtonContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<BackButtonContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    backRequest: (detail: {
+        reason: "activate" | "confirmed";
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<BackButtonContract> & Readonly<{
+    onBackRequest?: ((detail: {
+        reason: "activate" | "confirmed";
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=BackButton.vue.d.ts.map

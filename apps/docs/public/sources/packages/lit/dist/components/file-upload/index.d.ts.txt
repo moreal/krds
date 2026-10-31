@@ -1,0 +1,50 @@
+import type { FileRecord } from '@unofficial-krds/contracts';
+import { FormElement } from '../catalog-support.js';
+/** Controlled native File store: chooser state never becomes a second successful control. */
+export declare class FileUpload extends FormElement {
+    static formAssociated: boolean;
+    static properties: {
+        files: {
+            attribute: boolean;
+        };
+        multiple: {
+            type: BooleanConstructor;
+        };
+        accept: {
+            type: StringConstructor;
+        };
+        maxFiles: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        maxBytes: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        dragOver: {
+            state: boolean;
+        };
+        failures: {
+            state: boolean;
+        };
+    };
+    files: readonly FileRecord[];
+    multiple: boolean;
+    accept: string;
+    maxFiles: number | undefined;
+    maxBytes: number | undefined;
+    private dragOver;
+    private failures;
+    private nextId;
+    private removeFocus;
+    constructor();
+    resetControl(): void;
+    restoreControl(_state: string | FormData | File | null): void;
+    updated(): void;
+    private acceptFile;
+    private add;
+    private picker;
+    private removeFile;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

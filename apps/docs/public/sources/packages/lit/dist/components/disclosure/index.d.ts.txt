@@ -1,0 +1,31 @@
+import { type TemplateResult } from 'lit';
+import { KrdsElement } from '../base.js';
+export declare class Disclosure extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        contentId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        content: {
+            attribute: boolean;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    contentId: string;
+    content: string | TemplateResult | undefined;
+    private state;
+    constructor();
+    get committedOpen(): boolean;
+    private toggle;
+    willUpdate(): void;
+    render(): TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

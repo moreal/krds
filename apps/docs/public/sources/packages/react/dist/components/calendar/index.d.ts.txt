@@ -1,0 +1,43 @@
+import { type ReactNode } from 'react';
+import { type ValueChangeDetails } from '@unofficial-krds/contracts';
+import { type KrdsLocale } from '../../providers/index.js';
+import { type DateModeProps, type DateValue } from './model.js';
+export interface CalendarTranslations {
+    previousMonth: string;
+    nextMonth: string;
+    today: string;
+    clear: string;
+    cancel: string;
+    confirm: string;
+    selected: string;
+    unavailable: string;
+    adjacentMonth: string;
+    dateLabel: string;
+    visibleDayLabel: string;
+    monthLabel: string;
+    startLabel: string;
+    endLabel: string;
+    weekdayNames: string[];
+    weekdayShortNames: string[];
+    monthNames: string[];
+}
+export declare function calendarTranslations(locale: KrdsLocale, overrides?: Partial<CalendarTranslations>): CalendarTranslations;
+export type CalendarProps = DateModeProps & {
+    min?: string;
+    max?: string;
+    referenceDate?: string;
+    today?: string;
+    disabled?: boolean;
+    required?: boolean;
+    locale?: KrdsLocale;
+    translations?: Partial<CalendarTranslations>;
+    label?: ReactNode;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    id?: string;
+    onConfirm?: (details: ValueChangeDetails<DateValue>) => void;
+    onCancel?: () => void; /** Popup integration focuses a selected/first date after mount. */
+    autoFocus?: boolean;
+};
+export declare function Calendar(props: CalendarProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

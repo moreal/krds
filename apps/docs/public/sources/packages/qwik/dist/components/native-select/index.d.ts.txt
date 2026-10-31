@@ -1,0 +1,15 @@
+import { type JSXChildren, type QRL, type QwikIntrinsicElements } from '@builder.io/qwik';
+import type { SelectOption, ValueChangeDetails } from '@unofficial-krds/contracts';
+export interface NativeSelectProps extends Omit<QwikIntrinsicElements['select'], 'children' | 'value' | 'size' | 'multiple' | 'onChange$'> {
+    options: SelectOption[];
+    value?: string;
+    defaultValue?: string;
+    label?: JSXChildren;
+    hint?: JSXChildren;
+    error?: JSXChildren;
+    invalid?: boolean;
+    size?: 'small' | 'medium' | 'large';
+    onValueChange$?: QRL<(details: ValueChangeDetails<string>) => void>;
+}
+export declare const NativeSelect: import("@builder.io/qwik").Component<NativeSelectProps>;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,6 @@
+import type { TableContract } from '@unofficial-krds/contracts';
+export interface TableProps extends TableContract {
+    layout?: 'basic' | 'narrow-scroll' | 'narrow-stacked';
+}
+export declare function Table({ caption, columns, rows, sort, onSortChange, rowHeaderColumnId, layout }: TableProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,4 @@
+import type { QuantityToggleContract } from '@unofficial-krds/contracts';
+export type QuantityToggleProps = QuantityToggleContract;
+export declare function QuantityToggle(props: QuantityToggleProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

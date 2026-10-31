@@ -1,0 +1,5 @@
+import type { TTSContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type TTSProps = NativeContract<TTSContract>;
+export declare const TTS: import("@builder.io/qwik").Component<NativeContract<TTSContract>>;
+//# sourceMappingURL=index.d.ts.map

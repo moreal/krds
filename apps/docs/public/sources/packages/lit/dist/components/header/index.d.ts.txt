@@ -1,0 +1,84 @@
+import type { HeaderContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+import { SurfaceController } from '../../controllers/surface-controller.js';
+export declare class Header extends KrdsElement {
+    static styles: import("lit").CSSResult[];
+    static properties: {
+        home: {
+            attribute: boolean;
+        };
+        utilityItems: {
+            attribute: boolean;
+        };
+        search: {
+            attribute: boolean;
+        };
+        mainNavigation: {
+            attribute: boolean;
+        };
+        actionLayout: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        sticky: {
+            type: BooleanConstructor;
+            reflect: boolean;
+        };
+        currentId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        mobileOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        defaultMobileOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        mobileTriggerId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        mobileTriggerLabel: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        navigationLabel: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        utilitiesOpen: {
+            state: boolean;
+        };
+        narrow: {
+            state: boolean;
+        };
+    };
+    home: HeaderContract['home'];
+    utilityItems: HeaderContract['utilityItems'];
+    search: HeaderContract['search'];
+    mainNavigation: HeaderContract['mainNavigation'];
+    actionLayout: string;
+    sticky: boolean;
+    currentId: string;
+    mobileOpen: boolean | undefined;
+    defaultMobileOpen: boolean | undefined;
+    mobileTriggerId: string;
+    mobileTriggerLabel: string;
+    navigationLabel: string;
+    private utilitiesOpen;
+    private narrow;
+    private mobile;
+    private media?;
+    readonly surface: SurfaceController;
+    constructor();
+    get committedMobile(): boolean;
+    private showMobile;
+    private resize;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    private menu;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

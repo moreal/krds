@@ -1,0 +1,5 @@
+import type { BackButtonContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type BackButtonProps = NativeContract<BackButtonContract>;
+export declare const BackButton: import("@builder.io/qwik").Component<NativeContract<BackButtonContract>>;
+//# sourceMappingURL=index.d.ts.map

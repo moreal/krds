@@ -1,0 +1,4 @@
+import type { CarouselContract } from '@unofficial-krds/contracts';
+export type CarouselProps = CarouselContract;
+export declare function Carousel(props: CarouselProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

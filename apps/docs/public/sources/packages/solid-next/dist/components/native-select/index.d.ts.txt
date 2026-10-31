@@ -1,0 +1,15 @@
+import type { JSX } from '@solidjs/web';
+import type { SelectOption, ValueChangeDetails } from '@unofficial-krds/contracts';
+export interface NativeSelectProps extends Omit<JSX.SelectHTMLAttributes<HTMLSelectElement>, 'children' | 'value' | 'size' | 'multiple' | 'onChange'> {
+    options: readonly SelectOption[];
+    value?: string;
+    defaultValue?: string;
+    label?: JSX.Element;
+    hint?: JSX.Element;
+    error?: JSX.Element;
+    invalid?: boolean;
+    size?: 'small' | 'medium' | 'large';
+    onValueChange?: (details: ValueChangeDetails<string>) => void;
+}
+export declare function NativeSelect(props: NativeSelectProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

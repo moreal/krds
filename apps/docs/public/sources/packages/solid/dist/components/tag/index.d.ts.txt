@@ -1,0 +1,4 @@
+import type { TagContract } from '@unofficial-krds/contracts';
+export type TagProps = TagContract;
+export declare function Tag(props: TagProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

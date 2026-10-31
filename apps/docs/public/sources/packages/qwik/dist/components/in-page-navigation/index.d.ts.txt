@@ -1,0 +1,5 @@
+import type { InPageNavigationContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type InPageNavigationProps = NativeContract<InPageNavigationContract>;
+export declare const InPageNavigation: import("@builder.io/qwik").Component<NativeContract<InPageNavigationContract>>;
+//# sourceMappingURL=index.d.ts.map

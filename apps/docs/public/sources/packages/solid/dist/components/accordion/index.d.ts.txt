@@ -1,0 +1,7 @@
+import { type JSX } from 'solid-js';
+import type { AccordionContract } from '@unofficial-krds/contracts';
+export interface AccordionProps extends AccordionContract {
+    contentById?: Readonly<Record<string, JSX.Element>>;
+}
+export declare function Accordion(props: AccordionProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

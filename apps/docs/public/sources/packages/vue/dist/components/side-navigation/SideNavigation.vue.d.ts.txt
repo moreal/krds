@@ -1,0 +1,13 @@
+import type { SideNavigationContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<SideNavigationContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    expandedChange: (detail: {
+        ids: readonly string[];
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<SideNavigationContract> & Readonly<{
+    onExpandedChange?: ((detail: {
+        ids: readonly string[];
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=SideNavigation.vue.d.ts.map

@@ -1,0 +1,9 @@
+import type { PaginationContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type PaginationProps = NativeContract<PaginationContract & {
+    hrefTemplate?: string;
+}>;
+export declare const Pagination: import("@builder.io/qwik").Component<NativeContract<PaginationContract & {
+    hrefTemplate?: string;
+}>>;
+//# sourceMappingURL=index.d.ts.map

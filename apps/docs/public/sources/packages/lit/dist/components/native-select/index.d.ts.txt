@@ -1,0 +1,64 @@
+import { type PropertyValues } from 'lit';
+import type { SelectOption } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+import { FormControlController } from '../../controllers/form-control-controller.js';
+export declare class NativeSelect extends KrdsElement {
+    static formAssociated: boolean;
+    static properties: {
+        options: {
+            attribute: boolean;
+        };
+        value: {
+            type: StringConstructor;
+        };
+        defaultValue: {
+            attribute: string;
+        };
+        name: {
+            type: StringConstructor;
+            reflect: boolean;
+        };
+        disabled: {
+            type: BooleanConstructor;
+            reflect: boolean;
+        };
+        required: {
+            type: BooleanConstructor;
+        };
+        invalid: {
+            type: BooleanConstructor;
+        };
+        hint: {
+            type: StringConstructor;
+        };
+        error: {
+            type: StringConstructor;
+        };
+        size: {
+            type: StringConstructor;
+        };
+    };
+    options: readonly SelectOption[];
+    value: string | undefined;
+    defaultValue: string | undefined;
+    name: string;
+    disabled: boolean;
+    required: boolean;
+    invalid: boolean;
+    hint: string;
+    error: string;
+    size: string;
+    readonly formControl: FormControlController;
+    private selection;
+    constructor();
+    get committedValue(): string;
+    resetControl(): void;
+    restoreControl(state: string | FormData | File | null): void;
+    formResetCallback(): void;
+    formDisabledCallback(value: boolean): void;
+    formStateRestoreCallback(state: string | FormData | File | null): void;
+    updated(_changed: PropertyValues): void;
+    private change;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

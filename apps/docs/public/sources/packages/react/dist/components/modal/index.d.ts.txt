@@ -1,0 +1,32 @@
+import { type ReactNode, type CSSProperties } from 'react';
+import type { OpenChangeDetails } from '@unofficial-krds/contracts';
+import { type KrdsLocale } from '../../providers/index.js';
+export interface ModalProps {
+    locale?: KrdsLocale;
+    /** Native popup composition may reuse the modal lifetime with its own public CSS part. */
+    contentAttributes?: {
+        'data-krds-component'?: string;
+        'data-krds-part'?: string;
+        className?: string;
+        style?: CSSProperties;
+    };
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (details: OpenChangeDetails) => void;
+    title: ReactNode;
+    titleId?: string;
+    description?: ReactNode;
+    descriptionId?: string;
+    children?: ReactNode;
+    actions?: ReactNode | ((close: () => void) => ReactNode);
+    trigger?: ReactNode;
+    closeOnOutsideClick?: boolean;
+    showCloseButton?: boolean;
+    closeLabel?: string;
+    initialFocusId?: string;
+    returnFocusId?: string;
+    id?: string;
+    /** DateInput owns its specialized entry policy while retaining modal trapping and restoration. */ onEntryFocus?: (dialog: HTMLElement) => void;
+}
+export declare function Modal(props: ModalProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

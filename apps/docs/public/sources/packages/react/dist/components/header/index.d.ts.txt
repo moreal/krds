@@ -1,0 +1,11 @@
+import { type ReactNode } from 'react';
+import type { HeaderContract } from '@unofficial-krds/contracts';
+export interface HeaderProps extends HeaderContract {
+    governmentService?: boolean;
+    specimen?: boolean;
+    mainContentId?: string;
+    utilityContent?: ReactNode;
+    navigationContent?: ReactNode;
+}
+export declare function Header({ home, utilityItems, search, mainNavigation, actionLayout, sticky, governmentService, specimen, mainContentId, utilityContent, navigationContent, currentId, mobileOpen, defaultMobileOpen, onMobileOpenChange, mobileTriggerId, mobileTriggerLabel, navigationLabel }: HeaderProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

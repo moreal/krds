@@ -1,0 +1,45 @@
+import type { JSX } from 'solid-js';
+import type { DateRangeValue, ValueChangeDetails } from '@unofficial-krds/contracts';
+import type { DateModeProps } from './model';
+export interface CalendarTranslations {
+    previousMonth: string;
+    nextMonth: string;
+    today: string;
+    clear: string;
+    cancel: string;
+    confirm: string;
+    selected: string;
+    unavailable: string;
+    adjacentMonth: string;
+    dateLabel: string;
+    monthLabel: string;
+    visibleDayLabel: string;
+    startLabel: string;
+    endLabel: string;
+    weekdays: readonly string[];
+    weekdayShort: readonly string[];
+    months: readonly string[];
+}
+interface CalendarBaseProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'children' | 'onChange' | 'onInput' | 'onSelect'> {
+    label?: JSX.Element;
+    min?: string;
+    max?: string;
+    disabled?: boolean;
+    required?: boolean;
+    locale?: 'ko-KR' | 'en-US';
+    translations?: Partial<CalendarTranslations>;
+    referenceDate?: string;
+    today?: string;
+    onCancel?: () => void;
+}
+export type CalendarProps = CalendarBaseProps & (DateModeProps extends infer P ? P extends {
+    mode?: 'single';
+} ? P & {
+    onConfirm?: (details: ValueChangeDetails<string | null>) => void;
+} : P & {
+    onConfirm?: (details: ValueChangeDetails<DateRangeValue>) => void;
+} : never);
+/** A native Solid date selector. Selection remains tentative until Confirm. */
+export declare function Calendar(props: CalendarProps): JSX.Element;
+export {};
+//# sourceMappingURL=index.d.ts.map

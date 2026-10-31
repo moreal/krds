@@ -1,0 +1,12 @@
+import { type JSX } from 'solid-js';
+import type { StructuredListContract, StructuredListItem } from '@unofficial-krds/contracts';
+export interface StructuredListProps extends StructuredListContract {
+    title?: string;
+    onToolbarAction?: (detail: {
+        id: string;
+    }) => void;
+    itemActions?: (item: StructuredListItem) => JSX.Element;
+    pagination?: JSX.Element;
+}
+export declare function StructuredList(props: StructuredListProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,6 @@
+import type { SnackbarContract } from '@unofficial-krds/contracts';
+export interface SnackbarProps extends SnackbarContract {
+    clearance?: number;
+}
+export declare function Snackbar({ message, action, onAction, onDismiss, durationMs, fallbackFocusId, clearance }: SnackbarProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

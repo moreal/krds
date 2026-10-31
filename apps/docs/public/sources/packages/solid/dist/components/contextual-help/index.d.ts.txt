@@ -1,0 +1,7 @@
+import { type JSX } from 'solid-js';
+import type { ContextualHelpContract } from '@unofficial-krds/contracts';
+export interface ContextualHelpProps extends ContextualHelpContract {
+    children?: JSX.Element;
+}
+export declare function ContextualHelp(props: ContextualHelpProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

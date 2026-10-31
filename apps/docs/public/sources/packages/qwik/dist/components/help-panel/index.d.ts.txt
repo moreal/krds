@@ -1,0 +1,13 @@
+import type { HelpPanelContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type HelpPanelProps = NativeContract<HelpPanelContract & {
+    openerId?: string;
+    showOpener?: boolean;
+    showTopicTriggers?: boolean;
+}>;
+export declare const HelpPanel: import("@builder.io/qwik").Component<NativeContract<HelpPanelContract & {
+    openerId?: string;
+    showOpener?: boolean;
+    showTopicTriggers?: boolean;
+}>>;
+//# sourceMappingURL=index.d.ts.map

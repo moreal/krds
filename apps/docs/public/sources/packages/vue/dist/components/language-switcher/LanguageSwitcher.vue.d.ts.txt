@@ -1,0 +1,24 @@
+import type { LanguageSwitcherContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<LanguageSwitcherContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    openChange: (detail: {
+        open: boolean;
+    }) => any;
+    localeRequest: (detail: {
+        locale: string;
+        href: string;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<LanguageSwitcherContract> & Readonly<{
+    onOpenChange?: ((detail: {
+        open: boolean;
+    }) => any) | undefined;
+    onLocaleRequest?: ((detail: {
+        locale: string;
+        href: string;
+    }) => any) | undefined;
+}>, {
+    open: boolean;
+    defaultOpen: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=LanguageSwitcher.vue.d.ts.map

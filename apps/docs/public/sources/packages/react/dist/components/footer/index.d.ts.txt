@@ -1,0 +1,6 @@
+import type { FooterContract } from '@unofficial-krds/contracts';
+export interface FooterProps extends FooterContract {
+    specimen?: boolean;
+}
+export declare function Footer({ serviceLogo, contacts, utilityLinks, privacyPolicy, policyLinks, copyrightText, institution, specimen }: FooterProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

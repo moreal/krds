@@ -1,0 +1,9 @@
+import type { JSX } from '@solidjs/web';
+export interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'icon';
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+    icon?: JSX.Element;
+}
+/** Activation, submitter data, validation, and reset use the native button algorithm. */
+export declare function Button(props: ButtonProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

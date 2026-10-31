@@ -1,0 +1,37 @@
+import { KrdsElement } from '../base.js';
+export declare class BackButton extends KrdsElement {
+    static properties: {
+        canGoBack: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        fallbackHref: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        dirty: {
+            type: BooleanConstructor;
+        };
+        requestConfirmation: {
+            attribute: boolean;
+        };
+        pending: {
+            state: boolean;
+        };
+        failure: {
+            state: boolean;
+        };
+    };
+    canGoBack: boolean;
+    fallbackHref: string;
+    dirty: boolean;
+    requestConfirmation: (() => boolean | Promise<boolean>) | undefined;
+    private pending;
+    private failure;
+    private generation;
+    constructor();
+    disconnectedCallback(): void;
+    private activate;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

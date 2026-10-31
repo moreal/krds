@@ -1,0 +1,14 @@
+import { type JSXChildren } from '@builder.io/qwik';
+import type { StructuredListContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type StructuredListProps = NativeContract<StructuredListContract & {
+    title?: string;
+    onToolbarAction?: (detail: {
+        id: string;
+    }) => void;
+}> & {
+    itemActionsById?: Readonly<Record<string, JSXChildren>>;
+    pagination?: JSXChildren;
+};
+export declare const StructuredList: import("@builder.io/qwik").Component<StructuredListProps>;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,6 @@
+import type { RadioGroupContract } from '@unofficial-krds/contracts';
+export interface RadioGroupProps extends RadioGroupContract {
+    optionIds?: Readonly<Record<string, string>>;
+}
+export declare function RadioGroup({ value, defaultValue, onValueChange, options, label, id: provided, name, required, disabled, invalid, helpId, errorId, appearance, size, optionIds }: RadioGroupProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

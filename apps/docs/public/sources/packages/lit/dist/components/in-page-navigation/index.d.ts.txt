@@ -1,0 +1,45 @@
+import { type TemplateResult } from 'lit';
+import type { InPageSection } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class InPageNavigation extends KrdsElement {
+    static properties: {
+        sections: {
+            attribute: boolean;
+        };
+        activeId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        title: {
+            type: StringConstructor;
+        };
+        narrowMode: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        expanded: {
+            state: boolean;
+        };
+    };
+    sections: readonly InPageSection[];
+    activeId: string | undefined;
+    narrowMode: string;
+    private expanded;
+    private observed?;
+    private localActive;
+    private observedKey;
+    private initialObservation;
+    private activationTarget;
+    private mutation?;
+    private observedTargets;
+    constructor();
+    private flat;
+    updated(): void;
+    private trackScroll;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    private activate;
+    private list;
+    render(): TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

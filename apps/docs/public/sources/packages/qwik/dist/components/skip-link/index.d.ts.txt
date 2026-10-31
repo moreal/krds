@@ -1,0 +1,11 @@
+import { type QRL } from '@builder.io/qwik';
+import type { SkipLinkContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type SkipLinkProps = NativeContract<SkipLinkContract> & {
+    onConfigurationError$?: QRL<(detail: {
+        targetId: string;
+        message: string;
+    }) => void>;
+};
+export declare const SkipLink: import("@builder.io/qwik").Component<SkipLinkProps>;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,22 @@
+import { type JSX } from 'solid-js';
+import type { OpenChangeDetails } from '@unofficial-krds/contracts';
+export interface ModalProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title' | 'children' | 'onChange'> {
+    title: JSX.Element;
+    titleId?: string;
+    description?: JSX.Element;
+    descriptionId?: string;
+    children?: JSX.Element;
+    actions?: JSX.Element;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (details: OpenChangeDetails) => void;
+    closeOnOutsideClick?: boolean;
+    showCloseButton?: boolean;
+    initialFocusId?: string;
+    returnFocusId?: string;
+    closeLabel?: string;
+    locale?: 'ko-KR' | 'en-US';
+}
+/** A Solid-owned portal and actual-open lifecycle; rejected controlled requests retain isolation. */
+export declare function Modal(props: ModalProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

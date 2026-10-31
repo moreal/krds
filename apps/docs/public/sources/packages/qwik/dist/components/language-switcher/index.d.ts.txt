@@ -1,0 +1,5 @@
+import type { LanguageSwitcherContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type LanguageSwitcherProps = NativeContract<LanguageSwitcherContract>;
+export declare const LanguageSwitcher: import("@builder.io/qwik").Component<NativeContract<LanguageSwitcherContract>>;
+//# sourceMappingURL=index.d.ts.map

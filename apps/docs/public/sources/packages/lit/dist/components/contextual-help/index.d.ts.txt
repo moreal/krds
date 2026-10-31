@@ -1,0 +1,61 @@
+import { type TemplateResult } from 'lit';
+import { KrdsElement } from '../base.js';
+import { AnchoredController } from '../../controllers/anchored-controller.js';
+export declare class ContextualHelp extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        title: {
+            type: StringConstructor;
+        };
+        content: {
+            attribute: boolean;
+        };
+        variant: {
+            type: StringConstructor;
+        };
+        placement: {
+            type: StringConstructor;
+        };
+        triggerLabel: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        relatedId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        fallbackFocusId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    content: string | TemplateResult;
+    variant: string;
+    placement: string;
+    triggerLabel: string;
+    relatedId: string;
+    fallbackFocusId: string;
+    private state;
+    private fallbackBoundary?;
+    private restoreRequested;
+    private focusRequested;
+    readonly anchor: AnchoredController;
+    constructor();
+    get committedOpen(): boolean;
+    private show;
+    private outside;
+    private key;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    updated(): void;
+    render(): TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

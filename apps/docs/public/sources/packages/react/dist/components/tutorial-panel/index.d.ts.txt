@@ -1,0 +1,12 @@
+import { type ReactNode } from 'react';
+import type { TutorialPanelContract } from '@unofficial-krds/contracts';
+export interface TutorialPanelProps extends TutorialPanelContract {
+    helpContent?: ReactNode;
+    delegateRestoration?: boolean;
+    startActionVisible?: boolean;
+    children?: ReactNode;
+}
+export declare function TutorialPanel({ tasks, activeTaskId, activeStepId, running, defaultRunning, open, defaultOpen, activePanel, defaultActivePanel, onOpenChange, onTaskChange, onStepChange, onActivePanelChange, onStop, onStart, startActionId, fallbackFocusId, helpContent, children, delegateRestoration, startActionVisible }: TutorialPanelProps): import("react").JSX.Element;
+/** One composition coordinator calls this only after an accepted Stop has rendered. */
+export declare function restoreTutorialFocus(startActionId: string, fallbackFocusId?: string, openerId?: string): void;
+//# sourceMappingURL=index.d.ts.map

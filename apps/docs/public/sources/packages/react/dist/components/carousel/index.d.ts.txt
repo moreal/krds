@@ -1,0 +1,8 @@
+import { type ReactNode } from 'react';
+import type { CarouselContract } from '@unofficial-krds/contracts';
+export interface CarouselProps extends CarouselContract {
+    label?: string;
+    content?: Readonly<Record<string, ReactNode>>;
+}
+export declare function Carousel({ items, index, defaultIndex, onIndexChange, layout, autoplay, intervalMs, playing, defaultPlaying, onPlayingChange, loop, label, content }: CarouselProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

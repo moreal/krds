@@ -1,0 +1,43 @@
+import type { FABContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class FAB extends KrdsElement {
+    static properties: {
+        icon: {
+            type: StringConstructor;
+        };
+        showLabel: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        disabled: {
+            type: BooleanConstructor;
+        };
+        expanded: {
+            type: BooleanConstructor;
+        };
+        defaultExpanded: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        actions: {
+            attribute: boolean;
+        };
+    };
+    icon: string;
+    showLabel: boolean;
+    disabled: boolean;
+    expanded: boolean | undefined;
+    defaultExpanded: boolean | undefined;
+    actions: FABContract['actions'];
+    private state;
+    private returnAfterClose;
+    constructor();
+    get committedExpanded(): boolean;
+    private show;
+    private escape;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    updated(): void;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

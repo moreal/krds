@@ -1,0 +1,5 @@
+import type { TagContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type TagProps = NativeContract<TagContract>;
+export declare const Tag: import("@builder.io/qwik").Component<NativeContract<TagContract>>;
+//# sourceMappingURL=index.d.ts.map

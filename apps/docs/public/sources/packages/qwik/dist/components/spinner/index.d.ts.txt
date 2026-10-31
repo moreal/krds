@@ -1,0 +1,5 @@
+import type { SpinnerContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type SpinnerProps = NativeContract<SpinnerContract>;
+export declare const Spinner: import("@builder.io/qwik").Component<NativeContract<SpinnerContract>>;
+//# sourceMappingURL=index.d.ts.map

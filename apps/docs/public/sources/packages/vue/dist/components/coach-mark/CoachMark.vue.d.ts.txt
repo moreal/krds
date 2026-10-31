@@ -1,0 +1,29 @@
+import type { CoachMarkContract, TutorialStopDetails } from '@unofficial-krds/contracts';
+type __VLS_Props = CoachMarkContract & {
+    returnPanelOpenerId?: string;
+};
+declare const __VLS_export: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    stop: (detail: TutorialStopDetails) => any;
+    openChange: (detail: {
+        open: boolean;
+    }) => any;
+    stepChange: (detail: {
+        id: string;
+        reason: "previous" | "next" | "target-action";
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
+    onStop?: ((detail: TutorialStopDetails) => any) | undefined;
+    onOpenChange?: ((detail: {
+        open: boolean;
+    }) => any) | undefined;
+    onStepChange?: ((detail: {
+        id: string;
+        reason: "previous" | "next" | "target-action";
+    }) => any) | undefined;
+}>, {
+    open: boolean;
+    defaultOpen: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=CoachMark.vue.d.ts.map

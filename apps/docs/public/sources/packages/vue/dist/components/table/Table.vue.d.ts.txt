@@ -1,0 +1,32 @@
+import type { TableContract } from '@unofficial-krds/contracts';
+declare const __VLS_template: () => {
+    __VLS_Slots: {
+        [x: string]: ((props: {
+            row: {
+                id: string;
+                cells: Readonly<Record<string, string | number | null>>;
+            };
+        }) => any) | undefined;
+    };
+};
+type __VLS_Slots = ReturnType<typeof __VLS_template>['__VLS_Slots'];
+declare const __VLS_base: import("vue").DefineComponent<TableContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    sortChange: (detail: {
+        columnId: string;
+        direction: "ascending" | "descending";
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<TableContract> & Readonly<{
+    onSortChange?: ((detail: {
+        columnId: string;
+        direction: "ascending" | "descending";
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+//# sourceMappingURL=Table.vue.d.ts.map

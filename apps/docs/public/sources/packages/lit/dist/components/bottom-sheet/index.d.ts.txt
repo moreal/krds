@@ -1,0 +1,49 @@
+import { KrdsElement } from '../base.js';
+import { SurfaceController } from '../../controllers/surface-controller.js';
+export declare class BottomSheet extends KrdsElement {
+    static properties: {
+        open: {
+            type: BooleanConstructor;
+        };
+        defaultOpen: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        title: {
+            type: StringConstructor;
+        };
+        description: {
+            type: StringConstructor;
+        };
+        initialFocusId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        returnFocusId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        dismissOnOutside: {
+            type: BooleanConstructor;
+            attribute: string;
+        };
+        body: {
+            attribute: boolean;
+        };
+    };
+    open: boolean | undefined;
+    defaultOpen: boolean | undefined;
+    description: string;
+    initialFocusId: string;
+    returnFocusId: string;
+    dismissOnOutside: boolean;
+    body: unknown;
+    private state;
+    private pointerStart;
+    readonly surface: SurfaceController;
+    constructor();
+    get committedOpen(): boolean;
+    private close;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,6 @@
+import type { IdentifierContract } from '@unofficial-krds/contracts';
+export interface IdentifierProps extends IdentifierContract {
+    specimen?: boolean;
+}
+export declare function Identifier({ institutionName, logo, relationshipText, theme, specimen }: IdentifierProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

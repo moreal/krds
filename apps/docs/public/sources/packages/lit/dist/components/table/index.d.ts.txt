@@ -1,0 +1,45 @@
+import type { TableContract, TableColumn } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class Table extends KrdsElement {
+    static properties: {
+        caption: {
+            type: StringConstructor;
+        };
+        columns: {
+            attribute: boolean;
+        };
+        rows: {
+            attribute: boolean;
+        };
+        sort: {
+            attribute: boolean;
+        };
+        rowHeaderColumnId: {
+            type: StringConstructor;
+            attribute: string;
+        };
+        overflow: {
+            state: boolean;
+        };
+    };
+    caption: string;
+    columns: readonly TableColumn[];
+    rows: TableContract['rows'];
+    sort: TableContract['sort'];
+    rowHeaderColumnId: string | undefined;
+    private overflow;
+    private observer?;
+    private observed;
+    constructor();
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    updated(): void;
+    private measure;
+    get committedSort(): {
+        columnId: string;
+        direction: "ascending" | "descending";
+    } | undefined;
+    private toggle;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

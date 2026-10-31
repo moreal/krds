@@ -1,0 +1,5 @@
+import type { TabBarContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type TabBarProps = NativeContract<TabBarContract>;
+export declare const TabBar: import("@builder.io/qwik").Component<NativeContract<TabBarContract>>;
+//# sourceMappingURL=index.d.ts.map

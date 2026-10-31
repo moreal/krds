@@ -1,0 +1,21 @@
+import type { CriticalAlertContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class CriticalAlert extends KrdsElement {
+    static properties: {
+        urgency: {
+            type: StringConstructor;
+        };
+        message: {
+            type: StringConstructor;
+        };
+        details: {
+            attribute: boolean;
+        };
+    };
+    urgency: CriticalAlertContract['urgency'];
+    message: string;
+    details: CriticalAlertContract['details'];
+    constructor();
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

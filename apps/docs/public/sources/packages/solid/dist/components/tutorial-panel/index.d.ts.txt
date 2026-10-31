@@ -1,0 +1,9 @@
+import { type JSX } from 'solid-js';
+import type { TutorialPanelContract } from '@unofficial-krds/contracts';
+export interface TutorialPanelProps extends TutorialPanelContract {
+    startActionVisible?: boolean;
+    children?: JSX.Element;
+    helpContent?: JSX.Element;
+}
+export declare function TutorialPanel(props: TutorialPanelProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

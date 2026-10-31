@@ -1,0 +1,4 @@
+import type { FABContract } from '@unofficial-krds/contracts';
+export type FABProps = FABContract;
+export declare function FAB(props: FABProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

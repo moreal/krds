@@ -1,0 +1,23 @@
+import type { JSX } from '@solidjs/web';
+import type { ValueChangeDetails } from '@unofficial-krds/contracts';
+export interface TabItem {
+    value: string;
+    label: JSX.Element;
+    content: JSX.Element;
+    disabled?: boolean;
+    id?: string;
+}
+export interface TabsProps {
+    id?: string;
+    items: readonly TabItem[];
+    label?: JSX.Element;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    value?: string;
+    defaultValue?: string;
+    activationMode?: 'manual' | 'automatic';
+    orientation?: 'horizontal' | 'vertical';
+    onValueChange?: (details: ValueChangeDetails<string>) => void;
+}
+export declare function Tabs(props: TabsProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

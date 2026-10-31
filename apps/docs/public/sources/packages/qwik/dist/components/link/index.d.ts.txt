@@ -1,0 +1,5 @@
+import type { LinkContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type LinkProps = NativeContract<LinkContract>;
+export declare const Link: import("@builder.io/qwik").Component<NativeContract<LinkContract>>;
+//# sourceMappingURL=index.d.ts.map

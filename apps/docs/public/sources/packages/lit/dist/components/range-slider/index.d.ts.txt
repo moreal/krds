@@ -1,0 +1,41 @@
+import { type PropertyValues } from 'lit';
+import { FormElement } from '../catalog-support.js';
+export declare class RangeSlider extends FormElement {
+    static formAssociated: boolean;
+    static properties: {
+        value: {
+            type: NumberConstructor;
+        };
+        defaultValue: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        min: {
+            type: NumberConstructor;
+        };
+        max: {
+            type: NumberConstructor;
+        };
+        step: {
+            type: NumberConstructor;
+        };
+        valueText: {
+            attribute: boolean;
+        };
+    };
+    value: number | undefined;
+    defaultValue: number | undefined;
+    min: number;
+    max: number;
+    step: number;
+    valueText: ((value: number) => string) | undefined;
+    private state;
+    constructor();
+    get committedValue(): number;
+    resetControl(): void;
+    restoreControl(value: string | FormData | File | null): void;
+    updated(_changed: PropertyValues): void;
+    private input;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map

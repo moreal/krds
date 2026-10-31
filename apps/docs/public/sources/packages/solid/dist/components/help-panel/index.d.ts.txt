@@ -1,0 +1,8 @@
+import type { HelpPanelContract } from '@unofficial-krds/contracts';
+export interface HelpPanelProps extends HelpPanelContract {
+    openerId?: string;
+    showOpener?: boolean;
+    showTopicTriggers?: boolean;
+}
+export declare function HelpPanel(props: HelpPanelProps): import("solid-js").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

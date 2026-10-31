@@ -1,0 +1,4 @@
+import type { CheckboxContract } from '@unofficial-krds/contracts';
+export type CheckboxProps = CheckboxContract;
+export declare function Checkbox({ checked, defaultChecked, onCheckedChange, indeterminate, label, id: provided, name, value, required, disabled, invalid, helpId, errorId, appearance, size }: CheckboxProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

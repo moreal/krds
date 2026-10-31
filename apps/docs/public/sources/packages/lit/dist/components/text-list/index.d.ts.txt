@@ -1,0 +1,23 @@
+import { type TemplateResult } from 'lit';
+import type { TextListItem } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class TextList extends KrdsElement {
+    static properties: {
+        items: {
+            attribute: boolean;
+        };
+        ordered: {
+            type: BooleanConstructor;
+        };
+        marker: {
+            type: StringConstructor;
+        };
+    };
+    items: readonly TextListItem[];
+    ordered: boolean;
+    marker: string;
+    constructor();
+    private list;
+    render(): TemplateResult;
+}
+//# sourceMappingURL=index.d.ts.map

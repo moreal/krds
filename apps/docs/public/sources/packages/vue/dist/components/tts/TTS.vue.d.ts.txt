@@ -1,0 +1,17 @@
+import type { TTSContract } from '@unofficial-krds/contracts';
+declare const __VLS_export: import("vue").DefineComponent<TTSContract, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    request: (detail: {
+        action: "play" | "pause" | "resume" | "stop";
+        summary: string;
+        locale: string;
+    }) => any;
+}, string, import("vue").PublicProps, Readonly<TTSContract> & Readonly<{
+    onRequest?: ((detail: {
+        action: "play" | "pause" | "resume" | "stop";
+        summary: string;
+        locale: string;
+    }) => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: typeof __VLS_export;
+export default _default;
+//# sourceMappingURL=TTS.vue.d.ts.map

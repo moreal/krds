@@ -1,0 +1,22 @@
+import { type JSX } from '@solidjs/web';
+import type { OpenChangeDetails } from '@unofficial-krds/contracts';
+export interface ModalProps {
+    id?: string;
+    title: JSX.Element;
+    titleId?: string;
+    description?: JSX.Element;
+    descriptionId?: string;
+    children?: JSX.Element;
+    actions?: JSX.Element;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (details: OpenChangeDetails) => void;
+    closeOnOutsideClick?: boolean;
+    showCloseButton?: boolean;
+    initialFocusId?: string;
+    returnFocusId?: string;
+    closeLabel?: string;
+    locale?: 'ko-KR' | 'en-US';
+}
+export declare function Modal(props: ModalProps): JSX.Element;
+//# sourceMappingURL=index.d.ts.map

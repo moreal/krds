@@ -1,0 +1,7 @@
+import { type ReactNode } from 'react';
+import type { ContextualHelpContract } from '@unofficial-krds/contracts';
+export interface ContextualHelpProps extends ContextualHelpContract {
+    children?: ReactNode;
+}
+export declare function ContextualHelp({ open, defaultOpen, onOpenChange, title, content, variant, placement, triggerLabel, relatedId, fallbackFocusId, children }: ContextualHelpProps): import("react").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,9 @@
+import { type JSXChildren } from '@builder.io/qwik';
+import type { BottomSheetContract } from '@unofficial-krds/contracts';
+import { type NativeContract } from '../../internal/catalog';
+export type BottomSheetProps = NativeContract<BottomSheetContract> & {
+    children?: JSXChildren;
+    actions?: JSXChildren;
+};
+export declare const BottomSheet: import("@builder.io/qwik").Component<BottomSheetProps>;
+//# sourceMappingURL=index.d.ts.map

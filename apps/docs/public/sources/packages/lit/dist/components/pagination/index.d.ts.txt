@@ -1,0 +1,52 @@
+import { type PropertyValues } from 'lit';
+import type { PaginationContract } from '@unofficial-krds/contracts';
+import { KrdsElement } from '../base.js';
+export declare class Pagination extends KrdsElement {
+    static properties: {
+        page: {
+            type: NumberConstructor;
+        };
+        defaultPage: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        pageCount: {
+            type: NumberConstructor;
+            attribute: string;
+        };
+        hrefForPage: {
+            attribute: boolean;
+        };
+        variant: {
+            type: StringConstructor;
+        };
+        loadMore: {
+            attribute: boolean;
+        };
+        draft: {
+            state: boolean;
+        };
+        invalid: {
+            state: boolean;
+        };
+    };
+    page: number | undefined;
+    defaultPage: number | undefined;
+    pageCount: number;
+    hrefForPage: PaginationContract['hrefForPage'];
+    variant: string;
+    loadMore: PaginationContract['loadMore'];
+    private draft;
+    private invalid;
+    private state;
+    private wasPending;
+    private requestedMore;
+    private previousShown;
+    constructor();
+    get committedPage(): number;
+    updated(_changed: PropertyValues): void;
+    private request;
+    private link;
+    render(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=index.d.ts.map
