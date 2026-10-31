@@ -10,7 +10,12 @@ const root = resolve(import.meta.dirname, '../../..');
 const require = createRequire(join(root, 'packages/angular/package.json'));
 const node = JSON.parse(await readFile(join(root, 'compatibility/toolchain.json'), 'utf8')).node.installedBinary;
 const directory = await mkdtemp(join(tmpdir(), 'krds-angular-apf-consumer-'));
-const evidence = resolve(process.env.KRDS_SSR_OUTPUT ?? join(root, '.superpowers/sdd/PLAN/t07a-angular-logs'));
+// Standalone evidence must never reuse a retained consumer or pollute aggregate SSR matrices.
+const standaloneEvidence = join(root, 'test-results/standalone-angular-ssr');
+if (process.env.KRDS_SSR_OUTPUT === undefined) await mkdir(standaloneEvidence, { recursive: true });
+const evidence = process.env.KRDS_SSR_OUTPUT === undefined
+  ? await mkdtemp(join(standaloneEvidence, 'angular-apf-'))
+  : resolve(process.env.KRDS_SSR_OUTPUT);
 await mkdir(evidence, { recursive: true });
 const sourceSha256=process.env.KRDS_SSR_SOURCE_SHA256??(await snapshot(['angular'])).sha256;
 await cp(join(import.meta.dirname, 'consumer'), directory, { recursive: true });
