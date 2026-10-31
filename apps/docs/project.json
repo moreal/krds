@@ -33,6 +33,10 @@
       }
     },
     "test": {
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/docs test"

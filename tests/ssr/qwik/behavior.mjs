@@ -1,10 +1,10 @@
+import '../../../tools/testing/browser-cache-preload.mjs';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { startProductionSsr } from '../../../apps/fixture-qwik/server.mjs';
 const require = createRequire(new URL('../../../apps/fixture-qwik/package.json', import.meta.url)), playwright = require('playwright'), browserName = process.env.KRDS_BROWSER ?? 'chromium';
-process.env.PLAYWRIGHT_BROWSERS_PATH = '/private/tmp/krds-playwright-1.64.1';
 const server = await startProductionSsr(), browser = await playwright[browserName].launch(), context = await browser.newContext({ locale: 'ko-KR', reducedMotion: 'reduce', viewport: { width: 1280, height: 900 } }), page = await context.newPage(), results = [], errors = [];
 page.on('pageerror', error => errors.push(String(error)));
 const settle = () => page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));

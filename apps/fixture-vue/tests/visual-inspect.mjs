@@ -1,9 +1,9 @@
+import '../../../tools/testing/browser-cache-preload.mjs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import { serveProduction, root } from '../../../tools/testing/support.mjs';
-process.env.PLAYWRIGHT_BROWSERS_PATH='/private/tmp/krds-playwright-1.64.1';
 const directory=join(root,'.superpowers/sdd/PLAN/t07-vue-logs/visual');await mkdir(directory,{recursive:true});
 const server=await serveProduction(join(root,'apps/fixture-vue/dist'),{fixture:true});const browser=await chromium.launch();const results=[];
 try {

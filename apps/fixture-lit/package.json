@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/contract/*.test.mjs",
+    "test": "node --test --test-reporter=../../tools/ci/lit-test-reporter.mjs tests/contract/*.test.mjs",
     "lint": "node ../../tools/check-workspace.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "build:local": "vite build",

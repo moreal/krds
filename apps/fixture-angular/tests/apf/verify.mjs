@@ -1,3 +1,4 @@
+import '../../../../tools/check-node.mjs';
 import { mkdtemp, cp, mkdir, readdir, symlink, readFile, writeFile, realpath } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -6,7 +7,7 @@ import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 const root = resolve(import.meta.dirname, '../../../..');
 const require = createRequire(join(root, 'packages/angular/package.json'));
-const node = JSON.parse(await readFile(join(root, 'compatibility/toolchain.json'), 'utf8')).node.installedBinary;
+const node = process.execPath;
 const directory = await mkdtemp(join(tmpdir(), 'krds-angular-apf-consumer-'));
 const evidence = resolve(process.env.KRDS_SSR_OUTPUT ?? join(root, '.superpowers/sdd/PLAN/t10-angular-logs/apf'));
 await mkdir(evidence, { recursive: true });

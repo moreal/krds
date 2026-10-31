@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {readYamlFile} from 'nx/src/utils/fileutils.js';
 import {root} from './common.mjs';
 import {releaseSteps} from './collect-release-evidence.mjs';
 const phases = await import('./check-release-phase.mjs').catch(() => ({}));
@@ -67,9 +68,16 @@ test('reviewed candidate verification never reapplies consumed plans and keeps f
 });
 
 test('ordinary CI requires version plans for PRs while retaining all validation on other events', () => {
-  const ci = readFileSync(`${root}/.github/workflows/ci.yml`, 'utf8');
-  assert.match(ci, /- name: Require package-specific Nx version plans\n\s+if: \$\{\{ github\.event_name == 'pull_request' \}\}\n\s+run: node tools\/ci\/check-plans\.mjs/);
-  assert.ok(ci.includes('node tools/ci/run-targets.mjs'));
-  assert.ok(ci.includes('node tools/ci/check-release-config.mjs'));
+  const ci = readYamlFile(`${root}/.github/workflows/ci.yml`);
+  const common = ci.jobs['select-and-check'].steps;
+  const plans = common.find(step => step.name === 'Require package-specific Nx version plans');
+  assert.equal(plans.if, "${{ github.event_name == 'pull_request' }}");
+  assert.equal(plans.run.trim(), 'node tools/yarn.mjs exec node tools/ci/check-plans.mjs');
+  assert.ok(common.some(step => step.run?.includes('tools/ci/check-release-config.mjs')));
+  for (const name of ['native-stable', 'native-shared', 'native-docs', 'native-preview']) {
+    assert.equal(ci.jobs[name].needs, 'select-and-check');
+    assert.ok(ci.jobs[name].steps.some(step => step.run?.includes('tools/ci/run-targets.mjs')));
+    assert.equal(ci.jobs[name].if, undefined, 'Native validation remains required on every event');
+  }
   assert.ok(job('version-preview').includes('node tools/ci/check-plans.mjs'));
 });

@@ -1,3 +1,4 @@
+import '../../../tools/testing/browser-cache-preload.mjs';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -10,7 +11,6 @@ const behaviorOnly = process.env.KRDS_RESUME_MODE === 'behavior';
 const reportName = behaviorOnly ? 'production-resume-fix1' : 'production-resume';
 const directory = resolve(process.env.KRDS_SSR_OUTPUT ?? '.superpowers/sdd/PLAN/t07q-qwik-logs');
 await mkdir(directory, { recursive: true });
-if (process.platform === 'darwin') process.env.PLAYWRIGHT_BROWSERS_PATH ??= '/private/tmp/krds-playwright-1.64.1';
 const productionEvidence=await prepareProductionEvidence(directory,'precise');
 const {startProductionSsr}=productionEvidence;
 const html = await readFile(resolve(productionEvidence.production,'dist/resume.html'), 'utf8');

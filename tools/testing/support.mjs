@@ -3,9 +3,10 @@ import {readFile,readdir,stat,mkdir,writeFile,appendFile} from 'node:fs/promises
 import {resolve,relative,sep,extname,join} from 'node:path';
 import {spawn} from 'node:child_process';
 import {randomUUID,createHash} from 'node:crypto';
+import {tmpdir} from 'node:os';
 import {createBrowserEnvironment} from '../../tests/compatibility/browser-environment.mjs';
 export const root=resolve(import.meta.dirname,'../..');
-export const browserPath='/private/tmp/krds-playwright-1.64.1';
+export const browserPath=process.env.PLAYWRIGHT_BROWSERS_PATH??join(process.env.RUNNER_TEMP??tmpdir(),'krds-playwright-1.64.1');
 const exampleEntries=new Set(['/examples/form-errors','/examples/search-results','/examples/consent-confirmation','/examples/service-layout']);
 const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2','.woff':'font/woff','.ico':'image/x-icon','.wav':'audio/wav','.vtt':'text/vtt','.mp4':'video/mp4','.webm':'video/webm'};
 export async function assetPaths(directory) {
@@ -97,7 +98,7 @@ export async function writeReport(directory,report) {
 export function runSelected(args,{env={},cwd=root,log,timeoutMs=180000,browserName}={}) {
   if(!Number.isSafeInteger(timeoutMs) || timeoutMs<=0 || timeoutMs>1800000) throw new RangeError('Command timeoutMs must be a positive safe integer at most 1800000');
   return (async()=>{
-    const runtime=await createBrowserEnvironment(browserName,{...process.env,PLAYWRIGHT_BROWSERS_PATH:browserPath,...env});
+    const runtime=await createBrowserEnvironment(browserName,{PLAYWRIGHT_BROWSERS_PATH:browserPath,...process.env,...env});
     try{return await new Promise((resolve,reject)=>{
     const child=spawn(process.execPath,[join(root,'tools/yarn.mjs'),...args],{cwd,env:runtime.env,stdio:['ignore','pipe','pipe'],detached:true});
     let output=''; const onData=data=>{const text=String(data);output+=text;process.stdout.write(text);};child.stdout.on('data',onData);child.stderr.on('data',onData);

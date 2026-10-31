@@ -22,57 +22,477 @@ env:
   NG_BUILD_MAX_WORKERS: '2'
 
 jobs:
-  affected:
-    name: Exact affected native validation
+  select-and-check:
+    name: Exact selection and common checks
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 20
+    outputs:
+      source_sha: ${{ steps.source.outputs.sha }}
     steps:
+      - name: Initialize diagnostics before checkout
+        timeout-minutes: 2
+        run: |
+          started_ms=$(( $(date +%s) * 1000 ))
+          echo "CI_JOB_STARTED_MS=$started_ms" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/krds-playwright-1.64.1" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/native-ci-diagnostics"
+          printf '{"schemaVersion":1,"status":"failed","workerId":"%s","sourceSha":"%s","pairs":[],"cache":{"status":"incomplete","projects":[]},"error":"Job setup or execution did not complete"}\n' "${CI_WORKER_ID:-checks}" "$GITHUB_SHA" > "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json"
       - uses: actions/checkout@v4
+        timeout-minutes: 3
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
           persist-credentials: false
+      - name: Record authoritative checkout SHA
+        timeout-minutes: 1
+        id: source
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
+        timeout-minutes: 2
         with:
           node-version: '24.18.0'
       - name: Check exact Node and vendored Yarn
-        run: node tools/ci/check-toolchain.mjs
+        timeout-minutes: 2
+        run: |
+          node tools/ci/check-toolchain.mjs
       - uses: actions/cache@v4
+        timeout-minutes: 2
         with:
           path: .yarn/cache
           key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
       - name: Immutable Yarn Berry installation
-        run: node tools/yarn.mjs install --immutable
+        timeout-minutes: 10
+        run: |
+          node tools/yarn.mjs install --immutable
       - name: Check workspace-local Corepack
-        run: node tools/ci/check-toolchain.mjs --installed
-      - name: Install the pinned Playwright browser builds
-        run: node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+        timeout-minutes: 2
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
       - name: Verify workspace and catalog
+        timeout-minutes: 3
         run: |
           node tools/yarn.mjs verify:workspace
           node tools/yarn.mjs verify:catalog
-      - name: Check selection safety and canonical release integration
-        run: node --test tools/ci/selection.test.mjs tools/ci/release-integration.test.mjs tools/ci/release-phases.test.mjs
+      - name: Check CI protocols, portability, selection and canonical release integration
+        timeout-minutes: 4
+        env:
+          CI_REQUIRE_PROCESS_DISCOVERY: '1'
+        run: |
+          node tools/yarn.mjs exec node --test tools/ci/selection.test.mjs tools/ci/release-integration.test.mjs tools/ci/release-phases.test.mjs tools/ci/parallel-ci.test.mjs tools/ci/process-runner.test.mjs tools/ci/portability.test.mjs tools/ci/workflow.test.mjs
       - name: Check actual affected propagation for eight change classes
-        run: node tools/ci/check-affected.mjs
-      - name: Resolve PR merge base or explicitly select the full workspace
+        timeout-minutes: 3
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-affected.mjs
+      - name: Resolve scope once and publish exact worker assignments
+        timeout-minutes: 3
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: node tools/ci/selection.mjs
-      - name: Run selected native targets and report stable and preview separately
-        run: node tools/ci/run-targets.mjs
-      - name: Check real cache hits and restoration for selected builds
-        run: node tools/ci/verify-cache.mjs
+        run: |
+          node tools/yarn.mjs exec node tools/ci/selection.mjs
+          node tools/yarn.mjs exec node tools/ci/partition.mjs
       - name: Check independent release config and package channels
-        run: node tools/ci/check-release-config.mjs
+        timeout-minutes: 2
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-release-config.mjs
       - name: Require package-specific Nx version plans
+        timeout-minutes: 2
         if: ${{ github.event_name == 'pull_request' }}
-        run: node tools/ci/check-plans.mjs
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-plans.mjs
+      - name: Collect diagnostic fallback
+        timeout-minutes: 1
+        if: always()
+        run: |
+          mkdir -p test-results/ci
+          cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/job-diagnostic.json
       - uses: actions/upload-artifact@v4
         if: always()
+        timeout-minutes: 2
         with:
-          name: native-ci-${{ github.run_id }}-${{ github.run_attempt }}
+          name: native-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 2
+        with:
+          name: native-selection-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/ci/manifest.json
+          if-no-files-found: error
+          retention-days: 14
+
+  native-stable:
+    needs: select-and-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        framework: [react, solid, svelte, vue, lit, qwik, angular]
+    env:
+      CI_WORKER_ID: stable-${{ matrix.framework }}
+    steps:
+      - name: Initialize diagnostics before checkout
+        timeout-minutes: 2
+        run: |
+          started_ms=$(( $(date +%s) * 1000 ))
+          echo "CI_JOB_STARTED_MS=$started_ms" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/krds-playwright-1.64.1" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/native-ci-diagnostics"
+          printf '{"schemaVersion":1,"status":"failed","workerId":"%s","sourceSha":"%s","pairs":[],"cache":{"status":"incomplete","projects":[]},"error":"Job setup or execution did not complete"}\n' "${CI_WORKER_ID:-checks}" "$GITHUB_SHA" > "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json"
+      - uses: actions/checkout@v4
+        timeout-minutes: 3
+        with:
+          ref: ${{ needs.select-and-check.outputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        timeout-minutes: 2
+        with:
+          name: native-selection-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/ci
+      - uses: actions/setup-node@v4
+        timeout-minutes: 2
+        with:
+          node-version: '24.18.0'
+      - name: Check exact Node and vendored Yarn
+        timeout-minutes: 2
+        run: |
+          node tools/ci/check-toolchain.mjs
+      - uses: actions/cache@v4
+        timeout-minutes: 2
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+      - name: Immutable Yarn Berry installation
+        timeout-minutes: 10
+        run: |
+          node tools/yarn.mjs install --immutable
+      - name: Check workspace-local Corepack
+        timeout-minutes: 2
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
+      - name: Install the pinned Playwright browser builds
+        timeout-minutes: 12
+        run: |
+          node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+      - name: Run assigned targets within remaining job budget
+        timeout-minutes: 57
+        run: |
+          elapsed_ms=$(( $(date +%s) * 1000 - CI_JOB_STARTED_MS ))
+          # Leave three minutes for collection/upload; the worker reserves another minute.
+          budget_ms=$(( 60 * 60000 - elapsed_ms - 180000 ))
+          test "$budget_ms" -gt 60000
+          node tools/yarn.mjs exec node tools/ci/run-targets.mjs --manifest test-results/ci/manifest.json --worker "$CI_WORKER_ID" --budget-ms "$budget_ms"
+      - name: Collect diagnostic fallback
+        timeout-minutes: 1
+        if: always()
+        run: |
+          mkdir -p test-results/ci
+          cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/job-diagnostic.json
+          if [ ! -f test-results/ci/worker-result.json ]; then
+            cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/worker-result.json
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 2
+        with:
+          name: native-worker-stable-${{ matrix.framework }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          if-no-files-found: error
+          retention-days: 14
+
+  native-shared:
+    needs: select-and-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      CI_WORKER_ID: shared
+    steps:
+      - name: Initialize diagnostics before checkout
+        timeout-minutes: 2
+        run: |
+          started_ms=$(( $(date +%s) * 1000 ))
+          echo "CI_JOB_STARTED_MS=$started_ms" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/krds-playwright-1.64.1" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/native-ci-diagnostics"
+          printf '{"schemaVersion":1,"status":"failed","workerId":"%s","sourceSha":"%s","pairs":[],"cache":{"status":"incomplete","projects":[]},"error":"Job setup or execution did not complete"}\n' "${CI_WORKER_ID:-checks}" "$GITHUB_SHA" > "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json"
+      - uses: actions/checkout@v4
+        timeout-minutes: 3
+        with:
+          ref: ${{ needs.select-and-check.outputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        timeout-minutes: 2
+        with:
+          name: native-selection-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/ci
+      - uses: actions/setup-node@v4
+        timeout-minutes: 2
+        with:
+          node-version: '24.18.0'
+      - name: Check exact Node and vendored Yarn
+        timeout-minutes: 2
+        run: |
+          node tools/ci/check-toolchain.mjs
+      - uses: actions/cache@v4
+        timeout-minutes: 2
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+      - name: Immutable Yarn Berry installation
+        timeout-minutes: 10
+        run: |
+          node tools/yarn.mjs install --immutable
+      - name: Check workspace-local Corepack
+        timeout-minutes: 2
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
+      - name: Install the pinned Playwright browser builds
+        timeout-minutes: 12
+        run: |
+          node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+      - name: Run assigned targets within remaining job budget
+        timeout-minutes: 37
+        run: |
+          elapsed_ms=$(( $(date +%s) * 1000 - CI_JOB_STARTED_MS ))
+          # Leave three minutes for collection/upload; the worker reserves another minute.
+          budget_ms=$(( 40 * 60000 - elapsed_ms - 180000 ))
+          test "$budget_ms" -gt 60000
+          node tools/yarn.mjs exec node tools/ci/run-targets.mjs --manifest test-results/ci/manifest.json --worker "$CI_WORKER_ID" --budget-ms "$budget_ms"
+      - name: Collect diagnostic fallback
+        timeout-minutes: 1
+        if: always()
+        run: |
+          mkdir -p test-results/ci
+          cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/job-diagnostic.json
+          if [ ! -f test-results/ci/worker-result.json ]; then
+            cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/worker-result.json
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 2
+        with:
+          name: native-worker-shared-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          if-no-files-found: error
+          retention-days: 14
+
+  native-docs:
+    needs: select-and-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CI_WORKER_ID: docs
+    steps:
+      - name: Initialize diagnostics before checkout
+        timeout-minutes: 2
+        run: |
+          started_ms=$(( $(date +%s) * 1000 ))
+          echo "CI_JOB_STARTED_MS=$started_ms" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/krds-playwright-1.64.1" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/native-ci-diagnostics"
+          printf '{"schemaVersion":1,"status":"failed","workerId":"%s","sourceSha":"%s","pairs":[],"cache":{"status":"incomplete","projects":[]},"error":"Job setup or execution did not complete"}\n' "${CI_WORKER_ID:-checks}" "$GITHUB_SHA" > "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json"
+      - uses: actions/checkout@v4
+        timeout-minutes: 3
+        with:
+          ref: ${{ needs.select-and-check.outputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        timeout-minutes: 2
+        with:
+          name: native-selection-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/ci
+      - uses: actions/setup-node@v4
+        timeout-minutes: 2
+        with:
+          node-version: '24.18.0'
+      - name: Check exact Node and vendored Yarn
+        timeout-minutes: 2
+        run: |
+          node tools/ci/check-toolchain.mjs
+      - uses: actions/cache@v4
+        timeout-minutes: 2
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+      - name: Immutable Yarn Berry installation
+        timeout-minutes: 10
+        run: |
+          node tools/yarn.mjs install --immutable
+      - name: Check workspace-local Corepack
+        timeout-minutes: 2
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
+      - name: Install the pinned Playwright browser builds
+        timeout-minutes: 12
+        run: |
+          node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+      - name: Run assigned targets within remaining job budget
+        timeout-minutes: 57
+        run: |
+          elapsed_ms=$(( $(date +%s) * 1000 - CI_JOB_STARTED_MS ))
+          # Leave three minutes for collection/upload; the worker reserves another minute.
+          budget_ms=$(( 60 * 60000 - elapsed_ms - 180000 ))
+          test "$budget_ms" -gt 60000
+          node tools/yarn.mjs exec node tools/ci/run-targets.mjs --manifest test-results/ci/manifest.json --worker "$CI_WORKER_ID" --budget-ms "$budget_ms"
+      - name: Collect diagnostic fallback
+        timeout-minutes: 1
+        if: always()
+        run: |
+          mkdir -p test-results/ci
+          cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/job-diagnostic.json
+          if [ ! -f test-results/ci/worker-result.json ]; then
+            cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/worker-result.json
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 2
+        with:
+          name: native-worker-docs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          if-no-files-found: error
+          retention-days: 14
+
+  native-preview:
+    needs: select-and-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CI_WORKER_ID: preview
+    steps:
+      - name: Initialize diagnostics before checkout
+        timeout-minutes: 2
+        run: |
+          started_ms=$(( $(date +%s) * 1000 ))
+          echo "CI_JOB_STARTED_MS=$started_ms" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/krds-playwright-1.64.1" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/native-ci-diagnostics"
+          printf '{"schemaVersion":1,"status":"failed","workerId":"%s","sourceSha":"%s","pairs":[],"cache":{"status":"incomplete","projects":[]},"error":"Job setup or execution did not complete"}\n' "${CI_WORKER_ID:-checks}" "$GITHUB_SHA" > "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json"
+      - uses: actions/checkout@v4
+        timeout-minutes: 3
+        with:
+          ref: ${{ needs.select-and-check.outputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        timeout-minutes: 2
+        with:
+          name: native-selection-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/ci
+      - uses: actions/setup-node@v4
+        timeout-minutes: 2
+        with:
+          node-version: '24.18.0'
+      - name: Check exact Node and vendored Yarn
+        timeout-minutes: 2
+        run: |
+          node tools/ci/check-toolchain.mjs
+      - uses: actions/cache@v4
+        timeout-minutes: 2
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+      - name: Immutable Yarn Berry installation
+        timeout-minutes: 10
+        run: |
+          node tools/yarn.mjs install --immutable
+      - name: Check workspace-local Corepack
+        timeout-minutes: 2
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
+      - name: Install the pinned Playwright browser builds
+        timeout-minutes: 12
+        run: |
+          node tools/yarn.mjs exec playwright install --with-deps chromium firefox webkit
+      - name: Run assigned targets within remaining job budget
+        timeout-minutes: 42
+        run: |
+          elapsed_ms=$(( $(date +%s) * 1000 - CI_JOB_STARTED_MS ))
+          # Leave three minutes for collection/upload; the worker reserves another minute.
+          budget_ms=$(( 45 * 60000 - elapsed_ms - 180000 ))
+          test "$budget_ms" -gt 60000
+          node tools/yarn.mjs exec node tools/ci/run-targets.mjs --manifest test-results/ci/manifest.json --worker "$CI_WORKER_ID" --budget-ms "$budget_ms"
+      - name: Collect diagnostic fallback
+        timeout-minutes: 1
+        if: always()
+        run: |
+          mkdir -p test-results/ci
+          cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/job-diagnostic.json
+          if [ ! -f test-results/ci/worker-result.json ]; then
+            cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/worker-result.json
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 2
+        with:
+          name: native-worker-preview-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          if-no-files-found: error
+          retention-days: 14
+
+  native-ci-result:
+    name: Mandatory native CI result
+    if: always()
+    needs: [select-and-check, native-stable, native-shared, native-docs, native-preview]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Initialize diagnostics before checkout
+        timeout-minutes: 2
+        run: |
+          started_ms=$(( $(date +%s) * 1000 ))
+          echo "CI_JOB_STARTED_MS=$started_ms" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/krds-playwright-1.64.1" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/native-ci-diagnostics"
+          printf '{"schemaVersion":1,"status":"failed","workerId":"%s","sourceSha":"%s","pairs":[],"cache":{"status":"incomplete","projects":[]},"error":"Job setup or execution did not complete"}\n' "${CI_WORKER_ID:-checks}" "$GITHUB_SHA" > "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json"
+      - uses: actions/checkout@v4
+        timeout-minutes: 3
+        with:
+          ref: ${{ needs.select-and-check.outputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        timeout-minutes: 2
+        with:
+          node-version: '24.18.0'
+      - uses: actions/download-artifact@v4
+        timeout-minutes: 2
+        with:
+          name: native-selection-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/ci
+      - uses: actions/download-artifact@v4
+        timeout-minutes: 2
+        with:
+          pattern: native-worker-*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: worker-results
+          merge-multiple: false
+      - name: Validate mandatory jobs and exact stable and preview evidence
+        timeout-minutes: 2
+        if: always()
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: |
+          mkdir -p test-results/ci
+          printf '%s\n' "$NEEDS_JSON" > test-results/ci/needs.json
+          node tools/ci/aggregate.mjs --manifest test-results/ci/manifest.json --results worker-results --needs test-results/ci/needs.json
+      - name: Collect diagnostic fallback
+        timeout-minutes: 1
+        if: always()
+        run: |
+          mkdir -p test-results/ci
+          cp "$RUNNER_TEMP/native-ci-diagnostics/job-diagnostic.json" test-results/ci/job-diagnostic.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 2
+        with:
+          name: native-final-${{ github.run_id }}-${{ github.run_attempt }}
           path: test-results/
           if-no-files-found: error
           retention-days: 14

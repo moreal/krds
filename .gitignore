@@ -5,6 +5,10 @@ node_modules/
 .nx/cache/
 .nx/workspace-data/
 **/dist/
+# Preserved original named by compliance/provenance-package-sources.json.
+!/LICENSES/packages/_nx_js_24.0.2/dist/
+/LICENSES/packages/_nx_js_24.0.2/dist/*
+!/LICENSES/packages/_nx_js_24.0.2/dist/LICENSE
 **/coverage/
 **/playwright-report/
 **/test-results/
