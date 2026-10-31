@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme-without-fonts';
 import { h } from 'vue';
 import './style.css';
+import HomeIntro from './HomeIntro.vue';
 
 function focusMain(event: MouseEvent) {
   const main = document.querySelector('main');
@@ -18,8 +19,8 @@ function focusMain(event: MouseEvent) {
 
 function DocsLayout() {
   return h(DefaultTheme.Layout, null, {
-    'layout-top': () => h('a', { class: 'docs-skip-link', href: '#VPContent', tabindex: 0, onClick: focusMain }, 'Skip to content')
+    'layout-top': () => h('a', { class: 'docs-skip-link', href: '#VPContent', tabindex: 0, onClick: focusMain }, '본문 바로가기')
   });
 }
 
-export default { ...DefaultTheme, Layout: DocsLayout };
+export default { ...DefaultTheme, Layout: DocsLayout, enhanceApp({ app }: Parameters<NonNullable<typeof DefaultTheme.enhanceApp>>[0]) { app.component('HomeIntro', HomeIntro); } };

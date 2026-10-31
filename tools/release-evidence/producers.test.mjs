@@ -77,6 +77,15 @@ test('F1 recorder description cannot launch a job and declares the actual produc
 });
 test('F1 docs producer redirect preserves every original assertion and shares the actual browser types',async()=>{
  const source=readFileSync(join(root,'apps/docs/tests/browser.mjs'),'utf8'),output='/private/tmp/unit-docs-output';const redirected=api.redirectDocsProducer(source,root,output);
- assert.equal(redirected.replace(`const root = ${JSON.stringify(root)};`,"const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');").replace(`const evidence = ${JSON.stringify(output)};`,"const evidence = resolve(root, '.superpowers/sdd/PLAN/t12-docs-logs/browser');"),source);
+ assert.equal(redirected.replace(`const root = ${JSON.stringify(root)};`,"const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');").replace(`const evidence = ${JSON.stringify(output)};`,"const evidence = resolve(root, process.env.KRDS_DOCS_EVIDENCE ?? 'test-results/docs-pages/browser');"),source);
  const {createRequire}=await import('node:module');const original=createRequire(join(root,'apps/docs/package.json'))('@playwright/test'),retained=createRequire(join(root,'test-results/redirected-producer.mjs'))('@playwright/test');assert.equal(original.chromium,retained.chromium);assert.equal(original.webkit,retained.webkit);
+});
+
+
+test('current documentation capture requires all seven actual docs tests', () => {
+ const stdout = 'ℹ tests 7\nℹ pass 7\nℹ fail 0\nℹ skipped 0\n';
+ assert.deepEqual(api.parseNodeTests(stdout, 7), { tests: 7, passed: 7 });
+ assert.throws(() => api.parseNodeTests(stdout.replace('pass 7', 'pass 6'), 7));
+ const producer = readFileSync(join(root, 'tools/release-evidence/producers.mjs'), 'utf8');
+ assert.ok(producer.includes("parseNodeTests((await step(root,report.tests,'docs-tests')).stdout,7)"));
 });

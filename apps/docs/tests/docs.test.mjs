@@ -5,6 +5,7 @@ import { existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import postcss from 'postcss';
 
 const site = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const root = resolve(site, '../..');
@@ -47,7 +48,7 @@ test('every local Markdown destination resolves to a generated page or local pre
   for (const page of await pages(site)) {
     const content = await readFile(page, 'utf8');
     for (const match of content.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
-      const target = match[1].split('#')[0];
+      const target = match[1].split('#')[0].replace(/\.html$/, '');
       if (!target || /^https?:\/\//.test(target) || target.startsWith('/native/')) continue;
       const destination = target.startsWith('/sources/') || target.startsWith('/_legal/') ? resolve(site, 'public', `.${target}`) : target.startsWith('/') ? resolve(site, `.${target}`) : resolve(dirname(page), target);
       if (![destination, `${destination}.md`, resolve(destination, 'index.md')].some(existsSync)) failures.push(`${page}: ${target}`);
@@ -95,7 +96,9 @@ test('built HTML navigation and source-download destinations exist', async () =>
   for (const page of await visit(output)) {
     const html = await readFile(page, 'utf8');
     for (const match of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
-      const target = match[1].replaceAll('&amp;', '&').split(/[?#]/)[0];
+      let target = match[1].replaceAll('&amp;', '&').split(/[?#]/)[0];
+      if (target.startsWith('/krds/')) target = target.slice('/krds'.length);
+      else if (target.startsWith('/')) failures.push(`${page}: link escapes Pages base: ${target}`);
       if (!target || /^(?:https?:|mailto:|tel:)/.test(target) || target.startsWith('/native/')) continue;
       const path = target.startsWith('/') ? resolve(output, `.${target}`) : resolve(dirname(page), target);
       if (![path, `${path}.html`, resolve(path, 'index.html')].some(existsSync)) failures.push(`${page}: ${target}`);
@@ -120,4 +123,53 @@ test('site configuration keeps search local and documentation avoids external ru
     const content = await readFile(page, 'utf8');
     assert.ok(!/<(?:script|iframe|img)[^>]+(?:src|href)=["']https?:/i.test(content), page);
   }
+});
+
+test('Pages home is server-rendered with public Vue controls and an explicit base', async () => {
+  const html = await readFile(resolve(site, 'dist/index.html'), 'utf8');
+  assert.ok(html.includes('<main class="krds-home"'));
+  for (const component of ['link', 'badge', 'button', 'switch']) assert.ok(html.includes(`data-krds-component="${component}"`), component);
+  assert.ok(html.includes('알림 꺼짐 · 버튼 0회 누름'));
+  assert.ok(html.includes('id="docs-home-notifications"'));
+  assert.ok(html.includes('href="/krds/getting-started/installation.html"'));
+  assert.ok(html.includes('lang="ko-KR"'));
+  for (const path of ['components/button.html', 'legal/index.html']) {
+    const english = await readFile(resolve(site, 'dist', path), 'utf8');
+    assert.ok(english.includes('<html lang="ko-KR"'), `${path}: Korean shell`);
+    assert.match(english, /class="vp-doc[^"]*"[^>]*>(?:<div>)*<div lang="en">/, `${path}: English main content`);
+  }
+  const korean = await readFile(resolve(site, 'dist/getting-started/installation.html'), 'utf8');
+  assert.match(korean, /class="vp-doc[^"]*"[^>]*>(?:<div>)*<div lang="ko-KR">/, 'Korean quickstart content');
+  const config = await readFile(resolve(site, '.vitepress/config.mts'), 'utf8');
+  assert.ok(config.includes("base: '/krds/'"));
+  assert.ok(config.includes('cleanUrls: false'));
+  const metadata = await json('apps/docs/public/docs-metadata.json');
+  assert.ok(!metadata.sourceInputs.some(input => /^(?:packages\/[^/]+|apps\/storybook-[^/]+)\/dist\//.test(input.path)), 'live optional dist must not become public inputs');
+  const checkpoint = await json('apps/docs/declaration-checkpoint.json');
+  assert.equal(checkpoint.records.length, 385);
+  assert.equal(checkpoint.currentCandidate, false);
+  for (const record of checkpoint.records) {
+    const bytes = await readFile(resolve(root, record.checkpointPath));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), record.sha256);
+  }
+  for (const page of await pages(site)) assert.ok(!/\]\(\/native\//.test(await readFile(page, 'utf8')), `${page}: public site must not link unhosted previews`);
+});
+
+
+test('shared example styles and tokens cannot affect the VitePress shell', async () => {
+  const assets = resolve(site, 'dist/assets');
+  const css = (await readdir(assets)).filter(path => path.endsWith('.css'));
+  let tokenRules = 0;
+  for (const path of css) {
+    const tree = postcss.parse(await readFile(resolve(assets, path), 'utf8'));
+    tree.walkRules(rule => {
+      const hasTokens = rule.nodes.some(node => node.type === 'decl' && node.prop.startsWith('--krds-'));
+      if (hasTokens || rule.selector.includes('[data-krds-component')) {
+        assert.ok(rule.selectors.every(selector => selector.startsWith('.krds-demo')), `${path}: unscoped shared CSS ${rule.selector}`);
+        if (hasTokens) tokenRules += 1;
+      }
+    });
+    tree.walkAtRules('font-face', () => assert.fail('Docs must not load fonts'));
+  }
+  assert.ok(tokenRules > 0, 'actual shared tokens are present inside the example');
 });

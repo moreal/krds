@@ -8934,7 +8934,7 @@
       ]
     },
     {
-      "origin": "Independent React specimen SVG rasterized to180×180 PNG using browser Canvas; retains existing projectMIT conditions",
+      "origin": "Independent React specimen SVG rasterized to180\u00d7180 PNG using browser Canvas; retains existing projectMIT conditions",
       "rights": "independent",
       "rightsStatus": "verified",
       "evidence": [
@@ -8955,13 +8955,13 @@
         "sourceSha256": "2d557874afc9e81a8ae78ecda9ec09480234bf6567a89ecc38f6d4d941e9b6f8",
         "generatorPath": "apps/fixture-react/tests/generate-touch-icon.mjs",
         "generatorSha256": "420d5063984de89372c765044caf7594b914a0a11a869ce5f9b2c118804075be",
-        "changeSummary": "Draw the existing independent SVG into180×180 Canvas and encode PNG; no Apple/KRDS asset bytes imported"
+        "changeSummary": "Draw the existing independent SVG into180\u00d7180 Canvas and encode PNG; no Apple/KRDS asset bytes imported"
       }
     }
   ],
   "documentation": {
     "metadataPath": "apps/docs/public/docs-metadata.json",
-    "snapshotPolicy": "SourcePath identifies the source at docs generation, not a claim that evolving working files still equal the frozen snapshot. Exact distributed bytes are bound here and in docs-metadata.json. Official excerpts/adaptations retain KRDS attribution/KOGL conditions; preserved terms and mixed metadata do not become MIT.",
+    "snapshotPolicy": "Explicit tracked source inputs and hash-verified historical declaration/compiler checkpoints; no optional local dist probes. Declaration snapshots do not certify the current build.",
     "publicRoot": "apps/docs/public/sources",
     "buildRoot": "apps/docs/dist/sources",
     "records": [
@@ -9047,7 +9047,7 @@
       },
       {
         "sourcePath": "compliance/provenance-dependencies.json",
-        "sha256": "19603b7ae0e0be6e5007e6610c5258fb43aa494ca4adb2cccb775c2def593d91",
+        "sha256": "631947b46c1a15653e2b5aed100221c64cb8c7255d21f7bb1f95694df6aabebd",
         "bytes": 1226455,
         "destination": "apps/docs/public/sources/compliance/provenance-dependencies.json.txt",
         "rights": "mixed-record"
@@ -10570,10 +10570,24 @@
         "rights": "independent"
       },
       {
+        "sourcePath": "packages/react/package.json",
+        "sha256": "5ec4cfb8ed7e5780cf7fabf5e3712f173085c68a7df38054103c6b5a6777f385",
+        "bytes": 8406,
+        "destination": "apps/docs/public/sources/packages/react/package.json.txt",
+        "rights": "independent"
+      },
+      {
         "sourcePath": "packages/react/dist/components/masthead/index.d.ts",
         "sha256": "d6cdf263dc264ca33794ad0d640e4385cfd77fa204d6dedd73a90510fb83d954",
         "bytes": 373,
         "destination": "apps/docs/public/sources/packages/react/dist/components/masthead/index.d.ts.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "packages/solid/package.json",
+        "sha256": "cc4097697cdeb607093b50b8997654304517f2e47c1cf57adc2c92f4c2b6782d",
+        "bytes": 13214,
+        "destination": "apps/docs/public/sources/packages/solid/package.json.txt",
         "rights": "independent"
       },
       {
@@ -10584,10 +10598,24 @@
         "rights": "independent"
       },
       {
+        "sourcePath": "packages/svelte/package.json",
+        "sha256": "64e452160f5e1e0e7baee74b1daf5746e1d6cf352378476e4e9ec3f932f03f89",
+        "bytes": 12112,
+        "destination": "apps/docs/public/sources/packages/svelte/package.json.txt",
+        "rights": "independent"
+      },
+      {
         "sourcePath": "packages/svelte/dist/components/Masthead.svelte.d.ts",
         "sha256": "a7a89ba91f9eada312abe4c9784a9b1979e4fc52f46b09e481f09ff8ed97bc73",
         "bytes": 242,
         "destination": "apps/docs/public/sources/packages/svelte/dist/components/Masthead.svelte.d.ts.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "packages/vue/package.json",
+        "sha256": "d810f02c481036a0fd9d9013df5985281c8f8bc3551fdda5a65956c027b60df2",
+        "bytes": 8702,
+        "destination": "apps/docs/public/sources/packages/vue/package.json.txt",
         "rights": "independent"
       },
       {
@@ -10598,10 +10626,24 @@
         "rights": "independent"
       },
       {
+        "sourcePath": "packages/lit/package.json",
+        "sha256": "9392fcc939fc1df1702aec7c0294d47f40b0aed50966cae036e3ce893900e66e",
+        "bytes": 9464,
+        "destination": "apps/docs/public/sources/packages/lit/package.json.txt",
+        "rights": "independent"
+      },
+      {
         "sourcePath": "packages/lit/dist/components/masthead/index.d.ts",
         "sha256": "ef67c3ce739880a52fa373db6f7eb06109cd471ed0c203ddbc6c07b8f12b9eaf",
         "bytes": 370,
         "destination": "apps/docs/public/sources/packages/lit/dist/components/masthead/index.d.ts.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "packages/qwik/package.json",
+        "sha256": "a683c9ec4841bb3dd40b578c15c9a9ab11e1806f9c9bf87265a2bee1d9736da0",
+        "bytes": 13030,
+        "destination": "apps/docs/public/sources/packages/qwik/package.json.txt",
         "rights": "independent"
       },
       {
@@ -10612,10 +10654,24 @@
         "rights": "independent"
       },
       {
+        "sourcePath": "packages/angular/package.json",
+        "sha256": "6f2ca28dc003545ae273842023240c079510c8d4c7f48a29ffbc9fc58d7888de",
+        "bytes": 11990,
+        "destination": "apps/docs/public/sources/packages/angular/package.json.txt",
+        "rights": "independent"
+      },
+      {
         "sourcePath": "packages/angular/dist/types/unofficial-krds-angular-masthead.d.ts",
         "sha256": "c5afe491c89f1193a6785f40dc4700ab6e3d3a6bcf002f96eba129a1a45d38a1",
         "bytes": 73,
         "destination": "apps/docs/public/sources/packages/angular/dist/types/unofficial-krds-angular-masthead.d.ts.txt",
+        "rights": "independent"
+      },
+      {
+        "sourcePath": "packages/solid-next/package.json",
+        "sha256": "e601d0dc31995383361515c33a94db9bd89401e5b13596ffb8f0d4b1f5a18d19",
+        "bytes": 3180,
+        "destination": "apps/docs/public/sources/packages/solid-next/package.json.txt",
         "rights": "independent"
       },
       {
@@ -13881,13 +13937,6 @@
         "rights": "independent"
       },
       {
-        "sourcePath": "packages/react/package.json",
-        "sha256": "5ec4cfb8ed7e5780cf7fabf5e3712f173085c68a7df38054103c6b5a6777f385",
-        "bytes": 8406,
-        "destination": "apps/docs/public/sources/packages/react/package.json.txt",
-        "rights": "independent"
-      },
-      {
         "sourcePath": "apps/fixture-react/package.json",
         "sha256": "a3d179be15676db4a2806412ad356eecc7e0b65de47198564588b821791e043e",
         "bytes": 1439,
@@ -13916,13 +13965,6 @@
         "rights": "independent"
       },
       {
-        "sourcePath": "packages/solid/package.json",
-        "sha256": "cc4097697cdeb607093b50b8997654304517f2e47c1cf57adc2c92f4c2b6782d",
-        "bytes": 13214,
-        "destination": "apps/docs/public/sources/packages/solid/package.json.txt",
-        "rights": "independent"
-      },
-      {
         "sourcePath": "apps/fixture-solid/package.json",
         "sha256": "ee7cdd8d2682c1ed4e2e2499e108bd47a79db66929690822bd5fe658b45367b6",
         "bytes": 1430,
@@ -13941,13 +13983,6 @@
         "sha256": "5f95b36e2bfe2d981a9d1324d0297b82d9682b7d303fa95594981bdb293640c4",
         "bytes": 975,
         "destination": "apps/docs/public/sources/apps/fixture-solid/src/main.tsx.txt",
-        "rights": "independent"
-      },
-      {
-        "sourcePath": "packages/svelte/package.json",
-        "sha256": "64e452160f5e1e0e7baee74b1daf5746e1d6cf352378476e4e9ec3f932f03f89",
-        "bytes": 12112,
-        "destination": "apps/docs/public/sources/packages/svelte/package.json.txt",
         "rights": "independent"
       },
       {
@@ -13972,13 +14007,6 @@
         "rights": "independent"
       },
       {
-        "sourcePath": "packages/vue/package.json",
-        "sha256": "d810f02c481036a0fd9d9013df5985281c8f8bc3551fdda5a65956c027b60df2",
-        "bytes": 8702,
-        "destination": "apps/docs/public/sources/packages/vue/package.json.txt",
-        "rights": "independent"
-      },
-      {
         "sourcePath": "apps/fixture-vue/package.json",
         "sha256": "f8fdf65e64c4bb30c2c70c9f99bc9208b47fc0679749e572ebc34f1fecb3e3ca",
         "bytes": 1535,
@@ -14000,16 +14028,9 @@
         "rights": "independent"
       },
       {
-        "sourcePath": "packages/lit/package.json",
-        "sha256": "9392fcc939fc1df1702aec7c0294d47f40b0aed50966cae036e3ce893900e66e",
-        "bytes": 9464,
-        "destination": "apps/docs/public/sources/packages/lit/package.json.txt",
-        "rights": "independent"
-      },
-      {
         "sourcePath": "apps/fixture-lit/package.json",
-        "sha256": "aa114b8820b96a6cbe7c30f66ced9a4a1270f856964d18b0c160ce45ad462ca2",
-        "bytes": 994,
+        "sha256": "590e94b4ce00340b23e34c78d2708e5dd1a0b71d84f0323afdeb5461675c5e0f",
+        "bytes": 1047,
         "destination": "apps/docs/public/sources/apps/fixture-lit/package.json.txt",
         "rights": "independent"
       },
@@ -14025,13 +14046,6 @@
         "sha256": "8be1b6382ef6ddfd68360a6147d1267449e55544be5c17d83538e8c1ea0c4430",
         "bytes": 3129,
         "destination": "apps/docs/public/sources/apps/fixture-lit/src/full-catalog.ts.txt",
-        "rights": "independent"
-      },
-      {
-        "sourcePath": "packages/qwik/package.json",
-        "sha256": "a683c9ec4841bb3dd40b578c15c9a9ab11e1806f9c9bf87265a2bee1d9736da0",
-        "bytes": 13030,
-        "destination": "apps/docs/public/sources/packages/qwik/package.json.txt",
         "rights": "independent"
       },
       {
@@ -14056,13 +14070,6 @@
         "rights": "independent"
       },
       {
-        "sourcePath": "packages/angular/package.json",
-        "sha256": "6f2ca28dc003545ae273842023240c079510c8d4c7f48a29ffbc9fc58d7888de",
-        "bytes": 11990,
-        "destination": "apps/docs/public/sources/packages/angular/package.json.txt",
-        "rights": "independent"
-      },
-      {
         "sourcePath": "apps/fixture-angular/package.json",
         "sha256": "cc59371c5c494a6592d8d0c0ba1a886caf6de0a226ea080ef95ba8b8369fe522",
         "bytes": 2167,
@@ -14081,13 +14088,6 @@
         "sha256": "3b141413e1a09b28ba611193df5094262b1f5063c6e775a47562e4c2c069bbf3",
         "bytes": 11982,
         "destination": "apps/docs/public/sources/apps/fixture-angular/src/fixture-app.ts.txt",
-        "rights": "independent"
-      },
-      {
-        "sourcePath": "packages/solid-next/package.json",
-        "sha256": "e601d0dc31995383361515c33a94db9bd89401e5b13596ffb8f0d4b1f5a18d19",
-        "bytes": 3180,
-        "destination": "apps/docs/public/sources/packages/solid-next/package.json.txt",
         "rights": "independent"
       },
       {
@@ -14380,8 +14380,8 @@
         "url": "https://www.krds.go.kr/html/site/service/service_02_04.html"
       }
     ],
-    "metadataSha256": "6f2de0e1d020be59d0276f09e7221014124fb89f0a684a09cfa2470e5778ab77",
-    "reboundAt": "2026-10-30T14:28:09.027Z"
+    "metadataSha256": "6926765dea9616b367ac12016468e6bdeb477706436837e025d63ce037a04756",
+    "reboundAt": "2026-11-01"
   },
   "exclusions": [
     {

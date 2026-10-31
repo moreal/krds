@@ -3,7 +3,7 @@ import {readFile} from 'node:fs/promises';
 import {resolve,relative} from 'node:path';
 import {createHash} from 'node:crypto';
 
-export function monitorDocsBrowser(browser,{root,dist,name}){
+export function monitorDocsBrowser(browser,{root,dist,name,base='/'}){
  const pending=new Set(),responses=[],failures=[];
  const drain=async()=>{while(pending.size)await Promise.all([...pending]);};
  const deliver=(route,options)=>{
@@ -19,7 +19,9 @@ export function monitorDocsBrowser(browser,{root,dist,name}){
     body=await response.body();
     if(response.status()>=300&&response.status()<400){await route.fulfill({response,body});return;}
     if(response.status()!==200)throw new Error(`Documentation HTTP failure ${response.status()}`);
-    const path=decodeURIComponent(url.pathname),choices=path.endsWith('/')?[`${path}index.html`]:[path,`${path}.html`,`${path}/index.html`];let file,expected;
+    const pathname=decodeURIComponent(url.pathname);
+    if(!pathname.startsWith(base))throw new Error(`Response escapes docs base ${pathname}`);
+    const path=`/${pathname.slice(base.length)}`,choices=path.endsWith('/')?[`${path}index.html`]:[path,`${path}.html`,`${path}/index.html`];let file,expected;
     for(const candidate of choices){
      const candidateFile=resolve(dist,`.${candidate}`);
      if(!candidateFile.startsWith(`${dist}/`))throw new Error('Unsafe docs response path');

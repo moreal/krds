@@ -14,14 +14,14 @@ These states are copied from `catalog/coverage.json`; they are not inferred from
 
 | Framework | Package version | Recorded state | Export declaration | Native examples and stories |
 | --- | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [exact subpath types](/sources/packages/react/dist/components/date-input/index.d.ts.txt) | [react sources and preview policy](../compatibility/examples#react) |
-| solid | `0.1.0` | implemented | [exact subpath types](/sources/packages/solid/dist/components/date-input/index.d.ts.txt) | [solid sources and preview policy](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/DateInput.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/date-input/DateInput.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/date-input/index.d.ts.txt) | [lit sources and preview policy](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/date-input/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-date-input.d.ts.txt) | [angular sources and preview policy](../compatibility/examples#angular) |
-| solid-next (preview) | `0.1.0-preview.0` | planned | [exact subpath types](/sources/packages/solid-next/dist/components/date-input/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/examples#solid-next) |
+| react | `0.1.0` | planned | [current subpath manifest](/sources/packages/react/package.json.txt); [historical declaration checkpoint](/sources/packages/react/dist/components/date-input/index.d.ts.txt) | [react sources and preview policy](../compatibility/examples#react) |
+| solid | `0.1.0` | implemented | [current subpath manifest](/sources/packages/solid/package.json.txt); [historical declaration checkpoint](/sources/packages/solid/dist/components/date-input/index.d.ts.txt) | [solid sources and preview policy](../compatibility/examples#solid) |
+| svelte | `0.1.0` | planned | [current subpath manifest](/sources/packages/svelte/package.json.txt); [historical declaration checkpoint](/sources/packages/svelte/dist/components/DateInput.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/examples#svelte) |
+| vue | `0.1.0` | planned | [current subpath manifest](/sources/packages/vue/package.json.txt); [historical declaration checkpoint](/sources/packages/vue/dist/components/date-input/DateInput.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/examples#vue) |
+| lit | `0.1.0` | planned | [current subpath manifest](/sources/packages/lit/package.json.txt); [historical declaration checkpoint](/sources/packages/lit/dist/components/date-input/index.d.ts.txt) | [lit sources and preview policy](../compatibility/examples#lit) |
+| qwik | `0.1.0` | planned | [current subpath manifest](/sources/packages/qwik/package.json.txt); [historical declaration checkpoint](/sources/packages/qwik/dist/components/date-input/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/examples#qwik) |
+| angular | `0.1.0` | planned | [current subpath manifest](/sources/packages/angular/package.json.txt); [historical declaration checkpoint](/sources/packages/angular/dist/types/unofficial-krds-angular-date-input.d.ts.txt) | [angular sources and preview policy](../compatibility/examples#angular) |
+| solid-next (preview) | `0.1.0-preview.0` | planned | [current subpath manifest](/sources/packages/solid-next/package.json.txt); [historical declaration checkpoint](/sources/packages/solid-next/dist/components/date-input/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/examples#solid-next) |
 
 ## Props, events, content and defaults
 
@@ -95,18 +95,9 @@ Supported case axes: `single`, `range`. These case names are independent project
 
 [Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
 
-### Native stories in current built outputs
+### Local native stories
 
-The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
-
-- react: [Invalid](/native/storybook-react/?path=/story/krds-date-input--invalid) · [Default](/native/storybook-react/?path=/story/krds-date-input--default) · [Disabled](/native/storybook-react/?path=/story/krds-date-input--disabled) · [Range](/native/storybook-react/?path=/story/krds-date-input--range).
-- solid: [Default](/native/storybook-solid/?path=/story/krds-date-input--default) · [Disabled](/native/storybook-solid/?path=/story/krds-date-input--disabled) · [Invalid](/native/storybook-solid/?path=/story/krds-date-input--invalid) · [Selected](/native/storybook-solid/?path=/story/krds-date-input--selected) · [Range](/native/storybook-solid/?path=/story/krds-date-input--range) · [Without Calendar](/native/storybook-solid/?path=/story/krds-date-input--without-calendar) · [Controlled](/native/storybook-solid/?path=/story/krds-date-input--controlled).
-- svelte: [Invalid](/native/storybook-svelte/?path=/story/krds-date-input--invalid).
-- vue: [Invalid](/native/storybook-vue/?path=/story/krds-date-input--invalid).
-- lit: [Invalid](/native/storybook-lit/?path=/story/krds-date-input--invalid).
-- qwik: [Invalid](/native/storybook-qwik/?path=/story/krds-date-input--invalid).
-- angular: [Invalid](/native/storybook-angular/?path=/story/krds-date-input--invalid) · [Single](/native/storybook-angular/?path=/story/krds-date-input--single) · [Range](/native/storybook-angular/?path=/story/krds-date-input--range) · [Disabled](/native/storybook-angular/?path=/story/krds-date-input--disabled).
-- solid-next: unsupported native Storybook preview integration.
+Fixture and Storybook outputs are local-only and are not hosted on this public documentation site. Build the selected native workspace, then run `node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs`. Open `/krds/native/storybook-<framework>/` on that local server. Solid 2 has no supported native Storybook integration. Qwik production SSR/resume requires its real server and cannot be replaced by a static preview. Story availability does not establish behavioral acceptance.
 
 Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
 

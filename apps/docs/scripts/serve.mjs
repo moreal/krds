@@ -10,10 +10,16 @@ const docsPort = Number(process.env.KRDS_DOCS_PORT ?? 49100);
 const types = { '.html': 'text/html; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2', '.webm': 'video/webm', '.vtt': 'text/vtt' };
 const profiles = ['solid', 'react', 'svelte', 'vue', 'lit', 'qwik', 'angular', 'solid-next'];
 const native = new Map();
+const base = '/krds/';
 const serve = async (directory, port, isDocs = false) => {
   const server = createServer(async (request, response) => {
     try {
       const url = new URL(request.url, `http://${host}:${port}`);
+      if (isDocs) {
+        if (url.pathname === '/krds' || url.pathname === '/') { response.writeHead(302, { Location: base }); response.end(); return; }
+        if (!url.pathname.startsWith(base)) { response.writeHead(404); response.end('Documentation is served beneath /krds/'); return; }
+        url.pathname = url.pathname.slice(base.length - 1);
+      }
       if (isDocs && url.pathname.startsWith('/native/')) {
         const key = url.pathname.split('/')[2];
         if (!native.has(key)) { response.writeHead(404, { 'Content-Type': 'text/plain' }); response.end(`No static native output registered for ${key}. Build the native workspace; Qwik production resume requires its real server and is not served as a static fixture.`); return; }

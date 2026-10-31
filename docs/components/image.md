@@ -14,14 +14,14 @@ These states are copied from `catalog/coverage.json`; they are not inferred from
 
 | Framework | Package version | Recorded state | Export declaration | Native examples and stories |
 | --- | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [exact subpath types](/sources/packages/react/dist/components/image/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | planned | [exact subpath types](/sources/packages/solid/dist/components/image/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/Image.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/image/Image.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/image/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/image/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-image.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
-| solid-next (preview) | `0.1.0-preview.0` | planned | [exact root types](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
+| react | `0.1.0` | planned | [current subpath manifest](/sources/packages/react/package.json.txt); [historical declaration checkpoint](/sources/packages/react/dist/components/image/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
+| solid | `0.1.0` | planned | [current subpath manifest](/sources/packages/solid/package.json.txt); [historical declaration checkpoint](/sources/packages/solid/dist/components/image/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
+| svelte | `0.1.0` | planned | [current subpath manifest](/sources/packages/svelte/package.json.txt); [historical declaration checkpoint](/sources/packages/svelte/dist/components/Image.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
+| vue | `0.1.0` | planned | [current subpath manifest](/sources/packages/vue/package.json.txt); [historical declaration checkpoint](/sources/packages/vue/dist/components/image/Image.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
+| lit | `0.1.0` | planned | [current subpath manifest](/sources/packages/lit/package.json.txt); [historical declaration checkpoint](/sources/packages/lit/dist/components/image/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
+| qwik | `0.1.0` | planned | [current subpath manifest](/sources/packages/qwik/package.json.txt); [historical declaration checkpoint](/sources/packages/qwik/dist/components/image/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
+| angular | `0.1.0` | planned | [current subpath manifest](/sources/packages/angular/package.json.txt); [historical declaration checkpoint](/sources/packages/angular/dist/types/unofficial-krds-angular-image.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
+| solid-next (preview) | `0.1.0-preview.0` | planned | [current root manifest](/sources/packages/solid-next/package.json.txt); [historical declaration checkpoint](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
 
 ## Props, events, content and defaults
 
@@ -101,18 +101,9 @@ Supported case axes: `informative`, `decorative`, `complex-description`, `respon
 
 Required full-catalog stories: `krds-image--informative`, `krds-image--decorative`, `krds-image--complex-description`, `krds-image--responsive`, `krds-image--load-error`.
 
-### Native stories in current built outputs
+### Local native stories
 
-The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
-
-- react: [Informative](/native/storybook-react/?path=/story/krds-image--informative) · [Decorative](/native/storybook-react/?path=/story/krds-image--decorative) · [Complex Description](/native/storybook-react/?path=/story/krds-image--complex-description) · [Responsive](/native/storybook-react/?path=/story/krds-image--responsive) · [Load Error](/native/storybook-react/?path=/story/krds-image--load-error).
-- solid: [informative](/native/storybook-solid/?path=/story/krds-image--informative) · [decorative](/native/storybook-solid/?path=/story/krds-image--decorative) · [complex-description](/native/storybook-solid/?path=/story/krds-image--complex-description) · [responsive](/native/storybook-solid/?path=/story/krds-image--responsive) · [load-error](/native/storybook-solid/?path=/story/krds-image--load-error).
-- svelte: [informative](/native/storybook-svelte/?path=/story/krds-image--informative) · [decorative](/native/storybook-svelte/?path=/story/krds-image--decorative) · [complex-description](/native/storybook-svelte/?path=/story/krds-image--complex-description) · [responsive](/native/storybook-svelte/?path=/story/krds-image--responsive) · [load-error](/native/storybook-svelte/?path=/story/krds-image--load-error).
-- vue: [informative](/native/storybook-vue/?path=/story/krds-image--informative) · [decorative](/native/storybook-vue/?path=/story/krds-image--decorative) · [complex-description](/native/storybook-vue/?path=/story/krds-image--complex-description) · [responsive](/native/storybook-vue/?path=/story/krds-image--responsive) · [load-error](/native/storybook-vue/?path=/story/krds-image--load-error).
-- lit: [Informative](/native/storybook-lit/?path=/story/krds-image--informative) · [Decorative](/native/storybook-lit/?path=/story/krds-image--decorative) · [Complex Description](/native/storybook-lit/?path=/story/krds-image--complex-description) · [Responsive](/native/storybook-lit/?path=/story/krds-image--responsive) · [Load Error](/native/storybook-lit/?path=/story/krds-image--load-error).
-- qwik: [informative](/native/storybook-qwik/?path=/story/krds-image--informative) · [decorative](/native/storybook-qwik/?path=/story/krds-image--decorative) · [complex-description](/native/storybook-qwik/?path=/story/krds-image--complex-description) · [responsive](/native/storybook-qwik/?path=/story/krds-image--responsive) · [load-error](/native/storybook-qwik/?path=/story/krds-image--load-error).
-- angular: [informative](/native/storybook-angular/?path=/story/krds-image--informative) · [decorative](/native/storybook-angular/?path=/story/krds-image--decorative) · [complex-description](/native/storybook-angular/?path=/story/krds-image--complex-description) · [responsive](/native/storybook-angular/?path=/story/krds-image--responsive) · [load-error](/native/storybook-angular/?path=/story/krds-image--load-error).
-- solid-next: unsupported native Storybook preview integration.
+Fixture and Storybook outputs are local-only and are not hosted on this public documentation site. Build the selected native workspace, then run `node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs`. Open `/krds/native/storybook-<framework>/` on that local server. Solid 2 has no supported native Storybook integration. Qwik production SSR/resume requires its real server and cannot be replaced by a static preview. Story availability does not establish behavioral acceptance.
 
 Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
 

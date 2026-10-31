@@ -10,21 +10,23 @@
     "krds-contracts",
     "krds-tokens",
     "krds-styles",
-    "fixture-react",
-    "fixture-solid",
-    "fixture-svelte",
-    "fixture-vue",
-    "fixture-lit",
-    "fixture-qwik",
-    "fixture-angular",
-    "fixture-solid-next"
+    "krds-vue"
   ],
   "targets": {
     "build": {
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/docs build:local"
-      }
+      },
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/docs/**/*",
+        "{workspaceRoot}/catalog/**/*",
+        "{workspaceRoot}/apps/fixture-*/src/**/*",
+        "{workspaceRoot}/packages/*/package.json",
+        "{workspaceRoot}/upstream/krds/raw/components/**/*"
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",

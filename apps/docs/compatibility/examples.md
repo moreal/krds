@@ -16,14 +16,14 @@ Each implementation owns its fixture and Storybook. All seven stable native targ
 
 ## Local native previews
 
-Run `node apps/docs/scripts/serve.mjs` after the docs build. This local server serves the docs and maps the following native output paths when those outputs exist. It does not rebuild native apps or manufacture missing outputs. Build each native workspace separately using its own manifest command. Missing outputs return an explicit 404. These preview links depend on that local server, not a remote host.
+Run `node apps/docs/scripts/serve.mjs` after the docs build. This local server serves the docs and maps the following native output paths when those outputs exist. It does not rebuild native apps or manufacture missing outputs. Build each native workspace separately using its own manifest command. Missing outputs return an explicit 404. Preview routes are local instructions, not public links.
 
 
 ## react
 
 [Public package exports and scripts](/sources/packages/react/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-react/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/react.md.txt)
 
-[Open local fixture](/native/fixture-react/) · [Open local Storybook](/native/storybook-react/)
+Local fixture route: `/krds/native/fixture-react/` (build it first) · Local Storybook route: `/krds/native/storybook-react/` (build it first)
 
 **Compiler checkpoint:** [read native source](/examples/react-1) · [download exact source](/sources/packages/react/examples/catalog.tsx.txt)
 
@@ -38,7 +38,7 @@ Command: `node tools/yarn.mjs workspace @unofficial-krds/react exec tsc -p examp
 
 [Public package exports and scripts](/sources/packages/solid/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-solid/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/solid.md.txt)
 
-[Open local fixture](/native/fixture-solid/) · [Open local Storybook](/native/storybook-solid/)
+Local fixture route: `/krds/native/fixture-solid/` (build it first) · Local Storybook route: `/krds/native/storybook-solid/` (build it first)
 
 **Compiler checkpoint:** [read native source](/examples/solid-2) · [download exact source](/sources/apps/fixture-solid/src/examples.tsx.txt)
 
@@ -60,7 +60,7 @@ Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-solid typecheck
 
 [Public package exports and scripts](/sources/packages/svelte/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-svelte/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/svelte.md.txt)
 
-[Open local fixture](/native/fixture-svelte/) · [Open local Storybook](/native/storybook-svelte/)
+Local fixture route: `/krds/native/fixture-svelte/` (build it first) · Local Storybook route: `/krds/native/storybook-svelte/` (build it first)
 
 **Compiler checkpoint:** [read native source](/examples/svelte-4) · [download exact source](/sources/apps/fixture-svelte/src/public-examples/MastheadExample.svelte.txt)
 
@@ -392,7 +392,7 @@ Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte typechec
 
 [Public package exports and scripts](/sources/packages/vue/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-vue/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/vue.md.txt)
 
-[Open local fixture](/native/fixture-vue/) · [Open local Storybook](/native/storybook-vue/)
+Local fixture route: `/krds/native/fixture-vue/` (build it first) · Local Storybook route: `/krds/native/storybook-vue/` (build it first)
 
 **Compiler checkpoint:** [read native source](/examples/vue-58) · [download exact source](/sources/apps/fixture-vue/src/PublicCatalogExamples.vue.txt)
 
@@ -413,7 +413,7 @@ Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck`.
 
 [Public package exports and scripts](/sources/packages/lit/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-lit/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/lit.md.txt)
 
-[Open local fixture](/native/fixture-lit/) · [Open local Storybook](/native/storybook-lit/)
+Local fixture route: `/krds/native/fixture-lit/` (build it first) · Local Storybook route: `/krds/native/storybook-lit/` (build it first)
 
 **Compiler checkpoint:** [read native source](/examples/lit-60) · [download exact source](/sources/apps/fixture-lit/src/examples/catalog.ts.txt)
 
@@ -427,7 +427,7 @@ Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-lit typecheck`.
 
 [Public package exports and scripts](/sources/packages/qwik/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-qwik/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/qwik.md.txt)
 
-Production fixture: run the native SSR/resume server and tests in its manifest; no static preview substitutes for resume. · [Open local Storybook](/native/storybook-qwik/)
+Production fixture: run the native SSR/resume server and tests in its manifest; no static preview substitutes for resume. · Local Storybook route: `/krds/native/storybook-qwik/` (build it first)
 
 **Compiler checkpoint:** [read native source](/examples/qwik-61) · [download exact source](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt)
 
@@ -442,7 +442,7 @@ Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik exec tsc -
 
 [Public package exports and scripts](/sources/packages/angular/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-angular/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/angular.md.txt)
 
-[Open local fixture](/native/fixture-angular/) · [Open local Storybook](/native/storybook-angular/)
+Local fixture route: `/krds/native/fixture-angular/` (build it first) · Local Storybook route: `/krds/native/storybook-angular/` (build it first)
 
 **Compiler checkpoint:** [read native source](/examples/angular-62) · [download exact source](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt)
 
@@ -456,7 +456,7 @@ Command: `NG_BUILD_MAX_WORKERS=1 node tools/yarn.mjs workspace @unofficial-krds/
 
 [Public package exports and scripts](/sources/packages/solid-next/package.json.txt) · [Native fixture build scripts](/sources/apps/fixture-solid-next/package.json.txt) · [Native limitations and evidence](/sources/docs/compatibility/solid-2.md.txt)
 
-[Open local fixture](/native/fixture-solid-next/) · No supported native Storybook integration declared
+Local fixture route: `/krds/native/fixture-solid-next/` (build it first) · No supported native Storybook integration declared
 
 Per-component compiler evidence is not yet registered. The following are actual source references, not a compilation or support claim.
 

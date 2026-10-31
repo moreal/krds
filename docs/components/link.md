@@ -14,14 +14,14 @@ These states are copied from `catalog/coverage.json`; they are not inferred from
 
 | Framework | Package version | Recorded state | Export declaration | Native examples and stories |
 | --- | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [exact subpath types](/sources/packages/react/dist/components/link/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | planned | [exact subpath types](/sources/packages/solid/dist/components/link/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/Link.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/link/Link.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/link/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/link/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-link.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
-| solid-next (preview) | `0.1.0-preview.0` | planned | [exact root types](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
+| react | `0.1.0` | planned | [current subpath manifest](/sources/packages/react/package.json.txt); [historical declaration checkpoint](/sources/packages/react/dist/components/link/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
+| solid | `0.1.0` | planned | [current subpath manifest](/sources/packages/solid/package.json.txt); [historical declaration checkpoint](/sources/packages/solid/dist/components/link/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
+| svelte | `0.1.0` | planned | [current subpath manifest](/sources/packages/svelte/package.json.txt); [historical declaration checkpoint](/sources/packages/svelte/dist/components/Link.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
+| vue | `0.1.0` | planned | [current subpath manifest](/sources/packages/vue/package.json.txt); [historical declaration checkpoint](/sources/packages/vue/dist/components/link/Link.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
+| lit | `0.1.0` | planned | [current subpath manifest](/sources/packages/lit/package.json.txt); [historical declaration checkpoint](/sources/packages/lit/dist/components/link/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
+| qwik | `0.1.0` | planned | [current subpath manifest](/sources/packages/qwik/package.json.txt); [historical declaration checkpoint](/sources/packages/qwik/dist/components/link/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
+| angular | `0.1.0` | planned | [current subpath manifest](/sources/packages/angular/package.json.txt); [historical declaration checkpoint](/sources/packages/angular/dist/types/unofficial-krds-angular-link.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
+| solid-next (preview) | `0.1.0-preview.0` | planned | [current root manifest](/sources/packages/solid-next/package.json.txt); [historical declaration checkpoint](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
 
 ## Props, events, content and defaults
 
@@ -99,18 +99,9 @@ Supported case axes: `standalone`, `inline`, `group`, `external`. These case nam
 
 Required full-catalog stories: `krds-link--standalone`, `krds-link--inline`, `krds-link--group`, `krds-link--external`, `krds-link--disabled`, `krds-link--mailto-tel`.
 
-### Native stories in current built outputs
+### Local native stories
 
-The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
-
-- react: [Standalone](/native/storybook-react/?path=/story/krds-link--standalone) · [Inline](/native/storybook-react/?path=/story/krds-link--inline) · [Group](/native/storybook-react/?path=/story/krds-link--group) · [External](/native/storybook-react/?path=/story/krds-link--external) · [Disabled](/native/storybook-react/?path=/story/krds-link--disabled) · [Mailto Tel](/native/storybook-react/?path=/story/krds-link--mailto-tel).
-- solid: [standalone](/native/storybook-solid/?path=/story/krds-link--standalone) · [inline](/native/storybook-solid/?path=/story/krds-link--inline) · [group](/native/storybook-solid/?path=/story/krds-link--group) · [external](/native/storybook-solid/?path=/story/krds-link--external) · [disabled](/native/storybook-solid/?path=/story/krds-link--disabled) · [mailto-tel](/native/storybook-solid/?path=/story/krds-link--mailto-tel).
-- svelte: [standalone](/native/storybook-svelte/?path=/story/krds-link--standalone) · [inline](/native/storybook-svelte/?path=/story/krds-link--inline) · [group](/native/storybook-svelte/?path=/story/krds-link--group) · [external](/native/storybook-svelte/?path=/story/krds-link--external) · [disabled](/native/storybook-svelte/?path=/story/krds-link--disabled) · [mailto-tel](/native/storybook-svelte/?path=/story/krds-link--mailto-tel).
-- vue: [standalone](/native/storybook-vue/?path=/story/krds-link--standalone) · [inline](/native/storybook-vue/?path=/story/krds-link--inline) · [group](/native/storybook-vue/?path=/story/krds-link--group) · [external](/native/storybook-vue/?path=/story/krds-link--external) · [disabled](/native/storybook-vue/?path=/story/krds-link--disabled) · [mailto-tel](/native/storybook-vue/?path=/story/krds-link--mailto-tel).
-- lit: [Standalone](/native/storybook-lit/?path=/story/krds-link--standalone) · [Inline](/native/storybook-lit/?path=/story/krds-link--inline) · [Group](/native/storybook-lit/?path=/story/krds-link--group) · [External](/native/storybook-lit/?path=/story/krds-link--external) · [Disabled](/native/storybook-lit/?path=/story/krds-link--disabled) · [Mailto Tel](/native/storybook-lit/?path=/story/krds-link--mailto-tel).
-- qwik: [standalone](/native/storybook-qwik/?path=/story/krds-link--standalone) · [inline](/native/storybook-qwik/?path=/story/krds-link--inline) · [group](/native/storybook-qwik/?path=/story/krds-link--group) · [external](/native/storybook-qwik/?path=/story/krds-link--external) · [disabled](/native/storybook-qwik/?path=/story/krds-link--disabled) · [mailto-tel](/native/storybook-qwik/?path=/story/krds-link--mailto-tel).
-- angular: [standalone](/native/storybook-angular/?path=/story/krds-link--standalone) · [inline](/native/storybook-angular/?path=/story/krds-link--inline) · [group](/native/storybook-angular/?path=/story/krds-link--group) · [external](/native/storybook-angular/?path=/story/krds-link--external) · [disabled](/native/storybook-angular/?path=/story/krds-link--disabled) · [mailto-tel](/native/storybook-angular/?path=/story/krds-link--mailto-tel).
-- solid-next: unsupported native Storybook preview integration.
+Fixture and Storybook outputs are local-only and are not hosted on this public documentation site. Build the selected native workspace, then run `node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs`. Open `/krds/native/storybook-<framework>/` on that local server. Solid 2 has no supported native Storybook integration. Qwik production SSR/resume requires its real server and cannot be replaced by a static preview. Story availability does not establish behavioral acceptance.
 
 Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
 

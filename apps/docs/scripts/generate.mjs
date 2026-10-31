@@ -37,6 +37,17 @@ const trackedRead = async path => {
   return bytes;
 };
 const trackedJson = async path => JSON.parse(await trackedRead(path));
+// Declaration snapshots are explicit historical inputs, independent of a local
+// package's optional dist. Read before recreating public/sources below.
+const declarationCheckpoint = await trackedJson('apps/docs/declaration-checkpoint.json');
+if (declarationCheckpoint.kind !== 'historical-declaration-checkpoint' || declarationCheckpoint.currentCandidate !== false) throw new Error('Invalid declaration checkpoint scope');
+const frozenDeclarations = new Map();
+for (const record of declarationCheckpoint.records) {
+  if (record.checkpointPath !== `apps/docs/public/sources/${record.sourcePath}.txt`) throw new Error('Invalid declaration snapshot destination');
+  const bytes = await trackedRead(record.checkpointPath);
+  if (Buffer.byteLength(bytes) !== record.bytes || hash(bytes) !== record.sha256) throw new Error(`Historical declaration snapshot changed: ${record.checkpointPath}`);
+  frozenDeclarations.set(record.sourcePath, bytes);
+}
 const frameworks = (await trackedJson('compatibility/frameworks.json')).frameworks;
 const catalog = await trackedJson('catalog/components.json');
 const coverage = await trackedJson('catalog/coverage.json');
@@ -92,11 +103,6 @@ const semanticProperties = name => {
 };
 const manifests = new Map();
 for (const framework of frameworks) manifests.set(framework.id, await trackedJson(`packages/${framework.id}/package.json`));
-const nativeStoryIndexes = new Map();
-for (const framework of frameworks) {
-  const path = `apps/storybook-${framework.id}/dist/index.json`;
-  if (framework.id !== 'solid-next' && existsSync(resolve(root, path))) nativeStoryIndexes.set(framework.id, await trackedJson(path));
-}
 const prettyPeers = manifest => Object.entries(manifest.peerDependencies ?? {}).map(([name, version]) => `\`${name}@${version}\``).join('<br>') || 'No runtime peer declared';
 const countStates = id => {
   const rows = coverage.coverage.filter(row => row.framework === id);
@@ -105,7 +111,7 @@ const countStates = id => {
 const docPages = [];
 for (const group of ['getting-started', 'legal']) {
   const directory = resolve(root, 'docs', group);
-  for (const name of await readdir(directory)) if (name.endsWith('.md')) {
+  for (const name of (await readdir(directory)).sort()) if (name.endsWith('.md')) {
     const path = `docs/${group}/${name}`;
     const content = (await trackedRead(path)).replaceAll(/\[([^\]]+)\]\(https:\/\/github\.com\/moreal\/krds\/blob\/main\/([^)]+)\)/g, (all, label, sourcePath) => link(sourcePath, label));
     await write(resolve(site, group, name), content);
@@ -170,7 +176,7 @@ for (const component of web) {
     const publicEntry = manifest.exports?.[`./${component.id}`] ?? manifest.exports?.['.'];
     const typesEntry = typeof publicEntry === 'object' ? publicEntry.types : undefined;
     const typePath = typesEntry ? `packages/${framework.id}/${typesEntry.replace(/^\.\//, '')}` : undefined;
-    const declarationLink = typePath && existsSync(resolve(root, typePath)) ? link(typePath, exported ? 'exact subpath types' : 'exact root types') : link(`packages/${framework.id}/package.json`, 'manifest; built types pending');
+    const declarationLink = link(`packages/${framework.id}/package.json`, exported ? 'current subpath manifest' : 'current root manifest') + (typePath && frozenDeclarations.has(typePath) ? `; ${link(typePath, 'historical declaration checkpoint')}` : '');
     page += `| ${framework.id}${framework.supportChannel.includes('preview') ? ' (preview)' : ''} | \`${manifest.version}\` | ${record?.status ?? 'unrecorded'} | ${declarationLink} | [${framework.id} sources and preview policy](../compatibility/examples#${framework.id}) |\n`;
   }
   page += '\n## Props, events, content and defaults\n\nThe semantic contract below is shared data only. Native content, refs and event transport belong to each adapter. Callback names and detail types in the contract are exact; do not pass machine objects. Optional properties are not automatically defaulted: use the explicit defaults in the guidance below.\n';
@@ -183,11 +189,7 @@ for (const component of web) {
   const cases = stories.cases.filter(item => (item.componentId ?? item.id?.split('--')[0]) === component.id);
   page += `\n## State examples and native checks\n\nSupported case axes: ${component.variants.map(value => `\`${value}\``).join(', ')}. These case names are independent project axes; they do not imply official KRDS type names or completed coverage.\n\n${link('catalog/full-catalog-stories.json', 'Required native story manifest')} · ${link('catalog/story-cases.json', 'Pilot story manifest')} · ${link('catalog/coverage.json', 'Coverage evidence and native review links')}\n`;
   if (cases.length) page += `\nRequired full-catalog stories: ${cases.map(item => `\`${item.storyId ?? item.id}\``).join(', ')}.\n`;
-  page += '\n### Native stories in current built outputs\n\nThe links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.\n\n';
-  for (const framework of frameworks) {
-    const entries = Object.values(nativeStoryIndexes.get(framework.id)?.entries ?? {}).filter(entry => entry.type === 'story' && entry.id.startsWith(`krds-${component.id}--`));
-    page += entries.length ? `- ${framework.id}: ${entries.map(entry => `[${entry.name}](/native/storybook-${framework.id}/?path=/story/${entry.id})`).join(' · ')}.\n` : `- ${framework.id}: ${framework.id === 'solid-next' ? 'unsupported native Storybook preview integration' : 'no matching built native story index entries yet'}.\n`;
-  }
+  page += '\n### Local native stories\n\nFixture and Storybook outputs are local-only and are not hosted on this public documentation site. Build the selected native workspace, then run `node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs`. Open `/krds/native/storybook-<framework>/` on that local server. Solid 2 has no supported native Storybook integration. Qwik production SSR/resume requires its real server and cannot be replaced by a static preview. Story availability does not establish behavioral acceptance.\n';
   const examples = exampleEvidence.filter(example => example.componentIds.includes(component.id));
   page += examples.length ? '\nNative compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.\n\n' + examples.map(example => `- ${example.framework}: [read the checked consumer](/examples/${example.framework}-${exampleEvidence.indexOf(example) + 1}); ${link(example.sourcePath, 'download exact source')}; ${example.evidencePaths.map(path => link(path, 'compiler evidence')).join(', ')}.\n`).join('') : '\nNo per-component compiler evidence has been registered in the docs index yet. Native fixture sources are linked in the [examples directory](../compatibility/examples); source existence alone is not a compilation result.\n';
   page += `\n## Source identity and rights\n\nBaseline: \`${catalog.krdsBaselineId}\`. Official detail snapshot retrieved \`${component.source.retrievedAt}\`. SHA-256: \`${component.source.sha256}\`. ${link('catalog/components.json', 'Frozen component source records')} · [Official source](${component.canonicalUrl}). Raw original HTML remains reference evidence in the checkout and is not copied into this site.\n\nKRDS quoted or derived guidance retains its original terms. The independent code MIT grant does not relicense it, official assets, fonts, or third-party materials. Read [sources and rights](../legal/) before redistributing.\n`;
@@ -204,10 +206,10 @@ for (const framework of frameworks) {
 matrix += '\n## What the evidence means\n\n`planned` reserves work. `in-progress` records active work. `implemented` records implementation without full acceptance. `blocked` records an unresolved gate. `verified` requires the controller-owned native evidence and independent review defined by the coverage schema. Preview is isolated from stable totals. See each component for its recorded state.\n\n## Package and browser boundaries\n\nQwik uses Vite 7; the other selected native Vite workspaces use Vite 8. Angular owns its CLI/ng-packagr partial APF output and CVA forms. Solid 1 and Solid 2 have isolated runtime, compiler and renderer graphs. Svelte 2/3 are not current stable targets. The declared peer range is not evidence that every version within it has been tested.\n\n[Native examples and compiler evidence](./examples) · [Solid 1 → 2](./solid-migration) · [Testing roles](../getting-started/testing)\n';
 await write(resolve(site, 'compatibility/index.md'), matrix);
 await write(resolve(root, 'docs/compatibility/README.md'), matrix);
-let examplesPage = '# Native examples\n\nEach implementation owns its fixture and Storybook. All seven stable native targets have compiler checkpoints mapping the 54 web entries. The exact source hashes and original compiler evidence are verified; a changed source invalidates the checkpoint during the docs build. Checkpoint scope is separate from the latest native candidate, behavioral acceptance and release readiness.\n\n## Checkpoint coverage\n\n| Framework | Exact component mappings | Scope |\n| --- | --- | --- |\n' + coverage.stableFrameworks.map(framework => `| [${framework}](#${framework}) | ${new Set(exampleEvidence.filter(example => example.framework === framework).flatMap(example => example.componentIds)).size} | producer compiler checkpoint; no native acceptance |\n`).join('') + '\n## Local native previews\n\nRun `node apps/docs/scripts/serve.mjs` after the docs build. This local server serves the docs and maps the following native output paths when those outputs exist. It does not rebuild native apps or manufacture missing outputs. Build each native workspace separately using its own manifest command. Missing outputs return an explicit 404. These preview links depend on that local server, not a remote host.\n\n';
+let examplesPage = '# Native examples\n\nEach implementation owns its fixture and Storybook. All seven stable native targets have compiler checkpoints mapping the 54 web entries. The exact source hashes and original compiler evidence are verified; a changed source invalidates the checkpoint during the docs build. Checkpoint scope is separate from the latest native candidate, behavioral acceptance and release readiness.\n\n## Checkpoint coverage\n\n| Framework | Exact component mappings | Scope |\n| --- | --- | --- |\n' + coverage.stableFrameworks.map(framework => `| [${framework}](#${framework}) | ${new Set(exampleEvidence.filter(example => example.framework === framework).flatMap(example => example.componentIds)).size} | producer compiler checkpoint; no native acceptance |\n`).join('') + '\n## Local native previews\n\nRun `node apps/docs/scripts/serve.mjs` after the docs build. This local server serves the docs and maps the following native output paths when those outputs exist. It does not rebuild native apps or manufacture missing outputs. Build each native workspace separately using its own manifest command. Missing outputs return an explicit 404. Preview routes are local instructions, not public links.\n\n';
 for (const framework of frameworks) {
   const compatibilityPath = `docs/compatibility/${framework.id === 'solid-next' ? 'solid-2' : framework.id}.md`;
-  examplesPage += `\n## ${framework.id}\n\n${link(`packages/${framework.id}/package.json`, 'Public package exports and scripts')} · ${link(`apps/fixture-${framework.id}/package.json`, 'Native fixture build scripts')} · ${existsSync(resolve(root, compatibilityPath)) ? link(compatibilityPath, 'Native limitations and evidence') : 'Native compatibility report not yet present'}\n\n${framework.id === 'qwik' ? 'Production fixture: run the native SSR/resume server and tests in its manifest; no static preview substitutes for resume.' : `[Open local fixture](/native/fixture-${framework.id}/)`} · ${framework.id !== 'solid-next' && existsSync(resolve(root, `apps/storybook-${framework.id}/package.json`)) ? `[Open local Storybook](/native/storybook-${framework.id}/)` : 'No supported native Storybook integration declared'}\n\n`;
+  examplesPage += `\n## ${framework.id}\n\n${link(`packages/${framework.id}/package.json`, 'Public package exports and scripts')} · ${link(`apps/fixture-${framework.id}/package.json`, 'Native fixture build scripts')} · ${existsSync(resolve(root, compatibilityPath)) ? link(compatibilityPath, 'Native limitations and evidence') : 'Native compatibility report not yet present'}\n\n${framework.id === 'qwik' ? 'Production fixture: run the native SSR/resume server and tests in its manifest; no static preview substitutes for resume.' : `Local fixture route: \`/krds/native/fixture-${framework.id}/\` (build it first)`} · ${framework.id !== 'solid-next' && existsSync(resolve(root, `apps/storybook-${framework.id}/package.json`)) ? `Local Storybook route: \`/krds/native/storybook-${framework.id}/\` (build it first)` : 'No supported native Storybook integration declared'}\n\n`;
   const registered = exampleEvidence.filter(example => example.framework === framework.id);
   for (const example of registered) examplesPage += `**Compiler checkpoint:** [read native source](/examples/${example.framework}-${exampleEvidence.indexOf(example) + 1}) · ${link(example.sourcePath, 'download exact source')}\n\n${(example.notes ?? []).map(note => `${safeProse(note)}\n\n`).join('')}Command: \`${example.command}\`. Component IDs: ${example.componentIds.map(id => `\`${id}\``).join(', ')}. Source SHA-256 \`${example.sourceSha256}\`. Evidence: ${example.evidencePaths.map(path => link(path)).join(', ')}.\n\n`;
   if (!registered.length) examplesPage += 'Per-component compiler evidence is not yet registered. The following are actual source references, not a compilation or support claim.\n\n';
@@ -231,9 +233,11 @@ for (const inventory of artifactEvidence) {
 }
 artifactsPage += `\n${link('docs/execution/evidence/T14/reports/task-T14-report.md', 'Original T14 producer report')} · [Sources and rights](../legal/). The separate original and repaired-Solid debug inventories must not be combined into a final acceptance claim.\n`;
 await write(resolve(site, 'getting-started/artifacts.md'), artifactsPage);
+// Keep every reviewed historical declaration download, even if current exports change.
+for (const path of frozenDeclarations.keys()) sourceLinks.add(path);
 const distributedSources = [];
 for (const path of sourceLinks) {
-  const source = await trackedRead(path);
+  const source = frozenDeclarations.get(path) ?? await trackedRead(path);
   await write(resolve(site, 'public/sources', `${path}.txt`), source);
   distributedSources.push({ sourcePath: path, outputPath: `sources/${path}.txt`, bytes: Buffer.byteLength(source), sha256: hash(source) });
 }

@@ -7,9 +7,11 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
-const evidence = resolve(root, '.superpowers/sdd/PLAN/t12-docs-logs/browser');
+const evidence = resolve(root, process.env.KRDS_DOCS_EVIDENCE ?? 'test-results/docs-pages/browser');
 await mkdir(evidence, { recursive: true });
 const origin = process.env.KRDS_DOCS_ORIGIN ?? 'http://127.0.0.1:49100';
+const base = '/krds';
+const site = `${origin}${base}`;
 const results = [];
 const metadata = JSON.parse(await readFile(resolve(root, 'apps/docs/dist/docs-metadata.json'), 'utf8'));
 for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
@@ -19,14 +21,15 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
   const externalRequests = [];
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => { if (message.type() === 'error' || /hydration/i.test(message.text())) errors.push(message.text()); });
   await context.route('**/*', route => {
     const url = new URL(route.request().url());
     if (!['127.0.0.1', 'localhost'].includes(url.hostname)) { externalRequests.push(url.href); return route.abort(); }
     return route.continue();
   });
-  await page.goto(origin, { waitUntil: 'networkidle' });
+  await page.goto(`${site}/`, { waitUntil: 'networkidle' });
   await page.keyboard.press('Tab');
-  assert.match(await page.locator(':focus').innerText(), /skip to content/i);
+  assert.match(await page.locator(':focus').innerText(), /본문 바로가기/);
   await page.keyboard.press('Enter');
   assert.equal(await page.locator(':focus').evaluate(element => element.tagName), 'MAIN');
   const focusOutline = await page.locator(':focus').evaluate(element => getComputedStyle(element).outlineStyle);
@@ -34,13 +37,50 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
   const homeAxe = await new AxeBuilder({ page }).analyze();
   await writeFile(resolve(evidence, `${name}-home-axe.json`), JSON.stringify(homeAxe, null, 2));
   assert.deepEqual(homeAxe.violations.map(item => ({ id: item.id, impact: item.impact })), [], `${name} home accessibility`);
-  await page.getByRole('button', { name: /search/i }).first().click();
+  assert.equal(await page.locator('[data-krds-component="badge"][data-krds-part="root"]').innerText(), 'Vue 예시');
+  const toggle = page.getByRole('switch', { name: '알림 예시 켜기' });
+  assert.equal(await toggle.isChecked(), false);
+  await toggle.focus();
+  await page.keyboard.press('Space');
+  assert.equal(await toggle.isChecked(), true);
+  const demoButton = page.getByRole('button', { name: '버튼 눌러보기', exact: true });
+  await demoButton.focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('.krds-demo-status').innerText(), '알림 켜짐 · 버튼 1회 누름');
+  await page.reload({ waitUntil: 'networkidle' });
+  assert.equal(await toggle.isChecked(), false, 'reload resets deterministic local state');
+  assert.equal(await page.locator('.krds-demo-status').innerText(), '알림 꺼짐 · 버튼 0회 누름');
+  await page.getByRole('link', { name: 'Button API와 기록 보기', exact: true }).click();
+  await page.waitForURL(`${site}/components/button.html`);
+  await page.getByRole('heading', { name: /^Button\b/, level: 1 }).waitFor();
+  await page.waitForLoadState('networkidle');
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.getByRole('heading', { name: /^Button\b/, level: 1 }).waitFor();
+  await page.goto(`${site}/`, { waitUntil: 'networkidle' });
+  await page.setViewportSize({ width: 320, height: 740 });
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${name}: narrow home overflow`);
+  await toggle.click();
+  assert.equal(await toggle.isChecked(), true);
+  const buttonBounds = await demoButton.boundingBox();
+  const switchBounds = await toggle.boundingBox();
+  assert.ok(buttonBounds.height >= 44 && switchBounds.height >= 44, 'example controls have touch-sized targets');
+  await page.screenshot({ path: resolve(evidence, `${name}-home-narrow.png`), fullPage: true });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await page.reload({ waitUntil: 'networkidle' });
+  assert.ok(await page.locator('html').evaluate(element => element.classList.contains('dark')));
+  const darkAxe = await new AxeBuilder({ page }).analyze();
+  assert.deepEqual(darkAxe.violations.map(item => ({ id: item.id, impact: item.impact })), [], `${name}: dark home accessibility`);
+  await page.screenshot({ path: resolve(evidence, `${name}-home-dark.png`), fullPage: true });
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.locator('.VPNavBarSearch button').first().click();
   const search = page.locator('.VPLocalSearchBox input');
   await search.fill('배지');
   await page.locator('.VPLocalSearchBox a.result[href*="/components/badge"]').first().waitFor();
   await page.screenshot({ path: resolve(evidence, `${name}-search.png`), fullPage: true });
   await page.keyboard.press('Escape');
-  await page.goto(`${origin}/components/`, { waitUntil: 'networkidle' });
+  await page.goto(`${site}/components/`, { waitUntil: 'networkidle' });
   assert.equal(await page.locator('.vp-doc table tbody tr').count(), 54);
   await page.locator('.vp-doc').getByRole('link', { name: 'Badge', exact: true }).click();
   await page.getByRole('heading', { name: /^Badge\b/, level: 1 }).waitFor();
@@ -73,7 +113,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
   const navigationBounds = await navigation.boundingBox();
   assert.ok(navigationBounds && navigationBounds.x >= 0 && navigationBounds.x + navigationBounds.width <= 320, `${name}: doubled-text navigation stays inside viewport`);
   await navigation.click();
-  await page.locator('.VPNavScreen').getByRole('link', { name: 'Get started', exact: true }).waitFor();
+  await page.locator('.VPNavScreen').getByRole('link', { name: '빠른 시작', exact: true }).waitFor();
   await navigation.click();
   await page.screenshot({ path: resolve(evidence, `${name}-text-200.png`), fullPage: true });
   await page.screenshot({ path: resolve(evidence, `${name}-text-200-viewport.png`) });
@@ -89,15 +129,15 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
     await page.screenshot({ path: resolve(evidence, `${name}-forced-colors.png`), fullPage: true });
     await page.screenshot({ path: resolve(evidence, `${name}-forced-colors-viewport.png`) });
   }
-  await page.goto(`${origin}/sources/catalog/coverage.json.txt`);
+  await page.goto(`${site}/sources/catalog/coverage.json.txt`);
   assert.equal((await page.locator('body').innerText()).includes('"stableFrameworks"'), true);
   await page.emulateMedia({ forcedColors: 'none', colorScheme: 'light' });
   const compilerDownloads = [];
   for (const framework of metadata.stableFrameworks) {
     const example = metadata.examples.find(entry => entry.framework === framework && entry.componentIds.includes('badge'));
     assert.ok(example, `${framework}: Badge compiler checkpoint`);
-    await page.goto(`${origin}/components/badge`, { waitUntil: 'networkidle' });
-    const sourceLink = page.locator(`.vp-doc a[href^="/examples/${framework}-"]`).first();
+    await page.goto(`${site}/components/badge.html`, { waitUntil: 'networkidle' });
+    const sourceLink = page.locator(`.vp-doc a[href^="${base}/examples/${framework}-"]`).first();
     const sourceRoute = await sourceLink.getAttribute('href');
     await sourceLink.click();
     await page.waitForURL(url => url.pathname === sourceRoute);
@@ -108,7 +148,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
     const sourceAxe = await new AxeBuilder({ page }).analyze();
     await writeFile(resolve(evidence, `${name}-${framework}-checkpoint-axe.json`), JSON.stringify({ testEngine: sourceAxe.testEngine, url: sourceAxe.url, violations: sourceAxe.violations, incomplete: sourceAxe.incomplete }, null, 2));
     assert.deepEqual(sourceAxe.violations, [], `${framework}: compiler source page accessibility`);
-    const href = `/sources/${example.sourcePath}.txt`;
+    const href = `${base}/sources/${example.sourcePath}.txt`;
     const responsePromise = page.waitForResponse(response => new URL(response.url()).pathname === href);
     await page.locator(`.vp-doc a[href="${href}"]`).first().click();
     const response = await responsePromise;
@@ -119,7 +159,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
     assert.equal(sha256, example.sourceSha256, `${framework}: actual HTTP source bytes match compiler checkpoint`);
     compilerDownloads.push({ framework, sourcePath: example.sourcePath, bytes: bytes.length, sha256, checkpointOnly: true });
   }
-  await page.goto(`${origin}/legal/`, { waitUntil: 'networkidle' });
+  await page.goto(`${site}/legal/`, { waitUntil: 'networkidle' });
   await page.getByRole('link', { name: 'local distribution inventory', exact: true }).click();
   await page.getByRole('heading', { name: 'Source and license notices', level: 1 }).waitFor();
   assert.ok((await page.locator('main').innerText()).includes('KRDS/KOGL'));
@@ -128,7 +168,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
   assert.match(policyResponse.headers()['content-type'], /^text\/plain/);
   assert.deepEqual(externalRequests, [], `${name}: external runtime requests`);
   assert.deepEqual(errors, [], `${name}: browser runtime errors`);
-  results.push({ browser: name, status: 'passed', assertions: ['keyboard skip link reaches main', 'Korean local search returns Badge', '54 catalog navigation rows', 'native semantic contract visible', 'local source download reachable', 'narrow document has no horizontal overflow', 'actual doubled computed text size', 'doubled-text navigation stays visible and opens', 'home and component axe violations zero', 'external runtime requests zero', 'browser errors zero', 'seven native compiler checkpoint links and exact HTTP downloads', 'original policy is served as text/plain'], compilerDownloads, textScaling: { factor: 2, method: 'computed font-size and line-height doubling', normalFont, scaledFont, navigationBounds }, focusOutline, overflow, axe: { home: homeAxe.violations, badge: badgeAxe.violations }, externalRequests, errors });
+  results.push({ browser: name, status: 'passed', assertions: ['keyboard skip link reaches main', 'public Vue Link Badge Button Switch render and keyboard state works', 'deterministic state after reload', 'direct html entry and reload', 'narrow home with 44px targets', 'dark home axe violations zero', 'Korean local search returns Badge', '54 catalog navigation rows', 'native semantic contract visible', 'local source download reachable', 'narrow document has no horizontal overflow', 'actual doubled computed text size', 'doubled-text navigation stays visible and opens', 'home and component axe violations zero', 'external runtime requests zero', 'browser errors zero', 'seven native compiler checkpoint links and exact HTTP downloads', 'original policy is served as text/plain'], compilerDownloads, textScaling: { factor: 2, method: 'computed font-size and line-height doubling', normalFont, scaledFont, navigationBounds }, focusOutline, overflow, axe: { home: homeAxe.violations, badge: badgeAxe.violations }, externalRequests, errors });
   await writeFile(resolve(evidence, `${name}-report.json`), JSON.stringify(results.at(-1), null, 2) + '\n');
   await browser.close();
 }

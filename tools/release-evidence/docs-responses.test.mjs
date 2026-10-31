@@ -14,24 +14,25 @@ const sha256=body=>createHash('sha256').update(body).digest('hex');
 test('R4 records exact bytes delivered for Chromium prefetch and drains a delayed response before browser close',async()=>{
  assert.equal(typeof api.monitorDocsBrowser,'function','actual browser response monitor must be available');
  const root=await mkdtemp('/private/tmp/krds-docs-monitor-');const dist=join(root,'apps/docs/dist');await mkdir(dist,{recursive:true});
- const home=Buffer.from('<!doctype html><title>Local docs</title><link rel="prefetch" href="/prefetched.js"><main>Docs</main>');
+ const home=Buffer.from('<!doctype html><title>Local docs</title><link rel="prefetch" href="/krds/prefetched.js"><main>Docs</main>');
  const script=Buffer.from('/* Full prefetched JavaScript bytes must reach the browser unchanged. */\n'.repeat(500));
  await writeFile(join(dist,'index.html'),home);await writeFile(join(dist,'prefetched.js'),script);await writeFile(join(dist,'delayed.txt'),'actual delayed bytes');
  let delayedStarted,releaseDelayed;const requested=new Promise(resolve=>{delayedStarted=resolve;}),delayed=new Promise(resolve=>{releaseDelayed=resolve;});
  const server=createServer((request,response)=>{
+  request.url=request.url.replace(/^\/krds/, '');
   response.setHeader('Content-Type',request.url.endsWith('.js')?'text/javascript':'text/html');
   if(request.url==='/delayed.txt'){delayedStarted();void delayed.then(()=>response.end('actual delayed bytes'));return;}
   if(request.url==='/'){response.end(home);return;}if(request.url==='/prefetched.js'){response.end(script);return;}
   response.statusCode=404;response.end('missing');
  });await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin=`http://127.0.0.1:${server.address().port}`;
  let browser;try{
-  browser=await chromium.launch({headless:true});const monitor=api.monitorDocsBrowser(browser,{root,dist,name:'chromium'});const context=await browser.newContext();
+  browser=await chromium.launch({headless:true});const monitor=api.monitorDocsBrowser(browser,{root,dist,name:'chromium',base:'/krds/'});const context=await browser.newContext();
   const blocked=[];await context.route('**/*',route=>{if(new URL(route.request().url()).hostname!=='127.0.0.1'){blocked.push(route.request().url());return route.abort();}return route.continue();});
-  const page=await context.newPage();await page.goto(origin,{waitUntil:'networkidle'});await monitor.drain();
-  const prefetched=monitor.responses.find(row=>row.url===`${origin}/prefetched.js`);assert.ok(prefetched,'real Chromium prefetch must be captured');assert.equal(prefetched.bytes,script.length);assert.equal(prefetched.sha256,sha256(script));assert.equal(prefetched.status,200);assert.equal(prefetched.responseUrl,`${origin}/prefetched.js`);assert.equal(prefetched.headers['content-type'],'text/javascript');assert.equal(prefetched.delivery,'route.fulfill');
+  const page=await context.newPage();await page.goto(`${origin}/krds/`,{waitUntil:'networkidle'});await monitor.drain();
+  const prefetched=monitor.responses.find(row=>row.url===`${origin}/krds/prefetched.js`);assert.ok(prefetched,'real Chromium prefetch must be captured');assert.equal(prefetched.bytes,script.length);assert.equal(prefetched.sha256,sha256(script));assert.equal(prefetched.status,200);assert.equal(prefetched.responseUrl,`${origin}/krds/prefetched.js`);assert.equal(prefetched.headers['content-type'],'text/javascript');assert.equal(prefetched.delivery,'route.fulfill');
   await page.evaluate(()=>fetch('https://example.invalid/blocked').catch(()=>{}));
-  await page.evaluate(()=>{void fetch('/delayed.txt');});await requested;const closing=browser.close();await new Promise(resolve=>setImmediate(resolve));releaseDelayed();await closing;browser=null;
-  assert.deepEqual(monitor.failures,[]);assert.ok(monitor.responses.some(row=>row.url===`${origin}/delayed.txt`&&row.bytes===20));assert.deepEqual(blocked,['https://example.invalid/blocked']);
+  await page.evaluate(()=>{void fetch('/krds/delayed.txt');});await requested;const closing=browser.close();await new Promise(resolve=>setImmediate(resolve));releaseDelayed();await closing;browser=null;
+  assert.deepEqual(monitor.failures,[]);assert.ok(monitor.responses.some(row=>row.url===`${origin}/krds/delayed.txt`&&row.bytes===20));assert.deepEqual(blocked,['https://example.invalid/blocked']);
  }finally{releaseDelayed();await browser?.close();await new Promise(resolve=>server.close(resolve));await rm(root,{recursive:true,force:true});}
 });
 

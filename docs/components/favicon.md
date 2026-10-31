@@ -14,14 +14,14 @@ These states are copied from `catalog/coverage.json`; they are not inferred from
 
 | Framework | Package version | Recorded state | Export declaration | Native examples and stories |
 | --- | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [exact subpath types](/sources/packages/react/dist/components/favicon/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | planned | [exact subpath types](/sources/packages/solid/dist/components/favicon/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/Favicon.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/favicon/Favicon.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/favicon/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/favicon/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-favicon.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
-| solid-next (preview) | `0.1.0-preview.0` | planned | [exact root types](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
+| react | `0.1.0` | planned | [current subpath manifest](/sources/packages/react/package.json.txt); [historical declaration checkpoint](/sources/packages/react/dist/components/favicon/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
+| solid | `0.1.0` | planned | [current subpath manifest](/sources/packages/solid/package.json.txt); [historical declaration checkpoint](/sources/packages/solid/dist/components/favicon/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
+| svelte | `0.1.0` | planned | [current subpath manifest](/sources/packages/svelte/package.json.txt); [historical declaration checkpoint](/sources/packages/svelte/dist/components/Favicon.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
+| vue | `0.1.0` | planned | [current subpath manifest](/sources/packages/vue/package.json.txt); [historical declaration checkpoint](/sources/packages/vue/dist/components/favicon/Favicon.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
+| lit | `0.1.0` | planned | [current subpath manifest](/sources/packages/lit/package.json.txt); [historical declaration checkpoint](/sources/packages/lit/dist/components/favicon/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
+| qwik | `0.1.0` | planned | [current subpath manifest](/sources/packages/qwik/package.json.txt); [historical declaration checkpoint](/sources/packages/qwik/dist/components/favicon/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
+| angular | `0.1.0` | planned | [current subpath manifest](/sources/packages/angular/package.json.txt); [historical declaration checkpoint](/sources/packages/angular/dist/types/unofficial-krds-angular-favicon.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
+| solid-next (preview) | `0.1.0-preview.0` | planned | [current root manifest](/sources/packages/solid-next/package.json.txt); [historical declaration checkpoint](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
 
 ## Props, events, content and defaults
 
@@ -93,18 +93,9 @@ Supported case axes: `standard`, `extended`, `light`, `dark`. These case names a
 
 Required full-catalog stories: `krds-favicon--standard-local-head`, `krds-favicon--extended-local-head`, `krds-favicon--light-dark-preview`.
 
-### Native stories in current built outputs
+### Local native stories
 
-The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
-
-- react: [Standard Local Head](/native/storybook-react/?path=/story/krds-favicon--standard-local-head) · [Extended Local Head](/native/storybook-react/?path=/story/krds-favicon--extended-local-head) · [Light Dark Preview](/native/storybook-react/?path=/story/krds-favicon--light-dark-preview).
-- solid: [standard-local-head](/native/storybook-solid/?path=/story/krds-favicon--standard-local-head) · [extended-local-head](/native/storybook-solid/?path=/story/krds-favicon--extended-local-head) · [light-dark-preview](/native/storybook-solid/?path=/story/krds-favicon--light-dark-preview).
-- svelte: [standard-local-head](/native/storybook-svelte/?path=/story/krds-favicon--standard-local-head) · [extended-local-head](/native/storybook-svelte/?path=/story/krds-favicon--extended-local-head) · [light-dark-preview](/native/storybook-svelte/?path=/story/krds-favicon--light-dark-preview).
-- vue: [standard-local-head](/native/storybook-vue/?path=/story/krds-favicon--standard-local-head) · [extended-local-head](/native/storybook-vue/?path=/story/krds-favicon--extended-local-head) · [light-dark-preview](/native/storybook-vue/?path=/story/krds-favicon--light-dark-preview).
-- lit: [Standard Local Head](/native/storybook-lit/?path=/story/krds-favicon--standard-local-head) · [Extended Local Head](/native/storybook-lit/?path=/story/krds-favicon--extended-local-head) · [Light Dark Preview](/native/storybook-lit/?path=/story/krds-favicon--light-dark-preview).
-- qwik: [standard-local-head](/native/storybook-qwik/?path=/story/krds-favicon--standard-local-head) · [extended-local-head](/native/storybook-qwik/?path=/story/krds-favicon--extended-local-head) · [light-dark-preview](/native/storybook-qwik/?path=/story/krds-favicon--light-dark-preview).
-- angular: [standard-local-head](/native/storybook-angular/?path=/story/krds-favicon--standard-local-head) · [extended-local-head](/native/storybook-angular/?path=/story/krds-favicon--extended-local-head) · [light-dark-preview](/native/storybook-angular/?path=/story/krds-favicon--light-dark-preview).
-- solid-next: unsupported native Storybook preview integration.
+Fixture and Storybook outputs are local-only and are not hosted on this public documentation site. Build the selected native workspace, then run `node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs`. Open `/krds/native/storybook-<framework>/` on that local server. Solid 2 has no supported native Storybook integration. Qwik production SSR/resume requires its real server and cannot be replaced by a static preview. Story availability does not establish behavioral acceptance.
 
 Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
 

@@ -62,3 +62,19 @@
   .VPNavBarTitle .title { white-space: nowrap; overflow: hidden; }
 }
 @media (forced-colors: active) { :focus-visible { outline-color: Highlight; } .catalog-note { border: 2px solid CanvasText; } }
+.krds-hero h1 { line-height: 1.24; letter-spacing: -.045em; word-break: keep-all; overflow-wrap: anywhere; }
+.krds-example { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.krds-example h2 { font-size: 24px; font-weight: 650; line-height: 1.5; letter-spacing: -.025em; }
+.krds-example-intro > p:last-child { margin-top: 16px; color: var(--vp-c-text-2); line-height: 1.8; }
+.krds-example .krds-kicker { margin-bottom: 12px; }
+.krds-demo { border: 1px solid #cdd1d5; border-radius: 12px; padding: 28px; background: #fff; color: #1e2124; color-scheme: light; font-size: 16px; }
+.krds-demo-controls { display: flex; align-items: flex-start; flex-direction: column; gap: 24px; margin: 24px 0; }
+.krds-demo-status { min-height: 28px; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+.krds-demo-caption { font-size: 13px; line-height: 1.7; margin-top: 20px; color: #464c53; }
+.krds-demo [data-krds-component="link"][data-krds-part="root"] { min-height: 44px; padding-block: 8px; }
+.krds-demo [data-krds-component="switch"][data-krds-part="label"] { min-height: 44px; display: inline-flex; align-items: center; }
+/* The public Switch renders its native control directly; its optional decorative
+   parts are redundant in this compact example and must not occupy grid cells. */
+.krds-demo [data-krds-component="switch"][data-krds-part="track"] { display: none; }
+@media (max-width: 760px) { .krds-example { grid-template-columns: 1fr; gap: 24px; margin-top: 40px; } .krds-demo { padding: 24px; } .krds-hero h1 { font-size: clamp(32px, 8vw, 42px); } }
+.krds-demo [data-krds-component="switch"][data-krds-part="control"] { min-block-size: 44px; }

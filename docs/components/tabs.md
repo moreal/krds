@@ -14,14 +14,14 @@ These states are copied from `catalog/coverage.json`; they are not inferred from
 
 | Framework | Package version | Recorded state | Export declaration | Native examples and stories |
 | --- | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [exact subpath types](/sources/packages/react/dist/components/tabs/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | implemented | [exact subpath types](/sources/packages/solid/dist/components/tabs/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [exact subpath types](/sources/packages/svelte/dist/components/Tabs.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [exact subpath types](/sources/packages/vue/dist/components/tabs/Tabs.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [exact subpath types](/sources/packages/lit/dist/components/tabs/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [exact subpath types](/sources/packages/qwik/dist/components/tabs/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [exact subpath types](/sources/packages/angular/dist/types/unofficial-krds-angular-tabs.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
-| solid-next (preview) | `0.1.0-preview.0` | planned | [exact subpath types](/sources/packages/solid-next/dist/components/tabs/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
+| react | `0.1.0` | planned | [current subpath manifest](/sources/packages/react/package.json.txt); [historical declaration checkpoint](/sources/packages/react/dist/components/tabs/index.d.ts.txt) | [react sources and preview policy](../compatibility/README.mdexamples#react) |
+| solid | `0.1.0` | implemented | [current subpath manifest](/sources/packages/solid/package.json.txt); [historical declaration checkpoint](/sources/packages/solid/dist/components/tabs/index.d.ts.txt) | [solid sources and preview policy](../compatibility/README.mdexamples#solid) |
+| svelte | `0.1.0` | planned | [current subpath manifest](/sources/packages/svelte/package.json.txt); [historical declaration checkpoint](/sources/packages/svelte/dist/components/Tabs.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/README.mdexamples#svelte) |
+| vue | `0.1.0` | planned | [current subpath manifest](/sources/packages/vue/package.json.txt); [historical declaration checkpoint](/sources/packages/vue/dist/components/tabs/Tabs.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/README.mdexamples#vue) |
+| lit | `0.1.0` | planned | [current subpath manifest](/sources/packages/lit/package.json.txt); [historical declaration checkpoint](/sources/packages/lit/dist/components/tabs/index.d.ts.txt) | [lit sources and preview policy](../compatibility/README.mdexamples#lit) |
+| qwik | `0.1.0` | planned | [current subpath manifest](/sources/packages/qwik/package.json.txt); [historical declaration checkpoint](/sources/packages/qwik/dist/components/tabs/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/README.mdexamples#qwik) |
+| angular | `0.1.0` | planned | [current subpath manifest](/sources/packages/angular/package.json.txt); [historical declaration checkpoint](/sources/packages/angular/dist/types/unofficial-krds-angular-tabs.d.ts.txt) | [angular sources and preview policy](../compatibility/README.mdexamples#angular) |
+| solid-next (preview) | `0.1.0-preview.0` | planned | [current subpath manifest](/sources/packages/solid-next/package.json.txt); [historical declaration checkpoint](/sources/packages/solid-next/dist/components/tabs/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/README.mdexamples#solid-next) |
 
 ## Props, events, content and defaults
 
@@ -57,18 +57,9 @@ Supported case axes: `manual`, `automatic`, `horizontal`, `vertical`. These case
 
 [Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
 
-### Native stories in current built outputs
+### Local native stories
 
-The links below come from each actual built Storybook index. A built story is availability evidence, not behavioral or accessibility acceptance. Use the local docs preview server for these links; a stale or missing native output must be rebuilt by its owner.
-
-- react: [Manual](/native/storybook-react/?path=/story/krds-tabs--manual) · [Automatic](/native/storybook-react/?path=/story/krds-tabs--automatic).
-- solid: [Default](/native/storybook-solid/?path=/story/krds-tabs--default) · [Manual](/native/storybook-solid/?path=/story/krds-tabs--manual) · [Selected](/native/storybook-solid/?path=/story/krds-tabs--selected) · [Disabled](/native/storybook-solid/?path=/story/krds-tabs--disabled) · [Automatic](/native/storybook-solid/?path=/story/krds-tabs--automatic) · [Controlled](/native/storybook-solid/?path=/story/krds-tabs--controlled).
-- svelte: [Manual](/native/storybook-svelte/?path=/story/krds-tabs--manual).
-- vue: [Manual](/native/storybook-vue/?path=/story/krds-tabs--manual).
-- lit: [Manual](/native/storybook-lit/?path=/story/krds-tabs--manual).
-- qwik: [Manual](/native/storybook-qwik/?path=/story/krds-tabs--manual).
-- angular: [Manual](/native/storybook-angular/?path=/story/krds-tabs--manual) · [Automatic](/native/storybook-angular/?path=/story/krds-tabs--automatic) · [Vertical](/native/storybook-angular/?path=/story/krds-tabs--vertical).
-- solid-next: unsupported native Storybook preview integration.
+Fixture and Storybook outputs are local-only and are not hosted on this public documentation site. Build the selected native workspace, then run `node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs`. Open `/krds/native/storybook-<framework>/` on that local server. Solid 2 has no supported native Storybook integration. Qwik production SSR/resume requires its real server and cannot be replaced by a static preview. Story availability does not establish behavioral acceptance.
 
 Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
 
