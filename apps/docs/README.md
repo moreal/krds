@@ -1,4 +1,4 @@
-# KRDS Native documentation
+# Unofficial KRDS documentation
 
 This private documentation workspace uses a static Astro pipeline with one server-rendered and hydrated native Solid 1 app per document. The complete shell, search, home and rich article compose actual public KRDS components. The original 135 HTML paths and 609 source downloads remain preserved. The UI uses the public reset, original local Pretendard GOV fonts and supported light/forced-colors presentation. npm publication and release readiness remain separate gates.
 

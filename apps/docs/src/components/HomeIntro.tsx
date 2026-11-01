@@ -10,7 +10,7 @@ export function HomeIntro() {
  return <div class="docs-home">
   <section aria-labelledby="home-title" class="docs-hero">
    <p>비공식 구현 · 프레임워크 고유 렌더링</p>
-   <h1 id="home-title">KRDS Native<br />익숙한 디자인을,<br />나의 프레임워크로.</h1>
+   <h1 id="home-title">Unofficial KRDS<br />익숙한 디자인을,<br />나의 프레임워크로.</h1>
    <p class="docs-lead">대한민국 정부 디자인 시스템(KRDS)을 각 프레임워크의 컴포넌트로 구현하는 독립 프로젝트입니다. API와 실제 기록을 살펴보고, 로컬 빌드로 시작하세요.</p>
    <div class="docs-actions"><Link href="/krds/getting-started/installation.html" label="로컬에서 시작하기" appearance="emphasis" /><Link href="/krds/components/" label="54개 컴포넌트 살펴보기" /></div>
    <p><kbd>Ctrl / ⌘</kbd> + <kbd>K</kbd>로 한국어·영어 문서를 검색할 수 있습니다.</p>

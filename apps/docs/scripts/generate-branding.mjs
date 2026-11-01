@@ -29,7 +29,7 @@ for (const spec of fontSpecs) {
 }
 // Explicit Latin advance layout: font hmtx advances, no implicit shaping/kerning.
 // Tracking and the word gap are expressed in the original 2048-unit em grid.
-const runs = [{ text: 'KRDS', weight: 700, tracking: -20 }, { text: 'Native', weight: 500, tracking: -12 }];
+const runs = [{ text: 'Unofficial', weight: 500, tracking: -12 }, { text: 'KRDS', weight: 700, tracking: -20 }];
 const glyphs = []; let cursor = 0;
 for (const [index, run] of runs.entries()) {
   if (index) cursor += 320;
@@ -85,8 +85,8 @@ await save('favicon.ico',Buffer.concat([header,...faviconPngs.map(({bytes})=>byt
 await save('social.svg',social,{width:1200,height:630,background:'white',purpose:'social preview'});
 await save('social.png',await sharp(Buffer.from(social)).png({compressionLevel:9}).toBuffer(),{width:1200,height:630,background:'white',purpose:'social preview'});
 const manifest = {
-  schemaVersion:1,name:'KRDS Native',canonicalSource:`${assetRoot}/wordmark-black.svg`,
-  authoring:{wordmark:'KRDS Bold 700 / Native Medium 500; black or white; no additional symbol or tagline.',compact:'Actual Pretendard GOV Bold K, optically centered by its ink bounds at 64% square height; white on black favicon.',layout:'Latin hmtx advances only; no shaping, kerning or ligatures. Original 2048-unit em; tracking KRDS -20, Native -12; between-word gap 320 units after the final S advance. Outlines retain original glyph geometry.',wordmarkSize:{width,height},social:'1200×630 white; black wordmark centered at 760px width.'},
+  schemaVersion:1,name:'Unofficial KRDS',canonicalSource:`${assetRoot}/wordmark-black.svg`,
+  authoring:{wordmark:'Unofficial Medium 500 / KRDS Bold 700; black or white; no additional symbol or tagline.',compact:'Actual Pretendard GOV Bold K, optically centered by its ink bounds at 64% square height; white on black favicon.',layout:'Latin hmtx advances only; no shaping, kerning or ligatures. Original 2048-unit em; tracking Unofficial -12, KRDS -20; between-word gap 320 units after the final l advance. Outlines retain original glyph geometry.',wordmarkSize:{width,height},social:'1200×630 white; black wordmark centered at 760px width.'},
   rights:{artwork:'Independent typographic project artwork under the project MIT grant; no official KRDS or government identity or endorsement.',font:'Original Pretendard GOV font software remains unmodified under OFL-1.1, with its attribution and Reserved Font Names. Artwork is a document created using the font; it does not relicense font software.',evidence:['compliance/project-identity.json','packages/fonts/provenance.json','LICENSES/Pretendard-GOV-OFL-1.1.txt']},
   fonts:sources,tools:{node:toolchain.node.version,yarn:toolchain.packageManager.version,fontkitten:'1.0.3',sharp:sharp.versions.sharp,libvips:sharp.versions.vips,generator:'apps/docs/scripts/generate-branding.mjs',generatorSha256:hash(await readFile(import.meta.filename))},outputs,
 };
@@ -97,6 +97,6 @@ const inventoryPath = 'compliance/distribution-provenance.json';
 const inventory = await json(inventoryPath);
 const destinations = new Set(outputs.map(record=>record.path));
 inventory.assets = inventory.assets.filter(record=>!record.destinations.some(path=>destinations.has(path)));
-for (const output of outputs) inventory.assets.push({sourcePath:output.path,sha256:output.sha256,bytes:output.bytes,origin:'Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity',rights:'independent',rightsStatus:'verified',evidence:['apps/docs/branding/source.json','apps/docs/scripts/generate-branding.mjs','LICENSES/Pretendard-GOV-OFL-1.1.txt','packages/fonts/provenance.json'],destinations:[output.path]});
+for (const output of outputs) inventory.assets.push({sourcePath:output.path,sha256:output.sha256,bytes:output.bytes,origin:'Independent Unofficial KRDS typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity',rights:'independent',rightsStatus:'verified',evidence:['apps/docs/branding/source.json','apps/docs/scripts/generate-branding.mjs','LICENSES/Pretendard-GOV-OFL-1.1.txt','packages/fonts/provenance.json'],destinations:[output.path]});
 await writeFile(resolve(root,inventoryPath),JSON.stringify(inventory,null,2)+'\n');
 console.log(`Generated ${outputs.length} monochrome assets; wordmark ${width}×${height}. Source: ${relative(root,resolve(root,'apps/docs/branding/source.json'))}`);

@@ -1,4 +1,4 @@
-# KRDS Native
+# Unofficial KRDS
 
 대한민국 정부 디자인 시스템(KRDS)을 React, Solid, Svelte, Vue, Lit, Qwik, Angular의 고유 렌더러로 구현하는 **비공식 독립 프로젝트**입니다. Solid 2는 별도 프리뷰로 격리합니다. 컴포넌트별 지원 범위는 실제 [호환성 기록](docs/compatibility/README.md)과 [카탈로그](docs/components/README.md)에서 확인하세요.
 

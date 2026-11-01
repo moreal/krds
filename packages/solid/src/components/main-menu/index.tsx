@@ -1,8 +1,9 @@
-import { For, Show, createEffect, createSignal, createUniqueId, untrack } from 'solid-js';
+import { For, Show, createEffect, createSignal, createUniqueId, untrack, onCleanup } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import type { MainMenuContract, NavigationItem } from '@unofficial-krds/contracts';
 import { owned, keyedItems, stateValue, ignoredKey, restore, usable, assertTreeDepth } from '../../internal/catalog';
 import { narrowViewport, panelLifecycle } from '../../internal/panel';
+import { activeModalContent } from '../../internal/modal-layer';
 
 export interface MainMenuProps extends MainMenuContract { mobileTriggerRef?: () => HTMLButtonElement | undefined; }
 export function MainMenu(props: MainMenuProps) {
@@ -56,6 +57,73 @@ export function MainMenu(props: MainMenuProps) {
     if (contextId() || expanded.read()) { event.preventDefault(); event.stopPropagation(); back(); }
     else if (mobile.read()) { event.preventDefault(); mobile.request(false); }
   }
+  // Desktop disclosure dismissal is independent of the mobile modal lifecycle.
+  // Requests never optimistically hide a controlled panel or move outside focus.
+  createEffect(() => {
+    if (narrow() || !expanded.read()) return;
+    const document = root.ownerDocument;
+    const window = document.defaultView!;
+    let active = true, pointerAction = false, pointerEnd: ReturnType<typeof setTimeout> | undefined;
+    const bounds = () => {
+      const viewport = window.visualViewport;
+      const bottom = viewport ? viewport.offsetTop + viewport.height : window.innerHeight;
+      root.style.setProperty('--krds-main-menu-available-height', `${Math.max(0, bottom - root.getBoundingClientRect().bottom)}px`);
+    };
+    bounds();
+    const observer = new ResizeObserver(bounds); observer.observe(root);
+    window.addEventListener('resize', bounds);
+    document.addEventListener('scroll', bounds, true);
+    window.visualViewport?.addEventListener('resize', bounds);
+    window.visualViewport?.addEventListener('scroll', bounds);
+    const pointer = (event: PointerEvent) => {
+      clearTimeout(pointerEnd); pointerAction = !root.contains(event.target as Node);
+      if (pointerAction) expanded.request(null);
+    };
+    const endPointer = () => {
+      clearTimeout(pointerEnd);
+      pointerEnd = setTimeout(() => { pointerAction = false; }, 0);
+    };
+    const focus = (event: FocusEvent) => {
+      if (!pointerAction && !root.contains(event.target as Node)) expanded.request(null);
+    };
+    const key = (event: KeyboardEvent) => {
+      pointerAction = false; clearTimeout(pointerEnd);
+      const modal = activeModalContent(document);
+      if (modal && !modal.contains(root)) return;
+      escape(event);
+    };
+    const leave = (event: FocusEvent) => {
+      // A context change removes its old heading and can emit the same null
+      // relatedTarget as leaving the document. Ignore those detached nodes.
+      const departing = event.target as Node;
+      if (event.relatedTarget || !root.contains(departing)) return;
+      queueMicrotask(() => {
+        if (active && !pointerAction && root.isConnected && departing.isConnected && !narrow() && !root.contains(document.activeElement)) expanded.request(null);
+      });
+    };
+    document.addEventListener('pointerdown', pointer);
+    document.addEventListener('pointerup', endPointer);
+    document.addEventListener('pointercancel', endPointer);
+    document.addEventListener('click', endPointer);
+    document.addEventListener('focusin', focus);
+    root.addEventListener('focusout', leave);
+    document.addEventListener('keydown', key);
+    onCleanup(() => {
+      active = false; clearTimeout(pointerEnd); observer.disconnect();
+      root.style.removeProperty('--krds-main-menu-available-height');
+      window.removeEventListener('resize', bounds);
+      document.removeEventListener('scroll', bounds, true);
+      window.visualViewport?.removeEventListener('resize', bounds);
+      window.visualViewport?.removeEventListener('scroll', bounds);
+      document.removeEventListener('pointerdown', pointer);
+      document.removeEventListener('pointerup', endPointer);
+      document.removeEventListener('pointercancel', endPointer);
+      document.removeEventListener('click', endPointer);
+      document.removeEventListener('focusin', focus);
+      root.removeEventListener('focusout', leave);
+      document.removeEventListener('keydown', key);
+    });
+  });
   function SearchField() {
     let input!: HTMLInputElement;
     let composing = false;

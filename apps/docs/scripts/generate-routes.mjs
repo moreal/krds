@@ -1,6 +1,6 @@
 import { mkdir, writeFile, rm } from 'node:fs/promises';
 import { resolve, relative, dirname } from 'node:path';
-import { buildPages, buildSearchRecords } from './content.mjs';
+import { buildPages, buildSearchRecords, buildNavigation } from './content.mjs';
 const site=resolve(import.meta.dirname,'..');
 const routesDirectory=resolve(site,'src/pages'); const generatedDirectory=resolve(site,'src/generated');
 const pages=await buildPages(site);
@@ -9,12 +9,7 @@ routes.push({sourcePath:'public/_legal/index.html',outputPath:'_legal/index.html
 routes.sort((a,b)=>a.outputPath.localeCompare(b.outputPath,'en'));
 await rm(routesDirectory,{recursive:true,force:true});await mkdir(generatedDirectory,{recursive:true});
 await writeFile(resolve(generatedDirectory,'pages.json'),JSON.stringify(pages)+'\n');
-const sectionLabels = {'getting-started':'빠른 시작',components:'컴포넌트',patterns:'패턴',compatibility:'호환성',examples:'네이티브 예시',legal:'출처와 권리'};
-const navigation=Object.entries(sectionLabels).map(([section,label])=>{
- const members=pages.filter(page=>page.sourcePath?.startsWith(section+'/')||(section==='examples'&&page.sourcePath?.startsWith('compiler-checkpoints/')));
- const first=members.find(page=>page.sourcePath===section+'/index.md')??members[0];
- return {id:section,label,href:first.route,children:members.map(page=>({id:page.currentId,label:page.title,href:page.route}))};
-});
+const navigation=buildNavigation(pages);
 await writeFile(resolve(generatedDirectory,'navigation.json'),JSON.stringify(navigation)+'\n');
 await writeFile(resolve(generatedDirectory,'routes.json'),JSON.stringify(routes,null,2)+'\n');
 await writeFile(resolve(generatedDirectory,'route-map.json'),JSON.stringify(Object.fromEntries(pages.filter(page=>page.sourcePath).map(page=>[page.sourcePath,page.route])),null,2)+'\n');

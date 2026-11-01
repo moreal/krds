@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "name": "KRDS Native",
+  "name": "Unofficial KRDS",
   "canonicalSource": "apps/docs/public/local-assets/branding/wordmark-black.svg",
   "authoring": {
-    "wordmark": "KRDS Bold 700 / Native Medium 500; black or white; no additional symbol or tagline.",
+    "wordmark": "Unofficial Medium 500 / KRDS Bold 700; black or white; no additional symbol or tagline.",
     "compact": "Actual Pretendard GOV Bold K, optically centered by its ink bounds at 64% square height; white on black favicon.",
-    "layout": "Latin hmtx advances only; no shaping, kerning or ligatures. Original 2048-unit em; tracking KRDS -20, Native -12; between-word gap 320 units after the final S advance. Outlines retain original glyph geometry.",
+    "layout": "Latin hmtx advances only; no shaping, kerning or ligatures. Original 2048-unit em; tracking Unofficial -12, KRDS -20; between-word gap 320 units after the final l advance. Outlines retain original glyph geometry.",
     "wordmarkSize": {
-      "width": 273,
+      "width": 338,
       "height": 40
     },
     "social": "1200×630 white; black wordmark centered at 760px width."
@@ -52,14 +52,14 @@
     "sharp": "0.34.5",
     "libvips": "8.17.3",
     "generator": "apps/docs/scripts/generate-branding.mjs",
-    "generatorSha256": "a71d9eeb3727408f8712f4df3f806c0752026e98df9a5679a90d505404fc21f1"
+    "generatorSha256": "9831ee6cb0323e885309c4489f29f8e38bb6af0774644b6e4fe23e3787dcd9a4"
   },
   "outputs": [
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-black.svg",
-      "bytes": 4248,
-      "sha256": "e9d586d015f41cb3926cefd99c2ea6aa934258f8e143bf0f4a7f79ebd98e5846",
-      "width": 273,
+      "bytes": 6126,
+      "sha256": "b90f9cb74996e1f2fac9d917b07f8abe90ebcf55a3528a114362742f758e4319",
+      "width": 338,
       "height": 40,
       "background": "transparent",
       "purpose": "horizontal wordmark"
@@ -75,36 +75,36 @@
     },
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-black@1x.png",
-      "bytes": 3282,
-      "sha256": "72ba23d666a379270336e55ea92433e4f76bccb93f25a45e821eb937c3354e9c",
-      "width": 273,
+      "bytes": 3685,
+      "sha256": "3a0941364cd9f48febf4af9f853f74ea910ab3ee5d01afeee4e6779e495d98b8",
+      "width": 338,
       "height": 40,
       "background": "transparent",
       "purpose": "wordmark raster"
     },
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-black@2x.png",
-      "bytes": 6692,
-      "sha256": "002d5feddc920647d8e96d756911885a0c8c74cafa412bca1635de3b37180dea",
-      "width": 546,
+      "bytes": 7768,
+      "sha256": "17357c25acffeaab1cf0dac0238569beb87c1e34d3da7ea418ba346b438ec2d9",
+      "width": 676,
       "height": 80,
       "background": "transparent",
       "purpose": "wordmark raster"
     },
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-black@3x.png",
-      "bytes": 10468,
-      "sha256": "d8d935afc629a29ad7e079aff2b2aa0841c3cb4dff5dcc6b66491cc449a4313f",
-      "width": 819,
+      "bytes": 12147,
+      "sha256": "fc447a53d79233260bca1dc24e7978696966949709867e259681a0077d70e13e",
+      "width": 1014,
       "height": 120,
       "background": "transparent",
       "purpose": "wordmark raster"
     },
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-white.svg",
-      "bytes": 4248,
-      "sha256": "003af4477cd0bb5424d498eba9bfd5860886591de1036cb4b93d71fef798747c",
-      "width": 273,
+      "bytes": 6126,
+      "sha256": "3d76d7ba96c0d637f971a06eadb9ff1685817a4e74a1ba3d0226e4fc11aa027f",
+      "width": 338,
       "height": 40,
       "background": "transparent",
       "purpose": "horizontal wordmark"
@@ -120,27 +120,27 @@
     },
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-white@1x.png",
-      "bytes": 3358,
-      "sha256": "3b43d9714b66d9d6f7902c4d2296d42e306b851a72130b93fc284c18e5df9b30",
-      "width": 273,
+      "bytes": 3794,
+      "sha256": "60861a4f072f22f699e99256e8da8c54d7a934b42d33f5bbf98d4bc1f3ed87ce",
+      "width": 338,
       "height": 40,
       "background": "transparent",
       "purpose": "wordmark raster"
     },
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-white@2x.png",
-      "bytes": 6892,
-      "sha256": "2b0c340435306c3a5a46d386a3d82f8fe2a4d2bb6025d4ba1389a3095061b73f",
-      "width": 546,
+      "bytes": 7978,
+      "sha256": "adcb588c28651487bf744e4fbb63f96b780ec558c89903657853fe5cba653830",
+      "width": 676,
       "height": 80,
       "background": "transparent",
       "purpose": "wordmark raster"
     },
     {
       "path": "apps/docs/public/local-assets/branding/wordmark-white@3x.png",
-      "bytes": 10770,
-      "sha256": "a86ecd9ee92f3e659698d1d0b52f0f1c848a6680fdea222ce4ee418a279a7d96",
-      "width": 819,
+      "bytes": 12503,
+      "sha256": "43953ad25ad81d4cc7a839d056ce41a5af63b01829359f73838c96fa80572734",
+      "width": 1014,
       "height": 120,
       "background": "transparent",
       "purpose": "wordmark raster"
@@ -231,8 +231,8 @@
     },
     {
       "path": "apps/docs/public/local-assets/branding/social.svg",
-      "bytes": 4797,
-      "sha256": "a77ffb4d47c59271b6dd76fb30b75cfa6a35d954e74eb0a1ed17e9c86b7d6f94",
+      "bytes": 6937,
+      "sha256": "2c3207bcab9a269fb9440aa2f6daecd87e22463e98d38ac91cc3e4d5be7ad1ff",
       "width": 1200,
       "height": 630,
       "background": "white",
@@ -240,8 +240,8 @@
     },
     {
       "path": "apps/docs/public/local-assets/branding/social.png",
-      "bytes": 17709,
-      "sha256": "a7aadb9f5466a1df24201ba0961cfa7a0940a85a39199760a2b626f9a8f49257",
+      "bytes": 16628,
+      "sha256": "da952784a3d307cee7ecfb12556d4d643787f3b5a24b27d0111f0ccda3bf446a",
       "width": 1200,
       "height": 630,
       "background": "white",

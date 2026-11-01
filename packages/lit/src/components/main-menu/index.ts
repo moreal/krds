@@ -35,6 +35,7 @@ export class MainMenu extends KrdsElement {
     private queryComposing = false;
     private queryDraft = '';
     private branchReturn?: { expected: string | null; triggerId: string; initiator: Element | null };
+    private desktopBounds?: () => void;
     readonly surface = new SurfaceController(this, {
         open: () => this.narrow && this.committedMobile,
         modal: () => true,
@@ -93,7 +94,7 @@ export class MainMenu extends KrdsElement {
                         this.branchReturn = undefined;
                         this.expand(open ? null : item.id);
                     }}>${item.label}<span data-krds-component="main-menu" data-krds-part="indicator" data-krds-state="" part="indicator" aria-hidden="true">${open ? '−' : '+'}</span></button>
-                    <div id=${`submenu-${item.id}`} ?hidden=${!open} style="max-block-size:70vh;overflow:auto">${item.description ? html`<p data-krds-component="main-menu" data-krds-part="description" data-krds-state="" part="description">${item.description}</p>` : ''}${this.list(item.children, depth + 1)}</div>`
+                    <div id=${`submenu-${item.id}`} ?hidden=${!open}>${item.description ? html`<p data-krds-component="main-menu" data-krds-part="description" data-krds-state="" part="description">${item.description}</p>` : ''}${this.list(item.children, depth + 1)}</div>`
                     : item.href ? html`<a data-krds-component="main-menu" data-krds-part="link" data-krds-state=${this.currentId === item.id ? 'current' : ''} part="link" href=${item.href} aria-current=${ifDefined(this.currentId === item.id ? 'page' : undefined)}>${item.label}</a>` : html`<span>${item.label}</span>`}
                 </li>`;
             })}
@@ -116,9 +117,33 @@ export class MainMenu extends KrdsElement {
     }
     override disconnectedCallback() {
         this.media?.removeEventListener('change', this.resize);
+        this.desktopBounds?.(); this.desktopBounds = undefined;
         this.branchReturn = undefined; super.disconnectedCallback();
     }
     override updated() {
+        if (this.narrow || !this.committedExpanded) {
+            this.desktopBounds?.(); this.desktopBounds = undefined;
+        } else if (!this.desktopBounds) {
+            const root = this.renderRoot.querySelector<HTMLElement>('nav')!, window = this.ownerDocument.defaultView!;
+            const bounds = () => {
+                const viewport = window.visualViewport;
+                const bottom = viewport ? viewport.offsetTop + viewport.height : window.innerHeight;
+                root.style.setProperty('--krds-main-menu-available-height', `${Math.max(0, bottom - root.getBoundingClientRect().bottom)}px`);
+            };
+            bounds();
+            const observer = new ResizeObserver(bounds); observer.observe(root);
+            window.addEventListener('resize', bounds);
+            this.ownerDocument.addEventListener('scroll', bounds, true);
+            window.visualViewport?.addEventListener('resize', bounds);
+            window.visualViewport?.addEventListener('scroll', bounds);
+            this.desktopBounds = () => {
+                observer.disconnect(); root.style.removeProperty('--krds-main-menu-available-height');
+                window.removeEventListener('resize', bounds);
+                this.ownerDocument.removeEventListener('scroll', bounds, true);
+                window.visualViewport?.removeEventListener('resize', bounds);
+                window.visualViewport?.removeEventListener('scroll', bounds);
+            };
+        }
         const pending = this.branchReturn;
         if (pending && this.committedExpanded === pending.expected) {
             this.branchReturn = undefined;

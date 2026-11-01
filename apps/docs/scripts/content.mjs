@@ -61,14 +61,26 @@ export function parseDocument(markdown, sourcePath) {
    case 'table': return [{type:'table',caption:`${headings.at(-1)?.title??metadata.title??sourcePath} — Table ${++tableNumber}`,headers:token.header.map(cell=>inline(cell.tokens)),rows:token.rows.map(row=>row.map(cell=>inline(cell.tokens))),align:token.align}];
    case 'blockquote': return [{type:'quote',blocks:blocks(token.tokens)}];
    case 'hr': return [{type:'rule'}];
-   case 'html': if(sourcePath==='index.md'&&token.raw.trim()==='<HomeIntro />'){headings.push({id:'home-title',title:'KRDS Native 익숙한 디자인을, 나의 프레임워크로.',level:1},{id:'example-title',title:'문서 안에서 만나는 Solid 컴포넌트',level:2});return [{type:'home'}];}return [{type:'paragraph',children:inline(marked.Lexer.lexInline(token.raw))}];
+   case 'html': if(sourcePath==='index.md'&&token.raw.trim()==='<HomeIntro />'){headings.push({id:'home-title',title:'Unofficial KRDS 익숙한 디자인을, 나의 프레임워크로.',level:1},{id:'example-title',title:'문서 안에서 만나는 Solid 컴포넌트',level:2});return [{type:'home'}];}return [{type:'paragraph',children:inline(marked.Lexer.lexInline(token.raw))}];
    default: fail(token.raw,`block node ${token.type}`);
   }
  });
  const parsed=blocks(marked.lexer(body,{gfm:true}));
- const title=headings.find(h=>h.level===1)?.title??metadata.title??'KRDS Native';
+ const title=headings.find(h=>h.level===1)?.title??metadata.title??'Unofficial KRDS';
  const outputPath=sourcePath.replace(/\.md$/,'.html');const route=docUrl('/'+outputPath,sourcePath);
  return {sourcePath,outputPath,route,title,lang:['index.md','getting-started/installation.md'].includes(sourcePath)?'ko-KR':'en',blocks:parsed,headings,breadcrumbs:[],currentId:sourcePath};
+}
+/** Explicit section destinations, with historical checkpoints retained as children. */
+export function buildNavigation(pages) {
+ const sections=[['getting-started','빠른 시작','getting-started/installation.md'],['components','컴포넌트','components/index.md'],['patterns','패턴','patterns/index.md'],['compatibility','호환성','compatibility/index.md'],['examples','네이티브 예시','compatibility/examples.md'],['legal','출처와 권리','legal/index.md']];
+ return sections.map(([section,label,landing])=>{
+  const members=pages.filter(page=>section==='examples'?page.sourcePath==='compatibility/examples.md'||page.sourcePath?.startsWith('examples/')||page.sourcePath?.startsWith('compiler-checkpoints/'):page.sourcePath?.startsWith(section+'/')&&page.sourcePath!=='compatibility/examples.md');
+  const first=members.find(page=>page.sourcePath===landing);
+  if(!first)throw new Error(`Missing navigation landing page: ${landing}`);
+  const ordered=[first,...members.filter(page=>page!==first)];
+  if(ordered.length===1)return {id:first.currentId,label,href:first.route};
+  return {id:section,label,href:first.route,children:ordered.map(page=>({id:page.currentId,label:page.title,href:page.route}))};
+ });
 }
 /** @returns {Promise<DocPage[]>} */
 export async function buildPages(root) {
@@ -76,7 +88,8 @@ export async function buildPages(root) {
  const pages=await Promise.all((await files(root)).sort().map(async file=>parseDocument(await readFile(file,'utf8'),relative(root,file).replaceAll('\\','/'))));
  pages.push({sourcePath:null,outputPath:'404.html',route:'/krds/404.html',title:'페이지를 찾을 수 없습니다',lang:'ko-KR',blocks:[{type:'paragraph',children:[{type:'text',value:'요청한 페이지를 찾을 수 없습니다.'}]}],headings:[],breadcrumbs:[],currentId:'404'});
  pages.sort((a,b)=>a.outputPath.localeCompare(b.outputPath,'en'));
- for(const page of pages){const section=page.sourcePath?.split('/')[0];const siblings=pages.filter(p=>p.sourcePath&&p.sourcePath.split('/')[0]===section);const index=siblings.indexOf(page);const nav=p=>({id:p.currentId,label:p.title,href:p.route});page.breadcrumbs=[{id:'home',label:'홈',href:'/krds/'},...(section&&section!==page.sourcePath?[{id:section,label:section,href:pages.find(p=>p.sourcePath===`${section}/index.md`)?.route??siblings[0].route}]:[])];if(index>0)page.previous=nav(siblings[index-1]);if(index>=0&&index<siblings.length-1)page.next=nav(siblings[index+1]);}
+ const navigation=buildNavigation(pages);
+ for(const page of pages){const section=page.sourcePath?.split('/')[0];const siblings=pages.filter(p=>p.sourcePath&&p.sourcePath.split('/')[0]===section);const index=siblings.indexOf(page);const nav=p=>({id:p.currentId,label:p.title,href:p.route});const group=navigation.find(item=>item.children?.some(child=>child.id===page.currentId));page.breadcrumbs=[{id:'home',label:'홈',href:'/krds/'},...(group?[{id:group.id,label:group.label,href:group.href}]:[])];if(index>0)page.previous=nav(siblings[index-1]);if(index>=0&&index<siblings.length-1)page.next=nav(siblings[index+1]);}
  return pages;
 }
 /** @returns {import('../src/content.ts').SearchRecord[]} */

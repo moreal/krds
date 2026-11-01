@@ -58,6 +58,17 @@ test('zero is a valid ordered-list start and unordered lists retain their defaul
  const unordered=parseDocument('- item\n','unordered.md').blocks[0];
  assert.equal(unordered.ordered,false);assert.equal(unordered.start,1);
 });
+test('navigation exposes deliberate landing pages, unique real page IDs and a direct legal leaf',async()=>{
+ const {buildPages,buildNavigation}=await api();const pages=await buildPages(site),navigation=buildNavigation(pages);
+ const quick=navigation.find(item=>item.id==='getting-started'),examples=navigation.find(item=>item.id==='examples'),legal=navigation.find(item=>item.id==='legal/index.md');
+ assert.equal(quick.href,'/krds/getting-started/installation.html');assert.equal(quick.children[0].id,'getting-started/installation.md');
+ assert.equal(examples.href,'/krds/compatibility/examples.html');assert.equal(examples.children[0].id,'compatibility/examples.md');
+ assert.equal(legal.href,'/krds/legal/index.html');assert.equal(legal.children,undefined);
+ const links=navigation.flatMap(item=>item.children??[item]);assert.equal(new Set(links.map(item=>item.id)).size,links.length);
+ for(const page of pages.filter(page=>page.sourcePath&&page.sourcePath!=='index.md')) assert.equal(links.filter(item=>item.id===page.currentId).length,1,page.currentId);
+ assert.deepEqual(pages.find(page=>page.sourcePath==='getting-started/artifacts.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'getting-started',label:'빠른 시작',href:'/krds/getting-started/installation.html'}]);
+ assert.deepEqual(pages.find(page=>page.sourcePath==='compatibility/examples.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'examples',label:'네이티브 예시',href:'/krds/compatibility/examples.html'}]);
+});
 test('browser-recognized encoded dots and backslashes stay beneath the base',async()=>{
  const {docUrl}=await api();const suffix='?next=%2Fdeep%3Fx#frag%2Fpart';
  const cases=[

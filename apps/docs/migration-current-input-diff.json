@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "changes": [
     {
+      "sourcePath": "compliance/project-identity.json",
+      "before": "2ff1cc154406c85c75a307c04f3c7dae0b792ec2d6d010601e4487e6f99c43f1",
+      "after": "86f3ab0ab47256b53932e92ca3a63b92d39ed80d6aee4f58f73bf57661035054",
+      "reason": "User-approved display brand rename to Unofficial KRDS; package scope, repository identity, rights and publication permissions unchanged."
+    },
+    {
       "sourcePath": "compliance/provenance-dependencies.json",
       "before": "631947b46c1a15653e2b5aed100221c64cb8c7255d21f7bb1f95694df6aabebd",
       "after": "ee606493dffee99ef8618c197ff40370175fa302aa7910922b381f99b2c5e577",

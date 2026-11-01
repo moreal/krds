@@ -4,17 +4,24 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
 .docs-shell { max-inline-size: 144rem; margin-inline: auto; }
 .docs-header { padding-inline: var(--krds-padding-8); }
 /* The Header host owns its responsive layout and when its mobile trigger is exposed. */
-.docs-header > header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; }
+.docs-header > header { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; }
 .docs-header [data-krds-part="identity"] { inline-size: 18rem; min-block-size: 4.4rem; }
 /* Reserve the outlined SVG's exact ratio before it loads. */
-.docs-header [data-krds-part="identity"] img, .docs-shell [data-krds-component="footer"][data-krds-part="logo"] { inline-size: 18rem; block-size: auto; aspect-ratio: 273 / 40; max-inline-size: 100%; }
+.docs-header [data-krds-part="identity"] img, .docs-shell [data-krds-component="footer"][data-krds-part="logo"] { inline-size: 18rem; block-size: auto; aspect-ratio: 338 / 40; max-inline-size: 100%; }
 .docs-header [data-krds-part="utilities"] { display: none; }
-.docs-header [data-krds-part="actions"] { grid-column: 3; grid-row: 1; }
-.docs-header [data-krds-part="navigation"] { grid-column: 2; grid-row: 1; }
+.docs-header [data-krds-part="identity"] { grid-column: 1; grid-row: 1; }
+.docs-header [data-krds-part="actions"] { grid-column: 2; grid-row: 1; }
+.docs-header [data-krds-part="navigation"] { grid-column: 1 / -1; grid-row: 2; min-inline-size: 0; }
 .docs-header [data-krds-part="mobile-trigger"] { display: none; }
 .docs-project-note { margin: 0; padding: var(--krds-padding-4) var(--krds-padding-8); background: var(--krds-light-color-surface-gray-subtler); font-size: var(--krds-pc-font-size-body-small); }
 .docs-layout { display: grid; grid-template-columns: 24rem minmax(0,1fr); gap: var(--krds-gap-8); padding: var(--krds-padding-8); align-items: start; }
 .docs-sidebar, .docs-body, .docs-reading, #docs-main { min-inline-size: 0; }
+/* Keep the public Breadcrumb's complete route labels readable at narrow widths
+ * and enlarged text, after its semantic ancestor reduction has run. */
+.docs-body > [data-krds-component="breadcrumb"] [data-krds-part="list"] { flex-wrap: wrap; white-space: normal; }
+.docs-body > [data-krds-component="breadcrumb"] [data-krds-part="item"] { max-inline-size: 100%; }
+.docs-body > [data-krds-component="breadcrumb"] [data-krds-part="link"] { white-space: normal; overflow-wrap: anywhere; }
+.docs-body > [data-krds-component="breadcrumb"] [data-krds-part="item"]:last-child [data-krds-part="link"] { white-space: normal; overflow: visible; }
 .docs-sidebar { max-block-size: calc(100dvh - var(--krds-gap-8)); overflow: auto; position: sticky; inset-block-start: var(--krds-gap-5); }
 .docs-reading { display: grid; grid-template-columns: minmax(0,1fr) 16rem; gap: var(--krds-gap-8); margin-block-start: var(--krds-gap-8); align-items: start; }
 .docs-toc { position: sticky; inset-block-start: var(--krds-gap-5); max-block-size: calc(100dvh - var(--krds-gap-8)); overflow: auto; }

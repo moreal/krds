@@ -3,7 +3,7 @@ import type { JSX } from 'solid-js';
 import { TextList } from '@unofficial-krds/solid/text-list';
 import { Table } from '@unofficial-krds/solid/table';
 import { Link } from '@unofficial-krds/solid/link';
-const header={home:{href:'/krds/',label:'Home',logo:{src:'/krds/mark.svg',alt:'KRDS Native'}},utilityItems:[],mainNavigation:[],search:{label:'Search',onRequest(){}}};
+const header={home:{href:'/krds/',label:'Home',logo:{src:'/krds/mark.svg',alt:'Unofficial KRDS'}},utilityItems:[],mainNavigation:[],search:{label:'Search',onRequest(){}}};
 export const headerCompatibility=<><Header {...header} /><Header {...header} searchTriggerId="docs-search-trigger" /></>;
 export const content: JSX.Element = <>
  <TextList ordered start={3} items={[{id:'a',content:'API'}]} renderItem={item=><strong>{item.content}</strong>} />

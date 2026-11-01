@@ -15,10 +15,10 @@ import { branding } from '../branding';
 type Panel='search'|'section'|'header'|null;
 export default function DocsShell(props:{page:DocPage;navigation:NavigationItem[]}) {
  const [ready,setReady]=createSignal(false),[active,setActive]=createSignal<Panel>(null);
- const section=()=>props.navigation.find(item=>item.children?.some(child=>child.id===props.page.currentId));
+ const section=()=>props.navigation.find(item=>item.id===props.page.currentId||item.children?.some(child=>child.id===props.page.currentId));
  const sideItems=()=>section()?.children??props.navigation.map(({children,...item})=>item);
  // MainMenu owns ancestor/current-descendant presentation; each page keeps its real ID/href.
- const topItems=()=>props.navigation.map(({href,...item})=>item);
+ const topItems=()=>props.navigation.map(item=>{if(!item.children?.length)return item;const {href,...group}=item;return group;});
  const sections=()=>props.page.headings.filter(heading=>heading.level===2||heading.level===3).map(heading=>({id:heading.id,label:heading.title}));
  function request(panel:Panel){if(panel===active())return;setActive(null);if(panel)queueMicrotask(()=>{if(panel==='search')document.getElementById('docs-search-trigger')?.focus({preventScroll:true});setActive(panel);});}
  onMount(()=>{
@@ -30,14 +30,14 @@ export default function DocsShell(props:{page:DocPage;navigation:NavigationItem[
  });
  return <div class="docs-shell" data-docs-ready={ready()?'true':'false'}>
   <SkipLink links={[{id:'main',label:'본문 바로가기',targetId:'docs-main'}]} />
-  <div class="docs-header"><Header home={{href:'/krds/',label:'KRDS Native 홈',logo:{src:branding.wordmark,alt:branding.alt}}} utilityItems={[]} mainNavigation={topItems()} currentId={props.page.currentId} search={ready()?{label:'문서 검색',onRequest:()=>request('search')}:undefined} searchTriggerId="docs-search-trigger" mobileTriggerId="docs-header-mobile-trigger" mobileTriggerLabel="주 메뉴" navigationLabel="주 탐색" mobileOpen={active()==='header'} onMobileOpenChange={({open})=>request(open?'header':null)} /></div>
+  <div class="docs-header"><Header home={{href:'/krds/',label:'Unofficial KRDS 홈',logo:{src:branding.wordmark,alt:branding.alt}}} utilityItems={[]} mainNavigation={topItems()} currentId={props.page.currentId} search={ready()?{label:'문서 검색',onRequest:()=>request('search')}:undefined} searchTriggerId="docs-search-trigger" mobileTriggerId="docs-header-mobile-trigger" mobileTriggerLabel="주 메뉴" navigationLabel="주 탐색" mobileOpen={active()==='header'} onMobileOpenChange={({open})=>request(open?'header':null)} /></div>
   <aside class="docs-project-note" aria-label="프로젝트 안내">독립적으로 구현한 비공식 프로젝트입니다. 공식 KRDS 또는 정부 서비스가 아닙니다.</aside>
   <noscript><aside class="docs-project-note" aria-label="JavaScript 안내">문서 링크와 다운로드를 사용할 수 있습니다. 검색·코드 복사·상태 예시에는 JavaScript가 필요합니다.</aside></noscript>
   <div class="docs-layout">
    <aside class="docs-sidebar" aria-label="문서 탐색"><SideNavigation title={section()?.label??'문서 안내'} items={sideItems()} currentId={props.page.currentId} /></aside>
    <div class="docs-body">
     {/* The same compact home/current path is usable in SSR, no-JS and enlarged text. */}
-    <Breadcrumb home={{href:'/krds/',label:'홈'}} items={[]} currentItem={{id:props.page.currentId,label:props.page.title}} omitCurrent={false} />
+    <Breadcrumb home={{href:'/krds/',label:'홈'}} items={props.page.breadcrumbs.filter(item=>item.id!=='home'&&item.href!==props.page.route)} currentItem={{id:props.page.currentId,label:props.page.title}} omitCurrent={props.page.sourcePath==='index.md'} maxVisible={3} />
     <div class="docs-section-control"><Button id="docs-section-trigger" variant="tertiary" disabled={!ready()} onClick={()=>request('section')}>문서 메뉴</Button></div>
     <div class="docs-reading"><main id="docs-main" tabIndex={-1}><DocArticle page={props.page} /><nav class="docs-previous-next" aria-label="이전과 다음 문서"><Show when={props.page.previous}>{previous=><Link href={previous().href} label={`이전: ${previous().label}`} />}</Show><Show when={props.page.next}>{next=><Link href={next().href} label={`다음: ${next().label}`} />}</Show></nav></main><aside class="docs-toc" aria-label="문서 구성"><InPageNavigation title="이 페이지에서" sections={sections()} narrowMode="disclosure" /></aside></div>
    </div>

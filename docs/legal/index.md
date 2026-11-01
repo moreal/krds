@@ -1,6 +1,6 @@
 # Sources, rights and redistribution
 
-KRDS Native is an independent implementation. It is not an official KRDS or government service and does not claim government affiliation. Repository metadata is `https://github.com/moreal/krds`; the selected package scope is `@unofficial-krds`. Account ownership remains unverified, and publication, pushing and tagging are unauthorized.
+Unofficial KRDS is an independent implementation. It is not an official KRDS or government service and does not claim government affiliation. Repository metadata is `https://github.com/moreal/krds`; the selected package scope is `@unofficial-krds`. Account ownership remains unverified, and publication, pushing and tagging are unauthorized.
 
 The <a href="../_legal/index.html" target="_self">local distribution inventory</a> identifies the files actually included in this documentation artifact, their snapshot hashes, original terms and separate attribution.
 

@@ -16,7 +16,7 @@ test('Astro pipeline retains directory indexes and .html pages with public Solid
   const routes = await json(resolve(site, 'src/generated/routes.json'));
   const pages = await json(resolve(site, 'src/generated/pages.json'));
   const navigation = await json(resolve(site, 'src/generated/navigation.json'));
-  assert.deepEqual(navigation.flatMap(section => section.children.map(page => page.id)).sort(), pages.filter(page => page.sourcePath && page.sourcePath !== 'index.md').map(page => page.currentId).sort(), 'each non-home document belongs to one navigation section');
+  assert.deepEqual(navigation.flatMap(section => (section.children??[section]).map(page => page.id)).sort(), pages.filter(page => page.sourcePath && page.sourcePath !== 'index.md').map(page => page.currentId).sort(), 'each non-home document belongs to one navigation section or direct leaf');
   assert.deepEqual(routes.map(route => route.outputPath).sort(), baseline.pages.map(page => page.path).sort());
   for (const route of routes) assert.ok(existsSync(resolve(site, 'dist', route.outputPath)), route.outputPath);
   const html = await readFile(resolve(site, 'dist/components/button.html'), 'utf8');

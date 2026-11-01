@@ -27,7 +27,7 @@ test('parsed zero-start ordered Markdown reaches the real public ol unchanged',(
 });
 
 test('public Header search ID is optional and belongs to its own button',()=>{
- const props={home:{href:'/krds/',label:'Home',logo:{src:'/krds/mark.svg',alt:'KRDS Native'}},utilityItems:[],mainNavigation:[],search:{label:'문서 검색',onRequest(){}}};
+ const props={home:{href:'/krds/',label:'Home',logo:{src:'/krds/mark.svg',alt:'Unofficial KRDS'}},utilityItems:[],mainNavigation:[],search:{label:'문서 검색',onRequest(){}}};
  const old=renderToString(()=>Header(props));assert.match(old,/data-krds-part="search"/);assert.doesNotMatch(old,/id="docs-search-trigger"/);
  const named=renderToString(()=>Header({...props,searchTriggerId:'docs-search-trigger'}));assert.match(named,/<button[^>]*id="docs-search-trigger"[^>]*data-krds-part="search"/);
 });

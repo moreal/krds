@@ -1,6 +1,13 @@
 {
   "schemaVersion": 1,
   "records": [
-    { "sourcePath": "compliance/provenance-dependencies.json", "reason": "Exact dependency lock and resolution metadata after Astro pipeline installation and exact direct branding tool declarations; no resolution versions changed." }
+    {
+      "sourcePath": "compliance/provenance-dependencies.json",
+      "reason": "Exact dependency lock and resolution metadata after Astro pipeline installation and exact direct branding tool declarations; no resolution versions changed."
+    },
+    {
+      "sourcePath": "compliance/project-identity.json",
+      "reason": "User-approved display brand rename to Unofficial KRDS; package scope, repository identity, rights and publication permissions unchanged."
+    }
   ]
 }
