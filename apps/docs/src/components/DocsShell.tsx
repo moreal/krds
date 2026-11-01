@@ -11,6 +11,7 @@ import { Footer } from '@unofficial-krds/solid/footer';
 import type { DocPage, NavigationItem } from '../content';
 import { DocArticle } from './DocArticle';
 import { SearchDialog } from './SearchDialog';
+import { branding } from '../branding';
 type Panel='search'|'section'|'header'|null;
 export default function DocsShell(props:{page:DocPage;navigation:NavigationItem[]}) {
  const [ready,setReady]=createSignal(false),[active,setActive]=createSignal<Panel>(null);
@@ -29,7 +30,7 @@ export default function DocsShell(props:{page:DocPage;navigation:NavigationItem[
  });
  return <div class="docs-shell" data-docs-ready={ready()?'true':'false'}>
   <SkipLink links={[{id:'main',label:'본문 바로가기',targetId:'docs-main'}]} />
-  <div class="docs-header"><Header home={{href:'/krds/',label:'KRDS Native 홈',logo:{src:'/krds/mark.svg',alt:'KRDS Native'}}} utilityItems={[]} mainNavigation={topItems()} currentId={props.page.currentId} search={ready()?{label:'문서 검색',onRequest:()=>request('search')}:undefined} searchTriggerId="docs-search-trigger" mobileTriggerId="docs-header-mobile-trigger" mobileTriggerLabel="주 메뉴" navigationLabel="주 탐색" mobileOpen={active()==='header'} onMobileOpenChange={({open})=>request(open?'header':null)} /></div>
+  <div class="docs-header"><Header home={{href:'/krds/',label:'KRDS Native 홈',logo:{src:branding.wordmark,alt:branding.alt}}} utilityItems={[]} mainNavigation={topItems()} currentId={props.page.currentId} search={ready()?{label:'문서 검색',onRequest:()=>request('search')}:undefined} searchTriggerId="docs-search-trigger" mobileTriggerId="docs-header-mobile-trigger" mobileTriggerLabel="주 메뉴" navigationLabel="주 탐색" mobileOpen={active()==='header'} onMobileOpenChange={({open})=>request(open?'header':null)} /></div>
   <aside class="docs-project-note" aria-label="프로젝트 안내">독립적으로 구현한 비공식 프로젝트입니다. 공식 KRDS 또는 정부 서비스가 아닙니다.</aside>
   <noscript><aside class="docs-project-note" aria-label="JavaScript 안내">문서 링크와 다운로드를 사용할 수 있습니다. 검색·코드 복사·상태 예시에는 JavaScript가 필요합니다.</aside></noscript>
   <div class="docs-layout">
@@ -41,7 +42,7 @@ export default function DocsShell(props:{page:DocPage;navigation:NavigationItem[
     <div class="docs-reading"><main id="docs-main" tabIndex={-1}><DocArticle page={props.page} /><nav class="docs-previous-next" aria-label="이전과 다음 문서"><Show when={props.page.previous}>{previous=><Link href={previous().href} label={`이전: ${previous().label}`} />}</Show><Show when={props.page.next}>{next=><Link href={next().href} label={`다음: ${next().label}`} />}</Show></nav></main><aside class="docs-toc" aria-label="문서 구성"><InPageNavigation title="이 페이지에서" sections={sections()} narrowMode="disclosure" /></aside></div>
    </div>
   </div>
-  <Footer serviceLogo={{src:'/krds/mark.svg',alt:'KRDS Native'}} contacts={[]} utilityLinks={[{href:'https://github.com/moreal/krds',label:'GitHub 저장소'},{href:'/krds/_legal/',label:'원본 출처와 라이선스 파일'}]} privacyPolicy={{href:'/krds/legal/',label:'출처와 권리'}} policyLinks={[]} copyrightText="Independent code © 2026 Lee Dogeon. KRDS and third-party materials retain their own terms." />
+  <Footer serviceLogo={{src:branding.wordmark,alt:branding.alt}} contacts={[]} utilityLinks={[{href:'https://github.com/moreal/krds',label:'GitHub 저장소'},{href:'/krds/_legal/',label:'원본 출처와 라이선스 파일'}]} privacyPolicy={{href:'/krds/legal/',label:'출처와 권리'}} policyLinks={[]} copyrightText="Independent code © 2026 Lee Dogeon. KRDS and third-party materials retain their own terms." />
   <Show when={active()==='search'}><SearchDialog onClose={()=>request(null)} /></Show>
   <Modal id="docs-section-dialog" title="문서 메뉴" open={active()==='section'} initialFocusId="docs-section-dialog" returnFocusId="docs-section-trigger" onOpenChange={({open})=>{if(!open)request(null);}}><SideNavigation title={section()?.label??'문서 안내'} items={sideItems()} currentId={props.page.currentId} /></Modal>
  </div>;

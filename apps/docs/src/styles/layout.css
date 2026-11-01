@@ -5,7 +5,9 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
 .docs-header { padding-inline: var(--krds-padding-8); }
 /* The Header host owns its responsive layout and when its mobile trigger is exposed. */
 .docs-header > header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; }
-.docs-header [data-krds-part="identity"] { inline-size: var(--krds-size-height-8); }
+.docs-header [data-krds-part="identity"] { inline-size: 18rem; min-block-size: 4.4rem; }
+/* Reserve the outlined SVG's exact ratio before it loads. */
+.docs-header [data-krds-part="identity"] img, .docs-shell [data-krds-component="footer"][data-krds-part="logo"] { inline-size: 18rem; block-size: auto; aspect-ratio: 273 / 40; max-inline-size: 100%; }
 .docs-header [data-krds-part="utilities"] { display: none; }
 .docs-header [data-krds-part="actions"] { grid-column: 3; grid-row: 1; }
 .docs-header [data-krds-part="navigation"] { grid-column: 2; grid-row: 1; }
@@ -30,9 +32,12 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
 }
 @media (max-width: 767px) {
  .docs-header { padding-inline: var(--krds-padding-5); }
- .docs-header > header { grid-template-columns: auto minmax(0,1fr); }
- .docs-header [data-krds-part="actions"] { grid-column: 2; }
- .docs-header [data-krds-part="navigation"] { grid-column: 1 / -1; grid-row: 2; }
+ .docs-header [data-krds-part="identity"] { inline-size: min(12rem, 100%); }
+ .docs-header [data-krds-part="identity"] img { inline-size: 100%; }
+ /* Full-width native actions retain readable labels when root text is enlarged. */
+ .docs-header > header { grid-template-columns: minmax(0,1fr); }
+ .docs-header [data-krds-part="actions"] { grid-column: 1; grid-row: 2; }
+ .docs-header [data-krds-part="navigation"] { grid-column: 1; grid-row: 3; }
  .docs-header [data-krds-part="mobile-trigger"] { display: inline-flex; }
  .docs-shell[data-docs-ready="false"] .docs-header [data-krds-part="mobile-trigger"] { display: none; }
  .docs-project-note { padding-inline: var(--krds-padding-5); }

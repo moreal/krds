@@ -4166,20 +4166,6 @@
       ]
     },
     {
-      "sourcePath": "apps/docs/public/mark.svg",
-      "sha256": "ce85f75c0880456e0cb777be9da44c386ede8e2609f4aa707ae4c902c68cf808",
-      "bytes": 229,
-      "origin": "Independent docs geometric K mark; not an official KRDS/government identity",
-      "rights": "independent",
-      "rightsStatus": "verified",
-      "evidence": [
-        "apps/docs/scripts/generate.mjs"
-      ],
-      "destinations": [
-        "apps/docs/public/mark.svg"
-      ]
-    },
-    {
       "origin": "Independently authored React geometric SVG/transcript replacement; previous verified shared asset reuse was also permitted",
       "rights": "independent",
       "rightsStatus": "verified",
@@ -8957,6 +8943,363 @@
         "generatorSha256": "420d5063984de89372c765044caf7594b914a0a11a869ce5f9b2c118804075be",
         "changeSummary": "Draw the existing independent SVG into180×180 Canvas and encode PNG; no Apple/KRDS asset bytes imported"
       }
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-black.svg",
+      "sha256": "e9d586d015f41cb3926cefd99c2ea6aa934258f8e143bf0f4a7f79ebd98e5846",
+      "bytes": 4248,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-black.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/icon-black.svg",
+      "sha256": "35ae28631ba2b19a37d355e4550d633b0c8e734d806cc9269cf4cd8c3f528ee1",
+      "bytes": 295,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/icon-black.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-black@1x.png",
+      "sha256": "72ba23d666a379270336e55ea92433e4f76bccb93f25a45e821eb937c3354e9c",
+      "bytes": 3282,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-black@1x.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-black@2x.png",
+      "sha256": "002d5feddc920647d8e96d756911885a0c8c74cafa412bca1635de3b37180dea",
+      "bytes": 6692,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-black@2x.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-black@3x.png",
+      "sha256": "d8d935afc629a29ad7e079aff2b2aa0841c3cb4dff5dcc6b66491cc449a4313f",
+      "bytes": 10468,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-black@3x.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-white.svg",
+      "sha256": "003af4477cd0bb5424d498eba9bfd5860886591de1036cb4b93d71fef798747c",
+      "bytes": 4248,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-white.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/icon-white.svg",
+      "sha256": "eddd78fe24018f0e81b0815e46fa7fc90886a3387bd1abbde5d6c449e0198c8e",
+      "bytes": 295,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/icon-white.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-white@1x.png",
+      "sha256": "3b43d9714b66d9d6f7902c4d2296d42e306b851a72130b93fc284c18e5df9b30",
+      "bytes": 3358,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-white@1x.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-white@2x.png",
+      "sha256": "2b0c340435306c3a5a46d386a3d82f8fe2a4d2bb6025d4ba1389a3095061b73f",
+      "bytes": 6892,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-white@2x.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/wordmark-white@3x.png",
+      "sha256": "a86ecd9ee92f3e659698d1d0b52f0f1c848a6680fdea222ce4ee418a279a7d96",
+      "bytes": 10770,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/wordmark-white@3x.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/favicon.svg",
+      "sha256": "f3d1c11ec9a7bbbdc9fc6ec23a37882aa4b015a2b76e59b4375490c5384aa2d7",
+      "bytes": 335,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/favicon.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/mark.svg",
+      "sha256": "f3d1c11ec9a7bbbdc9fc6ec23a37882aa4b015a2b76e59b4375490c5384aa2d7",
+      "bytes": 335,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/mark.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/favicon-16.png",
+      "sha256": "6bb12a35b88551ed0d97f6383c4589aee7e996dd0da3df77b0f73398c8f512be",
+      "bytes": 311,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/favicon-16.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/favicon-32.png",
+      "sha256": "fcdbf46fda017ac15321ffcf2625903c1e7e17f94c7651d813510d7c72a77677",
+      "bytes": 474,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/favicon-32.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/favicon-48.png",
+      "sha256": "237995b5e0cebbc95349521d591cbf371474fad484220d826867e371ccb75043",
+      "bytes": 596,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/favicon-48.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/apple-touch-icon.png",
+      "sha256": "fac16089d789a4ceb6f92108bde41be2637ccae1517b49134a05afbbbc554dd3",
+      "bytes": 2062,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/apple-touch-icon.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/app-icon-192.png",
+      "sha256": "17be0294041a687d98bc1d38a03e74a8e9c21863d444afdd12ef97ab52f84e03",
+      "bytes": 2221,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/app-icon-192.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/app-icon-512.png",
+      "sha256": "edf9ec4824839a40747308f9d20261b2c1feb2c79b44db3b7fd331b9541fa803",
+      "bytes": 7406,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/app-icon-512.png"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/favicon.ico",
+      "sha256": "a6381ee426fffe79762b0a6d2995dcd2986380fc853b783b1367777dd1c105e2",
+      "bytes": 1435,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/favicon.ico"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/social.svg",
+      "sha256": "a77ffb4d47c59271b6dd76fb30b75cfa6a35d954e74eb0a1ed17e9c86b7d6f94",
+      "bytes": 4797,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/social.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/docs/public/local-assets/branding/social.png",
+      "sha256": "a7aadb9f5466a1df24201ba0961cfa7a0940a85a39199760a2b626f9a8f49257",
+      "bytes": 17709,
+      "origin": "Independent KRDS Native typographic artwork using original Pretendard GOV glyphs; not an official KRDS/government identity",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/docs/branding/source.json",
+        "apps/docs/scripts/generate-branding.mjs",
+        "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+        "packages/fonts/provenance.json"
+      ],
+      "destinations": [
+        "apps/docs/public/local-assets/branding/social.png"
+      ]
     }
   ],
   "documentation": {
@@ -9047,7 +9390,7 @@
       },
       {
         "sourcePath": "compliance/provenance-dependencies.json",
-        "sha256": "f0f9bbc286e5b051e596b64cb8e3a58a42a4076f6360a4c413f530cbef2fa33c",
+        "sha256": "ee606493dffee99ef8618c197ff40370175fa302aa7910922b381f99b2c5e577",
         "bytes": 1282010,
         "destination": "apps/docs/public/sources/compliance/provenance-dependencies.json.txt",
         "rights": "mixed-record"
@@ -14380,7 +14723,7 @@
         "url": "https://www.krds.go.kr/html/site/service/service_02_04.html"
       }
     ],
-    "metadataSha256": "edb17e9606b6d3e23d023e06bc42723a99e123c802f91932a918646968bf1766",
+    "metadataSha256": "99f7e3cabcdb6ed8668f35ff9d8de40a5ded2af7e2573fd2b434089992d18ef9",
     "reboundAt": "2026-11-01"
   },
   "exclusions": [

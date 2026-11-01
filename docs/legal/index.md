@@ -22,7 +22,7 @@ Each component page identifies its official detail URL, frozen baseline, retriev
 
 ## Fonts, dependencies and local media
 
-Pretendard GOV font bytes retain their own OFL license, attribution and source lineage. Font loading is optional; this site uses system fonts. Dependencies retain their original licenses and notices. Keep the package's `LICENSE.md`, `LICENSES/`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `provenance.json` with the relevant redistributed bytes.
+Pretendard GOV font bytes retain their own OFL license, attribution and source lineage. This site loads the original local Pretendard GOV Regular, Medium and Bold files, with a sans-serif fallback. Its independent monochrome wordmark and K icon are outlined artwork made using Pretendard GOV; this does not relicense the original font software or imply government endorsement. Dependencies retain their original licenses and notices. Keep the package's `LICENSE.md`, `LICENSES/`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md` and `provenance.json` with the relevant redistributed bytes.
 
 Only the specifically cleared local mathematical tone, geometric video and VTT fixtures may be used for the current media demonstrations. No Yuna recording is cleared by this work. A local asset's presence is not sufficient proof of redistribution permission; use the actual asset-source record and hash.
 

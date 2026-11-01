@@ -8522,9 +8522,11 @@ __metadata:
     "@unofficial-krds/styles": "workspace:^"
     "@unofficial-krds/tokens": "workspace:^"
     astro: "npm:7.4.4"
+    fontkitten: "npm:1.0.3"
     marked: "npm:18.1.2"
     playwright-core: "npm:1.64.1"
     postcss: "npm:8.5.32"
+    sharp: "npm:0.34.5"
     solid-js: "npm:1.9.18"
     typescript: "npm:6.0.2"
     vite: "npm:8.3.5"
@@ -13945,7 +13947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fontkitten@npm:^1.0.2, fontkitten@npm:^1.0.3":
+"fontkitten@npm:1.0.3, fontkitten@npm:^1.0.2, fontkitten@npm:^1.0.3":
   version: 1.0.3
   resolution: "fontkitten@npm:1.0.3"
   dependencies:
@@ -19672,7 +19674,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.34.1":
+"sharp@npm:0.34.5, sharp@npm:^0.34.1":
   version: 0.34.5
   resolution: "sharp@npm:0.34.5"
   dependencies:
