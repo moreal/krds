@@ -16,7 +16,12 @@ for (const nextRoot of [null, 'x']) for (const outsideFocus of [false, true]) te
   const route = host.querySelector<HTMLAnchorElement>('a[href="#deep"]')!;
   expect(route.getClientRects().length).toBeGreaterThan(0);
   const outside = host.querySelector<HTMLInputElement>('input')!;
-  (outsideFocus ? outside : route).focus(); setExpanded(nextRoot); await flush();
+  (outsideFocus ? outside : route).focus(); await flush();
+  expect(events).toEqual(outsideFocus ? [{ id: null }] : []);
+  // A rejected outside-focus request retains the committed deep context.
+  expect(route.getClientRects().length).toBeGreaterThan(0);
+  events.length = 0;
+  setExpanded(nextRoot); await flush();
   expect(host.querySelector('a[href="#deep"]')?.getClientRects().length ?? 0).toBe(0);
   expect(document.activeElement).toBe(outsideFocus ? outside : trigger('Root A'));
   expect(events).toEqual([]);
