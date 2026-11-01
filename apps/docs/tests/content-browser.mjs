@@ -15,11 +15,12 @@ try{for(const [name,engine]of [['chromium',chromium],['webkit',webkit]]){
  const ids=await page.locator('th[id]').evaluateAll(nodes=>nodes.map(n=>n.id));assert.equal(new Set(ids).size,ids.length);
  for(const href of await page.locator('article a[href]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href'))))assert.ok(href.startsWith('/krds/')||/^(https?:|mailto:|tel:|#)/.test(href),href);
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1),'narrow table stays in its scroll region');
- await page.screenshot({path:resolve(evidence,`${name}-table.png`),fullPage:true});
+ // Reference and compiler-source documents can exceed WebKit's full-page bitmap limit.
+ await page.locator('article table').first().scrollIntoViewIfNeeded();await page.screenshot({path:resolve(evidence,`${name}-table.png`)});
  await page.goto(origin+'/krds/examples/solid-2.html',{waitUntil:'networkidle'});await page.waitForFunction(()=>!document.querySelector('astro-island[ssr]'));
  assert.match(await page.locator('pre code').first().textContent(),/import/);assert.ok(await page.getByRole('button',{name:'코드 복사',exact:true}).first().isEnabled());
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1),'long source stays in pre scroll region');
- await page.screenshot({path:resolve(evidence,`${name}-code.png`),fullPage:true});assert.deepEqual(errors,[]);
+ await page.locator('pre code').first().scrollIntoViewIfNeeded();await page.screenshot({path:resolve(evidence,`${name}-code.png`)});assert.deepEqual(errors,[]);
  const ssr=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:800}});const staticPage=await ssr.newPage();await staticPage.goto(origin+'/krds/components/button.html');assert.ok(await staticPage.locator('article table a[href]').count()>10);const download=await staticPage.locator('article a[href*="/sources/"]').first().getAttribute('href');assert.equal((await staticPage.request.get(origin+download)).status(),200);
  console.log(`${name}: rich public table/link/code, unique IDs, 320px reflow, hydration and no-JS downloads passed`);await context.close();await ssr.close();
  }finally{await browser.close();}
