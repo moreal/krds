@@ -8934,7 +8934,7 @@
       ]
     },
     {
-      "origin": "Independent React specimen SVG rasterized to180\u00d7180 PNG using browser Canvas; retains existing projectMIT conditions",
+      "origin": "Independent React specimen SVG rasterized to180×180 PNG using browser Canvas; retains existing projectMIT conditions",
       "rights": "independent",
       "rightsStatus": "verified",
       "evidence": [
@@ -8955,7 +8955,7 @@
         "sourceSha256": "2d557874afc9e81a8ae78ecda9ec09480234bf6567a89ecc38f6d4d941e9b6f8",
         "generatorPath": "apps/fixture-react/tests/generate-touch-icon.mjs",
         "generatorSha256": "420d5063984de89372c765044caf7594b914a0a11a869ce5f9b2c118804075be",
-        "changeSummary": "Draw the existing independent SVG into180\u00d7180 Canvas and encode PNG; no Apple/KRDS asset bytes imported"
+        "changeSummary": "Draw the existing independent SVG into180×180 Canvas and encode PNG; no Apple/KRDS asset bytes imported"
       }
     }
   ],
@@ -9047,8 +9047,8 @@
       },
       {
         "sourcePath": "compliance/provenance-dependencies.json",
-        "sha256": "631947b46c1a15653e2b5aed100221c64cb8c7255d21f7bb1f95694df6aabebd",
-        "bytes": 1226455,
+        "sha256": "f0f9bbc286e5b051e596b64cb8e3a58a42a4076f6360a4c413f530cbef2fa33c",
+        "bytes": 1282010,
         "destination": "apps/docs/public/sources/compliance/provenance-dependencies.json.txt",
         "rights": "mixed-record"
       },
@@ -14380,7 +14380,7 @@
         "url": "https://www.krds.go.kr/html/site/service/service_02_04.html"
       }
     ],
-    "metadataSha256": "6926765dea9616b367ac12016468e6bdeb477706436837e025d63ce037a04756",
+    "metadataSha256": "edb17e9606b6d3e23d023e06bc42723a99e123c802f91932a918646968bf1766",
     "reboundAt": "2026-11-01"
   },
   "exclusions": [
@@ -21826,6 +21826,87 @@
       "destinationSha256": "db92f8d0ea6d73c02bbd5734ee1ffaf83a1fe86d5e49fb690d12e065e1fc7eec",
       "licenseTextPath": "LICENSES/MIT.txt",
       "originRecord": "apps/storybook-react/local-assets-provenance.json"
+    }
+  ],
+  "fontAssets": [
+    {
+      "sourceId": "font-PretendardGOV-Regular",
+      "sourcePath": "packages/fonts/fonts/PretendardGOV-Regular.woff2",
+      "sha256": "0707d52d277a20d807f472559940e7f8022e528ac4c680b827287938d4db1fbe",
+      "bytes": 2043316,
+      "modified": false,
+      "destinations": [
+        "apps/docs/dist/_astro/PretendardGOV-Regular.CdGZ2IiN.woff2"
+      ]
+    },
+    {
+      "sourceId": "font-PretendardGOV-Medium",
+      "sourcePath": "packages/fonts/fonts/PretendardGOV-Medium.woff2",
+      "sha256": "0c72b4e0ab4d89a0b2bba4d92690d0a36609392611a1d2c366f842552627897d",
+      "bytes": 2077548,
+      "modified": false,
+      "destinations": [
+        "apps/docs/dist/_astro/PretendardGOV-Medium.DBk7PONq.woff2"
+      ]
+    },
+    {
+      "sourceId": "font-PretendardGOV-Bold",
+      "sourcePath": "packages/fonts/fonts/PretendardGOV-Bold.woff2",
+      "sha256": "d78ab7c3708fe868dcc5e3696281771b3cdc6a891de571f93331f98840d8941b",
+      "bytes": 2120680,
+      "modified": false,
+      "destinations": [
+        "apps/docs/dist/_astro/PretendardGOV-Bold.DfB4vD8H.woff2"
+      ]
+    }
+  ],
+  "bundledDependencies": [
+    {
+      "name": "@astrojs/solid-js",
+      "version": "7.1.2",
+      "modules": [
+        "dist/client.js"
+      ],
+      "manifestPath": "compliance/provenance-dependency-manifests/_astrojs_solid-js_7.1.2.json",
+      "manifestSha256": "f63cbe898dd0b04f2c68f7f46a3b28391dcfbcfd6f0cca2ec47bdf9413e33155",
+      "licenseDocuments": [
+        {
+          "localPath": "LICENSES/dependencies/_astrojs_solid-js_7.1.2/LICENSE",
+          "sha256": "4aa72be797aad0e5e21827eaae6a1df9e122d7a401f07d2c308a6b9a5f0e1278"
+        }
+      ]
+    },
+    {
+      "name": "astro",
+      "version": "7.4.4",
+      "modules": [
+        "runtime/client/astro-island (inline runtime)"
+      ],
+      "manifestPath": "compliance/provenance-dependency-manifests/astro_7.4.4.json",
+      "manifestSha256": "a50db63b149370846e924caa44c0e28fb88fc4ef58f52624fb22463af6d1c5f0",
+      "licenseDocuments": [
+        {
+          "localPath": "LICENSES/dependencies/astro_7.4.4/LICENSE",
+          "sha256": "4aa72be797aad0e5e21827eaae6a1df9e122d7a401f07d2c308a6b9a5f0e1278"
+        }
+      ]
+    },
+    {
+      "name": "solid-js",
+      "version": "1.9.18",
+      "modules": [
+        "dist/solid.js",
+        "store/dist/store.js",
+        "web/dist/web.js"
+      ],
+      "manifestPath": "compliance/provenance-dependency-manifests/solid-js_1.9.18.json",
+      "manifestSha256": "7798642e68f560709b2e439a46c05768917bbd2a700fd8fc9d940055992fc72d",
+      "licenseDocuments": [
+        {
+          "localPath": "LICENSES/dependencies/solid-js_1.9.18/LICENSE",
+          "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+        }
+      ]
     }
   ]
 }

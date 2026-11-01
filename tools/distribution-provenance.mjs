@@ -90,6 +90,29 @@ export async function loadDistribution(root, { independentCopyright, sourceEntri
       if (await exists(safePath(root, app.buildRoot))) await checkBytes(root, build, record);
     }
   }
+  if (inventory.bundledDependencies?.length) {
+    const dependencies = await json(join(root, policy.dependencyInventoryPath));
+    for (const record of inventory.bundledDependencies) {
+      const original = dependencies.packages[`${record.name}@${record.version}`];
+      if (!original || !record.modules?.length || !record.licenseDocuments?.length || original.manifestPath !== record.manifestPath || original.manifestSha256 !== record.manifestSha256 || JSON.stringify(original.licenseDocuments) !== JSON.stringify(record.licenseDocuments)) throw new Error(`Bundled dependency original provenance drift: ${record.name}`);
+      if (hash(await readFile(safePath(root, record.manifestPath))) !== record.manifestSha256) throw new Error(`Bundled dependency manifest drift: ${record.name}`);
+      for (const terms of record.licenseDocuments) if (hash(await readFile(safePath(root, terms.localPath))) !== terms.sha256) throw new Error(`Bundled dependency license drift: ${record.name}`);
+    }
+  }
+  // Bundlers emit original font bytes into hashed build destinations. Keep their
+  // original rights separate from independent specimen assets and text snapshots.
+  const fontDestinations = new Set();
+  for (const record of inventory.fontAssets ?? []) {
+    const original = sourceEntries.find(entry => entry.id === record.sourceId);
+    if (!original || original.rightsStatus !== 'verified' || original.modified || record.modified !== false || !original.localPaths.includes(record.sourcePath) || original.sha256 !== record.sha256 || !inventory.terms.font.includes(original.licenseTextPath) || !record.destinations?.length) throw new Error(`Invalid font source provenance: ${record.sourcePath}`);
+    await checkBytes(root, record.sourcePath, record);
+    for (const destination of record.destinations) {
+      if (!/^apps\/docs\/dist\/_astro\/[^/]+\.woff2$/u.test(destination) || fontDestinations.has(destination)) throw new Error(`Invalid font destination: ${destination}`);
+      fontDestinations.add(destination);
+      if (await exists(safePath(root, 'apps/docs/dist'))) await checkBytes(root, destination, record);
+    }
+  }
+  for (const path of await files(root, 'apps/docs/dist/_astro')) if (/\.(?:woff2?|ttf|otf)$/iu.test(path) && !fontDestinations.has(path)) throw new Error(`Untracked built font: ${path}`);
   // Discover roots independently: a new framework asset root cannot escape registration.
   for (const app of await readdir(join(root, 'apps'), { withFileTypes: true })) {
     if (!app.isDirectory()) continue;
@@ -127,8 +150,11 @@ export async function distributionArtifacts(root, inventory) {
   for (const app of inventory.applications) {
     const assets = inventory.assets.filter((record) => record.destinations.some((path) => path.startsWith(`${app.publicRoot}/`)));
     const docs = app.path === 'apps/docs' ? inventory.documentation : null;
-    const terms = [...new Set([...inventory.terms.independent, ...inventory.terms.krds, ...(docs ? inventory.terms.font : [])])];
-    const local = { schemaVersion: 1, application: app.path, inventory: 'compliance/distribution-provenance.json', scope: inventory.scope, independentCopyright: inventory.independentCopyright, assets, sourceConditions: inventory.sourceConditions ?? [], sourceConditionsNote: inventory.sourceConditionsNote, ...(docs ? { documentation: docs } : {}), termsCopies: terms.map((path) => ({ sourcePath: path, destination: termsDestination(path), sha256: inventory.termsHashes[path] })), termsHashes: Object.fromEntries(terms.map((path) => [path, inventory.termsHashes[path]])), exclusions: inventory.exclusions };
+    const dependencies = docs ? inventory.bundledDependencies ?? [] : [];
+    const dependencyTerms = dependencies.flatMap(record => record.licenseDocuments);
+    const allTermHashes = {...inventory.termsHashes,...Object.fromEntries(dependencyTerms.map(record=>[record.localPath,record.sha256]))};
+    const terms = [...new Set([...inventory.terms.independent, ...inventory.terms.krds, ...(docs ? inventory.terms.font : []),...dependencyTerms.map(record=>record.localPath)])];
+    const local = { schemaVersion: 1, application: app.path, inventory: 'compliance/distribution-provenance.json', scope: inventory.scope, independentCopyright: inventory.independentCopyright, assets, sourceConditions: inventory.sourceConditions ?? [], sourceConditionsNote: inventory.sourceConditionsNote, ...(docs ? { documentation: docs, fontAssets: inventory.fontAssets ?? [], bundledDependencies: dependencies } : {}), termsCopies: terms.map((path) => ({ sourcePath: path, destination: termsDestination(path), sha256: allTermHashes[path] })), termsHashes: Object.fromEntries(terms.map((path) => [path, allTermHashes[path]])), exclusions: inventory.exclusions };
     const index = `<!doctype html><html lang="en"><meta charset="utf-8"><title>Source and license notices</title><main><h1>Source and license notices</h1><p>${inventory.independentCopyright.replaceAll('<', '&lt;').replaceAll('>', '&gt;')}. The MIT grant covers independent project materials only.</p><p>Official KRDS excerpts and adaptations retain Ministry of the Interior and Safety attribution and KRDS/KOGL conditions. Original policy and font texts retain their own terms and Reserved Font Names. No government affiliation, sponsorship or endorsement is implied.</p><p>Fixture audio is an arithmetic test tone; video is simple geometry. These specimens are not speech or authentic sign-language interpretations. Apple System Voices/Yuna output is excluded.</p><ul>${terms.map((path) => `<li><a href="${termsDestination(path)}">${path}</a></li>`).join('')}<li><a href="provenance.json">Exact source and destination inventory</a></li></ul></main></html>\n`;
     const roots = [`${app.publicRoot}/_legal`];
     if (await exists(safePath(root, app.buildRoot))) roots.push(`${app.buildRoot}/_legal`);

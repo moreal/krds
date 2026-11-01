@@ -129,6 +129,10 @@ test('Nx test graphs include each output-consuming app build and retain dependen
       const prerequisites = graph.dependencies[`${project}:test`].map(dependency => dependency.id);
       assert.ok(prerequisites.includes(`${project}:${build}`), `${project}:test must build its own dist`);
       assert.ok(prerequisites.includes('krds-styles:build'), `${project}:test must retain ^build`);
+      if (project === 'krds-docs') {
+        for (const dependency of ['krds-solid','krds-fonts','krds-contracts','krds-tokens']) assert.ok(prerequisites.includes(`${dependency}:build`), `docs retains actual ${dependency} prerequisite`);
+        assert.ok(!prerequisites.includes('krds-vue:build'), 'Astro docs does not build an unused renderer');
+      }
     }
   } finally { await rm(directory, {recursive: true, force: true}); }
 });
@@ -162,4 +166,14 @@ test('every provenance-referenced legal source exists with its recorded hash and
     for (const hash of hashes) assert.equal(createHash('sha256').update(bytes).digest('hex'), hash, path);
     assert.ok(included.has(path), `${path} is missing from the Git source inventory (possibly ignored)`);
   }
+});
+
+
+test('Pages keeps portable runner context and publishes only checked Astro dist', async () => {
+  const workflow=await readFile(join(root,'.github/workflows/docs-pages.yml'),'utf8');
+  assert.doesNotMatch(workflow,/\$\{\{\s*runner\.temp/);
+  assert.match(workflow,/PLAYWRIGHT_BROWSERS_PATH=\$RUNNER_TEMP\/krds-playwright-1\.64\.1/);
+  for(const command of ['krds-docs:build','docs typecheck','docs test','docs test:content','docs test:pipeline','docs test:reproducibility','docs test:browser','verify:licenses'])assert.ok(workflow.includes(command),command);
+  assert.match(workflow,/path: apps\/docs\/dist/);
+  assert.doesNotMatch(workflow,/native Vue|vitepress/i);
 });

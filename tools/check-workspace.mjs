@@ -1,5 +1,5 @@
 import { readFile, readdir, access } from 'node:fs/promises';
-import { resolve, relative, dirname, basename } from 'node:path';
+import { resolve, relative, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 import { quarantinedStorybooks } from './ci/capabilities.mjs';
@@ -20,10 +20,10 @@ async function sourceFiles(path) {
   const files = [];
   for (const entry of await readdir(path, { withFileTypes: true })) {
     if (['node_modules', 'dist', '.svelte-kit', 'storybook-static', '.angular', '.vite'].includes(entry.name)) continue;
-    if (entry.isDirectory() && basename(path) === '.vitepress' && ['.temp', '.cache'].includes(entry.name)) continue;
+    if (entry.isDirectory() && entry.name === '.astro' && path.endsWith('/apps/docs')) continue;
     const file = `${path}/${entry.name}`;
     if (entry.isDirectory()) files.push(...await sourceFiles(file));
-    else if (/\.(?:[cm]?[jt]sx?|svelte|vue|css)$/.test(file)) files.push(file);
+    else if (/\.(?:[cm]?[jt]sx?|svelte|vue|astro|css)$/.test(file)) files.push(file);
   }
   return files;
 }

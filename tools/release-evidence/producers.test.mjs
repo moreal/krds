@@ -18,7 +18,7 @@ test('F1 native parser rejects empty, filtered, failed, skipped and invented cas
 });
 test('F1 parses real docs browser output and exact five-test Node stdout',()=>{
  assert.equal(typeof api.parseDocsBrowser,'function');assert.equal(typeof api.parseNodeTests,'function');
- assert.equal(api.parseDocsBrowser(json('.superpowers/sdd/PLAN/t12-docs-logs/browser/report.json')).engines,2);
+ assert.throws(()=>api.parseDocsBrowser(json('.superpowers/sdd/PLAN/t12-docs-logs/browser/report.json')), 'immutable VitePress history cannot satisfy current Astro acceptance');
  const stdout=readFileSync(join(root,'.superpowers/sdd/PLAN/t12-docs-logs/tests-core-input-refresh.log'),'utf8');assert.equal(api.parseNodeTests(stdout,5).passed,5);
  assert.throws(()=>api.parseNodeTests(stdout.replace('fail 0','fail 1'),5));
  const raw=json('.superpowers/sdd/PLAN/t12-docs-logs/browser/report.json');raw.results[0].externalRequests.push('https://invalid.test');assert.throws(()=>api.parseDocsBrowser(raw));
@@ -88,4 +88,20 @@ test('current documentation capture requires all seven actual docs tests', () =>
  assert.throws(() => api.parseNodeTests(stdout.replace('pass 7', 'pass 6'), 7));
  const producer = readFileSync(join(root, 'tools/release-evidence/producers.mjs'), 'utf8');
  assert.ok(producer.includes("parseNodeTests((await step(root,report.tests,'docs-tests')).stdout,7)"));
+});
+
+test('current Astro documentation evidence requires real fonts and cannot promote VitePress history', () => {
+ const historical=json('.superpowers/sdd/PLAN/t12-docs-logs/browser/report.json');
+ assert.throws(()=>api.parseDocsBrowser(historical));
+ const row={status:'passed',assertions:[...api.docsChecks],errors:[],externalRequests:[],axe:{home:[],badge:[]},textScaling:{factor:2,normalFont:16,scaledFont:32},overflow:{scroll:320,client:320},downloads:609,defaultMediumButtonHeight:48,fonts:{root:'10px',body:'16px',families:[400,500,700].map(weight=>({weight,faces:[{family:'Pretendard GOV',weight:String(weight),status:'loaded'}]}))}};
+ const raw={schemaVersion:2,results:['chromium','webkit'].map(browser=>({...structuredClone(row),browser}))};
+ assert.equal(api.parseDocsBrowser(raw).engines,2);
+ for(const mutate of [value=>value.results[0].assertions.pop(),value=>value.results[0].fonts.families[0].faces=[],value=>value.results[0].downloads=608,value=>value.schemaVersion=1]){const copy=structuredClone(raw);mutate(copy);assert.throws(()=>api.parseDocsBrowser(copy));}
+});
+
+test('Astro source closure retains authored .astro but excludes generated routes, caches and results', async t => {
+ const fs=await import('node:fs/promises'),temporary=await fs.mkdtemp('/private/tmp/krds-astro-closure-');t.after(()=>fs.rm(temporary,{recursive:true,force:true}));
+ for(const path of ['apps/docs/src/layouts/Document.astro','apps/docs/.astro/types.d.ts','apps/docs/src/generated/pages.json','apps/docs/src/pages/index.astro','apps/docs/test-results/shell/report.json','apps/docs/src/nested/.astro/authored.astro']){await fs.mkdir(join(temporary,path,'..'),{recursive:true});await fs.writeFile(join(temporary,path),'unit bytes');}
+ const snapshot=await api.inventory(temporary,['apps/docs']);
+ assert.deepEqual(snapshot.files.map(row=>row.path).sort(),['apps/docs/src/layouts/Document.astro','apps/docs/src/nested/.astro/authored.astro']);
 });

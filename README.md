@@ -17,7 +17,7 @@ node tools/yarn.mjs workspace @unofficial-krds/docs typecheck
 node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs
 ```
 
-문서는 `http://127.0.0.1:49100/krds/`에서 열립니다. 문서 빌드는 실제 Vue 예시에 필요한 공유 패키지와 Vue 패키지를 먼저 빌드합니다. 프레임워크별 소비자 코드와 빌드 명령은 [빠른 시작](docs/getting-started/installation.md)을 참고하세요. Fixture와 Storybook은 별도로 빌드한 뒤 로컬 서버의 `/krds/native/` 경로에서 확인합니다. Qwik 프로덕션 SSR/resume은 전용 서버와 검사가 필요합니다.
+문서는 `http://127.0.0.1:49100/krds/`에서 열립니다. 문서 빌드는 Astro 및 공개 Solid 1 UI에 필요한 공유 패키지와 Solid 패키지를 먼저 빌드합니다. 프레임워크별 소비자 코드와 빌드 명령은 [빠른 시작](docs/getting-started/installation.md)을 참고하세요. Fixture와 Storybook은 별도로 빌드한 뒤 로컬 서버의 `/krds/native/` 경로에서 확인합니다. Qwik 프로덕션 SSR/resume은 전용 서버와 검사가 필요합니다.
 
 ## 문서 배포
 

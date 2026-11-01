@@ -21,8 +21,10 @@ async function fixture() {
   // Synthetic generator inputs isolate this regression from all native producers.
   // They are test data, never native compiler/coverage acceptance evidence.
   const source = 'export const example = 1;\n';
+  const declaration = 'export declare const example: 1;\n';
   const official = '<p>Synthetic reference-only test source</p>';
   const inputs = {
+    'apps/docs/declaration-checkpoint.json': {schemaVersion:1,kind:'historical-declaration-checkpoint',currentCandidate:false,records:[{sourcePath:'packages/fixture/dist/index.d.ts',checkpointPath:'apps/docs/public/sources/packages/fixture/dist/index.d.ts.txt',bytes:Buffer.byteLength(declaration),sha256:sha256(declaration)}]},
     'compatibility/frameworks.json': { frameworks: [{ id: 'fixture', renderer: 'test fixture', supportChannel: 'stable', pins: {} }] },
     'catalog/components.json': { krdsBaselineId: 'synthetic-test-only', components: [{ id: 'example', exportName: 'Example', nameEn: 'Example', nameKo: '예제', kind: 'component', webApplicable: true, variants: [], canonicalUrl: 'https://example.invalid/reference', source: { localPath: 'upstream/example.html', sha256: sha256(official), retrievedAt: '2026-10-30' }, specPath: 'specs/components/example.md' }] },
     'catalog/coverage.json': { stableFrameworks: ['fixture'], previewFrameworks: [], coverage: [{ framework: 'fixture', componentId: 'example', status: 'planned' }] },
@@ -34,6 +36,7 @@ async function fixture() {
   };
   for (const [path, value] of Object.entries(inputs)) await write(directory, path, JSON.stringify(value));
   for (const [path, bytes] of Object.entries({
+    'apps/docs/public/sources/packages/fixture/dist/index.d.ts.txt': declaration,
     'packages/contracts/src/full-catalog.ts': 'export interface ExampleContract { label?: string }',
     'packages/contracts/src/types.ts': 'export interface SharedDetail {}',
     'upstream/example.html': official,
@@ -116,7 +119,12 @@ test('checkpoint rejects current-candidate or publication-authorized scope', asy
   t.after(() => rm(directory, { recursive: true, force: true }));
   const path = 'apps/docs/artifact-checkpoint.json';
   const original = JSON.parse(await readFile(resolve(directory, path), 'utf8'));
+  const declarationPath = 'apps/docs/public/sources/packages/fixture/dist/index.d.ts.txt';
+  const frozenDeclaration = await readFile(resolve(directory, declarationPath));
   for (const field of ['currentCandidate', 'publicationAuthorized']) {
+    // Each negative generation may recreate public/sources before rejecting its
+    // artifact scope, so restore this independent case's immutable fixture input.
+    await write(directory, declarationPath, frozenDeclaration);
     await write(directory, path, JSON.stringify({ ...original, [field]: true }));
     const result = generate(directory);
     assert.notEqual(result.status, 0);

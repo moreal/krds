@@ -6,25 +6,34 @@
   "scripts": {
     "test": "node --test tests/docs.test.mjs",
     "lint": "node ../../tools/check-workspace.mjs",
-    "build:local": "node scripts/generate.mjs && vitepress build . --outDir dist",
-    "typecheck": "vue-tsc -p tsconfig.json --noEmit",
+    "build:local": "node scripts/generate.mjs && node scripts/generate-routes.mjs && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "typecheck": "node scripts/generate-routes.mjs && ASTRO_TELEMETRY_DISABLED=1 astro sync && astro-check --minimumFailingSeverity error && tsc -p tsconfig.json --noEmit",
+    "test:pipeline": "node --test tests/astro-pipeline.test.mjs tests/astro-diagnostics.test.mjs",
     "test:browser": "node --import ../../tools/testing/browser-cache-preload.mjs tests/browser.mjs",
-    "test:reproducibility": "node tests/reproducibility.mjs"
+    "test:reproducibility": "node tests/reproducibility.mjs",
+    "test:content": "node --test tests/content.test.mjs tests/public-rich-ssr.test.mjs && tsc -p tests/tsconfig.rich.json --noEmit",
+    "test:content:browser": "node --import ../../tools/testing/browser-cache-preload.mjs tests/content-browser.mjs",
+    "test:shell:browser": "node --import ../../tools/testing/browser-cache-preload.mjs tests/shell-browser.mjs"
   },
   "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@astrojs/solid-js": "7.1.2",
     "@axe-core/playwright": "4.14.0",
     "@playwright/test": "1.64.1",
     "@types/node": "24.13.3",
+    "astro": "7.4.4",
+    "marked": "18.1.2",
     "playwright-core": "1.64.1",
     "postcss": "8.5.32",
+    "solid-js": "1.9.18",
     "typescript": "6.0.2",
-    "vitepress": "1.6.4",
-    "vue": "3.5.44",
-    "vue-tsc": "3.3.14"
+    "vite": "8.3.5"
   },
   "dependencies": {
+    "@unofficial-krds/contracts": "workspace:^",
+    "@unofficial-krds/fonts": "workspace:^",
+    "@unofficial-krds/solid": "workspace:^",
     "@unofficial-krds/styles": "workspace:^",
-    "@unofficial-krds/tokens": "workspace:^",
-    "@unofficial-krds/vue": "workspace:^"
+    "@unofficial-krds/tokens": "workspace:^"
   }
 }

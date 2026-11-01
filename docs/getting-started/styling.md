@@ -24,7 +24,7 @@ Portal content may render outside the nearest DOM theme ancestor. Apply the same
 
 The separate `@unofficial-krds/fonts` package contains the local font assets and its own font-face stylesheet. Install and load it only if its size and font license terms suit the application. Keep its OFL license, attribution and source records with redistributed font bytes. The styles package's local-font selection and the fonts package's font-face loading are different opt-ins.
 
-This site uses system fonts and makes no CDN font request. See [sources and rights](../legal/) for Pretendard GOV and other third-party notices. Do not fetch external fonts or images to prepare a story state.
+This Astro site opts into the public reset and unmodified local fonts stylesheet. It serves the original Pretendard GOV 400/500/700 WOFF2 files beneath `/krds/` and makes no CDN font request. The root is 62.5%, the body is 1.6rem and a default medium Button is 48px. The supported presentation is light and forced-colors. See [sources and rights](../legal/) for Pretendard GOV and other third-party notices. Do not fetch external fonts or images to prepare a story state.
 
 ## Lit Shadow DOM
 

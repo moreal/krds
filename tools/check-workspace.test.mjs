@@ -116,23 +116,25 @@ test('official Qwik client-manifest virtual module policy', async (t) => {
   });
 });
 
-// VitePress output is generated; its authored configuration remains boundary-checked.
-test('VitePress generated caches preserve authored import boundaries', async () => {
+// Authored Astro files remain boundary-checked; only the root generated cache is ignored.
+test('Astro authored imports are checked and only root generated cache is ignored', async () => {
   const root = resolve(import.meta.dirname, '..');
-  await withWorkspaceCopy(root, async (dir) => {
-    for (const cache of ['.temp', '.cache']) {
-      await mkdir(`${dir}/apps/docs/.vitepress/${cache}`, { recursive: true });
-      await writeFile(`${dir}/apps/docs/.vitepress/${cache}/generated.js`, 'import generated from "review-generated-only";');
-    }
+  await withWorkspaceCopy(root, async dir => {
+    await mkdir(`${dir}/apps/docs/src/pages`, { recursive: true });
+    await writeFile(`${dir}/apps/docs/src/pages/policy.astro`, '---\nimport secret from "astro-review-undeclared";\n---\n<p>Policy</p>');
+    assert.match((await inspectWorkspace(dir)).join('\n'), /undeclared direct import astro-review-undeclared/);
+    await writeFile(`${dir}/apps/docs/src/pages/policy.astro`, '---\nimport "../../../..\/packages/react/src/index";\n---');
+    assert.match((await inspectWorkspace(dir)).join('\n'), /undeclared internal import @unofficial-krds\/react/);
+    await rm(`${dir}/apps/docs/src/pages/policy.astro`);
+    await mkdir(`${dir}/apps/docs/.astro`, { recursive: true });
+    await writeFile(`${dir}/apps/docs/.astro/generated.js`, 'import "astro-generated-only";');
     assert.deepEqual(await inspectWorkspace(dir), []);
-    await writeFile(`${dir}/apps/docs/.vitepress/review.config.mjs`, 'import authored from "review-undeclared-config";');
-    assert.match((await inspectWorkspace(dir)).join('\n'), /undeclared direct import review-undeclared-config/);
-    await rm(`${dir}/apps/docs/.vitepress/review.config.mjs`);
-    await mkdir(`${dir}/apps/docs/.temp`, { recursive: true });
-    await writeFile(`${dir}/apps/docs/.temp/authored.js`, 'import authored from "review-ordinary-temp";');
-    assert.match((await inspectWorkspace(dir)).join('\n'), /undeclared direct import review-ordinary-temp/);
+    await mkdir(`${dir}/apps/docs/src/.astro`, { recursive: true });
+    await writeFile(`${dir}/apps/docs/src/.astro/authored.astro`, '---\nimport "astro-authored-nested";\n---');
+    assert.match((await inspectWorkspace(dir)).join('\n'), /undeclared direct import astro-authored-nested/);
   });
 });
+
 
 test('quarantined unsupported preview cannot regain executable scripts, targets, or a stale production entry', async t => {
   const root = resolve(import.meta.dirname, '..');

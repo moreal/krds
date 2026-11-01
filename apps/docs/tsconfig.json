@@ -1,10 +1,15 @@
 {
   "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "types": ["astro/client", "node"]
+  },
   "include": [
+    ".astro/types.d.ts",
     "src/**/*.ts",
-    ".vitepress/config.mts",
-    ".vitepress/theme/index.ts",
-    ".vitepress/theme/**/*.vue",
-    ".vitepress/theme/**/*.ts"
-  ]
+    "src/**/*.tsx",
+    "src/**/*.astro"
+  ],
+  "exclude": ["dist"]
 }

@@ -21,6 +21,11 @@ node_modules/
 **/.svelte-kit/
 **/.angular/
 **/.vite/
+/apps/docs/.astro/
+/apps/docs/src/pages/
+/apps/docs/src/generated/
 *.tsbuildinfo
 .DS_Store
 /artifacts/
+
+/apps/docs/public/search-index.json

@@ -6891,8 +6891,8 @@
       },
       {
         "sourcePath": "compliance/provenance-dependencies.json",
-        "sha256": "19603b7ae0e0be6e5007e6610c5258fb43aa494ca4adb2cccb775c2def593d91",
-        "bytes": 1226455,
+        "sha256": "f0f9bbc286e5b051e596b64cb8e3a58a42a4076f6360a4c413f530cbef2fa33c",
+        "bytes": 1282010,
         "destination": "apps/docs/public/sources/compliance/provenance-dependencies.json.txt",
         "rights": "mixed-record"
       },
@@ -8491,6 +8491,87 @@
       {
         "sourcePath": "docs/patterns/evidence/service_02_04.html",
         "url": "https://www.krds.go.kr/html/site/service/service_02_04.html"
+      }
+    ],
+    "fontAssets": [
+      {
+        "sourceId": "font-PretendardGOV-Regular",
+        "sourcePath": "packages/fonts/fonts/PretendardGOV-Regular.woff2",
+        "sha256": "0707d52d277a20d807f472559940e7f8022e528ac4c680b827287938d4db1fbe",
+        "bytes": 2043316,
+        "modified": false,
+        "destinations": [
+          "apps/docs/dist/_astro/PretendardGOV-Regular.CdGZ2IiN.woff2"
+        ]
+      },
+      {
+        "sourceId": "font-PretendardGOV-Medium",
+        "sourcePath": "packages/fonts/fonts/PretendardGOV-Medium.woff2",
+        "sha256": "0c72b4e0ab4d89a0b2bba4d92690d0a36609392611a1d2c366f842552627897d",
+        "bytes": 2077548,
+        "modified": false,
+        "destinations": [
+          "apps/docs/dist/_astro/PretendardGOV-Medium.DBk7PONq.woff2"
+        ]
+      },
+      {
+        "sourceId": "font-PretendardGOV-Bold",
+        "sourcePath": "packages/fonts/fonts/PretendardGOV-Bold.woff2",
+        "sha256": "d78ab7c3708fe868dcc5e3696281771b3cdc6a891de571f93331f98840d8941b",
+        "bytes": 2120680,
+        "modified": false,
+        "destinations": [
+          "apps/docs/dist/_astro/PretendardGOV-Bold.DfB4vD8H.woff2"
+        ]
+      }
+    ],
+    "bundledDependencies": [
+      {
+        "name": "@astrojs/solid-js",
+        "version": "7.1.2",
+        "modules": [
+          "dist/client.js"
+        ],
+        "manifestPath": "compliance/provenance-dependency-manifests/_astrojs_solid-js_7.1.2.json",
+        "manifestSha256": "f63cbe898dd0b04f2c68f7f46a3b28391dcfbcfd6f0cca2ec47bdf9413e33155",
+        "licenseDocuments": [
+          {
+            "localPath": "LICENSES/dependencies/_astrojs_solid-js_7.1.2/LICENSE",
+            "sha256": "4aa72be797aad0e5e21827eaae6a1df9e122d7a401f07d2c308a6b9a5f0e1278"
+          }
+        ]
+      },
+      {
+        "name": "astro",
+        "version": "7.4.4",
+        "modules": [
+          "runtime/client/astro-island (inline runtime)"
+        ],
+        "manifestPath": "compliance/provenance-dependency-manifests/astro_7.4.4.json",
+        "manifestSha256": "a50db63b149370846e924caa44c0e28fb88fc4ef58f52624fb22463af6d1c5f0",
+        "licenseDocuments": [
+          {
+            "localPath": "LICENSES/dependencies/astro_7.4.4/LICENSE",
+            "sha256": "4aa72be797aad0e5e21827eaae6a1df9e122d7a401f07d2c308a6b9a5f0e1278"
+          }
+        ]
+      },
+      {
+        "name": "solid-js",
+        "version": "1.9.18",
+        "modules": [
+          "dist/solid.js",
+          "store/dist/store.js",
+          "web/dist/web.js"
+        ],
+        "manifestPath": "compliance/provenance-dependency-manifests/solid-js_1.9.18.json",
+        "manifestSha256": "7798642e68f560709b2e439a46c05768917bbd2a700fd8fc9d940055992fc72d",
+        "licenseDocuments": [
+          {
+            "localPath": "LICENSES/dependencies/solid-js_1.9.18/LICENSE",
+            "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+          }
+        ]
       }
     ]
   }

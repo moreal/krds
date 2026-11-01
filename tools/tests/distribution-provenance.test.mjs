@@ -105,3 +105,30 @@ test('rejects wrong, empty or unapproved term scopes using authoritative policy'
   f.policy.sourceDocuments['LICENSES/KRDS.html'] = hash('a different preserved original'); await f.save();
   await assert.rejects(loadDistribution(f.root), /authoritative.*hash|term closure/);
 });
+
+
+test('built fonts require verified original provenance, exact bytes and registered destinations', async t => {
+  const f = await fixture(t); const bytes = 'original font bytes';
+  const source = 'packages/fonts/fonts/Regular.woff2', destination = 'apps/docs/dist/_astro/Regular.hash.woff2';
+  await f.put(source, bytes); await f.put(destination, bytes);
+  f.sourceEntries.push({id:'font-original',sha256:hash(bytes),localPaths:[source],licenseIdOrRef:'OFL-1.1',licenseTextPath:'LICENSES/FONT.txt',rightsStatus:'verified',distributedIn:['@fixture/fonts'],modified:false});
+  f.inventory.fontAssets=[{sourceId:'font-original',sourcePath:source,sha256:hash(bytes),bytes:Buffer.byteLength(bytes),modified:false,destinations:[destination]}];await f.save();
+  const actual=await loadDistribution(f.root);const outputs=await distributionArtifacts(f.root,actual);
+  assert.deepEqual(JSON.parse(outputs.get(join(f.root,'apps/docs/public/_legal/provenance.json'))).fontAssets,f.inventory.fontAssets);
+  await f.put(destination,'modified font');await assert.rejects(loadDistribution(f.root),/hash mismatch/);
+  await f.put(destination,bytes);f.inventory.fontAssets[0].sourceId='invented';await f.save();await assert.rejects(loadDistribution(f.root),/font.*provenance/i);
+  f.inventory.fontAssets=[];await f.save();await assert.rejects(loadDistribution(f.root),/Untracked built font/);
+});
+
+test('served bundled runtime notices preserve original dependency license bytes and fail on drift', async t => {
+ const f=await fixture(t),license='Copyright original runtime holder\nMIT License full original fixture\n',manifest='{"name":"runtime","version":"1.0.0"}';
+ const document={localPath:'LICENSES/dependencies/runtime_1.0.0/LICENSE',sha256:hash(license)};
+ const original={name:'runtime',version:'1.0.0',manifestPath:'compliance/provenance-dependency-manifests/runtime.json',manifestSha256:hash(manifest),licenseDocuments:[document]};
+ await f.put(document.localPath,license);await f.put(original.manifestPath,manifest);
+ f.policy.dependencyInventoryPath='compliance/provenance-dependencies.json';await f.put(f.policy.dependencyInventoryPath,JSON.stringify({packages:{'runtime@1.0.0':original}}));
+ f.inventory.bundledDependencies=[{...original,modules:['dist/client.js']}];await f.save();
+ const outputs=await distributionArtifacts(f.root,await loadDistribution(f.root));
+ assert.equal(outputs.get(join(f.root,'apps/docs/public/_legal',document.localPath)).toString(),license);
+ assert.ok(outputs.get(join(f.root,'apps/docs/public/_legal/index.html')).includes(Buffer.from(document.localPath)));
+ await f.put(document.localPath,'altered grant');await assert.rejects(loadDistribution(f.root),/Bundled dependency license drift/);
+});

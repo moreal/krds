@@ -23,6 +23,8 @@ function run(script) {
   const result = spawnSync(process.execPath, script, { cwd: site, stdio: 'inherit', env: process.env });
   assert.equal(result.status, 0, `Documentation producer failed: ${script.join(' ')}`);
 }
+// Both compared deployments are complete builds from these same current inputs.
+run([resolve(root, 'tools/yarn.mjs'), 'workspace', '@unofficial-krds/docs', 'build:local']);
 const before = await inventory(resolve(site, 'dist'));
 const metadata = await readFile(resolve(site, 'public/docs-metadata.json'));
 // Public generation must work with every optional adapter declaration and
@@ -49,5 +51,5 @@ const differences = [...new Set([...Object.keys(before), ...Object.keys(after)])
 assert.deepEqual(differences, [], 'Same explicit inputs produce the same deployment filenames and bytes');
 const evidence = resolve(root, 'test-results/docs-pages');
 await mkdir(evidence, { recursive: true });
-await writeFile(resolve(evidence, 'reproducibility.json'), JSON.stringify({ schemaVersion: 1, status: 'passed', optionalOutputsHidden: hidden.length, deploymentFiles: after }, null, 2) + '\n');
+await writeFile(resolve(evidence, 'reproducibility.json'), JSON.stringify({ schemaVersion: 1, status: 'passed', optionalOutputsHidden: hidden.length, fullBuilds: 2, deploymentFiles: after }, null, 2) + '\n');
 console.log(`Reproducible deployment: ${Object.keys(after).length} identical files; ${hidden.length} optional dist outputs hidden during generation.`);

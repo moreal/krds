@@ -1,0 +1,5 @@
+{
+ "extends": "../tsconfig.json",
+ "include": ["public-rich-types.tsx"],
+ "compilerOptions": {"noEmit": true}
+}

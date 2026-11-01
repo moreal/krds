@@ -1,0 +1,41 @@
+---
+import '@unofficial-krds/styles/reset.css';
+import '@unofficial-krds/fonts/fonts.css';
+import '@unofficial-krds/tokens/tokens.css';
+import '@unofficial-krds/styles/base.css';
+import '@unofficial-krds/styles/skip-link.css';
+import '@unofficial-krds/styles/header.css';
+import '@unofficial-krds/styles/main-menu.css';
+import '@unofficial-krds/styles/side-navigation.css';
+import '@unofficial-krds/styles/breadcrumb.css';
+import '@unofficial-krds/styles/in-page-navigation.css';
+import '@unofficial-krds/styles/modal.css';
+import '@unofficial-krds/styles/text-input.css';
+import '@unofficial-krds/styles/structured-list.css';
+import '@unofficial-krds/styles/button.css';
+import '@unofficial-krds/styles/link.css';
+import '@unofficial-krds/styles/text-list.css';
+import '@unofficial-krds/styles/table.css';
+import '@unofficial-krds/styles/badge.css';
+import '@unofficial-krds/styles/switch.css';
+import '@unofficial-krds/styles/footer.css';
+import '../styles/content.css';
+import '../styles/layout.css';
+import type { DocPage } from '../content';
+import DocsShell from '../components/DocsShell';
+import navigation from '../generated/navigation.json';
+interface Props { page: DocPage; }
+const { page } = Astro.props;
+---
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="각 프레임워크의 고유 렌더러로 구현하는 비공식 KRDS 컴포넌트. API, 출처와 지원 기록을 확인하세요." />
+    <meta name="color-scheme" content="light" />
+    <title>{page.title} | KRDS Native</title>
+    <link rel="icon" href={`${import.meta.env.BASE_URL}mark.svg`} type="image/svg+xml" />
+  </head>
+  <body><DocsShell page={page} navigation={navigation} client:load /></body>
+</html>

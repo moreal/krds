@@ -35,23 +35,21 @@ jobs:
           node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
           node tools/yarn.mjs verify:workspace
       - uses: actions/configure-pages@v5
-      - name: Build native Vue prerequisites and documentation
+      - name: Build native Solid prerequisites and documentation
         run: node tools/yarn.mjs nx run krds-docs:build
-      - name: Validate Vue types, references, downloads and rights
+      - name: Validate Astro and Solid types, references, downloads and rights
         run: |
           node tools/yarn.mjs workspace @unofficial-krds/docs typecheck
           node tools/yarn.mjs workspace @unofficial-krds/docs test
+          node tools/yarn.mjs workspace @unofficial-krds/docs test:content
+          node tools/yarn.mjs workspace @unofficial-krds/docs test:pipeline
           node tools/yarn.mjs verify:licenses
       - name: Verify reproducible deployment bytes
         run: node tools/yarn.mjs workspace @unofficial-krds/docs test:reproducibility
       - name: Install selected Chromium and WebKit builds
         run: node tools/yarn.mjs workspace @unofficial-krds/docs exec playwright install --with-deps chromium webkit
       - name: Check prefixed site in both browsers
-        run: |
-          node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs > /tmp/krds-docs-server.log 2>&1 &
-          docs_server_pid=$!
-          trap 'kill "$docs_server_pid"' EXIT
-          node tools/yarn.mjs workspace @unofficial-krds/docs test:browser
+        run: node tools/yarn.mjs workspace @unofficial-krds/docs test:browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:

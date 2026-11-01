@@ -15,7 +15,7 @@ Yarn Berry와 단일 `yarn.lock`을 사용합니다. `.yarnrc.yml`의 `nodeLinke
 
 ## Vue 컴포넌트로 첫 화면 만들기
 
-[호환성 기록](../compatibility/)에서 원하는 프레임워크의 런타임·컴파일러와 지원 범위를 확인하세요. 아래 Vue 예시는 이 문서 홈과 같은 공개 subpath를 사용합니다. 다른 프레임워크는 각자의 네이티브 어댑터와 소비자 코드가 있습니다.
+[호환성 기록](../compatibility/)에서 원하는 프레임워크의 런타임·컴파일러와 지원 범위를 확인하세요. 아래 Vue 예시는 공개 Vue subpath를 사용합니다. 문서 사이트 자체는 Astro와 공개 Solid 1 컴포넌트로 렌더링합니다. 다른 프레임워크는 각자의 네이티브 어댑터와 소비자 코드가 있습니다.
 
 ```sh
 node tools/yarn.mjs nx run krds-vue:build
@@ -41,7 +41,7 @@ const enabled = ref(false);
 </template>
 ```
 
-컴포넌트 스타일과 토큰은 명시적으로 가져옵니다. 전역 reset과 글꼴은 자동 적용하지 않습니다. KRDS의 rem 토큰과 기존 앱의 기본 글자 크기를 함께 검토하고 [CSS·토큰·글꼴 안내](./styling)를 따르세요. 문서 홈은 기본 VitePress 탐색을 유지하며 예시 패널 안에만 스타일을 적용합니다.
+컴포넌트 스타일과 토큰은 명시적으로 가져옵니다. 전역 reset과 글꼴은 자동 적용하지 않습니다. KRDS의 rem 토큰과 기존 앱의 기본 글자 크기를 함께 검토하고 [CSS·토큰·글꼴 안내](./styling)를 따르세요. 문서 사이트는 공개 reset과 KRDS 스타일을 전체 UI에 적용하며, 원본 로컬 Pretendard GOV 글꼴을 사용합니다. 기본 root는 10px, 본문은 16px이고 medium Button은 48px입니다. 밝은 테마와 forced-colors를 지원합니다.
 
 [54개 참조 문서](../components/)에서 API·키보드 규칙·출처를 확인하고, [네이티브 예시](../compatibility/examples)에서 실제 소비자 코드와 보존된 컴파일 체크포인트를 읽으세요. 컴파일 성공과 전체 동작 검증은 별도입니다.
 
