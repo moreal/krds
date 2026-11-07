@@ -96,8 +96,11 @@ jobs:
           for framework in react solid svelte vue angular lit qwik solid-next; do
             node tools/yarn.mjs exec node tools/docs-previews/ci-artifact.mjs restore --framework "$framework" --from "test-results/docs-previews/docs-preview-$framework" --revision "$GITHUB_SHA"
           done
-      - name: Build documentation prerequisites
-        run: node tools/yarn.mjs exec nx run-many -t build --projects=krds-contracts,krds-tokens,krds-styles,krds-fonts,krds-solid
+      # Every restored artifact manifest records its compiled inputs under packages/*/dist and the
+      # assembler re-hashes them, so each native package the previews consume must be rebuilt here
+      # at the same revision. Only the docs-preview bundles themselves are never rebuilt.
+      - name: Build documentation and native package prerequisites
+        run: node tools/yarn.mjs exec nx run-many -t build --projects=krds-contracts,krds-tokens,krds-styles,krds-fonts,krds-react,krds-solid,krds-solid-next,krds-svelte,krds-vue,krds-angular,krds-lit,krds-qwik
       - name: Assemble previews and build documentation (no native rebuild)
         run: node tools/yarn.mjs exec nx run krds-docs:build --exclude-task-dependencies
       - name: Validate Astro and Solid types, references, previews, downloads and rights

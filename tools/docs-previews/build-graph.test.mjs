@@ -179,7 +179,9 @@ test('Pages workflow builds exact-toolchain preview artifacts in parallel and as
  assert.match(build, /needs: native-preview/);
  assert.match(build, /pattern: docs-preview-\*/);
  assert.match(build, /ci-artifact\.mjs restore --framework "\$framework" --from "test-results\/docs-previews\/docs-preview-\$framework" --revision "\$GITHUB_SHA"/);
- assert.match(build, /nx run-many -t build --projects=krds-contracts,krds-tokens,krds-styles,krds-fonts,krds-solid/);
+ // The assembler re-hashes every manifest original under packages/*/dist, so the build job must
+ // rebuild each consumed native package, not only the docs site's own Solid dependency.
+ assert.match(build, /nx run-many -t build --projects=krds-contracts,krds-tokens,krds-styles,krds-fonts,krds-react,krds-solid,krds-solid-next,krds-svelte,krds-vue,krds-angular,krds-lit,krds-qwik\n/);
  assert.match(build, /nx run krds-docs:build --exclude-task-dependencies/);
  for (const command of ['docs typecheck', 'docs test', 'docs test:content', 'docs test:pipeline', 'docs test:previews', 'docs test:previews:browser', 'docs test:previews:browser:webkit', 'docs test:previews:integration', 'docs test:reproducibility', 'docs test:browser', 'verify:licenses']) assert.ok(build.includes(command), command);
  assert.match(build, /path: apps\/docs\/dist/);
