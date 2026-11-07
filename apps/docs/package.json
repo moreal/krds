@@ -19,7 +19,7 @@
     "test:previews": "node --test tests/native-previews.test.mjs",
     "test:previews:browser": "node --import ../../tools/testing/browser-cache-preload.mjs tests/native-previews-browser.mjs",
     "test:previews:browser:webkit": "node --import ../../tools/testing/browser-cache-preload.mjs tests/native-previews-browser.mjs --browser webkit",
-    "test:previews:integration": "node --test ../../tools/docs-previews/provenance.test.mjs ../../tools/docs-previews/build-graph.test.mjs ../../tools/docs-previews/sibling-outputs.test.mjs ../../tools/docs-previews/ci-artifact.test.mjs",
+    "test:previews:integration": "node --test ../../tools/docs-previews/provenance.test.mjs ../../tools/docs-previews/build-graph.test.mjs ../../tools/docs-previews/sibling-outputs.test.mjs ../../tools/docs-previews/ci-artifact.test.mjs ../../tools/docs-previews/reproducible-manifests.test.mjs",
     "test:layout:browser": "node --import ../../tools/testing/browser-cache-preload.mjs tests/layout-text-200-browser.mjs"
   },
   "devDependencies": {

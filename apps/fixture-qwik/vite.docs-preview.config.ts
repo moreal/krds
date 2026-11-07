@@ -72,7 +72,11 @@ export default defineConfig({
   publicDir: false,
   plugins: [
     deployedInventory(),
-    qwikVite({ client: { input: 'src/docs-preview/entry.client.tsx', outDir: 'dist/docs-preview' }, ssr: { input: 'src/docs-preview/entry.ssr.tsx', outDir: 'dist/docs-preview-server' } }),
+    qwikVite({
+      client: { input: 'src/docs-preview/entry.client.tsx', outDir: 'dist/docs-preview' },
+      // build.mjs passes the normalized client manifest; without it the optimizer would read a shared os.tmpdir() file.
+      ssr: { input: 'src/docs-preview/entry.ssr.tsx', outDir: 'dist/docs-preview-server', ...(process.env.QWIK_DOCS_CLIENT_MANIFEST ? { manifestInput: JSON.parse(readFileSync(process.env.QWIK_DOCS_CLIENT_MANIFEST, 'utf8')) } : {}) },
+    }),
   ],
   build: { outDir: 'dist/docs-preview', emptyOutDir: false, sourcemap: false, assetsInlineLimit: 0 },
 });

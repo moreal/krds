@@ -45,4 +45,7 @@ const capture: Plugin = {
   },
 };
 export default defineConfig({ root: resolve(fixture, 'src/docs-preview'), base: '/krds/previews/svelte/', publicDir: false,
-  plugins: [capture, svelte()], build: { outDir: resolve(fixture, 'dist/docs-preview'), emptyOutDir: true } });
+  // Svelte's default cssHash hashes the component's absolute filename, so scoped class names
+  // would differ per checkout location. Hash the repository-relative path instead.
+  plugins: [capture, svelte({ compilerOptions: { cssHash: ({ hash, css, filename }) => `svelte-${hash(filename ? relative(root, filename).replaceAll('\\', '/') : css)}` } })],
+  build: { outDir: resolve(fixture, 'dist/docs-preview'), emptyOutDir: true } });

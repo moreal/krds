@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import { writeArtifactManifest } from '../../../../tools/docs-previews/manifest.mjs';
+import { normalizeClientManifest } from '../../../../tools/docs-previews/qwik-manifest.mjs';
 
 // Source ranges are derived from the live example file before anything reads definitions.json.
 if (spawnSync(process.execPath, ['src/docs-preview/write-definitions.mjs'], { stdio: 'inherit' }).status !== 0) process.exit(1);
@@ -17,10 +18,22 @@ const qwikVersion = JSON.parse(readFileSync('node_modules/@builder.io/qwik/packa
 const packageVersion = JSON.parse(readFileSync('../../packages/qwik/package.json', 'utf8')).version;
 
 for (const path of ['dist/docs-preview', 'dist/docs-preview-server', 'dist/docs-preview-capture']) rmSync(path, { recursive: true, force: true });
+// The client manifest is normalized before the SSR stage reads it (see tools/docs-previews/qwik-manifest.mjs),
+// and handed over explicitly: the optimizer's fallback is a shared file in os.tmpdir() that any
+// other Qwik build on the machine may have overwritten.
+const findManifest = dir => readdirSync(dir, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? findManifest(`${dir}/${entry.name}`) : entry.name === 'q-manifest.json' ? [`${dir}/${entry.name}`] : []);
+let clientManifestPath;
 for (const stage of ['client', 'server']) {
   const args = ['../../tools/yarn.mjs', 'exec', 'vite', 'build', '--config', 'vite.docs-preview.config.ts', ...(stage === 'server' ? ['--ssr', 'src/docs-preview/entry.ssr.tsx'] : [])];
-  const result = spawnSync(process.execPath, args, { stdio: 'inherit', env: { ...process.env, QWIK_DOCS_STAGE: stage } });
+  const env = { ...process.env, QWIK_DOCS_STAGE: stage, ...(clientManifestPath ? { QWIK_DOCS_CLIENT_MANIFEST: resolve(clientManifestPath) } : {}) };
+  const result = spawnSync(process.execPath, args, { stdio: 'inherit', env });
   if (result.status !== 0) process.exit(result.status ?? 1);
+  if (stage === 'client') {
+    const found = findManifest('dist/docs-preview');
+    if (found.length !== 1) throw new Error(`Expected one client q-manifest.json, found ${found.length}`);
+    clientManifestPath = found[0];
+    writeFileSync(clientManifestPath, JSON.stringify(normalizeClientManifest(JSON.parse(readFileSync(clientManifestPath, 'utf8')))));
+  }
 }
 // The optimizer writes client output beneath its Vite base; the artifact root is that base.
 for (const entry of readdirSync('dist/docs-preview/krds/previews/qwik')) renameSync(`dist/docs-preview/krds/previews/qwik/${entry}`, `dist/docs-preview/${entry}`);
