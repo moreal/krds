@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { sha256 } from './contract.mjs';
 import { writeArtifactManifest } from './manifest.mjs';
-import { assemble } from './assemble.mjs';
+import { assemble, validateFrameworkReferences } from './assemble.mjs';
 function fixture(componentId='button',{ranged=true}={}) {
  const root=mkdtempSync(join(tmpdir(),'preview-assemble-'));
  const put=(path,bytes)=>{mkdirSync(join(root,path,'..'),{recursive:true});writeFileSync(join(root,path),bytes)};
@@ -161,4 +161,15 @@ test('unranged sources stay full-file only, with no excerpt',()=>{
  const [row]=assemble({root,frameworks:['react'],complete:false});
  assert.equal('ranges' in row.sources[0],false); assert.equal('excerpts' in row.sources[0],false);
  assert.deepEqual(readFileSync(join(root,'apps/docs/public/demo-sources/example.ts.txt')),bytes);
+});
+
+test('CI stage validation shares the assembler policy: acceptance-derived absent HTML reference tolerated, others rejected',()=>{
+ // Regression: the CI validator once called validateReferences without the acceptance
+ // tolerance, so the qwik SSR image failure specimen passed locally and failed in CI.
+ const read=root=>({manifest:JSON.parse(readFileSync(join(root,'apps/fixture-react/dist/docs-preview/artifact-manifest.json'),'utf8')),outputDir:join(root,'apps/fixture-react/dist/docs-preview'),definitions:JSON.parse(readFileSync(join(root,'apps/docs/demo-definitions.json'),'utf8')),acceptance:JSON.parse(readFileSync(join(root,'apps/docs/demo-acceptance.json'),'utf8'))});
+ const ok=read(absentFixture('image','image/default/index.html',`<img src="${missing}">`).root);
+ assert.deepEqual([...validateFrameworkReferences(ok.manifest,ok.outputDir,{framework:'react',definitions:ok.definitions,acceptance:ok.acceptance}).get('image')],[missing]);
+ const other=read(absentFixture('image','image/default/index.html','<img src="/krds/previews/react/local-assets/other-missing.svg">').root);
+ assert.throws(()=>validateFrameworkReferences(other.manifest,other.outputDir,{framework:'react',definitions:other.definitions,acceptance:other.acceptance}),/undeclared artifact dependency/);
+ assert.throws(()=>validateFrameworkReferences(ok.manifest,ok.outputDir,{framework:'react',acceptance:ok.acceptance}),/needs the demo definitions/);
 });

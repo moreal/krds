@@ -115,6 +115,18 @@ export function validateReferences(manifest, outputDir, absent = new Map(), play
  }
  return tolerated;
 }
+/**
+ * The one reference policy for a framework artifact, shared by the assembler and the CI stage
+ * validator: references must resolve inside the manifest, except the acceptance-derived
+ * intentionally absent URLs of that framework's playable components (e.g. the image failure
+ * specimen). Validating with a narrower policy in one place and a wider one in the other
+ * makes an artifact pass locally and fail in CI.
+ */
+export function validateFrameworkReferences(manifest, outputDir, { framework = manifest.framework, definitions, acceptance } = {}) {
+ if (!definitions || !Array.isArray(definitions.demos)) throw new Error(`${framework}: reference validation needs the demo definitions`);
+ const playable = new Set(definitions.demos.filter(d => d.framework === framework && d.status === 'playable').map(d => d.componentId));
+ return validateReferences(manifest, outputDir, intentionalAbsentReferences(acceptance, framework), playable);
+}
 const labels = { react:'React', solid:'Solid 1', svelte:'Svelte', vue:'Vue', angular:'Angular', lit:'Lit', qwik:'Qwik', 'solid-next':'Solid 2' };
 export function loadDefinitions({ root = process.cwd() } = {}) {
  const base=json(resolve(root,'apps/docs/demo-definitions.json'));
@@ -148,7 +160,7 @@ export function assemble({root=process.cwd(),frameworks=allowedFrameworks,comple
    manifest=JSON.parse(manifestBytes.toString());
    if(manifest.framework!==framework)throw new Error(`${framework}: wrong artifact framework`);
    validateArtifact(manifest,definitions,{root,outputDir});
-   tolerated=validateReferences(manifest,outputDir,intentionalAbsentReferences(acceptance,framework),new Set(playable.map(d=>d.componentId)));
+   tolerated=validateFrameworkReferences(manifest,outputDir,{framework,definitions,acceptance});
    artifactSha256=sha256(manifestBytes);
    for(const file of manifest.files)copies.set(`previews/${framework}/${file.path}`,readContained(outputDir,file.path));
    copies.set(`previews/${framework}/artifact-manifest.json`,manifestBytes);

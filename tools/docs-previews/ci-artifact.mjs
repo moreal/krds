@@ -82,11 +82,14 @@ export function restore({ root = process.cwd(), framework, from, revision }) {
 }
 async function defaultValidate(manifest, outputDir, framework, root) {
  const { validateArtifact } = await import('./contract.mjs');
- const { loadDefinitions, validateReferences } = await import('./assemble.mjs');
+ const { loadAcceptance } = await import('./contract.mjs');
+ const { loadDefinitions, validateFrameworkReferences } = await import('./assemble.mjs');
  const { nativePreviewInventory } = await import('./provenance.mjs');
  const loaded = loadDefinitions({ root });
- validateArtifact(manifest, { schemaVersion: 1, demos: loaded.demos.filter(demo => demo.framework === framework) }, { root, outputDir });
- validateReferences(manifest, outputDir);
+ const definitions = { schemaVersion: 1, demos: loaded.demos.filter(demo => demo.framework === framework) };
+ validateArtifact(manifest, definitions, { root, outputDir });
+ // Same reference policy as assemble(): acceptance-derived intentionally absent URLs are tolerated.
+ validateFrameworkReferences(manifest, outputDir, { framework, definitions, acceptance: loadAcceptance(root) });
  // Rights failures surface in the matrix job instead of after every worker finishes.
  nativePreviewInventory({ root, frameworks: [framework], manifests: { [framework]: manifest } });
 }
