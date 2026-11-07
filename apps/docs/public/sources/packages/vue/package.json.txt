@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "yarn typecheck",
+    "test": "yarn typecheck && vitest run --config vitest.config.ts",
     "lint": "node ../../tools/check-workspace.mjs",
     "prepublishOnly": "node ../../tools/block-publish.mjs",
     "build:local": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly",

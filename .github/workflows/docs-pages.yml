@@ -13,10 +13,57 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  native-preview:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: [react, solid, svelte, vue, angular, lit, qwik, solid-next]
+    env:
+      NX_NO_CLOUD: 'true'
+      NX_DAEMON: 'false'
+      NX_TUI: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - name: Check exact Node and vendored Yarn
+        run: node tools/ci/check-toolchain.mjs
+      - uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+      - name: Install immutable workspace dependencies
+        run: node tools/yarn.mjs install --immutable
+      - name: Check workspace and installed toolchain
+        run: |
+          node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
+          node tools/yarn.mjs verify:workspace
+      - name: Build package prerequisites and the native preview
+        run: node tools/yarn.mjs exec nx run fixture-${{ matrix.framework }}:docs-preview --skip-nx-cache
+      - name: Validate and stage the manifest-allowlisted artifact
+        run: node tools/yarn.mjs exec node tools/docs-previews/ci-artifact.mjs stage --framework "${{ matrix.framework }}" --revision "$GITHUB_SHA" --out test-results/docs-preview-stage
+      - uses: actions/upload-artifact@v4
+        with:
+          name: docs-preview-${{ matrix.framework }}
+          path: test-results/docs-preview-stage
+          if-no-files-found: error
+          retention-days: 7
+
+  build:
+    if: github.ref == 'refs/heads/main'
+    needs: native-preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NX_NO_CLOUD: 'true'
+      NX_DAEMON: 'false'
+      NX_TUI: 'false'
     steps:
       - name: Set portable browser cache
         run: echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/krds-playwright-1.64.1" >> "$GITHUB_ENV"
@@ -28,6 +75,10 @@ jobs:
           node-version: '24.18.0'
       - name: Check exact Node and vendored Yarn
         run: node tools/ci/check-toolchain.mjs
+      - uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-node24.18.0-yarn4.14.1-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
       - name: Install immutable workspace dependencies
         run: node tools/yarn.mjs install --immutable
       - name: Check workspace and installed toolchain
@@ -35,26 +86,45 @@ jobs:
           node tools/yarn.mjs exec node tools/ci/check-toolchain.mjs --installed
           node tools/yarn.mjs verify:workspace
       - uses: actions/configure-pages@v5
-      - name: Build native Solid prerequisites and documentation
-        run: node tools/yarn.mjs nx run krds-docs:build
-      - name: Validate Astro and Solid types, references, downloads and rights
+      - name: Download this run's native preview artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: docs-preview-*
+          path: test-results/docs-previews
+      - name: Restore exact same-revision preview artifacts
+        run: |
+          for framework in react solid svelte vue angular lit qwik solid-next; do
+            node tools/yarn.mjs exec node tools/docs-previews/ci-artifact.mjs restore --framework "$framework" --from "test-results/docs-previews/docs-preview-$framework" --revision "$GITHUB_SHA"
+          done
+      - name: Build documentation prerequisites
+        run: node tools/yarn.mjs exec nx run-many -t build --projects=krds-contracts,krds-tokens,krds-styles,krds-fonts,krds-solid
+      - name: Assemble previews and build documentation (no native rebuild)
+        run: node tools/yarn.mjs exec nx run krds-docs:build --exclude-task-dependencies
+      - name: Validate Astro and Solid types, references, previews, downloads and rights
         run: |
           node tools/yarn.mjs workspace @unofficial-krds/docs typecheck
           node tools/yarn.mjs workspace @unofficial-krds/docs test
           node tools/yarn.mjs workspace @unofficial-krds/docs test:content
           node tools/yarn.mjs workspace @unofficial-krds/docs test:pipeline
+          node tools/yarn.mjs workspace @unofficial-krds/docs test:previews
+          node tools/yarn.mjs workspace @unofficial-krds/docs test:previews:integration
           node tools/yarn.mjs verify:licenses
       - name: Verify reproducible deployment bytes
         run: node tools/yarn.mjs workspace @unofficial-krds/docs test:reproducibility
       - name: Install selected Chromium and WebKit builds
         run: node tools/yarn.mjs workspace @unofficial-krds/docs exec playwright install --with-deps chromium webkit
-      - name: Check prefixed site in both browsers
-        run: node tools/yarn.mjs workspace @unofficial-krds/docs test:browser
+      - name: Check prefixed site and native previews in both browsers
+        run: |
+          node tools/yarn.mjs workspace @unofficial-krds/docs test:browser
+          node tools/yarn.mjs workspace @unofficial-krds/docs test:previews:browser
+          node tools/yarn.mjs workspace @unofficial-krds/docs test:previews:browser:webkit
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: docs-pages-checks
-          path: test-results/docs-pages
+          path: |
+            test-results/docs-pages
+            apps/docs/test-results/native-previews
           if-no-files-found: ignore
           retention-days: 7
       - uses: actions/upload-pages-artifact@v4

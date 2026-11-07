@@ -1,0 +1,21 @@
+@import '@unofficial-krds/styles/reset.css';
+@import '@unofficial-krds/styles/fonts.css';
+@import '@unofficial-krds/styles/base.css';
+@import '@unofficial-krds/styles/all.css';
+
+/* Preview page layout only; component appearance comes from the shared KRDS styles. */
+html, body { margin: 0; min-width: 0; }
+body { padding: 24px; }
+docs-preview { display: block; min-width: 0; }
+docs-preview form, docs-preview > section { display: grid; gap: 16px; max-width: 40rem; }
+docs-preview p { overflow-wrap: anywhere; }
+.preview-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.preview-field { display: grid; gap: 8px; max-width: 24rem; }
+.preview-long { min-height: 800px; }
+.preview-section { min-height: 1000px; }
+.preview-outline { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr) 240px; }
+.preview-outline > krds-in-page-navigation { grid-column: 2; grid-row: 1; }
+.preview-outline > article { grid-column: 1; grid-row: 1; }
+[data-active-target="true"] { outline: 3px solid #256ef4; outline-offset: 3px; }
+@media (max-width: 700px) { .preview-outline { display: block; } }
+@media (max-width: 400px) { body { padding: 16px; } }

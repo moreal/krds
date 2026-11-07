@@ -4,7 +4,44 @@
 .docs-article code { overflow-wrap: anywhere; }
 .docs-code, .docs-table { max-inline-size: 100%; min-inline-size: 0; margin-block: var(--krds-gap-7); }
 .docs-code-actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--krds-gap-3); }
-.docs-code pre { max-inline-size: 100%; overflow: auto; padding: var(--krds-padding-6); }
+/* Korean labels break between words only (KRDS keep-all), never inside "복사". */
+.docs-code-actions [data-krds-component="button"] { word-break: keep-all; overflow-wrap: normal; }
+/* Code samples scroll inside their own focusable region (tabindex + label in
+ * CodeBlock). Overlay scrollbars hide the overflow, so edge shadows show that
+ * more code continues: "local" covers move with the content and uncover the
+ * fixed "scroll" shadows only on the side where content is clipped. */
+.docs-code pre {
+ --docs-code-bg: var(--krds-light-color-surface-gray-subtler);
+ --docs-code-shadow: rgb(0 0 0 / .22);
+ max-inline-size: 100%; overflow: auto; overscroll-behavior-inline: contain; padding: var(--krds-padding-6);
+ background:
+  linear-gradient(to right, var(--docs-code-bg) 2.4rem, transparent) left / 4.8rem 100% no-repeat local,
+  linear-gradient(to left, var(--docs-code-bg) 2.4rem, transparent) right / 4.8rem 100% no-repeat local,
+  linear-gradient(to right, var(--docs-code-shadow), transparent) left / 1.6rem 100% no-repeat scroll,
+  linear-gradient(to left, var(--docs-code-shadow), transparent) right / 1.6rem 100% no-repeat scroll,
+  var(--docs-code-bg);
+ scrollbar-width: thin; scrollbar-color: var(--krds-light-color-border-gray) transparent;
+}
+.docs-code pre:focus-visible { outline: var(--krds-number-2) solid var(--krds-light-color-border-primary); outline-offset: var(--krds-number-1); }
+/* Forced colors: author gradients would sit under system-colored text, so use
+ * Canvas and mark clipped edges with a CanvasText inline border. A scroll-driven
+ * timeline removes the border on the side that is not clipped where supported;
+ * otherwise both edges stay marked. */
+@media (forced-colors: active) {
+ .docs-code pre { background: Canvas; border-inline: var(--krds-number-3) solid CanvasText; scrollbar-color: auto; }
+ @supports (animation-timeline: scroll()) {
+  /* Separate selectors: the CSS minifier would otherwise fold animation-timeline
+   * into the animation shorthand, which browsers reject. */
+  .docs-code pre { animation: docs-code-edges linear both; }
+  .docs-code > pre { animation-timeline: scroll(self inline); }
+ }
+}
+/* Width, not color: forced colors overrides author border colors. */
+@keyframes docs-code-edges {
+ 0% { border-inline-start-width: 0; }
+ 1%, 99% { border-inline-start-width: var(--krds-number-3); border-inline-end-width: var(--krds-number-3); }
+ 100% { border-inline-end-width: 0; }
+}
 .docs-code pre code { overflow-wrap: normal; white-space: pre; }
 .docs-table [data-krds-part="scroll-region"] { max-inline-size: 100%; }
 .docs-table [data-krds-part="cell"] { overflow-wrap: anywhere; }
@@ -15,5 +52,4 @@
 .docs-article h3 { font-size: var(--krds-pc-font-size-heading-medium); }
 .docs-article blockquote { margin-inline: 0; padding-inline-start: var(--krds-padding-6); border-inline-start: var(--krds-number-3) solid var(--krds-light-color-border-gray); }
 .docs-article :is(pre,code,kbd) { font-family: ui-monospace, monospace; }
-.docs-code pre { background: var(--krds-light-color-surface-gray-subtler); }
-@media (max-width: 767px) { .docs-article h1 { font-size: var(--krds-mobile-font-size-heading-xlarge); } .docs-article h2 { font-size: var(--krds-mobile-font-size-heading-large); } .docs-article h3 { font-size: var(--krds-mobile-font-size-heading-medium); } }
+@container docs-frame (max-width: 76.7rem) { .docs-article h1 { font-size: var(--krds-mobile-font-size-heading-xlarge); } .docs-article h2 { font-size: var(--krds-mobile-font-size-heading-large); } .docs-article h3 { font-size: var(--krds-mobile-font-size-heading-medium); } }

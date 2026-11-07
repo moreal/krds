@@ -1,0 +1,20 @@
+html { color-scheme: light; }
+body { margin: 0; padding: 24px; background: #fff; color: #1e2124; }
+#preview-root { min-width: 0; min-height: 192px; }
+/* The fixed native TabBar must not cover the final exit control. */
+#preview-root:has([data-krds-component="tab-bar"]) { padding-block-end: 120px; }
+output, [role="status"] { display: block; margin-block-start: 16px; }
+.preview-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-block-start: 16px; }
+.preview-error { margin-block-start: 8px; color: #bd2c0f; }
+.preview-long { min-height: 720px; }
+.preview-section { min-height: 480px; }
+.preview-outline { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr) 240px; }
+.preview-outline > :first-child { grid-column: 2; grid-row: 1; align-self: start; }
+.preview-outline > article { grid-column: 1; grid-row: 1; }
+.preview-target { display: grid; gap: 8px; margin-block: 16px; }
+[data-active-target="true"] { outline: 3px solid #256ef4; outline-offset: 3px; }
+/* Local route destinations are revealed by fragment navigation inside this frame. */
+.preview-route { margin-block-start: 24px; padding: 16px; border: 1px solid #b1b8be; border-radius: 8px; }
+.preview-route:not(:target) { display: none; }
+@media (max-width: 700px) { body { padding: 16px; } .preview-outline { display: block; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

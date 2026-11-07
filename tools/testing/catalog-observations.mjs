@@ -274,7 +274,7 @@ const observers={
   },
   async 'file-upload'(page,driver,{initialState:s,host}) {
     const input=part(page,'file-upload','file-input');await native(input,'input');await expect(input).toHaveAttribute('type','file');await expect(input).toHaveAttribute('accept',s.accept);
-    const picker=role(page,'button','파일 선택');await native(picker,'button');
+    const picker=page.getByRole('button',{name:/^파일 선택(?:\s|$)/});await native(picker,'button');
     const material=host.fileFixtures[0];const bytes=Buffer.from(material.contents);await input.setInputFiles({name:material.name,mimeType:material.type,buffer:bytes});
     await expect(part(page,'file-upload','list')).toContainText(material.name);
     const selected=await driver.readEvents();expect(selected).toHaveLength(1);expect(selected[0].name).toBe('filesChange');expect(selected[0].detail).toMatchObject({reason:'picker',addedIds:[expect.any(String)],removedIds:[]});expect(selected[0].detail.value).toHaveLength(1);

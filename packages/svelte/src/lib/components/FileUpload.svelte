@@ -30,11 +30,11 @@ function remove(id:string){if(isDisabled())return;const index=p.files.findIndex(
 $effect(()=>{const ids=p.files.map(record=>record.id);if(!removal||ids.includes(removal.id))return;const pending=removal;removal=undefined;void tick().then(()=>{if(!root?.isConnected||!pending.focused)return;const doc=root.ownerDocument,active=doc.activeElement;if(active&&active!==doc.body&&active.isConnected&&!root.contains(active))return;const id=[...pending.previous,...pending.next].find(id=>p.files.some(record=>record.id===id));const target=[...root.querySelectorAll<HTMLButtonElement>('[data-file-id]')].find(node=>node.dataset.fileId===id&&!node.disabled);if(target)target.focus();else if(picker&&!picker.disabled)picker.focus();else{root.tabIndex=-1;root.focus();}});});
 </script>
 <section bind:this={root} {...owned('file-upload','root',p.disabled&&'disabled',drag&&'drag-over')}>
- <label for={uid} {...owned('file-upload','label')}>{p.label}</label>
+ <label id={`${uid}-label`} for={uid} {...owned('file-upload','label')}>{p.label}</label>
  <p id={`${uid}-description`} {...owned('file-upload','description')}>{p.accept?`파일 형식: ${p.accept}`:''} {p.maxBytes!==undefined?`최대 ${p.maxBytes} 바이트`:''} {p.maxFiles?`최대 ${p.maxFiles}개`:''}</p>
  <div role="group" aria-label="파일 놓기" {...owned('file-upload','dropzone',drag&&'drag-over',p.disabled&&'disabled')} ondragover={event=>{event.preventDefault();if(!isDisabled())drag=true;}} ondragleave={()=>drag=false} ondrop={event=>{event.preventDefault();drag=false;stage([...event.dataTransfer?.files??[]],'drop');}}>
-  <input bind:this={input} id={uid} type="file" form={p.form} multiple={p.multiple} accept={p.accept} disabled={p.disabled} aria-describedby={`${uid}-description${errors.length?` ${uid}-errors`:''}`} {...owned('file-upload','file-input',p.disabled&&'disabled')} onchange={choose}/>
-  <button bind:this={picker} type="button" disabled={p.disabled} {...owned('file-upload','picker',p.disabled&&'disabled')} onclick={()=>input?.click()}>파일 선택</button>
+  <input bind:this={input} id={uid} type="file" form={p.form} multiple={p.multiple} accept={p.accept} disabled={p.disabled} tabindex="-1" aria-hidden="true" {...owned('file-upload','file-input',p.disabled&&'disabled')} onchange={choose}/>
+  <button bind:this={picker} type="button" disabled={p.disabled} id={`${uid}-picker`} aria-labelledby={`${uid}-picker ${uid}-label`} aria-describedby={`${uid}-description${errors.length?` ${uid}-errors`:''}`} {...owned('file-upload','picker',p.disabled&&'disabled')} onclick={()=>input?.click()}>파일 선택</button>
  </div>
  <p {...owned('file-upload','count')}>{p.files.length}{p.maxFiles?` / ${p.maxFiles}`:''}개 파일</p>
  <ul {...owned('file-upload','list')}>

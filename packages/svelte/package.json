@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "node ../../tools/yarn.mjs test:siheom --framework svelte",
+    "test": "vitest run --config vitest.config.ts && node ../../tools/yarn.mjs test:siheom --framework svelte",
     "lint": "node ../../tools/check-workspace.mjs",
     "prepublishOnly": "node ../../tools/block-publish.mjs",
     "build:local": "svelte-package -i src/lib -o dist",

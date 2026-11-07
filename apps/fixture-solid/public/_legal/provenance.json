@@ -2154,6 +2154,36 @@
         "apps/fixture-angular/public/local-assets/specimen-landscape.svg",
         "apps/storybook-angular/public/local-assets/specimen-landscape.svg"
       ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/example-landscape.svg",
+      "sha256": "fa5ec0dcad2f27733d12f6ff14792c0aee28fc94f943f0371af362208ed325e8",
+      "bytes": 544,
+      "origin": "Independently authored simple landscape SVG (sky, sun, mountains, river shapes) for the Unofficial KRDS docs preview Image example; no text, branding or KRDS/third-party imagery; independent MIT project material",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/public/local-assets/provenance.json",
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-solid-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-solid/public/local-assets/example-landscape.svg"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-solid/public/local-assets/provenance.json",
+      "sha256": "a8c0f2afab5bd4dbc7c0ba22277e13eb6657daf116c17e94859b46731303e66e",
+      "bytes": 5515,
+      "origin": "Owner authored independent specimen metadata naming this app’s served local-assets paths",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-solid/public/local-assets/provenance.json",
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-solid-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-solid/public/local-assets/provenance.json"
+      ]
     }
   ],
   "sourceConditions": [

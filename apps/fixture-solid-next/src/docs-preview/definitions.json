@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "demos": [
+    {
+      "framework": "solid-next",
+      "componentId": "button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "button-default",
+      "classification": "interactive",
+      "minHeight": 340,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/ButtonExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ButtonExample"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "App"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid-next",
+      "componentId": "native-select",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "native-select-default",
+      "classification": "interactive",
+      "minHeight": 340,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/NativeSelectExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "NativeSelectExample"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "App"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid-next",
+      "componentId": "modal",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "modal-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/ModalExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ModalExample"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "App"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid-next",
+      "componentId": "tabs",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tabs-default",
+      "classification": "interactive",
+      "minHeight": 360,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/TabsExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TabsExample"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "App"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid-next",
+      "componentId": "calendar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "calendar-default",
+      "classification": "interactive",
+      "minHeight": 720,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/CalendarExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CalendarExample"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "App"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid-next",
+      "componentId": "date-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "date-input-default",
+      "classification": "interactive",
+      "minHeight": 360,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/DateInputExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "DateInputExample"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "App"
+        },
+        {
+          "path": "apps/fixture-solid-next/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    }
+  ]
+}

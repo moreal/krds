@@ -4,7 +4,9 @@ import { focusSafe, focusSelector, usable } from './catalog-utils.js';
 import { acquireDocumentLayer, offerDocumentEscape } from './document-layer.js';
 export function useNarrow() { const [narrow, setNarrow] = useState(false); useEffect(() => { const media = window.matchMedia('(max-width: 767px)'); const update = () => setNarrow(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []); return narrow; }
 /** Native isolation/trapping primitive. Composition owns return focus after release. */
-export function NativeLayer({ open, titleId, descriptionId, children, onEscape, onOutside, onReleased, component, initialFocusId }: {
+export function NativeLayer({ open, titleId, descriptionId, children, onEscape, onOutside, onReleased, component, initialFocusId, ownsSurface = false }: {
+    /** The hosted root renders its own shared surface (background, padding, sizing); the layer then adds only dialog semantics. */
+    ownsSurface?: boolean;
     open: boolean;
     titleId: string;
     descriptionId?: string;
@@ -73,7 +75,8 @@ export function NativeLayer({ open, titleId, descriptionId, children, onEscape, 
             original(node);
         else if (original)
             original.current = node; } };
-    const dialog = isValidElement(children) && typeof children.type === 'string' ? cloneElement(children as ReactElement<Record<string, unknown>>, dialogAttributes) : <div {...dialogAttributes} data-krds-component={component} data-krds-part="content">{children}</div>;
+    const { style: layerSurface, ...dialogSemantics } = dialogAttributes;
+    const dialog = isValidElement(children) && typeof children.type === 'string' ? cloneElement(children as ReactElement<Record<string, unknown>>, ownsSurface ? dialogSemantics : dialogAttributes) : <div {...dialogSemantics} style={layerSurface} data-krds-component={component} data-krds-part="content">{children}</div>;
     return open && portal ? createPortal(<div style={{ position: 'fixed', inset: 0, zIndex: 1200, background: 'rgb(0 0 0 / .4)', display: 'grid', placeItems: 'center' }} {...(component==='bottom-sheet'?{'data-krds-component':component,'data-krds-part':'backdrop','data-krds-state':'open'}:{})} onClick={e => { if (e.target === e.currentTarget)
         current.current.onOutside?.(); }}>{dialog}</div>, portal) : null;
 }

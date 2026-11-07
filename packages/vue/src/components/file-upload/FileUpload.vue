@@ -116,11 +116,11 @@ onUnmounted(() => {
 </script>
 <template>
 <section ref="root" data-krds-part="root" :data-krds-state="disabled?'disabled':drag?'drag-over':''" data-krds-component="file-upload">
-<label :for="id" data-krds-part="label" data-krds-component="file-upload" data-krds-state="">{{label}}</label>
-<p data-krds-part="description" data-krds-component="file-upload" data-krds-state="">{{accept?`파일 형식: ${accept}`:''}} {{maxBytes?`최대 ${maxBytes} 바이트`:''}} {{maxFiles?`최대 ${maxFiles}개`:''}}</p>
+<label :id="`${id}-label`" :for="id" data-krds-part="label" data-krds-component="file-upload" data-krds-state="">{{label}}</label>
+<p :id="`${id}-description`" data-krds-part="description" data-krds-component="file-upload" data-krds-state="">{{accept?`파일 형식: ${accept}`:''}} {{maxBytes?`최대 ${maxBytes} 바이트`:''}} {{maxFiles?`최대 ${maxFiles}개`:''}}</p>
 <div data-krds-part="dropzone" :data-krds-state="drag?'drag-over':''" @dragover.prevent="!disabled&&(drag=true)" @dragleave="drag=false" @drop="drop" data-krds-component="file-upload">
-<input ref="input" :id="id" type="file" data-krds-part="file-input" :name="name" :form="form" :multiple="multiple" :accept="accept" :disabled="disabled" :aria-describedby="errors.length?`${id}-errors`:undefined" @change="choose" data-krds-component="file-upload" data-krds-state=""/>
-<button type="button" data-krds-component="file-upload" data-krds-part="picker" data-krds-state="" :disabled="disabled" @click="input?.click()">파일 선택</button>
+<input ref="input" :id="id" type="file" data-krds-part="file-input" :name="name" :form="form" :multiple="multiple" :accept="accept" :disabled="disabled" tabindex="-1" aria-hidden="true" @change="choose" data-krds-component="file-upload" data-krds-state=""/>
+<button type="button" data-krds-component="file-upload" data-krds-part="picker" data-krds-state="" :disabled="disabled" :id="`${id}-picker`" :aria-labelledby="`${id}-picker ${id}-label`" :aria-describedby="`${id}-description${errors.length?` ${id}-errors`:''}`" @click="input?.click()">파일 선택</button>
 <span v-if="variant==='dropzone'">여기에 파일을 끌어 놓거나 파일을 선택하세요.</span>
 </div>
 <p data-krds-part="count" data-krds-component="file-upload" data-krds-state="">{{files.length}}개 파일</p>

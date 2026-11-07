@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "node ../../tests/ssr/angular/verify.mjs",
+    "test": "vitest run --config vitest.config.ts && node ../../tests/ssr/angular/verify.mjs",
     "lint": "node ../../tools/check-workspace.mjs",
     "prepublishOnly": "node ../../tools/block-publish.mjs",
     "build:local": "ng build krds-angular --configuration production",

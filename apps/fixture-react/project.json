@@ -18,7 +18,14 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-react build:local"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/dist/index.html",
+        "{projectRoot}/dist/assets",
+        "{projectRoot}/dist/local",
+        "{projectRoot}/dist/local-assets",
+        "{projectRoot}/dist/_legal"
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -90,6 +97,15 @@
         "{workspaceRoot}/specs/components/**/*",
         "{workspaceRoot}/compatibility/frameworks.json"
       ]
+    },
+    "docs-preview": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ],
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-react docs-preview:local"
+      }
     }
   }
 }

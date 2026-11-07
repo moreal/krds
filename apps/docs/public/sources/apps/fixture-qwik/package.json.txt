@@ -12,7 +12,8 @@
     "siheom": "node ../../tools/run-siheom-tests.mjs --framework qwik",
     "siheom:local": "vitest run --config vitest.config.ts",
     "test:resume": "node ../../tests/ssr/qwik/resume.mjs",
-    "test:behavior": "node ../../tests/ssr/qwik/behavior.mjs"
+    "test:behavior": "node ../../tests/ssr/qwik/behavior.mjs",
+    "docs-preview:local": "node src/docs-preview/build.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

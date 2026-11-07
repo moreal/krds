@@ -11,7 +11,7 @@ test('S2 file removal waits for acceptance then prefers the previous surviving r
  await user.click(screen.getByRole('button',{name:'b.txt 삭제'}));expect(screen.getByRole('button',{name:'b.txt 삭제'})).toHaveFocus();expect(instance.files()).toHaveLength(3);
  instance.files.set([...instance.requested]);await settle(view);expect(screen.getByRole('button',{name:'a.txt 삭제'})).toHaveFocus();
  await user.click(screen.getByRole('button',{name:'a.txt 삭제'}));instance.files.set([...instance.requested]);await settle(view);expect(screen.getByRole('button',{name:'c.txt 삭제'})).toHaveFocus();
- await user.click(screen.getByRole('button',{name:'c.txt 삭제'}));instance.files.set([...instance.requested]);await settle(view);expect(screen.getByRole('button',{name:'파일 선택'})).toHaveFocus();
+ await user.click(screen.getByRole('button',{name:'c.txt 삭제'}));instance.files.set([...instance.requested]);await settle(view);expect(screen.getByRole('button',{name:/^파일 선택(?:\s|$)/})).toHaveFocus();
 });
 @Component({standalone:true,imports:[Tag],template:`<button>태그 앞</button><krds-tag mode="removable" [items]="items()" (remove)="requested=$event.id" (clear)="clears=clears+1"/><button>태그 뒤</button>`})
 class TagsHarness{readonly items=signal([{id:'a',label:'첫째'},{id:'b',label:'둘째',disabled:true},{id:'c',label:'셋째'},{id:'d',label:'넷째'}]);requested='';clears=0;}

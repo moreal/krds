@@ -7,8 +7,9 @@
     "test": "node ../../packages/solid-next/audit-versions.mjs --check && node ../../packages/solid-next/ssr-build.mjs && node ../../packages/solid-next/native-test.mjs && node ../../packages/solid-next/fix1-test.mjs",
     "lint": "node ../../tools/check-workspace.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "build:local": "node ../../packages/solid-next/audit-versions.mjs --check && vite build",
-    "contract": "node ../../tools/run-contract-tests.mjs --framework solid-next"
+    "build:local": "node ../../packages/solid-next/audit-versions.mjs --check && node clean-fixture.mjs && vite build",
+    "contract": "node ../../tools/run-contract-tests.mjs --framework solid-next",
+    "docs-preview:local": "node ../../packages/solid-next/audit-versions.mjs --check && vite build --config vite.docs-preview.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

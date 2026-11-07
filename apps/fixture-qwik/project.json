@@ -18,7 +18,19 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik build:local"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/dist/index.html",
+        "{projectRoot}/dist/resume.html",
+        "{projectRoot}/dist/examples.html",
+        "{projectRoot}/dist/build",
+        "{projectRoot}/dist/server",
+        "{projectRoot}/dist/assets",
+        "{projectRoot}/dist/q-manifest.json",
+        "{projectRoot}/dist/local",
+        "{projectRoot}/dist/local-assets",
+        "{projectRoot}/dist/_legal"
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -87,6 +99,15 @@
         "{workspaceRoot}/playwright.config.ts",
         "{workspaceRoot}/tools/testing/**/*"
       ]
+    },
+    "docs-preview": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ],
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-qwik docs-preview:local"
+      }
     }
   }
 }

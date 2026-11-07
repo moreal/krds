@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, type PropertyValues } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { KrdsElement } from '../base.js';
 import { FormControlController } from '../../controllers/form-control-controller.js';
@@ -13,6 +13,7 @@ export class Button extends KrdsElement {
     declare variant: string;
     declare size: string;
     readonly formControl = new FormControlController(this);
+    static override readonly forwardedAria = ['aria-describedby', 'aria-controls', 'aria-expanded', 'aria-haspopup', 'aria-pressed', 'aria-current'];
     constructor() { super(); this.type = 'button'; this.disabled = false; this.name = ''; this.value = ''; this.variant = 'primary'; this.size = 'medium'; }
     get form() { return this.formControl.internals?.form ?? null; }
     resetControl() { }
@@ -43,6 +44,11 @@ export class Button extends KrdsElement {
             }
         });
     };
+    protected override updated(changed: PropertyValues) {
+        super.updated(changed);
+        const control = this.renderRoot.querySelector('button');
+        if (control) { this.forwardHostAria(control); this.applyExplicitNaming(control); }
+    }
     override render() {
         if (!['button', 'submit', 'reset'].includes(this.type) || !['primary', 'secondary', 'tertiary', 'text', 'icon'].includes(this.variant) || !['xsmall', 'small', 'medium', 'large', 'xlarge'].includes(this.size))
             throw new TypeError('Invalid Button option');

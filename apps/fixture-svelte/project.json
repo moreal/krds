@@ -18,7 +18,15 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte build:local"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/dist/index.html",
+        "{projectRoot}/dist/assets",
+        "{projectRoot}/dist/local",
+        "{projectRoot}/dist/local-assets",
+        "{projectRoot}/dist/_legal"
+      ],
+      "cache": true
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -79,6 +87,16 @@
         "{workspaceRoot}/compatibility/testing.json",
         "{workspaceRoot}/tools/run-siheom-tests.mjs"
       ]
+    },
+    "docs-preview": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ],
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-svelte docs-preview:local"
+      }
     }
   }
 }

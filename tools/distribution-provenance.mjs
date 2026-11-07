@@ -2,6 +2,7 @@ import { readFile, readdir, lstat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { safePath } from './generate-notices.mjs';
+import { verifyNativeInventory } from './docs-previews/provenance.mjs';
 const termsDestination = (path) => path.endsWith('.html') ? `${path}.txt` : path;
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const json = async (path) => JSON.parse(await readFile(path, 'utf8'));
@@ -142,6 +143,11 @@ export async function loadDistribution(root, { independentCopyright, sourceEntri
   for (const path of await files(root, docs.publicRoot)) if (!declared.has(path)) throw new Error(`Untracked docs snapshot: ${path}`);
   for (const path of await files(root, docs.buildRoot)) if (!declared.has(path.replace(docs.buildRoot, docs.publicRoot))) throw new Error(`Untracked built docs snapshot: ${path}`);
   for (const record of inventory.exclusions) if (record.rightsStatus !== 'unresolved' || record.distributedIn.length) throw new Error('Excluded voice material must remain unresolved and undistributed');
+  // Native preview bytes keep their own inventory; re-check rights evidence, not only destination hashes.
+  if (inventory.nativePreviews) {
+    if (!policy.dependencyInventoryPath) throw new Error('Native preview runtime notices require the dependency inventory');
+    verifyNativeInventory(root, inventory.nativePreviews, { sourceEntries: sourceEntries ?? [], dependencies: await json(join(root, policy.dependencyInventoryPath)), distribution: inventory });
+  }
   return inventory;
 }
 export async function distributionArtifacts(root, inventory) {
@@ -150,11 +156,11 @@ export async function distributionArtifacts(root, inventory) {
   for (const app of inventory.applications) {
     const assets = inventory.assets.filter((record) => record.destinations.some((path) => path.startsWith(`${app.publicRoot}/`)));
     const docs = app.path === 'apps/docs' ? inventory.documentation : null;
-    const dependencies = docs ? inventory.bundledDependencies ?? [] : [];
+    const dependencies = docs ? [...inventory.bundledDependencies ?? [], ...inventory.nativePreviews?.artifacts.flatMap(artifact => artifact.bundledDependencies) ?? []] : [];
     const dependencyTerms = dependencies.flatMap(record => record.licenseDocuments);
     const allTermHashes = {...inventory.termsHashes,...Object.fromEntries(dependencyTerms.map(record=>[record.localPath,record.sha256]))};
     const terms = [...new Set([...inventory.terms.independent, ...inventory.terms.krds, ...(docs ? inventory.terms.font : []),...dependencyTerms.map(record=>record.localPath)])];
-    const local = { schemaVersion: 1, application: app.path, inventory: 'compliance/distribution-provenance.json', scope: inventory.scope, independentCopyright: inventory.independentCopyright, assets, sourceConditions: inventory.sourceConditions ?? [], sourceConditionsNote: inventory.sourceConditionsNote, ...(docs ? { documentation: docs, fontAssets: inventory.fontAssets ?? [], bundledDependencies: dependencies } : {}), termsCopies: terms.map((path) => ({ sourcePath: path, destination: termsDestination(path), sha256: allTermHashes[path] })), termsHashes: Object.fromEntries(terms.map((path) => [path, allTermHashes[path]])), exclusions: inventory.exclusions };
+    const local = { schemaVersion: 1, application: app.path, inventory: 'compliance/distribution-provenance.json', scope: inventory.scope, independentCopyright: inventory.independentCopyright, assets, sourceConditions: inventory.sourceConditions ?? [], sourceConditionsNote: inventory.sourceConditionsNote, ...(docs ? { documentation: docs, fontAssets: inventory.fontAssets ?? [], bundledDependencies: dependencies, ...(inventory.nativePreviews ? { nativePreviews: inventory.nativePreviews } : {}) } : {}), termsCopies: terms.map((path) => ({ sourcePath: path, destination: termsDestination(path), sha256: allTermHashes[path] })), termsHashes: Object.fromEntries(terms.map((path) => [path, allTermHashes[path]])), exclusions: inventory.exclusions };
     const index = `<!doctype html><html lang="en"><meta charset="utf-8"><title>Source and license notices</title><main><h1>Source and license notices</h1><p>${inventory.independentCopyright.replaceAll('<', '&lt;').replaceAll('>', '&gt;')}. The MIT grant covers independent project materials only.</p><p>Official KRDS excerpts and adaptations retain Ministry of the Interior and Safety attribution and KRDS/KOGL conditions. Original policy and font texts retain their own terms and Reserved Font Names. No government affiliation, sponsorship or endorsement is implied.</p><p>Fixture audio is an arithmetic test tone; video is simple geometry. These specimens are not speech or authentic sign-language interpretations. Apple System Voices/Yuna output is excluded.</p><ul>${terms.map((path) => `<li><a href="${termsDestination(path)}">${path}</a></li>`).join('')}<li><a href="provenance.json">Exact source and destination inventory</a></li></ul></main></html>\n`;
     const roots = [`${app.publicRoot}/_legal`];
     if (await exists(safePath(root, app.buildRoot))) roots.push(`${app.buildRoot}/_legal`);

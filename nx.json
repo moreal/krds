@@ -136,6 +136,31 @@
       "outputs": [
         "{projectRoot}/dist"
       ]
+    },
+    "docs-preview": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/apps/docs/demo-definitions.json",
+        "{workspaceRoot}/apps/docs/demo-acceptance.json",
+        "{workspaceRoot}/catalog/**/*",
+        "{workspaceRoot}/tools/docs-previews/**/*",
+        "{workspaceRoot}/yarn.lock",
+        "{workspaceRoot}/.yarnrc.yml",
+        "{workspaceRoot}/compatibility/**/*",
+        "{workspaceRoot}/compliance/**/*",
+        "{workspaceRoot}/upstream/krds/manifest.json",
+        "{workspaceRoot}/packages/styles/**/*",
+        "{workspaceRoot}/packages/fonts/**/*",
+        "{workspaceRoot}/packages/assets/**/*"
+      ],
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ]
     }
   },
   "release": {

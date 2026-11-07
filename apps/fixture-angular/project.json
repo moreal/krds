@@ -18,7 +18,16 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular build:local"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/dist/index.html",
+        "{projectRoot}/dist/main.js",
+        "{projectRoot}/dist/styles.css",
+        "{projectRoot}/dist/3rdpartylicenses.txt",
+        "{projectRoot}/dist/local",
+        "{projectRoot}/dist/local-assets",
+        "{projectRoot}/dist/_legal"
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -59,6 +68,15 @@
         "build",
         "^build"
       ]
+    },
+    "docs-preview": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ],
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-angular docs-preview:local"
+      }
     }
   }
 }

@@ -1828,6 +1828,20 @@
         "apps/fixture-lit/public/local/tool/4/index.html",
         "apps/storybook-lit/public/local/tool/4/index.html"
       ]
+    },
+    {
+      "sourcePath": "apps/fixture-lit/public/local-assets/example-landscape.svg",
+      "sha256": "2e8453cb1c3a4260486a7a668eaee2ebd04c038860cb1876bf4116e0ca62e1b0",
+      "bytes": 431,
+      "origin": "Independently authored simple landscape SVG (sky, sun, mountains, river shapes) for the Unofficial KRDS docs preview Image example; no text, branding or KRDS/third-party imagery; independent MIT project material",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-lit-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-lit/public/local-assets/example-landscape.svg"
+      ]
     }
   ],
   "sourceConditions": [

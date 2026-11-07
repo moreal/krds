@@ -2043,11 +2043,25 @@
         "apps/fixture-vue/public/local-assets/provenance.json"
       ],
       "sourcePath": "apps/fixture-vue/public/local-assets/provenance.json",
-      "sha256": "52c258254f06427abe1f1bb5dab38aa38c18aa0fb7279e6beee31c2e63788264",
-      "bytes": 5045,
+      "sha256": "49a4f5376d23251a6c1e501b4a34765cdc3f796858d77a377a365f776f2a8096",
+      "bytes": 5485,
       "destinations": [
+        "apps/fixture-vue/public/local-assets/provenance.json"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-vue/public/local-assets/example-landscape.svg",
+      "sha256": "fa5ec0dcad2f27733d12f6ff14792c0aee28fc94f943f0371af362208ed325e8",
+      "bytes": 544,
+      "origin": "Independently authored simple landscape SVG (sky, sun, mountains, river shapes) for the Unofficial KRDS docs preview Image example; no text, branding or KRDS/third-party imagery; independent MIT project material",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
         "apps/fixture-vue/public/local-assets/provenance.json",
-        "apps/fixture-angular/public/local-assets/provenance.json"
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-vue-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-vue/public/local-assets/example-landscape.svg"
       ]
     }
   ],

@@ -1,0 +1,7 @@
+body{margin:0;padding:24px;font-family:system-ui,sans-serif;color:#172b4d;background:white}#preview-root{min-width:0}img,video{max-width:100%;height:auto}button{cursor:pointer}@media(max-width:400px){body{padding:16px}}
+body{font-size:16px}[role="status"]{margin-block-start:16px}
+.preview-outline{display:grid;gap:24px;grid-template-columns:minmax(0,1fr) 240px}.preview-outline>nav{grid-column:2;grid-row:1}.preview-outline>article{grid-column:1;grid-row:1}
+[data-active-target="true"]{outline:3px solid #256ef4;outline-offset:3px}
+@media(max-width:700px){.preview-outline{display:block}}
+
+.preview-actions{display:flex;gap:8px;margin-block-start:16px}

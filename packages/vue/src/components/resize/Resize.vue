@@ -2,6 +2,7 @@
 import { computed, ref, onMounted, onUnmounted, nextTick, useId } from 'vue';
 import type { ResizeContract } from '@unofficial-krds/contracts';
 import { useOwned } from '../catalog-state';
+import { usePopupPosition } from '../popup-position';
 const p = withDefaults(defineProps<ResizeContract>(), { open: undefined, defaultOpen: undefined });
 const emit = defineEmits<{
     valueChange: [
@@ -18,7 +19,9 @@ const emit = defineEmits<{
 const levels = computed(() => p.levels ?? [90, 100, 110, 130, 150].map(percent => ({ id: String(percent), label: `${percent}%`, percent })));
 const state = useOwned(() => p.value, () => p.defaultValue, '100', value => emit('valueChange', { value }));
 const open = useOwned(() => p.open, () => p.defaultOpen, false, value => emit('openChange', { open: value }));
-const root = ref<HTMLElement>(), trigger = ref<HTMLButtonElement>(), id = useId();
+const root = ref<HTMLElement>(), trigger = ref<HTMLButtonElement>(), list = ref<HTMLElement>(), id = useId();
+// Viewport-clamped placement (as React's floating box): the list stays reachable when the trigger sits near either inline edge.
+const { style: listStyle } = usePopupPosition(computed(() => open.value.value), trigger, list, () => 'bottom-end');
 function choose(value: string) { state.request(value); open.request(false); void nextTick(() => trigger.value?.focus()); }
 function key(e: KeyboardEvent) {
     if (e.isComposing || e.defaultPrevented)
@@ -49,7 +52,7 @@ onUnmounted(() => document.removeEventListener('pointerdown', outside));
 <template>
 <div ref="root" data-krds-part="root" :data-krds-state="open.value.value?'open':'closed'" @keydown="key" data-krds-component="resize">
 <button ref="trigger" type="button" data-krds-part="trigger" :aria-expanded="open.value.value" :aria-controls="id" @click="open.request(!open.value.value)" data-krds-component="resize" data-krds-state="">화면 크기 {{levels.find(x=>x.id===state.value.value)?.label}}</button>
-<ul :id="id" data-krds-part="list" :hidden="!open.value.value" data-krds-component="resize" data-krds-state="">
+<ul ref="list" :id="id" :style="listStyle" data-krds-part="list" :hidden="!open.value.value" data-krds-component="resize" data-krds-state="">
 <li v-for="level in levels" :key="level.id">
 <button type="button" data-krds-part="option" :aria-pressed="level.id===state.value.value" :data-krds-state="level.id===state.value.value?'selected':''" @click="choose(level.id)" data-krds-component="resize">{{level.label}}</button>
 </li>

@@ -46,7 +46,7 @@ export class RadioGroup extends RequiredValidator implements OnInit,OnDestroy,Co
  }
  private controls():HTMLInputElement[]{return [...this.element.querySelectorAll<HTMLInputElement>('input[type=radio]')];}
  private sync():void{for(const control of this.controls())control.checked=this.current()!==null&&control.value===this.current();}
- request(value:string):void{if(this.isDisabled()||value===this.current()){this.sync();return;}if(this.forms||this.value===undefined)this.local.set(value);this.onChange(value);this.valueChange.emit({value});this.sync();}
+ request(value:string):void{if(this.isDisabled()||value===this.current()){this.sync();return;}if(this.forms||this.value===undefined)this.local.set(value);this.onChange(value);this.valueChange.emit({value});/* Controlled parents re-render next; afterEveryRender reconciles, so a pending change is not reverted before the owner applies it. */if(this.forms||this.value===undefined)this.sync();}
  key(event:KeyboardEvent,index:number):void{if(event.key!=='Tab'||event.altKey||event.metaKey||event.ctrlKey)return;const controls=this.controls();const direction=event.shiftKey?-1:1;for(let next=index+direction;next>=0&&next<controls.length;next+=direction){const control=controls[next];if(control&&!control.disabled){event.preventDefault();control.focus();return;}}}
  enter(event:FocusEvent):void{
   if(this.element.contains(event.relatedTarget as Node))return;

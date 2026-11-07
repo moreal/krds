@@ -1,0 +1,2403 @@
+[
+  {
+    "componentId": "accessible-media",
+    "acceptanceId": "accessible-media-default",
+    "classification": "static",
+    "initialState": {
+      "media": {
+        "kind": "audio",
+        "src": "/local-assets/specimen-audio.wav",
+        "type": "audio/wav"
+      },
+      "captionTracks": [],
+      "transcript": {
+        "content": "약 2초 동안 일정한 높이의 예제 신호음이 들립니다."
+      },
+      "title": "로컬 예제 미디어",
+      "controls": true,
+      "autoplay": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "manualEquivalenceReviewRequired": true,
+      "assetReviewRequired": true,
+      "assetRequirement": "Native owner must supply actual local cleared fixture media/identity assets; descriptors do not prove existence, equivalence or rights.",
+      "mediaContentPolicy": "Independently authored tone WAV and matching independent simple visual specimen; no redistributed OS voice."
+    },
+    "actions": [
+      "Operate native media controls",
+      "Read/use required content alternatives"
+    ],
+    "observableOutcome": "Local audio has matching usable transcript",
+    "resetBaseline": {
+      "media": {
+        "kind": "audio",
+        "src": "/local-assets/specimen-audio.wav",
+        "type": "audio/wav"
+      },
+      "captionTracks": [],
+      "transcript": {
+        "content": "약 2초 동안 일정한 높이의 예제 신호음이 들립니다."
+      },
+      "title": "로컬 예제 미디어",
+      "controls": true,
+      "autoplay": false
+    }
+  },
+  {
+    "componentId": "accordion",
+    "acceptanceId": "accordion-default",
+    "classification": "interactive",
+    "initialState": {
+      "items": [
+        {
+          "id": "eligibility",
+          "title": "신청 자격",
+          "content": "예제 신청 자격 안내"
+        },
+        {
+          "id": "documents",
+          "title": "제출 서류",
+          "content": "예제 제출 서류 안내"
+        }
+      ],
+      "defaultOpenIds": [],
+      "multiple": true,
+      "variant": "default"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "panelLink": null,
+      "repeatContent": 1
+    },
+    "actions": [
+      "Tab through every header",
+      "Toggle 신청 자격"
+    ],
+    "observableOutcome": "Heading/button relationships and state are accessible",
+    "resetBaseline": {
+      "items": [
+        {
+          "id": "eligibility",
+          "title": "신청 자격",
+          "content": "예제 신청 자격 안내"
+        },
+        {
+          "id": "documents",
+          "title": "제출 서류",
+          "content": "예제 제출 서류 안내"
+        }
+      ],
+      "defaultOpenIds": [],
+      "multiple": true,
+      "variant": "default"
+    }
+  },
+  {
+    "componentId": "back-button",
+    "acceptanceId": "back-button-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "뒤로가기",
+      "canGoBack": true,
+      "dirty": false,
+      "fallbackHref": "/local/parent"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "driver": "local-history-mock",
+      "history": [
+        "/local/parent",
+        "/local/current"
+      ],
+      "confirmationMode": "interactive-modal",
+      "expectedConfirmationResult": true,
+      "confirmationInitiallyPending": true,
+      "confirmationDialog": {
+        "title": "작성 중인 내용이 있습니다",
+        "description": "이전 화면으로 이동하면 입력 내용이 사라질 수 있습니다.",
+        "cancelLabel": "취소",
+        "confirmLabel": "확인",
+        "escapeResult": false
+      }
+    },
+    "actions": [
+      "Activate back control"
+    ],
+    "observableOutcome": "Back request uses expected prior/parent route",
+    "resetBaseline": {
+      "label": "뒤로가기",
+      "canGoBack": true,
+      "dirty": false,
+      "fallbackHref": "/local/parent"
+    }
+  },
+  {
+    "componentId": "badge",
+    "acceptanceId": "badge-default",
+    "classification": "static",
+    "initialState": {
+      "label": "진행 중",
+      "appearance": "outline",
+      "tone": "information",
+      "size": "medium",
+      "numeric": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "samples": []
+    },
+    "actions": [
+      "Mount native Badge with the supplied local state"
+    ],
+    "observableOutcome": "Badge never enters Tab order or exposes interactive role",
+    "resetBaseline": {
+      "label": "진행 중",
+      "appearance": "outline",
+      "tone": "information",
+      "size": "medium",
+      "numeric": false
+    }
+  },
+  {
+    "componentId": "bottom-sheet",
+    "acceptanceId": "bottom-sheet-default",
+    "classification": "interactive",
+    "initialState": {
+      "title": "지역 선택",
+      "defaultOpen": true,
+      "description": "예제 지역을 선택하세요",
+      "dismissOnOutside": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "openerId": "sheet-opener",
+      "removeOpener": false,
+      "dragClose": false,
+      "selection": "seoul"
+    },
+    "actions": [
+      "Tab through sheet controls",
+      "Select 부산",
+      "Escape or activate visible top close"
+    ],
+    "observableOutcome": "Open focuses named dialog and traps only while open",
+    "resetBaseline": {
+      "title": "지역 선택",
+      "defaultOpen": true,
+      "description": "예제 지역을 선택하세요",
+      "dismissOnOutside": false
+    }
+  },
+  {
+    "componentId": "breadcrumb",
+    "acceptanceId": "breadcrumb-default",
+    "classification": "static",
+    "initialState": {
+      "home": {
+        "href": "/local/home",
+        "label": "홈"
+      },
+      "items": [
+        {
+          "id": "apply",
+          "label": "신청",
+          "href": "/local/apply"
+        }
+      ],
+      "omitCurrent": true,
+      "maxVisible": 4,
+      "currentItem": {
+        "id": "detail",
+        "label": "신청 상세"
+      }
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true
+    },
+    "actions": [
+      "Mount native Breadcrumb with the supplied local state"
+    ],
+    "observableOutcome": "Home href is actual service root",
+    "resetBaseline": {
+      "home": {
+        "href": "/local/home",
+        "label": "홈"
+      },
+      "items": [
+        {
+          "id": "apply",
+          "label": "신청",
+          "href": "/local/apply"
+        }
+      ],
+      "omitCurrent": true,
+      "maxVisible": 4,
+      "currentItem": {
+        "id": "detail",
+        "label": "신청 상세"
+      }
+    }
+  },
+  {
+    "componentId": "button",
+    "acceptanceId": "button-default",
+    "classification": "interactive",
+    "initialState": {
+      "value": null
+    },
+    "host": {
+      "localOnly": true
+    },
+    "actions": [
+      "Activate enabled button"
+    ],
+    "observableOutcome": "Local activation count increases once",
+    "resetBaseline": {
+      "value": null
+    }
+  },
+  {
+    "componentId": "calendar",
+    "acceptanceId": "calendar-default",
+    "classification": "interactive",
+    "initialState": {
+      "value": null
+    },
+    "host": {
+      "localOnly": true
+    },
+    "actions": [
+      "Select a day in fixed displayed month"
+    ],
+    "observableOutcome": "Selected day is exposed with selected semantics",
+    "resetBaseline": {
+      "value": null
+    }
+  },
+  {
+    "componentId": "carousel",
+    "acceptanceId": "carousel-default",
+    "classification": "interactive",
+    "initialState": {
+      "items": [
+        {
+          "id": "a",
+          "label": "신청 안내",
+          "content": "첫 번째 신청 안내"
+        },
+        {
+          "id": "b",
+          "label": "서류 안내",
+          "content": "두 번째 서류 안내"
+        },
+        {
+          "id": "c",
+          "label": "문의 안내",
+          "content": "세 번째 문의 안내"
+        }
+      ],
+      "defaultIndex": 0,
+      "layout": "single",
+      "autoplay": true,
+      "intervalMs": 6000,
+      "loop": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "fakeClock": true
+    },
+    "actions": [
+      "Mount eligible autoplay with focus outside and pointer outside",
+      "Use trusted Tab to enter the first playback control; verify actual advancement stops and primary says 재생",
+      "Tab out without Play and advance clock; verify no resume and zero passive playback callbacks",
+      "Focus primary 재생 and activate with keyboard; verify explicit latch clearance without a same-intent duplicate callback"
+    ],
+    "observableOutcome": "Focus entry pauses and leaving does not restart",
+    "resetBaseline": {
+      "items": [
+        {
+          "id": "a",
+          "label": "신청 안내",
+          "content": "첫 번째 신청 안내"
+        },
+        {
+          "id": "b",
+          "label": "서류 안내",
+          "content": "두 번째 서류 안내"
+        },
+        {
+          "id": "c",
+          "label": "문의 안내",
+          "content": "세 번째 문의 안내"
+        }
+      ],
+      "defaultIndex": 0,
+      "layout": "single",
+      "autoplay": true,
+      "intervalMs": 6000,
+      "loop": false
+    }
+  },
+  {
+    "componentId": "checkbox",
+    "acceptanceId": "checkbox-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "이용약관 동의",
+      "name": "consent",
+      "defaultChecked": false,
+      "indeterminate": false,
+      "value": "agreed"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "form": true,
+      "cancelReset": false
+    },
+    "actions": [
+      "Activate associated label",
+      "Press Space",
+      "Inspect FormData",
+      "Reset form"
+    ],
+    "observableOutcome": "Label and Space toggle once",
+    "resetBaseline": {
+      "label": "이용약관 동의",
+      "name": "consent",
+      "defaultChecked": false,
+      "indeterminate": false,
+      "value": "agreed"
+    }
+  },
+  {
+    "componentId": "coach-mark",
+    "acceptanceId": "coach-mark-default",
+    "classification": "interactive",
+    "initialState": {
+      "steps": [
+        {
+          "id": "one",
+          "title": "이름 입력",
+          "targetId": "applicant-name",
+          "instruction": "신청인 이름을 입력하세요"
+        }
+      ],
+      "boundaries": [
+        {
+          "targetId": "applicant-name",
+          "insertionBoundaryId": "applicant-name-after"
+        },
+        {
+          "targetId": "save-application",
+          "insertionBoundaryId": "save-application-after"
+        }
+      ],
+      "open": false,
+      "defaultStepId": "one",
+      "startActionId": "tutorial-start",
+      "fallbackFocusId": "coach-fallback"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "targetInputs": {
+        "applicant-name": ""
+      },
+      "targetActionVerified": false,
+      "targetOffscreen": false,
+      "targetRemoved": false,
+      "routeChange": false,
+      "acceptStop": true,
+      "targetVerifier": "committed-local-task-result-after-real-native-action"
+    },
+    "actions": [
+      "Activate explicit local tutorial start",
+      "Inspect target immediately followed by first popover"
+    ],
+    "observableOutcome": "Explicit start required",
+    "resetBaseline": {
+      "steps": [
+        {
+          "id": "one",
+          "title": "이름 입력",
+          "targetId": "applicant-name",
+          "instruction": "신청인 이름을 입력하세요"
+        }
+      ],
+      "boundaries": [
+        {
+          "targetId": "applicant-name",
+          "insertionBoundaryId": "applicant-name-after"
+        },
+        {
+          "targetId": "save-application",
+          "insertionBoundaryId": "save-application-after"
+        }
+      ],
+      "open": false,
+      "defaultStepId": "one",
+      "startActionId": "tutorial-start",
+      "fallbackFocusId": "coach-fallback"
+    }
+  },
+  {
+    "componentId": "contextual-help",
+    "acceptanceId": "contextual-help-default",
+    "classification": "interactive",
+    "initialState": {
+      "title": "신청 자격 도움말",
+      "content": "신청 자격에 관한 예제 설명입니다.",
+      "triggerLabel": "신청 자격 도움말",
+      "defaultOpen": false,
+      "variant": "information",
+      "placement": "bottom-start"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "relatedLink": null,
+      "removeTrigger": false,
+      "placements": []
+    },
+    "actions": [
+      "Activate named trigger",
+      "Tab into content",
+      "Escape"
+    ],
+    "observableOutcome": "Closed by default and never autostarts",
+    "resetBaseline": {
+      "title": "신청 자격 도움말",
+      "content": "신청 자격에 관한 예제 설명입니다.",
+      "triggerLabel": "신청 자격 도움말",
+      "defaultOpen": false,
+      "variant": "information",
+      "placement": "bottom-start"
+    }
+  },
+  {
+    "componentId": "critical-alert",
+    "acceptanceId": "critical-alert-default",
+    "classification": "interactive",
+    "initialState": {
+      "urgency": "high",
+      "label": "긴급 안내",
+      "message": "예제 점검으로 신청이 잠시 중단됩니다.",
+      "details": {
+        "href": "/local/maintenance",
+        "label": "점검 상세 안내",
+        "destinationTitle": "점검 상세 안내"
+      }
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "bodyFirst": true
+    },
+    "actions": [
+      "Mount native CriticalAlert with the supplied local state"
+    ],
+    "observableOutcome": "Notice cannot be dismissed/collapsed",
+    "resetBaseline": {
+      "urgency": "high",
+      "label": "긴급 안내",
+      "message": "예제 점검으로 신청이 잠시 중단됩니다.",
+      "details": {
+        "href": "/local/maintenance",
+        "label": "점검 상세 안내",
+        "destinationTitle": "점검 상세 안내"
+      }
+    }
+  },
+  {
+    "componentId": "date-input",
+    "acceptanceId": "date-input-default",
+    "classification": "interactive",
+    "initialState": {
+      "value": null
+    },
+    "host": {
+      "localOnly": true
+    },
+    "actions": [
+      "Enter a valid local date"
+    ],
+    "observableOutcome": "Entered date remains visible and valid",
+    "resetBaseline": {
+      "value": null
+    }
+  },
+  {
+    "componentId": "disclosure",
+    "acceptanceId": "disclosure-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "신청 도움말",
+      "contentId": "application-help",
+      "defaultOpen": false,
+      "content": "신청서를 작성하는 방법입니다."
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "contentLink": null
+    },
+    "actions": [
+      "Activate trigger with Enter",
+      "Activate trigger with Space"
+    ],
+    "observableOutcome": "Default content hidden",
+    "resetBaseline": {
+      "label": "신청 도움말",
+      "contentId": "application-help",
+      "defaultOpen": false,
+      "content": "신청서를 작성하는 방법입니다."
+    }
+  },
+  {
+    "componentId": "fab",
+    "acceptanceId": "fab-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "새 신청",
+      "icon": "plus",
+      "defaultExpanded": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "tabBarHeight": 0,
+      "actionResults": []
+    },
+    "actions": [
+      "Activate trigger",
+      "Confirm local result"
+    ],
+    "observableOutcome": "Primary keyboard activation fires once",
+    "resetBaseline": {
+      "label": "새 신청",
+      "icon": "plus",
+      "defaultExpanded": false
+    }
+  },
+  {
+    "componentId": "favicon",
+    "acceptanceId": "favicon-default",
+    "classification": "static",
+    "initialState": {
+      "light": {
+        "href": "/local-assets/specimen-icon-light.svg",
+        "type": "image/svg+xml",
+        "sizes": "any"
+      },
+      "dark": {
+        "href": "/local-assets/specimen-icon-dark.svg",
+        "type": "image/svg+xml",
+        "sizes": "any"
+      }
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "headLinksRequired": true,
+      "assetReviewRequired": true,
+      "touchIcon": false,
+      "themePreview": false,
+      "assetRequirement": "Native owner must supply actual local cleared fixture media/identity assets; descriptors do not prove existence, equivalence or rights."
+    },
+    "actions": [
+      "Inspect document head"
+    ],
+    "observableOutcome": "Local icon and applicable alternate icon link elements exist in document head with resolvable asset URLs.",
+    "resetBaseline": {
+      "light": {
+        "href": "/local-assets/specimen-icon-light.svg",
+        "type": "image/svg+xml",
+        "sizes": "any"
+      },
+      "dark": {
+        "href": "/local-assets/specimen-icon-dark.svg",
+        "type": "image/svg+xml",
+        "sizes": "any"
+      }
+    }
+  },
+  {
+    "componentId": "file-upload",
+    "acceptanceId": "file-upload-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "첨부 서류",
+      "name": "documents",
+      "files": [],
+      "multiple": false,
+      "accept": ".txt,.pdf",
+      "maxFiles": 3,
+      "maxBytes": 1048576
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "driver": "submit-gated-local-file-mock",
+      "fileFixtures": [
+        {
+          "id": "a",
+          "name": "신청서-A.txt",
+          "type": "text/plain",
+          "contents": "local A",
+          "status": "staged"
+        },
+        {
+          "id": "b",
+          "name": "증빙-B.txt",
+          "type": "text/plain",
+          "contents": "local B",
+          "status": "staged"
+        }
+      ],
+      "materializeFiles": true,
+      "hostResetClears": false,
+      "pickerPresentation": "button"
+    },
+    "actions": [
+      "Select a local File through the native file input",
+      "Remove the selected file"
+    ],
+    "observableOutcome": "Selected File name appears; removal clears the visible list and input state.",
+    "resetBaseline": {
+      "label": "첨부 서류",
+      "name": "documents",
+      "files": [],
+      "multiple": false,
+      "accept": ".txt,.pdf",
+      "maxFiles": 3,
+      "maxBytes": 1048576
+    }
+  },
+  {
+    "componentId": "footer",
+    "acceptanceId": "footer-default",
+    "classification": "static",
+    "initialState": {
+      "serviceLogo": {
+        "src": "/local-assets/specimen-logo.svg",
+        "alt": "예제 서비스"
+      },
+      "contacts": [
+        {
+          "label": "예제 문의",
+          "text": "로컬 예제 연락처"
+        }
+      ],
+      "utilityLinks": [
+        {
+          "id": "policy",
+          "label": "이용약관",
+          "href": "/local/policy"
+        }
+      ],
+      "privacyPolicy": {
+        "href": "/local/privacy",
+        "label": "개인정보처리방침"
+      },
+      "policyLinks": [
+        {
+          "id": "policy",
+          "label": "이용약관",
+          "href": "/local/policy"
+        }
+      ],
+      "copyrightText": "Independent local specimen",
+      "institution": {
+        "institutionName": "독립 예제 운영기관",
+        "logo": {
+          "src": "/local-assets/specimen-logo.svg",
+          "alt": "독립 예제 운영기관"
+        },
+        "theme": "light",
+        "relationshipText": "독립 운영기관이 운영하는 예제 서비스입니다."
+      }
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "shortPage": false,
+      "commerceDisclosure": null,
+      "mirrorNavigation": [],
+      "assetRequirement": "Native owner must supply actual local cleared fixture media/identity assets; descriptors do not prove existence, equivalence or rights."
+    },
+    "actions": [
+      "Mount native Footer with the supplied local state"
+    ],
+    "observableOutcome": "Footer landmark contains all footer information with Identifier last",
+    "resetBaseline": {
+      "serviceLogo": {
+        "src": "/local-assets/specimen-logo.svg",
+        "alt": "예제 서비스"
+      },
+      "contacts": [
+        {
+          "label": "예제 문의",
+          "text": "로컬 예제 연락처"
+        }
+      ],
+      "utilityLinks": [
+        {
+          "id": "policy",
+          "label": "이용약관",
+          "href": "/local/policy"
+        }
+      ],
+      "privacyPolicy": {
+        "href": "/local/privacy",
+        "label": "개인정보처리방침"
+      },
+      "policyLinks": [
+        {
+          "id": "policy",
+          "label": "이용약관",
+          "href": "/local/policy"
+        }
+      ],
+      "copyrightText": "Independent local specimen",
+      "institution": {
+        "institutionName": "독립 예제 운영기관",
+        "logo": {
+          "src": "/local-assets/specimen-logo.svg",
+          "alt": "독립 예제 운영기관"
+        },
+        "theme": "light",
+        "relationshipText": "독립 운영기관이 운영하는 예제 서비스입니다."
+      }
+    }
+  },
+  {
+    "componentId": "header",
+    "acceptanceId": "header-default",
+    "classification": "interactive",
+    "initialState": {
+      "home": {
+        "href": "/local/home",
+        "label": "예제 서비스 홈",
+        "logo": {
+          "src": "/local-assets/specimen-logo.svg",
+          "alt": "예제 서비스 홈"
+        }
+      },
+      "utilityItems": [
+        {
+          "id": "policy",
+          "label": "이용약관",
+          "href": "/local/policy"
+        }
+      ],
+      "mainNavigation": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home"
+        },
+        {
+          "id": "apply",
+          "label": "신청",
+          "children": [
+            {
+              "id": "apply-new",
+              "label": "신규 신청",
+              "href": "/local/apply"
+            },
+            {
+              "id": "history",
+              "label": "신청 내역",
+              "href": "/local/history"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "label": "지원",
+          "href": "/local/support"
+        }
+      ],
+      "actionLayout": "horizontal",
+      "sticky": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "pageHeight": 2400,
+      "mobile": false,
+      "assetRequirement": "Native owner must supply actual local cleared fixture media/identity assets; descriptors do not prove existence, equivalence or rights."
+    },
+    "actions": [
+      "Scroll page"
+    ],
+    "observableOutcome": "DOM/read/focus order follows identity→utilities→search→navigation after SkipLink",
+    "resetBaseline": {
+      "home": {
+        "href": "/local/home",
+        "label": "예제 서비스 홈",
+        "logo": {
+          "src": "/local-assets/specimen-logo.svg",
+          "alt": "예제 서비스 홈"
+        }
+      },
+      "utilityItems": [
+        {
+          "id": "policy",
+          "label": "이용약관",
+          "href": "/local/policy"
+        }
+      ],
+      "mainNavigation": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home"
+        },
+        {
+          "id": "apply",
+          "label": "신청",
+          "children": [
+            {
+              "id": "apply-new",
+              "label": "신규 신청",
+              "href": "/local/apply"
+            },
+            {
+              "id": "history",
+              "label": "신청 내역",
+              "href": "/local/history"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "label": "지원",
+          "href": "/local/support"
+        }
+      ],
+      "actionLayout": "horizontal",
+      "sticky": false
+    }
+  },
+  {
+    "componentId": "help-panel",
+    "acceptanceId": "help-panel-default",
+    "classification": "interactive",
+    "initialState": {
+      "defaultOpen": true,
+      "defaultSelectedTopicId": null,
+      "topics": [
+        {
+          "id": "eligibility",
+          "title": "신청 자격",
+          "content": "예제 신청 자격 도움말",
+          "relatedLinks": [
+            {
+              "id": "policy",
+              "label": "이용약관",
+              "href": "/local/policy"
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "제출 서류",
+          "content": "예제 제출 서류 도움말",
+          "relatedLinks": []
+        }
+      ],
+      "mode": "help",
+      "fallbackFocusId": "panel-fallback"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "layout": "desktop",
+      "acceptClose": true,
+      "removeTopicTrigger": false,
+      "removePanelOpener": false,
+      "panelOpenerId": "help-panel-opener"
+    },
+    "actions": [
+      "Activate eligibility topic",
+      "Close panel"
+    ],
+    "observableOutcome": "Wide starts open with initial guidance",
+    "resetBaseline": {
+      "defaultOpen": true,
+      "defaultSelectedTopicId": null,
+      "topics": [
+        {
+          "id": "eligibility",
+          "title": "신청 자격",
+          "content": "예제 신청 자격 도움말",
+          "relatedLinks": [
+            {
+              "id": "policy",
+              "label": "이용약관",
+              "href": "/local/policy"
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "제출 서류",
+          "content": "예제 제출 서류 도움말",
+          "relatedLinks": []
+        }
+      ],
+      "mode": "help",
+      "fallbackFocusId": "panel-fallback"
+    }
+  },
+  {
+    "componentId": "identifier",
+    "acceptanceId": "identifier-default",
+    "classification": "static",
+    "initialState": {
+      "institutionName": "독립 예제 운영기관",
+      "logo": {
+        "src": "/local-assets/specimen-logo.svg",
+        "alt": "독립 예제 운영기관"
+      },
+      "relationshipText": "독립 예제 운영기관이 운영하는 예제 서비스입니다.",
+      "theme": "light"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "parentLandmark": "contentinfo",
+      "lastSubdivision": true,
+      "assetRequirement": "Native owner must supply actual local cleared fixture media/identity assets; descriptors do not prove existence, equivalence or rights."
+    },
+    "actions": [
+      "Mount native Identifier with the supplied local state"
+    ],
+    "observableOutcome": "Identifier is the final section inside the footer landmark",
+    "resetBaseline": {
+      "institutionName": "독립 예제 운영기관",
+      "logo": {
+        "src": "/local-assets/specimen-logo.svg",
+        "alt": "독립 예제 운영기관"
+      },
+      "relationshipText": "독립 예제 운영기관이 운영하는 예제 서비스입니다.",
+      "theme": "light"
+    }
+  },
+  {
+    "componentId": "image",
+    "acceptanceId": "image-default",
+    "classification": "static",
+    "initialState": {
+      "src": "/local-assets/example-landscape.svg",
+      "alt": "산과 강이 있는 독립 예제 그림",
+      "width": 640,
+      "height": 360,
+      "loading": "eager",
+      "failureSpecimen": {
+        "src": "/local-assets/intentional-missing-image.svg",
+        "alt": "불러올 수 없는 예제 그림"
+      }
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "descriptionText": null,
+      "assetRequirement": "Native owner must supply actual local cleared fixture media/identity assets; descriptors do not prove existence, equivalence or rights. The landscape asset is an independently authored simple SVG (no original KRDS or third-party material) tracked in the fixture local-asset manifest."
+    },
+    "actions": [
+      "Mount native Image with the supplied local state",
+      "Mount a second native Image with the failure specimen"
+    ],
+    "observableOutcome": "Local image renders (complete, naturalWidth > 0) with its alt; the failure specimen keeps an informative alternative",
+    "resetBaseline": {
+      "src": "/local-assets/example-landscape.svg",
+      "alt": "산과 강이 있는 독립 예제 그림",
+      "width": 640,
+      "height": 360,
+      "loading": "eager",
+      "failureSpecimen": {
+        "src": "/local-assets/intentional-missing-image.svg",
+        "alt": "불러올 수 없는 예제 그림"
+      }
+    }
+  },
+  {
+    "componentId": "in-page-navigation",
+    "acceptanceId": "in-page-navigation-default",
+    "classification": "interactive",
+    "initialState": {
+      "sections": [
+        {
+          "id": "overview",
+          "label": "신청 개요"
+        },
+        {
+          "id": "requirements",
+          "label": "신청 조건"
+        }
+      ],
+      "title": "이 페이지의 구성",
+      "activeId": "overview",
+      "narrowMode": "inline"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "layout": "desktop-side",
+      "stickyHeaderHeight": 0,
+      "removeSectionId": null
+    },
+    "actions": [
+      "Keyboard activate first section",
+      "Scroll to second section"
+    ],
+    "observableOutcome": "DOM outline precedes body while desktop visual position is right",
+    "resetBaseline": {
+      "sections": [
+        {
+          "id": "overview",
+          "label": "신청 개요"
+        },
+        {
+          "id": "requirements",
+          "label": "신청 조건"
+        }
+      ],
+      "title": "이 페이지의 구성",
+      "activeId": "overview",
+      "narrowMode": "inline"
+    }
+  },
+  {
+    "componentId": "language-switcher",
+    "acceptanceId": "language-switcher-default",
+    "classification": "interactive",
+    "initialState": {
+      "currentLocale": "ko",
+      "options": [
+        {
+          "locale": "ko",
+          "nativeLabel": "한국어",
+          "translatedLabel": "한국어",
+          "href": "/local/ko"
+        },
+        {
+          "locale": "en",
+          "nativeLabel": "English",
+          "translatedLabel": "영어",
+          "href": "/local/en"
+        }
+      ],
+      "defaultOpen": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "driver": "local-route-locale-mock"
+    },
+    "actions": [
+      "Choose English by keyboard"
+    ],
+    "observableOutcome": "Korean page shows English and reverse page shows 한국어",
+    "resetBaseline": {
+      "currentLocale": "ko",
+      "options": [
+        {
+          "locale": "ko",
+          "nativeLabel": "한국어",
+          "translatedLabel": "한국어",
+          "href": "/local/ko"
+        },
+        {
+          "locale": "en",
+          "nativeLabel": "English",
+          "translatedLabel": "영어",
+          "href": "/local/en"
+        }
+      ],
+      "defaultOpen": false
+    }
+  },
+  {
+    "componentId": "link",
+    "acceptanceId": "link-default",
+    "classification": "interactive",
+    "initialState": {
+      "href": "/local/application",
+      "label": "신청 안내",
+      "appearance": "basic",
+      "size": "medium",
+      "underline": true
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "context": "standalone",
+      "groupLinks": []
+    },
+    "actions": [
+      "Press Enter",
+      "Use modified click"
+    ],
+    "observableOutcome": "Anchor href exposes real destination and native modified-click",
+    "resetBaseline": {
+      "href": "/local/application",
+      "label": "신청 안내",
+      "appearance": "basic",
+      "size": "medium",
+      "underline": true
+    }
+  },
+  {
+    "componentId": "main-menu",
+    "acceptanceId": "main-menu-default",
+    "classification": "interactive",
+    "initialState": {
+      "items": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home"
+        },
+        {
+          "id": "support",
+          "label": "지원",
+          "href": "/local/support"
+        }
+      ],
+      "currentId": "apply-new",
+      "defaultExpandedId": null,
+      "defaultMobileOpen": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "layout": "desktop"
+    },
+    "actions": [
+      "Inspect actual 홈 and 지원 href anchors",
+      "Modified-click 지원 and inspect new local browsing context URL",
+      "Use the link context menu/open-new-tab affordance without parent-trigger activation"
+    ],
+    "observableOutcome": "Leaf modified-click/open-new-tab works with real href",
+    "resetBaseline": {
+      "items": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home"
+        },
+        {
+          "id": "support",
+          "label": "지원",
+          "href": "/local/support"
+        }
+      ],
+      "currentId": "apply-new",
+      "defaultExpandedId": null,
+      "defaultMobileOpen": false
+    }
+  },
+  {
+    "componentId": "masthead",
+    "acceptanceId": "masthead-default",
+    "classification": "static",
+    "initialState": {
+      "governmentService": true
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "pageOrder": [
+        "skip-link",
+        "masthead",
+        "header",
+        "main-content"
+      ],
+      "authorizedGovernmentHost": false,
+      "specimenLabel": "공식 정부서비스를 가정한 배너 UI 예시입니다. 실제 공식 정부서비스가 아닙니다."
+    },
+    "actions": [
+      "Render the visible simulation notice adjacent to the actual native Masthead receiving governmentService:true; never claim actual localhost or project eligibility",
+      "Tab from document entry"
+    ],
+    "observableOutcome": "Page keyboard entry reaches SkipLink before banner/Header",
+    "resetBaseline": {
+      "governmentService": true
+    }
+  },
+  {
+    "componentId": "modal",
+    "acceptanceId": "modal-default",
+    "classification": "interactive",
+    "initialState": {
+      "value": null
+    },
+    "host": {
+      "localOnly": true
+    },
+    "actions": [
+      "Open, close and reopen dialog"
+    ],
+    "observableOutcome": "Dialog is labeled; close restores trigger focus",
+    "resetBaseline": {
+      "value": null
+    }
+  },
+  {
+    "componentId": "native-select",
+    "acceptanceId": "native-select-default",
+    "classification": "interactive",
+    "initialState": {
+      "value": null
+    },
+    "host": {
+      "localOnly": true
+    },
+    "actions": [
+      "Choose second option"
+    ],
+    "observableOutcome": "Native selection value changes to second option",
+    "resetBaseline": {
+      "value": null
+    }
+  },
+  {
+    "componentId": "pagination",
+    "acceptanceId": "pagination-default",
+    "classification": "interactive",
+    "initialState": {
+      "pageCount": 12,
+      "variant": "number-links",
+      "hrefTemplate": "/local/results?page={page}",
+      "page": 1
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true
+    },
+    "actions": [
+      "Start first page; prior is unavailable",
+      "Activate last real page link",
+      "Inspect unavailable next then activate first"
+    ],
+    "observableOutcome": "First/last and prior/next work at boundaries",
+    "resetBaseline": {
+      "pageCount": 12,
+      "variant": "number-links",
+      "hrefTemplate": "/local/results?page={page}",
+      "page": 1
+    }
+  },
+  {
+    "componentId": "quantity-toggle",
+    "acceptanceId": "quantity-toggle-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "신청 수량",
+      "name": "quantity",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "defaultValue": 2,
+      "unit": "개"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "form": true
+    },
+    "actions": [
+      "Activate increment",
+      "Activate decrement",
+      "Reset form"
+    ],
+    "observableOutcome": "Current value always visible and bounded",
+    "resetBaseline": {
+      "label": "신청 수량",
+      "name": "quantity",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "defaultValue": 2,
+      "unit": "개"
+    }
+  },
+  {
+    "componentId": "radio-group",
+    "acceptanceId": "radio-group-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "거주 지역",
+      "name": "region",
+      "options": [
+        {
+          "value": "seoul",
+          "label": "서울"
+        },
+        {
+          "value": "busan",
+          "label": "부산"
+        },
+        {
+          "value": "jeju",
+          "label": "제주",
+          "disabled": true
+        }
+      ],
+      "defaultValue": null,
+      "size": "medium",
+      "appearance": "default"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "form": true
+    },
+    "actions": [
+      "Tab forward and Shift+Tab backward across every enabled radio",
+      "Choose 부산 by ArrowDown/Space",
+      "Inspect FormData",
+      "Reset form"
+    ],
+    "observableOutcome": "Exactly one selection and one change per user choice",
+    "resetBaseline": {
+      "label": "거주 지역",
+      "name": "region",
+      "options": [
+        {
+          "value": "seoul",
+          "label": "서울"
+        },
+        {
+          "value": "busan",
+          "label": "부산"
+        },
+        {
+          "value": "jeju",
+          "label": "제주",
+          "disabled": true
+        }
+      ],
+      "defaultValue": null,
+      "size": "medium",
+      "appearance": "default"
+    }
+  },
+  {
+    "componentId": "range-slider",
+    "acceptanceId": "range-slider-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "예제 비율",
+      "name": "ratio",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "defaultValue": 50
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "form": true
+    },
+    "actions": [
+      "Drag thumb/activate track",
+      "ArrowRight once",
+      "Dispatch change/release/blur",
+      "Reset or cancel pointer"
+    ],
+    "observableOutcome": "Pointer drag/track click and arrows update one bounded value",
+    "resetBaseline": {
+      "label": "예제 비율",
+      "name": "ratio",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "defaultValue": 50
+    }
+  },
+  {
+    "componentId": "resize",
+    "acceptanceId": "resize-default",
+    "classification": "interactive",
+    "initialState": {
+      "levels": [
+        {
+          "id": "90",
+          "label": "작게",
+          "percent": 90
+        },
+        {
+          "id": "100",
+          "label": "기본",
+          "percent": 100
+        },
+        {
+          "id": "110",
+          "label": "조금 크게",
+          "percent": 110
+        },
+        {
+          "id": "120",
+          "label": "크게",
+          "percent": 120
+        },
+        {
+          "id": "130",
+          "label": "아주 크게",
+          "percent": 130
+        }
+      ],
+      "defaultValue": "100",
+      "defaultOpen": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "driver": "scoped-css-scale-mock",
+      "actualScale": 100,
+      "browserZoomPercent": 100
+    },
+    "actions": [
+      "Press collapsed ArrowDown",
+      "Choose larger size",
+      "Tab through enlarged page"
+    ],
+    "observableOutcome": "Each choice visibly changes local host content scale",
+    "resetBaseline": {
+      "levels": [
+        {
+          "id": "90",
+          "label": "작게",
+          "percent": 90
+        },
+        {
+          "id": "100",
+          "label": "기본",
+          "percent": 100
+        },
+        {
+          "id": "110",
+          "label": "조금 크게",
+          "percent": 110
+        },
+        {
+          "id": "120",
+          "label": "크게",
+          "percent": 120
+        },
+        {
+          "id": "130",
+          "label": "아주 크게",
+          "percent": 130
+        }
+      ],
+      "defaultValue": "100",
+      "defaultOpen": false
+    }
+  },
+  {
+    "componentId": "side-navigation",
+    "acceptanceId": "side-navigation-default",
+    "classification": "interactive",
+    "initialState": {
+      "items": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home"
+        },
+        {
+          "id": "apply",
+          "label": "신청",
+          "children": [
+            {
+              "id": "apply-new",
+              "label": "신규 신청",
+              "href": "/local/apply"
+            },
+            {
+              "id": "history",
+              "label": "신청 내역",
+              "href": "/local/history"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "label": "지원",
+          "href": "/local/support"
+        }
+      ],
+      "currentId": "apply-new",
+      "defaultExpandedIds": [
+        "apply"
+      ]
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "layout": "desktop"
+    },
+    "actions": [
+      "Toggle a branch",
+      "Activate a native leaf link"
+    ],
+    "observableOutcome": "Current branch starts reachable and marks correct current page",
+    "resetBaseline": {
+      "items": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home"
+        },
+        {
+          "id": "apply",
+          "label": "신청",
+          "children": [
+            {
+              "id": "apply-new",
+              "label": "신규 신청",
+              "href": "/local/apply"
+            },
+            {
+              "id": "history",
+              "label": "신청 내역",
+              "href": "/local/history"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "label": "지원",
+          "href": "/local/support"
+        }
+      ],
+      "currentId": "apply-new",
+      "defaultExpandedIds": [
+        "apply"
+      ]
+    }
+  },
+  {
+    "componentId": "skip-link",
+    "acceptanceId": "skip-link-default",
+    "classification": "interactive",
+    "initialState": {
+      "links": [
+        {
+          "id": "main",
+          "label": "본문 바로가기",
+          "targetId": "main-content"
+        }
+      ],
+      "visibility": "focus-revealed"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true
+    },
+    "actions": [
+      "Tab from document start",
+      "Activate 本文 target"
+    ],
+    "observableOutcome": "First Tab reveals link before banner",
+    "resetBaseline": {
+      "links": [
+        {
+          "id": "main",
+          "label": "본문 바로가기",
+          "targetId": "main-content"
+        }
+      ],
+      "visibility": "focus-revealed"
+    }
+  },
+  {
+    "componentId": "snackbar",
+    "acceptanceId": "snackbar-default",
+    "classification": "interactive",
+    "initialState": {
+      "message": {
+        "id": "saved",
+        "title": "저장 완료",
+        "text": "예제 신청을 저장했습니다."
+      },
+      "durationMs": null
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "currentMessageOwner": "host",
+      "fakeClock": true,
+      "acceptDismissal": true,
+      "driver": "local-undo-mock",
+      "fallbackFocusId": "after-notification"
+    },
+    "actions": [
+      "Activate configured action",
+      "Focus/hover notification",
+      "Hide document",
+      "Advance local clock",
+      "Close focused notification"
+    ],
+    "observableOutcome": "Only one snackbar visible",
+    "resetBaseline": {
+      "message": {
+        "id": "saved",
+        "title": "저장 완료",
+        "text": "예제 신청을 저장했습니다."
+      },
+      "durationMs": null
+    }
+  },
+  {
+    "componentId": "spinner",
+    "acceptanceId": "spinner-default",
+    "classification": "static",
+    "initialState": {
+      "pending": true,
+      "label": "신청 내역 불러오는 중",
+      "completionMessage": "신청 내역을 불러왔습니다.",
+      "size": "medium",
+      "value": 40
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "layout": "region",
+      "loadingRegionId": "results"
+    },
+    "actions": [
+      "Complete local work"
+    ],
+    "observableOutcome": "Value accurately reflects supplied progress",
+    "resetBaseline": {
+      "pending": true,
+      "label": "신청 내역 불러오는 중",
+      "completionMessage": "신청 내역을 불러왔습니다.",
+      "size": "medium",
+      "value": 40
+    }
+  },
+  {
+    "componentId": "step-indicator",
+    "acceptanceId": "step-indicator-default",
+    "classification": "static",
+    "initialState": {
+      "steps": [
+        {
+          "id": "a",
+          "label": "약관 확인",
+          "status": "complete"
+        },
+        {
+          "id": "b",
+          "label": "정보 입력",
+          "status": "current"
+        },
+        {
+          "id": "c",
+          "label": "신청 완료",
+          "status": "pending"
+        }
+      ],
+      "mode": "sequential"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "compact": false
+    },
+    "actions": [
+      "Inspect current process position"
+    ],
+    "observableOutcome": "Ordered list communicates current/complete without color",
+    "resetBaseline": {
+      "steps": [
+        {
+          "id": "a",
+          "label": "약관 확인",
+          "status": "complete"
+        },
+        {
+          "id": "b",
+          "label": "정보 입력",
+          "status": "current"
+        },
+        {
+          "id": "c",
+          "label": "신청 완료",
+          "status": "pending"
+        }
+      ],
+      "mode": "sequential"
+    }
+  },
+  {
+    "componentId": "structured-list",
+    "acceptanceId": "structured-list-default",
+    "classification": "static",
+    "initialState": {
+      "items": [
+        {
+          "id": "a",
+          "title": "예제 신청 공고",
+          "href": "/local/notice/a",
+          "metadata": [
+            {
+              "label": "마감일",
+              "value": "2026-11-30"
+            },
+            {
+              "label": "담당 부서",
+              "value": "예제 부서"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "title": "다음 신청 공고",
+          "href": "/local/notice/b",
+          "metadata": [
+            {
+              "label": "마감일",
+              "value": "2026-12-31"
+            }
+          ]
+        }
+      ],
+      "variant": "list"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "localFilter": "전체"
+    },
+    "actions": [
+      "Inspect item actions"
+    ],
+    "observableOutcome": "Share/save occurs after readable item content in DOM",
+    "resetBaseline": {
+      "items": [
+        {
+          "id": "a",
+          "title": "예제 신청 공고",
+          "href": "/local/notice/a",
+          "metadata": [
+            {
+              "label": "마감일",
+              "value": "2026-11-30"
+            },
+            {
+              "label": "담당 부서",
+              "value": "예제 부서"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "title": "다음 신청 공고",
+          "href": "/local/notice/b",
+          "metadata": [
+            {
+              "label": "마감일",
+              "value": "2026-12-31"
+            }
+          ]
+        }
+      ],
+      "variant": "list"
+    }
+  },
+  {
+    "componentId": "switch",
+    "acceptanceId": "switch-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "예제 알림 받기",
+      "name": "notification",
+      "defaultChecked": false,
+      "size": "medium"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "form": true,
+      "helpText": "알림은 예제 화면에서만 변경됩니다."
+    },
+    "actions": [
+      "Press Space",
+      "Reset form"
+    ],
+    "observableOutcome": "Purpose label stays constant",
+    "resetBaseline": {
+      "label": "예제 알림 받기",
+      "name": "notification",
+      "defaultChecked": false,
+      "size": "medium"
+    }
+  },
+  {
+    "componentId": "tab-bar",
+    "acceptanceId": "tab-bar-default",
+    "classification": "interactive",
+    "initialState": {
+      "items": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home",
+          "icon": "home"
+        },
+        {
+          "id": "apply",
+          "label": "신청",
+          "href": "/local/apply",
+          "icon": "document"
+        },
+        {
+          "id": "profile",
+          "label": "내 정보",
+          "href": "/local/profile",
+          "icon": "person"
+        }
+      ],
+      "currentId": "home"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "pageHeight": 2400,
+      "safeAreaBottom": 20
+    },
+    "actions": [
+      "Scroll long page",
+      "Activate true page link or terminal all-menu button"
+    ],
+    "observableOutcome": "Landmark/real anchors expose page navigation rather than tabs",
+    "resetBaseline": {
+      "items": [
+        {
+          "id": "home",
+          "label": "홈",
+          "href": "/local/home",
+          "icon": "home"
+        },
+        {
+          "id": "apply",
+          "label": "신청",
+          "href": "/local/apply",
+          "icon": "document"
+        },
+        {
+          "id": "profile",
+          "label": "내 정보",
+          "href": "/local/profile",
+          "icon": "person"
+        }
+      ],
+      "currentId": "home"
+    }
+  },
+  {
+    "componentId": "table",
+    "acceptanceId": "table-default",
+    "classification": "static",
+    "initialState": {
+      "caption": "예제 신청 내역",
+      "columns": [
+        {
+          "id": "name",
+          "label": "신청명",
+          "kind": "text"
+        },
+        {
+          "id": "count",
+          "label": "수량",
+          "kind": "number"
+        }
+      ],
+      "rows": [
+        {
+          "id": "a",
+          "cells": {
+            "name": "신청 가",
+            "count": 2
+          }
+        },
+        {
+          "id": "b",
+          "cells": {
+            "name": "신청 나",
+            "count": 1
+          }
+        }
+      ]
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "layout": "basic"
+    },
+    "actions": [
+      "Inspect header associations"
+    ],
+    "observableOutcome": "Screen-reader header associations match data",
+    "resetBaseline": {
+      "caption": "예제 신청 내역",
+      "columns": [
+        {
+          "id": "name",
+          "label": "신청명",
+          "kind": "text"
+        },
+        {
+          "id": "count",
+          "label": "수량",
+          "kind": "number"
+        }
+      ],
+      "rows": [
+        {
+          "id": "a",
+          "cells": {
+            "name": "신청 가",
+            "count": 2
+          }
+        },
+        {
+          "id": "b",
+          "cells": {
+            "name": "신청 나",
+            "count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "componentId": "tabs",
+    "acceptanceId": "tabs-default",
+    "classification": "interactive",
+    "initialState": {
+      "value": null
+    },
+    "host": {
+      "localOnly": true
+    },
+    "actions": [
+      "Select second tab"
+    ],
+    "observableOutcome": "Second tab is selected and its associated panel is visible",
+    "resetBaseline": {
+      "value": null
+    }
+  },
+  {
+    "componentId": "tag",
+    "acceptanceId": "tag-default",
+    "classification": "interactive",
+    "initialState": {
+      "items": [
+        {
+          "id": "a",
+          "label": "서울",
+          "href": "/local/seoul"
+        },
+        {
+          "id": "b",
+          "label": "부산",
+          "href": "/local/busan"
+        }
+      ],
+      "mode": "toggle",
+      "selectedIds": []
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "appliedBarId": "applied-filters",
+      "addTargetId": "add-filter"
+    },
+    "actions": [
+      "Activate first tag action",
+      "Arrow to next enabled tag"
+    ],
+    "observableOutcome": "Toggle aria-pressed matches visible/filter result",
+    "resetBaseline": {
+      "items": [
+        {
+          "id": "a",
+          "label": "서울",
+          "href": "/local/seoul"
+        },
+        {
+          "id": "b",
+          "label": "부산",
+          "href": "/local/busan"
+        }
+      ],
+      "mode": "toggle",
+      "selectedIds": []
+    }
+  },
+  {
+    "componentId": "text-input",
+    "acceptanceId": "text-input-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "신청인 이름",
+      "name": "applicant",
+      "defaultValue": "",
+      "type": "text",
+      "size": "medium",
+      "status": "error",
+      "autocomplete": "name",
+      "errorId": "name-error"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "form": true,
+      "errorText": "신청인 이름을 입력하세요",
+      "samples": []
+    },
+    "actions": [
+      "Compose 신청인 with IME",
+      "Paste and edit text",
+      "Activate optional icon button",
+      "Reset form"
+    ],
+    "observableOutcome": "Visible label and description/error associations survive input",
+    "resetBaseline": {
+      "label": "신청인 이름",
+      "name": "applicant",
+      "defaultValue": "",
+      "type": "text",
+      "size": "medium",
+      "status": "error",
+      "autocomplete": "name",
+      "errorId": "name-error"
+    }
+  },
+  {
+    "componentId": "text-list",
+    "acceptanceId": "text-list-default",
+    "classification": "static",
+    "initialState": {
+      "ordered": true,
+      "marker": "dot",
+      "items": [
+        {
+          "id": "one",
+          "content": "신청 조건 확인"
+        },
+        {
+          "id": "two",
+          "content": "제출 서류 준비"
+        }
+      ]
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "markerSamples": [
+        "ordered",
+        "dot",
+        "dash",
+        "hollow"
+      ]
+    },
+    "actions": [
+      "Mount native TextList with the supplied local state"
+    ],
+    "observableOutcome": "Ordered and unordered semantics match visual markers",
+    "resetBaseline": {
+      "ordered": true,
+      "marker": "dot",
+      "items": [
+        {
+          "id": "one",
+          "content": "신청 조건 확인"
+        },
+        {
+          "id": "two",
+          "content": "제출 서류 준비"
+        }
+      ]
+    }
+  },
+  {
+    "componentId": "textarea",
+    "acceptanceId": "textarea-default",
+    "classification": "interactive",
+    "initialState": {
+      "label": "신청 사유",
+      "name": "reason",
+      "defaultValue": "",
+      "rows": 5,
+      "disabled": false,
+      "readOnly": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "form": true,
+      "errorText": "신청 사유를 입력하세요",
+      "helpText": "예제 신청 사유를 입력하세요"
+    },
+    "actions": [
+      "Compose 신청 사유 with IME",
+      "Paste newline text",
+      "Reset form"
+    ],
+    "observableOutcome": "Label persists after typing",
+    "resetBaseline": {
+      "label": "신청 사유",
+      "name": "reason",
+      "defaultValue": "",
+      "rows": 5,
+      "disabled": false,
+      "readOnly": false
+    }
+  },
+  {
+    "componentId": "toast",
+    "acceptanceId": "toast-default",
+    "classification": "interactive",
+    "initialState": {
+      "message": null,
+      "durationMs": 3000
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "currentMessageOwner": "host",
+      "fakeClock": true,
+      "persistentResult": {
+        "id": "saved-result",
+        "text": "신청이 저장되었습니다.",
+        "discoverableLabel": "처리 결과 확인"
+      },
+      "queue": [],
+      "acceptDismissal": true,
+      "sameIdRevision": null,
+      "actionMessage": {
+        "id": "saved",
+        "text": "신청이 저장되었습니다.",
+        "tone": "information",
+        "persistentResultId": "saved-result"
+      }
+    },
+    "actions": [
+      "Activate local save action",
+      "Host confirms result and current message",
+      "Inspect announced status and persistent result without focus movement"
+    ],
+    "observableOutcome": "User action shows correctly announced result without focus move",
+    "resetBaseline": {
+      "message": null,
+      "durationMs": 3000
+    }
+  },
+  {
+    "componentId": "tooltip",
+    "acceptanceId": "tooltip-default",
+    "classification": "interactive",
+    "initialState": {
+      "text": "신청 도움말을 엽니다",
+      "relationship": "description",
+      "triggerLabel": "신청 도움말",
+      "triggerId": "help-trigger",
+      "textId": "help-tooltip",
+      "defaultOpen": false,
+      "placement": "bottom-start"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "acceptClose": true,
+      "removeTrigger": false,
+      "sameRootRelationship": true,
+      "presentation": "information-icon"
+    },
+    "actions": [
+      "Hover trigger",
+      "Press Escape",
+      "Leave and re-enter by keyboard"
+    ],
+    "observableOutcome": "Focus/hover reveal same readable text",
+    "resetBaseline": {
+      "text": "신청 도움말을 엽니다",
+      "relationship": "description",
+      "triggerLabel": "신청 도움말",
+      "triggerId": "help-trigger",
+      "textId": "help-tooltip",
+      "defaultOpen": false,
+      "placement": "bottom-start"
+    }
+  },
+  {
+    "componentId": "tts",
+    "acceptanceId": "tts-default",
+    "classification": "interactive",
+    "initialState": {
+      "summary": "이 페이지는 예제 신청 방법을 안내합니다.",
+      "locale": "ko-KR",
+      "state": "idle",
+      "label": "음성 안내",
+      "size": "small",
+      "iconOnly": false
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "driver": "local-speech-mock",
+      "scopeId": "main-content",
+      "requests": []
+    },
+    "actions": [
+      "Start labeled local speech simulation",
+      "Pause",
+      "Stop"
+    ],
+    "observableOutcome": "Visible local simulation label remains; speaking/paused/stopped state changes without browser speech or network services.",
+    "resetBaseline": {
+      "summary": "이 페이지는 예제 신청 방법을 안내합니다.",
+      "locale": "ko-KR",
+      "state": "idle",
+      "label": "음성 안내",
+      "size": "small",
+      "iconOnly": false
+    }
+  },
+  {
+    "componentId": "tutorial-panel",
+    "acceptanceId": "tutorial-panel-default",
+    "classification": "interactive",
+    "initialState": {
+      "tasks": [
+        {
+          "id": "apply",
+          "title": "예제 신청하기",
+          "steps": [
+            {
+              "id": "one",
+              "title": "이름 입력",
+              "targetId": "applicant-name",
+              "instruction": "신청인 이름을 입력하세요"
+            },
+            {
+              "id": "two",
+              "title": "신청 저장",
+              "targetId": "save-application",
+              "instruction": "저장을 눌러 완료하세요",
+              "requiresAction": true
+            }
+          ]
+        }
+      ],
+      "activeTaskId": "apply",
+      "activeStepId": "one",
+      "defaultOpen": true,
+      "startActionId": "tutorial-start",
+      "fallbackFocusId": "tutorial-fallback",
+      "running": true,
+      "activePanel": "help"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "layout": "desktop",
+      "acceptStop": true,
+      "acceptPanelExposure": true,
+      "startActionPresent": true,
+      "startCallback": "onStart({taskId,stepId})",
+      "acceptStart": true,
+      "startCommitFields": [
+        "running",
+        "activeTaskId",
+        "activeStepId"
+      ],
+      "startSecondaryCallbacks": false,
+      "startFocusOnRejection": false
+    },
+    "actions": [
+      "Start tutorial",
+      "Move to next named target",
+      "Stop tutorial"
+    ],
+    "observableOutcome": "Active target and tutorial panel advance together; stop clears active target and returns focus.",
+    "resetBaseline": {
+      "tasks": [
+        {
+          "id": "apply",
+          "title": "예제 신청하기",
+          "steps": [
+            {
+              "id": "one",
+              "title": "이름 입력",
+              "targetId": "applicant-name",
+              "instruction": "신청인 이름을 입력하세요"
+            },
+            {
+              "id": "two",
+              "title": "신청 저장",
+              "targetId": "save-application",
+              "instruction": "저장을 눌러 완료하세요",
+              "requiresAction": true
+            }
+          ]
+        }
+      ],
+      "activeTaskId": "apply",
+      "activeStepId": "one",
+      "defaultOpen": true,
+      "startActionId": "tutorial-start",
+      "fallbackFocusId": "tutorial-fallback",
+      "running": true,
+      "activePanel": "help"
+    }
+  },
+  {
+    "componentId": "visually-hidden",
+    "acceptanceId": "visually-hidden-default",
+    "classification": "static",
+    "initialState": {
+      "id": "hidden-help",
+      "content": "신청 내용을 확인하세요",
+      "variant": "text",
+      "lang": "ko"
+    },
+    "host": {
+      "localOnly": true,
+      "acceptChanges": true,
+      "visibleControlLabel": "신청 제출",
+      "textZoomPercent": 100,
+      "manualScreenReaderRequired": false
+    },
+    "actions": [
+      "Inspect actual accessibility text relationship"
+    ],
+    "observableOutcome": "Text remains in a11y tree while visually absent",
+    "resetBaseline": {
+      "id": "hidden-help",
+      "content": "신청 내용을 확인하세요",
+      "variant": "text",
+      "lang": "ko"
+    }
+  }
+]

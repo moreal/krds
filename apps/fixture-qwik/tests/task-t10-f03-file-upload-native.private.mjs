@@ -101,7 +101,7 @@ try {
         await removes(page).nth(1).click(); await calls(page, 2); await expect(items(page)).toHaveCount(2); await expect(removes(page).nth(1)).toBeFocused();
         await page.getByRole('button', { name: 'Toggle acceptance', exact: true }).click();
         await removes(page).nth(1).click(); await calls(page, 3); await expect(items(page)).toHaveCount(1); await expect(removes(page).first()).toBeFocused();
-        await removes(page).first().click(); await calls(page, 4); await expect(items(page)).toHaveCount(0); await expect(primary(page).getByRole('button', { name: '파일 선택', exact: true })).toBeFocused();
+        await removes(page).first().click(); await calls(page, 4); await expect(items(page)).toHaveCount(0); await expect(primary(page).getByRole('button', { name: /^파일 선택(?:\s|$)/ })).toBeFocused();
     });
     await run('controlled-transient-reset', async page => {
         await drop(page, ['keep']); await calls(page, 1); await drop(page, ['bad']); await expect(page.locator('#file-rejected')).toHaveText('1');

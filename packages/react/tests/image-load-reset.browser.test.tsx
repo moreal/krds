@@ -1,0 +1,21 @@
+import { afterEach, expect, test } from 'vitest';
+import { createRoot } from 'react-dom/client';
+import { act } from 'react';
+import { Image } from '../src/index';
+(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
+const cleanup: (() => void)[] = [];
+afterEach(() => { for (const c of cleanup.splice(0)) c(); });
+test('Image returns to loading when src changes after a failed load', async () => {
+  const host = document.createElement('div'); document.body.append(host); const root = createRoot(host);
+  cleanup.push(() => { act(() => root.unmount()); host.remove(); });
+  const render = (src: string) => act(async () => root.render(<Image src={src} alt="예제 그림" />));
+  const note = () => host.querySelector('[data-krds-part="description"]');
+  const img = () => host.querySelector('img')!;
+  await render('missing.png');
+  await act(async () => { img().dispatchEvent(new Event('error')); });
+  expect(note()?.textContent).toBe('이미지를 불러올 수 없습니다.'); expect(img().getAttribute('data-krds-state')).toBe('error');
+  await render('next.png');
+  expect(note()).toBeNull(); expect(img().getAttribute('data-krds-state')).toBe('');
+  await act(async () => { img().dispatchEvent(new Event('load')); });
+  expect(img().getAttribute('data-krds-state')).toBe('loaded'); expect(note()).toBeNull();
+});

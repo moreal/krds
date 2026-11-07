@@ -1,0 +1,1781 @@
+{
+  "schemaVersion": 1,
+  "demos": [
+    {
+      "framework": "svelte",
+      "componentId": "accessible-media",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accessible-media-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/AccessibleMediaExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "AccessibleMediaExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "accordion",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accordion-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/AccordionExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "AccordionExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "back-button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "back-button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/BackButtonExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "BackButtonExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "badge",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "badge-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/BadgeExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "BadgeExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "bottom-sheet",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "bottom-sheet-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/BottomSheetExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "BottomSheetExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "breadcrumb",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "breadcrumb-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/BreadcrumbExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "BreadcrumbExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/ButtonExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "ButtonExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "calendar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "calendar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/CalendarExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "CalendarExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "carousel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "carousel-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/CarouselExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "CarouselExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "checkbox",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "checkbox-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/CheckboxExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "CheckboxExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "coach-mark",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "coach-mark-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/CoachMarkExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "CoachMarkExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "contextual-help",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "contextual-help-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/ContextualHelpExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "ContextualHelpExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "critical-alert",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "critical-alert-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/CriticalAlertExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "CriticalAlertExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "date-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "date-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/DateInputExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "DateInputExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "disclosure",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "disclosure-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/DisclosureExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "DisclosureExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "fab",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "fab-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FABExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FABExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "favicon",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "favicon-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FaviconExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FaviconExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "file-upload",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "file-upload-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FileUploadExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FileUploadExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "footer",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "footer-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FooterExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FooterExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "header",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "header-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/HeaderExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "HeaderExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "help-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "help-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/HelpPanelExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "HelpPanelExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "identifier",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "identifier-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/IdentifierExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "IdentifierExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "image",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "image-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/ImageExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "ImageExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "in-page-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "in-page-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/InPageNavigationExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "InPageNavigationExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "language-switcher",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "language-switcher-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/LanguageSwitcherExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "LanguageSwitcherExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/LinkExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "LinkExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "main-menu",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "main-menu-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/MainMenuExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "MainMenuExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "masthead",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "masthead-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/MastheadExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "MastheadExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "modal",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "modal-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/ModalExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "ModalExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "native-select",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "native-select-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/NativeSelectExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "NativeSelectExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "pagination",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "pagination-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/PaginationExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "PaginationExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "quantity-toggle",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "quantity-toggle-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/QuantityToggleExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "QuantityToggleExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "radio-group",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "radio-group-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/RadioGroupExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "RadioGroupExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "range-slider",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "range-slider-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/RangeSliderExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "RangeSliderExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "resize",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "resize-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/ResizeExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "ResizeExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "side-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "side-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/SideNavigationExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "SideNavigationExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "skip-link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "skip-link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/SkipLinkExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "SkipLinkExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "snackbar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "snackbar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/SnackbarExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "SnackbarExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "spinner",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "spinner-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/SpinnerExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "SpinnerExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "step-indicator",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "step-indicator-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/StepIndicatorExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "StepIndicatorExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "structured-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "structured-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/StructuredListExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "StructuredListExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "switch",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "switch-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/SwitchExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "SwitchExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "tts",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tts-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TTSExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TTSExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "tab-bar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tab-bar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TabBarExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TabBarExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "table",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "table-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TableExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TableExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "tabs",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tabs-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TabsExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TabsExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "tag",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tag-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TagExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TagExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/shared.ts",
+          "role": "data",
+          "language": "ts",
+          "symbolOrBranch": "localRoute"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "text-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TextInputExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TextInputExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "text-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TextListExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TextListExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "textarea",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "textarea-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TextareaExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TextareaExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/FormExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "FormExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "toast",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "toast-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/ToastExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "ToastExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "tooltip",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tooltip-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TooltipExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TooltipExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "tutorial-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tutorial-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/TutorialPanelExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "TutorialPanelExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "svelte",
+      "componentId": "visually-hidden",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "visually-hidden-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/VisuallyHiddenExample.svelte",
+          "role": "example",
+          "language": "svelte",
+          "symbolOrBranch": "VisuallyHiddenExample"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "mount"
+        },
+        {
+          "path": "apps/fixture-svelte/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    }
+  ]
+}

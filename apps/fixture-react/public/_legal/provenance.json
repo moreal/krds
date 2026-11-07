@@ -1764,6 +1764,21 @@
         "generatorSha256": "420d5063984de89372c765044caf7594b914a0a11a869ce5f9b2c118804075be",
         "changeSummary": "Draw the existing independent SVG into180×180 Canvas and encode PNG; no Apple/KRDS asset bytes imported"
       }
+    },
+    {
+      "sourcePath": "apps/fixture-react/public/local-assets/example-landscape.svg",
+      "sha256": "46b697bdcd24817bac3485e72ee001005a19dcd0222caa33cb36ae438d86616a",
+      "bytes": 438,
+      "origin": "Independently authored simple landscape SVG (sky, sun, mountains, river shapes) for the Unofficial KRDS docs preview Image example; no text, branding or KRDS/third-party imagery; independent MIT project material",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-react/local-assets-provenance.json",
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-react-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-react/public/local-assets/example-landscape.svg"
+      ]
     }
   ],
   "sourceConditions": [

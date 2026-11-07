@@ -13,7 +13,7 @@
 [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="outside-month"] { text-decoration: underline dotted; }
 [data-krds-component="calendar"][data-krds-part="day"]:disabled { color: var(--krds-light-color-text-disabled-on); text-decoration: line-through; }
 [data-krds-component="calendar"][data-krds-part="footer"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-2); margin-block-start: var(--krds-gap-3); }
-[data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]) { min-block-size: 2em; padding: var(--krds-padding-2); }
+[data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]) { min-inline-size: var(--krds-size-height-7); min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-3) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-button-secondary-fill); color: var(--krds-light-color-text-primary); font: inherit; cursor: pointer; }
 @media (forced-colors: active) { [data-krds-component="calendar"][data-krds-part="day"][data-krds-state~="selected"] { background: Canvas; color: ButtonText; } }
 @media (max-width: 24rem) {
   [data-krds-component="calendar"][data-krds-part="root"] { padding: var(--krds-padding-2); }
@@ -22,3 +22,11 @@
   [data-krds-component="calendar"][data-krds-part="previous"] { grid-column: 1; grid-row: 2; justify-self: start; }
   [data-krds-component="calendar"][data-krds-part="next"] { grid-column: 2; grid-row: 2; justify-self: end; }
 }
+
+[data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]):not(:disabled):hover { background: var(--krds-light-color-button-secondary-fill-hover); }
+[data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]):not(:disabled):active { background: var(--krds-light-color-button-secondary-fill-pressed); }
+[data-krds-component="calendar"][data-krds-part="confirm"] { background: var(--krds-light-color-button-primary-fill); border-color: var(--krds-light-color-button-primary-fill); color: var(--krds-light-color-text-inverse-static); }
+[data-krds-component="calendar"][data-krds-part="confirm"]:not(:disabled):hover { background: var(--krds-light-color-button-primary-fill-hover); }
+[data-krds-component="calendar"][data-krds-part="confirm"]:not(:disabled):active { background: var(--krds-light-color-button-primary-fill-pressed); }
+[data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]):disabled { background: var(--krds-light-color-button-disabled-fill); border-color: var(--krds-light-color-button-disabled-border); color: var(--krds-light-color-text-disabled-on); cursor: not-allowed; }
+@media (forced-colors: active) { [data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]) { border-color: ButtonText; } [data-krds-component="calendar"]:is([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="today"], [data-krds-part="clear"], [data-krds-part="cancel"], [data-krds-part="confirm"]):disabled { border-color: GrayText; color: GrayText; } }

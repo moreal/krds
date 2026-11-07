@@ -53,7 +53,7 @@ function up(e: PointerEvent) {
 <div ref="portal" data-krds-part="root" data-krds-state="open" data-krds-component="bottom-sheet">
 <div data-krds-part="backdrop" data-krds-state="open" @click.self="dismissOnOutside&&close('outside')" data-krds-component="bottom-sheet">
 <section ref="dialog" role="dialog" aria-modal="true" :aria-label="title" tabindex="-1" data-krds-part="content" data-krds-state="open" data-krds-component="bottom-sheet">
-<button type="button" data-krds-part="handle" aria-label="하단 시트 닫기" @pointerdown="down" @pointerup="up" @pointercancel="pointerStart=null" @click="dragged?dragged=false:close('drag')" data-krds-component="bottom-sheet" data-krds-state="">―</button>
+<button type="button" data-krds-part="handle" aria-label="시트 닫기" @pointerdown="down" @pointerup="up" @pointercancel="pointerStart=null" @click="dragged?dragged=false:close('close')" data-krds-component="bottom-sheet" data-krds-state=""></button>
 <h2 data-krds-part="title" data-krds-component="bottom-sheet" data-krds-state="">{{title}}</h2>
 <p v-if="description" data-krds-part="body" data-krds-component="bottom-sheet" data-krds-state="">{{description}}</p>
 <button type="button" data-krds-part="close" @click="close('close')" data-krds-component="bottom-sheet" data-krds-state="">닫기</button>

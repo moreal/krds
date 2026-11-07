@@ -108,7 +108,9 @@ export class NativeSelect implements OnInit, OnChanges, OnDestroy, ControlValueA
         if (this.forms || this.value === undefined) { this.absent.set(false); this.local.set(next); }
         this.onChange(next);
         this.valueChange.emit({ value: next });
-        this.sync();
+        // Controlled owners re-render next; afterEveryRender reconciles.
+        if (this.forms || this.value === undefined)
+            this.sync();
     }
     writeValue(value: string | null): void { this.pendingNativeChange = false; this.absent.set(false); this.forms = true; this.local.set(value ?? ''); if (this.initialized) this.validateConfiguration(); this.sync(); }
     registerOnChange(fn: (value: string) => void): void { this.onChange = fn; }

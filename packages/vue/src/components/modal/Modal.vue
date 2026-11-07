@@ -132,7 +132,7 @@ defineExpose({ open: () => request(true), close: () => request(false) });
 <div v-if="$slots.actions" data-krds-component="modal" data-krds-part="actions">
 <slot name="actions" :close="()=>request(false)" />
 </div>
-<button v-if="showCloseButton" type="button" data-krds-component="modal" data-krds-part="close" :aria-label="closeLabel??(context.locale.value==='en-US'?'Close':'닫기')" @click="request(false)">{{closeLabel??(context.locale.value==='en-US'?'Close':'닫기')}}</button>
+<button v-if="showCloseButton" type="button" data-krds-component="modal" data-krds-part="close" :aria-label="closeLabel??(context.locale.value==='en-US'?'Close':'닫기')" @click="request(false)"><span aria-hidden="true">×</span></button>
 </section>
 </div>
 </div>

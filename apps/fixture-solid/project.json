@@ -18,7 +18,14 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid build:local"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/dist/index.html",
+        "{projectRoot}/dist/assets",
+        "{projectRoot}/dist/local",
+        "{projectRoot}/dist/local-assets",
+        "{projectRoot}/dist/_legal"
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -88,6 +95,18 @@
         "{workspaceRoot}/packages/test-contracts/**/*",
         "{workspaceRoot}/packages/contracts/src/specs/**/*",
         "{workspaceRoot}/tools/testing/**/*"
+      ]
+    },
+    "docs-preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid docs-preview:local"
+      },
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ],
+      "dependsOn": [
+        "^build"
       ]
     }
   }

@@ -2036,18 +2036,33 @@
       ]
     },
     {
-      "origin": "Owner authored independent specimen metadata; corrected current paths",
+      "origin": "Derived local specimen metadata naming this app's served paths; entries, hashes and rights from apps/fixture-vue/public/local-assets/provenance.json",
       "rights": "independent",
       "rightsStatus": "verified",
       "evidence": [
-        "apps/fixture-vue/public/local-assets/provenance.json"
-      ],
-      "sourcePath": "apps/fixture-vue/public/local-assets/provenance.json",
-      "sha256": "52c258254f06427abe1f1bb5dab38aa38c18aa0fb7279e6beee31c2e63788264",
-      "bytes": 5045,
-      "destinations": [
         "apps/fixture-vue/public/local-assets/provenance.json",
+        "tools/write-local-asset-manifests.mjs"
+      ],
+      "sourcePath": "apps/fixture-angular/public/local-assets/provenance.json",
+      "sha256": "b1be9759a332528c8dbb8b9ab46438855cdc6a6363b0b0fef8ad5e33d8ce1f05",
+      "bytes": 5521,
+      "destinations": [
         "apps/fixture-angular/public/local-assets/provenance.json"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-angular/public/local-assets/example-landscape.svg",
+      "sha256": "2e8453cb1c3a4260486a7a668eaee2ebd04c038860cb1876bf4116e0ca62e1b0",
+      "bytes": 431,
+      "origin": "Independently authored simple landscape SVG (sky, sun, mountains, river shapes) for the Unofficial KRDS docs preview Image example; no text, branding or KRDS/third-party imagery; independent MIT project material",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-angular/public/local-assets/provenance.json",
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-angular-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-angular/public/local-assets/example-landscape.svg"
       ]
     }
   ],

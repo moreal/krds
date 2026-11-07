@@ -7,10 +7,11 @@
     "test": "vitest run --config vitest.config.ts",
     "lint": "node ../../tools/check-workspace.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "build:local": "vite build",
+    "build:local": "node clean-fixture.mjs && vite build",
     "contract": "node ../../tools/yarn.mjs test:contract --framework solid",
     "siheom": "node ../../tools/yarn.mjs test:siheom --framework solid",
-    "siheom:local": "vitest run --config vitest.config.ts"
+    "siheom:local": "vitest run --config vitest.config.ts",
+    "docs-preview:local": "vite build --config vite.docs-preview.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

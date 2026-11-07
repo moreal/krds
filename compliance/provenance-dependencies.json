@@ -7241,9 +7241,27 @@
       "licenseMetadata": "MIT",
       "manifestPath": "compliance/provenance-dependency-manifests/_solidjs_web_2.0.0-rc.19.json",
       "manifestSha256": "30c6b9bd8615f6ff0430493462d2eb08f34ebf830e7d9303d33d2729c270d894",
-      "licenseDocuments": [],
+      "licenseDocuments": [
+        {
+          "localPath": "LICENSES/dependencies/_solidjs_web_2.0.0-rc.19/LICENSE",
+          "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+        }
+      ],
       "cacheFile": "@solidjs-web-npm-2.0.0-rc.19-ecc715fe72-2548c72626.zip",
-      "cacheSha256": "84fda7ed2ece8502d67ffeede3820bc28b45acd90718df1eaec1814c3ffb67e8"
+      "cacheSha256": "84fda7ed2ece8502d67ffeede3820bc28b45acd90718df1eaec1814c3ffb67e8",
+      "licenseEvidence": {
+        "kind": "upstream-repository-license",
+        "reason": "The published npm tarball declares \"license\": \"MIT\" but ships no LICENSE file; the original repository LICENSE at the exact release tag is recorded instead. No text was written or altered.",
+        "sourceUrl": "https://raw.githubusercontent.com/solidjs/solid/d2323b077c7dda32ebced7843c2ce2b788a91e8d/LICENSE",
+        "repository": "https://github.com/solidjs/solid",
+        "tag": "@solidjs/web@2.0.0-rc.19",
+        "commit": "d2323b077c7dda32ebced7843c2ce2b788a91e8d",
+        "packagePath": "packages/web",
+        "packagePathLicense": "absent at d2323b077c7dda32ebced7843c2ce2b788a91e8d (packages/web/LICENSE returned 404); repository-root LICENSE governs the monorepo package",
+        "retrievedAt": "2026-11-03",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b",
+        "bytes": 1075
+      }
     },
     "@standard-schema/spec@1.1.0": {
       "name": "@standard-schema/spec",
@@ -22269,9 +22287,27 @@
       "licenseMetadata": "MIT",
       "manifestPath": "compliance/provenance-dependency-manifests/solid-js_2.0.0-rc.19.json",
       "manifestSha256": "eeb3497093f0fe327134a5edf2fa11b7ec03fce55555a80ca312a457c93ef396",
-      "licenseDocuments": [],
+      "licenseDocuments": [
+        {
+          "localPath": "LICENSES/dependencies/solid-js_2.0.0-rc.19/LICENSE",
+          "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b"
+        }
+      ],
       "cacheFile": "solid-js-npm-2.0.0-rc.19-8d8ef68370-bde435f627.zip",
-      "cacheSha256": "a8a6467e44323f6235d64cab394aaf1cc50c42017fedece5e4d828cd6ac43347"
+      "cacheSha256": "a8a6467e44323f6235d64cab394aaf1cc50c42017fedece5e4d828cd6ac43347",
+      "licenseEvidence": {
+        "kind": "upstream-repository-license",
+        "reason": "The published npm tarball declares \"license\": \"MIT\" but ships no LICENSE file; the original repository LICENSE at the exact release tag is recorded instead. No text was written or altered.",
+        "sourceUrl": "https://raw.githubusercontent.com/solidjs/solid/d2323b077c7dda32ebced7843c2ce2b788a91e8d/LICENSE",
+        "repository": "https://github.com/solidjs/solid",
+        "tag": "solid-js@2.0.0-rc.19",
+        "commit": "d2323b077c7dda32ebced7843c2ce2b788a91e8d",
+        "packagePath": "packages/solid",
+        "packagePathLicense": "absent at d2323b077c7dda32ebced7843c2ce2b788a91e8d (packages/solid/LICENSE returned 404); repository-root LICENSE governs the monorepo package",
+        "retrievedAt": "2026-11-03",
+        "sha256": "59a76ed2f4a3ebe8d20a58869ef9c09420f796aa179420c8fb916f5557defc9b",
+        "bytes": 1075
+      }
     },
     "solid-refresh@0.6.3": {
       "name": "solid-refresh",

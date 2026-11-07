@@ -21,12 +21,24 @@ export class Modal extends KrdsElement {
     private active = false;
     private activeDialog: HTMLDialogElement | null = null;
     private outside = false;
+    /** Control that activated the opening (WebKit does not focus pointer-activated buttons). */
+    private openingGesture: Element | null = null;
     constructor() { super(); this.title = ''; this.description = ''; this.body = ''; this.actions = ''; this.showCloseButton = true; this.closeOnOutsideClick = false; }
     get isOpen() { return this.state.read(this.open, this.defaultOpen, () => false); }
     requestOpen(open: boolean) { if (open === this.isOpen)
         return; this.state.set(open); this.emit('open-change', { open }); this.requestUpdate(); }
+    override connectedCallback() { super.connectedCallback(); this.ownerDocument.addEventListener('click', this.rememberOpeningControl, true); }
+    // Composed path reaches openers in light DOM or any open shadow root; the gesture expires after its own task.
+    private rememberOpeningControl = (event: Event) => {
+        if (this.isOpen) return;
+        const target = event.composedPath().find((node): node is HTMLElement => node instanceof HTMLElement && node.matches(focusable)) ?? null;
+        if (!target || this.contains(target) || this.renderRoot.contains(target)) return;
+        this.openingGesture = target;
+        setTimeout(() => { if (this.openingGesture === target) this.openingGesture = null; }, 0);
+    };
     override willUpdate(_changed: PropertyValues) { if (!this.ownerDocument?.defaultView) return; if (this.isOpen && !this.active) {
-        this.opener = deepActive(this.ownerDocument);
+        this.opener = this.openingGesture?.isConnected ? this.openingGesture : deepActive(this.ownerDocument);
+        this.openingGesture = null;
         if (this.opener === this.ownerDocument.body)
             this.opener = null;
     } }
@@ -83,7 +95,7 @@ export class Modal extends KrdsElement {
         restoreModalAware(this, [this.usable(target) ? target : null]);
         this.opener = null;
     }
-    override disconnectedCallback() { if (this.active)
+    override disconnectedCallback() { this.ownerDocument.removeEventListener('click', this.rememberOpeningControl, true); this.openingGesture = null; if (this.active)
         this.cleanup(); super.disconnectedCallback(); }
     private key = (event: KeyboardEvent) => {
         if (topModal(this.ownerDocument) !== this.renderRoot.querySelector('dialog') || event.defaultPrevented) return;

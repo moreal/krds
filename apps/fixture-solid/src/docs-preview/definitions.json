@@ -1,0 +1,3266 @@
+{
+  "schemaVersion": 1,
+  "demos": [
+    {
+      "framework": "solid",
+      "componentId": "accessible-media",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accessible-media-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "AccessibleMediaExample",
+          "ranges": [
+            {
+              "start": 1351,
+              "end": 1672,
+              "sha256": "a8a39ab41418c014264322f1eaacaeaaac3f8e90554a4f6eaf5e14836c9a518b",
+              "startLine": 18,
+              "endLine": 18
+            },
+            {
+              "start": 14125,
+              "end": 14225,
+              "sha256": "2d7c0e039ee3eb0e8645d461b371bb6c0320d53a36f856f0b0656addbb1c68c8",
+              "startLine": 67,
+              "endLine": 67
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 474,
+              "end": 526,
+              "sha256": "d8a4c8014c08257f56f5477027819aa018115d7b78ac02a41c2a301b3eb29a69",
+              "startLine": 11,
+              "endLine": 11
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "accordion",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accordion-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "AccordionExample",
+          "ranges": [
+            {
+              "start": 1673,
+              "end": 1977,
+              "sha256": "e24a25a079e3ab3d5af8dfe563693059d8b48517d046972f9a11ce5283fe30fb",
+              "startLine": 19,
+              "endLine": 19
+            },
+            {
+              "start": 14226,
+              "end": 14308,
+              "sha256": "b59432ba393920cfcd016dbbd9175fb88db3f5462716a56a3e00eecfd9420f8b",
+              "startLine": 68,
+              "endLine": 68
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 529,
+              "end": 568,
+              "sha256": "5467913cf915574db28a2cafcd2b55ea6bd4e790d329c48e0246cc52f9ed0511",
+              "startLine": 12,
+              "endLine": 12
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "back-button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "back-button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BackButtonExample",
+          "ranges": [
+            {
+              "start": 547,
+              "end": 654,
+              "sha256": "c3fdaa27af04224ae3ed5b0518265add5c07e5caf585086425b3e84156115041",
+              "startLine": 10,
+              "endLine": 10
+            },
+            {
+              "start": 13630,
+              "end": 13790,
+              "sha256": "944485b143f1449ff4f10fdea953641ce0d107ec2eb23460912e2c98f136b2d1",
+              "startLine": 63,
+              "endLine": 63
+            },
+            {
+              "start": 25122,
+              "end": 25359,
+              "sha256": "daf17ef7820a85b7f3d2cca2eb51ffd59fb2c091c94473ac4593191b81945d55",
+              "startLine": 144,
+              "endLine": 144
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 571,
+              "end": 613,
+              "sha256": "112d7201bd4128b71eca7ddc6753ad94cf18dbc8cd63e3db7d2bf4fabdf021b4",
+              "startLine": 13,
+              "endLine": 13
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "badge",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "badge-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BadgeExample",
+          "ranges": [
+            {
+              "start": 1978,
+              "end": 2128,
+              "sha256": "9a91a729adcc9453efad7b635c64e804638c333d8efd9af854d7da5e32d5c0d9",
+              "startLine": 20,
+              "endLine": 20
+            },
+            {
+              "start": 14309,
+              "end": 14379,
+              "sha256": "06bb2775c66ce8222c32567b70da52562d355c29084fb9956e19a5ef71743b16",
+              "startLine": 69,
+              "endLine": 69
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 616,
+              "end": 647,
+              "sha256": "7bc8652bbb611c426517ccc18ac698c01393a134873d75e4241e9596da87944d",
+              "startLine": 14,
+              "endLine": 14
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "bottom-sheet",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "bottom-sheet-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BottomSheetExample",
+          "ranges": [
+            {
+              "start": 2410,
+              "end": 2578,
+              "sha256": "5124e37bf9bd4a06a910719ebbf41811ce9b15ca4873a5f31094003c0dca0cba",
+              "startLine": 22,
+              "endLine": 22
+            },
+            {
+              "start": 25360,
+              "end": 26086,
+              "sha256": "f7c49c93b0c1e46cc90078ea5d752610e3df11bce3714f6090c471225162d7e8",
+              "startLine": 145,
+              "endLine": 149
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 650,
+              "end": 694,
+              "sha256": "edbeb9f614ebba715ca705e1b3454447f825de6062939623bade34712d63e375",
+              "startLine": 15,
+              "endLine": 15
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "breadcrumb",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "breadcrumb-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BreadcrumbExample",
+          "ranges": [
+            {
+              "start": 2129,
+              "end": 2409,
+              "sha256": "6b65ca07a4c2c65b8e2f23a5844be0f73b5a8a1b742a5ba24869ffc5ce80a8ac",
+              "startLine": 21,
+              "endLine": 21
+            },
+            {
+              "start": 14380,
+              "end": 14465,
+              "sha256": "70893a04dff6d31f023ea8e7a77435f4ed5a210a33345d4cc5a88bbc883baed7",
+              "startLine": 70,
+              "endLine": 70
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 697,
+              "end": 738,
+              "sha256": "4ea78665cc6026d7d361c40b286d2100a1dbbe896a29c276338317e61e906645",
+              "startLine": 16,
+              "endLine": 16
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/ButtonExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ButtonExample"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 741,
+              "end": 765,
+              "sha256": "ecf5eec26e9e4711b5dac1113ddd8ad09c1c55f29fd713341fa2bac95f25ab77",
+              "startLine": 17,
+              "endLine": 17
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "calendar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "calendar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CalendarExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CalendarExample"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 768,
+              "end": 796,
+              "sha256": "9fb0ac91c31d7914dd038d05c87d76e56f93da99aade533b2743a9b74692563a",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "carousel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "carousel-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CarouselExample",
+          "ranges": [
+            {
+              "start": 2579,
+              "end": 2974,
+              "sha256": "30df97537e259c3574eef38056ede9334f04051857fec2a844fe73372cbcabea",
+              "startLine": 23,
+              "endLine": 23
+            },
+            {
+              "start": 18236,
+              "end": 18474,
+              "sha256": "81ae5188a1ae71808732eb26b0a142cc7bc1dfcc77ee901a812c141795b2ed68",
+              "startLine": 96,
+              "endLine": 96
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 799,
+              "end": 836,
+              "sha256": "43d3a06da534c6b97d31ce41fc34e636c10729626c6ec65e2fa0191a05753e63",
+              "startLine": 19,
+              "endLine": 19
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "checkbox",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "checkbox-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CheckboxExample",
+          "ranges": [
+            {
+              "start": 655,
+              "end": 1349,
+              "sha256": "ad5f2062cfd7f9f8089d2a5a4b52c1f6f508cede563c01ac83ff04449403226c",
+              "startLine": 11,
+              "endLine": 16
+            },
+            {
+              "start": 2975,
+              "end": 3143,
+              "sha256": "52ff77a557131efcd95187612a33d3f09ff5c4f9de53ebd2a93bb066a66d6af1",
+              "startLine": 24,
+              "endLine": 24
+            },
+            {
+              "start": 18783,
+              "end": 18889,
+              "sha256": "54d842881c7d5c9d69328a5b335fa6c30fb159570247b546ca2a1ef2d8b66301",
+              "startLine": 99,
+              "endLine": 99
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 839,
+              "end": 876,
+              "sha256": "165b7612182a2dc658f0f5bafb297a1075cf99121f4869ca7249a1e51d87d90a",
+              "startLine": 20,
+              "endLine": 20
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "coach-mark",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "coach-mark-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CoachMarkExample",
+          "ranges": [
+            {
+              "start": 12127,
+              "end": 12597,
+              "sha256": "cee97ea6eb687804fade3b52fe6bd68fa6f8603c82f528288b8b10adefed0367",
+              "startLine": 58,
+              "endLine": 58
+            },
+            {
+              "start": 22575,
+              "end": 23258,
+              "sha256": "a0e4b6063b7c405e050fe34231324bef2b11e0c10872fbaebc49c411d3a6eef9",
+              "startLine": 121,
+              "endLine": 124
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 879,
+              "end": 919,
+              "sha256": "35497209b37079e304e99ff929d0d6bb52b41618fd240a4d60da68aff2d2e18b",
+              "startLine": 21,
+              "endLine": 21
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "contextual-help",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "contextual-help-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ContextualHelpExample",
+          "ranges": [
+            {
+              "start": 3144,
+              "end": 3423,
+              "sha256": "65840d00ed25f6accfdca7121e75eea38ebf23a4679e68c7638565eaf3f65df1",
+              "startLine": 25,
+              "endLine": 25
+            },
+            {
+              "start": 14702,
+              "end": 14799,
+              "sha256": "75b370c8972e65c8e75d84c3f8332b20ef7a8c5b58ddb4bc9cd00a3274c4168f",
+              "startLine": 73,
+              "endLine": 73
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 922,
+              "end": 972,
+              "sha256": "1f8622b60a8d4124c755eabb737d26911199af3a45ec58e61864c7f655de3268",
+              "startLine": 22,
+              "endLine": 22
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "critical-alert",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "critical-alert-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CriticalAlertExample",
+          "ranges": [
+            {
+              "start": 3424,
+              "end": 3721,
+              "sha256": "4468b329a15aabdacc2626bb71aba31e49eb554cb205c129bc6afbc679ccd308",
+              "startLine": 26,
+              "endLine": 26
+            },
+            {
+              "start": 14466,
+              "end": 14560,
+              "sha256": "7903c3ad07ed2d6430eee2434dfb3078a9a0d6686625b12a3403876daf692636",
+              "startLine": 71,
+              "endLine": 71
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 975,
+              "end": 1023,
+              "sha256": "8a3752f766b5ab7e6ab3673b670178655593cefa636023d24dfb6a4b583274ee",
+              "startLine": 23,
+              "endLine": 23
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "date-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "date-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/DateInputExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "DateInputExample"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1026,
+              "end": 1057,
+              "sha256": "c8835fd9318d3f0f3f7cace4b4eca1b18801372c2cd6379584c78604023c0664",
+              "startLine": 24,
+              "endLine": 24
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "disclosure",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "disclosure-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "DisclosureExample",
+          "ranges": [
+            {
+              "start": 3722,
+              "end": 3859,
+              "sha256": "830b0c2a6ce5dca128ca06f180da482ed333addd35e3ee2395284629c99f76b5",
+              "startLine": 27,
+              "endLine": 27
+            },
+            {
+              "start": 14561,
+              "end": 14701,
+              "sha256": "c0bc8ac2cbcabfe823ea8a0cc3bbb24b8d9960c95eaedaa3a73fa7c2997c0a58",
+              "startLine": 72,
+              "endLine": 72
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1060,
+              "end": 1101,
+              "sha256": "e38ef37b056268fed7d7691afb5fcd69d28b834db5b6f0ac8844a7f4564d6bc9",
+              "startLine": 25,
+              "endLine": 25
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "fab",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "fab-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FABExample",
+          "ranges": [
+            {
+              "start": 3860,
+              "end": 3964,
+              "sha256": "f225670370f2a766553f8e0be4aafac830dbc34d5a4ed1fbf89798821044058f",
+              "startLine": 28,
+              "endLine": 28
+            },
+            {
+              "start": 18475,
+              "end": 18669,
+              "sha256": "0caf69c95699c074b978b48e3ed9c125ff0d6ca5a3c2a01635517b00c245bea3",
+              "startLine": 97,
+              "endLine": 97
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1104,
+              "end": 1131,
+              "sha256": "cedf9d46a085e177915e27e11ac8f9e3a760e41c9892dd038a2aaa450ccd167a",
+              "startLine": 26,
+              "endLine": 26
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "favicon",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "favicon-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FaviconExample",
+          "ranges": [
+            {
+              "start": 3965,
+              "end": 4147,
+              "sha256": "69f0fceba956c52a615821104631287c612207951a5a95382c966da944b8a5c2",
+              "startLine": 29,
+              "endLine": 29
+            },
+            {
+              "start": 17118,
+              "end": 17373,
+              "sha256": "5eccdd7eda233ea9ec49b51fefc1dacaa41e03615f4aaefc7d347f5871cba9e9",
+              "startLine": 90,
+              "endLine": 90
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1134,
+              "end": 1169,
+              "sha256": "dd893ad7d1fa9aec6878a4ed85c5bbcbcadb690d0023739bf8d32344aec55f18",
+              "startLine": 27,
+              "endLine": 27
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "file-upload",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "file-upload-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FileUploadExample",
+          "ranges": [
+            {
+              "start": 12598,
+              "end": 12785,
+              "sha256": "afab3fe13f043a7ef8580c7e00e4e29b0ec4fad3cbea1b00703e3512caf8e253",
+              "startLine": 59,
+              "endLine": 59
+            },
+            {
+              "start": 23666,
+              "end": 24351,
+              "sha256": "1cdd62e300898ff198d81292a4267cd45b953ae608fe0d398cc21897dfd88f0e",
+              "startLine": 129,
+              "endLine": 134
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1172,
+              "end": 1214,
+              "sha256": "662007b0d9df79014768784d1676598bb53f498d63bc78549cd12590bdcec4c0",
+              "startLine": 28,
+              "endLine": 28
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "footer",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "footer-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FooterExample",
+          "ranges": [
+            {
+              "start": 4148,
+              "end": 4876,
+              "sha256": "801ad8ad1bdb904038d0aa5f9d35252098bf2c0157a763302446077b4e2ca740",
+              "startLine": 30,
+              "endLine": 30
+            },
+            {
+              "start": 14800,
+              "end": 14873,
+              "sha256": "194974ff6b156739fd0ed2b48e06a278cbb40c3dcc78ea4f3946ba31b8edd9df",
+              "startLine": 74,
+              "endLine": 74
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1217,
+              "end": 1250,
+              "sha256": "21ba7f67e31ddcb6ab55e24e0a4d7ea740b6fb293cd47dfb86cbc1968371047d",
+              "startLine": 29,
+              "endLine": 29
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "header",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "header-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "HeaderExample",
+          "ranges": [
+            {
+              "start": 4877,
+              "end": 5538,
+              "sha256": "c92288483cc8ae95cab83f1780764cc6fa86cdf0a7decc0e642937ea52c030a4",
+              "startLine": 31,
+              "endLine": 31
+            },
+            {
+              "start": 14874,
+              "end": 15208,
+              "sha256": "ac2e593507ea7f5229514f25fbe09a97b2db0bea7d2cfe9a32e8a69e4edcb4a0",
+              "startLine": 75,
+              "endLine": 75
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1253,
+              "end": 1286,
+              "sha256": "877576715d6fe73d3134d731f3180229a8c0ca74ef00cadfa9003b6077474e5a",
+              "startLine": 30,
+              "endLine": 30
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "help-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "help-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "HelpPanelExample",
+          "ranges": [
+            {
+              "start": 547,
+              "end": 654,
+              "sha256": "c3fdaa27af04224ae3ed5b0518265add5c07e5caf585086425b3e84156115041",
+              "startLine": 10,
+              "endLine": 10
+            },
+            {
+              "start": 20414,
+              "end": 20952,
+              "sha256": "b15b5c30e0e1ae8219f04300ae54e8f03aa9d148919737db9de4c07548864d80",
+              "startLine": 110,
+              "endLine": 112
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1289,
+              "end": 1329,
+              "sha256": "fd172932b934de9c6b81100e79b96a9b5623dd21bf7f831512a7654265c805f3",
+              "startLine": 31,
+              "endLine": 31
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "identifier",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "identifier-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "IdentifierExample",
+          "ranges": [
+            {
+              "start": 5539,
+              "end": 5814,
+              "sha256": "eb4a36f5a77ac4c049b482182ae734c14150dfee69c6886ea95229f6f469b714",
+              "startLine": 32,
+              "endLine": 32
+            },
+            {
+              "start": 15209,
+              "end": 15389,
+              "sha256": "614aa9a17f42beaf6ce31a78e08f09a81e40ba0205ed55f40ba26a18143183ed",
+              "startLine": 76,
+              "endLine": 76
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1332,
+              "end": 1373,
+              "sha256": "d0551b2ad1a9505bda29ee2b559d8da48a68cd88bac4d0daef41b98e192bb946",
+              "startLine": 32,
+              "endLine": 32
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "image",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "image-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ImageExample",
+          "ranges": [
+            {
+              "start": 5815,
+              "end": 6031,
+              "sha256": "b21209ee3ee43b7668a9dc61b2701884fa38c2af36214d440a79627e9a69abdb",
+              "startLine": 33,
+              "endLine": 33
+            },
+            {
+              "start": 6032,
+              "end": 6256,
+              "sha256": "4fedaeb1705a08764bbdfc7d90e3056ae966487f02c35b013ea830a1a865e424",
+              "startLine": 34,
+              "endLine": 34
+            },
+            {
+              "start": 15390,
+              "end": 15499,
+              "sha256": "973411af47bae346a287a848ff1de574e7d8d6ca49f08f6ec6e315af34fcca64",
+              "startLine": 77,
+              "endLine": 77
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1376,
+              "end": 1407,
+              "sha256": "c0305e36f2f87fc2a8f337262d3b67f34054a7fa4f2cd2dd7658e8a8338b6f65",
+              "startLine": 33,
+              "endLine": 33
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "in-page-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "in-page-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "InPageNavigationExample",
+          "ranges": [
+            {
+              "start": 6257,
+              "end": 6501,
+              "sha256": "7687e8aea3373b93d678dce54adfad815b4a7016859663d0436d94f229f485ea",
+              "startLine": 35,
+              "endLine": 35
+            },
+            {
+              "start": 17374,
+              "end": 17977,
+              "sha256": "d0e228f6936ee5323b129360153a1b8220b8d8f9bf792cc42df77df061acd99c",
+              "startLine": 91,
+              "endLine": 94
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1410,
+              "end": 1465,
+              "sha256": "13119689096dc596db8f487b44bd2d630b3dd0543acb0b6a8f27d18bf5497d79",
+              "startLine": 34,
+              "endLine": 34
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "language-switcher",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "language-switcher-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "LanguageSwitcherExample",
+          "ranges": [
+            {
+              "start": 12786,
+              "end": 13098,
+              "sha256": "a2df5d80326ade0cf811f9089e8c9f2db6c80d23c70c4e3d6a07a973ee352bcc",
+              "startLine": 60,
+              "endLine": 60
+            },
+            {
+              "start": 24352,
+              "end": 24672,
+              "sha256": "9465ed8982f3668cf3c18252e00761e9f50e8f111a8a1c6fd292f8f22c3bb2a2",
+              "startLine": 135,
+              "endLine": 138
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1468,
+              "end": 1522,
+              "sha256": "83cac98743f73a69add16d09f54a51a4edb047ccb32ffb7bc4f7f5c4177c24f7",
+              "startLine": 35,
+              "endLine": 35
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "LinkExample",
+          "ranges": [
+            {
+              "start": 6502,
+              "end": 6664,
+              "sha256": "01421208a6b541a72f70fe2a670a8e0d07e0a88bd6c02b060484a1de3c709868",
+              "startLine": 36,
+              "endLine": 36
+            },
+            {
+              "start": 15500,
+              "end": 15567,
+              "sha256": "800583cea7663f1f2c16788b8d8b9b409488da6a6176bcd0d918a0ad2d42a1a0",
+              "startLine": 78,
+              "endLine": 78
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1525,
+              "end": 1554,
+              "sha256": "84dfb9c52a3543c6f9fda9c871ca1f6511ab14708989a0c3db1fa805f353f20a",
+              "startLine": 36,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "main-menu",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "main-menu-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "MainMenuExample",
+          "ranges": [
+            {
+              "start": 6665,
+              "end": 6935,
+              "sha256": "da555f548331fb14120df360e84f951a90463db716404aa5592de6b3bc991a0e",
+              "startLine": 37,
+              "endLine": 37
+            },
+            {
+              "start": 15568,
+              "end": 15647,
+              "sha256": "c1817ca46ff56c194f1c872bd9abc396434dcc6e845bf6b046187a15f2f9826c",
+              "startLine": 79,
+              "endLine": 79
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1557,
+              "end": 1595,
+              "sha256": "9a5ae005c5b728d01ed5e38b59315962da58d598c884a3e003d1330ae90cd741",
+              "startLine": 37,
+              "endLine": 37
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "masthead",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "masthead-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "MastheadExample",
+          "ranges": [
+            {
+              "start": 6936,
+              "end": 7012,
+              "sha256": "256c791a612fed87ea86989e420d93e2b24773627578a298c763279d2b328dce",
+              "startLine": 38,
+              "endLine": 38
+            },
+            {
+              "start": 15648,
+              "end": 16035,
+              "sha256": "28067c9ea8da592fac170868bb811b0c520a592e7573ba4873d238d8af6862d1",
+              "startLine": 80,
+              "endLine": 80
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1598,
+              "end": 1635,
+              "sha256": "91a3bfc9a34271869dfcbfb4991ad988045c9f4f8cd23027fd4012e4b74b8f66",
+              "startLine": 38,
+              "endLine": 38
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "modal",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "modal-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/ModalExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ModalExample"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1638,
+              "end": 1660,
+              "sha256": "e53a3d47bbbd9540f509fdc82c53c82f9763ae01830ccdef09a04fae617e0383",
+              "startLine": 39,
+              "endLine": 39
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "native-select",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "native-select-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/NativeSelectExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "NativeSelectExample"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1663,
+              "end": 1700,
+              "sha256": "970268fc791c9de0922a62e62e603d1855e168af89b51a12d833b6043f2af4e9",
+              "startLine": 40,
+              "endLine": 40
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "pagination",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "pagination-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "PaginationExample",
+          "ranges": [
+            {
+              "start": 547,
+              "end": 654,
+              "sha256": "c3fdaa27af04224ae3ed5b0518265add5c07e5caf585086425b3e84156115041",
+              "startLine": 10,
+              "endLine": 10
+            },
+            {
+              "start": 17978,
+              "end": 18235,
+              "sha256": "0cba1c270e0ce7c60c0857706a7c8ce039a99d0c7531bfa6017ae759db3f46f5",
+              "startLine": 95,
+              "endLine": 95
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1703,
+              "end": 1744,
+              "sha256": "1f562d32a213630c063d7e3b4eee1fcff0b7c3b97e2c120c8b343227f579131a",
+              "startLine": 41,
+              "endLine": 41
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "quantity-toggle",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "quantity-toggle-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "QuantityToggleExample",
+          "ranges": [
+            {
+              "start": 655,
+              "end": 1349,
+              "sha256": "ad5f2062cfd7f9f8089d2a5a4b52c1f6f508cede563c01ac83ff04449403226c",
+              "startLine": 11,
+              "endLine": 16
+            },
+            {
+              "start": 7013,
+              "end": 7186,
+              "sha256": "7fc7960630110eb901eeaf00b3ffe4e8d8f32bf5a12beba0c19b534c6fd3b0c3",
+              "startLine": 39,
+              "endLine": 39
+            },
+            {
+              "start": 19559,
+              "end": 19683,
+              "sha256": "b40685187c3741e866e4f2487b80ee95575c6a4bfdb513ba6543421e8d83a677",
+              "startLine": 104,
+              "endLine": 104
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1747,
+              "end": 1797,
+              "sha256": "2926036d5ebd81b7f6e88e34f13e3d45f7e0f7d35111581a4bd3604a40f3d57b",
+              "startLine": 42,
+              "endLine": 42
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "radio-group",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "radio-group-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "RadioGroupExample",
+          "ranges": [
+            {
+              "start": 655,
+              "end": 1349,
+              "sha256": "ad5f2062cfd7f9f8089d2a5a4b52c1f6f508cede563c01ac83ff04449403226c",
+              "startLine": 11,
+              "endLine": 16
+            },
+            {
+              "start": 7187,
+              "end": 7496,
+              "sha256": "86dae7e9c2ef4efe1e74ada92e498be4eccf3971422d83681c2e34e78e874e90",
+              "startLine": 40,
+              "endLine": 40
+            },
+            {
+              "start": 18670,
+              "end": 18782,
+              "sha256": "8d93da65f1d6e8f19ab6849c7d55b91d955df65c070e7591f9df3bbf81f5affe",
+              "startLine": 98,
+              "endLine": 98
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1800,
+              "end": 1842,
+              "sha256": "7e99d2a024601b217cd728eb302bc7126238da098d7561ece73e0b4b86f8830f",
+              "startLine": 43,
+              "endLine": 43
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "range-slider",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "range-slider-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "RangeSliderExample",
+          "ranges": [
+            {
+              "start": 655,
+              "end": 1349,
+              "sha256": "ad5f2062cfd7f9f8089d2a5a4b52c1f6f508cede563c01ac83ff04449403226c",
+              "startLine": 11,
+              "endLine": 16
+            },
+            {
+              "start": 7497,
+              "end": 7649,
+              "sha256": "622ed38b80b65ad5d93540488fb0a0b34b7ad54cc085aa948d91f974506a8681",
+              "startLine": 41,
+              "endLine": 41
+            },
+            {
+              "start": 19443,
+              "end": 19558,
+              "sha256": "6fc3ddfd10fb70faf4d06886243bc005d4095253daa2aac571e0fa4eff247b18",
+              "startLine": 103,
+              "endLine": 103
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1845,
+              "end": 1889,
+              "sha256": "d3d6a39beaadd7e91ea6aa6d84362320c1f992608778268ab3752194e6399a38",
+              "startLine": 44,
+              "endLine": 44
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "resize",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "resize-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ResizeExample",
+          "ranges": [
+            {
+              "start": 13099,
+              "end": 13427,
+              "sha256": "74ac89a568ec1aa4ac3d15a296b056e70990d650713b2f46fa22a8b47d80741a",
+              "startLine": 61,
+              "endLine": 61
+            },
+            {
+              "start": 24673,
+              "end": 25121,
+              "sha256": "63e846630d3a4f2447645784de9b851e3d293cdb29ea657bcd0bdb8394d156f9",
+              "startLine": 139,
+              "endLine": 143
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1892,
+              "end": 1925,
+              "sha256": "c91dc33068cdb8decb2073a50316a3f76b3b66792f4f452a93a1c74c10329abb",
+              "startLine": 45,
+              "endLine": 45
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "side-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "side-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SideNavigationExample",
+          "ranges": [
+            {
+              "start": 7650,
+              "end": 8112,
+              "sha256": "25ad91d1ece6577117d30f9b7e3ed1b3c20453133a583de33c2dbd92097fe862",
+              "startLine": 42,
+              "endLine": 42
+            },
+            {
+              "start": 16036,
+              "end": 16133,
+              "sha256": "911f9e726cb350ddf0157a2d1d0e6937a4952339effd4bd924c07477e091ce61",
+              "startLine": 81,
+              "endLine": 81
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1928,
+              "end": 1978,
+              "sha256": "bcf1863b07344a95bad0a26aa97c4fee251b47da19490d7a896c99e6e63b9d21",
+              "startLine": 46,
+              "endLine": 46
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "skip-link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "skip-link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SkipLinkExample",
+          "ranges": [
+            {
+              "start": 8113,
+              "end": 8281,
+              "sha256": "1a1f7ddb23f07d52c8ebe74fb86616761e0e3030a1d288a307850959658a826c",
+              "startLine": 43,
+              "endLine": 43
+            },
+            {
+              "start": 16134,
+              "end": 16408,
+              "sha256": "21022b608a4b1423f35a4e197dd163fc77e8c985864028bbc5863ad6d14a5e41",
+              "startLine": 82,
+              "endLine": 82
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 1981,
+              "end": 2019,
+              "sha256": "cfe41ba03ac3bc41f053d720cd16c1ff8e54cb5d730558684ac019bf353fee9a",
+              "startLine": 47,
+              "endLine": 47
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "snackbar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "snackbar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SnackbarExample",
+          "ranges": [
+            {
+              "start": 13791,
+              "end": 13971,
+              "sha256": "f00868446b14cb15fa2a84489abc3561b679f219860c7b0ad368c1f4b24da45d",
+              "startLine": 64,
+              "endLine": 64
+            },
+            {
+              "start": 26702,
+              "end": 27488,
+              "sha256": "3dce09be89c8c28ee691f56ac8041ef6302ce951b265953626de437a3985e848",
+              "startLine": 155,
+              "endLine": 159
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2022,
+              "end": 2059,
+              "sha256": "5c39111b0354eb092f1b649929f8e60812d94531325b9839a595e7075714ccaa",
+              "startLine": 48,
+              "endLine": 48
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "spinner",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "spinner-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SpinnerExample",
+          "ranges": [
+            {
+              "start": 8282,
+              "end": 8481,
+              "sha256": "49220514fa2b8ae8c593337c1a027cf30af468b09db67177328b5c7593b6d08b",
+              "startLine": 44,
+              "endLine": 44
+            },
+            {
+              "start": 20115,
+              "end": 20413,
+              "sha256": "8181314707b3818b94a374fe87119367e16fa24328193eb5af8e7ac6893791bd",
+              "startLine": 109,
+              "endLine": 109
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2062,
+              "end": 2097,
+              "sha256": "3fb33c85d9f4e99215bab941e581361f2b6fb30cd609ee2dfb49ad8b05746b79",
+              "startLine": 49,
+              "endLine": 49
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "step-indicator",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "step-indicator-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "StepIndicatorExample",
+          "ranges": [
+            {
+              "start": 8482,
+              "end": 8755,
+              "sha256": "a31bd35ff26ef3912a7786171072d5185d074112a956a14df1b41fd64a0cf654",
+              "startLine": 45,
+              "endLine": 45
+            },
+            {
+              "start": 16409,
+              "end": 16503,
+              "sha256": "708be70dab30040a2c3193fde7327ca7124e16f04a403d1df37449803bbec368",
+              "startLine": 83,
+              "endLine": 83
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2100,
+              "end": 2148,
+              "sha256": "a5eda32098034631220baaba1c02476ca0a6eb5496cb0d57e4534797c8c99261",
+              "startLine": 50,
+              "endLine": 50
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "structured-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "structured-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "StructuredListExample",
+          "ranges": [
+            {
+              "start": 8756,
+              "end": 9179,
+              "sha256": "95f9b0f443c0067438d04fcdd84864d37c44996ae732bb7264cac18dd067e76c",
+              "startLine": 46,
+              "endLine": 46
+            },
+            {
+              "start": 16504,
+              "end": 16601,
+              "sha256": "4c4d84ad5996ec206f2414f488a0e3e1ad6539be8362d809122fe1b0549c8ecd",
+              "startLine": 84,
+              "endLine": 84
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2151,
+              "end": 2201,
+              "sha256": "73b7d34965cbc7ed37b510fe53e8f743c9bb7905132bd8276bfd34e6c6ed2596",
+              "startLine": 51,
+              "endLine": 51
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "switch",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "switch-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SwitchExample",
+          "ranges": [
+            {
+              "start": 655,
+              "end": 1349,
+              "sha256": "ad5f2062cfd7f9f8089d2a5a4b52c1f6f508cede563c01ac83ff04449403226c",
+              "startLine": 11,
+              "endLine": 16
+            },
+            {
+              "start": 9180,
+              "end": 9325,
+              "sha256": "d1c730d093f5d3938302f32ccf461bcfb2e7bc5028c26ee4d1a1d8b0010ce07a",
+              "startLine": 47,
+              "endLine": 47
+            },
+            {
+              "start": 18890,
+              "end": 18990,
+              "sha256": "ba4b6d07bdfba75b9679989c9990308b1ddfc124ecc9f2aed7239a75edd54d74",
+              "startLine": 100,
+              "endLine": 100
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2204,
+              "end": 2237,
+              "sha256": "64bb29a76766c6a8bdc439e4cd60ece90de9db4736b0231a55a75d940cd8f06c",
+              "startLine": 52,
+              "endLine": 52
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "tab-bar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tab-bar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TabBarExample",
+          "ranges": [
+            {
+              "start": 9326,
+              "end": 9655,
+              "sha256": "d542ddec99e3f818063f768431e61419454a4d05e42506142e041ed1a37ea4e9",
+              "startLine": 48,
+              "endLine": 48
+            },
+            {
+              "start": 16602,
+              "end": 16675,
+              "sha256": "c09eba920c21c7ef66b86d60586e64cca020ed10983f2961642353210022c94f",
+              "startLine": 85,
+              "endLine": 85
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2240,
+              "end": 2274,
+              "sha256": "923281e766a7908f56a1b8301a9e2ea995281536cf5cfc9f3be329d8d52c0184",
+              "startLine": 53,
+              "endLine": 53
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "table",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "table-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TableExample",
+          "ranges": [
+            {
+              "start": 9656,
+              "end": 9981,
+              "sha256": "5f276caa81438aec7173d7f3fa51890b83a340387edf0d2ba7bae92f11d6df96",
+              "startLine": 49,
+              "endLine": 49
+            },
+            {
+              "start": 16676,
+              "end": 16746,
+              "sha256": "811e455e4b6553271bf014892a9a7219bbebef7d8c94d2348dcc29aa044b2bb7",
+              "startLine": 86,
+              "endLine": 86
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2277,
+              "end": 2308,
+              "sha256": "a751d0a27fe7b1177d433722ae941c4c424accf0fa95bafd0e8a7e6f0622fb86",
+              "startLine": 54,
+              "endLine": 54
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "tabs",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tabs-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/TabsExample.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TabsExample"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2311,
+              "end": 2331,
+              "sha256": "ae3cc48580fa634a2b4caff3b7afba5c0c06a83c51465505f3845a9e13698b0c",
+              "startLine": 55,
+              "endLine": 55
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "tag",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tag-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TagExample",
+          "ranges": [
+            {
+              "start": 547,
+              "end": 654,
+              "sha256": "c3fdaa27af04224ae3ed5b0518265add5c07e5caf585086425b3e84156115041",
+              "startLine": 10,
+              "endLine": 10
+            },
+            {
+              "start": 19684,
+              "end": 20114,
+              "sha256": "465959f91e03a4062d1b93801c5ed9938dede241968a650850d8132bede38c38",
+              "startLine": 105,
+              "endLine": 108
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2334,
+              "end": 2361,
+              "sha256": "5e151913c2016f8ae766e12e003a2b93d717ea187c23485e7f57cc238d20075d",
+              "startLine": 56,
+              "endLine": 56
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "text-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TextInputExample",
+          "ranges": [
+            {
+              "start": 655,
+              "end": 1349,
+              "sha256": "ad5f2062cfd7f9f8089d2a5a4b52c1f6f508cede563c01ac83ff04449403226c",
+              "startLine": 11,
+              "endLine": 16
+            },
+            {
+              "start": 10155,
+              "end": 10378,
+              "sha256": "1ce0fb45da84f52efcb7b8780a81f4438bd0fd7bbfdec81b08134c803bfcfa18",
+              "startLine": 51,
+              "endLine": 51
+            },
+            {
+              "start": 19098,
+              "end": 19442,
+              "sha256": "f47079e8a69111098f15bc983966b83de69b71547511781d8235438d4c855b3b",
+              "startLine": 102,
+              "endLine": 102
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2364,
+              "end": 2404,
+              "sha256": "61615d692e3892fe027ff8ce14da699c379207332aa185630f6f5421d49d5533",
+              "startLine": 57,
+              "endLine": 57
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "text-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TextListExample",
+          "ranges": [
+            {
+              "start": 10379,
+              "end": 10573,
+              "sha256": "62505ce6f058111723da0cea7e806c0868ad1066d7f71a9f2625dc35bc0219a4",
+              "startLine": 52,
+              "endLine": 52
+            },
+            {
+              "start": 16747,
+              "end": 16826,
+              "sha256": "c6933333c7d1f57a61656558357aa8b6f47667017365ca9cddd2dd1e4a15fd33",
+              "startLine": 87,
+              "endLine": 87
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2407,
+              "end": 2445,
+              "sha256": "4904839b47ed8557101d5eb8068dc01b510024f2b2e29aa417f81a5d3a222d19",
+              "startLine": 58,
+              "endLine": 58
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "textarea",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "textarea-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TextareaExample",
+          "ranges": [
+            {
+              "start": 655,
+              "end": 1349,
+              "sha256": "ad5f2062cfd7f9f8089d2a5a4b52c1f6f508cede563c01ac83ff04449403226c",
+              "startLine": 11,
+              "endLine": 16
+            },
+            {
+              "start": 10574,
+              "end": 10736,
+              "sha256": "9b1355b099349acee45982c0c63e2861a8a94516e05eb1aea67ee75b4baa6239",
+              "startLine": 53,
+              "endLine": 53
+            },
+            {
+              "start": 18991,
+              "end": 19097,
+              "sha256": "c03ded2bed25e44b5520301a487c62e856ec38bc35bcceac1bbcbddd56dbfa23",
+              "startLine": 101,
+              "endLine": 101
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2448,
+              "end": 2485,
+              "sha256": "b18c5a52d1896ad89d5c5130280eb2eec8319276aca470548c2811652273d354",
+              "startLine": 59,
+              "endLine": 59
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "toast",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "toast-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ToastExample",
+          "ranges": [
+            {
+              "start": 13972,
+              "end": 14044,
+              "sha256": "407c1d091d2c38b6da29aa7aa73eb0f0974e39e99af77a0bde63d90debf6498b",
+              "startLine": 65,
+              "endLine": 65
+            },
+            {
+              "start": 26087,
+              "end": 26701,
+              "sha256": "19fb154f24a3c838ef0ff9735b67cc69296e52c46866132ed5665e6b9c7ed7f6",
+              "startLine": 150,
+              "endLine": 154
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2488,
+              "end": 2519,
+              "sha256": "1fe317944c39dab6ccd5b29294079390b66b3953542ed1e49a1f6988c2dae953",
+              "startLine": 60,
+              "endLine": 60
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "tooltip",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tooltip-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TooltipExample",
+          "ranges": [
+            {
+              "start": 10737,
+              "end": 10998,
+              "sha256": "13aec256c0f8690c8f7f71c95e1e8465ac4b0f9cd292ff3bc2ab88a884e525a2",
+              "startLine": 54,
+              "endLine": 54
+            },
+            {
+              "start": 16827,
+              "end": 16903,
+              "sha256": "df285d5ae7b3a9ee084104e06123a33947cef50ec1208146039b0074e861f878",
+              "startLine": 88,
+              "endLine": 88
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2522,
+              "end": 2557,
+              "sha256": "73f4ec8ffe9b56d46319dcecc3578a2f405ecb727e4dda50c612348452082823",
+              "startLine": 61,
+              "endLine": 61
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "tts",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tts-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TTSExample",
+          "ranges": [
+            {
+              "start": 13428,
+              "end": 13629,
+              "sha256": "f8dec045cafb8664c81d6917b264450e136c4386c2685e89bd510b9108eae8a9",
+              "startLine": 62,
+              "endLine": 62
+            },
+            {
+              "start": 23259,
+              "end": 23665,
+              "sha256": "382d7be20a036c3b41ac1baead26a2ecf59ebd2325708ecd8bf6e70fbb304219",
+              "startLine": 125,
+              "endLine": 128
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2560,
+              "end": 2587,
+              "sha256": "521537aeaecc62945b7bb05c10f4991292076cb499f67006d28ce348a38e640e",
+              "startLine": 62,
+              "endLine": 62
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "tutorial-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tutorial-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TutorialPanelExample",
+          "ranges": [
+            {
+              "start": 11162,
+              "end": 11650,
+              "sha256": "367e48eeab3e116385175d762d8f9b93288140420482c1b06661b94a9371db78",
+              "startLine": 56,
+              "endLine": 56
+            },
+            {
+              "start": 20953,
+              "end": 22574,
+              "sha256": "36e0cd4af9308e636661f0b1f3770023acf1c944f6410b399ba60a5f5bf64905",
+              "startLine": 113,
+              "endLine": 120
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2590,
+              "end": 2638,
+              "sha256": "faa0a756699d8080e89a20fd8cb7e968089c845bc91268579af68185a45345ab",
+              "startLine": 63,
+              "endLine": 63
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "solid",
+      "componentId": "visually-hidden",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "visually-hidden-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-solid/src/docs-preview/CatalogExamples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "VisuallyHiddenExample",
+          "ranges": [
+            {
+              "start": 10999,
+              "end": 11161,
+              "sha256": "7dfdba422243f9d6c60c93c30f5fd88ca842486cb254bcca1dcc4fabd3fe0d71",
+              "startLine": 55,
+              "endLine": 55
+            },
+            {
+              "start": 16904,
+              "end": 17117,
+              "sha256": "ac5038877b8086983d2faaaba77974a2abdcc1545eba948aa6c0753204a8a273",
+              "startLine": 89,
+              "endLine": 89
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "ts",
+          "symbolOrBranch": "examples",
+          "ranges": [
+            {
+              "start": 2641,
+              "end": 2691,
+              "sha256": "49c13da396bd4f0673094021aaefaee64c07a09266976091e34bed9fa6ee2330",
+              "startLine": 64,
+              "endLine": 64
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/main.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-solid/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    }
+  ]
+}

@@ -72,7 +72,7 @@ export function NativeSelect(props: NativeSelectProps): JSX.Element {
       id={id()} disabled={local.disabled} aria-invalid={local.invalid ? 'true' : undefined}
       aria-describedby={[local['aria-describedby'], local.hint != null && `${id()}-hint`, local.error != null && `${id()}-error`].filter(Boolean).join(' ') || undefined}
       onChange={handleChange} data-krds-component="native-select" data-krds-part="control" data-krds-state={state()} data-krds-size={local.size ?? 'medium'}>
-      <For each={local.options}>{option => <option value={option.value} disabled={option.disabled}>{option.label}</option>}</For>
+      <For each={local.options}>{option => <option value={option.value} selected={option.value === value()} disabled={option.disabled}>{option.label}</option>}</For>
     </select>
     <Show when={local.hint != null}><div id={`${id()}-hint`} data-krds-component="native-select" data-krds-part="hint" data-krds-state="">{local.hint}</div></Show>
     <Show when={local.error != null}><div id={`${id()}-error`} data-krds-component="native-select" data-krds-part="error" data-krds-state="">{local.error}</div></Show>

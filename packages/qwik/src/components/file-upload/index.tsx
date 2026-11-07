@@ -102,16 +102,16 @@ export const FileUpload = component$<FileUploadProps>(props => {
         cleanup(() => { alive.value=false;revision.value++;selectionOwner.value++;selecting.value=false;selections.value?.splice(0);chooser.removeEventListener('change', change); element.removeEventListener('drop', drop); });
     }, { strategy: 'document-ready' });
     return <div ref={root} {...owned('file-upload', 'root', props.disabled ? 'disabled' : drag.value ? 'drag-over' : '')} data-krds-variant={props.variant ?? 'dropzone'}>
-        <h3 {...owned('file-upload', 'label')}>{props.label}</h3>
-        {props.description && <p {...owned('file-upload', 'description')}>{props.description}</p>}
+        <h3 id={`${uid}-label`} {...owned('file-upload', 'label')}>{props.label}</h3>
+        {props.description && <p id={`${uid}-description`} {...owned('file-upload', 'description')}>{props.description}</p>}
         <p id={`${uid}-help`} {...owned('file-upload', 'help')}>{props.accept ?? '모든 형식'}{props.maxBytes ? ` / 최대 ${props.maxBytes}바이트` : ''}{props.maxFiles ? ` / 최대 ${props.maxFiles}개` : ''}</p>
-        <input ref={input} id={uid} {...owned('file-upload', 'file-input')} type="file" data-krds-name={props.name} aria-label={props.label} aria-describedby={`${uid}-help`} multiple={props.multiple} accept={props.accept} disabled={props.disabled} onChange$={async (event, element) => {
+        <input ref={input} id={uid} {...owned('file-upload', 'file-input')} type="file" data-krds-name={props.name} tabIndex={-1} aria-hidden="true" multiple={props.multiple} accept={props.accept} disabled={props.disabled} onChange$={async (event, element) => {
             if (!firstDelivery(delivered, event)) return;
             const files = Array.from(element.files ?? []);
             element.value = '';
             await select(files, 'picker');
         }}/>
-        <button type="button" {...owned('file-upload', 'picker')} disabled={props.disabled} onClick$={() => input.value?.click()}>파일 선택</button>
+        <button type="button" {...owned('file-upload', 'picker')} id={`${uid}-picker`} aria-labelledby={`${uid}-picker ${uid}-label`} aria-describedby={`${props.description ? `${uid}-description ` : ''}${uid}-help${errors.value.length ? ` ${uid}-errors` : ''}`} disabled={props.disabled} onClick$={() => input.value?.click()}>파일 선택</button>
         {props.variant !== 'button' && <div {...owned('file-upload', 'dropzone')} preventdefault:dragover preventdefault:drop onDragOver$={() => { if (!props.disabled) drag.value = true; }} onDragLeave$={() => drag.value = false} onDrop$={async event => {
             if (!firstDelivery(delivered, event)) return;
             drag.value = false;
@@ -132,6 +132,6 @@ export const FileUpload = component$<FileUploadProps>(props => {
                 if (version === revision.value && root.value?.isConnected && props.files.some(file => file.id === id)) removing.value = undefined;
             }}>삭제</button>
         </li>)}</ul>
-        {errors.value.map((error, index) => <p key={index} role="alert" {...owned('file-upload', 'error')}>{error.name}: {error.message}</p>)}
+        {errors.value.length > 0 && <div id={`${uid}-errors`}>{errors.value.map((error, index) => <p key={index} role="alert" {...owned('file-upload', 'error')}>{error.name}: {error.message}</p>)}</div>}
     </div>;
 });

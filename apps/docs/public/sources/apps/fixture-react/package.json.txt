@@ -10,7 +10,8 @@
     "build:local": "vite build",
     "contract": "node ../../tools/run-contract-tests.mjs --framework react",
     "siheom": "node ../../tools/run-siheom-tests.mjs --framework react",
-    "siheom:local": "vitest run --config vitest.config.ts"
+    "siheom:local": "vitest run --config vitest.config.ts",
+    "docs-preview:local": "vite build --config vite.docs-preview.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

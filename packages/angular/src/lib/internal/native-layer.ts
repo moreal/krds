@@ -40,9 +40,10 @@ export class NativeLayer implements OnDestroy {
   for(const property of [...Array.from(style).filter(property=>property.startsWith('--krds-')),'font-family','font-size','font-weight','font-style','line-height','letter-spacing','color']){if(this.theme&&!this.theme.has(property))this.theme.set(property,this.element.style.getPropertyValue(property));this.element.style.setProperty(property,style.getPropertyValue(property));}
   this.element.setAttribute('dir',style.direction);
  }
- private detach():void{
+ private detach(destroying=false):void{
   this.element.open=false;this.element.removeAttribute('aria-modal');
-  if(this.placeholder?.parentNode)this.placeholder.parentNode.insertBefore(this.element,this.placeholder);
+  // Angular has already removed a destroyed view's nodes; never re-insert the element at the placeholder then.
+  if(!destroying&&this.placeholder?.parentNode)this.placeholder.parentNode.insertBefore(this.element,this.placeholder);
   else this.element.parentNode?.removeChild(this.element);
   this.placeholder?.parentNode?.removeChild(this.placeholder);this.placeholder=null;this.wrapper?.removeEventListener('pointerdown',this.outsideStart);this.wrapper?.removeEventListener('pointerup',this.outsideEnd);this.wrapper?.parentNode?.removeChild(this.wrapper);this.wrapper=null;this.outsidePointer=null;
   if(this.priorDir===null)this.element.removeAttribute('dir');else this.element.setAttribute('dir',this.priorDir);
@@ -53,7 +54,7 @@ export class NativeLayer implements OnDestroy {
  private readonly outsideEnd=(event:PointerEvent)=>{const allowed=this.layer?.isTop()&&this.outsidePointer===event.pointerId&&event.button===0&&event.target===event.currentTarget;this.outsidePointer=null;if(allowed&&this.layerDismissOnOutside)this.layerOutside.emit();};
  isActive():boolean{return this.active;}closeForOwner():void{this.close(false);}
  private close(restore=true,destroying=false):void{
-  if(!this.active)return;const origin=this.origin;this.active=false;const result=this.layer?.leave(()=>this.detach())??{wasTop:false,remaining:false};this.layer=null;
+  if(!this.active)return;const origin=this.origin;this.active=false;const result=this.layer?.leave(()=>this.detach(destroying))??{wasTop:false,remaining:false};this.layer=null;
   if(restore&&result.wasTop&&this.layerRestore){const named=this.layerReturnId?this.document.getElementById(this.layerReturnId):null;const fallback=this.layerFallbackId?this.document.getElementById(this.layerFallbackId):null;const candidates=[named,fallback,this.opener,...this.ancestors].filter(node=>!destroying||!node||!origin?.contains(node));restoreCatalogFocus(this.document,candidates);}
   this.opener=null;this.ancestors=[];
  }

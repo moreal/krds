@@ -31,3 +31,26 @@ test('public Header search ID is optional and belongs to its own button',()=>{
  const old=renderToString(()=>Header(props));assert.match(old,/data-krds-part="search"/);assert.doesNotMatch(old,/id="docs-search-trigger"/);
  const named=renderToString(()=>Header({...props,searchTriggerId:'docs-search-trigger'}));assert.match(named,/<button[^>]*id="docs-search-trigger"[^>]*data-krds-part="search"/);
 });
+
+test('NativeDemoSource SSR shows a labelled excerpt with a full-file toggle and download, and full files unchanged', async () => {
+  const { getViteConfig } = await import('astro/config');
+  const { createServer } = await import('vite');
+  const config = await getViteConfig({ server: { middlewareMode: true, hmr: false }, appType: 'custom', logLevel: 'error' })({ mode: 'test', command: 'serve' });
+  const server = await createServer({ ...config, configFile: false, root: new URL('..', import.meta.url).pathname });
+  try {
+    const { NativeDemoSource } = await server.ssrLoadModule('/src/components/NativeDemoSource.tsx');
+    const web = await server.ssrLoadModule('solid-js/web');
+    const base = { path: 'src/docs-preview/CatalogExamples.tsx', role: 'example', language: 'tsx', symbolOrBranch: 'TabsExample', sha256: 'a'.repeat(64), downloadUrl: '/krds/demo-sources/src/docs-preview/CatalogExamples.tsx.txt' };
+    const excerpt = { startLine: 12, endLine: 40, sha256: 'b'.repeat(64), downloadUrl: '/krds/demo-sources/src/docs-preview/CatalogExamples.tsx.excerpt-1-2.txt', value: 'export function TabsExample() {}' };
+    const ranged = web.renderToString(() => NativeDemoSource({ files: [{ ...base, excerpts: [excerpt] }] }));
+    assert.match(ranged, /발췌 · 줄 12–40 · TabsExample/);
+    assert.match(ranged, /export function TabsExample\(\) \{\}/);
+    assert.match(ranged, /data-krds-component="disclosure"[\s\S]*전체 파일 보기/);
+    assert.match(ranged, /<div[^>]*hidden[^>]*data-krds-part="content"|<div[^>]*data-krds-part="content"[^>]*hidden/, 'full file is collapsed by default');
+    assert.match(ranged, /href="\/krds\/demo-sources\/src\/docs-preview\/CatalogExamples\.tsx\.txt"/);
+    const plain = web.renderToString(() => NativeDemoSource({ files: [{ ...base, value: 'const whole = 1;' }] }));
+    assert.match(plain, /const whole = 1;/);
+    assert.doesNotMatch(plain, /발췌|전체 파일 보기|data-krds-component="disclosure"/);
+    assert.match(plain, /href="\/krds\/demo-sources\/src\/docs-preview\/CatalogExamples\.tsx\.txt"/);
+  } finally { await server.close(); }
+});

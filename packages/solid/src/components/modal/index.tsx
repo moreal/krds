@@ -1,4 +1,5 @@
 import { ModalDismissCause } from '../../internal/modal-dismiss-cause';
+import { ModalOwnedHeading } from '../../internal/modal-owned-heading';
 import { registerModalLayer, activeModalContent } from '../../internal/modal-layer';
 import { createMemo, createSignal, createUniqueId, onCleanup, onMount, Show, splitProps, untrack, useContext, type JSX } from 'solid-js';
 import { Portal } from 'solid-js/web';
@@ -54,8 +55,10 @@ function restoreFocus(doc: Document, opener: HTMLElement | undefined, ancestors:
 }
 /** A Solid-owned portal and actual-open lifecycle; rejected controlled requests retain isolation. */
 export function Modal(props: ModalProps) {
+    // Only the Modal composed by the surface that owns this exact title id yields its visible heading.
+    const ownedHeading = props.titleId != null && useContext(ModalOwnedHeading) === props.titleId;
     const [local, rest] = splitProps(props, ['title', 'titleId', 'description', 'descriptionId', 'children', 'actions', 'open', 'defaultOpen', 'onOpenChange', 'closeOnOutsideClick', 'showCloseButton', 'initialFocusId', 'returnFocusId', 'closeLabel', 'locale', 'id', 'ref']);
-    const environment = useKrdsEnvironment(); const reportDismissCause=useContext(ModalDismissCause);
+    const environment = useKrdsEnvironment(); const dismissTransport=useContext(ModalDismissCause);const reportDismissCause=props.titleId!=null&&dismissTransport?.titleId===props.titleId?dismissTransport.report:undefined;
     const generated = `krds-modal-${createUniqueId()}`;
     const contentId = () => local.id ?? generated;
     const controlled = local.open !== undefined;
@@ -200,8 +203,8 @@ export function Modal(props: ModalProps) {
       <div ref={backdrop} data-krds-component="modal" data-krds-part="backdrop" data-krds-state="open"/>
       <div {...rest} ref={element => { content = element; if (typeof local.ref === 'function')
             local.ref(element); }} id={contentId()} role="dialog" aria-modal="true" aria-labelledby={local.titleId ?? `${contentId()}-title`} aria-describedby={local.description != null ? local.descriptionId ?? `${contentId()}-description` : undefined} tabIndex={-1} data-krds-component="modal" data-krds-part="content" data-krds-state="open">
-        <h2 id={local.titleId ?? `${contentId()}-title`} data-krds-component="modal" data-krds-part="title" data-krds-state="">{local.title}</h2>
-        <Show when={local.description != null}><div id={local.descriptionId ?? `${contentId()}-description`} data-krds-component="modal" data-krds-part="description" data-krds-state="">{local.description}</div></Show>
+        <Show when={!ownedHeading}><h2 id={local.titleId ?? `${contentId()}-title`} data-krds-component="modal" data-krds-part="title" data-krds-state="">{local.title}</h2></Show>
+        <Show when={!ownedHeading && local.description != null}><div id={local.descriptionId ?? `${contentId()}-description`} data-krds-component="modal" data-krds-part="description" data-krds-state="">{local.description}</div></Show>
         <div data-krds-component="modal" data-krds-part="body" data-krds-state="">{local.children}</div>
         <Show when={local.actions != null}><div data-krds-component="modal" data-krds-part="actions" data-krds-state="">{local.actions}</div></Show>
         <Show when={local.showCloseButton !== false}><button type="button" aria-label={local.closeLabel ?? ((local.locale ?? environment.locale()) === 'en-US' ? 'Close' : '닫기')} onClick={() => requestClose('close')} data-krds-component="modal" data-krds-part="close" data-krds-state=""><span aria-hidden="true">×</span></button></Show>

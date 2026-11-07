@@ -23,9 +23,11 @@ const json = async path => JSON.parse(await readFile(join(root, path), 'utf8'));
 for (const entry of ['fixture', 'canonical package']) test(`${entry} APF consumer launches the selected current executable despite foreign installedBinary metadata`, async () => {
   const directory = await mkdtemp(join(tmpdir(), 'krds-apf-portability-'));
   try {
+    // The package test runs its direct vitest suite first, then the canonical APF/SSR consumer.
     const packageTest = (await json('packages/angular/package.json')).scripts.test;
-    assert.equal(packageTest, 'node ../../tests/ssr/angular/verify.mjs');
-    const script = entry === 'fixture' ? 'apps/fixture-angular/tests/apf/verify.mjs' : resolve(root, 'packages/angular', packageTest.slice('node '.length)).slice(root.length + 1);
+    assert.equal(packageTest, 'vitest run --config vitest.config.ts && node ../../tests/ssr/angular/verify.mjs');
+    const consumer = packageTest.split(' && ').at(-1);
+    const script = entry === 'fixture' ? 'apps/fixture-angular/tests/apf/verify.mjs' : resolve(root, 'packages/angular', consumer.slice('node '.length)).slice(root.length + 1);
     for (const path of [dirname(script), 'tools', 'compatibility', 'packages/angular/node_modules']) await mkdir(join(directory, path), {recursive: true});
     await copyFile(join(root, script), join(directory, script));
     await copyFile(join(root, 'tools/check-node.mjs'), join(directory, 'tools/check-node.mjs'));

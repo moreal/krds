@@ -2154,6 +2154,20 @@
         "apps/fixture-angular/public/local-assets/specimen-landscape.svg",
         "apps/storybook-angular/public/local-assets/specimen-landscape.svg"
       ]
+    },
+    {
+      "sourcePath": "apps/fixture-qwik/public/local-assets/example-landscape.svg",
+      "sha256": "12c01dbf9b007244313f24fe3f89d2fc071f4308e53c072fce3caffa4f2afef2",
+      "bytes": 539,
+      "origin": "Independently authored simple landscape SVG (sky, sun, mountains, river shapes) for the Unofficial KRDS docs preview Image example; no text, branding or KRDS/third-party imagery; independent MIT project material",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-qwik-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-qwik/public/local-assets/example-landscape.svg"
+      ]
     }
   ],
   "sourceConditions": [

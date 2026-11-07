@@ -11,7 +11,15 @@
     "krds-tokens",
     "krds-styles",
     "krds-fonts",
-    "krds-solid"
+    "krds-solid",
+    "fixture-react",
+    "fixture-solid",
+    "fixture-svelte",
+    "fixture-vue",
+    "fixture-angular",
+    "fixture-lit",
+    "fixture-qwik",
+    "fixture-solid-next"
   ],
   "targets": {
     "build": {
@@ -26,19 +34,63 @@
         "{workspaceRoot}/catalog/**/*",
         "{workspaceRoot}/apps/fixture-*/src/**/*",
         "{workspaceRoot}/packages/*/package.json",
-        "{workspaceRoot}/upstream/krds/raw/components/**/*"
+        "{workspaceRoot}/upstream/krds/raw/components/**/*",
+        "{workspaceRoot}/apps/fixture-*/dist/docs-preview/**/*",
+        "!{projectRoot}/public/previews/**/*",
+        "!{projectRoot}/public/demo-sources/**/*",
+        "!{projectRoot}/public/demo-registry.json"
+      ],
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles",
+            "krds-fonts",
+            "krds-solid"
+          ]
+        },
+        "docs-previews"
+      ],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/public/previews",
+        "{projectRoot}/public/demo-sources",
+        "{projectRoot}/public/demo-registry.json"
       ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/docs typecheck"
-      }
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles",
+            "krds-fonts",
+            "krds-solid"
+          ]
+        }
+      ]
     },
     "test": {
       "dependsOn": [
         "build",
-        "^build"
+        {
+          "target": "build",
+          "projects": [
+            "krds-contracts",
+            "krds-tokens",
+            "krds-styles",
+            "krds-fonts",
+            "krds-solid"
+          ]
+        }
       ],
       "executor": "nx:run-commands",
       "options": {
@@ -49,6 +101,28 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/docs lint"
+      }
+    },
+    "docs-previews": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "dependsOn": [
+        {
+          "target": "docs-preview",
+          "projects": [
+            "fixture-react",
+            "fixture-solid",
+            "fixture-svelte",
+            "fixture-vue",
+            "fixture-angular",
+            "fixture-lit",
+            "fixture-qwik",
+            "fixture-solid-next"
+          ]
+        }
+      ],
+      "options": {
+        "command": "node tools/yarn.mjs exec node tools/docs-previews/assemble.mjs --complete"
       }
     }
   }

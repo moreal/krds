@@ -18,6 +18,6 @@ export class Switch implements OnInit,OnChanges,OnDestroy {
  ngOnChanges():void{if(this.initialized)this.mode.check(this.checked,this.defaultChecked);}
  private reset=(event:Event)=>queueMicrotask(()=>{if(event.defaultPrevented)return;if(!this.forms&&this.checked===undefined)this.local.set(this.baseline);this.sync();});
  sync():void{if(this.control){this.control.nativeElement.checked=this.current();this.control.nativeElement.indeterminate=false;}}
- toggle(event:Event):void{const checked=(event.target as HTMLInputElement).checked;if(this.isDisabled()||checked===this.current()){this.sync();return;}if(this.forms||this.checked===undefined)this.local.set(checked);this.onChange(checked);this.checkedChange.emit({checked});this.sync();}
+ toggle(event:Event):void{const checked=(event.target as HTMLInputElement).checked;if(this.isDisabled()||checked===this.current()){this.sync();return;}if(this.forms||this.checked===undefined)this.local.set(checked);this.onChange(checked);this.checkedChange.emit({checked});/* Controlled owners re-render next; afterEveryRender reconciles. */if(this.forms||this.checked===undefined)this.sync();}
  writeValue(value:boolean|null):void{this.forms=true;this.local.set(value??false);this.sync();}registerOnChange(fn:(value:boolean)=>void):void{this.onChange=fn;}registerOnTouched(fn:()=>void):void{this.onTouched=fn;}setDisabledState(value:boolean):void{this.formDisabled.set(value);}ngOnDestroy():void{this.owner?.removeEventListener('reset',this.reset);}
 }

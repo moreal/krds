@@ -6,7 +6,11 @@
 [data-krds-component="file-upload"][data-krds-part="dropzone"] { display: grid; justify-items: center; gap: var(--krds-gap-5); inline-size: 100%; padding: 6.4rem var(--krds-padding-10); border: var(--krds-number-2) dashed var(--krds-light-color-border-gray); border-radius: var(--krds-radius-xlarge1); background: var(--krds-light-color-surface-gray-subtle); }
 [data-krds-component="file-upload"][data-krds-part="dropzone"][data-krds-state~="drag-over"] { border-style: solid; border-color: var(--krds-light-color-border-primary); }
 [data-krds-component="file-upload"][data-krds-part="picker"] { padding: var(--krds-padding-4) var(--krds-padding-6); min-block-size: var(--krds-size-height-7); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-button-secondary-fill); font: inherit; cursor: pointer; }
-[data-krds-component="file-upload"][data-krds-part="file-input"] { max-inline-size: 100%; font: inherit; }
+/* KRDS frozen component.css lines 2943-2953 clip the native file input, and the frozen component_09_04 sample removes it from
+ * interaction (`hidden`) behind a single visible picker button. Adapters render it with tabindex=-1 and aria-hidden=true, so the
+ * picker is the only Tab stop and the only announced file control; the input keeps its label/form association and receives
+ * the picker's programmatic click. The picker shows the shared [data-krds-component]:focus-visible outline itself. */
+[data-krds-component="file-upload"][data-krds-part="file-input"] { position: absolute !important; inline-size: 1px !important; block-size: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; font: inherit; }
 [data-krds-component="file-upload"][data-krds-part="count"] { font-variant-numeric: tabular-nums; }
 [data-krds-component="file-upload"][data-krds-part="list"] { display: grid; gap: var(--krds-gap-4); inline-size: 100%; padding: 0; margin: 0; list-style: none; }
 [data-krds-component="file-upload"][data-krds-part="item"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-3); padding: var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); border-radius: var(--krds-radius-medium4); }

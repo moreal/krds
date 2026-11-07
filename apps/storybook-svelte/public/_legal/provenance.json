@@ -302,18 +302,17 @@
       ]
     },
     {
-      "sourcePath": "apps/fixture-svelte/public/local-assets/provenance.json",
-      "sha256": "e1bda442dc431d14d8a261b267aae05b9cbcf6f5f21a11cc0e16bef598883375",
-      "bytes": 4253,
-      "origin": "Owner supplied local specimen metadata (historical source labels; authoritative current paths are in this inventory)",
+      "origin": "Derived local specimen metadata naming this app's served paths; entries, hashes and rights from apps/fixture-svelte/public/local-assets/provenance.json",
       "rights": "independent",
       "rightsStatus": "verified",
       "evidence": [
-        "apps/fixture-solid/tools/generate-local-media.py",
-        ".superpowers/sdd/PLAN/task-media-license-note.md"
-      ],
-      "destinations": [
         "apps/fixture-svelte/public/local-assets/provenance.json",
+        "tools/write-local-asset-manifests.mjs"
+      ],
+      "sourcePath": "apps/storybook-svelte/public/local-assets/provenance.json",
+      "sha256": "73b3234144f3a85ec43790b33049815e22529ff64370196f920c3f7dcfe5874d",
+      "bytes": 4308,
+      "destinations": [
         "apps/storybook-svelte/public/local-assets/provenance.json"
       ]
     },

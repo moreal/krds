@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /** Rebind current docs snapshots and bundler-emitted original fonts, never historical inputs. */
 import assert from 'node:assert/strict';
+import { nativePreviewInventory, verifyNativeInventory, nativeDistributionDiff } from './docs-previews/provenance.mjs';
 import {readFile,writeFile,readdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
@@ -57,8 +58,14 @@ const bundledDependencies=(await json('apps/docs/.astro/client-dependencies.json
  return {...record,manifestPath:original.manifestPath,manifestSha256:original.manifestSha256,licenseDocuments:original.licenseDocuments};
 });
 assert.ok(bundledDependencies.some(record=>record.name==='solid-js'));
+// Native previews: separate current inventory; legacy downloads/fonts above stay exact.
+const nativePreviews=nativePreviewInventory({root,distribution:inventory,sources,dependencies:dependencyInventory});
+verifyNativeInventory(root,nativePreviews,{sourceEntries:sources,dependencies:dependencyInventory,distribution:inventory});
+const nativeDiff=nativeDistributionDiff(inventory.nativePreviews,nativePreviews);
+inventory.nativePreviews=nativePreviews;
 inventory.documentation=documentation;inventory.fontAssets=fontAssets;inventory.bundledDependencies=bundledDependencies;
-manifest.documentationDistribution={...manifest.documentationDistribution,snapshots:records.filter(record=>record.rights!=='independent'),referenceOnlySources:metadata.referenceOnlySources,fontAssets,bundledDependencies};
+manifest.documentationDistribution={...manifest.documentationDistribution,snapshots:records.filter(record=>record.rights!=='independent'),referenceOnlySources:metadata.referenceOnlySources,fontAssets,bundledDependencies,nativePreviews};
 await write('apps/docs/migration-current-input-diff.json',{schemaVersion:1,changes});
+await write('apps/docs/native-preview-distribution-diff.json',nativeDiff);
 await write('compliance/distribution-provenance.json',inventory);await write('upstream/krds/manifest.json',manifest);
-console.log(JSON.stringify({downloads:records.length,changedCurrentInputs:changes,fontAssets},null,2));
+console.log(JSON.stringify({downloads:records.length,changedCurrentInputs:changes,fontAssets,nativePreviews:{artifacts:nativePreviews.artifacts.length,fontAssets:nativePreviews.fontAssets.length,added:nativeDiff.added.length,removed:nativeDiff.removed.length,changed:nativeDiff.changed.length}},null,2));

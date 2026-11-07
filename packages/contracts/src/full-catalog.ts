@@ -853,12 +853,16 @@ export const fullCatalogDefinitions = {
       "opener",
       "header",
       "tabs",
+      "tab",
       "close",
       "title",
       "back",
+      "start",
       "task-list",
       "task",
+      "task-toggle",
       "step-list",
+      "step",
       "stop"
     ],
     "states": [
@@ -866,7 +870,9 @@ export const fullCatalogDefinitions = {
       "closed",
       "running",
       "idle",
-      "active-step"
+      "active-step",
+      "selected",
+      "current"
     ],
     "specPath": "specs/components/tutorial-panel.md"
   },
@@ -2198,11 +2204,17 @@ export const fullCatalogPartStates = {
       "running",
       "idle"
     ],
+    "tab": [
+      "selected"
+    ],
     "task": [
       "active-step"
     ],
     "step-list": [
       "active-step"
+    ],
+    "step": [
+      "current"
     ],
     "stop": [
       "running",

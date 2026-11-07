@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/exports.test.mjs",
+    "test": "node --test tests/exports.test.mjs tests/resume.test.mjs tests/anatomy.test.mjs tests/accessible-media.test.mjs",
     "lint": "node ../../tools/check-workspace.mjs",
     "prepublishOnly": "node ../../tools/block-publish.mjs",
     "build:local": "vite build --mode lib && tsc -p tsconfig.json --emitDeclarationOnly",

@@ -10,7 +10,8 @@
     "build:local": "vite build",
     "contract": "node ../../tools/yarn.mjs test:contract --framework svelte",
     "siheom": "node ../../tools/yarn.mjs test:siheom --framework svelte",
-    "siheom:local": "vitest run --config vitest.config.ts"
+    "siheom:local": "vitest run --config vitest.config.ts",
+    "docs-preview:local": "vite build --config vite.docs-preview.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

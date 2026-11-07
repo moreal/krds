@@ -4,7 +4,7 @@
 [data-krds-component="date-input"]:is([data-krds-part="control"], [data-krds-part="start-input"], [data-krds-part="end-input"]) { flex: 1 1 10em; inline-size: 10em; min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-4); border: var(--krds-number-1) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-input-surface); color: var(--krds-light-color-text-basic); }
 [data-krds-component="date-input"]:is(input)[data-krds-state~="invalid"] { border-color: var(--krds-light-color-input-border-error); border-width: var(--krds-number-2); }
 [data-krds-component="date-input"]:is(input):disabled { background: var(--krds-light-color-input-surface-disabled); }
-[data-krds-component="date-input"][data-krds-part="trigger"] { flex: 0 0 auto; min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-4); }
+[data-krds-component="date-input"][data-krds-part="trigger"] { flex: 0 0 auto; min-inline-size: var(--krds-size-height-7); min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-3) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-button-secondary-fill); color: var(--krds-light-color-text-primary); font: inherit; cursor: pointer; }
 [data-krds-component="date-input"][data-krds-part="trigger"][data-krds-state~="open"] { text-decoration: underline; }
 [data-krds-component="date-input"][data-krds-part="popup"] {
   position: fixed;
@@ -23,3 +23,8 @@
 }
 [data-krds-component="date-input"][data-krds-part="popup"]::backdrop { background: var(--krds-color-light-alpha-black50); }
 [data-krds-component="date-input"][data-krds-part="popup"][data-krds-state~="closed"] { display: none; }
+
+[data-krds-component="date-input"][data-krds-part="trigger"]:not(:disabled):hover { background: var(--krds-light-color-button-secondary-fill-hover); }
+[data-krds-component="date-input"][data-krds-part="trigger"]:not(:disabled):active { background: var(--krds-light-color-button-secondary-fill-pressed); }
+[data-krds-component="date-input"][data-krds-part="trigger"]:disabled { background: var(--krds-light-color-button-disabled-fill); border-color: var(--krds-light-color-button-disabled-border); color: var(--krds-light-color-text-disabled-on); cursor: not-allowed; }
+@media (forced-colors: active) { [data-krds-component="date-input"][data-krds-part="trigger"] { border-color: ButtonText; } [data-krds-component="date-input"][data-krds-part="trigger"]:disabled { border-color: GrayText; color: GrayText; } }

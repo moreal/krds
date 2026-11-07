@@ -132,3 +132,23 @@ test('served bundled runtime notices preserve original dependency license bytes 
  assert.ok(outputs.get(join(f.root,'apps/docs/public/_legal/index.html')).includes(Buffer.from(document.localPath)));
  await f.put(document.localPath,'altered grant');await assert.rejects(loadDistribution(f.root),/Bundled dependency license drift/);
 });
+
+test('native preview inventory is re-verified on load and its runtime notices are served without duplicating legacy fonts', async t => {
+ const f=await fixture(t),license='Copyright original native runtime holder\nMIT License full original fixture\n',manifest='{"name":"native-runtime","version":"2.0.0"}';
+ const document={localPath:'LICENSES/dependencies/native-runtime_2.0.0/LICENSE',sha256:hash(license)};
+ const original={name:'native-runtime',version:'2.0.0',manifestPath:'compliance/provenance-dependency-manifests/native-runtime.json',manifestSha256:hash(manifest),licenseDocuments:[document]};
+ await f.put(document.localPath,license);await f.put(original.manifestPath,manifest);
+ f.policy.dependencyInventoryPath='compliance/provenance-dependencies.json';await f.put(f.policy.dependencyInventoryPath,JSON.stringify({packages:{'native-runtime@2.0.0':original}}));
+ const code='export const mounted=true;';
+ await f.put('apps/docs/public/previews/react/assets/main.js',code);await f.put('apps/docs/dist/previews/react/assets/main.js',code);
+ const artifact={framework:'react',artifactSha256:hash('manifest'),identity:{package:'@unofficial-krds/react',version:'0.1.0',renderer:'react-dom',compiler:'vite'},files:[{path:'assets/main.js',sha256:hash(code),size:Buffer.byteLength(code),rights:'compiled-code',destinations:['apps/docs/public/previews/react/assets/main.js','apps/docs/dist/previews/react/assets/main.js']}],sources:[],bundledDependencies:[{...original,modules:[{id:'node_modules/native-runtime/index.js',sha256:hash('compiled')}]}]};
+ f.inventory.nativePreviews={schemaVersion:1,scope:'Additional native previews only; 609 legacy downloads and three legacy font records remain separate.',artifacts:[artifact],fontAssets:[]};await f.save();
+ const loaded=await loadDistribution(f.root);
+ const outputs=await distributionArtifacts(f.root,loaded);
+ assert.equal(outputs.get(join(f.root,'apps/docs/public/_legal',document.localPath)).toString(),license);
+ const served=JSON.parse(outputs.get(join(f.root,'apps/docs/public/_legal/provenance.json')));
+ assert.deepEqual(served.nativePreviews,f.inventory.nativePreviews);assert.deepEqual(served.fontAssets,[]);
+ await f.put(document.localPath,'altered native grant');await assert.rejects(loadDistribution(f.root),/Native dependency notice drift: native-runtime/);
+ await f.put(document.localPath,license);await f.put('apps/docs/dist/previews/react/assets/main.js','stale built copy');
+ await assert.rejects(loadDistribution(f.root),/native destination: apps\/docs\/dist\/previews\/react\/assets\/main\.js/);
+});

@@ -1,0 +1,1625 @@
+{
+  "schemaVersion": 1,
+  "demos": [
+    {
+      "framework": "vue",
+      "componentId": "accessible-media",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accessible-media-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/AccessibleMediaExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "AccessibleMediaExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "accordion",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accordion-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/AccordionExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "AccordionExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "back-button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "back-button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/BackButtonExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "BackButtonExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "badge",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "badge-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/BadgeExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "BadgeExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "bottom-sheet",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "bottom-sheet-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/BottomSheetExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "BottomSheetExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "breadcrumb",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "breadcrumb-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/BreadcrumbExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "BreadcrumbExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/ButtonExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "ButtonExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "calendar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "calendar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/CalendarExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "CalendarExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "carousel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "carousel-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/CarouselExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "CarouselExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "checkbox",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "checkbox-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/CheckboxExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "CheckboxExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "coach-mark",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "coach-mark-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/CoachMarkExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "CoachMarkExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "contextual-help",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "contextual-help-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/ContextualHelpExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "ContextualHelpExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "critical-alert",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "critical-alert-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/CriticalAlertExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "CriticalAlertExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "date-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "date-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/DateInputExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "DateInputExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "disclosure",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "disclosure-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/DisclosureExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "DisclosureExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "fab",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "fab-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/FabExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "FabExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "favicon",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "favicon-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/FaviconExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "FaviconExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "file-upload",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "file-upload-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/FileUploadExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "FileUploadExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "footer",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "footer-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/FooterExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "FooterExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "header",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "header-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/HeaderExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "HeaderExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "help-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "help-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/HelpPanelExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "HelpPanelExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "identifier",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "identifier-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/IdentifierExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "IdentifierExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "image",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "image-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/ImageExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "ImageExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "in-page-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "in-page-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/InPageNavigationExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "InPageNavigationExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "language-switcher",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "language-switcher-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/LanguageSwitcherExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "LanguageSwitcherExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/LinkExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "LinkExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "main-menu",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "main-menu-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/MainMenuExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "MainMenuExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "masthead",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "masthead-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/MastheadExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "MastheadExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "modal",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "modal-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/ModalExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "ModalExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "native-select",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "native-select-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/NativeSelectExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "NativeSelectExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "pagination",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "pagination-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/PaginationExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "PaginationExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "quantity-toggle",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "quantity-toggle-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/QuantityToggleExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "QuantityToggleExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "radio-group",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "radio-group-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/RadioGroupExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "RadioGroupExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "range-slider",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "range-slider-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/RangeSliderExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "RangeSliderExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "resize",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "resize-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/ResizeExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "ResizeExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "side-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "side-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/SideNavigationExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "SideNavigationExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "skip-link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "skip-link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/SkipLinkExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "SkipLinkExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "snackbar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "snackbar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/SnackbarExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "SnackbarExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "spinner",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "spinner-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/SpinnerExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "SpinnerExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "step-indicator",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "step-indicator-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/StepIndicatorExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "StepIndicatorExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "structured-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "structured-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/StructuredListExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "StructuredListExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "switch",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "switch-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/SwitchExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "SwitchExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "tab-bar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tab-bar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TabBarExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TabBarExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "table",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "table-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TableExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TableExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "tabs",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tabs-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TabsExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TabsExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "tag",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tag-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TagExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TagExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "text-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TextInputExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TextInputExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "text-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TextListExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TextListExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "textarea",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "textarea-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TextareaExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TextareaExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "toast",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "toast-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/ToastExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "ToastExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "tooltip",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tooltip-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TooltipExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TooltipExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "tts",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tts-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TtsExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TtsExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "tutorial-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tutorial-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/TutorialPanelExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "TutorialPanelExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "vue",
+      "componentId": "visually-hidden",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "visually-hidden-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-vue/src/docs-preview/VisuallyHiddenExample.vue",
+          "role": "example",
+          "language": "vue",
+          "symbolOrBranch": "VisuallyHiddenExample"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "native Vue createApp"
+        },
+        {
+          "path": "apps/fixture-vue/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    }
+  ]
+}

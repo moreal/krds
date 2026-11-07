@@ -5,6 +5,7 @@ export type DocInline =
  | { type: 'link'; href: string; title?: string; target?: string; rel?: string; children: DocInline[] }
  | { type: 'strong' | 'em' | 'del' | 'kbd' | 'sub' | 'sup' | 'mark' | 'abbr'; title?: string; children: DocInline[] };
 export type DocBlock =
+ | { type: 'demo'; componentId: string }
  | { type: 'heading'; level: number; id: string; children: DocInline[] }
  | { type: 'paragraph'; children: DocInline[] }
  | { type: 'code'; value: string; language: string }
@@ -16,6 +17,7 @@ export interface DocHeading { id: string; title: string; level: number; }
 export interface NavigationItem { id: string; label: string; href: string; children?: NavigationItem[]; }
 export interface DocPage {
  sourcePath: string | null; outputPath: string; route: string; title: string; lang: 'ko-KR' | 'en';
+ demos?: import('./components/NativeDemo').NativeDemoRecord[];
  blocks: DocBlock[]; headings: DocHeading[]; breadcrumbs: NavigationItem[]; currentId: string;
  previous?: NavigationItem; next?: NavigationItem;
 }

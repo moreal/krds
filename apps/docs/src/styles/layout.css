@@ -21,7 +21,8 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
 .docs-body > [data-krds-component="breadcrumb"] [data-krds-part="list"] { flex-wrap: wrap; white-space: normal; }
 .docs-body > [data-krds-component="breadcrumb"] [data-krds-part="item"] { max-inline-size: 100%; }
 .docs-body > [data-krds-component="breadcrumb"] [data-krds-part="link"] { white-space: normal; overflow-wrap: anywhere; }
-.docs-body > [data-krds-component="breadcrumb"] [data-krds-part="item"]:last-child [data-krds-part="link"] { white-space: normal; overflow: visible; }
+.docs-body > [data-krds-component="breadcrumb"] [data-krds-part="item"]:last-child [data-krds-part="link"] { white-space: normal; overflow: visible; overflow-wrap: anywhere; }
+/* The public current-item rule (0,5,0) resets overflow-wrap, so the docs override must restate it there. */
 .docs-sidebar { max-block-size: calc(100dvh - var(--krds-gap-8)); overflow: auto; position: sticky; inset-block-start: var(--krds-gap-5); }
 .docs-reading { display: grid; grid-template-columns: minmax(0,1fr) 16rem; gap: var(--krds-gap-8); margin-block-start: var(--krds-gap-8); align-items: start; }
 .docs-toc { position: sticky; inset-block-start: var(--krds-gap-5); max-block-size: calc(100dvh - var(--krds-gap-8)); overflow: auto; }
@@ -33,10 +34,6 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
 .docs-lead { max-inline-size: 60ch; font-size: var(--krds-pc-font-size-body-large); }
 .docs-demo { display: grid; justify-items: start; gap: var(--krds-gap-5); padding: var(--krds-padding-8); border: var(--krds-number-1) solid var(--krds-light-color-border-gray-light); border-radius: var(--krds-radius-large1); }
 #docs-main:focus-visible { outline: var(--krds-number-2) solid var(--krds-light-color-border-primary); outline-offset: var(--krds-number-2); }
-@media (max-width: 1199px) {
- .docs-reading { grid-template-columns: minmax(0,1fr); }
- .docs-toc { grid-row: 1; position: static; max-block-size: none; }
-}
 @media (max-width: 767px) {
  .docs-header { padding-inline: var(--krds-padding-5); }
  .docs-header [data-krds-part="identity"] { inline-size: min(12rem, 100%); }
@@ -48,12 +45,47 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
  .docs-header [data-krds-part="mobile-trigger"] { display: inline-flex; }
  .docs-shell[data-docs-ready="false"] .docs-header [data-krds-part="mobile-trigger"] { display: none; }
  .docs-project-note { padding-inline: var(--krds-padding-5); }
+}
+/* Reading layout breakpoints are container queries in rem. Viewport media
+ * queries ignore the root font size, so at 200 % text the fixed 24rem sidebar
+ * and 16rem table of contents (768 px + 512 px at a 32 px rem) consumed a
+ * 1280 px viewport and squeezed the main column to zero. In rem, the same
+ * thresholds equal 767/1199 px at default text and scale with enlarged text,
+ * so the side columns collapse before the content does. The frame is a
+ * separate wrapper because size containment also contains fixed overlays. */
+.docs-frame { container: docs-frame / inline-size; min-inline-size: 0; }
+@container docs-frame (max-width: 119.9rem) {
+ .docs-reading { grid-template-columns: minmax(0,1fr); }
+ .docs-toc { position: static; max-block-size: none; }
+}
+@container docs-frame (max-width: 76.7rem) {
  .docs-layout { grid-template-columns: minmax(0,1fr); padding: var(--krds-padding-5); gap: var(--krds-gap-5); }
  .docs-sidebar { position: static; max-block-size: none; }
  .docs-shell[data-docs-ready="true"] .docs-sidebar { display: none; }
- .docs-shell[data-docs-ready="true"] .docs-section-control { display: block; margin-block-start: var(--krds-gap-5); }
+ .docs-shell[data-docs-ready="true"] .docs-section-control { display: block; margin-block-start: .4rem; }
  .docs-hero > h1 { font-size: var(--krds-mobile-font-size-display-medium); }
  .docs-demo { padding: var(--krds-padding-5); }
+ .docs-reading { margin-block-start: .8rem; gap: 1.6rem; }
+ .docs-article > h1:first-child { margin-block-start: .8rem; }
+ .native-demo-toolbar { gap: .4rem; }
+ .native-demo-toolbar > div { flex-basis: 100%; }
+ .native-demo-actions { gap: .8rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media (forced-colors: active) { body { background: Canvas; color: CanvasText; } }
+/* Result-first native playground, independent of runtime styling inside its frame. */
+.native-demo { margin-block: 1.6rem 3.2rem; min-inline-size: 0; }
+.native-demo-toolbar, .native-demo-actions { display: flex; flex-wrap: wrap; align-items: end; gap: 1.2rem; }
+.native-demo-toolbar > div { flex: 1 1 22rem; }
+.native-demo-package { font-size: 1.4rem; overflow-wrap: anywhere; margin: 0; }
+.native-demo-actions { margin-block: 1.2rem; align-items: center; }
+.native-demo-status { font-size: 1.4rem; margin-block: .8rem; }
+.native-demo iframe { width: 100%; display: block; border: 1px solid var(--krds-light-color-border-gray-light); border-radius: .8rem; background: white; }
+.native-demo-source { margin-block-start: 1.6rem; min-inline-size: 0; }
+.native-demo-source > div[data-krds-component="native-select"] { margin-block-end: .8rem; }
+.native-demo-source select { inline-size: 100%; text-overflow: ellipsis; }
+.native-demo-path { margin-block: 0 .8rem; font-size: 1.4rem; overflow-wrap: anywhere; }
+.native-demo-source .docs-code pre { max-block-size: 48rem; }
+.native-demo-excerpt { margin: .8rem 0 1.2rem; min-inline-size: 0; }
+.native-demo-excerpt > figcaption { margin-block-end: .4rem; font-size: 1.4rem; font-weight: 700; overflow-wrap: anywhere; }
+.native-demo-exit { font-size: 1.4rem; margin-block: .8rem; }

@@ -1,0 +1,14 @@
+html { color-scheme: light; }
+body { margin: 0; padding: 24px; color: #172b4d; background: #fff; font-family: system-ui, sans-serif; font-size: 16px; }
+#preview-root { min-width: 0; }
+[role="status"] { margin-block-start: 16px; }
+@media (max-width: 400px) { body { padding: 16px; } }
+
+.preview-outline { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr) 240px; align-items: start; }
+.preview-outline > nav { grid-column: 2; grid-row: 1; position: sticky; top: 0; }
+.preview-outline > article { grid-column: 1; grid-row: 1; }
+[data-active-target="true"] { outline: 3px solid #256ef4; outline-offset: 3px; }
+@media (max-width: 700px) { .preview-outline { display: block; } }
+.preview-outline-panel { grid-template-columns: minmax(0, 1fr) 390px; }
+.preview-outline-panel > div { grid-column: 1; grid-row: 1; }
+.preview-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-block-start: 16px; }

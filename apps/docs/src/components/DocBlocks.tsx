@@ -1,3 +1,4 @@
+import { NativeDemo, type NativeDemoRecord } from './NativeDemo';
 import { For } from 'solid-js';
 import { TextList } from '@unofficial-krds/solid/text-list';
 import { Table } from '@unofficial-krds/solid/table';
@@ -6,9 +7,10 @@ import type { DocBlock, DocInline as Inline } from '../content';
 import { DocInline } from './DocInline';
 import { CodeBlock } from './CodeBlock';
 const text = (nodes: Inline[]): string => nodes.map(node=>'value' in node?node.value:node.type==='break'?' ':text(node.children)).join('');
-export function DocBlocks(props: { blocks: DocBlock[]; listDepth?: number }) {
+export function DocBlocks(props: { blocks: DocBlock[]; demos?: NativeDemoRecord[]; listDepth?: number }) {
  return <For each={props.blocks}>{block=>{
   switch(block.type){
+   case 'demo': return <NativeDemo componentId={block.componentId} demos={props.demos??[]} />;
    case 'heading': {
     const children=<DocInline nodes={block.children} />;
     switch(block.level){case 1:return <h1 id={block.id}>{children}</h1>;case 2:return <h2 id={block.id}>{children}</h2>;case 3:return <h3 id={block.id}>{children}</h3>;case 4:return <h4 id={block.id}>{children}</h4>;case 5:return <h5 id={block.id}>{children}</h5>;default:return <h6 id={block.id}>{children}</h6>;}

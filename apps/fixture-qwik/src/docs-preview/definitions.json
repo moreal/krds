@@ -1,0 +1,2561 @@
+{
+  "schemaVersion": 1,
+  "demos": [
+    {
+      "framework": "qwik",
+      "componentId": "accessible-media",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accessible-media-default",
+      "classification": "static",
+      "minHeight": 320,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "AccessibleMediaExample",
+          "ranges": [
+            {
+              "start": 24945,
+              "end": 25267,
+              "sha256": "d7a7132d29b87fd320a27a5b5ac94fa3b1dabb21258588ef0a8be144653af7c9",
+              "startLine": 298,
+              "endLine": 298
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "accordion",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accordion-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "AccordionExample",
+          "ranges": [
+            {
+              "start": 15258,
+              "end": 15556,
+              "sha256": "ee8e1088fa0399740d24e853fdca6727a68c1916e2ae94f4de931288b0f20cb6",
+              "startLine": 193,
+              "endLine": 193
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "back-button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "back-button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BackButtonExample",
+          "ranges": [
+            {
+              "start": 25509,
+              "end": 25848,
+              "sha256": "bf44b015329cf9c9b2f9cc95c4ab6ee68bb166a72c81f01adc0f1a80b6e7c203",
+              "startLine": 302,
+              "endLine": 305
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "badge",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "badge-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BadgeExample",
+          "ranges": [
+            {
+              "start": 15090,
+              "end": 15256,
+              "sha256": "380cf99f0b11aefebab1482df2b3048ef6fab20582e0a32ee887727e355c692d",
+              "startLine": 191,
+              "endLine": 191
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "bottom-sheet",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "bottom-sheet-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BottomSheetExample",
+          "ranges": [
+            {
+              "start": 25850,
+              "end": 26707,
+              "sha256": "46fba06c03789b2532dd6aee8702074e2fd8522cf1f3768277305fea21ee4e1b",
+              "startLine": 307,
+              "endLine": 317
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "breadcrumb",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "breadcrumb-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "BreadcrumbExample",
+          "ranges": [
+            {
+              "start": 11098,
+              "end": 11420,
+              "sha256": "35fc4b83c7029d6f4ed3234bc111fa3b4290e658dfb4d503ad95e6e7b77596d5",
+              "startLine": 141,
+              "endLine": 144
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ButtonExample",
+          "ranges": [
+            {
+              "start": 2686,
+              "end": 2956,
+              "sha256": "ab81908feb44c1959efdf6157981069a0d97e8b0b898a45b43023894635e8a70",
+              "startLine": 38,
+              "endLine": 41
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "calendar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "calendar-default",
+      "classification": "interactive",
+      "minHeight": 480,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CalendarExample",
+          "ranges": [
+            {
+              "start": 5313,
+              "end": 5681,
+              "sha256": "0c9d744298d9cc531828ef39ad55085149d90206d15cd7a1f7cb59ea2baefe90",
+              "startLine": 74,
+              "endLine": 77
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "carousel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "carousel-default",
+      "classification": "interactive",
+      "minHeight": 320,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CarouselExample",
+          "ranges": [
+            {
+              "start": 16078,
+              "end": 16633,
+              "sha256": "c486c4f01513d3278fd5e2351aaf0c53e4879f21a6fa4f70239adf1455a896e1",
+              "startLine": 202,
+              "endLine": 205
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "checkbox",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "checkbox-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CheckboxExample",
+          "ranges": [
+            {
+              "start": 3756,
+              "end": 3947,
+              "sha256": "32750a7ba4d9b7e1c39b85bcf631a17637d80ae4370ba1079a38099fbdbe250b",
+              "startLine": 57,
+              "endLine": 57
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "coach-mark",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "coach-mark-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CoachMarkExample",
+          "ranges": [
+            {
+              "start": 22187,
+              "end": 23169,
+              "sha256": "3587a3ea49c516d0a97969d07e87d37d34ff9fb3dfe317256384a9e1d280fccc",
+              "startLine": 262,
+              "endLine": 273
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "contextual-help",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "contextual-help-default",
+      "classification": "interactive",
+      "minHeight": 320,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ContextualHelpExample",
+          "ranges": [
+            {
+              "start": 21916,
+              "end": 22185,
+              "sha256": "393d7262011d74062387e771e56e5f445793d3cd34fbfed6f565a960f3412221",
+              "startLine": 260,
+              "endLine": 260
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "critical-alert",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "critical-alert-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "CriticalAlertExample",
+          "ranges": [
+            {
+              "start": 14544,
+              "end": 14886,
+              "sha256": "30846083e76541229c6432f146f0e076a462b696215c11c42afafc435f6d2f3d",
+              "startLine": 184,
+              "endLine": 187
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "date-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "date-input-default",
+      "classification": "interactive",
+      "minHeight": 520,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "DateInputExample",
+          "ranges": [
+            {
+              "start": 4924,
+              "end": 5311,
+              "sha256": "fae95a71cb5129f01a73ace470d95be1ed9fb4a7f875b9a8a67d86ccc32049d5",
+              "startLine": 69,
+              "endLine": 72
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "disclosure",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "disclosure-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "DisclosureExample",
+          "ranges": [
+            {
+              "start": 14888,
+              "end": 15088,
+              "sha256": "66005b3b32bb48536b257f25ba98b1ed0da7bd3420f2b60be3bb9b961a3f2bc1",
+              "startLine": 189,
+              "endLine": 189
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "fab",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "fab-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FABExample",
+          "ranges": [
+            {
+              "start": 17779,
+              "end": 18042,
+              "sha256": "0f22531ecb1da88886a444a88eb0473d616ada6e94a83e9211b1f0a25cf9cd5b",
+              "startLine": 219,
+              "endLine": 222
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "favicon",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "favicon-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FaviconExample",
+          "ranges": [
+            {
+              "start": 17171,
+              "end": 17573,
+              "sha256": "248652acf8820f8ff39aa950abe897d133bdacef0803ce13bbc6f0632e981545",
+              "startLine": 211,
+              "endLine": 215
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "file-upload",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "file-upload-default",
+      "classification": "interactive",
+      "minHeight": 320,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FileUploadExample",
+          "ranges": [
+            {
+              "start": 6565,
+              "end": 7805,
+              "sha256": "c14fadae9a4973570d70f6a6773019200a6cd5a33cf96e34c5fbfd74b1ab93f3",
+              "startLine": 93,
+              "endLine": 104
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "footer",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "footer-default",
+      "classification": "static",
+      "minHeight": 420,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "FooterExample",
+          "ranges": [
+            {
+              "start": 9713,
+              "end": 10370,
+              "sha256": "f0f3d725e6310d1a1954cdb7159227e18ef9fea5375036d719cc71ac8967e788",
+              "startLine": 125,
+              "endLine": 128
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "header",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "header-default",
+      "classification": "interactive",
+      "minHeight": 520,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "HeaderExample",
+          "ranges": [
+            {
+              "start": 8642,
+              "end": 9591,
+              "sha256": "125fa29f6a91956b11787895ff4ab22b8d5ef9b9f8ed3331bd07e55eac10ac5f",
+              "startLine": 117,
+              "endLine": 122
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "help-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "help-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "HelpPanelExample",
+          "ranges": [
+            {
+              "start": 19221,
+              "end": 19849,
+              "sha256": "ac37411c5066dde2769937248c04bc964c665a36b9ae7f74527300e9e8e500cd",
+              "startLine": 236,
+              "endLine": 240
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "identifier",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "identifier-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "IdentifierExample",
+          "ranges": [
+            {
+              "start": 8464,
+              "end": 8640,
+              "sha256": "92a1b7737840e5669d32dc80f033aa2c099a660f5a43ff8879d0e662936c616f",
+              "startLine": 115,
+              "endLine": 115
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "image",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "image-default",
+      "classification": "static",
+      "minHeight": 800,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ImageExample",
+          "ranges": [
+            {
+              "start": 15785,
+              "end": 16076,
+              "sha256": "14bda631b4928578c8b773e21f050e6c1e4f71cfcd0f304575ffafa39ef772de",
+              "startLine": 197,
+              "endLine": 200
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "in-page-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "in-page-navigation-default",
+      "classification": "interactive",
+      "minHeight": 480,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "InPageNavigationExample",
+          "ranges": [
+            {
+              "start": 12229,
+              "end": 12981,
+              "sha256": "500b10887ceef3368dbaaaf3933b8ff27995220f3f54f71bb685a60ca2b63087",
+              "startLine": 157,
+              "endLine": 166
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "language-switcher",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "language-switcher-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "LanguageSwitcherExample",
+          "ranges": [
+            {
+              "start": 24012,
+              "end": 24550,
+              "sha256": "27e4c55f0ac7ff7dee89ae0d2d46c0003b490d642423c95ea15a04cb8d0f809f",
+              "startLine": 285,
+              "endLine": 291
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "LinkExample",
+          "ranges": [
+            {
+              "start": 17575,
+              "end": 17777,
+              "sha256": "6b4b960cc0d529b0fc93eddaa8b6ac906926be5550cf44959d2eb53bb4f039df",
+              "startLine": 217,
+              "endLine": 217
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "main-menu",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "main-menu-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "MainMenuExample",
+          "ranges": [
+            {
+              "start": 10782,
+              "end": 11096,
+              "sha256": "dcc488ab8765221bc68a95d664750d83339087ba2b1038bc6a97126f98374721",
+              "startLine": 136,
+              "endLine": 139
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "masthead",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "masthead-default",
+      "classification": "static",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "MastheadExample",
+          "ranges": [
+            {
+              "start": 7807,
+              "end": 8211,
+              "sha256": "8f97ee97040e7ab8d3c7e778eca757868e6bc7c5e2f8db3a2299c4992b5bbfbf",
+              "startLine": 106,
+              "endLine": 111
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "modal",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "modal-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ModalExample",
+          "ranges": [
+            {
+              "start": 5683,
+              "end": 6319,
+              "sha256": "3cd87efa46174eab67b8c54656c926749fa77a0c0eeac50e0459e1d002edb5d4",
+              "startLine": 79,
+              "endLine": 89
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "native-select",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "native-select-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "NativeSelectExample",
+          "ranges": [
+            {
+              "start": 3519,
+              "end": 3754,
+              "sha256": "19a848334b96bca0eee4e05e6835fc71ab914287e335cb6f831b354e40f282df",
+              "startLine": 53,
+              "endLine": 55
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "pagination",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "pagination-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "PaginationExample",
+          "ranges": [
+            {
+              "start": 12983,
+              "end": 13402,
+              "sha256": "4cf2bf61fe5523234fc41bbff060904015f1c5a4d37674914859d671054e0335",
+              "startLine": 168,
+              "endLine": 171
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "quantity-toggle",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "quantity-toggle-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "QuantityToggleExample",
+          "ranges": [
+            {
+              "start": 4730,
+              "end": 4922,
+              "sha256": "2f7494257f7d85d22f539598289fefb88b8daec5c3801736983ea63351756bc5",
+              "startLine": 67,
+              "endLine": 67
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "radio-group",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "radio-group-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "RadioGroupExample",
+          "ranges": [
+            {
+              "start": 3949,
+              "end": 4273,
+              "sha256": "155ed06ccdbe53e531cf77fcae1493acafe13adf9c21773ddd8fc563756d10f9",
+              "startLine": 59,
+              "endLine": 61
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "range-slider",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "range-slider-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "RangeSliderExample",
+          "ranges": [
+            {
+              "start": 4553,
+              "end": 4728,
+              "sha256": "7f2320404d5d5c007935672512010f23a38e36ae35326fa3c9b315ee72aac393",
+              "startLine": 65,
+              "endLine": 65
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "resize",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "resize-default",
+      "classification": "interactive",
+      "minHeight": 320,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ResizeExample",
+          "ranges": [
+            {
+              "start": 24552,
+              "end": 24943,
+              "sha256": "87b1905545fbf6c5bd8fe2d80f7c395c0355f953eec156f98835557372827b79",
+              "startLine": 293,
+              "endLine": 296
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "side-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "side-navigation-default",
+      "classification": "interactive",
+      "minHeight": 360,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SideNavigationExample",
+          "ranges": [
+            {
+              "start": 11422,
+              "end": 12227,
+              "sha256": "5c94d57f0cc67ab61e81f5b48c5bd58da456bedf1480b79addc5b1039e251645",
+              "startLine": 146,
+              "endLine": 155
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "skip-link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "skip-link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SkipLinkExample",
+          "ranges": [
+            {
+              "start": 10372,
+              "end": 10780,
+              "sha256": "b86f664ed14d3cff55a6f0145a30bff85f2f6acc25cc9d692f6273c1cad60850",
+              "startLine": 130,
+              "endLine": 134
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "snackbar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "snackbar-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SnackbarExample",
+          "ranges": [
+            {
+              "start": 27333,
+              "end": 28219,
+              "sha256": "299495f5d8fa8138a66fa62ed6411c035c22f4f6347c079f6737ba9358007e1e",
+              "startLine": 329,
+              "endLine": 337
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "spinner",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "spinner-default",
+      "classification": "static",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SpinnerExample",
+          "ranges": [
+            {
+              "start": 18780,
+              "end": 19219,
+              "sha256": "0f02e0bb9c0a1c9f8c58bf0644f0c4bb1bcc2ef0b61e60fefb778c964ed4c167",
+              "startLine": 231,
+              "endLine": 234
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "step-indicator",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "step-indicator-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "StepIndicatorExample",
+          "ranges": [
+            {
+              "start": 18511,
+              "end": 18778,
+              "sha256": "e6a899e6758a21192c01e42cd95f29d85ae18c27486d3b923679b228f721711b",
+              "startLine": 229,
+              "endLine": 229
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "structured-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "structured-list-default",
+      "classification": "static",
+      "minHeight": 320,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "StructuredListExample",
+          "ranges": [
+            {
+              "start": 13404,
+              "end": 14542,
+              "sha256": "104498ce0d0ca5d0d3da1f77af493b1290a94ddf10dffb6c874db3c89cec7303",
+              "startLine": 173,
+              "endLine": 182
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "switch",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "switch-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "SwitchExample",
+          "ranges": [
+            {
+              "start": 4275,
+              "end": 4551,
+              "sha256": "1ddb486c955a0e9fcc85ddf8d4f54635c001dffba8d1b64b1fa849c766dc19b6",
+              "startLine": 63,
+              "endLine": 63
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "tab-bar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tab-bar-default",
+      "classification": "interactive",
+      "minHeight": 360,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TabBarExample",
+          "ranges": [
+            {
+              "start": 28221,
+              "end": 28718,
+              "sha256": "43e0dd809dfeab09bc2a918f9737455a8f75c049cdddf3b3297f351ab2334d24",
+              "startLine": 339,
+              "endLine": 343
+            },
+            {
+              "start": 1459,
+              "end": 1762,
+              "sha256": "0ef746c3484ca513a6de93e97b049b42c399567f5638ccfa0ef956323a65c12f",
+              "startLine": 18,
+              "endLine": 18
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "table",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "table-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TableExample",
+          "ranges": [
+            {
+              "start": 16635,
+              "end": 16973,
+              "sha256": "63f78a0e3ace0a8fc11f31b6d85e92954cab8825b7b20d2e5e945dcb39557a53",
+              "startLine": 207,
+              "endLine": 207
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "tabs",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tabs-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TabsExample",
+          "ranges": [
+            {
+              "start": 6321,
+              "end": 6563,
+              "sha256": "217fc4d824e5f62c35147622ee1311c1c0dfe4841c25ed42b16d068ddcab2d42",
+              "startLine": 91,
+              "endLine": 91
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "tag",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tag-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TagExample",
+          "ranges": [
+            {
+              "start": 18044,
+              "end": 18509,
+              "sha256": "f80ba5afbc0f38268a793bffd2c44b973a1189fb5257358b4a566ddea5a261da",
+              "startLine": 224,
+              "endLine": 227
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "text-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-input-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TextInputExample",
+          "ranges": [
+            {
+              "start": 2958,
+              "end": 3275,
+              "sha256": "4e40d040173ddfa7103420afb59c1c163fd637dc560f4f1f03d8e2fbcff18005",
+              "startLine": 43,
+              "endLine": 46
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "text-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TextListExample",
+          "ranges": [
+            {
+              "start": 16975,
+              "end": 17169,
+              "sha256": "0c515df5a17465c9fa7294a118421fb1a857f9eb19d7f1cfeacdb271d875f12f",
+              "startLine": 209,
+              "endLine": 209
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "textarea",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "textarea-default",
+      "classification": "interactive",
+      "minHeight": 360,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TextareaExample",
+          "ranges": [
+            {
+              "start": 3277,
+              "end": 3517,
+              "sha256": "7e1e5c04aea19531a8f2918fe28479be326cdb90e19a35c1cfdefacb38688567",
+              "startLine": 48,
+              "endLine": 51
+            },
+            {
+              "start": 1968,
+              "end": 2684,
+              "sha256": "b6743d9e27ffffaaf5fab780794baa54318dc8f4725fbb730daa287f1dd80f17",
+              "startLine": 24,
+              "endLine": 36
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "toast",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "toast-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "ToastExample",
+          "ranges": [
+            {
+              "start": 26709,
+              "end": 27331,
+              "sha256": "02f9baa0c7b17ebe0e388a80134f05604387b79ac7831212e1436c6c211aab06",
+              "startLine": 319,
+              "endLine": 327
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "tooltip",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tooltip-default",
+      "classification": "interactive",
+      "minHeight": 280,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TooltipExample",
+          "ranges": [
+            {
+              "start": 23171,
+              "end": 23418,
+              "sha256": "325adb636632a74053bc844f42b878124c907754f47d614b4be5353ade0b8d75",
+              "startLine": 275,
+              "endLine": 275
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "tts",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tts-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TTSExample",
+          "ranges": [
+            {
+              "start": 23420,
+              "end": 24010,
+              "sha256": "51d734eb6dd265eb86f49fc7815767dff8495eea92c817af9e546f9099010ce2",
+              "startLine": 277,
+              "endLine": 283
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "tutorial-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tutorial-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "TutorialPanelExample",
+          "ranges": [
+            {
+              "start": 19851,
+              "end": 21914,
+              "sha256": "ed55b235d98555ff311dd59ffdb0495e68a2e67b01f50593f6052093c052d66b",
+              "startLine": 242,
+              "endLine": 258
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    },
+    {
+      "framework": "qwik",
+      "componentId": "visually-hidden",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "visually-hidden-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/examples.tsx",
+          "role": "example",
+          "language": "tsx",
+          "symbolOrBranch": "VisuallyHiddenExample",
+          "ranges": [
+            {
+              "start": 25269,
+              "end": 25507,
+              "sha256": "2f2a448ce7fe75280c2372b80b7b9ed83ee15d2c7d29553fb7eefe151d889dae",
+              "startLine": 300,
+              "endLine": 300
+            }
+          ]
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/host.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "PreviewHost"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/entry.ssr.tsx",
+          "role": "host",
+          "language": "tsx",
+          "symbolOrBranch": "render"
+        },
+        {
+          "path": "apps/fixture-qwik/src/docs-preview/preview.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "preview layout"
+        }
+      ]
+    }
+  ]
+}

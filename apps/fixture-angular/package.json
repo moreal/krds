@@ -7,13 +7,14 @@
     "test": "vitest run --config vitest.config.ts",
     "lint": "node ../../tools/check-workspace.mjs",
     "typecheck": "ngc -p tsconfig.test.json --noEmit",
-    "build:local": "ng build fixture-angular",
+    "build:local": "node src/docs-preview/clean-fixture.mjs && ng build fixture-angular",
     "contract": "node ../../tools/run-contract-tests.mjs --framework angular",
     "siheom": "node ../../tools/run-siheom-tests.mjs --framework angular",
     "siheom:local": "vitest run --config vitest.config.ts",
     "test:toolchain": "node --test ../../tools/workspace-probe.test.mjs",
     "test:native": "node tests/native/run.mjs",
-    "test:visual": "node tests/native/visual.mjs"
+    "test:visual": "node tests/native/visual.mjs",
+    "docs-preview:local": "node src/docs-preview/build.mjs"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.2202.5",

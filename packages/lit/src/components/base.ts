@@ -10,10 +10,12 @@ export class KrdsElement extends LitElement {
     private labelObserver?: MutationObserver;
     private namedSemantics = new WeakSet<Element>();
     constructor() { super(); this.locale = 'ko-KR'; this.direction = 'ltr'; this.label = ''; this.labelReferences = {}; }
-    static override get observedAttributes() { return [...new Set([...super.observedAttributes, 'aria-label', 'aria-labelledby'])]; }
+    static override get observedAttributes() { return [...new Set([...super.observedAttributes, 'aria-label', 'aria-labelledby', ...this.forwardedAria])]; }
+    /** Host ARIA that interactive-control components forward to their inner native control. */
+    static readonly forwardedAria: readonly string[] = [];
     override attributeChangedCallback(name: string, old: string | null, value: string | null) {
         super.attributeChangedCallback(name, old, value);
-        if (name === 'aria-label' || name === 'aria-labelledby') this.requestUpdate();
+        if (name === 'aria-label' || name === 'aria-labelledby' || (this.constructor as typeof KrdsElement).forwardedAria.includes(name)) this.requestUpdate();
     }
     private get namingIds(): string[] {
         return this.getAttribute('aria-labelledby')?.trim().split(/\s+/).filter(Boolean) ?? [];
@@ -54,6 +56,21 @@ export class KrdsElement extends LitElement {
             element.ariaLabelledByElements = null;
             if (internalReference !== null) element.setAttribute('aria-labelledby', internalReference);
             this.namedSemantics.delete(element);
+        }
+    }
+    /** Forward host description/state ARIA; IDs resolve from the host's root node via element references. */
+    protected forwardHostAria(control: Element): void {
+        const root = this.getRootNode?.() as Document | ShadowRoot | undefined;
+        const refs = (attr: string) => (this.getAttribute(attr)?.trim().split(/\s+/).filter(Boolean) ?? []).map(id => root?.getElementById?.(id)).filter((e): e is HTMLElement => !!e);
+        for (const [attr, prop] of [['aria-describedby', 'ariaDescribedByElements'], ['aria-controls', 'ariaControlsElements']] as const) {
+            const elements = refs(attr);
+            if (elements.length && prop in control) (control as unknown as Record<string, unknown>)[prop] = elements;
+            else if (prop in control) (control as unknown as Record<string, unknown>)[prop] = null;
+            else if (this.hasAttribute(attr)) control.setAttribute(attr, this.getAttribute(attr)!);
+        }
+        for (const attr of ['aria-expanded', 'aria-haspopup', 'aria-pressed', 'aria-current']) {
+            const value = this.getAttribute(attr);
+            if (value === null) control.removeAttribute(attr); else control.setAttribute(attr, value);
         }
     }
     override connectedCallback(): void {

@@ -7,12 +7,13 @@
     "test": "yarn siheom:local",
     "lint": "node ../../tools/check-workspace.mjs",
     "typecheck": "vue-tsc -p tsconfig.json --noEmit",
-    "build:local": "vite build",
+    "build:local": "node scripts/clean-ordinary.mjs && vite build",
     "contract": "node ../../tools/run-contract-tests.mjs --framework vue",
     "siheom": "node ../../tools/run-siheom-tests.mjs --framework vue",
     "siheom:local": "vitest run --config vitest.config.ts",
     "test:consumer": "node tests/ssr-consumer.mjs",
-    "test:visual": "node tests/visual-inspect.mjs"
+    "test:visual": "node tests/visual-inspect.mjs",
+    "docs-preview:local": "vite build --config vite.docs-preview.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

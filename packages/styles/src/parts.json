@@ -1271,12 +1271,16 @@
         "opener",
         "header",
         "tabs",
+        "tab",
         "close",
         "title",
         "back",
+        "start",
         "task-list",
         "task",
+        "task-toggle",
         "step-list",
+        "step",
         "stop"
       ],
       "states": {
@@ -1295,11 +1299,17 @@
           "running",
           "idle"
         ],
+        "tab": [
+          "selected"
+        ],
         "task": [
           "active-step"
         ],
         "step-list": [
           "active-step"
+        ],
+        "step": [
+          "current"
         ],
         "stop": [
           "running",

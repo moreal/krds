@@ -1,0 +1,2411 @@
+{
+  "schemaVersion": 1,
+  "demos": [
+    {
+      "framework": "angular",
+      "componentId": "accessible-media",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accessible-media-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/AccessibleMediaExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "AccessibleMediaExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['accessible-media']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "accordion",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "accordion-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/AccordionExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "AccordionExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['accordion']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "back-button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "back-button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/BackButtonExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "BackButtonExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['back-button']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "badge",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "badge-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/BadgeExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "BadgeExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['badge']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "bottom-sheet",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "bottom-sheet-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/BottomSheetExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "BottomSheetExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['bottom-sheet']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "breadcrumb",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "breadcrumb-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/BreadcrumbExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "BreadcrumbExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['breadcrumb']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "button",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "button-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/ButtonExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "ButtonExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['button']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "calendar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "calendar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/CalendarExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "CalendarExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['calendar']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "carousel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "carousel-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/CarouselExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "CarouselExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['carousel']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "checkbox",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "checkbox-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/CheckboxExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "CheckboxExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['checkbox']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "coach-mark",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "coach-mark-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/CoachMarkExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "CoachMarkExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['coach-mark']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "contextual-help",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "contextual-help-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/ContextualHelpExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "ContextualHelpExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['contextual-help']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "critical-alert",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "critical-alert-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/CriticalAlertExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "CriticalAlertExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['critical-alert']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "date-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "date-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/DateInputExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "DateInputExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['date-input']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "disclosure",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "disclosure-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/DisclosureExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "DisclosureExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['disclosure']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "fab",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "fab-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/FabExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "FabExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['fab']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "favicon",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "favicon-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/FaviconExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "FaviconExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['favicon']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "file-upload",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "file-upload-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/FileUploadExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "FileUploadExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['file-upload']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "footer",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "footer-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/FooterExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "FooterExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['footer']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "header",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "header-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/HeaderExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "HeaderExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['header']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "help-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "help-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/HelpPanelExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "HelpPanelExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['help-panel']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "identifier",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "identifier-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/IdentifierExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "IdentifierExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['identifier']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "image",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "image-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/ImageExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "ImageExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['image']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "in-page-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "in-page-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/InPageNavigationExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "InPageNavigationExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['in-page-navigation']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "language-switcher",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "language-switcher-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/LanguageSwitcherExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "LanguageSwitcherExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['language-switcher']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/LinkExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "LinkExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['link']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "main-menu",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "main-menu-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/MainMenuExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "MainMenuExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['main-menu']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "masthead",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "masthead-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/MastheadExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "MastheadExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['masthead']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "modal",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "modal-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/ModalExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "ModalExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['modal']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "native-select",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "native-select-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/NativeSelectExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "NativeSelectExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['native-select']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "pagination",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "pagination-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/PaginationExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "PaginationExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['pagination']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "quantity-toggle",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "quantity-toggle-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/QuantityToggleExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "QuantityToggleExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['quantity-toggle']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "radio-group",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "radio-group-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/RadioGroupExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "RadioGroupExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['radio-group']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "range-slider",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "range-slider-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/RangeSliderExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "RangeSliderExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['range-slider']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "resize",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "resize-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/ResizeExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "ResizeExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['resize']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "side-navigation",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "side-navigation-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/SideNavigationExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "SideNavigationExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['side-navigation']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "skip-link",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "skip-link-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/SkipLinkExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "SkipLinkExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['skip-link']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "snackbar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "snackbar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/SnackbarExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "SnackbarExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['snackbar']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "spinner",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "spinner-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/SpinnerExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "SpinnerExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['spinner']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "step-indicator",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "step-indicator-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/StepIndicatorExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "StepIndicatorExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['step-indicator']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "structured-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "structured-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/StructuredListExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "StructuredListExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['structured-list']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "switch",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "switch-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/SwitchExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "SwitchExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['switch']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "tab-bar",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tab-bar-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TabBarExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TabBarExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['tab-bar']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "table",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "table-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TableExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TableExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['table']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "tabs",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tabs-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TabsExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TabsExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['tabs']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "tag",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tag-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TagExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TagExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['tag']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "text-input",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-input-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TextInputExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TextInputExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['text-input']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "text-list",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "text-list-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TextListExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TextListExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['text-list']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "textarea",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "textarea-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TextareaExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TextareaExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/preview-data.ts",
+          "role": "data",
+          "language": "typescript",
+          "symbolOrBranch": "preview-data"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['textarea']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "toast",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "toast-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/ToastExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "ToastExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['toast']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "tooltip",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tooltip-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TooltipExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TooltipExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['tooltip']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "tts",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tts-default",
+      "classification": "interactive",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TtsExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TtsExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['tts']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "tutorial-panel",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "tutorial-panel-default",
+      "classification": "interactive",
+      "minHeight": 640,
+      "layout": "overlay",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/TutorialPanelExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "TutorialPanelExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['tutorial-panel']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    },
+    {
+      "framework": "angular",
+      "componentId": "visually-hidden",
+      "exampleId": "default",
+      "status": "playable",
+      "acceptanceId": "visually-hidden-default",
+      "classification": "static",
+      "minHeight": 240,
+      "layout": "inline",
+      "sources": [
+        {
+          "path": "apps/fixture-angular/src/docs-preview/VisuallyHiddenExample.ts",
+          "role": "example",
+          "language": "typescript",
+          "symbolOrBranch": "VisuallyHiddenExample"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/examples.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "examples['visually-hidden']"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/app.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "PreviewApplication"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/main.ts",
+          "role": "host",
+          "language": "typescript",
+          "symbolOrBranch": "main.ts"
+        },
+        {
+          "path": "apps/fixture-angular/src/docs-preview/styles.css",
+          "role": "style",
+          "language": "css",
+          "symbolOrBranch": "styles.css"
+        }
+      ]
+    }
+  ]
+}

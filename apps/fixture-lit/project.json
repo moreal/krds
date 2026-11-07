@@ -18,7 +18,17 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-lit build:local"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/dist/index.html",
+        "{projectRoot}/dist/harness.html",
+        "{projectRoot}/dist/hydrate.html",
+        "{projectRoot}/dist/gallery.html",
+        "{projectRoot}/dist/assets",
+        "{projectRoot}/dist/local",
+        "{projectRoot}/dist/local-assets",
+        "{projectRoot}/dist/_legal"
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -62,6 +72,16 @@
         "{workspaceRoot}/packages/test-contracts/**/*",
         "{workspaceRoot}/compatibility/testing.json"
       ]
+    },
+    "docs-preview": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ],
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-lit docs-preview:local"
+      }
     }
   }
 }

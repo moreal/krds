@@ -26,7 +26,59 @@
                 "input": "public",
                 "output": "/"
               }
-            ]
+            ],
+            "deleteOutputPath": false
+          }
+        },
+        "docs-preview": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/docs-preview/main.ts",
+            "index": "src/docs-preview/index.html",
+            "tsConfig": "tsconfig.docs-preview.json",
+            "baseHref": "/krds/previews/angular/",
+            "outputPath": {
+              "base": "dist/docs-preview",
+              "browser": ""
+            },
+            "polyfills": [],
+            "styles": [
+              "src/docs-preview/styles.css"
+            ],
+            "assets": [
+              {
+                "glob": "specimen-audio.wav",
+                "input": "public/local-assets",
+                "output": "local-assets"
+              },
+              {
+                "glob": "example-landscape.svg",
+                "input": "public/local-assets",
+                "output": "local-assets"
+              },
+              {
+                "glob": "specimen-icon-dark.svg",
+                "input": "public/local-assets",
+                "output": "local-assets"
+              },
+              {
+                "glob": "specimen-icon-light.svg",
+                "input": "public/local-assets",
+                "output": "local-assets"
+              },
+              {
+                "glob": "specimen-landscape.svg",
+                "input": "public/local-assets",
+                "output": "local-assets"
+              },
+              {
+                "glob": "specimen-logo.svg",
+                "input": "public/local-assets",
+                "output": "local-assets"
+              }
+            ],
+            "statsJson": true,
+            "sourceMap": false
           }
         }
       }

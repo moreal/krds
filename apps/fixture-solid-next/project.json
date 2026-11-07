@@ -18,7 +18,12 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid-next build:local"
-      }
+      },
+      "outputs": [
+        "{projectRoot}/dist/index.html",
+        "{projectRoot}/dist/assets",
+        "{projectRoot}/dist/_legal"
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -29,7 +34,10 @@
     "test": {
       "executor": "nx:run-commands",
       "cache": false,
-      "dependsOn": ["build", "^build"],
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
       "options": {
         "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid-next test"
       }
@@ -43,9 +51,21 @@
     "contract": {
       "executor": "nx:run-commands",
       "cache": false,
-      "dependsOn": ["build", "^build"],
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
       "options": {
         "command": "node tools/yarn.mjs test:contract --framework solid-next"
+      }
+    },
+    "docs-preview": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{projectRoot}/dist/docs-preview"
+      ],
+      "options": {
+        "command": "node tools/yarn.mjs workspace @unofficial-krds/fixture-solid-next docs-preview:local"
       }
     }
   }

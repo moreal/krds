@@ -74,3 +74,71 @@ export function ancestorChain(node: HTMLElement | null): HTMLElement[] {
 }
 export function currentModal(doc?:Document):HTMLDialogElement|undefined{return [...stack].reverse().find(dialog=>dialog.isConnected&&dialog.open&&(!doc||dialog.ownerDocument===doc));}
 export function restoreInContext(doc:Document,preferred:HTMLElement|null,fallback?:string,ancestors:HTMLElement[]=[]){const modal=currentModal(doc);if(!modal){restoreFocus(doc,preferred,fallback,ancestors);return;}const named=fallback?doc.getElementById(fallback):null;const target=usable(preferred)&&preferred.ownerDocument===doc&&modal.contains(preferred)?preferred:usable(named)&&modal.contains(named)?named:focusables(modal)[0]??modal;const before=target.getAttribute('tabindex');if(target===modal&&!target.hasAttribute('tabindex'))target.tabIndex=-1;target.focus();if(before===null&&target===modal)target.removeAttribute('tabindex');}
+/** Shared native modal <dialog> lifecycle for Modal and BottomSheet: modal stack + scroll lock, showModal (inert background),
+ * initial-focus validation, and close/focus return. Returns the teardown; throws RangeError after restoring on invalid setup. */
+export function openModalDialog(node: HTMLDialogElement, options: { doc: Document; opener: HTMLElement | null; initialFocusId?: string; returnFocusId: () => string | undefined; requireCloseAction?: boolean }): () => void {
+    const { doc, opener } = options;
+    const ancestors = ancestorChain(opener);
+    const release = registerModal(node);
+    node.showModal();
+    const targets = focusables(node);
+    const target = options.initialFocusId ? doc.getElementById(options.initialFocusId) : node;
+    const teardown = () => {
+        release();
+        node.close();
+        restoreFocus(doc, opener, options.returnFocusId(), ancestors);
+    };
+    const failure = options.requireCloseAction && !targets.some(n => n.matches('button[type=button],input[type=button]'))
+        ? 'Modal requires an enabled explicit close action'
+        : !target || (target !== node && target !== targets[0])
+            ? 'initialFocusId must identify dialog or first interactive element' : '';
+    if (failure) {
+        teardown();
+        throw new RangeError(failure);
+    }
+    target!.focus();
+    return teardown;
+}
+/** Shared modal dialog keyboard handling: Escape requests dismissal, Tab/Shift+Tab cycle within the top-most dialog. */
+export function modalDialogKeydown(dialog: HTMLDialogElement | undefined, event: KeyboardEvent, onEscape: () => void) {
+    if (!dialog || !topModal(dialog) || event.defaultPrevented || event.isComposing || event.keyCode === 229)
+        return;
+    if (event.key === 'Escape') {
+        event.preventDefault();
+        event.stopPropagation();
+        onEscape();
+    }
+    else if (event.key === 'Tab') {
+        const nodes = sequentialFocusables(dialog).sort((a, b) => a.tabIndex > 0 && b.tabIndex > 0 ? a.tabIndex - b.tabIndex : a.tabIndex > 0 ? -1 : b.tabIndex > 0 ? 1 : 0);
+        event.preventDefault();
+        if (!nodes.length) {
+            dialog.focus();
+            return;
+        }
+        const index = nodes.indexOf(dialog.ownerDocument.activeElement as HTMLElement);
+        nodes[event.shiftKey ? (index <= 0 ? nodes.length - 1 : index - 1) : (index + 1) % nodes.length].focus();
+    }
+}
+/** Shared outside-press tracking on a modal dialog's ::backdrop: a primary press must start and end outside the dialog box. */
+export function modalOutsidePress(dialog: () => HTMLDialogElement | undefined, enabled: () => boolean | undefined, onOutside: () => void) {
+    let started = false;
+    const outside = (event: PointerEvent) => {
+        const node = dialog();
+        if (!node || event.target !== node)
+            return false;
+        const rect = node.getBoundingClientRect();
+        return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+    };
+    const reset = () => { started = false; };
+    return {
+        onpointerdown: (event: PointerEvent) => { started = outside(event) && event.button === 0; },
+        onpointerup: (event: PointerEvent) => {
+            const node = dialog();
+            if (enabled() && started && outside(event) && event.button === 0 && node && topModal(node))
+                onOutside();
+            started = false;
+        },
+        onpointercancel: reset,
+        onlostpointercapture: reset,
+    };
+}

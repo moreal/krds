@@ -2,7 +2,87 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { validateCss, build } from '../scripts/build.mjs';
+import postcss from 'postcss';
 const read = (path: string) => readFileSync(new URL(path, import.meta.url), 'utf8');
+test('modal close is a sized themed control without a base reset dependency', () => {
+  const css = read('./components/modal.css');
+  const selector = '[data-krds-component="modal"][data-krds-part="close"]';
+  const rules = postcss.parse(css);
+  const control = rules.nodes.find(node => node.type === 'rule' && node.selector === selector);
+  assert.ok(control && control.type === 'rule');
+  const declarations = Object.fromEntries(control.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]));
+  assert.equal(declarations['min-inline-size'], 'var(--krds-size-height-7)');
+  assert.equal(declarations['min-block-size'], 'var(--krds-size-height-7)');
+  assert.equal(declarations.background, 'var(--krds-light-color-button-secondary-fill)');
+  assert.equal(declarations.color, 'var(--krds-light-color-text-primary)');
+  assert.equal(declarations.font, 'inherit');
+  assert.ok(declarations.border && declarations.padding && declarations['border-radius']);
+  // Frozen component.css 1818-1823 (.btn-close absolute at the modal-content top-right, gap-7 inset; mobile gap-6, 1934-1937): DOM order stays after actions.
+  assert.equal(declarations.position, 'absolute');
+  assert.equal(declarations['inset-block-start'], 'var(--krds-gap-7)');
+  assert.equal(declarations['inset-inline-end'], 'var(--krds-gap-7)');
+  assert.equal(declarations['margin-inline-start'], undefined);
+  assert.equal(declarations['margin-block-start'], undefined);
+  const content = rules.nodes.find(node => node.type === 'rule' && node.selector === '[data-krds-component="modal"][data-krds-part="content"]');
+  assert.ok(content && content.type === 'rule');
+  const contentDecls = Object.fromEntries(content.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]));
+  assert.match(contentDecls.position, /^(fixed|relative|absolute)$/u, 'content is the positioned containing block of the close');
+  assert.match(contentDecls['padding-block-start'] ?? '', /var\(--krds-gap-7\).*var\(--krds-size-height-7\)/u, 'content reserves the close row so the title never underlaps it');
+  const narrow = rules.nodes.find(node => node.type === 'atrule' && node.params === '(max-width: 30rem)');
+  assert.ok(narrow && narrow.type === 'atrule');
+  const narrowText = narrow.toString();
+  assert.match(narrowText, /\[data-krds-part="close"\]\s*\{[^}]*inset-block-start: var\(--krds-gap-6\)[^}]*inset-inline-end: var\(--krds-gap-6\)/u);
+  assert.match(narrowText, /\[data-krds-part="content"\]\s*\{[^}]*padding-block-start: calc\(var\(--krds-gap-6\)[^}]*size-height-7/u);
+  // The Modal-hosted BottomSheet surface resets the whole padding (it renders no Modal close), so the close-row reservation never applies to the sheet.
+  const sheet = postcss.parse(read('./components/bottom-sheet.css')).nodes.find(node => node.type === 'rule' && node.selector.startsWith('[data-krds-component="modal"][data-krds-part="content"]:has('));
+  assert.ok(sheet && sheet.type === 'rule');
+  assert.ok(sheet.nodes.some(node => node.type === 'decl' && node.prop === 'padding'));
+  assert.doesNotMatch(css, /font-size:\s*0|text-indent|overflow:\s*hidden/u);
+  assert.ok(rules.nodes.some(node => node.type === 'rule' && node.selector === `${selector}:not(:disabled):hover`));
+  assert.ok(rules.nodes.some(node => node.type === 'rule' && node.selector === `${selector}:not(:disabled):active`));
+  assert.match(read('./base.css'), /\[data-krds-component\]:focus-visible\s*\{[^}]*outline:/u);
+  assert.match(read('./base.css'), /outline-color: Highlight/u);
+  const forced = rules.nodes.find(node => node.type === 'atrule' && node.params === '(forced-colors: active)');
+  assert.ok(forced?.toString().includes('ButtonText'));
+});
+test('calendar actions and date input trigger have themed native control states', () => {
+  for (const name of ['calendar', 'date-input']) {
+    const css = read(`./components/${name}.css`);
+    const ast = postcss.parse(css);
+    const part = name === 'calendar' ? '[data-krds-part="previous"]' : '[data-krds-part="trigger"]';
+    const rule = ast.nodes.find(node => node.type === 'rule' && node.selector.includes(part) && !node.selector.includes(':not') && !node.selector.includes('~='));
+    assert.ok(rule && rule.type === 'rule');
+    const declarations = Object.fromEntries(rule.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]));
+    assert.equal(declarations.background, 'var(--krds-light-color-button-secondary-fill)', name);
+    assert.equal(declarations.color, 'var(--krds-light-color-text-primary)', name);
+    assert.ok(declarations.border && declarations['border-radius'] && declarations.font, name);
+    assert.match(css, /:not\(:disabled\):hover/u);
+    assert.match(css, /:not\(:disabled\):active/u);
+    assert.match(css, /button-disabled-fill/u);
+    assert.match(css, /ButtonText/u);
+  }
+  assert.match(read('./components/calendar.css'), /\[data-krds-part="confirm"\]\s*\{[^}]*background: var\(--krds-light-color-button-primary-fill\)/u);
+});
+test('tutorial panel close, back and stop share the themed secondary button look', () => {
+  const css = read('./components/tutorial-panel.css');
+  const rule = postcss.parse(css).nodes.find(node => node.type === 'rule' && ['close', 'back', 'stop'].every(part => node.selector.includes(`[data-krds-part="${part}"]`)));
+  assert.ok(rule && rule.type === 'rule');
+  const declarations = Object.fromEntries(rule.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]));
+  assert.equal(declarations.background, 'var(--krds-light-color-button-secondary-fill)');
+  assert.equal(declarations.color, 'var(--krds-light-color-text-primary)');
+  assert.equal(declarations['min-block-size'], 'var(--krds-size-height-6)');
+  assert.ok(declarations.border && declarations['border-radius'] && declarations.font);
+  // Each state rule must name all three parts itself; the tab/start/task-toggle rules already use these tokens, so a file-wide match would not prove the new rules.
+  const ast = postcss.parse(css);
+  const parts = ['close', 'back', 'stop'];
+  const stateRule = suffix => ast.nodes.find(node => node.type === 'rule' && parts.every(part => node.selector.includes(`[data-krds-part="${part}"]${suffix}`)));
+  const declarationsOf = node => Object.fromEntries(node.nodes.filter(child => child.type === 'decl').map(child => [child.prop, child.value]));
+  assert.equal(declarationsOf(stateRule(':not(:disabled):hover')).background, 'var(--krds-light-color-button-secondary-fill-hover)');
+  assert.equal(declarationsOf(stateRule(':not(:disabled):active')).background, 'var(--krds-light-color-button-secondary-fill-pressed)');
+  assert.equal(declarationsOf(stateRule(':disabled')).background, 'var(--krds-light-color-button-disabled-fill)');
+  const forced = ast.nodes.find(node => node.type === 'atrule' && node.params === '(forced-colors: active)' && node.nodes.some(child => child.type === 'rule' && parts.every(part => child.selector.includes(`[data-krds-part="${part}"]`)) && child.toString().includes('ButtonText')));
+  assert.ok(forced, 'forced colors give close, back and stop a ButtonText border');
+});
 test('unknown token references fail the build with the file name', () => {
   assert.throws(() => validateCss('[data-krds-component="button"][data-krds-part="root"] { color: var(--krds-does-not-exist); }', 'button.css', new Set()), /button.css.*unknown.*--krds-does-not-exist/i);
 });
@@ -108,4 +188,30 @@ test('remote assets and whole-state matches fail instead of silently shipping', 
 test('Carousel stop-intent is an inhibited-intent control with bounded part states', () => {
   assert.doesNotThrow(() => validateCss('[data-krds-component="carousel"][data-krds-part="stop-intent"][data-krds-state~="paused"][data-krds-state~="disabled"] { color: red; }', 'carousel.css', new Set()));
   assert.throws(() => validateCss('[data-krds-component="carousel"][data-krds-part="stop-intent"][data-krds-state~="playing"] { color: red; }', 'carousel.css', new Set()), /stop-intent.*playing/u);
+});
+test('tutorial panel root is viewport-bounded with an inner scrolling region and a reachable stop control', () => {
+  const css = read('./components/tutorial-panel.css');
+  const ast = postcss.parse(css);
+  const decls = (selector: string) => { const rule = ast.nodes.find(node => node.type === 'rule' && node.selector === selector); assert.ok(rule && rule.type === 'rule', selector); return Object.fromEntries(rule.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value])); };
+  const rootSel = '[data-krds-component="tutorial-panel"][data-krds-part="root"]';
+  const root = decls(rootSel);
+  assert.equal(root.display, 'flex');
+  assert.equal(root['flex-direction'], 'column');
+  assert.equal(root['max-block-size'], '100dvh');
+  assert.equal(decls(`dialog${rootSel}`)['max-block-size'], '100dvh', 'native dialog roots stay viewport-bounded');
+  const region = decls(`${rootSel} > :not([data-krds-part="header"], [data-krds-part="tabs"], [data-krds-part="stop"])`);
+  assert.equal(region['min-block-size'], '0');
+  assert.equal(region['overflow-y'], 'auto');
+  assert.equal(region['overscroll-behavior'], 'contain');
+  assert.match(region.flex, /^1 1 /u);
+  assert.match(region.background ?? '', /local/u, 'scroll shadows show that more content is available');
+  const fixedRows = decls(`${rootSel} > :is([data-krds-part="header"], [data-krds-part="tabs"], [data-krds-part="stop"])`);
+  assert.equal(fixedRows.flex, 'none');
+  assert.match(css, /@media \(max-height: 36rem\)\s*\{[^@]*\[data-krds-part="stop"\]\s*\{[^}]*position: sticky; inset-block-end: 0/u, 'short viewports keep the stop control reachable');
+  assert.match(css, /@media \(forced-colors: active\)\s*\{[^@]*:not\(\[data-krds-part="header"\][^}]*background: none/u);
+});
+test('tutorial panel provenance says the header reserves the top row and anchors the close', () => {
+  const summary = (JSON.parse(read('../provenance.json')) as { changeSummary?: string }[]).map(entry => entry.changeSummary ?? '').join(' ');
+  assert.doesNotMatch(summary, /close control sits absolutely in a reserved top row of the panel/u);
+  assert.match(summary, /the header reserves the top row and the close is absolutely positioned within the header/u);
 });

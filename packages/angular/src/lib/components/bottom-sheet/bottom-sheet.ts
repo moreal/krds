@@ -5,7 +5,7 @@ import {NativeLayer} from '../../internal/native-layer';
 export type BottomSheetChange={open:false;reason:'close'|'escape'|'outside'|'drag'};
 @Component({selector:'krds-bottom-sheet',standalone:true,imports:[NativeLayer],changeDetection:ChangeDetectionStrategy.OnPush,template:`
 <dialog #dialog [krdsLayer]="isOpen()" layerRootComponent="bottom-sheet" [layerReturnId]="returnFocusId" [layerInitialId]="initialFocusId" [layerDismissOnOutside]="dismissOnOutside" (layerOutside)="close('outside')" (layerClose)="close('escape')" tabindex="-1" data-krds-component="bottom-sheet" data-krds-part="content" [attr.data-krds-state]="isOpen()?'open':'closed'" [attr.aria-labelledby]="id+'-title'" [attr.aria-describedby]="description?id+'-description':null" >
- <button type="button" data-krds-component="bottom-sheet" data-krds-part="handle" aria-label="하단 패널 닫기" (pointerdown)="dragStart($event)" (pointerup)="dragEnd($event)" (click)="handleClick($event)" (pointercancel)="cancelDrag()"></button>
+ <button type="button" data-krds-component="bottom-sheet" data-krds-part="handle" aria-label="시트 닫기" (pointerdown)="dragStart($event)" (pointerup)="dragEnd($event)" (click)="handleClick($event)" (pointercancel)="cancelDrag()"></button>
  <header data-krds-component="bottom-sheet" data-krds-part="header"><h2 data-krds-component="bottom-sheet" data-krds-part="title" [id]="id+'-title'">{{title}}</h2><button type="button" data-krds-component="bottom-sheet" data-krds-part="close" (click)="close('close')">닫기</button></header>
  @if(description){<p [id]="id+'-description'">{{description}}</p>}
  <div data-krds-component="bottom-sheet" data-krds-part="body"><ng-content/></div>

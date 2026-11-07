@@ -92,7 +92,7 @@ export function Modal(props: ModalProps) {
       {props.description != null && <div {...attrs('description')} id={props.descriptionId ?? `${id}-description`}>{props.description}</div>}
       <div {...attrs('body')}>{props.children}</div>
       {props.actions != null && <div {...attrs('actions')}>{typeof props.actions === 'function' ? props.actions(() => request(false)) : props.actions}</div>}
-      {props.showCloseButton !== false && <button {...attrs('close')} type="button" onClick={() => request(false)}>{props.closeLabel ?? (locale === 'en-US' ? 'Close' : '닫기')}</button>}
+      {props.showCloseButton !== false && <button {...attrs('close')} type="button" aria-label={props.closeLabel ?? (locale === 'en-US' ? 'Close' : '닫기')} onClick={() => request(false)}><span aria-hidden="true">×</span></button>}
     </div>
   </>, portal)}</>;
 }

@@ -2036,17 +2036,17 @@
       ]
     },
     {
-      "origin": "Owner authored independent specimen metadata; corrected current paths",
+      "origin": "Derived local specimen metadata naming this app's served paths; entries, hashes and rights from apps/storybook-vue/public/local-assets/provenance.json",
       "rights": "independent",
       "rightsStatus": "verified",
       "evidence": [
-        "apps/fixture-vue/public/local-assets/provenance.json"
-      ],
-      "sourcePath": "apps/storybook-vue/public/local-assets/provenance.json",
-      "sha256": "b1c70377bd029d4745209f2ee38f70bb740d5cf41c7ea7d89c8d67b94e9d7e0a",
-      "bytes": 5071,
-      "destinations": [
         "apps/storybook-vue/public/local-assets/provenance.json",
+        "tools/write-local-asset-manifests.mjs"
+      ],
+      "sourcePath": "apps/storybook-angular/public/local-assets/provenance.json",
+      "sha256": "4fa158a2d15ba5ddc3b8a04b80fd035bf4cc858ee1321e81c1382a291483aaea",
+      "bytes": 5123,
+      "destinations": [
         "apps/storybook-angular/public/local-assets/provenance.json"
       ]
     }

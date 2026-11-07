@@ -303,9 +303,9 @@
     },
     {
       "sourcePath": "apps/fixture-svelte/public/local-assets/provenance.json",
-      "sha256": "e1bda442dc431d14d8a261b267aae05b9cbcf6f5f21a11cc0e16bef598883375",
-      "bytes": 4253,
-      "origin": "Owner supplied local specimen metadata (historical source labels; authoritative current paths are in this inventory)",
+      "sha256": "6d9c8a895ce8d7794e1d025b633dee4d50f0e4ac3816e25904241f209db6984c",
+      "bytes": 4728,
+      "origin": "Owner supplied local specimen metadata; entry paths name this app’s served files (derived by tools/write-local-asset-manifests.mjs)",
       "rights": "independent",
       "rightsStatus": "verified",
       "evidence": [
@@ -313,8 +313,7 @@
         ".superpowers/sdd/PLAN/task-media-license-note.md"
       ],
       "destinations": [
-        "apps/fixture-svelte/public/local-assets/provenance.json",
-        "apps/storybook-svelte/public/local-assets/provenance.json"
+        "apps/fixture-svelte/public/local-assets/provenance.json"
       ]
     },
     {
@@ -1915,6 +1914,21 @@
       "destinations": [
         "apps/fixture-svelte/public/local/tool/4/index.html",
         "apps/storybook-svelte/public/local/tool/4/index.html"
+      ]
+    },
+    {
+      "sourcePath": "apps/fixture-svelte/public/local-assets/example-landscape.svg",
+      "sha256": "fa5ec0dcad2f27733d12f6ff14792c0aee28fc94f943f0371af362208ed325e8",
+      "bytes": 544,
+      "origin": "Independently authored simple landscape SVG (sky, sun, mountains, river shapes) for the Unofficial KRDS docs preview Image example; no text, branding or KRDS/third-party imagery; independent MIT project material",
+      "rights": "independent",
+      "rightsStatus": "verified",
+      "evidence": [
+        "apps/fixture-svelte/public/local-assets/provenance.json",
+        ".superpowers/sdd/2026-11-01-native-live-previews/fix-wave-final-svelte-report.md"
+      ],
+      "destinations": [
+        "apps/fixture-svelte/public/local-assets/example-landscape.svg"
       ]
     }
   ],

@@ -51,7 +51,7 @@ export async function assertCatalogBoundary(page,fixture) {
     case 'contextual-help': await tag(role(page,'button',s.triggerLabel),'button');return;
     case 'tooltip': await tag(page.locator(`[id="${s.triggerId}"]`),'button');return;
     case 'tts': await tag(part(page,id,'play'),'button');return;
-    case 'file-upload': await tag(part(page,id,'file-input'),'input');await expect(part(page,id,'file-input')).toHaveAttribute('type','file');await tag(role(page,'button','파일 선택'),'button');return;
+    case 'file-upload': await tag(part(page,id,'file-input'),'input');await expect(part(page,id,'file-input')).toHaveAttribute('type','file');await tag(page.getByRole('button',{name:/^파일 선택(?:\s|$)/}),'button');return;
     case 'language-switcher': if(s.options.length>2)await tag(part(page,id,'trigger'),'button');else await tag(role(page,'link',s.options.find(option=>option.locale!==s.currentLocale).nativeLabel),'a');return;
     case 'resize': await tag(part(page,id,'trigger'),'button');return;
     case 'accessible-media': await tag(part(page,id,'media'),s.media.kind==='audio'?'audio':'video');return;
