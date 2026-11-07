@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
+import { moveNativeAvailabilityLast } from '../scripts/demo-placement.mjs';
 
 const site = resolve(import.meta.dirname, '..');
 const root = resolve(site, '../..');
@@ -22,11 +23,19 @@ test('Astro pipeline retains directory indexes and .html pages with public Solid
   const html = await readFile(resolve(site, 'dist/components/button.html'), 'utf8');
   assert.match(html, /data-krds-component="link"/);
   assert.match(html, /data-krds-component="table"/);
-  assert.match(html, /Props, events, content and defaults/);
+  assert.match(html, /속성·이벤트·콘텐츠·기본값/);
+  // Component pages with native demos apply exactly the documented availability relocation
+  // (shared rule); every other page keeps the baseline order strictly.
+  const demoPages = new Set(pages.filter(page => page.demos?.length && /^components\/[^/]+\.md$/.test(page.sourcePath ?? '')).map(page => page.outputPath));
   for (const page of baseline.pages) {
     const built = await readFile(resolve(site, 'dist', page.path), 'utf8');
-    const ids = [...built.matchAll(/<h[1-6]\b[^>]*\bid="([^"]+)"/g)].map(match => match[1]);
-    assert.deepEqual(ids, page.headingIds, page.path);
+    const headings = [...built.matchAll(/<h([1-6])\b[^>]*\bid="([^"]+)"/g)].map(match => ({ level: Number(match[1]), id: match[2] }));
+    const ids = headings.map(heading => heading.id);
+    assert.equal(new Set(ids).size, ids.length, `${page.path}: heading IDs are unique`);
+    assert.deepEqual([...ids].sort(), [...page.headingIds].sort(), `${page.path}: every baseline heading ID occurs exactly once`);
+    const level = new Map(headings.map(heading => [heading.id, heading.level]));
+    const expected = demoPages.has(page.path) ? moveNativeAvailabilityLast(page.headingIds, id => ({ id, level: level.get(id) })) : page.headingIds;
+    assert.deepEqual(ids, expected, page.path);
   }
   assert.match(html, /\/krds\//);
   assert.doesNotMatch(html, /_astro\/[^" ]*solid-next/);

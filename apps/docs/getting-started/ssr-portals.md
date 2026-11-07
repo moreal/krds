@@ -1,19 +1,19 @@
-# Portals and server rendering
+# 포털과 서버 렌더링 {#portals-and-server-rendering}
 
-SSR policy belongs to each native adapter and its actual consumer evidence. A successful browser-only build is not a server import, hydration or resume result. Read the [native compatibility and example links](../compatibility/examples) for the selected framework before deploying.
+SSR 정책은 각 네이티브 어댑터와 그 실제 소비자 근거에 속합니다. 브라우저 전용 빌드가 성공해도 서버 import, 하이드레이션, resume이 성공한 것은 아닙니다. 배포 전에 선택한 프레임워크의 [네이티브 호환성 및 예시 링크](../compatibility/examples)를 읽습니다.
 
-## Resolve the document when it exists
+## 문서가 생긴 뒤에 참조하기 {#resolve-the-document-when-it-exists}
 
-Do not read `window`, `document`, layout or focus at module import time. Use the adapter's native provider/lifecycle and explicit owner document. Server rendering must retain deterministic IDs, locale and explicit date references so the first client render does not disagree with the server.
+모듈 import 시점에 `window`, `document`, 레이아웃, 초점을 읽지 않습니다. 어댑터의 네이티브 provider/수명 주기와 명시적 소유 문서를 사용합니다. 서버 렌더링은 결정적인 ID, 로케일, 명시적 날짜 기준을 유지해야 합니다. 그래야 첫 클라이언트 렌더링이 서버와 어긋나지 않습니다.
 
-## A dialog is more than an overlay
+## 다이얼로그는 오버레이 이상입니다 {#a-dialog-is-more-than-an-overlay}
 
-An open [Modal](../components/modal) needs an accessible name, correct initial focus, topmost Escape handling, focus containment, background isolation and preserved scroll state. Closing or unmounting restores a usable opener before the documented fallback. Nested removal must release all owned inert/scroll effects. A removed opener, a rejected controlled close and a pointer gesture beginning inside then ending outside are distinct cases.
+열린 [모달(Modal)](../components/modal)에는 접근 가능한 이름, 올바른 초기 초점, 최상위 Escape 처리, 초점 가두기, 배경 격리, 스크롤 상태 보존이 필요합니다. 닫거나 언마운트하면 사용할 수 있는 여는 요소로 초점을 복원하고, 없으면 문서화된 대체 위치로 복원합니다. 중첩 제거 시 소유한 inert/스크롤 효과를 모두 해제해야 합니다. 여는 요소 제거, 제어 닫기 거부, 안에서 눌러 밖에서 놓는 포인터 제스처는 서로 다른 경우입니다.
 
-Apply the active token theme to the actual portal container. A portal can leave the opener's DOM theme scope even when its native framework context is inherited. Test theme changes on the open overlay, owner-document changes and cleanup after repeated mounts.
+활성 토큰 테마를 포털 컨테이너에 적용합니다. 네이티브 프레임워크 컨텍스트를 상속해도 포털은 여는 요소의 DOM 테마 범위를 벗어날 수 있습니다. 열린 오버레이의 테마 변경, 소유 문서 변경, 반복 마운트 뒤의 정리를 테스트합니다.
 
-## Framework boundaries
+## 프레임워크 경계 {#framework-boundaries}
 
-Angular uses official CLI/ng-packagr partial APF, with an outside consumer that compiles packaged exports and verifies its SSR policy. Lit Shadow DOM relationships and hydration require their own evidence; cross-root IDs cannot be assumed to label an internal control. Solid 1 and the exact Solid 2 RC renderer/compiler remain separate. Svelte's packaged source must compile in its actual selected native consumer.
+Angular는 공식 CLI/ng-packagr 부분 APF를 사용합니다. 패키징된 export를 컴파일하고 SSR 정책을 검증하는 외부 소비자가 필요합니다. Lit Shadow DOM 관계와 하이드레이션은 각자의 근거가 필요합니다. 루트를 넘는 ID가 내부 컨트롤에 레이블을 붙인다고 가정할 수 없습니다. Solid 1과 정확한 Solid 2 RC 렌더러/컴파일러는 계속 분리됩니다. Svelte의 패키징된 소스는 실제로 선택한 네이티브 소비자에서 컴파일되어야 합니다.
 
-Qwik production SSR serializes state and event references for resume. Test the first lazy click, input and key event in that built server application. Storybook client rendering and static HTML screenshots cannot establish resume. No eager task on every widget should silently replace that required first-event check.
+Qwik 프로덕션 SSR은 resume을 위해 상태와 이벤트 참조를 직렬화합니다. 빌드된 서버 애플리케이션에서 첫 lazy click, input, key 이벤트를 테스트합니다. Storybook 클라이언트 렌더링과 정적 HTML 스크린샷으로는 resume을 입증할 수 없습니다. 모든 위젯의 eager 작업으로 이 첫 이벤트 검사를 조용히 대체하면 안 됩니다.

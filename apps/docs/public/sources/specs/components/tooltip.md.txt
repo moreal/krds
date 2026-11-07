@@ -1,79 +1,86 @@
-# Tooltip
+# 툴팁 {#tooltip}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현용으로 범위 승인됨.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 승인일 뿐이며, 네이티브 동작, 시각/자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `tooltip`; Korean name 툴팁; export `Tooltip`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `tooltip`, 한국어 이름 툴팁, export `Tooltip`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_08_05](https://www.krds.go.kr/html/site/component/component_08_05.html); preserved [HTML](../../upstream/krds/raw/components/component_08_05.html). Retrieved `2026-10-29T23:28:05.172Z`; `89103` bytes; SHA-256 `cbbbf46d9fb23ba34d57fc1b4ae0e9ef072fba2956bee367673a11e28838118a`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_08_05](https://www.krds.go.kr/html/site/component/component_08_05.html), 보존된 [HTML](../../upstream/krds/raw/components/component_08_05.html). 조회 시각 `2026-10-29T23:28:05.172Z`, `89103` 바이트, SHA-256 `cbbbf46d9fb23ba34d57fc1b4ae0e9ef072fba2956bee367673a11e28838118a`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류는 `component`, 인수된 프로젝트 완료 종류도 `component`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `information-icon`, `icon-button`, `vertical`, `box`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `information-icon`, `icon-button`, `vertical`, `box`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Named trigger button immediately followed by short noninteractive popup; no links/buttons inside tooltip. Informational icon vs icon-button label tooltip are different use cases. Do not duplicate HTML title. Source explicitly says aria-labelledby connects trigger/container; exact direction is not stated.
+이름이 있는 트리거 버튼 바로 뒤에 짧은 비대화형 팝업을 둡니다. 툴팁 안에는 링크/버튼을 두지 않습니다. 정보 아이콘과 아이콘 버튼 레이블 툴팁은 서로 다른 사용 사례입니다. HTML title을 중복해 쓰지 않습니다. 출처는 aria-labelledby가 트리거와 컨테이너를 연결한다고만 하며 정확한 방향은 밝히지 않습니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: `text`, `relationship:description|label=description`, `triggerLabel?`, `triggerId`, `textId`, placement, open/defaultOpen=false, onOpenChange, `fallbackFocusId?`, touchToggle=false unless distinct info trigger. Popup role=tooltip and content is noninteractive. The relationship discriminator is mandatory semantic behavior, not inferred from icon appearance or whichever attributes a renderer happens to choose.
+독립 API: `text`, `relationship:description|label=description`, `triggerLabel?`, `triggerId`, `textId`, placement, open/defaultOpen=false, onOpenChange, `fallbackFocusId?`, touchToggle=false (별도의 정보 트리거가 아니면). 팝업은 role=tooltip이며 콘텐츠는 비대화형입니다. relationship 판별자는 필수 의미 동작입니다. 아이콘 모양이나 렌더러가 우연히 고른 속성에서 추론하지 않습니다.
 
-In **description** mode require an independent functional/contextual triggerLabel (or equivalent validated native visible name); it remains the actual trigger name. Add textId exactly once to that trigger's aria-describedby; do not set its aria-labelledby from explanatory tooltip text. In **label** mode text must itself be the stable functional button name; trigger aria-labelledby points to textId, triggerLabel/alternate aria-label is not allowed, and the same text is not also aria-describedby. Retain the actual textId node in the same accessible tree/root while the visual popup is closed so the functional name exists before opening; visual hiding is not unmounting that referenced text. Avoid a second duplicate hidden label/live message. Consumers with other help descriptions retain distinct valid IDs without repeating textId.
+**description** 모드에서는 독립적인 기능/맥락 triggerLabel(또는 검증된 동등한 네이티브 보이는 이름)이 필요하며, 이것이 계속 트리거의 실제 이름입니다. textId는 그 트리거의 aria-describedby에 정확히 한 번 추가합니다. 설명용 툴팁 텍스트로 aria-labelledby를 설정하지 않습니다. **label** 모드에서는 text 자체가 안정적인 기능 버튼 이름이어야 합니다. 트리거 aria-labelledby는 textId를 가리키고, triggerLabel/대체 aria-label은 허용되지 않으며, 같은 텍스트를 aria-describedby에도 쓰지 않습니다. 시각 팝업이 닫혀 있는 동안에도 실제 textId 노드를 같은 접근성 트리/루트에 유지해, 열기 전에도 기능 이름이 존재하게 합니다. 시각적으로 숨기는 것은 참조되는 텍스트를 언마운트하는 것이 아닙니다. 중복된 숨은 레이블/라이브 메시지를 또 만들지 않습니다. 다른 도움말 설명을 쓰는 소비자는 textId를 반복하지 않고 서로 다른 유효한 ID를 유지합니다.
 
-Both modes require real resolved trigger/text relationships in their actual root, including Lit Shadow DOM; do not assume a light-DOM ID can name an internal control across a boundary. Use a same-root owned trigger/text relationship or a proven native equivalent, and fail invalid unresolved configuration. The literal official aria-labelledby wording ([L1163–1164](../../upstream/krds/raw/components/component_08_05.html:1163)) remains quoted below; description-mode aria-describedby is an explicit independent interpretation of supplementary content, not a claimed literal KRDS instruction. Controlled props/defaults/reset/no-duplicate rules remain the [pilot policy](./README.md).
+두 모드 모두 Lit Shadow DOM을 포함해 실제 루트에서 트리거/텍스트 관계가 실제로 해석되어야 합니다. light DOM ID가 경계 너머의 내부 컨트롤에 이름을 붙일 수 있다고 가정하지 않습니다. 같은 루트에 속한 트리거/텍스트 관계 또는 검증된 네이티브 대체를 쓰고, 해석되지 않는 잘못된 구성은 실패시킵니다. 공식 aria-labelledby 문구([L1163–1164](../../upstream/krds/raw/components/component_08_05.html:1163))는 아래에 그대로 인용되어 있습니다. description 모드의 aria-describedby는 보충 콘텐츠에 대한 명시적 독립 해석이며 KRDS의 문자 그대로의 지시라고 주장하지 않습니다. 제어 props/기본값/리셋/중복 금지 규칙은 [파일럿 정책](./README.md)을 따릅니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Hover/focus shows; pointer leave of both trigger+popup or blur hides. Ordinary hover opening never steals keyboard focus from elsewhere. Pointer may travel into the popup without closing. Touch distinct info-button click toggles and outside tap closes; primary icon action is not swallowed. Popup has no Tab stops.
+hover/초점으로 표시합니다. 포인터가 트리거와 팝업 둘 다에서 벗어나거나 blur되면 숨깁니다. 일반 hover 열기는 다른 곳의 키보드 초점을 빼앗지 않습니다. 포인터는 닫히지 않고 팝업으로 이동할 수 있습니다. 별도의 정보 버튼을 터치하면 토글하고 바깥을 탭하면 닫으며, 기본 아이콘 동작은 삼키지 않습니다. 팝업에는 Tab 정지점이 없습니다.
 
-For a processed Escape, request close once, ignoring composing/keyCode229 and inner-handled events. **Only on accepted actual closure**, mark Escape suppression before moving focus, then focus the usable trigger even when the tooltip was hover-open and focus previously lay elsewhere ([official L1251–1255](../../upstream/krds/raw/components/component_08_05.html:1251)). The induced trigger focus must not reopen it. Suppress automatic hover/focus reopening until Tab/Shift+Tab departs that trigger to another element and focus subsequently reenters; pointer movement or a prop change alone does not satisfy that reset. If controlled close is rejected, keep actual open state and do not transfer focus or claim successful dismissal.
+처리되는 Escape는 닫기를 한 번만 요청합니다. 조합 중이거나 keyCode229이거나 내부에서 이미 처리된 이벤트는 무시합니다. **실제 닫힘이 승인된 경우에만**, 초점을 옮기기 전에 Escape 억제를 표시한 뒤 사용 가능한 트리거에 초점을 둡니다. 툴팁이 hover로 열렸고 초점이 이전에 다른 곳에 있었어도 마찬가지입니다([공식 L1251–1255](../../upstream/krds/raw/components/component_08_05.html:1251)). 이때 유발된 트리거 초점이 다시 열어서는 안 됩니다. Tab/Shift+Tab으로 그 트리거에서 다른 요소로 벗어났다가 초점이 다시 들어올 때까지 자동 hover/초점 재열기를 억제합니다. 포인터 이동이나 prop 변경만으로는 이 초기화가 충족되지 않습니다. 제어 닫기가 거부되면 실제 열림 상태를 유지하고 초점을 옮기지 않으며 해제에 성공했다고 주장하지 않습니다.
 
-If the trigger is removed/unusable by accepted close or teardown, clean listeners/pending requests and choose usable fallbackFocusId, then the saved trigger's nearest usable focusable ancestor, then the live document body using temporary tabindex=-1 and restoring its prior value. Usable means mounted, visible, enabled, focusable, same live document and not inert. Do not focus hidden/removed trigger nodes, run stale generation focus work, or emit an extra user event from restoration. External prop closure alone does not pretend to be an Escape action.
+승인된 닫기나 해체로 트리거가 제거되거나 사용할 수 없게 되면 리스너와 대기 중인 요청을 정리하고, 다음 순서로 사용 가능한 대상을 고릅니다. 사용 가능한 fallbackFocusId, 저장된 트리거에서 가장 가까운 사용 가능한 초점 가능 조상, 그리고 임시 tabindex=-1을 쓰고 이전 값을 복원하는 살아 있는 document body입니다. 사용 가능이란 마운트됨, 보임, 활성, 초점 가능, 같은 살아 있는 document, inert 아님을 뜻합니다. 숨겨졌거나 제거된 트리거 노드에 초점을 두지 않으며, 오래된 generation의 초점 작업을 실행하지 않고, 복원 때문에 추가 사용자 이벤트를 내지 않습니다. 외부 prop으로 닫는 것만으로 Escape 동작인 척하지 않습니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Collision-aware popup completely onscreen and not covering target; touch users still have meaningful icon/label. Keep about 150 characters; longer interactive content goes to ContextualHelp.
+팝업은 충돌을 고려해 화면 안에 완전히 들어오고 대상을 가리지 않습니다. 터치 사용자에게도 의미 있는 아이콘/레이블이 있어야 합니다. 약 150자를 유지하며, 더 긴 대화형 콘텐츠는 ContextualHelp로 보냅니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form/reset state; Enter/Space activation belongs trigger action, not tooltip; ignore composing Escape.
+폼/리셋 상태는 없습니다. Enter/Space 활성화는 툴팁이 아니라 트리거 동작에 속합니다. 조합 중 Escape는 무시합니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host supplies meaningful functional text for label mode and a separate functional trigger name plus supplementary text for description mode. Completion requires deterministic computed name/description before, during and after visual opening; real same-root/Shadow DOM relationships; hover/focus/touch/Escape suppression; and the hover-origin Escape return/fallback/rejected-close cases. Rendering title text or merely storing an ID string does not establish those native relationships.
+호스트는 label 모드에는 의미 있는 기능 텍스트를, description 모드에는 별도의 기능 트리거 이름과 보충 텍스트를 제공합니다. 완료 조건은 다음과 같습니다.
 
-## Stable parts and states
+- 시각적으로 열리기 전, 열리는 동안, 열린 후의 결정적인 계산된 이름/설명.
+- 같은 루트/Shadow DOM에서 실제 관계.
+- hover/초점/터치/Escape 억제.
+- hover로 시작한 Escape의 복귀/대체/거부된 닫기 사례.
+
+title 텍스트를 렌더링하거나 ID 문자열을 저장하는 것만으로는 이러한 네이티브 관계가 성립하지 않습니다.
+
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, trigger, popup, icon, text; open,closed,suppressed,placement.
 
-All rendered owned parts use `data-krds-component="tooltip"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="tooltip"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Focus/hover reveal same readable text.
-2. Pointer can enter popup without premature dismissal.
-3. Accepted Escape stays closed through induced trigger focus until keyboard leave and reentry, while rejected controlled close does not pretend to dismiss.
-4. No focusable tooltip descendants.
-5. Touch info trigger toggles without hijacking icon action.
-6. Name and description not duplicated.
-7. Description mode preserves the independent trigger action name and references supplemental text once, while label mode uses stable tooltip text as the name even when visually closed with no duplicate description.
-8. Hover opens without moving focus from another control; accepted Escape then focuses the usable trigger and remains suppressed through the induced focus.
-9. Rejected controlled Escape keeps open state and prior focus, while removed trigger or teardown uses the documented usable fallback with no stale reopening.
-10. Actual naming and description ID relationships resolve in native same-root and Lit Shadow DOM output.
+1. 초점/hover가 같은 읽을 수 있는 텍스트를 드러냅니다.
+2. 포인터가 조기 해제 없이 팝업으로 들어갈 수 있습니다.
+3. 승인된 Escape는 유발된 트리거 초점이 있어도 키보드가 떠났다 다시 들어올 때까지 닫힌 채 유지됩니다. 거부된 제어 닫기는 해제한 척하지 않습니다.
+4. 툴팁 안에 초점 가능한 자손이 없습니다.
+5. 터치 정보 트리거는 아이콘 동작을 가로채지 않고 토글합니다.
+6. 이름과 설명이 중복되지 않습니다.
+7. description 모드는 독립적인 트리거 동작 이름을 유지하고 보충 텍스트를 한 번만 참조합니다. label 모드는 시각적으로 닫혀 있어도 안정적인 툴팁 텍스트를 이름으로 쓰며 중복 설명이 없습니다.
+8. hover로 열어도 다른 컨트롤에서 초점이 옮겨지지 않습니다. 승인된 Escape는 사용 가능한 트리거에 초점을 두고 유발된 초점 동안 억제를 유지합니다.
+9. 거부된 제어 Escape는 열림 상태와 이전 초점을 유지합니다. 트리거 제거나 해체는 문서화된 사용 가능한 대체 대상을 쓰며 오래된 재열기가 없습니다.
+10. 이름과 설명의 실제 ID 관계가 네이티브 같은 루트와 Lit Shadow DOM 출력에서 해석됩니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 표시, 움직임이 있는 곳의 동작 줄이기를 검증합니다. 빈 스위트를 성공으로 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `tooltip--information-icon`, `tooltip--icon-button`, `tooltip--vertical`, `tooltip--box`, `tooltip--touch-toggle`, `tooltip--escape-suppression`, `tooltip--viewport-edge`, `tooltip--relationship-description`, `tooltip--relationship-label-closed`, `tooltip--hover-escape-return`, `tooltip--controlled-escape-rejected`, `tooltip--trigger-removed`, `tooltip--shadow-relationship`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례에는 해당하는 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 마련되며 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 사용합니다. Lit/Solid 2는 siheom 지원을 만들지 않고 선택된 네이티브 테스트 경로를 사용해야 합니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름/대상 관계를 검증해야 합니다. Solid 2는 Solid 1 컴파일러/렌더러를 import하면 안 됩니다. 다른 렌더러의 래퍼는 쓰지 않습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
+아래 발췌는 이 항목의 실제 보존된 상세 HTML에서 추출했으며 핵심 지침과 상호작용/마크업 표를 포함합니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 그대로 둡니다. “consider/recommended/can”에 해당하는 표현은 권고로 남습니다. 예시/CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 아래 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립적인 선택입니다.
 
 
 ### 구조
@@ -179,19 +186,20 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1491–1494](../../upstream/krds/raw/components/component_08_05.html:1491): showTooltip() 툴팁 열기
 - L[1495–1498](../../upstream/krds/raw/components/component_08_05.html:1495): closeAllTooltips() 툴팁 닫기
 
-Inline preserved example markup (reference, not the public native API): L[1283–1298](../../upstream/krds/raw/components/component_08_05.html:1283), L[1325–1340](../../upstream/krds/raw/components/component_08_05.html:1325), L[1367–1386](../../upstream/krds/raw/components/component_08_05.html:1367)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+인라인으로 보존된 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1283–1298](../../upstream/krds/raw/components/component_08_05.html:1283), L[1325–1340](../../upstream/krds/raw/components/component_08_05.html:1325), L[1367–1386](../../upstream/krds/raw/components/component_08_05.html:1367)
 
-## Evidence limitations and recorded policy
+CSS/JS/안내 이미지의 출처 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-- The source aria-labelledby direction remains literally ambiguous, but the independent relationship discriminator above now makes native naming/description behavior deterministic. Its description adaptation must not be represented as literal official wording; source citations and visual/linked-code gaps remain unchanged.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1309 `../../code/tooltip.html`, L1351 `../../code/tooltip_vertical.html`, L1397 `../../code/tooltip_box.html`, L1513 `../../../resources/js/examples/krds_tooltip.js`, L1532 `./variable/tooltip.html`. Do not infer unseen contents.
-- 11 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-## Shared implementation handoff
+- 출처의 aria-labelledby 방향은 문자 그대로는 여전히 모호하지만, 위의 독립 relationship 판별자로 네이티브 이름/설명 동작이 결정적이 되었습니다. description 방식은 공식 원문으로 표현해서는 안 됩니다. 출처 인용과 시각/연결 코드의 공백은 그대로입니다.
+- 연결된 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L1309 `../../code/tooltip.html`, L1351 `../../code/tooltip_vertical.html`, L1397 `../../code/tooltip_box.html`, L1513 `../../../resources/js/examples/krds_tooltip.js`, L1532 `./variable/tooltip.html`. 보지 못한 내용을 추론하지 않습니다.
+- 상세에는 안내 이미지 참조 11개가 있으며, 내장 픽셀 다이어그램은 시각적으로 확인하지 않았습니다. 텍스트 구조/지침은 읽었습니다. 정확한 시각 치수/자산은 이후 시각·출처 검토가 필요합니다.
+- 시맨틱 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-The exact semantic interface is `TooltipContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+정확한 시맨틱 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `TooltipContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
+
+이 문서에서 인용하거나 파생한 공식 텍스트는 원래의 KRDS 권리와 출처 표기를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

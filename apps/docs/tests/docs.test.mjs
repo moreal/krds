@@ -34,11 +34,11 @@ test('54 distinct web entries retain exact source identity, states and native pr
     assert.ok(text.includes(item.nameKo), `${item.id}: Korean search name`);
     for (const framework of profileIds) {
       const row = coverage.coverage.find(record => record.componentId === item.id && record.framework === framework);
-      assert.ok(text.includes(`| ${framework}${framework === 'solid-next' ? ' (preview)' : ''} |`), `${item.id}/${framework}: profile`);
+      assert.ok(text.includes(`| ${framework}${framework === 'solid-next' ? ' (미리보기)' : ''} |`), `${item.id}/${framework}: profile`);
       assert.ok(text.includes(`| ${row.status} |`), `${item.id}/${framework}: recorded state`);
     }
-    assert.ok(text.includes('## Props, events, content and defaults'));
-    assert.ok(text.includes('## Source identity and rights'));
+    assert.ok(text.includes('## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}'));
+    assert.ok(text.includes('## 출처와 권리 {#source-identity-and-rights}'));
     assert.ok(!/\bas any\b/.test(text), `${item.id}: no example escape hatch`);
   }
 });
@@ -134,9 +134,9 @@ test('Pages home is server-rendered with public Solid controls and historical do
   assert.ok(html.includes('href="/krds/getting-started/installation.html"'));
   assert.ok(html.includes('lang="ko-KR"'));
   for (const path of ['components/button.html', 'legal/index.html']) {
-    const english = await readFile(resolve(site, 'dist', path), 'utf8');
-    assert.ok(english.includes('<html lang="ko-KR"'), `${path}: Korean shell`);
-    assert.match(english, /<article[^>]*lang="en"/, `${path}: English article`);
+    const article = await readFile(resolve(site, 'dist', path), 'utf8');
+    assert.ok(article.includes('<html lang="ko-KR"'), `${path}: Korean shell`);
+    assert.match(article, /<article[^>]*lang="ko-KR"/, `${path}: Korean article`);
   }
   const korean = await readFile(resolve(site, 'dist/getting-started/installation.html'), 'utf8');
   assert.match(korean, /<article[^>]*lang="ko-KR"/, 'Korean quickstart article');

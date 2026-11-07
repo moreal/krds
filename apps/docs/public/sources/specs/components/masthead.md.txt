@@ -1,73 +1,72 @@
-# Masthead
+# 공식 배너 {#masthead}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현용으로 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 인수일 뿐이며, 네이티브 동작, 시각/자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `masthead`; Korean name 공식 배너; export `Masthead`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `masthead`, 한국어 이름 공식 배너, export `Masthead`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_02_01](https://www.krds.go.kr/html/site/component/component_02_01.html); preserved [HTML](../../upstream/krds/raw/components/component_02_01.html). Retrieved `2026-10-29T23:28:02.535Z`; `62751` bytes; SHA-256 `851bee30ce1846611f28161d508d7c72cdbebcb0bda29b594c768375167ff466`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_02_01](https://www.krds.go.kr/html/site/component/component_02_01.html), 보존된 [HTML](../../upstream/krds/raw/components/component_02_01.html). 조회 시각 `2026-10-29T23:28:02.535Z`, `62751` 바이트, SHA-256 `851bee30ce1846611f28161d508d7c72cdbebcb0bda29b594c768375167ff466`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조해 확인했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 별개입니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류 `component`, 수용된 프로젝트 완료 종류 `component`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `default`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 케이스(변형·상태 축): `default`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-A noninteractive banner container with the fixed official sentence: “이 누리집은 대한민국 공식 전자정부 누리집입니다.” Keep it at the top of each government service page, after SkipLink and before Header. Preserve the official wording and appearance; do not invent a disclosure from the example’s toggle-wrap class.
+고정된 공식 문장 “이 누리집은 대한민국 공식 전자정부 누리집입니다.”를 담은 비대화형 배너 컨테이너입니다. 각 정부 서비스 페이지 최상단에서 건너뛰기 링크(SkipLink) 뒤, 헤더(Header) 앞에 둡니다. 공식 문구와 외형을 보존하며, 예시의 toggle-wrap 클래스를 근거로 펼침 UI를 만들지 않습니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: Masthead has no action or selection API. Provide an explicit governmentService authorization flag at composition level; plain content is fixed Korean text, with any translated wording held for evidence review. No href, dismiss, open, or onClick semantics.
+독립 API: Masthead에는 동작/선택 API가 없습니다. 조합 수준에서 `governmentService` 승인 플래그를 명시적으로 제공합니다. 일반 콘텐츠는 고정된 한국어 문구이며, 번역 문구는 근거 검토 때까지 보류합니다. `href`, dismiss, open, `onClick` 의미는 없습니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/열림 상태를 정의하면 제어 모드, 없으면 비제어 모드입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 내보냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내보내지 않습니다. 제어 모드에서 거부되면 커밋된 UI/초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 그대로 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-No tab stop, key handler, focus move or live announcement. SkipLink must remain the first reachable content before this repeated region.
+탭 정지, 키 핸들러, 초점 이동, 라이브 안내가 없습니다. 이 반복 영역 앞에서 SkipLink가 첫 번째로 닿는 콘텐츠여야 합니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Allow the official sentence to remain readable at narrow widths and zoom; avoid attention-grabbing animation. Page composition maintains identical relative order.
+좁은 너비와 확대에서도 공식 문장을 읽을 수 있게 둡니다. 주의를 끄는 애니메이션은 피합니다. 페이지 구성에서 상대 순서를 동일하게 유지합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form value/reset/IME behavior.
+폼 값, 리셋, IME 동작이 없습니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Only actual official government services may display the banner as a service claim. The independent library/demo must label any local specimen as an example, without presenting the repository as a government site. Hosting and eligibility are host responsibilities.
+실제 공식 정부 서비스만 배너를 서비스 주장으로 표시할 수 있습니다. 독립 라이브러리/데모는 로컬 표본에 예시임을 표시해야 하며, 저장소를 정부 사이트로 보이게 해서는 안 됩니다. 호스팅과 자격은 호스트 책임입니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
-root, text; no interactive state.
+root, text; 대화형 상태 없음.
 
-All rendered owned parts use `data-krds-component="masthead"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="masthead"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 사용합니다. 네이티브/ARIA 상태가 기준입니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Page keyboard entry reaches SkipLink before banner/Header.
-2. Fixed sentence is readable and banner has no focusable descendants.
-3. Unrelated independent demo does not assert that it is an official government service.
+1. 페이지의 키보드 진입은 배너/Header 앞에서 SkipLink에 닿습니다.
+2. 고정 문장을 읽을 수 있고 배너에 초점을 받는 하위 요소가 없습니다.
+3. 무관한 독립 데모는 공식 정부 서비스라고 주장하지 않습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며, 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 단서, 움직임이 있는 곳의 동작 줄이기를 확인합니다. 빈 스위트로 성공을 주장하지 않습니다.
 
-## Independent local specimen policy
+## 독립 로컬 표본 정책 {#independent-local-specimen-policy}
 
-`governmentService:false` must never render the official-service sentence. The native component may omit its banner or render only independent content; a host disclaimer cannot authorize the false branch to assert official status. There is no public `specimen` prop. Hosts must forward the actual supplied `governmentService` value instead of forcing `true` or branching on case IDs.
+`governmentService:false`일 때는 공식 서비스 문장을 절대 렌더링하지 않습니다. 네이티브 컴포넌트는 배너를 생략하거나 독립 콘텐츠만 렌더링할 수 있습니다. 호스트 면책 문구로 false 분기가 공식 지위를 주장하도록 허가할 수 없습니다. 공개 `specimen` prop은 없습니다. 호스트는 `true`로 강제하거나 케이스 ID로 분기하지 말고 실제로 받은 `governmentService` 값을 그대로 전달해야 합니다.
 
-The three local wording/order/narrow stories and outcomes01/02 use `governmentService:true` solely inside an explicitly simulated authorized-service UI composition. Each host renders the visible adjacent notice “공식 정부서비스를 가정한 배너 UI 예시입니다. 실제 공식 정부서비스가 아닙니다.” through its existing specimen-label transport. These pure examples neither establish localhost/project eligibility nor verify actual authorization. Their actual-host metadata remains `authorizedGovernmentHost:false`. Outcome03 instead supplies `governmentService:false`, shows “비공식 독립 로컬 예제”, and requires the exact official-service sentence to be absent from the entire independent page. Visible host prose is separate from native Masthead content and does not alter the public API, repository ownership or rights.
+문구/순서/좁은 화면 로컬 스토리 3개와 outcomes01/02는 `governmentService:true`를 공인 서비스 UI를 명시적으로 흉내 낸 조합 안에서만 씁니다. 각 호스트는 기존 표본 라벨 전달 통로로 바로 옆에 “공식 정부서비스를 가정한 배너 UI 예시입니다. 실제 공식 정부서비스가 아닙니다.”라는 안내를 보이게 렌더링합니다. 이 순수 예시는 localhost/프로젝트의 자격을 성립시키지 않고 실제 승인도 검증하지 않습니다. 실제 호스트 메타데이터는 `authorizedGovernmentHost:false`로 유지합니다. Outcome03은 대신 `governmentService:false`를 주고 “비공식 독립 로컬 예제”를 표시하며, 공식 서비스 문장이 독립 페이지 전체에 없어야 합니다. 보이는 호스트 문구는 네이티브 Masthead 콘텐츠와 별개이며 공개 API, 저장소 소유권, 권리를 바꾸지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `masthead--default-specimen`, `masthead--narrow-zoom`, `masthead--page-order`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 케이스는 해당되는 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/입력/슬롯과 관찰 가능한 순수 로컬 상태를 갖춰야 합니다. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 준비하며, 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부가 인수되어야 합니다. 동작 스위트는 스토리 파일과 분리하며, 지원되는 upstream siheom 어댑터만 사용합니다. Lit/Solid 2는 siheom 지원을 만들어 내지 않고 선택한 네이티브 테스트 경로를 씁니다. Qwik은 첫 lazy 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 partial APF 소비를 테스트해야 합니다. Lit은 실제 Shadow DOM의 이름·대상 관계를 검증해야 합니다. Solid 2는 Solid 1 컴파일러/렌더러를 가져오지 않습니다. 다른 렌더러의 래퍼는 금지합니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 보존된 상세 HTML 원본에서 뽑았으며, 실질 지침과 상호작용/마크업 표를 포함합니다. 공식 요구사항을 지어내지 않도록 원문 언어를 유지합니다. “고려/권장/가능” 같은 표현은 권고로 남습니다. 예시나 CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 원본 JS 함수 표는 참고 근거일 뿐이며, 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행하면 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립적 선택입니다.
 
 ### 구조
 
@@ -107,19 +106,19 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1146–1146](../../upstream/krds/raw/components/component_02_01.html:1146): 개발 시 접근성 관련 주의 사항
 - L[1148–1148](../../upstream/krds/raw/components/component_02_01.html:1148): 공식배너보다 건너뛰기 링크를 먼저 제공한다.
 
-Inline preserved example markup (reference, not the public native API): L[1073–1087](../../upstream/krds/raw/components/component_02_01.html:1073)
+보존된 인라인 예시 마크업(참고용이며 공개 네이티브 API 아님): L[1073–1087](../../upstream/krds/raw/components/component_02_01.html:1073)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/가이드 이미지에 대한 출처 참조는 복사된 구현이 아닙니다. 표 행의 원본 HTML(필수/선택 열 보존)은 [source-evidence.json](../../catalog/source-evidence.json)에 보관합니다. 위의 평탄화 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Official HTML has guide images whose pixel styling has not been visually reviewed; do not infer exact color/spacing from their filenames.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1098 `../../code/masthead.html`. Do not infer unseen contents.
-- 6 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 공식 HTML의 가이드 이미지는 픽셀 스타일을 시각 검토하지 않았습니다. 파일명으로 정확한 색상/간격을 추정하지 않습니다.
+- 연결된 외부 코드 예시는 참조만 했고 이번 준비에서 별도 파일로 포함·열람하지 않았습니다: L1098 `../../code/masthead.html`. 보지 못한 내용은 추정하지 않습니다.
+- 상세에는 가이드 이미지 참조가 6개 있으나, 포함된 픽셀 다이어그램은 시각 검사하지 않았습니다. 텍스트 구조와 지침만 읽었습니다. 정확한 시각 수치와 자산은 이후 시각/출처 검토가 필요합니다.
+- 의미 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 자체 구현, 동작/스토리 소스, 독립 인수가 여전히 필요합니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `MastheadContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `MastheadContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트가 지원 케이스 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크의 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 의무입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+공식 인용·파생 텍스트는 원래의 KRDS 권리와 출처 표기를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 출처 식별은 그대로입니다. 남은 근거 한계는 검사하지 못한 가이드 픽셀, 연결 코드, 자산 승인에 관한 것이며, 여기 인용한 실질 요구사항을 면제하지 않습니다.

@@ -1,12 +1,12 @@
-# lit · 54 components
+# lit · 컴포넌트 54개 {#lit-·-54-components}
 
-This compiler checkpoint binds the exact source below to its producer's public built-package check. It includes the original imports and local state. It does not certify the latest native candidate, behavior, SSR/resume, or a release.
+이 컴파일러 체크포인트는 아래 소스를 생산자의 공개 빌드 패키지 검사에 묶습니다. 원래의 import와 로컬 상태를 포함합니다. 최신 네이티브 후보, 동작, SSR/resume, 릴리스를 인증하지 않습니다.
 
-- Fresh compiler checkpoint after the completed Nx version application; public @unofficial-krds/lit version 0.1.0. The exact source and retained command/log bytes are hash-bound. Compiler success does not award native behavior, SSR/hydration/resume, manual checks or final release acceptance.
+- Nx 버전 적용 완료 후 새로 만든 컴파일러 체크포인트입니다. 공개 @unofficial-krds/lit 버전은 0.1.0입니다. 소스와 보존된 명령·로그 바이트는 해시로 고정됩니다. 컴파일 성공만으로는 네이티브 동작, SSR/하이드레이션/resume, 수동 검사, 최종 릴리스 인수가 인정되지 않습니다.
 
-Source: [apps/fixture-lit/src/examples/catalog.ts](/sources/apps/fixture-lit/src/examples/catalog.ts.txt). SHA-256: `31eda727a5cbf37dd2c329a8d61c5fe8a4bbcc549d663e8a3bc0b0d98ee16292`.
+소스: [apps/fixture-lit/src/examples/catalog.ts](/sources/apps/fixture-lit/src/examples/catalog.ts.txt). SHA-256: `31eda727a5cbf37dd2c329a8d61c5fe8a4bbcc549d663e8a3bc0b0d98ee16292`.
 
-Command: `node tools/yarn.mjs workspace @unofficial-krds/fixture-lit typecheck`. [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/proof.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stderr.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log.txt) · [Original compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log.txt).
+명령: `node tools/yarn.mjs workspace @unofficial-krds/fixture-lit typecheck`. [원본 컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/proof.json.txt) · [원본 컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/result.json.txt) · [원본 컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stdout.log.txt) · [원본 컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stderr.log.txt) · [원본 컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json.txt) · [원본 컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log.txt) · [원본 컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log.txt).
 
 
 ```ts

@@ -1,70 +1,69 @@
-# Spinner
+# 스피너 {#spinner}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 인수일 뿐입니다. 네이티브 동작, 시각·자산 검토, 실행된 커버리지는 별도 관문으로 남습니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `spinner`; Korean name 스피너; export `Spinner`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `spinner`, 한국어 이름 스피너, export `Spinner`. 고정된 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_07_02](https://www.krds.go.kr/html/site/component/component_07_02.html); preserved [HTML](../../upstream/krds/raw/components/component_07_02.html). Retrieved `2026-10-29T23:28:04.806Z`; `69546` bytes; SHA-256 `9e6ffa72e4e23e83cef056b525264dbcd19a89cfbfeda28bfcd125c70007c422`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세 페이지: [component_07_02](https://www.krds.go.kr/html/site/component/component_07_02.html), 보존본 [HTML](../../upstream/krds/raw/components/component_07_02.html). 조회 시각 `2026-10-29T23:28:04.806Z`, `69546` 바이트, SHA-256 `9e6ffa72e4e23e83cef056b525264dbcd19a89cfbfeda28bfcd125c70007c422`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정된 출처 종류는 `component`이고, 수용된 프로젝트 완료 종류도 `component`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `determinate`, `indeterminate`, `inline`, `region`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `determinate`, `indeterminate`, `inline`, `region`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Progress path/indicator near actual pending operation; determinate fills 0–360 clockwise from actual progress, indeterminate rotates clockwise. Not decorative; no unnecessary <1s wait spinner. One region spinner except independent inline operations.
+진행 경로·표시기는 실제 대기 중인 작업 가까이에 둡니다. 확정형(determinate)은 실제 진행률에 따라 0–360도를 시계 방향으로 채우고, 불확정형(indeterminate)은 시계 방향으로 회전합니다. 장식이 아닙니다. 1초 미만 대기에는 불필요한 스피너를 쓰지 않습니다. 영역당 스피너는 하나이며, 독립된 인라인 작업은 예외입니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: pending, value? (0–100), label, completionMessage, size=medium; value absent means indeterminate. Determinate role=progressbar with min/max/now; loading/completion polite status distinct from animated decoration. Invalid/nonfinite range is configuration error.
+독립 API: pending, value?(0–100), label, completionMessage, size=medium. value가 없으면 불확정형입니다. 확정형은 min/max/now를 가진 role=progressbar입니다. 로딩·완료 안내는 애니메이션 장식과 구별되는 polite 상태입니다. 잘못되었거나 유한하지 않은 범위는 구성 오류입니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-No focus move, keyboard action or focus trap. Emit no simulated progress/completion timers; host changes pending/value. Polite loading/completed messages occur once per actual lifecycle, not each animation frame.
+초점 이동, 키보드 동작, 초점 트랩이 없습니다. 진행률·완료를 흉내 내는 타이머를 두지 않으며, 호스트가 pending/value를 바꿉니다. polite 로딩·완료 메시지는 애니메이션 프레임마다가 아니라 실제 수명주기당 한 번 나옵니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Adequate size/3:1 path/background contrast. Reduced motion replaces continuous spin with stable progress/label as independent policy; source asks loop not pause at zero, so record accessibility alternative explicitly.
+크기를 충분히 확보하고 경로·배경 대비는 3:1 이상입니다. 동작 줄이기에서는 연속 회전을 안정적인 진행률·레이블로 대체하며, 이는 독립 정책입니다. 출처는 0에서 멈추지 않고 반복하라고 하므로 접근성 대안을 명시적으로 기록합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form value/reset/IME behavior.
+폼 값·리셋·IME 동작은 없습니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host owns real loading lifetime, content readiness and aria-busy on target region. Completion requires actual local operation transition and accessible start/end, not permanent animated ring.
+호스트가 실제 로딩 수명, 콘텐츠 준비 상태, 대상 영역의 aria-busy를 소유합니다. 완료는 실제 로컬 작업의 전환과 접근 가능한 시작·종료를 요구하며, 영구히 도는 링은 인정하지 않습니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, track, indicator, label, status; pending,complete,determinate,indeterminate.
 
-All rendered owned parts use `data-krds-component="spinner"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="spinner"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Value accurately reflects supplied progress.
-2. Indeterminate has no fake aria-valuenow.
-3. Start/end announced politely once.
-4. No focus stolen.
-5. Pending ends when host completes and no timer remains.
-6. Reduced-motion retains meaningful status.
+1. 값이 제공된 진행률을 정확히 반영합니다.
+2. 불확정형에는 가짜 aria-valuenow가 없습니다.
+3. 시작·종료가 polite하게 한 번 안내됩니다.
+4. 초점을 빼앗지 않습니다.
+5. 호스트가 완료하면 pending이 끝나고 남는 타이머가 없습니다.
+6. 동작 줄이기에서도 의미 있는 상태가 유지됩니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 단서, 움직임이 있다면 동작 줄이기를 검증합니다. 빈 스위트로 성공을 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `spinner--determinate`, `spinner--indeterminate`, `spinner--inline`, `spinner--region`, `spinner--complete`, `spinner--reduced-motion`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례는 해당하는 모든 네이티브 렌더러에서 로컬 args/입력/슬롯과 관찰 가능한 순수 로컬 상태가 필요합니다: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에서 따로 단계화하며, 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 씁니다. Lit과 Solid 2는 siheom 지원을 만들어 내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular의 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름·대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러·렌더러를 절대 import하지 않습니다. 다른 렌더러 래퍼는 없습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 보존된 상세 HTML에서 가져왔으며 핵심 지침과 상호작용·마크업 표를 포함합니다. 공식 요구사항을 지어내지 않도록 원문 언어를 유지합니다. “고려한다/권장/할 수 있다” 같은 표현은 권고로 남습니다. 예시·CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 원본 JS 함수 표는 참고 근거일 뿐이며, 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공통 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립 선택입니다.
 
 ### 구조
 
@@ -134,23 +133,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1199–1199](../../upstream/krds/raw/components/component_07_02.html:1199): CSS 선택자
 - L[1216–1219](../../upstream/krds/raw/components/component_07_02.html:1216): 전체영역 .krds-spinner
 
-Inline preserved example markup (reference, not the public native API): L[1140–1170](../../upstream/krds/raw/components/component_07_02.html:1140)
+보존된 예시 마크업 인라인(참고용이며 공개 네이티브 API가 아님): L[1140–1170](../../upstream/krds/raw/components/component_07_02.html:1140)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지 출처 참조는 복사된 구현이 아닙니다. 표 행의 원본 HTML(필수/선택 열 보존)은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화한 발췌가 조건부 선택자를 필수로 재분류하지는 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Recorded independent decision: Reduced motion replaces continuous rotation with a static perceivable indicator plus loading/completion text; determinate values remain real progress. This is independent accessibility policy, not a claim of literal source rotation compliance.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1181 `../../code/spinner.html`, L1234 `./variable/spinner.html`. Do not infer unseen contents.
-- 1 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 기록된 독립 결정: 동작 줄이기에서는 연속 회전을 정적이고 인지 가능한 표시기와 로딩·완료 텍스트로 대체합니다. 확정 값은 실제 진행률로 남습니다. 이는 독립 접근성 정책이며, 출처의 회전 규정을 문자 그대로 따른다는 주장이 아닙니다.
+- 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 삽입하거나 읽지 않았습니다: L1181 `../../code/spinner.html`, L1234 `./variable/spinner.html`. 보지 못한 내용은 추정하지 않습니다.
+- 상세 페이지에 안내 이미지 참조가 1개 있으며, 그 안의 픽셀 도식은 눈으로 확인하지 않았습니다. 텍스트 구조와 지침만 읽었습니다. 정확한 시각 치수와 자산은 이후 시각·출처 검토가 필요합니다.
+- 의미 인터페이스와 파트·상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작·스토리 소스, 독립 인수가 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-Reduced motion replaces continuous rotation with a static perceivable indicator plus loading/completion text; determinate values remain real progress. This is independent accessibility policy, not a claim of literal source rotation compliance.
+동작 줄이기에서는 연속 회전을 정적이고 인지 가능한 표시기와 로딩·완료 텍스트로 대체합니다. 확정 값은 실제 진행률로 남습니다. 이는 독립 접근성 정책이며, 출처의 회전 규정을 문자 그대로 따른다는 주장이 아닙니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `SpinnerContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `SpinnerContract`입니다. 네이티브 프레임워크는 자체 콘텐츠·ref·이벤트 전달만 확장합니다. 공통 매니페스트가 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼로는 이 계약을 충족할 수 없습니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에 인용·파생된 공식 텍스트는 원래 KRDS 권리와 출처 표시를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

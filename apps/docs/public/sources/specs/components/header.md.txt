@@ -1,70 +1,71 @@
-# Header
+# 헤더 {#header}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 인수일 뿐입니다. 네이티브 동작, 시각·자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `header`; Korean name 헤더; export `Header`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `header`, 한국어 이름 헤더, export `Header`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_02_03](https://www.krds.go.kr/html/site/component/component_02_03.html); preserved [HTML](../../upstream/krds/raw/components/component_02_03.html). Retrieved `2026-10-29T23:28:02.681Z`; `128284` bytes; SHA-256 `09265da2efd4f428c0c55d0593d2e8554484769ef8b4b7d1e4e6f7b95557053e`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_02_03](https://www.krds.go.kr/html/site/component/component_02_03.html), 보존본 [HTML](../../upstream/krds/raw/components/component_02_03.html). 수집 `2026-10-29T23:28:02.681Z`, `128284` 바이트, SHA-256 `09265da2efd4f428c0c55d0593d2e8554484769ef8b4b7d1e4e6f7b95557053e`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `composition`; accepted project completion kind `composition`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류는 `composition`, 수용된 프로젝트 완료 종류도 `composition`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `vertical-actions`, `horizontal-actions`, `mobile-menu`, `sticky`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 케이스(변형·상태 축)는 `vertical-actions`, `horizontal-actions`, `mobile-menu`, `sticky`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Compose SkipLink first, Masthead, service identity/home link, utility group (or dropdown when five or more utility links), search action and MainMenu in the official relative order. Government logo is upper left, utilities upper right. Native <header> is the service banner landmark; the skip link may be adjacent before it to remain document-first.
+공식 상대 순서대로 구성합니다. 건너뛰기 링크(SkipLink)가 첫째, 이어서 공식 배너(Masthead), 서비스 정체성/홈 링크, 유틸리티 그룹(유틸리티 링크가 다섯 개 이상이면 드롭다운), 검색 동작, 메인 메뉴(MainMenu)입니다. 정부 로고는 왼쪽 위, 유틸리티는 오른쪽 위에 둡니다. 네이티브 <header>가 서비스 배너 랜드마크입니다. 문서에서 가장 먼저 오도록 건너뛰기 링크는 그 앞에 인접해 둘 수 있습니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: Header receives home {href,label,logo}, utilityItems {id,label,href}, search {label,onRequest}, mainNavigation semantic data, actionLayout vertical/horizontal (horizontal default), sticky=false. Use explicit named component regions, not opaque arbitrary containers. Public data/events never expose Ark/Zag instances.
+독립 API입니다. Header는 home {href,label,logo}, utilityItems {id,label,href}, search {label,onRequest}, mainNavigation 의미 데이터, actionLayout vertical/horizontal(기본 horizontal), sticky=false를 받습니다. 불투명한 임의 컨테이너가 아니라 이름이 있는 명시적 컴포넌트 영역을 씁니다. 공개 데이터와 이벤트는 Ark/Zag 인스턴스를 노출하지 않습니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-**Additive native composition inputs:** currentId optionally marks the actual route in the existing real MainMenu. mobileOpen/defaultMobileOpen/onMobileOpenChange({open}) expose that same menu’s mobile disclosure: defined mobileOpen, including false, is authoritative; otherwise read the default once (existing closed default). Both/mode switching are invalid. One accepted user action emits one plain request; mount, props and reset emit none; rejection preserves actual committed panel/focus state. mobileTriggerId/mobileTriggerLabel optionally identify/name the actual primary mobile trigger. navigationLabel optionally names the real MainMenu landmark and is forwarded as its label. Omission preserves existing defaults. A native navigationContent/slot transport may supply the same one real native MainMenu; it must share current/open/primary-trigger identity, not cause an extra empty menu or extra navigation wrapper. Supplied trigger IDs/labels are nonempty and label the actual control; no renderer object enters this semantic API. T11 explicitly supplies 주요 메뉴 and its actual trigger ID; sidebar naming uses its existing title 예제 메뉴.
+**추가되는 네이티브 조합 입력:** currentId는 기존 실제 MainMenu에서 현재 경로를 선택적으로 표시합니다. mobileOpen/defaultMobileOpen/onMobileOpenChange({open})는 같은 메뉴의 모바일 펼침을 노출합니다. false를 포함해 mobileOpen이 정의되면 그 값이 우선하고, 아니면 기본값을 한 번 읽습니다(기존 기본값은 닫힘). 둘을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 사용자 동작이 수용되면 일반 요청 하나를 냅니다. 마운트, prop, 리셋은 요청을 내지 않습니다. 거부되면 확정된 실제 패널·초점 상태를 보존합니다. mobileTriggerId/mobileTriggerLabel은 실제 기본 모바일 트리거를 선택적으로 식별하고 이름 붙입니다. navigationLabel은 실제 MainMenu 랜드마크의 이름을 선택적으로 정하며 그 레이블로 전달됩니다. 생략하면 기존 기본값을 유지합니다. 네이티브 navigationContent/슬롯 전달로 같은 실제 네이티브 MainMenu 하나를 줄 수 있습니다. 이때 current/open/기본 트리거 정체성을 공유해야 하며, 빈 메뉴나 추가 내비게이션 래퍼를 만들면 안 됩니다. 전달하는 트리거 ID와 레이블은 비어 있지 않아야 하고 실제 컨트롤에 이름을 붙입니다. 이 의미 API에는 렌더러 객체가 들어가지 않습니다. T11은 주요 메뉴와 그 실제 트리거 ID를 명시적으로 전달합니다. 사이드바 이름은 기존 제목 예제 메뉴를 씁니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Link navigation uses native anchors; utility/menu toggles and search use named buttons. Child MainMenu owns expanded/current state and mobile layer focus. Search requests onRequest once without creating a fake local search service. Logo link name excludes redundant “logo”.
+링크 이동에는 네이티브 앵커를 씁니다. 유틸리티/메뉴 토글과 검색에는 이름 있는 버튼을 씁니다. 하위 MainMenu가 펼침/현재 상태와 모바일 레이어 초점을 맡습니다. 검색은 가짜 로컬 검색 서비스를 만들지 않고 onRequest를 한 번 요청합니다. 로고 링크 이름에는 중복되는 “logo”를 넣지 않습니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-When menu no longer fits, replace bar with a named hamburger opener and keyboard-operable menu layer. Sticky behavior is optional: exclude Masthead from sticky region; for header exceeding two rows, show on upward scroll and release on downward scroll. Native mobile-app-only left-menu limits/settings are not universal mobile-web mandates.
+메뉴가 더는 들어가지 않으면 바를 이름 있는 햄버거 열기 버튼과 키보드로 조작할 수 있는 메뉴 레이어로 바꿉니다. 고정(sticky) 동작은 선택입니다. 공식 배너는 고정 영역에서 제외합니다. 헤더가 두 줄을 넘으면 위로 스크롤할 때 나타나고 아래로 스크롤할 때 풀립니다. 네이티브 모바일 앱 전용 왼쪽 메뉴 제한·설정은 모바일 웹의 보편 의무가 아닙니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-Header itself has no form state. A search form belongs to the host/search composition; preserve entered query and IME behavior there.
+Header 자체에는 폼 상태가 없습니다. 검색 폼은 호스트/검색 조합에 속하며 입력한 검색어와 IME 동작은 거기서 보존합니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Completion requires working local compositions of SkipLink, Masthead specimen, Link, MainMenu and optional LanguageSwitcher/Resize with deterministic state; no adapter imports from other renderers. Host owns auth, search navigation, institution logo and utility destinations.
+완료하려면 SkipLink, 공식 배너 표본, Link, MainMenu, 선택 LanguageSwitcher/Resize를 결정적 상태로 조합한 동작하는 로컬 구성이 필요합니다. 다른 렌더러에서 어댑터를 가져오지 않습니다. 인증, 검색 이동, 기관 로고, 유틸리티 목적지는 호스트가 책임집니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, identity, utilities, utility-trigger, actions, search, navigation, mobile-trigger; expanded/collapsed, sticky.
 
-All rendered owned parts use `data-krds-component="header"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링된 모든 소유 파트는 `data-krds-component="header"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 씁니다. 네이티브/ARIA 상태가 우선합니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. DOM/read/focus order follows identity→utilities→search→navigation after SkipLink.
-2. Five-plus utilities remain reachable in dropdown by keyboard.
-3. Logo is a home link with meaningful name.
-4. Mobile menu opens/closes and restores focus.
-5. Sticky mode does not hide focused controls or Masthead within fixed region.
+1. SkipLink 뒤에서 DOM·읽기·초점 순서가 정체성→유틸리티→검색→내비게이션을 따릅니다.
+2. 유틸리티가 다섯 개 이상이어도 드롭다운에서 키보드로 접근할 수 있습니다.
+3. 로고는 의미 있는 이름을 가진 홈 링크입니다.
+4. 모바일 메뉴가 열리고 닫히며 초점을 복원합니다.
+5. 고정 모드가 초점을 가진 컨트롤이나 고정 영역 안의 공식 배너를 가리지 않습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색 외 상태 단서, 움직임이 있다면 동작 줄이기를 검증합니다. 빈 스위트로 성공을 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `header--horizontal-actions`, `header--vertical-actions`, `header--five-utilities`, `header--mobile-menu`, `header--sticky-long-page`, `header--translated-long-labels`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 케이스는 해당하는 모든 네이티브 렌더러에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. 렌더러는 Solid 1, React, Svelte, Vue, Lit, Qwik, Angular이며 Solid 2 미리보기는 따로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 별도로 준비됩니다. 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부가 인수되어야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 상류 siheom 어댑터만 씁니다. Lit과 Solid 2는 siheom 지원을 지어내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름과 대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러/렌더러를 가져와서는 안 됩니다. 다른 프레임워크 렌더러 래퍼는 금지합니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
+아래 발췌는 이 항목의 실제 보존 상세 HTML에서 추출했으며 핵심 지침과 상호작용·마크업 표를 포함합니다. 공식 요구사항을 지어내지 않도록 출처 언어(한국어)를 그대로 둡니다. “고려/권장/수 있다” 같은 표현은 권고로 남습니다. 예시나 CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브 제어 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 빼면 독립 선택입니다.
+
 
 
 ### 구조
@@ -181,23 +182,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[2010–2013](../../upstream/krds/raw/components/component_02_03.html:2010): closeMainMenu(mobileGnb) 메뉴 닫기
 - L[2014–2017](../../upstream/krds/raw/components/component_02_03.html:2014): setupAnchorScroll(mobileGnb) 스크롤 시 해당메뉴 활성화
 
-Inline preserved example markup (reference, not the public native API): L[1208–1671](../../upstream/krds/raw/components/component_02_03.html:1208)
+보존된 인라인 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1208–1671](../../upstream/krds/raw/components/component_02_03.html:1208)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지 출처 참조는 복사한 구현이 아닙니다. 표 행의 필수/선택 열을 보존한 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Recorded independent decision: Wide/narrow presentation follows actual container layout; the library does not infer a native-app-only web exemption. The host supplies identity assets. Sticky Header excludes Masthead; narrow fixtures use 360 CSS pixels and wide fixtures use 1280.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1682 `../../code/header.html`, L1968 `../../../resources/js/examples/krds_mainMenuPC.js`, L2032 `../../../resources/js/examples/krds_mainMenuMobile.js`. Do not infer unseen contents.
-- 13 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 기록된 독립 결정: 넓음/좁음 표현은 실제 컨테이너 레이아웃을 따릅니다. 라이브러리는 네이티브 앱 전용이라는 웹 예외를 추정하지 않습니다. 정체성 자산은 호스트가 제공합니다. 고정 Header는 공식 배너를 제외합니다. 좁은 픽스처는 360 CSS 픽셀, 넓은 픽스처는 1280을 씁니다.
+- 연결된 외부 코드 예시는 참조만 하며 이 준비 단계에서 별도 파일로 포함하거나 읽지 않았습니다. L1682 `../../code/header.html`, L1968 `../../../resources/js/examples/krds_mainMenuPC.js`, L2032 `../../../resources/js/examples/krds_mainMenuMobile.js`. 보지 않은 내용을 추측하지 않습니다.
+- 상세에는 안내 이미지 참조 13건이 있습니다. 내장 픽셀 도해는 시각적으로 검사하지 않았습니다. 텍스트 구조와 지침은 읽었습니다. 정확한 시각 치수·자산은 이후 시각·출처 검토가 필요합니다.
+- 의미 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-Wide/narrow presentation follows actual container layout; the library does not infer a native-app-only web exemption. The host supplies identity assets. Sticky Header excludes Masthead; narrow fixtures use 360 CSS pixels and wide fixtures use 1280.
+넓음/좁음 표현은 실제 컨테이너 레이아웃을 따릅니다. 라이브러리는 네이티브 앱 전용이라는 웹 예외를 추정하지 않습니다. 정체성 자산은 호스트가 제공합니다. 고정 Header는 공식 배너를 제외합니다. 좁은 픽스처는 360 CSS 픽셀, 넓은 픽스처는 1280을 씁니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `HeaderContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `HeaderContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 케이스 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼로는 이 계약을 충족할 수 없습니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에 인용·파생된 공식 텍스트는 원래의 KRDS 권리와 출처 표시를 유지합니다. 독립 코드의 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 검사하지 않은 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며, 여기 인용한 실질 요구사항을 면제하지 않습니다.

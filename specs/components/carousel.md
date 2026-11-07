@@ -1,83 +1,82 @@
-# Carousel
+# 캐러셀 {#carousel}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 수락일 뿐이며, 네이티브 동작·시각/자산 검토·실행된 커버리지는 별도 게이트입니다. 어떤 게시도 승인되지 않았습니다.
 
-Semantic ID `carousel`; Korean name 캐러셀; export `Carousel`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `carousel`, 한국어 이름 캐러셀, export `Carousel`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_04_09](https://www.krds.go.kr/html/site/component/component_04_09.html); preserved [HTML](../../upstream/krds/raw/components/component_04_09.html). Retrieved `2026-10-29T23:28:03.834Z`; `108858` bytes; SHA-256 `73d7d8f2691f3db02ede19f601675b4a23310fce5239e7b50211002d9676581d`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_04_09](https://www.krds.go.kr/html/site/component/component_04_09.html), 보존된 [HTML](../../upstream/krds/raw/components/component_04_09.html). 조회 시각 `2026-10-29T23:28:03.834Z`, `108858` 바이트, SHA-256 `73d7d8f2691f3db02ede19f601675b4a23310fce5239e7b50211002d9676581d`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조해 확인했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 별개입니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류 `component`, 수용된 프로젝트 완료 종류 `component`. 프로젝트 완료 종류는 아래 근거를 따르며, 구체적인 완료 의무와 호스트 경계는 이 계약에 기술됩니다.
 
-Supported native cases (variant and state axes): `single`, `multiple`, `autoplay`, `manual`, `full-banner`, `element-banner`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 케이스(변형·상태 축): `single`, `multiple`, `autoplay`, `manual`, `full-banner`, `element-banner`. 이는 네이티브 케이스 이름이며, 상태·반응형·외관 축이 공식 명명 변형인 것은 아닙니다. 공식 유형/예시 제목 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Labeled carousel region with slides, previous/next buttons and position/total indicator. Whenever automatic playback can be requested, including controlled playing=true or explicit Play from initially manual intent, stop/play is the first interactive descendant. Only primary visible slides expose interactive descendants/AT; hidden/partial slides do not. One item hides all carousel controls. Slide count <=5 guidance.
+라벨이 있는 캐러셀 영역에 슬라이드, 이전/다음 버튼, 위치/전체 표시기를 둡니다. 자동 재생을 요청할 수 있는 경우(제어된 playing=true, 또는 처음 수동 의도에서의 명시적 재생 포함) 정지/재생이 첫 번째 상호작용 하위 요소입니다. 상호작용 하위 요소와 AT에는 주로 보이는 슬라이드만 노출하며, 숨겨졌거나 일부만 보이는 슬라이드는 노출하지 않습니다. 항목이 하나면 캐러셀 컨트롤을 모두 숨깁니다. 슬라이드는 5개 이하를 권장합니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: items {id,label,content}[], `index?/defaultIndex=0`, `onIndexChange({index,reason})`, layout=single|multiple, autoplay=false, intervalMs=6000, `playing?:boolean`, `defaultPlaying?:boolean`, `onPlayingChange({playing:boolean,reason:play|stop|navigation})`, loop=false. Defined playing chooses controlled **playback intent**, absent playing chooses uncontrolled intent; defaultPlaying is read once and defaults to autoplay. Supplying both/mode switching is invalid. autoplay is a read-once uncontrolled intent initializer, not an override for controlled playing or any stop latch. For two or more slides the playback-capable API renders its Play/Stop control first even when initial intent is manual/false. Props alone emit no callbacks. Indicator=dots desktop/fraction below 1023px.
+독립 API: items {id,label,content}[], `index?/defaultIndex=0`, `onIndexChange({index,reason})`, layout=single|multiple, autoplay=false, intervalMs=6000, `playing?:boolean`, `defaultPlaying?:boolean`, `onPlayingChange({playing:boolean,reason:play|stop|navigation})`, loop=false. playing이 정의되면 제어되는 **재생 의도(playback intent)**이고, 없으면 비제어 의도입니다. defaultPlaying은 한 번만 읽으며 기본값은 autoplay입니다. 둘 다 주거나 모드를 바꾸는 것은 잘못된 사용입니다. autoplay는 한 번만 읽는 비제어 의도 초기화 값이며, 제어된 playing이나 정지 래치를 덮어쓰지 않습니다. 슬라이드가 둘 이상이면 재생 가능 API는 처음 의도가 수동/false여도 재생/정지 컨트롤을 첫 번째로 렌더합니다. prop만으로는 콜백이 나오지 않습니다. 표시기는 데스크톱에서 점(dots), 1023px 미만에서 분수(fraction)입니다.
 
-Playback intent is permission, not proof that a timer is advancing. Actual advancement requires committed intent true, at least two usable slides, an available next index, a visible mounted document, no current hover inhibition, no focus-stop or manual/navigation-stop latch, and reduced-motion permission. The local safety/official-inhibition state can halt advancement without mutating a controlled playing prop. Focus, hover, document visibility, mount and prop changes emit **zero user playback-change notifications**. Play/Stop or user navigation request intent changes once only when requested intent differs; a controlled rejection leaves the intent prop unchanged while the applicable stop latch still prevents actual motion. The play/pause label and playing/paused rendered state describe actual permitted advancement, not intent alone.
+재생 의도는 허락일 뿐, 타이머가 진행 중이라는 증거가 아닙니다. 실제 진행에는 다음이 모두 필요합니다. 커밋된 의도 true, 사용 가능한 슬라이드 둘 이상, 이용 가능한 다음 인덱스, 보이는 마운트된 문서, 현재 호버 억제 없음, 초점 정지/수동·탐색 정지 래치 없음, 동작 줄이기 허용. 로컬 안전/공식 억제 상태는 제어된 playing prop을 바꾸지 않고도 진행을 멈출 수 있습니다. 초점, 호버, 문서 가시성, 마운트, prop 변경은 **사용자 재생 변경 알림을 내지 않습니다**. 재생/정지 또는 사용자 탐색은 요청 의도가 다를 때만 의도 변경을 한 번 요청합니다. 제어 거부는 의도 prop을 바꾸지 않지만, 해당 정지 래치가 실제 움직임을 계속 막습니다. 재생/일시정지 레이블과 재생 중/일시정지 렌더 상태는 의도가 아니라 실제 허용된 진행을 나타냅니다.
 
-Timer ticks call `onIndexChange` once with `reason:"timer"` and a next-index request only while advancement is permitted. This is explicitly a system-origin index request, distinguishable from user reasons next/previous/indicator/swipe; it is not a user playback notification. Uncontrolled index commits each eligible changed tick; controlled index remains the prop if the host rejects the request. No duplicate input/click event or prop/reset/mount index callback is emitted. Each new interval may request another next index against the current committed index; a rejected tick never silently mutates it.
+타이머 틱은 진행이 허용될 때만 `onIndexChange`를 `reason:"timer"`로 한 번 호출해 다음 인덱스를 요청합니다. 이는 명시적인 시스템 기원 인덱스 요청이며, 사용자 사유 next/previous/indicator/swipe와 구별되고 사용자 재생 알림이 아닙니다. 비제어 인덱스는 변경된 적격 틱마다 커밋합니다. 제어 인덱스는 호스트가 요청을 거부하면 prop 값을 유지합니다. 중복 입력/클릭 이벤트나 prop/리셋/마운트 인덱스 콜백은 나오지 않습니다. 새 간격마다 현재 커밋된 인덱스를 기준으로 다음 인덱스를 다시 요청할 수 있습니다. 거부된 틱이 인덱스를 몰래 바꾸지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Previous/next/indicator buttons and left/right indicator navigation work without swipe; swipe/drag must not hijack vertical page scroll. Official focus entry actually stops advancement and latches that stop until explicit Play ([L1335–1338](../../upstream/krds/raw/components/component_04_09.html:1335)); leaving focus or a host writing playing=true never clears that latch. Focus entry means crossing from outside into the carousel; internal focus movement does not fabricate a second entry. Hover always inhibits actual advancement while the pointer remains over the carousel ([L1347–1350](../../upstream/krds/raw/components/component_04_09.html:1347)), regardless of controlled intent or ignored pause requests.
+이전/다음/표시기 버튼과 좌우 표시기 탐색은 스와이프 없이 동작합니다. 스와이프/드래그가 세로 페이지 스크롤을 가로채면 안 됩니다. 공식 초점 진입은 실제로 진행을 멈추고, 명시적 재생 전까지 그 정지를 래치합니다([L1335–1338](../../upstream/krds/raw/components/component_04_09.html:1335)). 초점을 벗어나거나 호스트가 playing=true를 써도 이 래치는 풀리지 않습니다. 초점 진입은 바깥에서 캐러셀 안으로 넘어오는 것을 뜻하며, 내부 초점 이동은 두 번째 진입을 만들지 않습니다. 호버는 포인터가 캐러셀 위에 있는 동안 제어 의도나 무시된 일시정지 요청과 관계없이 항상 실제 진행을 막습니다([L1347–1350](../../upstream/krds/raw/components/component_04_09.html:1347)).
 
-Explicit Stop and user slide navigation also set a local stop latch (navigation stop is project policy). Explicit Play is the only action that clears the focus/manual/navigation stop latches; it also requests true intent if currently false. Thus Play while focus remains inside may permit playback, but Play while still hovered remains actually paused until pointer leaves; hover exit alone cannot clear a focus/manual latch. If a controlled Play request is rejected, intent remains false and no motion occurs. If intent is already true but inhibited, Play can clear latches without a redundant current-value callback. Explicit Stop with controlled playing=true requests false once yet halts locally even when the parent refuses. Externally changing intent false/true does not count as explicit Play.
+명시적 정지와 사용자 슬라이드 탐색도 로컬 정지 래치를 설정합니다(탐색 정지는 프로젝트 정책). 명시적 재생만이 초점/수동/탐색 정지 래치를 모두 풀며, 현재 의도가 false면 true 의도도 요청합니다. 따라서 초점이 안에 남아 있어도 재생은 재생을 허용할 수 있지만, 여전히 호버 중이면 포인터가 떠날 때까지 실제로는 멈춰 있습니다. 호버 종료만으로는 초점/수동 래치를 풀 수 없습니다. 제어된 재생 요청이 거부되면 의도는 false로 남고 움직임은 없습니다. 의도가 이미 true인데 억제된 상태라면, 재생은 중복 현재값 콜백 없이 래치만 풀 수 있습니다. 제어된 playing=true에서 명시적 정지는 false를 한 번 요청하고, 부모가 거부해도 로컬에서 멈춥니다. 의도를 외부에서 false/true로 바꾸는 것은 명시적 재생으로 치지 않습니다.
 
-Cancel the active interval immediately on inhibition; when all gates permit advancement again, begin a fresh full interval rather than firing a stale partially elapsed tick. Restore safe focus before a currently focused slide is hidden. Hide/unmount cleans timers/observers; stale generation ticks cannot request an index after teardown or replacement.
+억제가 시작되면 활성 간격을 즉시 취소합니다. 모든 게이트가 다시 진행을 허용하면 이미 일부 지난 틱을 발사하지 않고 새 전체 간격을 시작합니다. 현재 초점이 있는 슬라이드가 숨겨지기 전에 안전한 초점을 복원합니다. 숨김/언마운트 시 타이머와 옵저버를 정리합니다. 이전 세대 틱은 해체나 교체 후 인덱스를 요청할 수 없습니다.
 
-**Explicit Stop while locally inhibited (accepted independent closure):** For at least two slides, the first playback control group keeps the primary play-pause label truthful to actual permitted advancement: 정지 while advancing, 재생 while paused. Whenever committed playback intent remains true but actual advancement is inhibited, also render a distinct native type=button named 자동 재생 중지, owned part stop-intent with paused/disabled vocabulary. It is in that first playback group before slide navigation. Activating it by a real pointer click or keyboard activation latches manual stop and emits one playing=false request with reason stop even if the controlled host rejects it; rejection never clears the latch or mutates the intent prop. Passive focus/hover emits zero playback requests. Do not capture an obsolete pre-hover/pre-focus label or use synthetic dispatch to claim a Stop action. Explicit Play retains the existing latch-clear and current-intent no-op callback rules. Single-item carousels render neither primary nor stop-intent/navigation controls.
+**로컬 억제 중 명시적 정지(수용된 독립 결정):** 슬라이드가 둘 이상이면 첫 재생 컨트롤 그룹은 기본 재생-일시정지 레이블을 실제 허용된 진행에 맞춰 정직하게 유지합니다. 진행 중에는 정지, 일시정지 중에는 재생입니다. 커밋된 재생 의도가 true인데 실제 진행이 억제된 동안에는, 이름이 자동 재생 중지인 별도의 네이티브 type=button도 렌더합니다. 소유 파트는 stop-intent이고 paused/disabled 어휘를 씁니다. 이 버튼은 슬라이드 탐색보다 앞선 첫 재생 그룹에 둡니다. 실제 포인터 클릭이나 키보드 활성화로 누르면 수동 정지를 래치하고, 제어 호스트가 거부해도 reason stop인 playing=false 요청을 한 번 냅니다. 거부가 래치를 풀거나 의도 prop을 바꾸지 않습니다. 수동적 초점/호버는 재생 요청을 내지 않습니다. 호버/초점 이전의 오래된 레이블을 캡처하거나 합성 디스패치로 정지 동작을 주장하면 안 됩니다. 명시적 재생은 기존 래치 해제 및 현재 의도 무동작 콜백 규칙을 유지합니다. 항목이 하나인 캐러셀은 기본 컨트롤, stop-intent, 탐색 컨트롤을 렌더하지 않습니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Below 1023px fraction indicator replaces dots. Touch controls >=44×44 recommended, pointer >=17×17; readable 1–2 line content and clear boundaries. Reduced motion defaults to no autoplay/no sliding animation, a documented independent accessibility choice.
+1023px 미만에서는 점 대신 분수 표시기를 씁니다. 터치 컨트롤은 44×44 이상을 권장하고 포인터는 17×17 이상입니다. 내용은 1~2줄로 읽을 수 있어야 하고 경계가 분명해야 합니다. 동작 줄이기에서는 기본적으로 자동 재생과 슬라이드 애니메이션이 없으며, 이는 문서화된 독립 접근성 선택입니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form/reset state; no composition-key navigation from embedded inputs.
+폼/리셋 상태가 없습니다. 내장 입력에서 조합 키로 탐색하지 않습니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Official examples reference Swiper CSS/JS; native contract reproduces documented outcomes without executing original KRDS JS or requiring Swiper. Host owns slide content/local assets. Completion must include actual navigation/autoplay state and hidden-slide accessibility.
+공식 예시는 Swiper CSS/JS를 참조합니다. 네이티브 계약은 KRDS 원본 JS를 실행하거나 Swiper를 요구하지 않고 문서화된 결과를 재현합니다. 슬라이드 콘텐츠와 로컬 자산은 호스트 소유입니다. 완료에는 실제 탐색·자동 재생 상태와 숨겨진 슬라이드 접근성이 포함되어야 합니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, viewport, list, slide, previous, next, indicators, indicator, position, play-pause, stop-intent; active,hidden,playing,paused,disabled.
 
-All rendered owned parts use `data-krds-component="carousel"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더되는 모든 소유 파트는 `data-krds-component="carousel"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위 열거는 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Focus entry pauses and leaving does not restart.
-2. Stop/play first in keyboard order.
-3. Hidden and partial slides have no accessible/tabbable descendants.
-4. Arrow/indicator/swipe reach same slide.
-5. One item removes controls.
-6. Timers do not fire after unmount.
-7. Reduced motion never autostarts.
-8. Controlled playing=true cannot bypass focus-stop or hover inhibition even when the parent ignores pause requests, and focus or hover produces no user-change callbacks.
-9. Explicit Play clears the focus latch while hover continues to inhibit actual advancement until pointer exit; leaving focus without Play never resumes.
-10. Controlled rejected explicit Stop still halts actual motion through a local latch without mutating the playing intent prop.
-11. Timer index requests are identified by reason timer, occur once per eligible interval and never mutate a rejected controlled index.
+1. 초점 진입은 일시정지하고, 초점을 벗어나도 재시작하지 않습니다.
+2. 정지/재생이 키보드 순서에서 첫 번째입니다.
+3. 숨겨진 슬라이드와 일부만 보이는 슬라이드의 하위 요소는 접근할 수도 탭할 수도 없습니다.
+4. 화살표·표시기·스와이프가 같은 슬라이드에 도달합니다.
+5. 항목이 하나면 컨트롤이 사라집니다.
+6. 언마운트 후 타이머가 발사되지 않습니다.
+7. 동작 줄이기에서는 자동 시작하지 않습니다.
+8. 제어된 playing=true는 부모가 일시정지 요청을 무시해도 초점 정지나 호버 억제를 우회할 수 없으며, 초점·호버는 사용자 변경 콜백을 내지 않습니다.
+9. 명시적 재생은 초점 래치를 풀지만, 호버는 포인터가 나갈 때까지 실제 진행을 계속 막습니다. 재생 없이 초점만 벗어나면 재개되지 않습니다.
+10. 제어에서 거부된 명시적 정지도 로컬 래치로 실제 움직임을 멈추며 playing 의도 prop은 바꾸지 않습니다.
+11. 타이머 인덱스 요청은 reason timer로 식별되고, 적격 간격마다 한 번 발생하며, 거부된 제어 인덱스를 바꾸지 않습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+위 항목은 앞으로 필요한 테스트이며, 실행되었거나 인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색 이외의 상태 단서, 움직임이 있는 곳의 동작 줄이기를 검증합니다. 빈 스위트를 성공으로 간주하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `carousel--single`, `carousel--multiple`, `carousel--manual`, `carousel--autoplay`, `carousel--paused-on-focus`, `carousel--single-item`, `carousel--narrow-fraction`, `carousel--reduced-motion`, `carousel--controlled-inhibition`, `carousel--play-while-focused-hovered`, `carousel--controlled-stop-rejected`, `carousel--timer-request-rejected`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 케이스는 적용 가능한 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/입력/슬롯과 관찰 가능한 순수 로컬 상태를 가져야 합니다. Solid 2 미리보기는 별도로 격리됩니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 마련되며, 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부가 수락되어야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 씁니다. Lit/Solid 2는 siheom 지원을 만들어 내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연(lazy) 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름·대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러/렌더러를 가져오면 안 됩니다. 다른 렌더러 래퍼는 금지입니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 보존된 상세 HTML 원본(본문 지침과 상호작용·마크업 표 포함)에서 추출했습니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 유지합니다. "고려한다/권장/할 수 있다" 같은 표현은 권고로 남습니다. 예시나 CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 원본 JS 함수 표는 참고 근거일 뿐이며, 네이티브가 제어하는 DOM에서 KRDS 원본 JS를 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립 선택입니다.
 
 ### 구조
 
@@ -194,23 +193,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1725–1732](../../upstream/krds/raw/components/component_04_09.html:1725): KRDS의 캐러셀 컴포넌트는 Swiper 플러그인을 사용하여 제작되었으므로 해당 플러그인에 대한 자세한 사항은 Swiper 플러그인 사이트에서 확인 가능하다. Swiper 사이트 바로가기
 - L[1733–1738](../../upstream/krds/raw/components/component_04_09.html:1733): 캐러셀 컴포넌트 사용 시에는 /resources/css/plugin/swiper-bundle.min.css /resources/js/plugin/swiper-bundle.min.js 파일을 페이지 내에 추가해 준다. (CDN 사용 시에는 해당 코드가 포함되어 있으므로 따로 추가하지 않아도 된다.)
 
-Inline preserved example markup (reference, not the public native API): L[1378–1487](../../upstream/krds/raw/components/component_04_09.html:1378), L[1514–1625](../../upstream/krds/raw/components/component_04_09.html:1514)
+인라인으로 보존된 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1378–1487](../../upstream/krds/raw/components/component_04_09.html:1378), L[1514–1625](../../upstream/krds/raw/components/component_04_09.html:1514)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/가이드 이미지 원본 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위 평탄화 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Playback intent, actual-inhibition gates, callback origins and latch precedence above are concrete independent API policy preserving the official focus/hover stop outcomes. The accepted independent defaults are loop=false and intervalMs=6000; unseen visual measurements still require visual review.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1498 `../../code/carousel.html`, L1636 `../../code/carousel_banner.html`. Do not infer unseen contents.
-- 14 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 재생 의도, 실제 억제 게이트, 콜백 기원, 래치 우선순위는 공식 초점/호버 정지 결과를 보존하는 구체적인 독립 API 정책입니다. 수용된 독립 기본값은 loop=false, intervalMs=6000이며, 확인하지 못한 시각 치수는 여전히 시각 검토가 필요합니다.
+- 연결된 외부 코드 예시는 참조만 하고, 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L1498 `../../code/carousel.html`, L1636 `../../code/carousel_banner.html`. 확인하지 못한 내용은 추정하지 않습니다.
+- 상세에 가이드 이미지 참조가 14개 있으며, 내장 픽셀 도식은 시각적으로 검사하지 않았습니다. 텍스트 구조와 지침만 읽었으며, 정확한 시각 치수와 자산은 이후 시각/출처 검토가 필요합니다.
+- 의미 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 각 네이티브 렌더러는 자체 구현, 동작/스토리 소스, 독립 인수가 여전히 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-The accepted independent initializers are autoplay=false, intervalMs=6000, loop=false and defaultIndex=0. Mandatory local focus/hover/visibility/reduced-motion inhibition takes precedence over controlled playback intent; source evidence is preserved.
+수용된 독립 초기값은 autoplay=false, intervalMs=6000, loop=false, defaultIndex=0입니다. 필수 로컬 초점/호버/가시성/동작 줄이기 억제가 제어된 재생 의도보다 우선하며, 출처 근거는 보존됩니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `CarouselContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `CarouselContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트가 지원 케이스 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트·조합·자산·통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서의 공식 인용·파생 텍스트는 원래 KRDS 권리와 출처 표기를 유지하며, 독립 코드 MIT 부여는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며, 여기 인용한 실질 요구사항을 면제하지 않습니다.

@@ -1,10 +1,10 @@
-# Component catalog
+# 컴포넌트 목록 {#component-catalog}
 
-54 web-applicable entries, generated from the frozen catalog. Use the search button (or Ctrl/Cmd+K) to search English names, Korean names, APIs, and keyboard guidance. Splash screen is platform-only and excluded from this web catalog.
+고정된 카탈로그에서 생성한 웹 적용 항목 54개입니다. 검색 버튼(또는 Ctrl/Cmd+K)으로 영문 이름, 한국어 이름, API, 키보드 안내를 검색합니다. 스플래시 화면(Splash screen)은 플랫폼 전용이므로 이 웹 카탈로그에서 제외합니다.
 
-**Availability comes from recorded coverage.** An export or a successful compiler check does not establish verified native behavior. Solid 2 is an isolated preview and never contributes stable coverage.
+**지원 현황은 기록된 커버리지에서 가져옵니다.** export나 컴파일러 검사 성공만으로는 네이티브 동작이 검증되지 않습니다. Solid 2는 격리된 미리보기입니다. 안정 커버리지에 절대 포함되지 않습니다.
 
-| Component | Korean name | Completion kind | Cases |
+| 컴포넌트 | 한국어 이름 | 완료 종류 | 케이스 |
 | --- | --- | --- | --- |
 | [Masthead](./masthead) | 공식 배너 | component | `default` |
 | [Identifier](./identifier) | 운영기관 식별자 | component | `light`, `dark` |

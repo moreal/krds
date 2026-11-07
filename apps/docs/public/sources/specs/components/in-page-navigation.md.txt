@@ -1,74 +1,73 @@
-# InPageNavigation
+# 콘텐츠 내 탐색 {#in-page-navigation}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 인수일 뿐입니다. 네이티브 동작, 시각·자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `in-page-navigation`; Korean name 콘텐츠 내 탐색; export `InPageNavigation`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `in-page-navigation`, 한국어 이름 콘텐츠 내 탐색, export `InPageNavigation`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_03_05](https://www.krds.go.kr/html/site/component/component_03_05.html); preserved [HTML](../../upstream/krds/raw/components/component_03_05.html). Retrieved `2026-10-29T23:28:03.138Z`; `80770` bytes; SHA-256 `7de4b0ef8b8d310581242e20cf5714c2de62dd2410bf46d1e6984fd90d7124fc`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_03_05](https://www.krds.go.kr/html/site/component/component_03_05.html), 보존본 [HTML](../../upstream/krds/raw/components/component_03_05.html). 수집 `2026-10-29T23:28:03.138Z`, `80770` 바이트, SHA-256 `7de4b0ef8b8d310581242e20cf5714c2de62dd2410bf46d1e6984fd90d7124fc`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `composition`; accepted project completion kind `composition`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류는 `composition`, 수용된 프로젝트 완료 종류도 `composition`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `desktop-side`, `mobile-inline`, `mobile-disclosure`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 케이스(변형·상태 축)는 `desktop-side`, `mobile-inline`, `mobile-disclosure`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Outline title (not h1), nested list of same-document section links, and active-section cue. Mark up between page title and body even if desktop CSS places it at the right. Link labels match target headings; use at most three levels and normally one.
+구성은 개요 제목(h1 아님), 같은 문서 섹션 링크의 중첩 목록, 활성 섹션 표시입니다. 데스크톱 CSS가 오른쪽에 두더라도 마크업은 페이지 제목과 본문 사이에 둡니다. 링크 레이블은 대상 헤딩과 일치해야 합니다. 단계는 최대 세 개이며 보통 한 개를 씁니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: sections {id,label,children?}[], title="이 페이지의 구성", activeId/onActiveChange({id,reason}), optional collapsible narrow mode. Real anchors target registered sections; active state follows scroll observation independently of link activation.
+독립 API입니다. sections {id,label,children?}[], title="이 페이지의 구성", activeId/onActiveChange({id,reason}), 선택적 접이식 좁은 화면 모드를 씁니다. 실제 앵커가 등록된 섹션을 가리킵니다. 활성 상태는 링크 활성화와 무관하게 스크롤 관찰을 따릅니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Tab/Shift+Tab traverse links. Enter and official Space action scroll and focus target heading/section; mouse click scrolls while focus remains on link. Prevent Space page-scroll only on outline link activation, ignore composition. No focus move from passive scroll-observer updates.
+Tab/Shift+Tab으로 링크를 순회합니다. Enter와 공식 Space 동작은 대상 헤딩/섹션으로 스크롤하고 초점을 옮깁니다. 마우스 클릭은 스크롤하되 초점은 링크에 남습니다. Space의 페이지 스크롤 방지는 개요 링크 활성화에서만 하고, 조합 입력은 무시합니다. 스크롤 관찰자의 패시브 갱신으로는 초점을 옮기지 않습니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Desktop positions to right; narrow outline is nonsticky between title/body, optionally Disclosure if long. Account for sticky-header offset and reduced motion; no infinite-scroll outline.
+데스크톱에서는 오른쪽에 배치합니다. 좁은 화면에서는 개요가 제목과 본문 사이에 고정되지 않은 채 놓이며, 길면 선택적으로 Disclosure를 씁니다. 고정 헤더 오프셋과 동작 줄이기를 고려합니다. 무한 스크롤 개요는 없습니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form value/reset. IME-sensitive key filtering only if keyboard handling receives composing events.
+폼 값과 리셋은 없습니다. 키보드 처리가 조합(composing) 이벤트를 받을 때만 IME를 고려한 키 필터링을 합니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host supplies matching stable section headings/targets and can remove sections; clean observers on unmount/route change and update active state without stale target focus. Completion requires long page with real destinations.
+호스트가 일치하는 안정적인 섹션 헤딩/대상을 제공하며 섹션을 제거할 수도 있습니다. 언마운트·라우트 변경 시 관찰자를 정리하고, 오래된 대상에 초점을 두지 않고 활성 상태를 갱신합니다. 완료하려면 실제 목적지가 있는 긴 페이지가 필요합니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, header, title, list, item, link, indicator, disclosure-trigger; active,expanded/collapsed.
 
-All rendered owned parts use `data-krds-component="in-page-navigation"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링된 모든 소유 파트는 `data-krds-component="in-page-navigation"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 씁니다. 네이티브/ARIA 상태가 우선합니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. DOM outline precedes body while desktop visual position is right.
-2. Keyboard Enter/Space focuses target and next Tab enters it.
-3. Pointer navigation preserves link focus.
-4. Passive scrolling only updates indicator.
-5. Removed target has no stale observer or focus attempt.
-6. Narrow outline is inline and accessible.
+1. 데스크톱의 시각 위치가 오른쪽이어도 DOM 개요가 본문보다 앞에 옵니다.
+2. 키보드 Enter/Space가 대상에 초점을 두고 다음 Tab이 그 안으로 들어갑니다.
+3. 포인터 이동은 링크 초점을 보존합니다.
+4. 패시브 스크롤은 표시기만 갱신합니다.
+5. 제거된 대상에는 오래된 관찰자나 초점 시도가 없습니다.
+6. 좁은 화면의 개요는 인라인이며 접근 가능합니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색 외 상태 단서, 움직임이 있다면 동작 줄이기를 검증합니다. 빈 스위트로 성공을 주장하지 않습니다.
 
-## Independent local specimen policy
+## 독립 로컬 표본 정책 {#independent-local-specimen-policy}
 
-The independent collapsed mobile-disclosure specimen names its actual control “구성 펼치기”; after expansion the action is “구성 접기”. The navigation retains its supplied outline title. This wording is local specimen policy, not an official required literal.
+독립 접힘 모바일 disclosure 표본은 실제 컨트롤 이름을 “구성 펼치기”로 정합니다. 펼친 뒤 동작은 “구성 접기”입니다. 내비게이션은 전달받은 개요 제목을 유지합니다. 이 문구는 로컬 표본 정책이며 공식 필수 리터럴이 아닙니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `in-page-navigation--desktop-side`, `in-page-navigation--mobile-inline`, `in-page-navigation--mobile-disclosure`, `in-page-navigation--three-level-outline`, `in-page-navigation--sticky-offset`, `in-page-navigation--removed-section`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 케이스는 해당하는 모든 네이티브 렌더러에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. 렌더러는 Solid 1, React, Svelte, Vue, Lit, Qwik, Angular이며 Solid 2 미리보기는 따로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 별도로 준비됩니다. 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부가 인수되어야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 상류 siheom 어댑터만 씁니다. Lit과 Solid 2는 siheom 지원을 지어내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름과 대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러/렌더러를 가져와서는 안 됩니다. 다른 프레임워크 렌더러 래퍼는 금지합니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 실제 보존 상세 HTML에서 추출했으며 핵심 지침과 상호작용·마크업 표를 포함합니다. 공식 요구사항을 지어내지 않도록 출처 언어(한국어)를 그대로 둡니다. “고려/권장/수 있다” 같은 표현은 권고로 남습니다. 예시나 CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브 제어 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 빼면 독립 선택입니다.
 
 ### 구조
 
@@ -157,19 +156,19 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1431–1431](../../upstream/krds/raw/components/component_03_05.html:1431): 키보드 탐색 시 초점이 순차적으로 이동하는지 확인한다.
 - L[1432–1432](../../upstream/krds/raw/components/component_03_05.html:1432): 해당 컴포넌트가 본문 영역 이전에 위치하는지 확인한다.
 
-Inline preserved example markup (reference, not the public native API): L[1217–1247](../../upstream/krds/raw/components/component_03_05.html:1217)
+보존된 인라인 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1217–1247](../../upstream/krds/raw/components/component_03_05.html:1217)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지 출처 참조는 복사한 구현이 아닙니다. 표 행의 필수/선택 열을 보존한 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Official desktop prose says natural reading order after content while accessibility explicitly says markup before body; follow explicit accessibility order and flag this source tension.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1258 `../../code/in_page_navigation.html`, L1416 `../../../resources/js/examples/krds_inPageNavigation.js`, L1444 `./variable/in_page_navigation.html`. Do not infer unseen contents.
-- 1 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 공식 데스크톱 설명은 콘텐츠 뒤의 자연스러운 읽기 순서를 말하지만, 접근성 항목은 마크업을 본문 앞에 두라고 명시합니다. 명시된 접근성 순서를 따르고 이 출처 내 긴장을 표시합니다.
+- 연결된 외부 코드 예시는 참조만 하며 이 준비 단계에서 별도 파일로 포함하거나 읽지 않았습니다. L1258 `../../code/in_page_navigation.html`, L1416 `../../../resources/js/examples/krds_inPageNavigation.js`, L1444 `./variable/in_page_navigation.html`. 보지 않은 내용을 추측하지 않습니다.
+- 상세에는 안내 이미지 참조 1건이 있습니다. 내장 픽셀 도해는 시각적으로 검사하지 않았습니다. 텍스트 구조와 지침은 읽었습니다. 정확한 시각 치수·자산은 이후 시각·출처 검토가 필요합니다.
+- 의미 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `InPageNavigationContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `InPageNavigationContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 케이스 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼로는 이 계약을 충족할 수 없습니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에 인용·파생된 공식 텍스트는 원래의 KRDS 권리와 출처 표시를 유지합니다. 독립 코드의 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 검사하지 않은 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며, 여기 인용한 실질 요구사항을 면제하지 않습니다.

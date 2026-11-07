@@ -1,69 +1,69 @@
-# VisuallyHidden
+# 숨긴 콘텐츠 {#visually-hidden}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현용으로 범위 승인됨.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 승인일 뿐이며, 네이티브 동작, 시각/자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `visually-hidden`; Korean name 숨긴 콘텐츠; export `VisuallyHidden`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `visually-hidden`, 한국어 이름 숨긴 콘텐츠, export `VisuallyHidden`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_11_02](https://www.krds.go.kr/html/site/component/component_11_02.html); preserved [HTML](../../upstream/krds/raw/components/component_11_02.html). Retrieved `2026-10-29T23:28:05.828Z`; `59345` bytes; SHA-256 `85084e384fe08830d57e655107833ede6044760d3e4c83f20dc54ddd0c5488c6`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_11_02](https://www.krds.go.kr/html/site/component/component_11_02.html), 보존된 [HTML](../../upstream/krds/raw/components/component_11_02.html). 조회 시각 `2026-10-29T23:28:05.828Z`, `59345` 바이트, SHA-256 `85084e384fe08830d57e655107833ede6044760d3e4c83f20dc54ddd0c5488c6`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류는 `component`, 인수된 프로젝트 완료 종류도 `component`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `text`, `interactive-overlay`, `aria-association`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `text`, `interactive-overlay`, `aria-association`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Text hiding primitive preserves meaningful content in accessibility tree, plus a separate interactive overlay pattern matching visible surrogate geometry. Never display:none/visibility:hidden, zero-sized/zero-font text, offscreen displaced focus targets. Prefer native semantics/visible information first.
+의미 있는 콘텐츠를 접근성 트리에 보존하는 텍스트 숨김 프리미티브와, 보이는 대체 요소의 기하와 일치하는 별도의 대화형 오버레이 패턴을 둡니다. display:none/visibility:hidden, 크기가 0인 텍스트/글꼴 크기 0 텍스트, 화면 밖으로 옮긴 초점 대상은 절대 쓰지 않습니다. 네이티브 시맨틱과 보이는 정보를 먼저 선택합니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: VisuallyHidden renders span by default with id/lang/content; text variant uses nonzero clipping style. Interactive-overlay variant requires an actual native child control over its visible representation at matching dimensions, opacity/z-index and visible surrogate focus outline. ARIA relationship mode uses actual IDs/attributes instead of extra hidden duplicate name.
+독립 API: VisuallyHidden은 기본적으로 id/lang/콘텐츠를 가진 span을 렌더링하며, text 변형은 0이 아닌 클리핑 스타일을 씁니다. interactive-overlay 변형에는 보이는 표현 위에 같은 크기, opacity/z-index, 보이는 대체 초점 윤곽선을 가진 실제 네이티브 자식 컨트롤이 필요합니다. ARIA 관계 모드는 숨은 중복 이름을 추가하지 않고 실제 ID/속성을 씁니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Text primitive has no tab stop/key behavior. Interactive child retains native keyboard behavior and a visible focus indicator at its true position; do not apply 1px text-clipping style to focusable controls. Screen-reader virtual cursor geometry manually tested.
+텍스트 프리미티브에는 탭 정지점이나 키 동작이 없습니다. 대화형 자식은 네이티브 키보드 동작을 유지하고 실제 위치에 보이는 초점 표시를 둡니다. 초점 가능한 컨트롤에는 1px 텍스트 클리핑 스타일을 적용하지 않습니다. 스크린 리더 가상 커서 기하는 수동으로 테스트합니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Maintain overlay alignment on responsive layout/zoom and translate hidden text when service locale changes. Test mobile VoiceOver/TalkBack as well as desktop combinations named in source.
+반응형 레이아웃/확대에서 오버레이 정렬을 유지하고, 서비스 언어가 바뀌면 숨긴 텍스트도 번역합니다. 출처에 명시된 데스크톱 조합뿐 아니라 모바일 VoiceOver/TalkBack도 테스트합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-Hidden content itself no form value. Native overlaid input retains full name/value/reset/IME rules of consuming control.
+숨긴 콘텐츠 자체에는 폼 값이 없습니다. 위에 겹친 네이티브 입력은 이를 소비하는 컨트롤의 name/value/리셋/IME 규칙을 모두 유지합니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host owns meaningful descriptions and translations; this primitive does not replace proper native semantics or universal naming decisions. Completion includes text a11y-tree proof plus interactive geometry/manual AT evidence; CSS class alone untested is insufficient.
+의미 있는 설명과 번역은 호스트가 소유합니다. 이 프리미티브는 올바른 네이티브 시맨틱이나 보편적인 이름 결정을 대체하지 않습니다. 완료에는 텍스트의 접근성 트리 증명과 대화형 기하/수동 보조 기술 근거가 포함됩니다. 테스트하지 않은 CSS 클래스만으로는 부족합니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, overlay-control, visible-surrogate; text,interactive-overlay,focus-visible.
 
-All rendered owned parts use `data-krds-component="visually-hidden"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="visually-hidden"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Text remains in a11y tree while visually absent.
-2. No zero-size/display-none implementation.
-3. Native child focus outline aligns with visible surrogate.
-4. Zoom/reflow preserves virtual cursor geometry.
-5. Locale update translates hidden content.
-6. No duplicate spoken label.
+1. 텍스트는 시각적으로 없어도 접근성 트리에 남습니다.
+2. 크기 0 또는 display-none 구현이 없습니다.
+3. 네이티브 자식의 초점 윤곽선이 보이는 대체 요소와 정렬됩니다.
+4. 확대/리플로우가 가상 커서 기하를 보존합니다.
+5. 언어 갱신이 숨긴 콘텐츠를 번역합니다.
+6. 음성으로 읽히는 레이블이 중복되지 않습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 표시, 움직임이 있는 곳의 동작 줄이기를 검증합니다. 빈 스위트를 성공으로 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `visually-hidden--text`, `visually-hidden--aria-association`, `visually-hidden--interactive-overlay`, `visually-hidden--zoom`, `visually-hidden--translated`, `visually-hidden--manual-at`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례에는 해당하는 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 마련되며 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 사용합니다. Lit/Solid 2는 siheom 지원을 만들지 않고 선택된 네이티브 테스트 경로를 사용해야 합니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름/대상 관계를 검증해야 합니다. Solid 2는 Solid 1 컴파일러/렌더러를 import하면 안 됩니다. 다른 렌더러의 래퍼는 쓰지 않습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
+아래 발췌는 이 항목의 실제 보존된 상세 HTML에서 추출했으며 핵심 지침과 상호작용/마크업 표를 포함합니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 그대로 둡니다. “consider/recommended/can”에 해당하는 표현은 권고로 남습니다. 예시/CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 아래 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립적인 선택입니다.
 
 
 ### 용례
@@ -109,22 +109,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[950–950](../../upstream/krds/raw/components/component_11_02.html:950): 스크린 리더 테스트를 수행한다.
 - L[951–952](../../upstream/krds/raw/components/component_11_02.html:951): 사용자 에이전트, 스크린 리더는 주기적으로 업데이트되기 때문에 숨긴 콘텐츠가 호환되지 않을 수 있다. 따라서 정기적인 스크린 리더 테스트를 거쳐 숨긴 콘텐츠가 제대로 작동하고 있는지 확인해야 한다. 다양한 스크린 리더(예 - SenseReader, VoiceOver, TalkBack)와 브라우저(예 - Chrome, Edge, Safari) 조합에서 테스트를 수행해 호환성을 보장해야 한다.
 
-Inline preserved example markup (reference, not the public native API): No inline sample-view markup in this detail.
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+인라인으로 보존된 예시 마크업(참고용이며 공개 네이티브 API가 아님): 이 상세에는 인라인 샘플 뷰 마크업이 없습니다.
 
-## Evidence limitations and recorded policy
+CSS/JS/안내 이미지의 출처 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-- Recorded independent decision: The text primitive exposes descriptive content, not a universal accessible-name generator. In aria-association mode the native consuming control owns actual same-root aria-labelledby/aria-describedby relationships and any target ID; the primitive does not add duplicate hidden labels. Text clipping must never be applied to focusable native controls. This explicit scope preserves both quoted source statements without inventing a blanket naming recipe.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L889 `./code/hidden_text.html`, L900 `./code/hidden_control.html`. Do not infer unseen contents.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-## Accepted independent resolution
+- 기록된 독립 결정: 텍스트 프리미티브는 설명 콘텐츠를 노출할 뿐 보편적인 접근 가능한 이름 생성기가 아닙니다. aria-association 모드에서는 이를 소비하는 네이티브 컨트롤이 같은 루트의 실제 aria-labelledby/aria-describedby 관계와 대상 ID를 소유하며, 프리미티브는 중복된 숨은 레이블을 추가하지 않습니다. 텍스트 클리핑은 초점 가능한 네이티브 컨트롤에 절대 적용하면 안 됩니다. 이 명시적 범위는 만능 이름 부여 방식을 만들어 내지 않고 인용된 두 출처 진술을 모두 보존합니다.
+- 연결된 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L889 `./code/hidden_text.html`, L900 `./code/hidden_control.html`. 보지 못한 내용을 추론하지 않습니다.
+- 시맨틱 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-The text primitive exposes descriptive content, not a universal accessible-name generator. In aria-association mode the native consuming control owns actual same-root aria-labelledby/aria-describedby relationships and any target ID; the primitive does not add duplicate hidden labels. Text clipping must never be applied to focusable native controls. This explicit scope preserves both quoted source statements without inventing a blanket naming recipe.
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-## Shared implementation handoff
+텍스트 프리미티브는 설명 콘텐츠를 노출할 뿐 보편적인 접근 가능한 이름 생성기가 아닙니다. aria-association 모드에서는 이를 소비하는 네이티브 컨트롤이 같은 루트의 실제 aria-labelledby/aria-describedby 관계와 대상 ID를 소유하며, 프리미티브는 중복된 숨은 레이블을 추가하지 않습니다. 텍스트 클리핑은 초점 가능한 네이티브 컨트롤에 절대 적용하면 안 됩니다. 이 명시적 범위는 만능 이름 부여 방식을 만들어 내지 않고 인용된 두 출처 진술을 모두 보존합니다.
 
-The exact semantic interface is `VisuallyHiddenContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+정확한 시맨틱 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `VisuallyHiddenContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
+
+이 문서에서 인용하거나 파생한 공식 텍스트는 원래의 KRDS 권리와 출처 표기를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

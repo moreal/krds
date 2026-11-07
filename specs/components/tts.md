@@ -1,73 +1,73 @@
-# TTS
+# 음성지원 {#tts}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현용으로 범위 승인됨.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 승인일 뿐이며, 네이티브 동작, 시각/자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `tts`; Korean name 음성지원; export `TTS`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `tts`, 한국어 이름 음성지원, export `TTS`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_08_06](https://www.krds.go.kr/html/site/component/component_08_06.html); preserved [HTML](../../upstream/krds/raw/components/component_08_06.html). Retrieved `2026-10-29T23:28:05.240Z`; `74209` bytes; SHA-256 `a097e58a8d1692f196188d0bca075636c5c7125083834e47e71313842536e280`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_08_06](https://www.krds.go.kr/html/site/component/component_08_06.html), 보존된 [HTML](../../upstream/krds/raw/components/component_08_06.html). 조회 시각 `2026-10-29T23:28:05.240Z`, `74209` 바이트, SHA-256 `a097e58a8d1692f196188d0bca075636c5c7125083834e47e71313842536e280`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `integration`; accepted project completion kind `integration`. Retain integration: L900–911 scopes page/region summaries, L972–980 user-controlled playback, L1341–1346 function signature; engine is host-owned.
+고정 출처 종류는 `integration`, 인수된 프로젝트 완료 종류도 `integration`입니다. integration을 유지합니다. L900–911은 페이지/영역 요약으로 범위를 정하고, L972–980은 사용자가 제어하는 재생을, L1341–1346은 함수 시그니처를 다룹니다. 엔진은 호스트가 소유합니다.
 
-Supported native cases (variant and state axes): `page`, `region`, `play`, `icon`, `xsmall`, `small`, `medium`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `page`, `region`, `play`, `icon`, `xsmall`, `small`, `medium`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Named speech-start button adjacent to page title or region and explicit pause/stop controls. Read a concise purpose/flow summary, not indiscriminate whole-page text or duplication of screen reader. No automatic playback on mount/navigation.
+이름이 있는 음성 시작 버튼을 페이지 제목이나 영역 옆에 두고, 명시적인 일시정지/정지 컨트롤을 함께 둡니다. 페이지 전체 텍스트를 무분별하게 읽거나 스크린 리더와 중복하지 않고, 간결한 목적/흐름 요약을 읽습니다. 마운트/내비게이션 시 자동 재생은 없습니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: summary, locale, state=idle|playing|paused|error, onRequest({action:play|pause|resume|stop,summary,locale}), label, size=small, iconOnly=false. Host confirms state; component does not invoke speech engine from prop change.
+독립 API: summary, locale, state=idle|playing|paused|error, onRequest({action:play|pause|resume|stop,summary,locale}), label, size=small, iconOnly=false. 상태는 호스트가 확인합니다. 컴포넌트는 prop 변경으로 음성 엔진을 호출하지 않습니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Native buttons Enter/Space/click once; pause and stop always available while playing. State is exposed in text/control names without competing automatic speech/live announcements. Independent policy: disable Play when unsupported and show explanation; cleanup issues stop request on route/unmount through host lifecycle.
+네이티브 버튼은 Enter/Space/click에 한 번 동작합니다. 재생 중에는 일시정지와 정지를 항상 쓸 수 있습니다. 상태는 경쟁하는 자동 음성/라이브 알림 없이 텍스트와 컨트롤 이름으로 노출합니다. 독립 정책: 지원되지 않으면 재생을 비활성화하고 이유를 보여 줍니다. 정리 시에는 호스트 수명 주기를 통해 라우트 이동/언마운트에서 정지 요청을 냅니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Visible labels recommended; icon-only has functional accessible name. Page/region placement remains attached to correct summary on narrow screens.
+보이는 레이블을 권장합니다. 아이콘 전용은 기능적인 접근 가능한 이름을 가집니다. 좁은 화면에서도 페이지/영역 배치는 올바른 요약에 붙어 있어야 합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form/reset/IME behavior; controls type=button.
+폼/리셋/IME 동작은 없으며 컨트롤은 type=button입니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Integration completion includes native controls + documented host driver boundary + explicit local mock supporting play/pause/stop/error. Host owns SpeechSynthesis/service, voices, consent/runtime support and actual audio. No network/real speech required by stories.
+통합 완료에는 네이티브 컨트롤, 문서화된 호스트 드라이버 경계, play/pause/stop/error를 지원하는 명시적 로컬 목(mock)이 포함됩니다. SpeechSynthesis/서비스, 음성, 동의/런타임 지원, 실제 오디오는 호스트가 소유합니다. 스토리에 네트워크나 실제 음성은 필요하지 않습니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, play, pause, stop, label, status; idle,playing,paused,error,unsupported.
 
-All rendered owned parts use `data-krds-component="tts"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="tts"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Mount/route changes never autoplay.
-2. Each request emitted once with correct region summary.
-3. Pause/stop remain reachable.
-4. Mock confirmed state updates labels.
-5. Unsupported/error visible and actionable.
-6. Driver disposed/stopped on teardown.
+1. 마운트/라우트 변경은 절대 자동 재생하지 않습니다.
+2. 각 요청은 올바른 영역 요약과 함께 한 번만 내보냅니다.
+3. 일시정지/정지에 계속 접근할 수 있습니다.
+4. 목이 확인한 상태가 레이블을 갱신합니다.
+5. 미지원/오류가 보이고 조치할 수 있습니다.
+6. 해체 시 드라이버가 폐기/정지됩니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 표시, 움직임이 있는 곳의 동작 줄이기를 검증합니다. 빈 스위트를 성공으로 주장하지 않습니다.
 
-## Independent canonical default names
+## 독립 정식 기본 이름 {#independent-canonical-default-names}
 
-Use the actual supplied label in control names. The canonical paused/resume action name is “{label} 다시 재생”; activating it still requests resume and preserves the current playback position rather than restarting. Error retry uses the same “{label} 다시 재생” name with its existing retry request semantics. This is independent default UI wording, not a new action/prop or an instruction to reset playback; supplied labels remain authoritative.
+컨트롤 이름에는 실제로 제공된 레이블을 씁니다. 정식 일시정지/재개 동작 이름은 “{label} 다시 재생”입니다. 이를 활성화하면 여전히 resume을 요청하며 처음부터 다시 시작하지 않고 현재 재생 위치를 유지합니다. 오류 재시도도 기존 재시도 요청 의미를 유지한 채 같은 “{label} 다시 재생” 이름을 씁니다. 이는 독립적인 기본 UI 문구이며 새 동작/prop도, 재생을 초기화하라는 지시도 아닙니다. 제공된 레이블이 계속 우선합니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `tts--page`, `tts--region`, `tts--play-pause-stop-mock`, `tts--icon`, `tts--sizes`, `tts--unsupported`, `tts--error`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례에는 해당하는 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 마련되며 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 사용합니다. Lit/Solid 2는 siheom 지원을 만들지 않고 선택된 네이티브 테스트 경로를 사용해야 합니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름/대상 관계를 검증해야 합니다. Solid 2는 Solid 1 컴파일러/렌더러를 import하면 안 됩니다. 다른 렌더러의 래퍼는 쓰지 않습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
+아래 발췌는 이 항목의 실제 보존된 상세 HTML에서 추출했으며 핵심 지침과 상호작용/마크업 표를 포함합니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 그대로 둡니다. “consider/recommended/can”에 해당하는 표현은 권고로 남습니다. 예시/CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 아래 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립적인 선택입니다.
 
 
 ### 구조
@@ -127,19 +127,19 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1322–1322](../../upstream/krds/raw/components/component_08_06.html:1322): JS
 - L[1341–1346](../../upstream/krds/raw/components/component_08_06.html:1341): krds_playTts krds_playTts('읽을 내용', this)
 
-Inline preserved example markup (reference, not the public native API): L[1111–1140](../../upstream/krds/raw/components/component_08_06.html:1111), L[1167–1189](../../upstream/krds/raw/components/component_08_06.html:1167), L[1216–1240](../../upstream/krds/raw/components/component_08_06.html:1216)
+인라인으로 보존된 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1111–1140](../../upstream/krds/raw/components/component_08_06.html:1111), L[1167–1189](../../upstream/krds/raw/components/component_08_06.html:1167), L[1216–1240](../../upstream/krds/raw/components/component_08_06.html:1216)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지의 출처 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Frozen detail has JS function signature only, no exact speech engine/timer/state lifecycle. Proposed host driver is independent design.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1151 `../../code/tts.html`, L1200 `../../code/tts_size.html`, L1251 `../../code/tts_icon.html`. Do not infer unseen contents.
-- 5 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 고정된 상세에는 JS 함수 시그니처만 있고 정확한 음성 엔진/타이머/상태 수명 주기는 없습니다. 제안한 호스트 드라이버는 독립 설계입니다.
+- 연결된 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L1151 `../../code/tts.html`, L1200 `../../code/tts_size.html`, L1251 `../../code/tts_icon.html`. 보지 못한 내용을 추론하지 않습니다.
+- 상세에는 안내 이미지 참조 5개가 있으며, 내장 픽셀 다이어그램은 시각적으로 확인하지 않았습니다. 텍스트 구조/지침은 읽었습니다. 정확한 시각 치수/자산은 이후 시각·출처 검토가 필요합니다.
+- 시맨틱 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `TTSContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 시맨틱 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `TTSContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에서 인용하거나 파생한 공식 텍스트는 원래의 KRDS 권리와 출처 표기를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

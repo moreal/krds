@@ -1,31 +1,31 @@
 ---
-title: 'Snackbar · 스낵바'
+title: '스낵바 · Snackbar'
 ---
 
-# Snackbar
+# 스낵바 {#snackbar}
 
-스낵바 · `Snackbar` · component
+Snackbar · `Snackbar` · component
 
-[Official KRDS guidance](https://www.krds.go.kr/html/site/component/component_12_06.html) · [Full reviewed specification](/sources/specs/components/snackbar.md.txt) · [Framework support](../compatibility/)
+[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_06.html) · [검토된 전체 명세](/sources/specs/components/snackbar.md.txt) · [프레임워크 지원](../compatibility/)
 
-## Native availability
+## 네이티브 지원 현황 {#native-availability}
 
-These states are copied from `catalog/coverage.json`; they are not inferred from exports, examples, or test-runner exit codes.
+아래 상태는 `catalog/coverage.json`에서 그대로 가져옵니다. export, 예제, 테스트 실행기 종료 코드에서 추론하지 않습니다.
 
-| Framework | Package version | Recorded state | Export declaration | Native examples and stories |
+| 프레임워크 | 패키지 버전 | 기록된 상태 | export 선언 | 네이티브 예제와 스토리 |
 | --- | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [current subpath manifest](/sources/packages/react/package.json.txt); [historical declaration checkpoint](/sources/packages/react/dist/components/snackbar/index.d.ts.txt) | [react sources and preview policy](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [current subpath manifest](/sources/packages/solid/package.json.txt); [historical declaration checkpoint](/sources/packages/solid/dist/components/snackbar/index.d.ts.txt) | [solid sources and preview policy](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [current subpath manifest](/sources/packages/svelte/package.json.txt); [historical declaration checkpoint](/sources/packages/svelte/dist/components/Snackbar.svelte.d.ts.txt) | [svelte sources and preview policy](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [current subpath manifest](/sources/packages/vue/package.json.txt); [historical declaration checkpoint](/sources/packages/vue/dist/components/snackbar/Snackbar.vue.d.ts.txt) | [vue sources and preview policy](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [current subpath manifest](/sources/packages/lit/package.json.txt); [historical declaration checkpoint](/sources/packages/lit/dist/components/snackbar/index.d.ts.txt) | [lit sources and preview policy](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [current subpath manifest](/sources/packages/qwik/package.json.txt); [historical declaration checkpoint](/sources/packages/qwik/dist/components/snackbar/index.d.ts.txt) | [qwik sources and preview policy](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [current subpath manifest](/sources/packages/angular/package.json.txt); [historical declaration checkpoint](/sources/packages/angular/dist/types/unofficial-krds-angular-snackbar.d.ts.txt) | [angular sources and preview policy](../compatibility/examples#angular) |
-| solid-next (preview) | `0.1.0-preview.0` | planned | [current root manifest](/sources/packages/solid-next/package.json.txt); [historical declaration checkpoint](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next sources and preview policy](../compatibility/examples#solid-next) |
+| react | `0.1.0` | planned | [현재 하위 경로 매니페스트](/sources/packages/react/package.json.txt); [과거 선언 체크포인트](/sources/packages/react/dist/components/snackbar/index.d.ts.txt) | [react 소스와 미리보기 정책](../compatibility/examples#react) |
+| solid | `0.1.0` | planned | [현재 하위 경로 매니페스트](/sources/packages/solid/package.json.txt); [과거 선언 체크포인트](/sources/packages/solid/dist/components/snackbar/index.d.ts.txt) | [solid 소스와 미리보기 정책](../compatibility/examples#solid) |
+| svelte | `0.1.0` | planned | [현재 하위 경로 매니페스트](/sources/packages/svelte/package.json.txt); [과거 선언 체크포인트](/sources/packages/svelte/dist/components/Snackbar.svelte.d.ts.txt) | [svelte 소스와 미리보기 정책](../compatibility/examples#svelte) |
+| vue | `0.1.0` | planned | [현재 하위 경로 매니페스트](/sources/packages/vue/package.json.txt); [과거 선언 체크포인트](/sources/packages/vue/dist/components/snackbar/Snackbar.vue.d.ts.txt) | [vue 소스와 미리보기 정책](../compatibility/examples#vue) |
+| lit | `0.1.0` | planned | [현재 하위 경로 매니페스트](/sources/packages/lit/package.json.txt); [과거 선언 체크포인트](/sources/packages/lit/dist/components/snackbar/index.d.ts.txt) | [lit 소스와 미리보기 정책](../compatibility/examples#lit) |
+| qwik | `0.1.0` | planned | [현재 하위 경로 매니페스트](/sources/packages/qwik/package.json.txt); [과거 선언 체크포인트](/sources/packages/qwik/dist/components/snackbar/index.d.ts.txt) | [qwik 소스와 미리보기 정책](../compatibility/examples#qwik) |
+| angular | `0.1.0` | planned | [현재 하위 경로 매니페스트](/sources/packages/angular/package.json.txt); [과거 선언 체크포인트](/sources/packages/angular/dist/types/unofficial-krds-angular-snackbar.d.ts.txt) | [angular 소스와 미리보기 정책](../compatibility/examples#angular) |
+| solid-next (미리보기) | `0.1.0-preview.0` | planned | [현재 루트 매니페스트](/sources/packages/solid-next/package.json.txt); [과거 선언 체크포인트](/sources/packages/solid-next/dist/index.d.ts.txt) | [solid-next 소스와 미리보기 정책](../compatibility/examples#solid-next) |
 
-## Props, events, content and defaults
+## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
 
-The semantic contract below is shared data only. Native content, refs and event transport belong to each adapter. Callback names and detail types in the contract are exact; do not pass machine objects. Optional properties are not automatically defaulted: use the explicit defaults in the guidance below.
+아래 의미 계약은 공유 데이터일 뿐입니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 계약의 콜백 이름과 detail 타입은 그대로 씁니다. 머신 객체를 전달하지 않습니다. 선택 속성에는 기본값이 자동으로 채워지지 않습니다. 아래 안내의 명시적 기본값을 씁니다.
 
 ```ts
 export interface SnackbarContract {
@@ -68,81 +68,81 @@ export type SnackbarAction = {
 };
 ```
 
-| Semantic property / callback | Required | Exact type | Role |
+| 의미 속성 / 콜백 | 필수 | 정확한 타입 | 역할 |
 | --- | --- | --- | --- |
-| `message` | yes | `SnackbarMessage \| null` | data / state |
-| `action` | no | `SnackbarAction` | data / state |
-| `onAction` | no | `(detail: {id: string; generation: number; actionId: string}) => void` | semantic event request |
-| `onDismiss` | yes | `(detail: {id: string; reason: 'close' \| 'timeout'; generation: number}) => void` | semantic event request |
-| `durationMs` | no | `number \| null` | data / state |
-| `fallbackFocusId` | no | `string` | data / state |
+| `message` | 예 | `SnackbarMessage \| null` | 데이터 / 상태 |
+| `action` | 아니요 | `SnackbarAction` | 데이터 / 상태 |
+| `onAction` | 아니요 | `(detail: {id: string; generation: number; actionId: string}) => void` | 의미 이벤트 요청 |
+| `onDismiss` | 예 | `(detail: {id: string; reason: 'close' \| 'timeout'; generation: number}) => void` | 의미 이벤트 요청 |
+| `durationMs` | 아니요 | `number \| null` | 데이터 / 상태 |
+| `fallbackFocusId` | 아니요 | `string` | 데이터 / 상태 |
 
-Optional values and explicit defaults are different. Defaults and native content requirements are stated in the reviewed guidance below.
+선택 값과 명시적 기본값은 다릅니다. 기본값과 네이티브 콘텐츠 요구사항은 아래 검토된 안내에 있습니다.
 
-### Native content and event transport
+### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
 
-React and Solid use native JSX/content props; Svelte uses native snippets; Vue uses native slots; Angular uses its native inputs, outputs and content projection; Lit uses custom-element properties, slots and DOM events; Qwik uses native QRL event boundaries. Their transport is not interchangeable. Read the linked public package declaration for exact names and required content. A semantic callback below does not imply a same-named Lit DOM event.
+React와 Solid는 네이티브 JSX/콘텐츠 prop을 씁니다. Svelte는 네이티브 snippet을 씁니다. Vue는 네이티브 슬롯을 씁니다. Angular는 네이티브 input, output, 콘텐츠 투영을 씁니다. Lit은 custom element 속성, 슬롯, DOM 이벤트를 씁니다. Qwik은 네이티브 QRL 이벤트 경계를 씁니다. 이 전달 방식은 서로 바꿔 쓸 수 없습니다. 정확한 이름과 필수 콘텐츠는 링크된 공개 패키지 선언에서 확인합니다. 아래 의미 콜백이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### Native structure and mandatory ordering
+### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-One bottom-center notification: optional subtle icon left, title, concise body, optional directly related text action (max one, at right), visible Close button. Never stack simultaneous snackbars or cover TabBar/FAB; field errors remain inline.
+알림은 화면 하단 중앙에 하나만 둡니다. 구성은 왼쪽의 선택적 은은한 아이콘, 제목, 간결한 본문, 직접 관련된 선택적 텍스트 동작(최대 하나, 오른쪽), 보이는 닫기 버튼입니다. 동시에 여러 스낵바를 쌓지 않고, TabBar나 FAB를 가리지 않습니다. 필드 오류는 인라인으로 유지합니다.
 
-### Plain semantic API
+### 의미 API {#plain-semantic-api}
 
-Choose **host-owned current message and queue**: required `message:{id,title,text,icon?,error?,actionPending?}|null`, initially null; optional one discriminated action `action:{kind:"button",id,label}|{kind:"link",id,label,href,target?,rel?}`, `onAction({id,generation,actionId})` for button actions, `onDismiss({id,reason:close|timeout,generation})` as a dismissal request, durationMs=null (persistent default), and optional `fallbackFocusId`. Host controls message presence, queue/order and actual result; there is no internal enqueue/store/defaultMessage. An action does not implicitly dismiss; host explicitly replaces/removes message after its outcome if appropriate.
+**호스트가 현재 메시지와 큐를 소유**하도록 합니다. 필수 `message:{id,title,text,icon?,error?,actionPending?}|null`(초기값 null)을 둡니다. 선택 동작은 구별된 유니온 하나입니다: `action:{kind:"button",id,label}|{kind:"link",id,label,href,target?,rel?}`. 버튼 동작은 `onAction({id,generation,actionId})`, 닫기 요청은 `onDismiss({id,reason:close|timeout,generation})`입니다. durationMs=null(지속이 기본값)과 선택적 `fallbackFocusId`도 있습니다. 호스트가 메시지 존재, 큐·순서, 실제 결과를 제어합니다. 내부 enqueue/store/defaultMessage는 없습니다. 동작은 암묵적으로 닫지 않습니다. 호스트가 결과에 따라 필요하면 메시지를 명시적으로 교체하거나 제거합니다.
 
-Undo/retry is a named native type=button invoking onAction once. Navigation is an actual anchor with href, native Enter/click, modified-click, context-menu and open-new-tab behavior; do not substitute imperative button navigation or cancel browser semantics. Communicate external/new-window meaning when applicable. Both occupy the one right-side text-action slot; never expose two actions or a nested interactive link/button. role=status applies to message text with controls outside the live text. Persistent default, optional timer and host lifecycle policies below are independent choices.
+실행 취소/재시도는 이름 있는 네이티브 type=button이며 onAction을 한 번 호출합니다. 이동은 href가 있는 실제 앵커이며 네이티브 Enter/클릭, 수정 키 클릭, 컨텍스트 메뉴, 새 탭 열기 동작을 그대로 유지합니다. 명령형 버튼 이동으로 대체하거나 브라우저 의미를 취소하지 않습니다. 해당하면 외부·새 창 의미를 전달합니다. 둘 다 오른쪽의 텍스트 동작 슬롯 하나를 차지합니다. 동작을 둘 노출하거나 중첩된 상호작용 링크·버튼을 두지 않습니다. role=status는 메시지 텍스트에 적용하며, 컨트롤은 라이브 텍스트 밖에 둡니다. 지속 기본값, 선택적 타이머, 아래 호스트 수명주기 정책은 독립 선택입니다.
 
-### Keyboard, focus and state transitions
+### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-No focus steal. Close is a named native type=button; the optional action uses its discriminated native button/link role. On each explicit Close activation request removal once, but wait for actual host removal before restoring focus or advancing any queue. A rejected request keeps the message, reachable action/Close and current focus; repeated explicit user activation may make a new one-per-action request. Button activation emits onAction only, not a synthetic dismissal. Native link navigation remains native; a route owner handles the destination focus rather than restoring an old-page initiator during departure.
+초점을 빼앗지 않습니다. 닫기는 이름 있는 네이티브 type=button이고, 선택 동작은 구별된 네이티브 버튼·링크 역할을 씁니다. 닫기를 명시적으로 활성화할 때마다 제거를 한 번 요청합니다. 초점 복원이나 큐 진행 전에 호스트가 실제로 제거할 때까지 기다립니다. 요청이 거부되면 메시지, 접근 가능한 동작·닫기, 현재 초점을 유지합니다. 사용자가 다시 명시적으로 활성화하면 동작마다 새 요청을 하나 낼 수 있습니다. 버튼 활성화는 onAction만 내고 합성 닫기를 내지 않습니다. 네이티브 링크 이동은 네이티브로 남습니다. 이동 중에는 이전 페이지의 시작 요소로 초점을 복원하지 않고, 경로 소유자가 도착지 초점을 처리합니다.
 
-The host's changed ID immediately replaces current content, and null removes it; neither emits a synthetic dismissal or internally advances a queue. Same-ID text/title/error/action kind/label/href updates the currently rendered notification rather than being discarded as a duplicate. Announce changed accessible message text once; identical text is not reannounced because a callback object changed. A removed/replaced focused control restores only after actual accepted rendering: usable saved initiating control, then usable fallbackFocusId, then nearest usable saved ancestor, finally live document body with temporary tabindex=-1 restored afterwards. Do not focus removed, hidden, disabled, inert or old-route controls; do not steal focus when another usable control already received it from the user's native navigation.
+호스트가 ID를 바꾸면 즉시 현재 콘텐츠를 교체하고, null이면 제거합니다. 어느 쪽도 합성 닫기를 내거나 큐를 내부에서 진행하지 않습니다. 같은 ID에서 text/title/error/action kind/label/href가 바뀌면 중복으로 버리지 않고 현재 렌더링된 알림을 갱신합니다. 접근 가능한 메시지 텍스트가 바뀌면 한 번만 알립니다. 콜백 객체가 바뀌었다는 이유로 같은 텍스트를 다시 알리지 않습니다. 초점 받은 컨트롤이 제거·교체되면 실제로 수용된 렌더링 뒤에만 복원합니다. 순서는 사용할 수 있는 저장된 시작 컨트롤, 사용할 수 있는 fallbackFocusId, 사용할 수 있는 가장 가까운 저장된 조상, 마지막으로 임시 tabindex=-1을 둔 라이브 문서 body이며 이 tabindex는 나중에 원복합니다. 제거됨, 숨김, 비활성, inert, 이전 경로의 컨트롤에는 초점을 주지 않습니다. 사용자의 네이티브 이동으로 다른 사용 가능한 컨트롤이 이미 초점을 받았다면 빼앗지 않습니다.
 
-Use a generation bound to ID and meaningful accessible content/action/effective-duration revisions. Identical duplicate content/callback identity alone does not restart. Each meaningful generation cancels prior timers and may start a fresh full optional lifetime after actual rendering. Default duration null has no timer. For a configured positive timeout, pause remaining time while hovered, while focus is within the snackbar, while actionPending, or while document hidden; resume only when all gates clear. Increasing configured duration creates a new full lifetime as the explicit extension mechanism. A timeout emits one request per generation; if host rejects, keep it visible with no repeated timeout loop. Stale old-generation callbacks cannot dismiss replacements or same-ID revisions. Cleanup timers/listeners on actual removal/unmount; prop updates, focus movement and reset do not emit fabricated user/dismissal notifications.
+ID와 의미 있는 접근 가능한 콘텐츠·동작·유효 지속시간 개정에 묶인 generation을 씁니다. 동일한 중복 콘텐츠나 콜백 정체성만으로는 재시작하지 않습니다. 의미 있는 generation마다 이전 타이머를 취소하고, 실제 렌더링 뒤 선택적 전체 수명을 새로 시작할 수 있습니다. 기본 duration null에는 타이머가 없습니다. 양수 타임아웃을 설정하면 호버 중, 스낵바 안에 초점이 있는 동안, actionPending일 때, 문서가 숨겨진 동안 남은 시간을 일시 정지합니다. 모든 조건이 풀릴 때만 재개합니다. 설정 duration을 늘리면 명시적 연장 수단으로서 새 전체 수명이 생깁니다. 타임아웃은 generation당 요청 하나를 냅니다. 호스트가 거부하면 계속 보이게 두고 타임아웃을 반복하지 않습니다. 이전 generation의 오래된 콜백은 교체 메시지나 같은 ID의 개정본을 닫을 수 없습니다. 실제 제거·언마운트 때 타이머와 리스너를 정리합니다. prop 갱신, 초점 이동, 리셋은 조작된 사용자·닫기 알림을 내지 않습니다.
 
-### Responsive/mobile requirements
+### 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Bottom safe-area/navigation clearance; icon/message/action stay distinguishable and wrap readably on narrow/zoom. Reduced motion removes slide animation.
+하단 safe-area와 내비게이션 여백을 확보합니다. 아이콘·메시지·동작은 구별되어야 하며 좁은 화면과 확대에서 읽기 좋게 줄바꿈됩니다. 동작 줄이기에서는 슬라이드 애니메이션을 없앱니다.
 
-### Forms, reset and composition
+### 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form/reset/IME state; buttons type=button.
+폼·리셋·IME 상태는 없습니다. 버튼은 type=button입니다.
 
-### Asset, integration and composition completion
+### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host owns queue/current-message presence, undo/retry result, actual navigation destination and optional timer configuration. Required local examples include a functioning undo/retry **button** and a real href **navigation link**, each as the sole action; changed same-ID error/action content; rejected close/timeout; focus-safe accepted removal; and generation-safe replacement/cleanup. Persistent default keeps actions available; configured expiry must remain protected during hover/focus/hidden/pending interaction. No network or upstream toast manager is needed, and logging a navigation callback without an anchor does not satisfy completion.
+호스트가 큐·현재 메시지 존재, 실행 취소/재시도 결과, 실제 이동 도착지, 선택적 타이머 설정을 소유합니다. 필수 로컬 예시는 다음을 포함합니다. 각각 유일한 동작인 작동하는 실행 취소/재시도 **버튼**과 실제 href **이동 링크**, 같은 ID에서 바뀐 오류·동작 콘텐츠, 거부된 닫기·타임아웃, 초점이 안전한 수용된 제거, generation에 안전한 교체·정리. 지속 기본값은 동작을 계속 쓸 수 있게 둡니다. 설정된 만료는 호버·초점·숨김·대기 중 상호작용 동안 보호되어야 합니다. 네트워크나 upstream 토스트 매니저는 필요 없습니다. 앵커 없이 이동 콜백만 기록하는 것은 완료로 인정하지 않습니다.
 
-### Stable parts and states
+### 고정 파트와 상태 {#stable-parts-and-states}
 
 root, icon, title, message, action, close; open,closed,action-pending,error.
 
-All rendered owned parts use `data-krds-component="snackbar"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="snackbar"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## State examples and native checks
+## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
 
-Supported case axes: `message`, `with-action`, `with-icon`. These case names are independent project axes; they do not imply official KRDS type names or completed coverage.
+지원하는 케이스 축: `message`, `with-action`, `with-icon`. 이 케이스 이름은 프로젝트의 독립 축입니다. 공식 KRDS 유형 이름이나 완료된 커버리지를 뜻하지 않습니다.
 
-[Required native story manifest](/sources/catalog/full-catalog-stories.json.txt) · [Pilot story manifest](/sources/catalog/story-cases.json.txt) · [Coverage evidence and native review links](/sources/catalog/coverage.json.txt)
+[필수 네이티브 스토리 매니페스트](/sources/catalog/full-catalog-stories.json.txt) · [파일럿 스토리 매니페스트](/sources/catalog/story-cases.json.txt) · [커버리지 근거와 네이티브 리뷰 링크](/sources/catalog/coverage.json.txt)
 
-Required full-catalog stories: `krds-snackbar--message`, `krds-snackbar--with-action`, `krds-snackbar--with-icon`, `krds-snackbar--undo-local`, `krds-snackbar--action-error`, `krds-snackbar--close-focused`, `krds-snackbar--timer-cleanup`, `krds-snackbar--narrow`, `krds-snackbar--navigation-link`, `krds-snackbar--same-id-error-action-update`, `krds-snackbar--dismissal-rejected`, `krds-snackbar--host-queue-replacement`, `krds-snackbar--generation-timer-pauses`.
+필수 전체 카탈로그 스토리: `krds-snackbar--message`, `krds-snackbar--with-action`, `krds-snackbar--with-icon`, `krds-snackbar--undo-local`, `krds-snackbar--action-error`, `krds-snackbar--close-focused`, `krds-snackbar--timer-cleanup`, `krds-snackbar--narrow`, `krds-snackbar--navigation-link`, `krds-snackbar--same-id-error-action-update`, `krds-snackbar--dismissal-rejected`, `krds-snackbar--host-queue-replacement`, `krds-snackbar--generation-timer-pauses`.
 
-### Local native stories
+### 로컬 네이티브 스토리 {#local-native-stories}
 
-Fixture and Storybook outputs are local-only and are not hosted on this public documentation site. Build the selected native workspace, then run `node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs`. Open `/krds/native/storybook-<framework>/` on that local server. Solid 2 has no supported native Storybook integration. Qwik production SSR/resume requires its real server and cannot be replaced by a static preview. Story availability does not establish behavioral acceptance.
+픽스처와 Storybook 출력은 로컬 전용입니다. 이 공개 문서 사이트에 올리지 않습니다. 로컬 문서 서버도 그쪽으로 리디렉션하지 않습니다. 각 네이티브 Storybook은 자기 워크스페이스 스크립트로 실행합니다. 컴포넌트 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/` 아래에 조립된 네이티브 미리보기입니다. Solid 2에는 지원되는 네이티브 Storybook 통합이 없습니다. Qwik 프로덕션 SSR/resume에는 실제 서버가 필요합니다. 정적 미리보기로 대신할 수 없습니다. 스토리가 있다고 동작 인수가 성립하지는 않습니다.
 
-Native compiler checkpoints (source hashes are verified during every docs build). These records do not certify the latest native candidate or behavioral acceptance; each checked source page states its checkpoint scope.
+네이티브 컴파일러 체크포인트입니다. 소스 해시는 문서를 빌드할 때마다 검증합니다. 이 기록은 최신 네이티브 후보나 동작 인수를 인증하지 않습니다. 검사된 소스 페이지마다 체크포인트 범위가 적혀 있습니다.
 
-- react: [read the checked consumer](/examples/react-1); [download exact source](/sources/packages/react/examples/catalog.tsx.txt); [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/proof.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/stderr.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stderr.log.txt).
-- solid: [read the checked consumer](/examples/solid-3); [download exact source](/sources/apps/fixture-solid/src/catalog-examples.tsx.txt); [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/proof.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/stderr.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stderr.log.txt).
-- svelte: [read the checked consumer](/examples/svelte-56); [download exact source](/sources/apps/fixture-svelte/src/public-examples/SnackbarExample.svelte.txt); [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/proof.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/stderr.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stderr.log.txt).
-- vue: [read the checked consumer](/examples/vue-58); [download exact source](/sources/apps/fixture-vue/src/PublicCatalogExamples.vue.txt); [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/proof.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/stderr.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log.txt).
-- lit: [read the checked consumer](/examples/lit-60); [download exact source](/sources/apps/fixture-lit/src/examples/catalog.ts.txt); [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/proof.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stderr.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log.txt).
-- qwik: [read the checked consumer](/examples/qwik-61); [download exact source](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt); [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/proof.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/stderr.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stderr.log.txt).
-- angular: [read the checked consumer](/examples/angular-62); [download exact source](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt); [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/proof.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/stderr.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-result.json.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log.txt), [compiler evidence](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log.txt).
+- react: [검사된 소비 코드 보기](/examples/react-1); [소스 그대로 내려받기](/sources/packages/react/examples/catalog.tsx.txt); [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/react/proof.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/react/result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/react/stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/react/stderr.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stderr.log.txt).
+- solid: [검사된 소비 코드 보기](/examples/solid-3); [소스 그대로 내려받기](/sources/apps/fixture-solid/src/catalog-examples.tsx.txt); [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/solid/proof.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/solid/result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/solid/stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/solid/stderr.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stderr.log.txt).
+- svelte: [검사된 소비 코드 보기](/examples/svelte-56); [소스 그대로 내려받기](/sources/apps/fixture-svelte/src/public-examples/SnackbarExample.svelte.txt); [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/proof.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/stderr.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stderr.log.txt).
+- vue: [검사된 소비 코드 보기](/examples/vue-58); [소스 그대로 내려받기](/sources/apps/fixture-vue/src/PublicCatalogExamples.vue.txt); [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/vue/proof.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/vue/result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/vue/stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/vue/stderr.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log.txt).
+- lit: [검사된 소비 코드 보기](/examples/lit-60); [소스 그대로 내려받기](/sources/apps/fixture-lit/src/examples/catalog.ts.txt); [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/proof.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/stderr.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log.txt).
+- qwik: [검사된 소비 코드 보기](/examples/qwik-61); [소스 그대로 내려받기](/sources/apps/fixture-qwik/src/catalog-examples.tsx.txt); [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/proof.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/stderr.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stderr.log.txt).
+- angular: [검사된 소비 코드 보기](/examples/angular-62); [소스 그대로 내려받기](/sources/apps/fixture-angular/src/public-catalog-examples.ts.txt); [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/angular/proof.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/angular/result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/angular/stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/angular/stderr.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-result.json.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log.txt), [컴파일러 근거](/sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log.txt).
 
-## Source identity and rights
+## 출처와 권리 {#source-identity-and-rights}
 
-Baseline: `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`. Official detail snapshot retrieved `2026-10-29T23:28:06.246Z`. SHA-256: `37d9d9357b2e3f020afed315ff700cc2cc0ee3c3aee5df128c62b458fb1b7322`. [Frozen component source records](/sources/catalog/components.json.txt) · [Official source](https://www.krds.go.kr/html/site/component/component_12_06.html). Raw original HTML remains reference evidence in the checkout and is not copied into this site.
+기준선: `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`. 공식 상세 스냅숏 수집 시각: `2026-10-29T23:28:06.246Z`. SHA-256: `37d9d9357b2e3f020afed315ff700cc2cc0ee3c3aee5df128c62b458fb1b7322`. [고정된 컴포넌트 출처 기록](/sources/catalog/components.json.txt) · [공식 출처](https://www.krds.go.kr/html/site/component/component_12_06.html). 원본 HTML은 체크아웃의 참고 근거로만 남습니다. 이 사이트에 복사하지 않습니다.
 
-KRDS quoted or derived guidance retains its original terms. The independent code MIT grant does not relicense it, official assets, fonts, or third-party materials. Read [sources and rights](../legal/) before redistributing.
+KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.

@@ -1,90 +1,99 @@
-# TutorialPanel
+# 따라하기 패널 {#tutorial-panel}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현용으로 범위 승인됨.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 승인일 뿐이며, 네이티브 동작, 시각/자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `tutorial-panel`; Korean name 따라하기 패널; export `TutorialPanel`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `tutorial-panel`, 한국어 이름 따라하기 패널, export `TutorialPanel`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_08_02](https://www.krds.go.kr/html/site/component/component_08_02.html); preserved [HTML](../../upstream/krds/raw/components/component_08_02.html). Retrieved `2026-10-29T23:28:04.943Z`; `75137` bytes; SHA-256 `38b2ffb0d2f3655d399ef17f8e84a41b04b8d3928a395429199ee47fff7e6d6e`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_08_02](https://www.krds.go.kr/html/site/component/component_08_02.html), 보존된 [HTML](../../upstream/krds/raw/components/component_08_02.html). 조회 시각 `2026-10-29T23:28:04.943Z`, `75137` 바이트, SHA-256 `38b2ffb0d2f3655d399ef17f8e84a41b04b8d3928a395429199ee47fff7e6d6e`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `composition`; accepted project completion kind `composition`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류는 `composition`, 인수된 프로젝트 완료 종류도 `composition`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `task-overview`, `active-step`, `suspended-panel`, `narrow-modal`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `task-overview`, `active-step`, `suspended-panel`, `narrow-modal`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Body-following opener/panel with optional Help/Tutorial tabs, close, title, back-to-overview, task/subtask list and explicit Stop button. Subtask titles match CoachMark titles. Panel visibility is independent from active tutorial progress.
+본문 뒤에 오는 열기 버튼/패널입니다. 선택적 Help/Tutorial 탭, 닫기, 제목, 개요로 돌아가기, 과업/세부 과업 목록, 명시적 Stop 버튼을 둡니다. 세부 과업 제목은 CoachMark 제목과 같습니다. 패널 표시 여부는 진행 중인 따라하기와 독립입니다.
 
-## Plain semantic API
+**개요와 과업 보기(공식 구조 3–4번을 따르는 독립 규칙):** 본문은 개요 또는 한 과업의 보기 중 하나만 보여 주며 둘을 함께 보이지 않습니다. 호스트가 `activeTaskId`(실제 과업)와 `activeStepId`를 모두 확정하면 과업 보기로 들어갑니다. 이때 `task-list`에는 그 과업만 있고 `back` 컨트롤이 렌더링됩니다. `back`을 활성화하면 개요로 돌아가며, 과업이 확정되어 있으면 `onTaskChange({id:null})` 요청(각 어댑터의 과업 변경 이벤트)을 한 번 내보냅니다. `activeTaskId`는 계속 호스트 권한입니다. 개요에서는 모든 과업을 나열하고 `back`은 렌더링하지 않습니다. 단계 없이 확정된 과업은 자신의 disclosure만 펼칩니다. disclosure를 로컬에서 소유하는 렌더러(Angular)는 그 disclosure에서 같은 필터된 과업 보기로 들어갈 수도 있습니다.
 
-Independent API: tasks {id,title,steps:{id,title,targetId,instruction}[]}[], activeTaskId, activeStepId, `running?/defaultRunning=false`, `open?/defaultOpen=true` wide, `activePanel?/defaultActivePanel=help|tutorial`, onOpenChange, `onStart({taskId,stepId})`, onTaskChange, onStepChange, onActivePanelChange({value}), `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})`, `startActionId`, `fallbackFocusId?`. Defined running/open/activePanel choose controlled ownership for their respective fields, absent fields use their read-once defaults. Controlled/default together or mode switching is invalid. Stop's returnTo is a plain exposure request, not permission to force a controlled prop.
+## 의미 API {#plain-semantic-api}
 
-**Start transaction (independent API):** A usable explicit Start action chooses the actual requested task and step: its configured task/step, otherwise the selected task’s first step, otherwise the first real task with a real step. Empty/unavailable task data never invents IDs or a Start request. Start while already running is a no-op. When running is uncontrolled, commit its owned running=true synchronously before one optional onStart({taskId,stepId}) callback. activeTaskId/activeStepId remain host-authoritative; the local host accepts those requested IDs through this same transaction. When running is controlled, emit this one request and await actual running=true plus the requested task/step props before showing/focusing the new running step. Start never emits onTaskChange or onStepChange as duplicate/no-op secondary requests. Those callbacks remain for distinct task/step selection actions. Rejected or partially accepted controlled Start retains committed state and focus; it must not fabricate a run or focus hidden/unaccepted tutorial content. Focus may enter the actual exposed running step only after the accepted transaction is rendered. Mount, prop changes and repeated keydown/click delivery emit no extra Start request.
+독립 API: tasks {id,title,steps:{id,title,targetId,instruction}[]}[], activeTaskId, activeStepId, `running?/defaultRunning=false`, `open?/defaultOpen=true` (넓은 화면), `activePanel?/defaultActivePanel=help|tutorial`, onOpenChange, `onStart({taskId,stepId})`, onTaskChange, onStepChange, onActivePanelChange({value}), `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})`, `startActionId`, `fallbackFocusId?`. running/open/activePanel이 정의되면 해당 필드가 제어 소유권을 갖고, 없는 필드는 한 번만 읽는 기본값을 씁니다. 제어와 기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. Stop의 returnTo는 일반 노출 요청이며 제어 prop을 강제할 권한이 아닙니다.
 
-Closing/folding the panel or switching to Help preserves running/task/step. Only an accepted explicit Stop transaction ends the running tutorial; ordinary panel visibility is independent. Props/mount/reset/focus restoration emit no user-change notifications. Each changed state request emits once; onStop is the one joint Stop request rather than competing close/restoration callbacks.
+**Start 트랜잭션(독립 API):** 사용 가능한 명시적 Start 동작이 실제 요청 과업과 단계를 고릅니다. 우선순위는 설정된 과업/단계, 선택된 과업의 첫 단계, 단계가 있는 첫 실제 과업 순입니다. 비었거나 사용할 수 없는 과업 데이터에서는 ID를 만들어 내거나 Start 요청을 내지 않습니다. 이미 실행 중일 때 Start는 no-op입니다. running이 비제어이면 소유한 running=true를 동기적으로 확정한 뒤 선택적 onStart({taskId,stepId}) 콜백을 한 번 호출합니다. activeTaskId/activeStepId는 계속 호스트 권한이며, 로컬 호스트는 이 같은 트랜잭션으로 요청된 ID를 수락합니다. running이 제어이면 요청을 한 번 내보내고, 실제 running=true와 요청된 과업/단계 prop을 받은 뒤에 새 실행 단계를 보여 주거나 초점을 둡니다. Start는 중복/no-op 보조 요청으로 onTaskChange나 onStepChange를 내지 않습니다. 이 콜백은 별도의 과업/단계 선택 동작을 위한 것입니다. 거부되었거나 일부만 수락된 제어 Start는 확정된 상태와 초점을 유지하며, 실행을 지어내거나 숨겨졌거나 수락되지 않은 따라하기 콘텐츠에 초점을 두면 안 됩니다. 초점은 수락된 트랜잭션이 렌더링된 뒤에만 실제로 노출된 실행 단계로 들어갈 수 있습니다. 마운트, prop 변경, 반복된 keydown/click 전달은 추가 Start 요청을 내지 않습니다.
 
-## Keyboard, focus and state transitions
+패널을 닫거나 접거나 Help로 전환해도 running/과업/단계는 보존됩니다. 수락된 명시적 Stop 트랜잭션만 실행 중인 따라하기를 끝냅니다. 일반 패널 표시 여부는 독립입니다. props/마운트/리셋/초점 복원은 사용자 변경 알림을 내지 않습니다. 변경된 상태 요청은 각각 한 번만 내보냅니다. onStop은 경쟁하는 닫기/복원 콜백이 아니라 하나의 통합 Stop 요청입니다.
 
-Open focuses the panel container; ordinary close returns its usable opener through one composition owner. Native disclosure children actually expand/collapse via Click/Enter/Space and retain focus on their trigger. Wide panel is not trapped; narrow shell reuses native modal isolation/entry/trapping with restoration delegated to the relevant Tutorial or Stop coordinator, never by overriding the public Modal saved-opener rule.
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-**Joint TutorialPanel/CoachMark Stop transaction (independent coordination policy preserving the official preferred destination):** A linked CoachMark's visible/open state is derived by the tutorial coordinator from committed running/task/target state, rather than maintained by a second independent close owner. Stop emits one `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})` transaction request to that owner; do not also emit a duplicate CoachMark onOpenChange for the same Stop. An uncontrolled coordinator commits it synchronously; controlled ownership ends the tutorial only when running=false is actually accepted and the coach presentation has actually closed/been removed. Until acceptance, retain the running UI/current focus and do not restore. The owner must commit any accepted Tutorial-tab/panel exposure together with that stop transaction; a partially accepted exposure is explicit in the resulting committed tab/open state, not guessed from timers.
+열면 패널 컨테이너에 초점이 갑니다. 일반 닫기는 하나의 조합 소유자를 통해 사용 가능한 열기 버튼으로 돌아갑니다. 네이티브 disclosure 자식은 Click/Enter/Space로 실제로 펼치고 접으며 트리거에 초점을 유지합니다. 넓은 패널은 초점이 갇히지 않습니다. 좁은 셸은 네이티브 모달의 격리/진입/가둠을 재사용하고, 복원은 관련 Tutorial 또는 Stop 조정자에게 위임합니다. 공개 Modal의 저장된 열기 버튼 규칙을 덮어쓰지 않습니다.
 
-The request asks to select the Tutorial tab, open/expose its panel, and render/enable the preferred startActionId. After the actual stopped/closed transition and completed native panel rendering, the **single Stop restoration coordinator first resolves the actual topmost active modal**, including a narrow Help modal that remains selected after the host rejects the Tutorial-tab request. A focus candidate must be mounted, visible, enabled, focusable and non-inert; if a modal is still active it must additionally be inside that actual topmost modal. Prefer the startActionId whenever it is actually usable under those rules. Never focus through a closed modal, hidden tab, rejected panel-open state, active-modal boundary or stale target.
+**TutorialPanel/CoachMark 통합 Stop 트랜잭션(공식 선호 목적지를 보존하는 독립 조정 정책):** 연결된 CoachMark의 보임/열림 상태는 두 번째 독립 닫기 소유자가 유지하는 것이 아니라, 따라하기 조정자가 확정된 running/과업/대상 상태에서 파생합니다. Stop은 그 소유자에게 `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})` 트랜잭션 요청을 한 번 내보냅니다. 같은 Stop에 대해 CoachMark onOpenChange를 중복해 내지 않습니다. 비제어 조정자는 이를 동기적으로 확정합니다. 제어 소유권에서는 running=false가 실제로 수락되고 코치 표시가 실제로 닫히거나 제거된 경우에만 따라하기를 끝냅니다. 수락 전까지는 실행 UI와 현재 초점을 유지하고 복원하지 않습니다. 소유자는 수락된 Tutorial 탭/패널 노출을 그 중지 트랜잭션과 함께 확정해야 합니다. 일부만 수락된 노출은 타이머로 추측하지 않고 결과로 확정된 탭/열림 상태에 명시됩니다.
 
-If preferred-start exposure is declined or the start action is removed/unusable **and any modal remains actually open**, select a usable fallbackFocusId inside that modal, otherwise its first usable internal interactive target in logical DOM order, otherwise its own focusable container (tabindex=-1 with prior value preserved). The outside panel opener, saved outside initiating control/ancestor and document body are not candidates while that trap remains active, even when no named fallback was supplied. Do not remove isolation, disable the trap, force a controlled tab/open prop or invoke a second private restoration owner to manufacture an outside target. If a candidate/container is removed before focus, re-resolve the actual committed topmost modal instead of using a stale outside fallback.
+이 요청은 Tutorial 탭 선택, 패널 열기/노출, 선호하는 startActionId 렌더링/활성화를 요구합니다. 실제 중지/닫힘 전환과 네이티브 패널 렌더링이 끝난 뒤, **단일 Stop 복원 조정자가 먼저 실제 최상위 활성 모달을 확인합니다.** 호스트가 Tutorial 탭 요청을 거부한 뒤에도 선택된 채 남은 좁은 Help 모달도 포함합니다. 초점 후보는 마운트됨, 보임, 활성, 초점 가능, inert 아님이어야 합니다. 모달이 아직 활성이면 추가로 그 실제 최상위 모달 안에 있어야 합니다. 이 규칙에서 실제로 사용 가능하면 항상 startActionId를 우선합니다. 닫힌 모달, 숨은 탭, 거부된 패널 열림 상태, 활성 모달 경계, 오래된 대상을 통해서는 초점을 두지 않습니다.
 
-Only **when no modal remains actually active after committed cleanup** may the fallback use the usable persistent tutorial panel opener, then supplied fallbackFocusId, then usable saved initiating control/nearest usable ancestor, finally live document body with temporary tabindex=-1 restored afterwards. A requested but rejected modal closure never qualifies; outside focus must await actual accepted closure and cleanup. This modal-aware resolution also applies during route removal/teardown if another modal remains active. In the concrete accepted-Stop state running=false/open=true with Help still selected, hidden or removed Tutorial start and inert outside controls, focus therefore remains in that Help modal on an internal target/container, with its trap and isolation intact.
+선호 시작 노출이 거부되었거나 시작 동작이 제거/사용 불가이고 **모달이 실제로 계속 열려 있으면**, 그 모달 안의 사용 가능한 fallbackFocusId를 고르고, 없으면 논리적 DOM 순서의 첫 사용 가능한 내부 대화형 대상을, 그것도 없으면 모달 자신의 초점 가능 컨테이너를 씁니다(tabindex=-1, 이전 값 보존). 가둠이 활성인 동안은 이름 있는 대체 대상이 제공되지 않았더라도 바깥 패널 열기 버튼, 저장된 바깥 시작 컨트롤/조상, document body는 후보가 아닙니다. 격리를 제거하거나, 가둠을 끄거나, 제어 탭/열림 prop을 강제하거나, 바깥 대상을 만들어 내려고 두 번째 비공개 복원 소유자를 호출하지 않습니다. 초점 전에 후보/컨테이너가 제거되면 오래된 바깥 대체 대상을 쓰지 않고 실제 확정된 최상위 모달을 다시 확인합니다.
 
-The same Stop coordinator owns this one resolution and delegates modal-shell entry/return to prevent competing focus work; public Modal returnFocusId rules remain unchanged. Rejected Stop still performs no restoration. Later asynchronous tab/open changes must not replay a completed Stop restoration; any later accepted ordinary modal close uses its existing single close/restoration owner, rather than replaying this earlier Stop fallback.
+확정된 정리 뒤에 **활성 모달이 실제로 남아 있지 않을 때만** 대체 대상을 다음 순서로 쓸 수 있습니다. 사용 가능한 지속 따라하기 패널 열기 버튼, 제공된 fallbackFocusId, 사용 가능한 저장된 시작 컨트롤/가장 가까운 사용 가능한 조상, 마지막으로 나중에 복원하는 임시 tabindex=-1의 살아 있는 document body입니다. 요청했지만 거부된 모달 닫기는 해당하지 않습니다. 바깥 초점은 실제로 수락된 닫기와 정리를 기다려야 합니다. 이 모달 인식 해석은 다른 모달이 활성으로 남아 있을 때의 라우트 제거/해체에도 적용됩니다. 수락된 Stop이 running=false/open=true이고 Help가 선택된 채 남고 Tutorial 시작이 숨겨지거나 제거되었으며 바깥 컨트롤이 inert인 구체적 상태에서는, 초점이 그 Help 모달의 내부 대상/컨테이너에 남고 가둠과 격리도 유지됩니다.
 
-## Responsive/mobile requirements
+같은 Stop 조정자가 이 하나의 해석을 소유하며 모달 셸 진입/복귀를 위임해 경쟁하는 초점 작업을 막습니다. 공개 Modal returnFocusId 규칙은 바뀌지 않습니다. 거부된 Stop은 복원을 하지 않습니다. 이후의 비동기 탭/열림 변경이 이미 끝난 Stop 복원을 되풀이해서는 안 됩니다. 이후 수락된 일반 모달 닫기는 이 이전 Stop 대체 대상을 되풀이하지 않고 기존의 단일 닫기/복원 소유자를 씁니다.
 
-Narrow opener-only panel opens Modal. Preserve tutorial state through layout changes; do not cover active CoachMark target with modal panel—host can temporarily close panel while task continues.
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-## Forms, reset and composition
+좁은 화면의 열기 버튼 전용 패널은 Modal로 엽니다. 레이아웃이 바뀌어도 따라하기 상태를 보존합니다. 모달 패널이 활성 CoachMark 대상을 가리지 않게 합니다. 과업이 계속되는 동안 호스트가 패널을 일시적으로 닫을 수 있습니다.
 
-No form value; tutorial must not submit or reset actual user forms. Action-completion signals come from host, with no IME Enter masquerading as task completion.
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-## Asset, integration and composition completion
+폼 값은 없습니다. 따라하기는 실제 사용자 폼을 제출하거나 리셋해서는 안 됩니다. 동작 완료 신호는 호스트에서 오며, IME Enter가 과업 완료로 가장해서는 안 됩니다.
 
-Completion includes working task overview→step flow, real disclosure controls, actual CoachMark targets and HelpPanel-tab persistence. Host owns validated task signals/routes/content, the committed Stop/tab/open transaction, rendering the preferred start action, and valid fallbackFocusId where body fallback would be poor. The local fixture must demonstrate fold, Help-tab switch, narrow modal, rejected controlled Stop/exposure and route-removed start action. It must visibly expose the preferred action before focus, or visibly use the documented fallback; an emitted request/log alone is insufficient. Route teardown cleans the coach and panel isolation/observers without inventing a completed task or submitting/resetting the page form.
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-## Stable parts and states
+완료 조건은 다음을 포함합니다.
 
-root, opener, header, tabs, close, title, back, task-list, task, step-list, stop; open,closed,running,idle,active-step.
+- 동작하는 과업 개요→단계 흐름.
+- 실제 disclosure 컨트롤.
+- 실제 CoachMark 대상.
+- HelpPanel 탭 지속.
 
-All rendered owned parts use `data-krds-component="tutorial-panel"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+호스트는 검증된 과업 신호/라우트/콘텐츠, 확정된 Stop/탭/열림 트랜잭션, 선호 시작 동작 렌더링, body 대체 대상이 좋지 않을 때의 유효한 fallbackFocusId를 소유합니다. 로컬 픽스처는 접기, Help 탭 전환, 좁은 모달, 거부된 제어 Stop/노출, 라우트에서 제거된 시작 동작을 보여 주어야 합니다. 초점 전에 선호 동작을 눈에 보이게 노출하거나 문서화된 대체 대상을 눈에 보이게 써야 하며, 내보낸 요청이나 로그만으로는 부족합니다. 라우트 해체는 완료된 과업을 지어내거나 페이지 폼을 제출/리셋하지 않고 코치와 패널 격리/옵저버를 정리합니다.
 
-## Required native user outcomes
+## 고정 파트와 상태 {#stable-parts-and-states}
 
-1. Close/reopen and Help tab switch preserve tutorial step.
-2. Accepted Stop ends the process and exposes the preferred usable start action before restoring focus, or uses the documented usable fallback.
-3. Step title equals CoachMark title.
-4. Wide panel allows Tab escape.
-5. Narrow modal leaves no body isolation after close.
-6. Removed target suspends safely and route teardown cleans presentation, with no stale focus restoration before actual closure.
-7. Stop after panel fold or Help-tab switch requests Tutorial-tab and panel exposure before focusing the now usable start action.
-8. Narrow Stop never focuses through a closed or inert modal and has one restoration owner after actual stopped and rendered state.
-9. Rejected controlled Stop retains running presentation/focus, while accepted Stop with rejected exposure or removed start action uses the documented usable fallback.
-10. Route removal cleans active presentation then restores to a live usable host target or documented document fallback.
-11. Accepted narrow Stop running=false/open=true with Help retained after rejected Tutorial-tab change and a hidden or removed start keeps focus on a usable target or container inside the actual topmost modal, preserving its isolation and trap without outside or body restoration.
+root, opener, header, tabs, tab, close, title, back, start, task-list, task, task-toggle, step-list, step, stop; open,closed,running,idle,active-step,selected,current. `tab`은 각 Help/Tutorial 패널 선택 탭을 표시하며(`selected`는 aria-selected를 반영), `start`는 명시적 Start 동작, `task-toggle`은 과업의 step-list를 보여 주는 네이티브 disclosure 컨트롤(summary 또는 aria-expanded 버튼, 펼침은 네이티브 `details[open]` 또는 `aria-expanded`로 유지), `step`은 step-list 안의 각 단계 활성화 컨트롤(`current`는 aria-current=step을 반영)을 표시합니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+렌더링되는 모든 소유 파트는 `data-krds-component="tutorial-panel"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Independent canonical default names
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-Independent canonical default action names are “따라하기 시작” and “따라하기 중지”. This local UI wording does not change the accepted Start request, controlled/uncontrolled ownership, or joint Stop transaction, and adds no label prop. It is not attributed as a mandatory official KRDS literal.
+1. 닫기/다시 열기와 Help 탭 전환이 따라하기 단계를 보존합니다.
+2. 수락된 Stop은 과정을 끝내고, 초점을 복원하기 전에 선호하는 사용 가능한 시작 동작을 노출하거나 문서화된 사용 가능한 대체 대상을 씁니다.
+3. 단계 제목이 CoachMark 제목과 같습니다.
+4. 넓은 패널은 Tab으로 벗어날 수 있습니다.
+5. 좁은 모달은 닫은 뒤 body 격리를 남기지 않습니다.
+6. 제거된 대상은 안전하게 중단되고 라우트 해체는 표시를 정리하며, 실제 닫힘 전에는 오래된 초점 복원이 없습니다.
+7. 패널 접기나 Help 탭 전환 뒤의 Stop은 이제 사용 가능한 시작 동작에 초점을 두기 전에 Tutorial 탭과 패널 노출을 요청합니다.
+8. 좁은 화면의 Stop은 닫혔거나 inert인 모달을 통해 초점을 두지 않으며, 실제 중지되고 렌더링된 상태 뒤에 복원 소유자가 하나입니다.
+9. 거부된 제어 Stop은 실행 표시와 초점을 유지합니다. 노출이 거부된 수락 Stop이나 제거된 시작 동작은 문서화된 사용 가능한 대체 대상을 씁니다.
+10. 라우트 제거는 활성 표시를 정리한 뒤 살아 있는 사용 가능한 호스트 대상 또는 문서화된 document 대체 대상으로 복원합니다.
+11. 수락된 좁은 화면 Stop(running=false/open=true)에서 Tutorial 탭 변경이 거부되어 Help가 유지되고 시작이 숨겨지거나 제거되면, 초점은 실제 최상위 모달 안의 사용 가능한 대상이나 컨테이너에 남으며 격리와 가둠을 유지하고 바깥이나 body로 복원하지 않습니다.
 
-## Required native stories
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 표시, 움직임이 있는 곳의 동작 줄이기를 검증합니다. 빈 스위트를 성공으로 주장하지 않습니다.
+
+## 독립 정식 기본 이름 {#independent-canonical-default-names}
+
+독립 정식 기본 동작 이름은 “따라하기 시작”과 “따라하기 중지”이며, 개요로 돌아가기 컨트롤은 모든 렌더러에서 “작업 목록”으로 표시합니다. 패널 제목(공식 구조 3번, 따라하기 패널 자체의 제목)은 “따라하기”입니다. 이 로컬 UI 문구는 수락된 Start 요청, 제어/비제어 소유권, 통합 Stop 트랜잭션을 바꾸지 않으며 레이블 prop도 추가하지 않습니다. 필수 공식 KRDS 원문으로 귀속하지 않습니다.
+
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `tutorial-panel--task-overview`, `tutorial-panel--active-step`, `tutorial-panel--suspended-panel`, `tutorial-panel--help-tab-return`, `tutorial-panel--narrow-modal`, `tutorial-panel--route-change`, `tutorial-panel--stop-after-fold`, `tutorial-panel--stop-after-help-tab`, `tutorial-panel--narrow-stop-return`, `tutorial-panel--controlled-stop-exposure-rejected`, `tutorial-panel--start-action-removed`, `tutorial-panel--stop-partial-narrow-help`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례에는 해당하는 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 마련되며 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 사용합니다. Lit/Solid 2는 siheom 지원을 만들지 않고 선택된 네이티브 테스트 경로를 사용해야 합니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름/대상 관계를 검증해야 합니다. Solid 2는 Solid 1 컴파일러/렌더러를 import하면 안 됩니다. 다른 렌더러의 래퍼는 쓰지 않습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
+아래 발췌는 이 항목의 실제 보존된 상세 HTML에서 추출했으며 핵심 지침과 상호작용/마크업 표를 포함합니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 그대로 둡니다. “consider/recommended/can”에 해당하는 표현은 권고로 남습니다. 예시/CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 아래 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립적인 선택입니다.
 
 
 ### 구조
@@ -167,23 +176,24 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1333–1336](../../upstream/krds/raw/components/component_08_02.html:1333): setupHelpButtons() 도움 패널 버튼 설정
 - L[1337–1340](../../upstream/krds/raw/components/component_08_02.html:1337): toggleHelpPanel() 도움 패널 토글
 
-Inline preserved example markup (reference, not the public native API): No inline sample-view markup in this detail.
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+인라인으로 보존된 예시 마크업(참고용이며 공개 네이티브 API가 아님): 이 상세에는 인라인 샘플 뷰 마크업이 없습니다.
 
-## Evidence limitations and recorded policy
+CSS/JS/안내 이미지의 출처 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-- Stop/exposure/fallback ordering is now concrete independent policy; the official start action remains preferred after it is actually exposed. Composition kind is accepted; actual host transaction/render wiring still requires native evidence and independent implementation review. Modal-aware fallback now uses the actual topmost modal’s usable internal target/container whenever it remains open; outside fallback is permitted only after actual accepted closure/cleanup leaves no active modal.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1355 `../../../resources/js/examples/krds_helpPanel.js`. Do not infer unseen contents.
-- 1 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-## Accepted independent resolution
+- Stop/노출/대체 순서는 이제 구체적인 독립 정책입니다. 공식 시작 동작은 실제로 노출된 뒤에도 계속 선호됩니다. composition 종류는 승인되었습니다. 실제 호스트 트랜잭션/렌더 연결에는 여전히 네이티브 근거와 독립 구현 검토가 필요합니다. 모달 인식 대체는 이제 모달이 열려 있는 동안 실제 최상위 모달의 사용 가능한 내부 대상/컨테이너를 씁니다. 바깥 대체는 실제로 수락된 닫기/정리로 활성 모달이 남지 않은 뒤에만 허용됩니다.
+- 연결된 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L1355 `../../../resources/js/examples/krds_helpPanel.js`. 보지 못한 내용을 추론하지 않습니다.
+- 상세에는 안내 이미지 참조 1개가 있으며, 내장 픽셀 다이어그램은 시각적으로 확인하지 않았습니다. 텍스트 구조/지침은 읽었습니다. 정확한 시각 치수/자산은 이후 시각·출처 검토가 필요합니다.
+- 시맨틱 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-Composition kind is accepted. Stop/exposure and topmost-modal-aware focus are frozen independent policy; native host wiring and actual accepted-state evidence remain required.
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-## Shared implementation handoff
+composition 종류가 승인되었습니다. Stop/노출과 최상위 모달 인식 초점은 고정된 독립 정책입니다. 네이티브 호스트 연결과 실제 수락 상태 근거는 여전히 필요합니다.
 
-The exact semantic interface is `TutorialPanelContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+정확한 시맨틱 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `TutorialPanelContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
+
+이 문서에서 인용하거나 파생한 공식 텍스트는 원래의 KRDS 권리와 출처 표기를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

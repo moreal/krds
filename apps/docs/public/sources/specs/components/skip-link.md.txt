@@ -1,69 +1,68 @@
-# SkipLink
+# 건너뛰기 링크 {#skip-link}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 인수일 뿐입니다. 네이티브 동작, 시각·자산 검토, 실행된 커버리지는 별도 관문으로 남습니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `skip-link`; Korean name 건너뛰기 링크; export `SkipLink`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `skip-link`, 한국어 이름 건너뛰기 링크, export `SkipLink`. 고정된 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_03_01](https://www.krds.go.kr/html/site/component/component_03_01.html); preserved [HTML](../../upstream/krds/raw/components/component_03_01.html). Retrieved `2026-10-29T23:28:02.834Z`; `71606` bytes; SHA-256 `f11cdbee2d0ac2d8831ed8acb0daea45152f98ffc9d08571cce00f755122297e`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세 페이지: [component_03_01](https://www.krds.go.kr/html/site/component/component_03_01.html), 보존본 [HTML](../../upstream/krds/raw/components/component_03_01.html). 조회 시각 `2026-10-29T23:28:02.834Z`, `71606` 바이트, SHA-256 `f11cdbee2d0ac2d8831ed8acb0daea45152f98ffc9d08571cce00f755122297e`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정된 출처 종류는 `component`이고, 수용된 프로젝트 완료 종류도 `component`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `visible`, `focus-revealed`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `visible`, `focus-revealed`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Real same-document anchors in a list before Masthead and header. Main-content link comes first and targets content excluding side navigation/breadcrumb/utilities. No more than three links; omit on pages with no repeated region. Focus-revealed is the proposed default.
+Masthead와 헤더보다 앞선 목록 안에 같은 문서 안의 실제 앵커를 둡니다. 본문 링크가 첫 번째이며, 사이드 내비게이션·브레드크럼·유틸리티를 제외한 콘텐츠를 가리킵니다. 링크는 세 개를 넘지 않습니다. 반복 영역이 없는 페이지에서는 생략합니다. 초점 시 표시(focus-revealed)가 제안 기본값입니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: SkipLink accepts links {id,label,targetId}[] (one main target normally), visibility=focus-revealed|visible. Target IDs must resolve in the same document/root strategy; report invalid targets during development rather than silently linking #.
+독립 API: SkipLink는 links {id,label,targetId}[] (보통 본문 대상 하나)와 visibility=focus-revealed|visible을 받습니다. 대상 ID는 같은 문서·루트 전략 안에서 해석되어야 합니다. 잘못된 대상은 조용히 #으로 연결하지 말고 개발 중에 보고합니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Enter scrolls and focuses destination section/title; use temporary tabindex=-1 on nonfocusable destination without adding it to normal tab order. Next Tab starts at its first interactive descendant. Tap scrolls; screen-reader virtual navigation needs manual verification. Focus reveal must expose an unobscured focus ring.
+Enter는 대상 섹션·제목으로 스크롤하고 초점을 옮깁니다. 초점을 받을 수 없는 대상에는 임시 tabindex=-1을 쓰되 일반 Tab 순서에는 넣지 않습니다. 다음 Tab은 대상의 첫 번째 상호작용 자손에서 시작합니다. 탭(터치)은 스크롤합니다. 스크린 리더 가상 탐색은 수동 검증이 필요합니다. 초점 시 표시는 가려지지 않은 초점 링을 보여야 합니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Required web behavior remains on mobile web; native-app exception is not a mobile-web exclusion. Keep links readable/above sticky content and honor reduced-motion scrolling.
+필수 웹 동작은 모바일 웹에서도 유지합니다. 네이티브 앱 예외는 모바일 웹 제외가 아닙니다. 링크는 읽을 수 있게, 고정(sticky) 콘텐츠 위에 둡니다. 동작 줄이기를 존중해 스크롤합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form value/reset/IME behavior.
+폼 값·리셋·IME 동작은 없습니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host supplies stable target IDs and meaningful content landmarks. Lit shadow boundaries require explicit target registration or light-DOM anchor resolution; raw document.getElementById assumptions must not cross closed roots.
+호스트가 안정적인 대상 ID와 의미 있는 콘텐츠 랜드마크를 제공합니다. Lit의 Shadow DOM 경계에서는 명시적 대상 등록이나 light-DOM 앵커 해석이 필요합니다. 닫힌 루트를 넘어서 document.getElementById를 쓴다고 가정해서는 안 됩니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, list, item, link; focus-visible.
 
-All rendered owned parts use `data-krds-component="skip-link"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="skip-link"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. First Tab reveals link before banner.
-2. Enter moves activeElement to main and next Tab enters main content.
-3. No repeated-region content sits inside the target boundary.
-4. Missing target is diagnosed.
-5. Zoom/sticky header does not hide focused destination.
+1. 첫 Tab이 배너보다 앞에서 링크를 드러냅니다.
+2. Enter는 activeElement를 본문으로 옮기고, 다음 Tab은 본문 콘텐츠로 들어갑니다.
+3. 반복 영역 콘텐츠가 대상 경계 안에 없습니다.
+4. 없는 대상은 진단됩니다.
+5. 확대나 고정 헤더가 초점 받은 대상을 가리지 않습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 단서, 움직임이 있다면 동작 줄이기를 검증합니다. 빈 스위트로 성공을 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `skip-link--visible`, `skip-link--focus-revealed`, `skip-link--three-targets`, `skip-link--sticky-page`, `skip-link--shadow-target`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례는 해당하는 모든 네이티브 렌더러에서 로컬 args/입력/슬롯과 관찰 가능한 순수 로컬 상태가 필요합니다: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에서 따로 단계화하며, 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 씁니다. Lit과 Solid 2는 siheom 지원을 만들어 내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular의 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름·대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러·렌더러를 절대 import하지 않습니다. 다른 렌더러 래퍼는 없습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 보존된 상세 HTML에서 가져왔으며 핵심 지침과 상호작용·마크업 표를 포함합니다. 공식 요구사항을 지어내지 않도록 원문 언어를 유지합니다. “고려한다/권장/할 수 있다” 같은 표현은 권고로 남습니다. 예시·CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 원본 JS 함수 표는 참고 근거일 뿐이며, 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공통 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립 선택입니다.
 
 ### 구조
 
@@ -138,23 +137,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1262–1262](../../upstream/krds/raw/components/component_03_01.html:1262): 개발 시 접근성 관련 주의 사항
 - L[1265–1265](../../upstream/krds/raw/components/component_03_01.html:1265): 건너뛰기 링크는 웹페이지 가장 앞에 제공하여 사용자가 제일 먼저 접근할 수 있도록 한다.
 
-Inline preserved example markup (reference, not the public native API): L[1195–1203](../../upstream/krds/raw/components/component_03_01.html:1195)
+보존된 예시 마크업 인라인(참고용이며 공개 네이티브 API가 아님): L[1195–1203](../../upstream/krds/raw/components/component_03_01.html:1195)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지 출처 참조는 복사된 구현이 아닙니다. 표 행의 원본 HTML(필수/선택 열 보존)은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화한 발췌가 조건부 선택자를 필수로 재분류하지는 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Recorded independent decision: Resolve targets in the same accessible native root or through an explicit adapter-native target registration. Temporary tabindex=-1 is removed on blur/unmount only if library-added; preserve a pre-existing host tabindex. Do not use cross-root document ID assumptions.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1214 `../../code/skip_link.html`. Do not infer unseen contents.
-- 1 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 기록된 독립 결정: 대상은 같은 접근 가능한 네이티브 루트 안에서, 또는 어댑터 고유의 명시적 대상 등록을 통해 해석합니다. 임시 tabindex=-1은 라이브러리가 추가한 경우에만 blur/unmount 때 제거합니다. 호스트에 이미 있던 tabindex는 보존합니다. 루트를 넘는 문서 ID를 가정하지 않습니다.
+- 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 삽입하거나 읽지 않았습니다: L1214 `../../code/skip_link.html`. 보지 못한 내용은 추정하지 않습니다.
+- 상세 페이지에 안내 이미지 참조가 1개 있으며, 그 안의 픽셀 도식은 눈으로 확인하지 않았습니다. 텍스트 구조와 지침만 읽었습니다. 정확한 시각 치수와 자산은 이후 시각·출처 검토가 필요합니다.
+- 의미 인터페이스와 파트·상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작·스토리 소스, 독립 인수가 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-Resolve targets in the same accessible native root or through an explicit adapter-native target registration. Temporary tabindex=-1 is removed on blur/unmount only if library-added; preserve a pre-existing host tabindex. Do not use cross-root document ID assumptions.
+대상은 같은 접근 가능한 네이티브 루트 안에서, 또는 어댑터 고유의 명시적 대상 등록을 통해 해석합니다. 임시 tabindex=-1은 라이브러리가 추가한 경우에만 blur/unmount 때 제거합니다. 호스트에 이미 있던 tabindex는 보존합니다. 루트를 넘는 문서 ID를 가정하지 않습니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `SkipLinkContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `SkipLinkContract`입니다. 네이티브 프레임워크는 자체 콘텐츠·ref·이벤트 전달만 확장합니다. 공통 매니페스트가 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼로는 이 계약을 충족할 수 없습니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에 인용·파생된 공식 텍스트는 원래 KRDS 권리와 출처 표시를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

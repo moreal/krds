@@ -3,11 +3,295 @@
   "records": [
     {
       "sourcePath": "compliance/provenance-dependencies.json",
-      "reason": "Exact dependency lock and resolution metadata after Astro pipeline installation and exact direct branding tool declarations; no resolution versions changed."
+      "reason": "Exact dependency lock and resolution metadata after Astro pipeline installation and exact direct branding tool declarations; no resolution versions changed. Adds recorded original upstream MIT LICENSE evidence (solidjs/solid tag at commit d2323b07, retrieved 2026-11-03) for solid-js and @solidjs/web 2.0.0-rc.19, whose npm tarballs ship no LICENSE file."
     },
     {
       "sourcePath": "compliance/project-identity.json",
       "reason": "User-approved display brand rename to Unofficial KRDS; package scope, repository identity, rights and publication permissions unchanged."
+    },
+    {
+      "sourcePath": "apps/fixture-angular/package.json",
+      "reason": "Native docs preview workspace scripts: adds the dedicated docs-preview:local build (and, where present, scoped ordinary-output cleanup) without changing dependencies, versions or the ordinary build:local output."
+    },
+    {
+      "sourcePath": "apps/fixture-lit/package.json",
+      "reason": "Native docs preview workspace scripts: adds docs-preview:local (writes the Lit docs-preview definitions fragment from its native example map, then runs the dedicated Vite docs-preview build) and test:docs-preview (owner native acceptance verifier); no dependency, version or ordinary build:local change."
+    },
+    {
+      "sourcePath": "apps/fixture-qwik/package.json",
+      "reason": "Native docs preview workspace scripts: adds the dedicated docs-preview:local build (and, where present, scoped ordinary-output cleanup) without changing dependencies, versions or the ordinary build:local output."
+    },
+    {
+      "sourcePath": "apps/fixture-react/package.json",
+      "reason": "Native docs preview workspace scripts: adds the dedicated docs-preview:local build (and, where present, scoped ordinary-output cleanup) without changing dependencies, versions or the ordinary build:local output."
+    },
+    {
+      "sourcePath": "apps/fixture-solid-next/package.json",
+      "reason": "Native docs preview workspace scripts: adds the dedicated docs-preview:local build (and, where present, scoped ordinary-output cleanup) without changing dependencies, versions or the ordinary build:local output."
+    },
+    {
+      "sourcePath": "apps/fixture-solid/package.json",
+      "reason": "Native docs preview workspace scripts: adds the dedicated docs-preview:local build (and, where present, scoped ordinary-output cleanup) without changing dependencies, versions or the ordinary build:local output."
+    },
+    {
+      "sourcePath": "apps/fixture-svelte/package.json",
+      "reason": "Native docs preview workspace scripts: adds the dedicated docs-preview:local build (and, where present, scoped ordinary-output cleanup) without changing dependencies, versions or the ordinary build:local output."
+    },
+    {
+      "sourcePath": "apps/fixture-vue/package.json",
+      "reason": "Native docs preview workspace scripts: adds the dedicated docs-preview:local build (and, where present, scoped ordinary-output cleanup) without changing dependencies, versions or the ordinary build:local output."
+    },
+    {
+      "sourcePath": "packages/react/package.json",
+      "reason": "Native fix-wave test script: the package \"test\" script now also runs its existing direct vitest behavioral suite (vitest.config.ts); no dependency, peer, version, export or lockfile change."
+    },
+    {
+      "sourcePath": "packages/svelte/package.json",
+      "reason": "Native fix-wave test script: the package \"test\" script now also runs its existing direct vitest behavioral suite (vitest.config.ts); no dependency, peer, version, export or lockfile change."
+    },
+    {
+      "sourcePath": "packages/vue/package.json",
+      "reason": "Native fix-wave test script: the package \"test\" script now also runs its existing direct vitest behavioral suite (vitest.config.ts); no dependency, peer, version, export or lockfile change."
+    },
+    {
+      "sourcePath": "packages/lit/package.json",
+      "reason": "Native fix-wave test script: the package \"test\" script now also runs its existing direct vitest behavioral suite (vitest.config.ts); no dependency, peer, version, export or lockfile change."
+    },
+    {
+      "sourcePath": "packages/qwik/package.json",
+      "reason": "Native fix-wave test script: the package \"test\" script now also runs the existing resume, anatomy and accessible-media node tests; no dependency, peer, version, export or lockfile change."
+    },
+    {
+      "sourcePath": "packages/angular/package.json",
+      "reason": "Native fix-wave test script: the package \"test\" script now also runs its existing direct vitest behavioral suite (vitest.config.ts); no dependency, peer, version, export or lockfile change."
+    },
+    {
+      "sourcePath": "specs/components/tutorial-panel.md",
+      "reason": "Independent specification wording added alongside the attributed KRDS reference: overview versus single-task view rule, expanded anatomy part/state names (tab, start, task-toggle, step, selected) and the back-to-overview label. Existing KRDS-derived content and attribution unchanged. Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/bottom-sheet.md",
+      "reason": "Independent specification wording added alongside the attributed KRDS reference: handle naming and anatomy order (focusable “시트 닫기” type=button handle, close/drag reasons). Existing KRDS-derived content and attribution unchanged. Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "compliance/provenance.json",
+      "reason": "Styles lane provenance correction: the shared styles source record changeSummary now also documents the bounded BottomSheet handle correction (touch-action none on the existing handle part) and the independent BottomSheet-in-Modal composition correction; no source hash, license, rights status or attribution change. Follow-up C-a: the same record's changeSummary now also documents the bounded TutorialPanel control styling correction (close, back and stop adopt the shared secondary button tokens); again no source hash, license, rights status or attribution change."
+    },
+    {
+      "sourcePath": "THIRD-PARTY-NOTICES.md",
+      "reason": "Regenerated by tools/generate-notices.mjs from the corrected compliance/provenance.json: carries the same extended styles changeSummary (BottomSheet handle and BottomSheet-in-Modal composition corrections); no license, holder or attribution change. Follow-up C-a: regenerated again from the same record after the TutorialPanel control styling sentence was added; no license, holder or attribution change."
+    },
+    {
+      "sourcePath": "specs/components/README.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/accessible-media.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/accordion.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/back-button.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/badge.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/breadcrumb.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/button.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/calendar.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/carousel.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/checkbox.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/coach-mark.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/contextual-help.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/critical-alert.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/date-input.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/disclosure.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/fab.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/favicon.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/file-upload.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/footer.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/header.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/help-panel.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/identifier.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/image.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/in-page-navigation.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/language-switcher.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/link.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/main-menu.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/masthead.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/modal.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/native-select.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/pagination.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/quantity-toggle.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/radio-group.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/range-slider.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/resize.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/side-navigation.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/skip-link.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/snackbar.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/spinner.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/step-indicator.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/structured-list.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/switch.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/tab-bar.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/table.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/tabs.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/tag.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/text-input.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/text-list.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/textarea.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/toast.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/tooltip.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/tts.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
+    },
+    {
+      "sourcePath": "specs/components/visually-hidden.md",
+      "reason": "Korean localization (2026-11-07): the independent specification wording was rewritten in concise Korean; every heading keeps its previous English anchor as an explicit {#id}; requirements, defaults, enumerations, part/state tokens, links and the KRDS attribution are unchanged in substance."
     }
   ]
 }

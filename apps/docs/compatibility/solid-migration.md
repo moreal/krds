@@ -1,7 +1,7 @@
-# Solid 1 → Solid 2
+# Solid 1 → Solid 2 {#solid-1-→-solid-2}
 
-Solid 2 is an isolated preview on exact `2.0.0-rc.19` runtime, renderer and compiler pins, not a peer-range widening of the stable Solid 1 adapter. Use `@unofficial-krds/solid-next` only with its own manifest toolchain and preview fixture. Do not mix `solid-js` generations, import `solid-js/web` for the Solid 2 renderer, or resolve all runtimes at the repository root.
+Solid 2는 `2.0.0-rc.19` 런타임, 렌더러, 컴파일러로 고정한 격리된 미리보기입니다. 안정 Solid 1 어댑터의 피어 범위를 넓힌 것이 아닙니다. `@unofficial-krds/solid-next`는 자기 매니페스트 도구 체인과 미리보기 픽스처에서만 씁니다. `solid-js` 세대를 섞지 않습니다. Solid 2 렌더러에 `solid-js/web`을 import하지 않습니다. 모든 런타임을 저장소 루트에서 해석하지 않습니다.
 
-Start by moving semantic data, controlled values, callback payloads and CSS tokens. Then port native content/ref/lifecycle usage against the selected Solid 2 declarations and compiler. A Solid 1 JSX example is not automatically a Solid 2 example.
+먼저 의미 데이터, 제어(controlled) 값, 콜백 페이로드, CSS 토큰을 옮깁니다. 그다음 선택된 Solid 2 선언과 컴파일러에 맞춰 네이티브 콘텐츠·ref·생명주기 사용을 옮깁니다. Solid 1 JSX 예제가 자동으로 Solid 2 예제가 되지는 않습니다.
 
-The preview does not have a supported upstream siheom or stable native Storybook integration. Native preview build, SSR and browser evidence are recorded separately. [Exact versions and states](./) · [Native source examples](./examples#solid-next).
+미리보기에는 지원되는 upstream siheom이나 안정 네이티브 Storybook 통합이 없습니다. 네이티브 미리보기 빌드, SSR, 브라우저 근거는 따로 기록합니다. [버전과 상태](./) · [네이티브 소스 예제](./examples#solid-next).

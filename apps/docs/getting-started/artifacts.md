@@ -1,16 +1,16 @@
-# Historical local artifact records
+# 과거 로컬 아티팩트 기록 {#historical-local-artifact-records}
 
-Package identities, versions, local filenames and hashes below are captured historical observations from the reviewed documentation checkpoint. They are not rechecked during this docs build. This generator does not read or probe live artifact inventories, manifests or tarballs. These records do not establish a current native candidate, public npm availability or publication authorization.
+아래 패키지 식별자, 버전, 로컬 파일 이름, 해시는 검토된 문서 체크포인트에서 캡처한 과거 관측값입니다. 이번 문서 빌드에서 다시 확인하지 않습니다. 이 생성기는 현재 아티팩트 인벤토리, 매니페스트, 타르볼을 읽거나 조회하지 않습니다. 이 기록은 현재 네이티브 후보, 공개 npm 제공, 게시 허가를 뜻하지 않습니다.
 
-Checkpoint: [download exact historical record](/sources/apps/docs/artifact-checkpoint.json.txt). Original metadata SHA-256: `3b864fdf29a22498a5cfdb4ea58945ac6744eae75be052c2d8c162f3309bd7c2`. The original metadata path is a historical identity, not a claim about its current bytes.
+체크포인트: [과거 기록 그대로 내려받기](/sources/apps/docs/artifact-checkpoint.json.txt). 원본 메타데이터 SHA-256: `3b864fdf29a22498a5cfdb4ea58945ac6744eae75be052c2d8c162f3309bd7c2`. 원본 메타데이터 경로는 과거 식별자입니다. 현재 바이트에 대한 주장이 아닙니다.
 
-The current candidate record, when produced, is `artifacts/manifest.json` in the checkout. Use the T14 tarball inspector, outside consumers and T16 candidate verifier for current package bytes and source/build acceptance. This historical page does not report whether that mutable record currently exists. Follow the [local installation guide](./installation) and the exact current candidate producer records before installing tarballs.
+현재 후보 기록이 만들어지면 체크아웃의 `artifacts/manifest.json`에 있습니다. 현재 패키지 바이트와 소스/빌드 인수는 T14 타르볼 검사기, 외부 소비자, T16 후보 검증기로 확인합니다. 이 과거 페이지는 그 가변 기록이 지금 있는지 알려 주지 않습니다. 타르볼을 설치하기 전에 [로컬 설치 안내](./installation)와 현재 후보 생산자 기록을 따라야 합니다.
 
 ## artifacts/debug-inventory.json
 
-Historical recorded status: `debug-only-source-not-accepted`. Debug-only at capture: **yes**. This checkpoint authorizes no publication.
+기록된 과거 상태: `debug-only-source-not-accepted`. 캡처 시 디버그 전용: **예**. 이 체크포인트는 어떤 게시도 허가하지 않습니다.
 
-| Package | Captured version | Historical local path | Recorded SHA-256 | Captured observed SHA-256 | Integrity at capture |
+| 패키지 | 캡처된 버전 | 과거 로컬 경로 | 기록된 SHA-256 | 캡처 시 관측된 SHA-256 | 캡처 시 무결성 |
 | --- | --- | --- | --- | --- | --- |
 | `@unofficial-krds/angular` | `0.0.0` | `artifacts/tarballs/angular.tgz` | `49bfc35858c6f06f713882670da78442a2a4bdf59ffbccbe5fef1cb9274f78ad` | `49bfc35858c6f06f713882670da78442a2a4bdf59ffbccbe5fef1cb9274f78ad` | matches recorded bytes |
 | `@unofficial-krds/assets` | `0.0.0` | `artifacts/tarballs/assets.tgz` | `c8c8e50d06e934028f3b19eb16f29a302c4ae9a3949d10e7d98f0c88ebbbca35` | `c8c8e50d06e934028f3b19eb16f29a302c4ae9a3949d10e7d98f0c88ebbbca35` | matches recorded bytes |
@@ -27,9 +27,9 @@ Historical recorded status: `debug-only-source-not-accepted`. Debug-only at capt
 | `@unofficial-krds/vue` | `0.0.0` | `artifacts/tarballs/vue.tgz` | `3fa27abe46f2378403c8abecb34a90930a816723afb2b4218427ac418458144e` | `3fa27abe46f2378403c8abecb34a90930a816723afb2b4218427ac418458144e` | matches recorded bytes |
 ## artifacts/debug-solid-inventory.json
 
-Historical recorded status: `debug-only-source-not-accepted`. Debug-only at capture: **yes**. This checkpoint authorizes no publication.
+기록된 과거 상태: `debug-only-source-not-accepted`. 캡처 시 디버그 전용: **예**. 이 체크포인트는 어떤 게시도 허가하지 않습니다.
 
-| Package | Captured version | Historical local path | Recorded SHA-256 | Captured observed SHA-256 | Integrity at capture |
+| 패키지 | 캡처된 버전 | 과거 로컬 경로 | 기록된 SHA-256 | 캡처 시 관측된 SHA-256 | 캡처 시 무결성 |
 | --- | --- | --- | --- | --- | --- |
 | `@unofficial-krds/angular` | `0.0.0` | `artifacts/tarballs/angular.tgz` | `49bfc35858c6f06f713882670da78442a2a4bdf59ffbccbe5fef1cb9274f78ad` | `49bfc35858c6f06f713882670da78442a2a4bdf59ffbccbe5fef1cb9274f78ad` | matches recorded bytes |
 | `@unofficial-krds/assets` | `0.0.0` | `artifacts/tarballs/assets.tgz` | `c8c8e50d06e934028f3b19eb16f29a302c4ae9a3949d10e7d98f0c88ebbbca35` | `c8c8e50d06e934028f3b19eb16f29a302c4ae9a3949d10e7d98f0c88ebbbca35` | matches recorded bytes |
@@ -45,4 +45,4 @@ Historical recorded status: `debug-only-source-not-accepted`. Debug-only at capt
 | `@unofficial-krds/tokens` | `0.0.0` | `artifacts/tarballs/tokens.tgz` | `c8d5a61dc631e1d2c2117c78b53140dc5d62c8b4db8919acc0fcab1608f094e9` | `c8d5a61dc631e1d2c2117c78b53140dc5d62c8b4db8919acc0fcab1608f094e9` | matches recorded bytes |
 | `@unofficial-krds/vue` | `0.0.0` | `artifacts/tarballs/vue.tgz` | `3fa27abe46f2378403c8abecb34a90930a816723afb2b4218427ac418458144e` | `3fa27abe46f2378403c8abecb34a90930a816723afb2b4218427ac418458144e` | matches recorded bytes |
 
-[Original T14 producer report](/sources/docs/execution/evidence/T14/reports/task-T14-report.md.txt) · [Sources and rights](../legal/). The separate original and repaired-Solid debug inventories must not be combined into a final acceptance claim.
+[원본 T14 생산자 보고서](/sources/docs/execution/evidence/T14/reports/task-T14-report.md.txt) · [출처와 권리](../legal/). 원본 디버그 인벤토리와 Solid 수정 디버그 인벤토리는 서로 다릅니다. 둘을 합쳐 최종 인수 주장으로 삼아서는 안 됩니다.

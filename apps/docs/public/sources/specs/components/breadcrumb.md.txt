@@ -1,68 +1,68 @@
-# Breadcrumb
+# 브레드크럼 {#breadcrumb}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현용으로 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 승인일 뿐입니다. 네이티브 동작, 시각·자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `breadcrumb`; Korean name 브레드크럼; export `Breadcrumb`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `breadcrumb`, 한국어 이름 브레드크럼, export `Breadcrumb`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_03_03](https://www.krds.go.kr/html/site/component/component_03_03.html); preserved [HTML](../../upstream/krds/raw/components/component_03_03.html). Retrieved `2026-10-29T23:28:02.993Z`; `76569` bytes; SHA-256 `d3bc6305143388437ad54f4b099daa1f0cb4643170ee594522fb6603c2c48aca`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_03_03](https://www.krds.go.kr/html/site/component/component_03_03.html). 보존 [HTML](../../upstream/krds/raw/components/component_03_03.html). 조회 시각 `2026-10-29T23:28:02.993Z`, `76569` 바이트, SHA-256 `d3bc6305143388437ad54f4b099daa1f0cb4643170ee594522fb6603c2c48aca`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 별개입니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 원천 종류 `component`, 수용된 프로젝트 완료 종류 `component`. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `default`, `collapsed`, `narrow`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 케이스(변형·상태 축): `default`, `collapsed`, `narrow`. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형·예시 제목은 근거 부록에 그대로 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Named <nav aria-label="브레드크럼"> with <ol><li>. First item links home; include every parent level even if no destination exists (plain text then). Separator is hidden from AT, with visible 3:1 contrast. Breadcrumb precedes page heading; parent-last mode omits current title only when no other content intervenes.
+이름 있는 `<nav aria-label="브레드크럼">` 안에 `<ol><li>`를 씁니다. 첫 항목은 홈 링크입니다. 목적지가 없어도 모든 상위 수준을 포함하며 그 경우 일반 텍스트로 표시합니다. 구분자는 보조 기술에서 숨기고 보이는 대비는 3:1입니다. 브레드크럼은 페이지 제목 앞에 옵니다. 상위 마지막 모드는 다른 콘텐츠가 끼어들지 않을 때만 현재 제목을 생략합니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: items {id,label,href?}[], home {href,label}, currentItem? {id,label}, omitCurrent=true, maxVisible=4 desktop/2 narrow. Ellipsis directly follows home and is descriptive noninteractive text, not a fabricated expand action. Items contain ancestors/parents only, excluding Home and the current page. `omitCurrent` controls only the separate explicit `currentItem`; never drop the last parent or infer current from a missing href. A missing parent href renders text and remains present. `omitCurrent=false` requires currentItem and appends it as noninteractive aria-current=page text. Home is always the separate first item.
+독립 API: items {id,label,href?}[], home {href,label}, currentItem? {id,label}, omitCurrent=true, maxVisible=데스크톱 4/좁은 화면 2. 줄임표는 홈 바로 뒤에 오며 설명용 비상호작용 텍스트이고, 지어낸 펼치기 동작이 아닙니다. items에는 홈과 현재 페이지를 제외한 조상·상위만 담습니다. `omitCurrent`는 별도의 명시적 `currentItem`만 제어합니다. 마지막 상위를 버리거나 href가 없다는 이유로 현재 페이지를 추정하지 않습니다. 상위의 href가 없으면 텍스트로 렌더링하며 항목은 남습니다. `omitCurrent=false`이면 currentItem이 필요하고 비상호작용 aria-current=page 텍스트로 덧붙입니다. 홈은 항상 별도의 첫 항목입니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 정의된 value/open은 제어 모드이고 undefined는 비제어 모드입니다. 제어 prop과 기본값을 함께 주거나 모드를 바꾸면 잘못된 구성입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 시맨틱 변경 요청을 한 번 내보냅니다. 비활성, 변화 없음, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 모드에서 거부되면 커밋된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드로 렌더러·머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Native Tab/Shift+Tab and Enter apply only to links; non-destinations and ellipsis are not tab stops. Preserve complete accessible hierarchy when visually collapsing intermediate path without creating invisible focusable links.
+네이티브 Tab/Shift+Tab과 Enter는 링크에만 적용됩니다. 목적지가 없는 항목과 줄임표는 탭 정지점이 아닙니다. 중간 경로를 시각적으로 접어도 보이지 않는 초점 가능 링크를 만들지 않고 접근 가능한 전체 계층을 보존합니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-One line; five-plus paths collapse after home; narrow mode shows home and last parent with ellipsis between. Last label may truncate only when still needed after path reduction; full accessible name remains.
+한 줄로 표시합니다. 경로가 다섯 개 이상이면 홈 뒤를 접습니다. 좁은 화면에서는 홈과 마지막 상위를 보이고 그 사이에 줄임표를 둡니다. 마지막 레이블은 경로 축소 후에도 필요할 때만 잘릴 수 있으며 전체 접근 가능한 이름은 유지됩니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form/reset/IME behavior.
+폼·리셋·IME 동작은 없습니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host provides true hierarchy/destinations and adjacent page title, not visit history. Completion includes parent-last placement and hierarchy fixture. No router dependency required.
+호스트가 방문 이력이 아닌 실제 계층과 목적지, 인접한 페이지 제목을 제공합니다. 완료에는 상위 마지막 배치와 계층 픽스처가 포함됩니다. 라우터 의존성은 필요 없습니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
-root, list, item, link, home, separator, ellipsis; current,collapsed.
+파트: root, list, item, link, home, separator, ellipsis. 상태: current,collapsed.
 
-All rendered owned parts use `data-krds-component="breadcrumb"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="breadcrumb"`, 하나의 `data-krds-part` 토큰, 공백으로 구분된 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 우선합니다. 위 문장의 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Home href is actual service root.
-2. Parent without destination is text rather than fake link.
-3. Separators are absent from a11y output.
-4. Narrow deep path keeps home/last parent and communicates omitted hierarchy.
-5. Tab visits only visible true links.
+1. 홈 href는 실제 서비스 루트다.
+2. 목적지 없는 상위는 가짜 링크가 아니라 텍스트다.
+3. 구분자는 접근성 출력에 없다.
+4. 좁은 화면의 깊은 경로는 홈과 마지막 상위를 유지하고 생략된 계층을 전달한다.
+5. Tab은 보이는 실제 링크만 방문한다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이 항목은 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색 이외의 상태 단서, 움직임이 있는 곳의 동작 줄이기를 확인합니다. 빈 스위트를 성공으로 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `breadcrumb--default`, `breadcrumb--deep-collapsed`, `breadcrumb--missing-parent-href`, `breadcrumb--narrow-long-label`, `breadcrumb--parent-last-heading`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 케이스는 해당하는 모든 네이티브 렌더러에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태를 가져야 합니다. 대상은 Solid 1, React, Svelte, Vue, Lit, Qwik, Angular이며 Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 단계별로 따로 있으며 현재 파일럿 러너의 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부가 수용되어야 합니다. 동작 스위트는 스토리 파일과 분리하며 지원되는 upstream siheom 어댑터만 씁니다. Lit과 Solid 2는 선택된 네이티브 테스트 경로를 쓰며 siheom 지원을 만들어 내지 않습니다. Qwik은 첫 lazy 이벤트를 테스트합니다. Angular의 폼 컨트롤은 CVA·리셋과 partial APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름·대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러·렌더러를 가져오면 안 됩니다. 다른 렌더러의 래퍼는 쓰지 않습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
+아래 발췌는 이 항목의 실제 보존된 상세 HTML에서 가져왔으며 핵심 지침과 상호작용·마크업 표를 포함합니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 유지합니다. “고려/권장/가능” 같은 표현은 권고로 남습니다. 예시와 CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 원문 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS는 네이티브가 제어하는 DOM에서 실행하면 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립적 선택입니다.
 
 
 ### 구조
@@ -146,23 +146,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1305–1308](../../upstream/krds/raw/components/component_03_03.html:1305): 목록 ol.breadcrumb
 - L[1309–1312](../../upstream/krds/raw/components/component_03_03.html:1309): 홈 li.home
 
-Inline preserved example markup (reference, not the public native API): L[1243–1255](../../upstream/krds/raw/components/component_03_03.html:1243)
+보존된 인라인 예시 마크업(참고용, 공개 네이티브 API 아님): L[1243–1255](../../upstream/krds/raw/components/component_03_03.html:1243)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+원문의 CSS/JS/가이드 이미지 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌는 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Recorded independent decision: Keep visually omitted intermediate hierarchy as noninteractive accessible text in DOM order, with any decorative ellipsis hidden from assistive technology. Only actually visible endpoint navigation links are sequentially focusable. Never invent an ellipsis expand control.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1266 `../../code/breadcrumb.html`, L1327 `./variable/breadcrumb.html`. Do not infer unseen contents.
-- 8 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 기록된 독립 결정: 시각적으로 생략한 중간 계층은 DOM 순서의 비상호작용 접근 가능 텍스트로 유지하고, 장식용 줄임표는 보조 기술에서 숨깁니다. 실제로 보이는 양 끝 내비게이션 링크만 순차 초점을 받습니다. 줄임표 펼치기 컨트롤을 만들어 내지 않습니다.
+- 연결된 외부 코드 예시는 참조만 하고 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L1266 `../../code/breadcrumb.html`, L1327 `./variable/breadcrumb.html`. 보지 않은 내용을 추정하지 않습니다.
+- 상세 페이지에 가이드 이미지 참조가 8개 있으며, 그 안의 픽셀 도식은 시각적으로 검사하지 않았습니다. 텍스트 구조와 지침은 읽었습니다. 정확한 시각 치수·자산은 이후 시각·출처 검토가 필요합니다.
+- 시맨틱 인터페이스와 파트·상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 자체 구현, 동작·스토리 소스, 독립 인수가 여전히 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-Keep visually omitted intermediate hierarchy as noninteractive accessible text in DOM order, with any decorative ellipsis hidden from assistive technology. Only actually visible endpoint navigation links are sequentially focusable. Never invent an ellipsis expand control.
+시각적으로 생략한 중간 계층은 DOM 순서의 비상호작용 접근 가능 텍스트로 유지하고, 장식용 줄임표는 보조 기술에서 숨깁니다. 실제로 보이는 양 끝 내비게이션 링크만 순차 초점을 받습니다. 줄임표 펼치기 컨트롤을 만들어 내지 않습니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `BreadcrumbContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 시맨틱 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `BreadcrumbContract`입니다. 네이티브 프레임워크는 자체 콘텐츠·ref·이벤트 전달만 확장합니다. 공유 매니페스트는 지원 케이스 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에서 인용·파생한 공식 텍스트는 원래의 KRDS 권리와 출처 표기를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 원천 식별 정보는 바뀌지 않습니다. 열린 근거 한계는 검사하지 않은 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용된 실질 요구사항을 면제하지 않습니다.

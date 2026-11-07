@@ -48,7 +48,7 @@ test('all real documents parse once with baseline heading parity and determinist
  assert.ok(pages.find(x=>x.sourcePath==='components/button.md').blocks.some(x=>x.type==='table'));
  assert.ok(pages.find(x=>x.sourcePath==='examples/solid-2.md').blocks.some(x=>x.type==='code'));
  const records=buildSearchRecords(pages);assert.deepEqual(records,buildSearchRecords(await buildPages(site)));
- assert.ok(records.some(x=>x.title==='Badge'&&x.text.includes('배지')));
+ assert.ok(records.some(x=>x.title==='배지'&&x.text.includes('Badge')));
 });
 
 test('zero is a valid ordered-list start and unordered lists retain their default',async()=>{
@@ -82,4 +82,13 @@ test('browser-recognized encoded dots and backslashes stay beneath the base',asy
  ];
  for(const [input,expected]of cases){const result=docUrl(input+suffix,'components/probe.md');assert.equal(result,expected+suffix,input);assert.ok(new URL(result,'https://moreal.github.io').pathname.startsWith('/krds/'),input);}
  assert.equal(docUrl('https://example.test/%2e%2e/outside'+suffix),'https://example.test/%2e%2e/outside'+suffix);
+});
+
+test('explicit heading anchors keep stable IDs independent of localized wording',async()=>{
+ const {parseDocument}=await api();
+ const page=parseDocument('# 배지 {#badge}\n\n## 네이티브 지원 현황 {#native-availability}\n\n## 네이티브 지원 현황\n\n## `코드` 포함 {#with-code}\n','anchors.md');
+ assert.deepEqual(page.headings.map(h=>[h.id,h.title]),[['badge','배지'],['native-availability','네이티브 지원 현황'],[`${'네이티브 지원 현황'.normalize('NFKD').toLowerCase().replaceAll(' ','-')}`,'네이티브 지원 현황'],['with-code','코드 포함']]);
+ assert.equal(page.title,'배지');
+ assert.deepEqual(page.blocks[3].children.map(c=>c.type),['code','text']);
+ assert.throws(()=>parseDocument('## A {#dup}\n\n## B {#dup}','dup.md'),/dup.md:3.*duplicate heading anchor/);
 });

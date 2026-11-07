@@ -1,69 +1,68 @@
-# CriticalAlert
+# 긴급 공지 {#critical-alert}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 수락일 뿐이며, 네이티브 동작·시각/자산 검토·실행된 커버리지는 별도 게이트입니다. 어떤 게시도 승인되지 않았습니다.
 
-Semantic ID `critical-alert`; Korean name 긴급 공지; export `CriticalAlert`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `critical-alert`, 한국어 이름 긴급 공지, export `CriticalAlert`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_04_02](https://www.krds.go.kr/html/site/component/component_04_02.html); preserved [HTML](../../upstream/krds/raw/components/component_04_02.html). Retrieved `2026-10-29T23:28:03.344Z`; `72817` bytes; SHA-256 `be6556c675ce9269b7e70c9e71a0fbae7f6d5e846388e5c9431eee92ccdaf83b`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_04_02](https://www.krds.go.kr/html/site/component/component_04_02.html), 보존된 [HTML](../../upstream/krds/raw/components/component_04_02.html). 조회 시각 `2026-10-29T23:28:03.344Z`, `72817` 바이트, SHA-256 `be6556c675ce9269b7e70c9e71a0fbae7f6d5e846388e5c9431eee92ccdaf83b`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조해 확인했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 별개입니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류 `component`, 수용된 프로젝트 완료 종류 `component`. 프로젝트 완료 종류는 아래 근거를 따르며, 구체적인 완료 의무와 호스트 경계는 이 계약에 기술됩니다.
 
-Supported native cases (variant and state axes): `high-urgency`, `medium-urgency`, `low-urgency`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 케이스(변형·상태 축): `high-urgency`, `medium-urgency`, `low-urgency`. 이는 네이티브 케이스 이름이며, 상태·반응형·외관 축이 공식 명명 변형인 것은 아닙니다. 공식 유형/예시 제목 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Full-width section as first body content between MainMenu and hero: decorative urgency icon, visible urgency label, concise notice, at most one directly related detail link. No dismiss/collapse control. Official text explicitly requests role=banner.
+본문 첫 콘텐츠로 MainMenu와 히어로 사이에 전체 너비 섹션을 둡니다. 장식용 긴급도 아이콘, 보이는 긴급도 레이블, 간결한 공지, 직접 관련된 상세 링크(최대 하나)로 구성합니다. 닫기/접기 컨트롤은 없습니다. 공식 텍스트는 role=banner를 명시적으로 요청합니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: urgency=high|medium|low, label, message, details? {href,label,destinationTitle}; no open/defaultOpen or dismiss event. Host controls time-limited presence. Style selectors danger/ok/info are examples, not proof that “safe” equals a numeric urgency level.
+독립 API: urgency=high|medium|low, label, message, details? {href,label,destinationTitle}. open/defaultOpen이나 닫기 이벤트는 없습니다. 기간 제한 게시는 호스트가 제어합니다. danger/ok/info 스타일 선택자는 예시일 뿐이며, "safe"가 숫자 긴급도 수준과 같다는 증거가 아닙니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 커밋된 UI와 초점 상태를 유지합니다. 취소된 리셋은 아무 일도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며, 제어 prop이 계속 우선합니다. 추가 필드로 렌더러/머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Only detail anchor enters Tab order; no automatic focus or assertive live role inferred from urgency. Decorative icon has no duplicate alt. Banner landmark naming/disambiguation with page Header needs review.
+상세 앵커만 Tab 순서에 들어갑니다. 긴급도에서 자동 초점이나 단정적(assertive) 라이브 역할을 추론하지 않습니다. 장식 아이콘에는 중복 alt가 없습니다. 배너 랜드마크의 이름 지정과 페이지 Header와의 구분은 검토가 필요합니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Text one line normally/up to two narrow; do not clip essential information to enforce line count. Use concise host copy and details link.
+텍스트는 보통 한 줄, 좁은 화면에서는 최대 두 줄입니다. 줄 수를 맞추려고 필수 정보를 잘라내지 않습니다. 호스트 문구와 상세 링크는 간결하게 씁니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No form/reset/IME behavior.
+폼/리셋/IME 동작이 없습니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host owns truthful urgent information and posting period. Completion tests nondismissibility and detail destination; no polling or network urgency feed in component.
+호스트가 사실에 맞는 긴급 정보와 게시 기간을 소유합니다. 완료 시험은 닫을 수 없음과 상세 링크 목적지를 확인하며, 컴포넌트 안에 폴링이나 네트워크 긴급도 피드는 없습니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, icon, label, message, link; urgency=high|medium|low.
 
-All rendered owned parts use `data-krds-component="critical-alert"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더되는 모든 소유 파트는 `data-krds-component="critical-alert"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위 열거는 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Notice cannot be dismissed/collapsed.
-2. Visible label conveys severity without color.
-3. Only one detail link has destination-specific name.
-4. Body-first placement remains readable narrow.
-5. No redundant icon announcement.
+1. 공지를 닫거나 접을 수 없습니다.
+2. 보이는 레이블이 색 없이 심각도를 전달합니다.
+3. 상세 링크는 하나뿐이며 목적지별 이름을 가집니다.
+4. 본문 첫 배치는 좁은 화면에서도 읽을 수 있습니다.
+5. 아이콘을 중복 안내하지 않습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+위 항목은 앞으로 필요한 테스트이며, 실행되었거나 인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색 이외의 상태 단서, 움직임이 있는 곳의 동작 줄이기를 검증합니다. 빈 스위트를 성공으로 간주하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `critical-alert--high-urgency`, `critical-alert--medium-urgency`, `critical-alert--low-urgency`, `critical-alert--narrow`, `critical-alert--page-placement`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 케이스는 적용 가능한 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/입력/슬롯과 관찰 가능한 순수 로컬 상태를 가져야 합니다. Solid 2 미리보기는 별도로 격리됩니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 마련되며, 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부가 수락되어야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 씁니다. Lit/Solid 2는 siheom 지원을 만들어 내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연(lazy) 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름·대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러/렌더러를 가져오면 안 됩니다. 다른 렌더러 래퍼는 금지입니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 보존된 상세 HTML 원본(본문 지침과 상호작용·마크업 표 포함)에서 추출했습니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 유지합니다. "고려한다/권장/할 수 있다" 같은 표현은 권고로 남습니다. 예시나 CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 원본 JS 함수 표는 참고 근거일 뿐이며, 네이티브가 제어하는 DOM에서 KRDS 원본 JS를 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립 선택입니다.
 
 ### 구조
 
@@ -140,23 +139,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1260–1263](../../upstream/krds/raw/components/component_04_02.html:1260): 안전 .ok
 - L[1264–1267](../../upstream/krds/raw/components/component_04_02.html:1264): 안내 .info
 
-Inline preserved example markup (reference, not the public native API): L[1164–1203](../../upstream/krds/raw/components/component_04_02.html:1164)
+인라인으로 보존된 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1164–1203](../../upstream/krds/raw/components/component_04_02.html:1164)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/가이드 이미지 원본 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위 평탄화 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Recorded independent decision: Preserve the explicit official banner role. Give the CriticalAlert banner its concise label as accessible landmark name, and independently name the service Header banner. Do not silently replace it with alert or automatically focus/announce assertively.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1214 `../../code/critical_alerts.html`, L1282 `./variable/critical_alerts.html`. Do not infer unseen contents.
-- 1 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 기록된 독립 결정: 명시적인 공식 banner 역할을 보존합니다. CriticalAlert 배너에는 간결한 레이블을 접근 가능한 랜드마크 이름으로 주고, 서비스 Header 배너에는 독립적으로 이름을 붙입니다. 이를 alert로 몰래 바꾸거나 자동 초점·단정적 안내를 하지 않습니다.
+- 연결된 외부 코드 예시는 참조만 하고, 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L1214 `../../code/critical_alerts.html`, L1282 `./variable/critical_alerts.html`. 확인하지 못한 내용은 추정하지 않습니다.
+- 상세에 가이드 이미지 참조가 1개 있으며, 내장 픽셀 도식은 시각적으로 검사하지 않았습니다. 텍스트 구조와 지침만 읽었으며, 정확한 시각 치수와 자산은 이후 시각/출처 검토가 필요합니다.
+- 의미 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 각 네이티브 렌더러는 자체 구현, 동작/스토리 소스, 독립 인수가 여전히 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-Preserve the explicit official banner role. Give the CriticalAlert banner its concise label as accessible landmark name, and independently name the service Header banner. Do not silently replace it with alert or automatically focus/announce assertively.
+명시적인 공식 banner 역할을 보존합니다. CriticalAlert 배너에는 간결한 레이블을 접근 가능한 랜드마크 이름으로 주고, 서비스 Header 배너에는 독립적으로 이름을 붙입니다. 이를 alert로 몰래 바꾸거나 자동 초점·단정적 안내를 하지 않습니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `CriticalAlertContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `CriticalAlertContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트가 지원 케이스 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트·조합·자산·통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서의 공식 인용·파생 텍스트는 원래 KRDS 권리와 출처 표기를 유지하며, 독립 코드 MIT 부여는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며, 여기 인용한 실질 요구사항을 면제하지 않습니다.

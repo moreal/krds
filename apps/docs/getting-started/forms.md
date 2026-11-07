@@ -1,25 +1,25 @@
-# Forms and controlled state
+# 폼과 제어 상태 {#forms-and-controlled-state}
 
-Use each framework's native public API. Shared semantic values and callbacks describe the request; the native renderer owns its props, event transport, lifecycle and form integration.
+각 프레임워크의 네이티브 공개 API를 사용합니다. 공유 시맨틱 값과 콜백은 변경 요청을 나타냅니다. props, 이벤트 전달, 수명 주기, 폼 연동은 네이티브 렌더러가 소유합니다.
 
-## Pick one state owner
+## 상태 소유자는 하나만 {#pick-one-state-owner}
 
-A defined `value` or `open` is controlled. Without it, the supported default initializes uncontrolled state once. Do not supply both controlled and default values or switch modes after mount. A user callback requests a change; a controlled parent may reject that request. The visible committed UI must continue to reflect the parent.
+`value`나 `open`이 정의되어 있으면 제어(controlled) 상태입니다. 정의되지 않으면 지원되는 기본값으로 비제어 상태를 한 번 초기화합니다. 제어 값과 기본값을 함께 넘기면 안 됩니다. 마운트 뒤에 모드를 바꾸어도 안 됩니다. 사용자 콜백은 변경을 요청할 뿐이며 제어하는 부모는 요청을 거부할 수 있습니다. 화면에 커밋된 UI는 계속 부모의 상태를 반영해야 합니다.
 
-Mounting, hydration, prop updates and form reset emit no user-change callback. Disabled and no-op actions also emit no change. An uncontrolled noncanceled reset restores its initial baseline; a controlled reset leaves the parent's value authoritative. A canceled reset changes neither state nor notification count.
+마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 호출하지 않습니다. 비활성 동작과 no-op 동작도 변경을 알리지 않습니다. 취소되지 않은 비제어 리셋은 초기 기준선으로 되돌립니다. 제어 리셋은 부모의 값을 그대로 따릅니다. 취소된 리셋은 상태도 알림 횟수도 바꾸지 않습니다.
 
-## Submit real values
+## 실제 값 제출 {#submit-real-values}
 
-[Button](../components/button) defaults to `type="button"`. Choose `submit` or `reset` explicitly. A named submitter is part of native form semantics; a disabled action submits nothing and runs no action callback. The application owns pending-request guards and idempotence.
+[버튼(Button)](../components/button)의 기본값은 `type="button"`입니다. `submit`이나 `reset`은 명시적으로 지정합니다. 이름 있는 제출자는 네이티브 폼 시맨틱의 일부입니다. 비활성 동작은 아무것도 제출하지 않고 동작 콜백도 실행하지 않습니다. 진행 중 요청 방지와 멱등성은 애플리케이션이 맡습니다.
 
-[NativeSelect](../components/native-select) uses actual select/options and canonical string values. Do not treat display labels as submitted data. For Lit, inspect the adapter's actual form-associated custom element and `ElementInternals` policy; an internal Shadow DOM input does not automatically join the host form. Angular form-bearing controls must use the documented CVA path and retain the expected touched, disabled and reset behavior.
+[셀렉트(NativeSelect)](../components/native-select)는 네이티브 select/option과 정규 문자열 값을 사용합니다. 표시 레이블을 제출 데이터로 취급하지 않습니다. Lit에서는 어댑터의 폼 연관 커스텀 엘리먼트와 `ElementInternals` 정책을 확인합니다. 내부 Shadow DOM input은 호스트 폼에 자동으로 참여하지 않습니다. Angular의 폼 컨트롤은 문서화된 CVA 경로를 써야 하며 touched, disabled, reset 동작을 그대로 유지해야 합니다.
 
-## Preserve a date draft
+## 날짜 초안 보존 {#preserve-a-date-draft}
 
-[DateInput](../components/date-input) keeps the user's raw text draft separate from the committed date-only value. Invalid text remains editable. IME composition does not prematurely commit. A range submits its documented `.start` and `.end` entries once each. Display validation and the committed canonical value are different states.
+[날짜 입력 필드(DateInput)](../components/date-input)는 사용자의 원문 입력 초안과 커밋된 날짜 값을 분리해 보관합니다. 잘못된 텍스트도 계속 편집할 수 있습니다. IME 조합 중에는 미리 커밋하지 않습니다. 범위는 문서화된 `.start`와 `.end` 항목을 각각 한 번씩 제출합니다. 표시 검증과 커밋된 정규 값은 서로 다른 상태입니다.
 
-[Calendar](../components/calendar) is a tentative selection surface. Confirm commits a meaningful changed value; cancel abandons a tentative choice. It has no implicit form value or modal behavior. DateInput composes its own native popup policy.
+[달력(Calendar)](../components/calendar)은 임시 선택 화면입니다. 확인은 의미 있게 바뀐 값을 커밋하고 취소는 임시 선택을 버립니다. 암묵적인 폼 값이나 모달 동작은 없습니다. DateInput은 자체 네이티브 팝업 정책을 구성합니다.
 
-## Content and errors
+## 내용과 오류 {#content-and-errors}
 
-Supply a visible label, persistent help/error relationship IDs where needed, and concise corrective text. An invalid control must be understandable without color alone. Do not replace native events with synthetic duplicates; native Enter/Space activation should notify once. Check each [component reference](../components/) for its exact events, defaults, structure and keyboard rules.
+보이는 레이블을 제공합니다. 필요하면 도움말·오류 연결 ID를 유지하고 오류를 바로잡는 문구를 간결하게 씁니다. 잘못된 컨트롤은 색상만으로 구분되지 않아야 합니다. 네이티브 이벤트를 합성 이벤트로 중복시키지 않습니다. 네이티브 Enter/Space 활성화는 알림을 한 번만 보내야 합니다. 정확한 이벤트, 기본값, 구조, 키보드 규칙은 각 [컴포넌트 참조](../components/)에서 확인합니다.

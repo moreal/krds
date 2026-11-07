@@ -1,81 +1,80 @@
-# FileUpload
+# 파일 업로드 {#file-upload}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 인수일 뿐입니다. 네이티브 동작, 시각·자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `file-upload`; Korean name 파일 업로드; export `FileUpload`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `file-upload`, 한국어 이름 파일 업로드, export `FileUpload`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_09_04](https://www.krds.go.kr/html/site/component/component_09_04.html); preserved [HTML](../../upstream/krds/raw/components/component_09_04.html). Retrieved `2026-10-29T23:28:05.532Z`; `88760` bytes; SHA-256 `c498892258d66f642e54152aa6518c4520d58df848739038014bda505e180cb3`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_09_04](https://www.krds.go.kr/html/site/component/component_09_04.html), 보존본 [HTML](../../upstream/krds/raw/components/component_09_04.html). 수집 `2026-10-29T23:28:05.532Z`, `88760` 바이트, SHA-256 `c498892258d66f642e54152aa6518c4520d58df848739038014bda505e180cb3`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `integration`. Recommend integration: L1005–1006 forbids automatic server upload/storage before form submission; L1012–1018 includes server-only failure states, while L1188–1189 mandates native file input.
+고정 출처 종류는 `component`, 수용된 프로젝트 완료 종류는 `integration`입니다. integration을 권고하는 이유는 다음과 같습니다. L1005–1006은 폼 제출 전 서버 자동 업로드·저장을 금지합니다. L1012–1018은 서버 전용 실패 상태를 포함합니다. L1188–1189는 네이티브 파일 입력을 의무로 합니다.
 
-Supported native cases (variant and state axes): `single`, `multiple`, `button`, `dropzone`, `pending`, `success`, `error`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 케이스(변형·상태 축)는 `single`, `multiple`, `button`, `dropzone`, `pending`, `success`, `error`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Section label/title, optional description, explicit type/size/count constraints, real file-picker control, optional dropzone, count and file records (name/extension/size/status/remove). Single file uses p grouping; multiple ul/li. Remove button described by corresponding file text. Long filename one visual line with full accessible name.
+순서는 다음과 같습니다. 섹션 레이블/제목, 선택 설명, 유형·크기·개수 제약, 실제 파일 선택 컨트롤, 선택 드롭 영역, 개수, 파일 레코드(이름/확장자/크기/상태/삭제). 단일 파일은 p로, 다중 파일은 ul/li로 묶습니다. 삭제 버튼은 해당 파일 텍스트로 설명합니다. 긴 파일 이름은 시각적으로 한 줄로 두고 접근 가능한 이름에는 전체를 담습니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Choose a **controlled-only committed file set**: required `files: readonly FileRecord[]`, initially supplied explicitly as `[]`; there is no defaultFiles or uncontrolled nonempty/empty baseline. `FileRecord={id:string,file:File,status:staged|uploading|success|error,progress?:number,error?:string}` has a unique stable ID and the actual immutable File handle, not a pathname or renderer/machine object. Other props: multiple=false, accept?, maxFiles?, maxBytes?, disabled=false, name. A retained browser File is intentionally supported native file data; callbacks never carry a native Event object. Changing/removing files happens only when the host supplies the new files prop. Mount/hydration/prop/reset/reconciliation emits no user-change callback.
+**제어 전용 확정 파일 집합**을 씁니다. 필수 `files: readonly FileRecord[]`는 처음에 `[]`로 명시해 전달합니다. defaultFiles나 비제어 기준선(비어 있지 않은/빈)은 없습니다. `FileRecord={id:string,file:File,status:staged|uploading|success|error,progress?:number,error?:string}`는 고유하고 안정적인 ID와 실제 불변 File 핸들을 가집니다. 경로명이나 렌더러·머신 객체는 담지 않습니다. 다른 prop은 multiple=false, accept?, maxFiles?, maxBytes?, disabled=false, name입니다. 보관된 브라우저 File은 의도적으로 지원하는 네이티브 파일 데이터입니다. 콜백은 네이티브 Event 객체를 전달하지 않습니다. 파일 변경·삭제는 호스트가 새 files prop을 줄 때만 일어납니다. 마운트·하이드레이션·prop·리셋·재조정은 사용자 변경 콜백을 내지 않습니다.
 
-One accepted candidate selection/removal request calls only `onFilesChange({value:FileRecord[],reason:picker|drop|remove,addedIds:string[],removedIds:string[]})` once, carrying the **complete requested final set**. Remove uses this same event; there is no second onRemove request. Rejected validation candidates report once through separate `onFilesRejected({rejected:{file,code,message}[]})` and visible associated errors; this is validation feedback, not a changed-value notification. If no valid candidate changes the requested set, emit no onFilesChange. A controlled host may decline a valid request; display, count, actual submitted set and retained previews remain based on committed files, with no optimistic removal/addition leaking into FormData.
+수용된 후보 선택·삭제 요청은 `onFilesChange({value:FileRecord[],reason:picker|drop|remove,addedIds:string[],removedIds:string[]})`만 한 번 호출합니다. 여기에는 **요청된 최종 집합 전체**를 담습니다. 삭제도 같은 이벤트를 쓰며 별도 onRemove 요청은 없습니다. 검증에서 거부된 후보는 별도 `onFilesRejected({rejected:{file,code,message}[]})`로 한 번 보고하고, 연결된 오류를 화면에 표시합니다. 이는 검증 피드백이지 값 변경 알림이 아닙니다. 유효한 후보가 요청 집합을 바꾸지 않으면 onFilesChange를 내지 않습니다. 제어 호스트는 유효한 요청도 거절할 수 있습니다. 이때 표시, 개수, 실제 제출 집합, 보관된 미리보기는 확정된 파일 기준을 유지합니다. 낙관적 삭제·추가가 FormData로 새어 나가서는 안 됩니다.
 
-For multiple=true, picker selections and drops append valid candidates in supplied order after the current committed set; retain all existing files. Validate type/extension/size, then available count slots in order and report rejected excess without removing existing records. Distinct newly chosen File objects get new IDs, even when filenames/metadata coincide; no content-deduplication claim is made. The exact same already-committed File object is a no-op duplicate. For multiple=false, one valid candidate replaces the current set; a multi-file drop is rejected as a whole with count guidance rather than silently choosing one. Invalid or canceled selection never clears the prior set. accept remains a picker hint; no fabricated password/virus checking or transfer on selection.
+multiple=true일 때 선택기 선택과 드롭은 유효한 후보를 전달된 순서대로 현재 확정 집합 뒤에 추가하고, 기존 파일은 모두 유지합니다. 유형/확장자/크기를 검증한 뒤 남은 개수 칸을 순서대로 채우며, 초과분은 거부로 보고하되 기존 레코드는 지우지 않습니다. 새로 고른 서로 다른 File 객체는 파일명·메타데이터가 같아도 새 ID를 받습니다. 내용 중복 제거는 주장하지 않습니다. 이미 확정된 바로 그 File 객체는 중복이므로 아무 일도 하지 않습니다. multiple=false이면 유효한 후보 하나가 현재 집합을 대체합니다. 여러 파일 드롭은 하나를 임의로 고르지 않고 개수 안내와 함께 통째로 거부합니다. 잘못된 선택이나 취소한 선택은 이전 집합을 지우지 않습니다. accept는 선택기 힌트로만 남습니다. 비밀번호·바이러스 검사나 선택 시 전송을 꾸며 내지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Native picker owns OS keyboard navigation and opens only from a real user action. Dropzone includes the click/keyboard picker equivalent. Snapshot chosen File objects, then clear only the ephemeral native chooser value so the same file can be chosen again; that chooser is not the committed file store. Cancel emits neither files-change nor rejection and preserves committed records. Remove requests the final set once; **after actual accepted removal**, restore focus to prior remaining removal control, else next, else picker. Rejected removal keeps its record/control/focus. Keep the input and picker stable during native list updates. Addition does not start host transfer; pending/success/error records come from explicit Submit-driven host state.
+네이티브 선택기가 OS 키보드 탐색을 맡으며 실제 사용자 동작으로만 열립니다. 드롭 영역은 클릭/키보드 선택기 대응 수단을 포함합니다. 고른 File 객체를 스냅샷한 뒤 임시 네이티브 선택기 값만 비워 같은 파일을 다시 고를 수 있게 합니다. 이 선택기는 확정 파일 저장소가 아닙니다. 취소는 files-change도 거부도 내지 않으며 확정 레코드를 보존합니다. 삭제는 최종 집합을 한 번 요청합니다. **실제로 삭제가 수용된 뒤** 초점은 앞에 남은 삭제 컨트롤로, 없으면 다음 것으로, 그것도 없으면 선택기로 옮깁니다. 거부된 삭제는 레코드·컨트롤·초점을 그대로 둡니다. 네이티브 목록을 갱신하는 동안 입력과 선택기를 안정적으로 유지합니다. 추가만으로 호스트 전송을 시작하지 않습니다. pending/success/error 레코드는 명시적 제출로 시작된 호스트 상태에서 옵니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-No multi-file modal layout; narrow list remains readable, count visible, drag hint does not exclude touch users. Pending/success/error icons plus text; selection control remains available after successful addition unless host disables input.
+다중 파일용 모달 레이아웃을 쓰지 않습니다. 좁은 화면에서도 목록을 읽을 수 있고 개수가 보여야 합니다. 드래그 안내가 터치 사용자를 배제해서는 안 됩니다. pending/success/error는 아이콘과 텍스트를 함께 씁니다. 추가에 성공한 뒤에도 호스트가 입력을 비활성화하지 않는 한 선택 컨트롤을 계속 쓸 수 있어야 합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-The real native file input remains required as the user picker, but its ephemeral FileList does not represent an accumulated picker+drop store. Never set a nonempty input.value or claim that native FormData automatically contains the committed array. The host submission driver must remove this field's ephemeral chooser entries and append exactly the **current committed enabled** records as `FormData.append(name,record.file,record.file.name)` on explicit Submit (disabled uploader contributes none). Host required/count validation likewise reads committed records rather than an empty chooser. A picker A → drop B → accepted remove A → Submit must send only B; rejected additions/removals must not change that result.
+실제 네이티브 파일 입력은 사용자 선택기로서 계속 필요합니다. 그러나 임시 FileList는 선택기와 드롭이 누적된 저장소가 아닙니다. 비어 있지 않은 input.value를 설정하지 않으며, 네이티브 FormData가 확정 배열을 자동으로 담는다고 주장하지 않습니다. 호스트 제출 드라이버는 이 필드의 임시 선택기 항목을 제거해야 합니다. 그리고 명시적 제출 시 **현재 확정된 활성** 레코드만 정확히 `FormData.append(name,record.file,record.file.name)`으로 추가해야 합니다. 비활성 업로더는 아무것도 보내지 않습니다. 호스트의 필수·개수 검증도 빈 선택기가 아니라 확정 레코드를 읽습니다. 선택기에서 A 선택, B 드롭, 삭제 수용으로 A 제거, 제출 순서면 B만 전송해야 합니다. 거부된 추가·삭제는 이 결과를 바꾸지 않습니다.
 
-Canceled native reset is a no-op for chooser, committed records, errors and previews. Noncanceled reset clears the chooser and transient drag/validation state but, as this API is controlled-only, retains the current files prop and the same submitted set, with zero files-change/removal notifications. A host that wants a form reset to clear committed files explicitly sets files=[] from its own noncanceled reset policy; that prop update emits no component callback. Do not imply an uncontrolled reset baseline. Revoke component-owned object URLs only when their committed records are actually removed/replaced or on unmount; a native reset must not revoke a preview still needed by retained controlled files. No server transfer/storage before explicit Submit.
+취소된 네이티브 리셋은 선택기, 확정 레코드, 오류, 미리보기에 아무 영향이 없습니다. 취소되지 않은 리셋은 선택기와 일시적 드래그·검증 상태를 비웁니다. 이 API는 제어 전용이므로 현재 files prop과 같은 제출 집합은 유지하며, files-change·삭제 알림은 0건입니다. 폼 리셋으로 확정 파일을 비우려는 호스트는 자체의 취소되지 않은 리셋 정책에서 명시적으로 files=[]를 설정합니다. 그 prop 갱신은 컴포넌트 콜백을 내지 않습니다. 비제어 리셋 기준선이 있는 것처럼 암시하지 않습니다. 컴포넌트가 소유한 객체 URL은 해당 확정 레코드가 실제로 제거·대체되거나 언마운트될 때만 해제합니다. 네이티브 리셋이 보관된 제어 파일에 필요한 미리보기를 해제해서는 안 됩니다. 명시적 제출 전에는 서버 전송·저장이 없습니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Accepted project component→integration completion: mandatory native picker/staging UI connects to an explicit host FormData/transfer driver. The official continued-addition/native-input/no-transfer-before-Submit guidance ([L989–1006](../../upstream/krds/raw/components/component_09_04.html:989), [L1188–1189](../../upstream/krds/raw/components/component_09_04.html:1188)) remains binding; drop wording “start upload” is interpreted as staging against the explicit Submit boundary, not silently executed as a network transfer. Completion requires a controlled local store that actually accepts/declines final-set requests, picker+drop accumulation/replacement, submitted-file inspection, reset policy, deterministic Submit-triggered mock progress/failure/removal and preview cleanup. Merely emitting logs or wrapping input type=file is insufficient.
+수용된 프로젝트 component→integration 완료 조건은 다음과 같습니다. 필수 네이티브 선택기·스테이징 UI가 명시적 호스트 FormData/전송 드라이버와 연결되어야 합니다. 공식 지침인 추가 선택 지속, 네이티브 입력, 제출 전 전송 금지([L989–1006](../../upstream/krds/raw/components/component_09_04.html:989), [L1188–1189](../../upstream/krds/raw/components/component_09_04.html:1188))는 계속 구속력을 가집니다. 드롭 문구 “업로드 시작”은 명시적 제출 경계에 맞춘 스테이징으로 해석하며, 조용히 네트워크 전송을 실행한다는 뜻이 아닙니다. 완료하려면 다음이 모두 필요합니다. 최종 집합 요청을 실제로 수락·거절하는 제어 로컬 저장소, 선택기+드롭 누적·대체, 제출된 파일 검사, 리셋 정책, 제출로 시작되는 결정적 모의 진행·실패·삭제, 미리보기 정리. 로그만 내보내거나 input type=file을 감싸기만 하는 것으로는 부족합니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, label, description, help, picker, file-input, dropzone, count, list, item, filename, size, status, progress, remove, error; staged,drag-over,uploading,success,error,disabled.
 
-All rendered owned parts use `data-krds-component="file-upload"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링된 모든 소유 파트는 `data-krds-component="file-upload"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 씁니다. 네이티브/ARIA 상태가 우선합니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Cancel keeps prior files without callback.
-2. Same file can be selected after removal.
-3. Drop has keyboard picker equivalent.
-4. Constraints produce file-specific errors.
-5. No network/transfer before explicit Submit.
-6. Rendered and submitted files always reflect the committed set after accepted or rejected removal and the declared controlled reset policy.
-7. Pending/success/error mock shows correct labels and cleans object URLs.
-8. Controlled multiple picker A then drop B appends both, accepted remove A then Submit sends only committed B as an actual File.
-9. Controlled rejected addition or removal leaves rendered count, focus and exact submitted File set unchanged.
-10. Single-file replacement, invalid candidate and multi-file-drop rejection preserve the specified final-set policy.
-11. Canceled reset is entirely inert; ordinary controlled reset retains records unless the host explicitly changes files, with zero files-change callbacks.
-12. Each changed final-set request emits one onFilesChange and no duplicate onRemove, while validation feedback is separate.
-13. Chooser clearing allows same-file reselection without clearing the committed store or revoking retained preview URLs.
+1. 취소하면 콜백 없이 이전 파일을 유지합니다.
+2. 삭제 후 같은 파일을 다시 고를 수 있습니다.
+3. 드롭에는 키보드 선택기 대응 수단이 있습니다.
+4. 제약 위반은 파일별 오류를 냅니다.
+5. 명시적 제출 전에는 네트워크 전송이 없습니다.
+6. 삭제가 수용되든 거부되든, 선언된 제어 리셋 정책 아래에서도 렌더링과 제출 파일은 항상 확정 집합을 반영합니다.
+7. pending/success/error 모의가 올바른 레이블을 보이고 객체 URL을 정리합니다.
+8. 제어 multiple에서 선택기 A, 드롭 B가 둘 다 추가되고, 삭제 수용으로 A를 제거한 뒤 제출하면 확정된 B만 실제 File로 전송됩니다.
+9. 제어 추가·삭제가 거부되면 렌더링된 개수, 초점, 제출 File 집합이 정확히 그대로입니다.
+10. 단일 파일 대체, 잘못된 후보, 여러 파일 드롭 거부는 지정한 최종 집합 정책을 지킵니다.
+11. 취소된 리셋은 완전히 무동작입니다. 일반 제어 리셋은 호스트가 files를 명시적으로 바꾸지 않는 한 레코드를 유지하며 files-change 콜백은 0건입니다.
+12. 최종 집합이 바뀌는 요청마다 onFilesChange는 한 번 나오고 onRemove는 중복되지 않으며, 검증 피드백은 별도입니다.
+13. 선택기를 비워도 확정 저장소가 지워지지 않고 보관된 미리보기 URL도 해제되지 않으며, 같은 파일을 다시 고를 수 있습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색 외 상태 단서, 움직임이 있다면 동작 줄이기를 검증합니다. 빈 스위트로 성공을 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `file-upload--single`, `file-upload--multiple`, `file-upload--button`, `file-upload--dropzone`, `file-upload--cancel-reselect`, `file-upload--constraints-error`, `file-upload--submit-mock-progress`, `file-upload--failure-retry`, `file-upload--form-reset`, `file-upload--picker-drop-remove-submit`, `file-upload--controlled-add-rejected`, `file-upload--controlled-remove-rejected`, `file-upload--single-replacement`, `file-upload--controlled-reset-retained`, `file-upload--host-reset-clear`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 케이스는 해당하는 모든 네이티브 렌더러에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. 렌더러는 Solid 1, React, Svelte, Vue, Lit, Qwik, Angular이며 Solid 2 미리보기는 따로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 별도로 준비됩니다. 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부가 인수되어야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 상류 siheom 어댑터만 씁니다. Lit과 Solid 2는 siheom 지원을 지어내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름과 대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러/렌더러를 가져와서는 안 됩니다. 다른 프레임워크 렌더러 래퍼는 금지합니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 실제 보존 상세 HTML에서 추출했으며 핵심 지침과 상호작용·마크업 표를 포함합니다. 공식 요구사항을 지어내지 않도록 출처 언어(한국어)를 그대로 둡니다. “고려/권장/수 있다” 같은 표현은 권고로 남습니다. 예시나 CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브 제어 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 빼면 독립 선택입니다.
 
 ### 구조
 
@@ -185,19 +184,19 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1461–1464](../../upstream/krds/raw/components/component_09_04.html:1461): 파일 업로드 영역 .file-upload
 - L[1465–1468](../../upstream/krds/raw/components/component_09_04.html:1465): 업로드 된 파일 리스트 영역 .file-list
 
-Inline preserved example markup (reference, not the public native API): L[1324–1411](../../upstream/krds/raw/components/component_09_04.html:1324)
+보존된 인라인 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1324–1411](../../upstream/krds/raw/components/component_09_04.html:1324)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지 출처 참조는 복사한 구현이 아닙니다. 표 행의 필수/선택 열을 보존한 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Concrete controlled-only final-set, accumulation, reset and host FormData policies are independent project choices. Official drop-immediate wording still conflicts with explicit no-transfer-before-Submit; this draft preserves the latter and retains exact evidence. No native FileList synchronization is assumed.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1422 `../../code/file_upload.html`, L1483 `./variable/file_upload.html`. Do not infer unseen contents.
-- 8 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 제어 전용 최종 집합, 누적, 리셋, 호스트 FormData 정책은 구체적으로 독립 프로젝트 선택입니다. 공식의 드롭 즉시 처리 문구는 명시적 제출 전 전송 금지와 여전히 충돌합니다. 이 초안은 후자를 지키며 정확한 근거를 보존합니다. 네이티브 FileList 동기화는 가정하지 않습니다.
+- 연결된 외부 코드 예시는 참조만 하며 이 준비 단계에서 별도 파일로 포함하거나 읽지 않았습니다. L1422 `../../code/file_upload.html`, L1483 `./variable/file_upload.html`. 보지 않은 내용을 추측하지 않습니다.
+- 상세에는 안내 이미지 참조 8건이 있습니다. 내장 픽셀 도해는 시각적으로 검사하지 않았습니다. 텍스트 구조와 지침은 읽었습니다. 정확한 시각 치수·자산은 이후 시각·출처 검토가 필요합니다.
+- 의미 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `FileUploadContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `FileUploadContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 케이스 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼로는 이 계약을 충족할 수 없습니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에 인용·파생된 공식 텍스트는 원래의 KRDS 권리와 출처 표시를 유지합니다. 독립 코드의 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 검사하지 않은 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며, 여기 인용한 실질 요구사항을 면제하지 않습니다.

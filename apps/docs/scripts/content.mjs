@@ -54,7 +54,15 @@ export function parseDocument(markdown, sourcePath) {
  const blocks = tokens => tokens.flatMap(token => {
   switch(token.type){
    case 'space': case 'def': return [];
-   case 'heading': { const children=inline(token.tokens);const title=inlineText(children); const slug=slugify(title);let id=slug;let n=1;while(slugs.has(id))id=`${slug}-${n++}`;slugs.add(id);headings.push({id,title,level:token.depth});return [{type:'heading',level:token.depth,id,children}]; }
+   case 'heading': {
+    // VitePress-style explicit anchor: `## 제목 {#stable-id}`. Anchors are stable identifiers,
+    // independent of the display wording, so localized headings keep their URLs.
+    const explicit=token.text.match(/^(.*?)\s*\{#([^\s{}]+)\}\s*$/s);
+    const children=inline(explicit?marked.Lexer.lexInline(explicit[1]):token.tokens);const title=inlineText(children);
+    let id;
+    if(explicit){id=explicit[2];if(slugs.has(id))fail(token.raw,`duplicate heading anchor {#${id}}`);}
+    else{const slug=slugify(title);id=slug;let n=1;while(slugs.has(id))id=`${slug}-${n++}`;}
+    slugs.add(id);headings.push({id,title,level:token.depth});return [{type:'heading',level:token.depth,id,children}]; }
    case 'paragraph': case 'text': return [{type:'paragraph',children:inline(token.tokens??marked.Lexer.lexInline(token.text))}];
    case 'code': return [{type:'code',language:token.lang??'',value:token.text}];
    case 'list': return [{type:'list',ordered:token.ordered,start:typeof token.start==='number'?token.start:1,items:token.items.map(item=>{if(item.task)fail(item.raw,'task list');return {id:`item-${++itemNumber}`,blocks:blocks(item.tokens)};})}];
@@ -68,7 +76,7 @@ export function parseDocument(markdown, sourcePath) {
  const parsed=blocks(marked.lexer(body,{gfm:true}));
  const title=headings.find(h=>h.level===1)?.title??metadata.title??'Unofficial KRDS';
  const outputPath=sourcePath.replace(/\.md$/,'.html');const route=docUrl('/'+outputPath,sourcePath);
- return {sourcePath,outputPath,route,title,lang:['index.md','getting-started/installation.md'].includes(sourcePath)?'ko-KR':'en',blocks:parsed,headings,breadcrumbs:[],currentId:sourcePath};
+ return {sourcePath,outputPath,route,title,lang:'ko-KR',blocks:parsed,headings,breadcrumbs:[],currentId:sourcePath};
 }
 /** Explicit section destinations, with historical checkpoints retained as children. */
 export function buildNavigation(pages) {

@@ -40,7 +40,7 @@ async function fixture() {
     'packages/contracts/src/full-catalog.ts': 'export interface ExampleContract { label?: string }',
     'packages/contracts/src/types.ts': 'export interface SharedDetail {}',
     'upstream/example.html': official,
-    'specs/components/example.md': '# Example\n\n## Plain semantic API\n\nSynthetic regression data.\n',
+    'specs/components/example.md': '# Example\n\n## 의미 API {#plain-semantic-api}\n\nSynthetic regression data.\n',
     'apps/fixture-fixture/src/consumer.ts': source,
     'docs/execution/evidence/T14/reports/task-T14-report.md': '# Synthetic report location\n'
   })) await write(directory, path, bytes);
@@ -91,7 +91,7 @@ test('live artifact creation, rewrites, corruption and removal do not change pro
   const output = JSON.parse(before[1]);
   assert.ok(output.sourceInputs.some(input => input.path === 'apps/docs/artifact-checkpoint.json'));
   assert.ok(output.sourceInputs.every(input => !input.path.startsWith('artifacts/')));
-  assert.match(before[0], /captured historical/i);
+  assert.match(before[0], /캡처한 과거 관측값/);
   assert.doesNotMatch(before[0], /No final all-package candidate manifest exists|A development manifest exists/);
   t.diagnostic('Four isolated live-artifact states retained byte-identical protected artifact Markdown and full docs metadata.');
 });

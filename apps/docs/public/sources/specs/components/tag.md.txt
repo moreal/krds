@@ -1,74 +1,73 @@
-# Tag
+# 태그 {#tag}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현용으로 범위 승인됨.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 승인일 뿐이며, 네이티브 동작, 시각/자산 검토, 실행된 커버리지는 별도 관문입니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `tag`; Korean name 태그; export `Tag`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `tag`, 한국어 이름 태그, export `Tag`. 고정 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_06_04](https://www.krds.go.kr/html/site/component/component_06_04.html); preserved [HTML](../../upstream/krds/raw/components/component_06_04.html). Retrieved `2026-10-29T23:28:04.603Z`; `84856` bytes; SHA-256 `fcd8bad8d3bc0942c03112ebd00b07645cca0281f14fe07c9faf021c1da60857`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세: [component_06_04](https://www.krds.go.kr/html/site/component/component_06_04.html), 보존된 [HTML](../../upstream/krds/raw/components/component_06_04.html). 조회 시각 `2026-10-29T23:28:04.603Z`, `84856` 바이트, SHA-256 `fcd8bad8d3bc0942c03112ebd00b07645cca0281f14fe07c9faf021c1da60857`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정 출처 종류는 `component`, 인수된 프로젝트 완료 종류도 `component`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `static`, `toggle`, `removable`, `add-filter`, `link`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `static`, `toggle`, `removable`, `add-filter`, `link`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Label/container with optional leading checked icon or trailing remove icon; homogeneous interactive or static groups. Bulk action at group right and optional more control. Use real buttons for filtering/removal, real links only for navigation example.
+레이블/컨테이너에 선택적 선행 체크 아이콘 또는 후행 삭제 아이콘이 붙습니다. 그룹은 대화형 또는 비대화형 중 하나로 통일합니다. 일괄 액션은 그룹 우측에, 더 보기 컨트롤은 선택적으로 둡니다. 필터링/삭제에는 실제 버튼을, 탐색 예시에만 실제 링크를 사용합니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: items {id,label,href?}[], mode=static|toggle|removable|add-filter|link, selectedIds/onSelectionChange, onRemove({id}), onAdd({id}), onClear(), appliedBarId. Mode determines semantics; toggle uses aria-pressed; remove name “[label] 옵션 삭제”; add name “[label] 필터 옵션 추가”.
+독립 API: items {id,label,href?}[], mode=static|toggle|removable|add-filter|link, selectedIds/onSelectionChange, onRemove({id}), onAdd({id}), onClear(), appliedBarId. mode가 의미를 결정합니다. toggle은 aria-pressed를 사용합니다. 삭제 이름은 “[label] 옵션 삭제”, 추가 이름은 “[label] 필터 옵션 추가”입니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Interactive group entry focuses first; one tag tab stop via roving focus (ArrowLeft/Right/Home/End proposed). Official Space/Enter keyup activation must execute once, not keydown+native click twice. Toggle keeps focus; adding filter moves to applied-filter bar; removing moves to the previous surviving enabled tag, otherwise next surviving enabled tag, otherwise actual group container when no usable tags remain.
+대화형 그룹에 진입하면 첫 태그에 초점이 갑니다. 태그 탭 정지점은 하나이며 roving 초점을 씁니다(ArrowLeft/Right/Home/End 제안). 공식 Space/Enter keyup 활성화는 keydown과 네이티브 click으로 두 번 실행되지 않고 한 번만 실행되어야 합니다. 토글은 초점을 유지합니다. 필터를 추가하면 초점이 적용된 필터 막대로 이동합니다. 삭제하면 초점이 이전의 남은 활성 태그로 이동하고, 없으면 다음의 남은 활성 태그로, 사용할 태그가 없으면 실제 그룹 컨테이너로 이동합니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Short <=2-word, unbroken labels and minimal consistent colors; hidden overflow tags are inaccessible until More reveals them. Native touch targets/focus ring remain clear.
+레이블은 2단어 이내로 줄 바꿈 없이 짧게 하고 색은 최소한으로 일관되게 씁니다. 숨겨진 넘침 태그는 더 보기가 드러내기 전까지 접근할 수 없습니다. 네이티브 터치 대상과 초점 링은 분명해야 합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No automatic form serialization. Filtering state belongs host; group reset can restore host default selectedIds if explicitly composed in a form. IME must not trigger custom Enter action.
+자동 폼 직렬화는 없습니다. 필터링 상태는 호스트가 소유합니다. 폼에 명시적으로 조합한 경우 그룹 리셋은 호스트 기본 selectedIds를 복원할 수 있습니다. IME는 사용자 지정 Enter 동작을 일으키면 안 됩니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host owns actual filter results and applied bar target; local story must visibly filter data and manage focus, not merely emit logs.
+실제 필터 결과와 적용 막대 대상은 호스트가 소유합니다. 로컬 스토리는 로그만 내보내지 않고 데이터를 눈에 보이게 필터링하며 초점을 관리해야 합니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, list, item, label, icon, remove, clear, more; selected,disabled,expanded.
 
-All rendered owned parts use `data-krds-component="tag"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="tag"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Toggle aria-pressed matches visible/filter result.
-2. Enter/Space keyup invokes once.
-3. Removal focuses previous or group without dead focus.
-4. Add focuses applied-filter bar.
-5. Static tag never focusable.
-6. Link mode retains href browser behavior.
+1. 토글 aria-pressed가 보이는 상태/필터 결과와 일치합니다.
+2. Enter/Space keyup은 한 번만 호출합니다.
+3. 삭제는 죽은 초점 없이 이전 태그 또는 그룹으로 초점을 옮깁니다.
+4. 추가는 적용된 필터 막대로 초점을 옮깁니다.
+5. 정적 태그는 초점을 받지 않습니다.
+6. 링크 모드는 href의 브라우저 동작을 유지합니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 표시, 움직임이 있는 곳의 동작 줄이기를 검증합니다. 빈 스위트를 성공으로 주장하지 않습니다.
 
-## Independent local specimen policy
+## 독립 로컬 표본 정책 {#independent-local-specimen-policy}
 
-The staged static specimen uses a native list; each homogeneous interactive specimen uses a group containing the mode-appropriate real buttons or links. A list role is not a universal requirement for interactive tags. This is independent specimen policy, not an additional official variant.
+준비된 정적 표본은 네이티브 목록을 쓰고, 대화형 표본은 각각 모드에 맞는 실제 버튼이나 링크를 담은 그룹을 씁니다. 목록 role은 대화형 태그의 보편 요구사항이 아닙니다. 이는 독립 표본 정책이며 공식 변형이 추가된 것이 아닙니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `tag--static`, `tag--toggle`, `tag--removable`, `tag--add-filter`, `tag--link`, `tag--remove-last`, `tag--overflow`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례에는 해당하는 모든 네이티브 렌더러(Solid 1, React, Svelte, Vue, Lit, Qwik, Angular)에서 로컬 args/inputs/slots와 관찰 가능한 순수 로컬 상태가 필요합니다. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에 따로 마련되며 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 사용합니다. Lit/Solid 2는 siheom 지원을 만들지 않고 선택된 네이티브 테스트 경로를 사용해야 합니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름/대상 관계를 검증해야 합니다. Solid 2는 Solid 1 컴파일러/렌더러를 import하면 안 됩니다. 다른 렌더러의 래퍼는 쓰지 않습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 실제 보존된 상세 HTML에서 추출했으며 핵심 지침과 상호작용/마크업 표를 포함합니다. 공식 요구사항을 만들어 내지 않도록 원문 언어를 그대로 둡니다. “consider/recommended/can”에 해당하는 표현은 권고로 남습니다. 예시/CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 출처 JS 함수 표는 참고 근거일 뿐이며 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공유 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 아래 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립적인 선택입니다.
 
 ### 구조
 
@@ -159,23 +158,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1467–1470](../../upstream/krds/raw/components/component_06_04.html:1467): 작게 .small
 - L[1471–1476](../../upstream/krds/raw/components/component_06_04.html:1471): 태그 버튼영역 .krds-btn-tag 링크형 .link
 
-Inline preserved example markup (reference, not the public native API): L[1277–1342](../../upstream/krds/raw/components/component_06_04.html:1277), L[1369–1407](../../upstream/krds/raw/components/component_06_04.html:1369)
+인라인으로 보존된 예시 마크업(참고용이며 공개 네이티브 API가 아님): L[1277–1342](../../upstream/krds/raw/components/component_06_04.html:1277), L[1369–1407](../../upstream/krds/raw/components/component_06_04.html:1369)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지의 출처 참조는 복사된 구현이 아닙니다. 필수/선택 열을 보존한 표 행의 원본 HTML은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화된 발췌가 조건부 선택자를 필수로 재분류하지 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Recorded independent decision: Accepted removal first prefers the previous surviving enabled tag. If the removed tag was first and later tags survive, focus the next surviving enabled tag. If no usable tags remain, focus the actual tag-list container with temporary tabindex=-1. Never focus a removed node; rejected host removal retains focus. This fills the unspecified first-item case while preserving the official previous-tag and empty-container destinations.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1353 `../../code/tag.html`, L1418 `../../code/tag_link.html`, L1491 `./variable/tag.html`. Do not infer unseen contents.
-- 3 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 기록된 독립 결정: 삭제가 승인되면 먼저 이전의 남은 활성 태그에 초점을 둡니다. 삭제된 태그가 첫 번째이고 뒤 태그가 남아 있으면 다음의 남은 활성 태그에 초점을 둡니다. 사용할 태그가 없으면 임시 tabindex=-1로 실제 태그 목록 컨테이너에 초점을 둡니다. 삭제된 노드에는 초점을 두지 않습니다. 호스트가 삭제를 거부하면 초점을 유지합니다. 이는 명시되지 않은 첫 항목 경우를 채우되, 공식 이전 태그 및 빈 컨테이너 목적지를 보존합니다.
+- 연결된 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 포함하거나 읽지 않았습니다: L1353 `../../code/tag.html`, L1418 `../../code/tag_link.html`, L1491 `./variable/tag.html`. 보지 못한 내용을 추론하지 않습니다.
+- 상세에는 안내 이미지 참조 3개가 있으며, 내장 픽셀 다이어그램은 시각적으로 확인하지 않았습니다. 텍스트 구조/지침은 읽었습니다. 정확한 시각 치수/자산은 이후 시각·출처 검토가 필요합니다.
+- 시맨틱 인터페이스와 파트/상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작/스토리 소스, 독립 인수가 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-Accepted removal first prefers the previous surviving enabled tag. If the removed tag was first and later tags survive, focus the next surviving enabled tag. If no usable tags remain, focus the actual tag-list container with temporary tabindex=-1. Never focus a removed node; rejected host removal retains focus. This fills the unspecified first-item case while preserving the official previous-tag and empty-container destinations.
+삭제가 승인되면 먼저 이전의 남은 활성 태그에 초점을 둡니다. 삭제된 태그가 첫 번째이고 뒤 태그가 남아 있으면 다음의 남은 활성 태그에 초점을 둡니다. 사용할 태그가 없으면 임시 tabindex=-1로 실제 태그 목록 컨테이너에 초점을 둡니다. 삭제된 노드에는 초점을 두지 않습니다. 호스트가 삭제를 거부하면 초점을 유지합니다. 이는 명시되지 않은 첫 항목 경우를 채우되, 공식 이전 태그 및 빈 컨테이너 목적지를 보존합니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `TagContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 시맨틱 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `TagContract`입니다. 네이티브 프레임워크는 자신의 콘텐츠/ref/이벤트 전달만 확장합니다. 공유 매니페스트는 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼는 이 계약을 충족하지 못합니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에서 인용하거나 파생한 공식 텍스트는 원래의 KRDS 권리와 출처 표기를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

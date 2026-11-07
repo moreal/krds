@@ -1,70 +1,69 @@
-# Table
+# 표 {#table}
 
-**Contract status: scoped approved for native implementation.** The complete reviewed contract, including official evidence, is binding. This is specification acceptance only; native behavior, visual/asset review and executed coverage remain separate gates. No publication is authorized.
+**계약 상태: 네이티브 구현 범위 승인.** 공식 근거를 포함한 검토 완료 계약 전체가 구속력을 가집니다. 이는 명세 인수일 뿐입니다. 네이티브 동작, 시각·자산 검토, 실행된 커버리지는 별도 관문으로 남습니다. 게시는 승인되지 않았습니다.
 
-Semantic ID `table`; Korean name 표; export `Table`. Frozen baseline `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
+시맨틱 ID `table`, 한국어 이름 표, export `Table`. 고정된 기준선 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`.
 
-Official detail: [component_04_11](https://www.krds.go.kr/html/site/component/component_04_11.html); preserved [HTML](../../upstream/krds/raw/components/component_04_11.html). Retrieved `2026-10-29T23:28:03.975Z`; `74382` bytes; SHA-256 `62101d3ac5f3758b0a31b07862f3e0575cb185fb871357f46dd0e43877d314d0`. Verified against `catalog/components.json`, `upstream/krds/manifest.json`, and actual bytes. Website snapshot is distinct from kit tag 1.1.0.
+공식 상세 페이지: [component_04_11](https://www.krds.go.kr/html/site/component/component_04_11.html), 보존본 [HTML](../../upstream/krds/raw/components/component_04_11.html). 조회 시각 `2026-10-29T23:28:03.975Z`, `74382` 바이트, SHA-256 `62101d3ac5f3758b0a31b07862f3e0575cb185fb871357f46dd0e43877d314d0`. `catalog/components.json`, `upstream/krds/manifest.json`, 실제 바이트와 대조했습니다. 웹사이트 스냅샷은 키트 태그 1.1.0과 다릅니다.
 
-## Scope and completion kind
+## 범위와 완료 종류 {#scope-and-completion-kind}
 
-Frozen source kind `component`; accepted project completion kind `component`. The project completion kind follows the evidence below; the specific completion obligations and host boundary are described in this contract.
+고정된 출처 종류는 `component`이고, 수용된 프로젝트 완료 종류도 `component`입니다. 프로젝트 완료 종류는 아래 근거를 따릅니다. 구체적인 완료 의무와 호스트 경계는 이 계약에 기술합니다.
 
-Supported native cases (variant and state axes): `basic`, `sortable`, `narrow-scroll`, `narrow-stacked`. These are native case names; state, responsive and appearance axes are not automatically official named variants. Exact official type/example headings remain in the evidence appendix.
+지원하는 네이티브 사례(변형·상태 축): `basic`, `sortable`, `narrow-scroll`, `narrow-stacked`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## Native structure and mandatory ordering
+## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
 
-Real <table> with caption, thead/tbody, th scope and appropriate row headers/tfoot; complex relationships use headers/id. Caption explains header content per development note. Empty data cells show dash. Quantitative numbers right-align; text/nominal numbers left-align.
+실제 <table>에 caption, thead/tbody, th scope, 적절한 행 헤더/tfoot을 둡니다. 복잡한 관계는 headers/id를 씁니다. 개발 메모에 따라 caption이 헤더 내용을 설명합니다. 비어 있는 데이터 셀은 대시를 표시합니다. 정량 수치는 오른쪽 정렬하고, 텍스트·명목 숫자는 왼쪽 정렬합니다.
 
-## Plain semantic API
+## 의미 API {#plain-semantic-api}
 
-Independent API: caption, columns {id,label,kind,sortable?}[], rows {id,cells}[], rowHeaderColumnId? naming one existing column, sort {columnId,direction}/onSortChange optional. No sorting behavior if absent. When sortable, initial sort is first column as official guidance. Header button inside th; aria-sort tracks actual order. With rowHeaderColumnId, that column renders native th scope=row with a stable ID, and every data cell references its row/column headers as required. Unknown rowHeaderColumnId is a configuration error; no automatic row-header inference from cell text/kind.
+독립 API: caption, columns {id,label,kind,sortable?}[], rows {id,cells}[], 기존 열 하나를 가리키는 rowHeaderColumnId?, 선택적 sort {columnId,direction}/onSortChange. 없으면 정렬 동작이 없습니다. 정렬 가능하면 공식 지침에 따라 초기 정렬은 첫 번째 열입니다. 헤더 버튼은 th 안에 두고, aria-sort는 실제 순서를 따릅니다. rowHeaderColumnId가 있으면 그 열은 안정적인 ID를 가진 네이티브 th scope=row로 렌더링되며, 모든 데이터 셀이 요구되는 대로 자신의 행·열 헤더를 참조합니다. 알 수 없는 rowHeaderColumnId는 구성 오류입니다. 셀 텍스트나 kind로 행 헤더를 자동 추론하지 않습니다.
 
-Shared state policy follows [current pilot conventions](./README.md): defined value/open is controlled, absent is uncontrolled; supplying both controlled/default or switching mode is invalid. Defaults are read once. User action emits one plain semantic request; disabled, no-op, mount, hydration, prop update and form reset emit zero user-change callbacks. Controlled rejection retains committed UI/focus state; canceled reset does nothing. Noncanceled reset restores uncontrolled baseline and leaves controlled props authoritative. Extra fields never expose renderer/machine objects.
+공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## Keyboard, focus and state transitions
+## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
 
-Ordinary table is read-only and non-tabbable except contained links/buttons. Sort activation retains header-button focus. Overflow wrapper has name and focus only when needed; provide simple click/tap scroll controls, not drag-only traversal.
+일반 표는 읽기 전용이며, 포함된 링크·버튼을 제외하면 Tab으로 이동하지 않습니다. 정렬을 활성화해도 헤더 버튼의 초점을 유지합니다. 넘침 래퍼는 이름을 가지며, 필요할 때만 초점을 받습니다. 드래그 전용 이동이 아니라 단순한 클릭·탭 스크롤 컨트롤을 제공합니다.
 
-## Responsive/mobile requirements
+## 반응형·모바일 요구 {#responsive-mobile-requirements}
 
-Simple single-dimension tables may stack header/data pairs while preserving associations; complex tables use horizontal region scroll. Keep horizontal scrollbar discoverable and data unclipped. Avoid restrictive modal/accordion placements.
+단순한 1차원 표는 연관성을 보존하면서 헤더·데이터 쌍을 쌓을 수 있습니다. 복잡한 표는 가로 영역 스크롤을 씁니다. 가로 스크롤바를 발견하기 쉽게 유지하고 데이터를 잘라내지 않습니다. 제한적인 모달·아코디언 배치는 피합니다.
 
-## Forms, reset and composition
+## 폼·리셋·조합 {#forms-reset-and-composition}
 
-No table form/reset state. Embedded controls retain own semantics; selection-heavy interaction belongs to StructuredList.
+표 자체의 폼·리셋 상태는 없습니다. 포함된 컨트롤은 자신의 의미를 유지합니다. 선택 중심 상호작용은 StructuredList의 몫입니다.
 
-## Asset, integration and composition completion
+## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
 
-Host owns data/format/sorting handler; local example actually reorders rows and preserves header association. Completion requires native semantics and conditional sorting, not a div grid.
+호스트가 데이터, 형식, 정렬 핸들러를 소유합니다. 로컬 예시는 실제로 행을 재정렬하며 헤더 연관을 보존합니다. 완료는 div 그리드가 아니라 네이티브 의미와 조건부 정렬을 요구합니다.
 
-## Stable parts and states
+## 고정 파트와 상태 {#stable-parts-and-states}
 
 root, caption, head, body, row, header-cell, cell, sort-trigger, scroll-region, scroll-previous, scroll-next; ascending,descending,overflow.
 
-All rendered owned parts use `data-krds-component="table"`, one `data-krds-part` token, and a space-separated `data-krds-state` set. Native/ARIA state is authoritative. Prose enumerations above are part/state vocabulary, frozen in `packages/contracts/src/full-catalog.ts`. Asset-only Favicon has no runtime parts.
+렌더링되는 모든 소유 파트는 `data-krds-component="table"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## Required native user outcomes
+## 필수 네이티브 사용자 결과 {#required-native-user-outcomes}
 
-1. Screen-reader header associations match data.
-2. Missing cells show dash.
-3. Quantitative and nominal numbers use appropriate alignment.
-4. Unconfigured table has no sort controls.
-5. Sort button changes real order and aria-sort without focus loss.
-6. Narrow complex table can be scrolled by simple buttons.
+1. 스크린 리더의 헤더 연관이 데이터와 일치합니다.
+2. 빠진 셀은 대시를 표시합니다.
+3. 정량 숫자와 명목 숫자는 알맞게 정렬됩니다.
+4. 구성하지 않은 표에는 정렬 컨트롤이 없습니다.
+5. 정렬 버튼은 초점을 잃지 않고 실제 순서와 aria-sort를 바꿉니다.
+6. 좁은 화면의 복잡한 표는 단순한 버튼으로 스크롤할 수 있습니다.
 
-These are required future tests, not executed/accepted results. In addition verify visible focus, forced colors, 200% text zoom, narrow layout, noncolor state cues, and reduced motion where movement exists. Never claim success from an empty suite.
+이는 앞으로 필요한 테스트이며 실행·인수된 결과가 아닙니다. 추가로 보이는 초점, 강제 색상 모드, 200% 글자 확대, 좁은 레이아웃, 색에 의존하지 않는 상태 단서, 움직임이 있다면 동작 줄이기를 검증합니다. 빈 스위트로 성공을 주장하지 않습니다.
 
-## Required native stories
+## 필수 네이티브 스토리 {#required-native-stories}
 
 `table--basic`, `table--row-headers`, `table--missing-cells`, `table--sortable`, `table--narrow-scroll`, `table--narrow-stacked`.
 
-Each case needs local args/inputs/slots and observable pure local state in every applicable native renderer: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular; Solid 2 preview is separately isolated. Full-catalog story obligations are staged separately in `catalog/full-catalog-stories.json`; current pilot runner selection is unchanged. Native availability must be accepted before activation. Keep behavioral suites separate from story files; supported upstream siheom adapters only. Lit/Solid 2 must use their selected native test path without inventing siheom support. Qwik tests the first lazy event; Angular form-bearing controls must test CVA/reset and partial APF consumption; Lit must verify real Shadow DOM naming/target relationships; Solid 2 must never import Solid 1 compiler/renderer. No foreign-renderer wrappers.
+각 사례는 해당하는 모든 네이티브 렌더러에서 로컬 args/입력/슬롯과 관찰 가능한 순수 로컬 상태가 필요합니다: Solid 1, React, Svelte, Vue, Lit, Qwik, Angular. Solid 2 미리보기는 별도로 격리합니다. 전체 카탈로그 스토리 의무는 `catalog/full-catalog-stories.json`에서 따로 단계화하며, 현재 파일럿 러너 선택은 바뀌지 않습니다. 활성화 전에 네이티브 제공 여부를 인수해야 합니다. 동작 스위트는 스토리 파일과 분리하고, 지원되는 upstream siheom 어댑터만 씁니다. Lit과 Solid 2는 siheom 지원을 만들어 내지 않고 선택된 네이티브 테스트 경로를 씁니다. Qwik은 첫 지연 이벤트를 테스트합니다. Angular의 폼 컨트롤은 CVA/리셋과 부분 APF 소비를 테스트합니다. Lit은 실제 Shadow DOM의 이름·대상 관계를 검증합니다. Solid 2는 Solid 1 컴파일러·렌더러를 절대 import하지 않습니다. 다른 렌더러 래퍼는 없습니다.
 
-## Official evidence, separate from independent policy
+## 공식 근거와 독립 정책의 구분 {#official-evidence-separate-from-independent-policy}
 
-The following excerpts were extracted from this item’s actual preserved detailed HTML, including substantive guidance and interaction/markup tables. Source language is retained to avoid inventing official requirements. Wording such as “consider/recommended/can” remains advisory; an example/CSS selector is not proof of universal mandatory behavior. Source JS function tables are reference evidence only: original KRDS JS must not execute on native-controlled DOM. Shared APIs, defaults, extra keyboard rules, failure cleanup and host-driver policies above are independent choices except where these excerpts expressly support them.
-
+아래 발췌는 이 항목의 보존된 상세 HTML에서 가져왔으며 핵심 지침과 상호작용·마크업 표를 포함합니다. 공식 요구사항을 지어내지 않도록 원문 언어를 유지합니다. “고려한다/권장/할 수 있다” 같은 표현은 권고로 남습니다. 예시·CSS 선택자는 보편적 필수 동작의 증거가 아닙니다. 원본 JS 함수 표는 참고 근거일 뿐이며, 원본 KRDS JS를 네이티브가 제어하는 DOM에서 실행해서는 안 됩니다. 위의 공통 API, 기본값, 추가 키보드 규칙, 실패 정리, 호스트 드라이버 정책은 이 발췌가 명시적으로 뒷받침하는 경우를 제외하면 독립 선택입니다.
 
 ### 구조
 
@@ -145,23 +144,23 @@ The following excerpts were extracted from this item’s actual preserved detail
 - L[1271–1271](../../upstream/krds/raw/components/component_04_11.html:1271): 개발 시 접근성 관련 주의 사항
 - L[1273–1273](../../upstream/krds/raw/components/component_04_11.html:1273): 테이블에 th 속성이 있는경우 scope를 작성하여 테이블이 읽히는 방향을 정해주고 caption에 th 내용을 모두 넣어 설명해준다.
 
-Inline preserved example markup (reference, not the public native API): L[1173–1207](../../upstream/krds/raw/components/component_04_11.html:1173)
+보존된 예시 마크업 인라인(참고용이며 공개 네이티브 API가 아님): L[1173–1207](../../upstream/krds/raw/components/component_04_11.html:1173)
 
-Source references to CSS/JS/guide images are not copied implementations. The exact raw HTML of table rows (preserving required/optional columns) is retained in [source-evidence.json](../../catalog/source-evidence.json); flattened excerpts above do not reclassify a conditional selector as mandatory.
+CSS/JS/안내 이미지 출처 참조는 복사된 구현이 아닙니다. 표 행의 원본 HTML(필수/선택 열 보존)은 [source-evidence.json](../../catalog/source-evidence.json)에 있습니다. 위의 평탄화한 발췌가 조건부 선택자를 필수로 재분류하지는 않습니다.
 
-## Evidence limitations and recorded policy
+## 근거의 한계와 기록된 정책 {#evidence-limitations-and-recorded-policy}
 
-- Recorded independent decision: The host-authored caption must describe the purpose and all header meanings in natural language, retaining actual column/row header associations. Do not replace th labels with a caption or omit header explanation merely to shorten text. Wide-table copy still needs human editorial review, independent of native semantic completion.
-- Linked external code examples are referenced but not embedded/read as a separate file in this preparation: L1218 `../../code/table.html`, L1285 `./variable/table.html`. Do not infer unseen contents.
-- 5 guide image references occur in the detail; their embedded pixel diagrams were not visually inspected. Textual structure/guidance was read; exact visual measurements/assets need later visual/provenance review.
-- Semantic interfaces and part/state tokens are frozen in `packages/contracts/src/full-catalog.ts`. Each native renderer still requires its own implementation, behavior/story sources and independent acceptance.
+- 기록된 독립 결정: 호스트가 작성하는 caption은 목적과 모든 헤더의 의미를 자연어로 설명하고, 실제 열·행 헤더 연관을 유지해야 합니다. 텍스트를 줄이려고 th 레이블을 caption으로 대체하거나 헤더 설명을 생략하지 않습니다. 넓은 표의 문구는 네이티브 의미 완료와 별개로 사람의 편집 검토가 필요합니다.
+- 외부 코드 예시는 참조만 하며 이번 준비에서 별도 파일로 삽입하거나 읽지 않았습니다: L1218 `../../code/table.html`, L1285 `./variable/table.html`. 보지 못한 내용은 추정하지 않습니다.
+- 상세 페이지에 안내 이미지 참조가 5개 있으며, 그 안의 픽셀 도식은 눈으로 확인하지 않았습니다. 텍스트 구조와 지침만 읽었습니다. 정확한 시각 치수와 자산은 이후 시각·출처 검토가 필요합니다.
+- 의미 인터페이스와 파트·상태 토큰은 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 각 네이티브 렌더러는 여전히 자체 구현, 동작·스토리 소스, 독립 인수가 필요합니다.
 
-## Accepted independent resolution
+## 수용된 독립 결정 {#accepted-independent-resolution}
 
-The host-authored caption must describe the purpose and all header meanings in natural language, retaining actual column/row header associations. Do not replace th labels with a caption or omit header explanation merely to shorten text. Wide-table copy still needs human editorial review, independent of native semantic completion.
+호스트가 작성하는 caption은 목적과 모든 헤더의 의미를 자연어로 설명하고, 실제 열·행 헤더 연관을 유지해야 합니다. 텍스트를 줄이려고 th 레이블을 caption으로 대체하거나 헤더 설명을 생략하지 않습니다. 넓은 표의 문구는 네이티브 의미 완료와 별개로 사람의 편집 검토가 필요합니다.
 
-## Shared implementation handoff
+## 공통 구현 인계 {#shared-implementation-handoff}
 
-The exact semantic interface is `TableContract` in [full-catalog.ts](../../packages/contracts/src/full-catalog.ts); native frameworks extend only their own content/ref/event transport. The shared manifest freezes supported case axes, parts and states. No generic renderer or foreign-framework wrapper satisfies this contract. All required outcomes in this contract remain mandatory for components, compositions, assets and integrations.
+정확한 의미 인터페이스는 [full-catalog.ts](../../packages/contracts/src/full-catalog.ts)의 `TableContract`입니다. 네이티브 프레임워크는 자체 콘텐츠·ref·이벤트 전달만 확장합니다. 공통 매니페스트가 지원 사례 축, 파트, 상태를 고정합니다. 범용 렌더러나 다른 프레임워크 래퍼로는 이 계약을 충족할 수 없습니다. 이 계약의 모든 필수 결과는 컴포넌트, 조합, 자산, 통합에 계속 필수입니다.
 
-Official quoted/derived text in this document retains its original KRDS rights and attribution; the independent code MIT grant does not relicense these excerpts, fonts or assets. Exact source identity above remains unchanged. Open evidence limitations concern uninspected guide pixels, linked code and asset clearance; they do not waive the substantive requirements quoted here.
+이 문서에 인용·파생된 공식 텍스트는 원래 KRDS 권리와 출처 표시를 유지합니다. 독립 코드 MIT 허가는 이 발췌, 글꼴, 자산을 재라이선스하지 않습니다. 위의 정확한 출처 식별은 바뀌지 않습니다. 열린 근거 한계는 확인하지 못한 가이드 픽셀, 연결된 코드, 자산 승인에 관한 것이며 여기 인용한 실질 요구사항을 면제하지 않습니다.

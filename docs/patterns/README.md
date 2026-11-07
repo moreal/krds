@@ -1,9 +1,9 @@
-# Local service-pattern examples
+# 로컬 서비스 패턴 예시 {#local-service-pattern-examples}
 
-The four examples combine native components around real host-flow state: [input form/errors](../../examples/pattern-specs/form-errors.md), [search/filter/list/pagination](../../examples/pattern-specs/search-results.md), [consent/confirmation](../../examples/pattern-specs/consent-confirmation.md), and [service layout](../../examples/pattern-specs/service-layout.md). Their sample content identifies this repository as an independent project and makes no government-service claim.
+네 가지 예시는 네이티브 컴포넌트를 실제 호스트 흐름 상태와 결합합니다. [입력 폼/오류](../../examples/pattern-specs/form-errors.md), [검색/필터/목록/페이지네이션](../../examples/pattern-specs/search-results.md), [동의/확인](../../examples/pattern-specs/consent-confirmation.md), [서비스 레이아웃](../../examples/pattern-specs/service-layout.md)입니다. 예시 콘텐츠는 이 저장소를 독립 프로젝트로 밝히며 정부 서비스라고 주장하지 않습니다.
 
-Shared data/model, sixteen presentation snapshots and fifteen concrete scenario descriptors are implemented in the private [`test-contracts/patterns`](../../packages/test-contracts/src/patterns/index.ts) source. They supply no renderer. At this foundation handoff, seven real stable native compositions and their browser/framework tests are still required. These documents contain no executed framework coverage or T11 completion claim.
+공유 데이터/모델, 프레젠테이션 스냅샷 16개, 구체 시나리오 설명자 15개는 비공개 [`test-contracts/patterns`](../../packages/test-contracts/src/patterns/index.ts) 소스에 구현되어 있습니다. 렌더러는 제공하지 않습니다. 이 기반 인계 시점에는 안정 네이티브 구성 7개와 그 브라우저/프레임워크 테스트가 아직 필요합니다. 이 문서에는 실행된 프레임워크 커버리지나 T11 완료 주장이 없습니다.
 
-Use the [native handoff](native-handoff.md) to implement a framework's fixtures and presentation components, and the [source mapping](sources.md) to distinguish official guidance from independent sample choices. Pure logic is tested separately from native focus, accessibility, layouts, SSR/resume, form participation and visual checks. Stories use only injected presentation state; fixture behavior owns requests and retry.
+프레임워크의 픽스처와 프레젠테이션 컴포넌트는 [네이티브 인계](native-handoff.md)를 따라 구현하고, 공식 가이드와 독립 샘플 선택은 [출처 매핑](sources.md)으로 구분합니다. 순수 로직은 네이티브 초점, 접근성, 레이아웃, SSR/resume, 폼 참여, 시각 검사와 따로 테스트합니다. 스토리는 주입된 프레젠테이션 상태만 사용하며 요청과 재시도는 픽스처 동작이 소유합니다.
 
-All data and completion records are local, fictional and memory-only. There are no real authentication flows, personal records, agency operations, API requests, external assets or telemetry requirements. Production server validation/security is outside these sample flows.
+모든 데이터와 완료 기록은 로컬, 가상, 메모리 전용입니다. 실제 인증 흐름, 개인 기록, 기관 업무, API 요청, 외부 자산, 텔레메트리 요구사항은 없습니다. 프로덕션 서버의 검증과 보안은 이 샘플 흐름의 범위 밖입니다.
