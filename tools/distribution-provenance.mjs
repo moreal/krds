@@ -7,6 +7,13 @@ const termsDestination = (path) => path.endsWith('.html') ? `${path}.txt` : path
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const json = async (path) => JSON.parse(await readFile(path, 'utf8'));
 const exists = async (path) => { try { await lstat(path); return true; } catch (error) { if (error.code === 'ENOENT') return false; throw error; } };
+// A fixture's dist also hosts its docs-preview artifact (tools/docs-previews owns that subtree and
+// may restore it alone, as the Pages build job does). Only the ordinary build's own outputs prove
+// that built asset copies must exist, so the preview subtree never counts as "built".
+const ordinaryBuildPresent = async (buildRoot) => {
+  if (!await exists(buildRoot)) return false;
+  return (await readdir(buildRoot)).some((name) => name !== 'docs-preview');
+};
 async function files(root, path) {
   const result = [];
   if (!await exists(safePath(root, path))) return result;
@@ -88,7 +95,7 @@ export async function loadDistribution(root, { independentCopyright, sourceEntri
       if (!app || !(destination.startsWith(`${app.assetRoot}/`) || destination.startsWith(`${app.publicRoot}/local/`) || destination === 'apps/docs/public/mark.svg')) throw new Error(`Invalid asset destination: ${destination}`);
       add(destination); await checkBytes(root, destination, record);
       const build = destination.replace(`${app.publicRoot}/`, `${app.buildRoot}/`);
-      if (await exists(safePath(root, app.buildRoot))) await checkBytes(root, build, record);
+      if (await ordinaryBuildPresent(safePath(root, app.buildRoot))) await checkBytes(root, build, record);
     }
   }
   if (inventory.bundledDependencies?.length) {

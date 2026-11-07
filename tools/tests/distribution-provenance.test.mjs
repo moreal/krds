@@ -41,6 +41,14 @@ test('rejects changed specimen and stale built copy independently', async (t) =>
   await f.put('apps/fixture/public/local-assets/asset.svg', 'changed source');
   await assert.rejects(loadDistribution(f.root), /hash mismatch.*public/);
 });
+test('a restored docs-preview subtree alone does not count as an ordinary build (Pages build job)', async (t) => {
+  const f = await fixture(t);
+  await rm(join(f.root, 'apps/fixture/dist'), { recursive: true });
+  await f.put('apps/fixture/dist/docs-preview/artifact-manifest.json', '{}');
+  await loadDistribution(f.root);
+  await f.put('apps/fixture/dist/index.html', 'ordinary build without its asset copy');
+  await assert.rejects(loadDistribution(f.root), /ENOENT|dist/);
+});
 test('discovers unregistered new framework asset roots and built destinations', async (t) => {
   const f = await fixture(t); await f.put('apps/new-framework/public/local-assets/mystery.wav', 'unknown');
   await assert.rejects(loadDistribution(f.root), /Untracked web asset/);
