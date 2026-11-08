@@ -5,6 +5,7 @@ import { resolve, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sha256 } from '../../tools/docs-previews/contract.mjs';
 import { writeArtifactManifest } from '../../tools/docs-previews/manifest.mjs';
+import { portableSvelteHeadIds } from '../../tools/docs-previews/svelte-head.mjs';
 
 const fixture = dirname(fileURLToPath(import.meta.url));
 const root = resolve(fixture, '../..');
@@ -47,5 +48,6 @@ const capture: Plugin = {
 export default defineConfig({ root: resolve(fixture, 'src/docs-preview'), base: '/krds/previews/svelte/', publicDir: false,
   // Svelte's default cssHash hashes the component's absolute filename, so scoped class names
   // would differ per checkout location. Hash the repository-relative path instead.
-  plugins: [capture, svelte({ compilerOptions: { cssHash: ({ hash, css, filename }) => `svelte-${hash(filename ? relative(root, filename).replaceAll('\\', '/') : css)}` } })],
+  // `<svelte:head>` ids are likewise derived from the absolute filename; see tools/docs-previews/svelte-head.mjs.
+  plugins: [capture, svelte({ compilerOptions: { cssHash: ({ hash, css, filename }) => `svelte-${hash(filename ? relative(root, filename).replaceAll('\\', '/') : css)}` } }), portableSvelteHeadIds({ root })],
   build: { outDir: resolve(fixture, 'dist/docs-preview'), emptyOutDir: true } });

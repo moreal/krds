@@ -2,7 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { createRequire } from 'node:module';
 import { hashCode, instanceId, normalizeClientManifest } from './qwik-manifest.mjs';
+import { portableSvelteHeadIds, svelteHash } from './svelte-head.mjs';
 const root = join(import.meta.dirname, '../..');
 
 // Pages CI builds each preview on Linux and re-hashes it against the inventory refreshed from a
@@ -38,4 +40,24 @@ test('qwik builder hands the normalized manifest to the SSR stage and sets q:ins
 test('svelte preview scopes CSS by repository-relative filename, never the absolute checkout path', () => {
  const config = readFileSync(join(root, 'apps/fixture-svelte/vite.docs-preview.config.ts'), 'utf8');
  assert.match(config, /cssHash: \(\{ hash, css, filename \}\) => `svelte-\$\{hash\(filename \? relative\(root, filename\)/);
+});
+
+test('svelte:head ids become checkout-independent: two absolute paths compile to identical client code', () => {
+ const { compile } = createRequire(join(root, 'apps/fixture-svelte/package.json'))('svelte/compiler');
+ const source = '<svelte:head><title>미리보기</title></svelte:head><p>본문</p>';
+ const outputs = ['/home/runner/work/krds/krds', '/Users/someone/github/krds'].map(checkout => {
+  const filename = `${checkout}/packages/svelte/dist/components/Favicon.svelte`;
+  const compiled = compile(source, { filename, generate: 'client' }).js.code;
+  assert.ok(compiled.includes(svelteHash(filename)), 'svelteHash mirrors the compiler hash of the absolute filename');
+  const result = portableSvelteHeadIds({ root: checkout }).transform(compiled, filename);
+  assert.ok(result, 'the head id is rewritten');
+  return result.code;
+ });
+ assert.equal(outputs[0], outputs[1]);
+ assert.ok(outputs[0].includes(svelteHash('packages/svelte/dist/components/Favicon.svelte')));
+ const plugin = portableSvelteHeadIds({ root: '/r' });
+ assert.equal(plugin.transform('export const x = 1;', '/r/a.svelte'), null, 'untouched when no head id is present');
+ assert.equal(plugin.transform('head("abc")', '/r/a.ts'), null, 'only .svelte modules');
+ const config = readFileSync(join(root, 'apps/fixture-svelte/vite.docs-preview.config.ts'), 'utf8');
+ assert.match(config, /portableSvelteHeadIds\(\{ root \}\)/);
 });
