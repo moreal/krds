@@ -4,11 +4,13 @@ export type DocInline =
  | { type: 'break' }
  | { type: 'link'; href: string; title?: string; target?: string; rel?: string; children: DocInline[] }
  | { type: 'strong' | 'em' | 'del' | 'kbd' | 'sub' | 'sup' | 'mark' | 'abbr'; title?: string; children: DocInline[] };
+/** One highlighted token: `t` is the text, `c` a CSS color expression (`var(--docs-code-token-*)`). Built by scripts/highlight.mjs. */
+export type CodeToken = { t: string; c?: string };
 export type DocBlock =
  | { type: 'demo'; componentId: string }
  | { type: 'heading'; level: number; id: string; children: DocInline[] }
  | { type: 'paragraph'; children: DocInline[] }
- | { type: 'code'; value: string; language: string }
+ | { type: 'code'; value: string; language: string; lines?: CodeToken[][] }
  | { type: 'list'; ordered: boolean; start: number; items: { id: string; blocks: DocBlock[] }[] }
  | { type: 'table'; caption: string; headers: DocInline[][]; rows: DocInline[][][]; align: ('left' | 'center' | 'right' | null)[] }
  | { type: 'quote'; blocks: DocBlock[] }

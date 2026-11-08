@@ -7,6 +7,7 @@ import { marked } from 'marked';
 // compiler-checkpoints holds build evidence (logs, proofs) with a repository README; it is not site content.
 const excluded = new Set(['node_modules', 'dist', 'src', 'public', '.astro', '.vitepress', 'tests', 'compiler-checkpoints']);
 import { docUrl, decodeEntities as decode } from '../src/urls.ts';
+import { highlight } from './highlight.mjs';
 export { docUrl } from '../src/urls.ts';
 /** Exact VitePress 1.6.4 default slug algorithm, without a runtime VitePress dependency. */
 export const slugify = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[\u0000-\u001f]/g, '').replace(/[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'“”‘’<>,.?/]+/g, '-').replace(/-{2,}/g, '-').replace(/^-+|-+$/g, '').replace(/^(\d)/, '_$1').toLowerCase();
@@ -65,7 +66,7 @@ export function parseDocument(markdown, sourcePath) {
     else{const slug=slugify(title);id=slug;let n=1;while(slugs.has(id))id=`${slug}-${n++}`;}
     slugs.add(id);headings.push({id,title,level:token.depth});return [{type:'heading',level:token.depth,id,children}]; }
    case 'paragraph': case 'text': return [{type:'paragraph',children:inline(token.tokens??marked.Lexer.lexInline(token.text))}];
-   case 'code': return [{type:'code',language:token.lang??'',value:token.text}];
+   case 'code': { const language=token.lang??''; const lines=highlight(token.text,language); return [{type:'code',language,value:token.text,...(lines?{lines}:{})}]; }
    case 'list': return [{type:'list',ordered:token.ordered,start:typeof token.start==='number'?token.start:1,items:token.items.map(item=>{if(item.task)fail(item.raw,'task list');return {id:`item-${++itemNumber}`,blocks:blocks(item.tokens)};})}];
    case 'table': return [{type:'table',caption:`${headings.at(-1)?.title??metadata.title??sourcePath} — Table ${++tableNumber}`,headers:token.header.map(cell=>inline(cell.tokens)),rows:token.rows.map(row=>row.map(cell=>inline(cell.tokens))),align:token.align}];
    case 'blockquote': return [{type:'quote',blocks:blocks(token.tokens)}];

@@ -16,7 +16,7 @@ export function DocBlocks(props: { blocks: DocBlock[]; demos?: NativeDemoRecord[
     switch(block.level){case 1:return <h1 id={block.id}>{children}</h1>;case 2:return <h2 id={block.id}>{children}</h2>;case 3:return <h3 id={block.id}>{children}</h3>;case 4:return <h4 id={block.id}>{children}</h4>;case 5:return <h5 id={block.id}>{children}</h5>;default:return <h6 id={block.id}>{children}</h6>;}
    }
    case 'paragraph': return <p><DocInline nodes={block.children} /></p>;
-   case 'code': return <CodeBlock value={block.value} language={block.language} />;
+   case 'code': return <CodeBlock value={block.value} language={block.language} lines={block.lines} />;
    case 'quote': return <blockquote><DocBlocks blocks={block.blocks} listDepth={props.listDepth} /></blockquote>;
    case 'rule': return <hr />;
    case 'list': {

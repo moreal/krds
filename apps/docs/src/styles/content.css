@@ -43,6 +43,23 @@
  100% { border-inline-end-width: 0; }
 }
 .docs-code pre code { overflow-wrap: normal; white-space: pre; }
+/* Syntax colors. scripts/highlight.mjs emits one CSS variable per token class
+ * (shiki css-variables theme, prefix --docs-code-); every value must be a KRDS
+ * color token so samples follow the design system palette and contrast rules.
+ * Unset variables fall back to the inherited text color. */
+.docs-code pre {
+ --docs-code-foreground: var(--krds-light-color-text-basic);
+ --docs-code-token-keyword: var(--krds-light-color-text-primary);
+ --docs-code-token-string-expression: var(--krds-light-color-text-success);
+ --docs-code-token-string: var(--krds-light-color-text-success);
+ --docs-code-token-comment: var(--krds-light-color-text-subtle);
+ --docs-code-token-constant: var(--krds-light-color-text-bolder);
+ --docs-code-token-function: var(--krds-light-color-text-secondary);
+ --docs-code-token-parameter: var(--krds-light-color-text-basic);
+ --docs-code-token-punctuation: var(--krds-light-color-text-basic);
+ --docs-code-token-link: var(--krds-light-color-text-information);
+}
+@media (forced-colors: active) { .docs-code pre code span { color: CanvasText; } }
 .docs-table [data-krds-part="scroll-region"] { max-inline-size: 100%; }
 .docs-table [data-krds-part="cell"] { overflow-wrap: anywhere; }
 
