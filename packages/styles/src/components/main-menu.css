@@ -7,7 +7,10 @@
 [data-krds-component="main-menu"][data-krds-part="trigger"]:hover, [data-krds-component="main-menu"][data-krds-part="link"]:hover { background: var(--krds-light-color-action-secondary-hover); }
 [data-krds-component="main-menu"][data-krds-part="trigger"][aria-expanded="true"] { background: var(--krds-light-color-action-secondary-selected); border-block-end: var(--krds-number-3) solid var(--krds-light-color-border-primary); font-weight: 700; }
 [data-krds-component="main-menu"][data-krds-part="link"][aria-current] { color: var(--krds-light-color-text-primary); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
-[data-krds-component="main-menu"][data-krds-part="indicator"] { flex: none; inline-size: 1em; block-size: 1em; }
+/* Frozen .gnb-main-trigger::after (component.css lines 3954–3990): a medium icon box (--krds-icon--size-medium = size-height-3) masked with ico_angle in the trigger text color, rotated 180deg while active. The asset is not copied: the independently authored clip-path chevron also used by tutorial-panel fills the box, and the flex row centres it beside the label. */
+[data-krds-component="main-menu"][data-krds-part="indicator"] { flex: none; display: inline-block; inline-size: var(--krds-size-height-3); block-size: var(--krds-size-height-3); background-color: currentColor; clip-path: polygon(18% 36%, 26% 28%, 50% 52%, 74% 28%, 82% 36%, 50% 68%); forced-color-adjust: none; transform: rotate(0deg); }
+[data-krds-component="main-menu"][data-krds-part="trigger"][aria-expanded="true"] [data-krds-component="main-menu"][data-krds-part="indicator"] { transform: rotate(180deg); }
+@media (forced-colors: active) { [data-krds-component="main-menu"][data-krds-part="indicator"] { background-color: ButtonText; } }
 [data-krds-component="main-menu"][data-krds-part="submenu"] { display: grid; gap: var(--krds-gap-4); margin: 0; padding: var(--krds-padding-8); list-style: none; background: var(--krds-light-color-surface-gray-subtler); border-block-end: var(--krds-number-1) solid var(--krds-light-color-divider-gray); }
 [data-krds-component="main-menu"][data-krds-part="submenu"] ul { margin: 0; padding: 0; list-style: none; }
 [data-krds-component="main-menu"][data-krds-part="submenu-title"] { margin: 0; font-size: var(--krds-pc-font-size-heading-small); font-weight: 700; }

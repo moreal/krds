@@ -148,7 +148,7 @@ export function MainMenu(props: MainMenuProps) {
       <Show when={p.item.href} fallback={<Show when={!p.item.children?.length}><span>{p.item.label}</span></Show>}><a {...owned('main-menu', 'link', props.currentId === p.item.id ? 'current' : '')} href={p.item.href} aria-current={props.currentId === p.item.id ? 'page' : undefined}>{p.item.label}</a></Show>
       <Show when={!p.item.children?.length && p.item.description}><p {...owned('main-menu', 'description')}>{p.item.description}</p></Show>
       <Show when={p.item.children?.length}>
-        <button type="button" {...owned('main-menu', 'trigger', exposed() ? 'expanded' : 'collapsed')} id={`${uid}-trigger-${p.item.id}`} aria-current={containsCurrent(p.item) ? 'true' : undefined} aria-label={p.item.label} aria-controls={`${uid}-${p.item.id}`} aria-expanded={exposed()} onClick={toggle}>{p.item.label}<span {...owned('main-menu', 'indicator')} aria-hidden="true">{exposed() ? '−' : '+'}</span></button>
+        <button type="button" {...owned('main-menu', 'trigger', exposed() ? 'expanded' : 'collapsed')} id={`${uid}-trigger-${p.item.id}`} aria-current={containsCurrent(p.item) ? 'true' : undefined} aria-label={p.item.label} aria-controls={`${uid}-${p.item.id}`} aria-expanded={exposed()} onClick={toggle}>{p.item.label}<span {...owned('main-menu', 'indicator')} aria-hidden="true"></span></button>
         <ul id={`${uid}-${p.item.id}`} {...owned('main-menu', 'submenu', exposed() ? 'expanded' : 'collapsed')} hidden={!exposed()}>
           <Show when={p.depth < 2}>
             <li><h3 {...owned('main-menu', 'submenu-title')}>{p.item.label}</h3><Show when={p.item.description}><p {...owned('main-menu', 'description')}>{p.item.description}</p></Show></li>

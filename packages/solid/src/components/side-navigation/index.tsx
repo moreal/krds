@@ -45,7 +45,7 @@ export function SideNavigation(props: SideNavigationProps) {
     return <li {...owned('side-navigation', 'item', inlineOpen() ? 'expanded' : 'collapsed')}>
       <Show when={p.item.href} fallback={<Show when={!p.item.children?.length}><span>{p.item.label}</span></Show>}><a {...owned('side-navigation', 'link', props.currentId === p.item.id ? 'current' : '')} href={p.item.href} aria-current={props.currentId === p.item.id ? 'page' : undefined}>{p.item.label}</a></Show>
       <Show when={p.item.children?.length}>
-        <button ref={trigger} id={`${uid}-trigger-${p.item.id}`} type="button" {...owned('side-navigation', 'trigger')} aria-expanded={inlineOpen()} aria-controls={`${uid}-${p.item.id}`} onClick={toggle}>{p.item.label} {inlineOpen() ? '접기' : '펼치기'}<span aria-hidden="true">{inlineOpen() ? ' −' : ' +'}</span></button>
+        <button ref={trigger} id={`${uid}-trigger-${p.item.id}`} type="button" {...owned('side-navigation', 'trigger')} aria-expanded={inlineOpen()} aria-controls={`${uid}-${p.item.id}`} onClick={toggle}>{p.item.label} {inlineOpen() ? '접기' : '펼치기'}<span {...owned('side-navigation', 'indicator')} aria-hidden="true"></span></button>
         <ul ref={panel} id={`${uid}-${p.item.id}`} hidden={!inlineOpen()} {...owned('side-navigation', 'submenu')}><Show when={p.depth < 2}><For each={p.item.children}>{item => <Branch item={item} depth={p.depth + 1}/>}</For></Show></ul>
       </Show>
     </li>;

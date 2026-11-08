@@ -93,7 +93,7 @@ export class MainMenu extends KrdsElement {
                     ${item.children?.length ? html`<button data-krds-component="main-menu" data-krds-part="trigger" data-krds-state=${open ? 'expanded' : 'collapsed'} part="trigger" id=${`trigger-${item.id}`} type="button" aria-controls=${`submenu-${item.id}`} aria-expanded=${open} aria-current=${ifDefined(this.containsBranch(item, this.currentId) ? 'true' : undefined)} @click=${() => {
                         this.branchReturn = undefined;
                         this.expand(open ? null : item.id);
-                    }}>${item.label}<span data-krds-component="main-menu" data-krds-part="indicator" data-krds-state="" part="indicator" aria-hidden="true">${open ? '−' : '+'}</span></button>
+                    }}>${item.label}<span data-krds-component="main-menu" data-krds-part="indicator" data-krds-state="" part="indicator" aria-hidden="true"></span></button>
                     <div id=${`submenu-${item.id}`} ?hidden=${!open}>${item.description ? html`<p data-krds-component="main-menu" data-krds-part="description" data-krds-state="" part="description">${item.description}</p>` : ''}${this.list(item.children, depth + 1)}</div>`
                     : item.href ? html`<a data-krds-component="main-menu" data-krds-part="link" data-krds-state=${this.currentId === item.id ? 'current' : ''} part="link" href=${item.href} aria-current=${ifDefined(this.currentId === item.id ? 'page' : undefined)}>${item.label}</a>` : html`<span>${item.label}</span>`}
                 </li>`;
