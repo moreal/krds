@@ -23,5 +23,5 @@ export const BottomSheetNestedModalAnatomy = component$(() => <BottomSheet title
 /** Records the sheet's own requests so a nested Modal's dismissal can be shown not to reach it. */
 export const BottomSheetNestedDismissAnatomy = component$(() => {
   const log = useSignal<string[]>([]), cancels = useSignal(0);
-  return <><output id="sheet-requests">{log.value.join(',')}|{cancels.value}</output><BottomSheet title="지역 선택" defaultOpen={true} dismissOnOutside={true} onOpenChange$={detail => { log.value = [...log.value, detail.reason]; }} onCancel$={() => { cancels.value++; }}><Modal title="정말 닫을까요?" titleId="inner-title" defaultOpen={true} closeOnOutsideClick={true}><button type="button">내부 동작</button></Modal></BottomSheet></>;
+  return <><output id="sheet-requests">{`${log.value.join(',')}|${cancels.value}`}</output><BottomSheet title="지역 선택" defaultOpen={true} dismissOnOutside={true} onOpenChange$={detail => { log.value = [...log.value, detail.reason]; }} onCancel$={() => { cancels.value++; }}><Modal title="정말 닫을까요?" titleId="inner-title" defaultOpen={true} closeOnOutsideClick={true}><button type="button">내부 동작</button></Modal></BottomSheet></>;
 });

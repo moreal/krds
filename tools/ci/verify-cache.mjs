@@ -36,15 +36,22 @@ export async function verifyCache({projects, graph, rootDir = root, reportPath =
     const outputs = projects.flatMap(project => {
       const data = graph.nodes[project]?.data;
       assert.equal(data?.targets?.build?.cache, true, `${project}:build is missing a real cacheable build`);
-      const dist = resolve(rootDir, data.root, 'dist');
-      // A build declares its whole dist, or named entries inside it when another target (the
-      // fixtures' docs-preview artifact) shares that dist. Every declared output must stay inside
-      // the project's own dist: only those paths are inventoried and removed here.
+      const projectRoot = resolve(rootDir, data.root);
+      // A build declares its whole dist, named entries inside it (fixtures share dist with the
+      // docs-preview target) or other generated paths of its own (docs assembles into public/).
+      // Every declared output must lie inside the project's own root and never be that root:
+      // only those paths are inventoried and removed here.
       const paths = (data.targets.build.outputs ?? []).map(output => resolve(rootDir, output.replace('{projectRoot}', data.root)));
-      assert.ok(dist.startsWith(`${rootDir}${sep}`) && paths.length && paths.every(path => path === dist || path.startsWith(`${dist}${sep}`)), `${project} lacks its own declared dist output`);
-      return paths.map(path => ({project, path}));
+      assert.ok(projectRoot.startsWith(`${rootDir}${sep}`) && paths.length && paths.every(path => path.startsWith(`${projectRoot}${sep}`)), `${project} lacks its own declared dist output`);
+      return {project, projectRoot, paths};
     });
-    assert.equal(new Set(outputs.map(o => o.path)).size, outputs.length, 'Duplicate cache output paths');
+    const allPaths = outputs.flatMap(o => o.paths);
+    assert.equal(new Set(allPaths).size, allPaths.length, 'Duplicate cache output paths');
+    // One report entry per project (the worker checks coverage by project); file paths are relative to the project root.
+    const snapshot = () => outputs.map(({project, projectRoot, paths}) => ({project, outputs: paths.map(path => relative(rootDir, path)), files: paths.flatMap(path => {
+      const own = relative(projectRoot, path);
+      return inventory(path).map(file => ({...file, path: lstatSync(path).isDirectory() ? `${own}/${file.path}` : own}));
+    })}));
     cache = mkdtempSync(join(tmpdir(), 'krds-ci-cache-'));
     const command = ['tools/yarn.mjs', 'nx', 'run-many', '-t', 'build', `--projects=${projects.join(',')}`, '--parallel=2', '--outputStyle=stream'];
     const build = async phase => {
@@ -59,12 +66,12 @@ export async function verifyCache({projects, graph, rootDir = root, reportPath =
     };
     const firstLog = stripVTControlCharacters(await build('first'));
     assert.ok(!firstLog.includes('[local cache]') && !firstLog.includes('[remote cache]'), 'The isolated first build unexpectedly used a cache');
-    report.first = outputs.map(({project, path}) => ({project, output: relative(rootDir, path), files: inventory(path)})); writeJson(reportPath, report);
-    // Only the explicitly selected own dist outputs are removed in this worker checkout.
-    for (const output of outputs) rmSync(output.path, {recursive: true, force: true});
+    report.first = snapshot(); writeJson(reportPath, report);
+    // Only the explicitly declared own outputs are removed in this worker checkout.
+    for (const path of allPaths) rmSync(path, {recursive: true, force: true});
     const secondLog = stripVTControlCharacters(await build('second'));
     for (const project of projects) assert.ok(secondLog.split('\n').some(line => line.includes(`nx run ${project}:build `) && line.includes('[local cache]')), `${project}:build did not restore from local cache`);
-    report.restored = outputs.map(({project, path}) => ({project, output: relative(rootDir, path), files: inventory(path)}));
+    report.restored = snapshot();
     assert.deepEqual(report.restored, report.first, 'Cache restoration changed emitted files, bytes or permissions');
     report.status = 'passed'; writeJson(reportPath, report);
     console.log(`Verified cold build, local-cache hit and exact restoration for ${projects.length} real build target(s)`);

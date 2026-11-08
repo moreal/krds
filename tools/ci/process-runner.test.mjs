@@ -81,11 +81,15 @@ test('cache verification scopes to named dist entries and leaves a sibling docs-
     return {status: 'passed'};
   }});
   assert.equal(report.status, 'passed');
-  assert.deepEqual(report.first.map(entry => entry.output), ['apps/fixture-x/dist/index.html', 'apps/fixture-x/dist/assets']);
+  assert.deepEqual(report.first.map(entry => entry.project), ['fixture-x'], 'one entry per project, as the worker coverage check requires');
+  assert.deepEqual(report.first[0].outputs, ['apps/fixture-x/dist/index.html', 'apps/fixture-x/dist/assets']);
+  assert.deepEqual(report.first[0].files.map(file => file.path), ['dist/index.html', 'dist/assets/main.js']);
   assert.deepEqual(report.first, report.restored);
   assert.ok(existsSync(join(dir, 'apps/fixture-x/dist/docs-preview/artifact-manifest.json')));
-  const outside = {nodes: {'fixture-x': {data: {root: 'apps/fixture-x', targets: {build: {cache: true, outputs: ['{projectRoot}/dist/index.html', '{projectRoot}/public']}}}}}};
+  const outside = {nodes: {'fixture-x': {data: {root: 'apps/fixture-x', targets: {build: {cache: true, outputs: ['{projectRoot}/dist/index.html', '{workspaceRoot}/apps/other/dist']}}}}}};
   await assert.rejects(() => verifyCache({projects: ['fixture-x'], graph: outside, rootDir: dir, reportPath, timeoutMs: 1000}), /lacks its own declared dist output/);
+  const self = {nodes: {'fixture-x': {data: {root: 'apps/fixture-x', targets: {build: {cache: true, outputs: ['{projectRoot}']}}}}}};
+  await assert.rejects(() => verifyCache({projects: ['fixture-x'], graph: self, rootDir: dir, reportPath, timeoutMs: 1000}), /lacks its own declared dist output/);
   const none = {nodes: {'fixture-x': {data: {root: 'apps/fixture-x', targets: {build: {cache: true, outputs: []}}}}}};
   await assert.rejects(() => verifyCache({projects: ['fixture-x'], graph: none, rootDir: dir, reportPath, timeoutMs: 1000}), /lacks its own declared dist output/);
 });
