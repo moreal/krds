@@ -15,7 +15,7 @@ const baseline=await json('apps/docs/tests/fixtures/vitepress-baseline.json'),al
 const inventory=await json('compliance/distribution-provenance.json'),manifest=await json('upstream/krds/manifest.json');
 const previous=new Map(inventory.documentation.records.map(record=>[record.sourcePath,record]));
 const current=new Map(metadata.distributedSources.map(record=>[record.outputPath,record]));
-assert.equal(current.size,609);assert.deepEqual([...current.keys()].sort(),baseline.downloads.map(record=>record.outputPath));
+assert.equal(current.size,547);assert.deepEqual([...current.keys()].sort(),baseline.downloads.map(record=>record.outputPath));
 const changes=[];
 for(const before of baseline.downloads){
  const after=current.get(before.outputPath),actual=await bytes(`apps/docs/public/${after.outputPath}`);

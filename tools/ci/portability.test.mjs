@@ -64,7 +64,7 @@ test('all registered docs snapshots preserve their exact bytes and rights and ar
   const metadataBytes = await readFile(join(root, docs.metadataPath));
   assert.equal(createHash('sha256').update(metadataBytes).digest('hex'), docs.metadataSha256);
   const metadata = JSON.parse(metadataBytes);
-  assert.equal(docs.records.length, 609); assert.equal(metadata.distributedSources.length, 609);
+  assert.equal(docs.records.length, 547); assert.equal(metadata.distributedSources.length, 547);
   assert.ok(!metadata.sourceInputs.some(input => /^(?:packages\/[^/]+|apps\/storybook-[^/]+)\/dist\//.test(input.path)), 'public docs must not require optional live dist inputs');
   const declarations = await json('apps/docs/declaration-checkpoint.json');
   assert.equal(declarations.records.length, 385);

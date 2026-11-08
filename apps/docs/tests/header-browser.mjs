@@ -95,7 +95,7 @@ try {
    const currentRoot = page.locator('.docs-header button[aria-label="컴포넌트"]'); assert.equal(await currentRoot.getAttribute('aria-current'), 'true'); await currentRoot.click();
    assert.equal(await page.locator('.docs-header a[aria-current="page"]').getAttribute('href'), '/krds/components/badge.html');
    assert.match(await page.locator(part('breadcrumb', 'root')).textContent(), /홈.*컴포넌트.*Badge/);
-   await page.goto(origin + '/krds/getting-started/artifacts.html', { waitUntil: 'networkidle' }); await settle(page);
+   await page.goto(origin + '/krds/getting-started/forms.html', { waitUntil: 'networkidle' }); await settle(page);
    assert.equal(await page.locator('.docs-sidebar a[href="/krds/getting-started/installation.html"]').count(), 1);
    await page.goto(origin + '/krds/compatibility/examples.html', { waitUntil: 'networkidle' }); await settle(page);
    assert.equal(await page.locator('.docs-header button[aria-label="네이티브 예시"]').getAttribute('aria-current'), 'true');

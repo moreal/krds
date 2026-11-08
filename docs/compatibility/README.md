@@ -21,4 +21,4 @@
 
 Qwik은 Vite 7을 씁니다. 나머지 선택된 네이티브 Vite 워크스페이스는 Vite 8을 씁니다. Angular는 자체 CLI/ng-packagr의 partial APF 출력과 CVA 폼을 맡습니다. Solid 1과 Solid 2는 런타임, 컴파일러, 렌더러 그래프가 서로 격리됩니다. Svelte 2/3은 현재 안정 대상이 아닙니다. 선언된 피어 범위가 그 안의 모든 버전을 테스트했다는 근거는 아닙니다.
 
-[네이티브 예제와 컴파일러 근거](./examples) · [Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)
+[네이티브 예제](./examples) · [Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)

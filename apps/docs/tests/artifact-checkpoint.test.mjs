@@ -62,7 +62,7 @@ function generate(directory) {
 }
 
 async function protectedArtifactOutputs(directory) {
-  return Promise.all(['apps/docs/getting-started/artifacts.md', 'apps/docs/public/docs-metadata.json'].map(path => readFile(resolve(directory, path), 'utf8')));
+  return Promise.all(['apps/docs/public/docs-metadata.json'].map(path => readFile(resolve(directory, path), 'utf8')));
 }
 
 test('live artifact creation, rewrites, corruption and removal do not change protected docs', async t => {
@@ -85,15 +85,14 @@ test('live artifact creation, rewrites, corruption and removal do not change pro
     const result = generate(directory);
     assert.equal(result.status, 0, `${phase}: ${result.stderr}`);
     const after = await protectedArtifactOutputs(directory);
-    assert.deepEqual(after, before, `${phase}: protected artifact page/metadata changed`);
-    t.diagnostic(`${phase}: artifact Markdown SHA256 ${sha256(after[0])}; full metadata SHA256 ${sha256(after[1])}`);
+    assert.deepEqual(after, before, `${phase}: protected docs metadata changed`);
+    t.diagnostic(`${phase}: full metadata SHA256 ${sha256(after[0])}`);
   }
-  const output = JSON.parse(before[1]);
+  const output = JSON.parse(before[0]);
   assert.ok(output.sourceInputs.some(input => input.path === 'apps/docs/artifact-checkpoint.json'));
   assert.ok(output.sourceInputs.every(input => !input.path.startsWith('artifacts/')));
-  assert.match(before[0], /캡처한 과거 관측값/);
-  assert.doesNotMatch(before[0], /No final all-package candidate manifest exists|A development manifest exists/);
-  t.diagnostic('Four isolated live-artifact states retained byte-identical protected artifact Markdown and full docs metadata.');
+  assert.ok(Array.isArray(output.artifactEvidence) && output.artifactEvidence.length > 0, 'historical inventories stay in the machine record');
+  t.diagnostic('Four isolated live-artifact states retained byte-identical full docs metadata.');
 });
 
 test('historical checkpoint exactly preserves accepted artifact observations', async () => {

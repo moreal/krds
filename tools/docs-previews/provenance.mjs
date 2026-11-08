@@ -7,7 +7,7 @@ const fontFile = /\.(?:woff2?|ttf|otf|eot)$/i;
 // Builder-emitted code/markup. Everything else must be classified to an original.
 const compiled = /\.(?:[cm]?js|css|html|map|json)$/i;
 const previewDestination = /^apps\/docs\/(?:public|dist)\/previews\/(react|solid|svelte|vue|angular|lit|qwik|solid-next)\/[^]+$/u;
-const scope = 'Additional native previews only; 609 legacy downloads and three legacy font records remain separate.';
+const scope = 'Additional native previews only; 547 legacy downloads and three legacy font records remain separate.';
 export function classifyOriginal(path, digest, { root, sources, distribution }) {
  const bytes = readContained(root, path);
  if (sha256(bytes) !== digest) throw new Error(`Stale native source: ${path}`);

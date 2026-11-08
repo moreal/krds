@@ -74,7 +74,7 @@ const withFixture = (name, body, options) => test(name, t => { const f = fixture
 
 withFixture('records a separate nativePreviews inventory with every additional destination', f => {
  const inventory = f.inventory();
- assert.match(inventory.scope, /609 legacy downloads and three legacy font records remain separate/);
+ assert.match(inventory.scope, /547 legacy downloads and three legacy font records remain separate/);
  assert.deepEqual(inventory.artifacts.map(artifact => artifact.framework), ['react', 'vue']);
  for (const artifact of inventory.artifacts) {
   for (const file of artifact.files) assert.deepEqual(file.destinations, [`apps/docs/public/previews/${artifact.framework}/${file.path}`, `apps/docs/dist/previews/${artifact.framework}/${file.path}`]);
@@ -86,7 +86,7 @@ withFixture('records a separate nativePreviews inventory with every additional d
  }
  // One recorded font may now have several preview destinations; each is explicit.
  assert.deepEqual(inventory.fontAssets, [{ sourceId: 'font-recorded', sourcePath: 'packages/fonts/fonts/Recorded.woff2', sha256: sha256(fontBytes), bytes: fontBytes.length, modified: false, destinations: ['react', 'vue'].flatMap(framework => [`apps/docs/public/previews/${framework}/assets/Recorded.woff2`, `apps/docs/dist/previews/${framework}/assets/Recorded.woff2`]) }]);
- assert.ok(!('documentation' in inventory) && !('records' in inventory), 'legacy 609-source inventory is never extended');
+ assert.ok(!('documentation' in inventory) && !('records' in inventory), 'legacy 547-source inventory is never extended');
 });
 
 withFixture('rejects a bundled module without original notice evidence', f => {
@@ -200,9 +200,9 @@ test('re-verification rejects unverified fonts, escaped destinations and legacy 
  assert.throws(() => verifyNativeInventory(f.root, unaccounted, context), /Unaccounted native font destination/);
 });
 
-test('legacy 609-source and three-font assertions remain exact and separate', () => {
+test('legacy 547-source and three-font assertions remain exact and separate', () => {
  const refresh = readFileSync(join(repo, 'tools/refresh-docs-distribution.mjs'), 'utf8');
- assert.match(refresh, /assert\.equal\(current\.size,609\)/);
+ assert.match(refresh, /assert\.equal\(current\.size,547\)/);
  assert.match(refresh, /assert\.equal\(fonts\.length,3\)/);
  assert.match(refresh, /assert\.equal\(destinations\.length,1,`Exactly one original emitted font: \$\{source\.id\}`\)/);
  assert.match(refresh, /readdir\(resolve\(root,'apps\/docs\/dist\/_astro'\)\)/);

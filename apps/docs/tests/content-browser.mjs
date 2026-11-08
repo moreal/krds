@@ -21,7 +21,7 @@ try{for(const [name,engine]of [['chromium',chromium],['webkit',webkit]]){
  assert.match(await page.locator('pre code').first().textContent(),/import/);assert.ok(await page.getByRole('button',{name:'코드 복사',exact:true}).first().isEnabled());
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1),'long source stays in pre scroll region');
  await page.locator('pre code').first().scrollIntoViewIfNeeded();await page.screenshot({path:resolve(evidence,`${name}-code.png`)});assert.deepEqual(errors,[]);
- const ssr=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:800}});const staticPage=await ssr.newPage();await staticPage.goto(origin+'/krds/components/button.html');assert.ok(await staticPage.locator('article table a[href]').count()>10);const download=await staticPage.locator('article a[href*="/sources/"]').first().getAttribute('href');assert.equal((await staticPage.request.get(origin+download)).status(),200);
+ const ssr=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:800}});const staticPage=await ssr.newPage();await staticPage.goto(origin+'/krds/components/button.html');assert.ok(await staticPage.locator('article table a[href]').count()>=8);const download=await staticPage.locator('article a[href*="/sources/"]').first().getAttribute('href');assert.equal((await staticPage.request.get(origin+download)).status(),200);
  console.log(`${name}: rich public table/link/code, unique IDs, 320px reflow, hydration and no-JS downloads passed`);await context.close();await ssr.close();
  }finally{await browser.close();}
 }}finally{await new Promise(resolve=>server.close(resolve));}

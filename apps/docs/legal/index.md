@@ -18,7 +18,7 @@ Unofficial KRDS는 독립 구현입니다. 공식 KRDS도 정부 서비스도 �
 
 보존된 원본 조건은 이 문서와 함께 로컬에서 볼 수 있습니다. [KRDS 저작권 정책](/sources/LICENSES/KRDS-copyright-en.html.txt), [KOGL 정책](/sources/LICENSES/KOGL-license-policy.html.txt), [Pretendard GOV OFL 1.1](/sources/LICENSES/Pretendard-GOV-OFL-1.1.txt.txt)입니다. 원본 텍스트를 수정하지 않았고 일반 텍스트로 제공하므로 원본 HTML이 문서 페이지로 실행되지 않습니다.
 
-각 컴포넌트 페이지는 공식 상세 URL, 고정 기준선, 가져온 시각, SHA-256을 밝힙니다. 웹사이트 스냅샷은 키트 태그와 구분됩니다. 인용하거나 파생한 가이드는 원래 KRDS 권리를 유지합니다. 원본 KRDS JavaScript는 참조 근거일 뿐이며 같은 DOM을 제어하는 네이티브 상태 소유자와 함께 실행하면 안 됩니다.
+각 컴포넌트 페이지는 공식 상세 URL과 고정된 출처 기록을 링크합니다. 기준선, 가져온 시각, SHA-256은 그 출처 기록에 있습니다. 웹사이트 스냅샷은 키트 태그와 구분됩니다. 인용하거나 파생한 가이드는 원래 KRDS 권리를 유지합니다. 원본 KRDS JavaScript는 참조 근거일 뿐이며 같은 DOM을 제어하는 네이티브 상태 소유자와 함께 실행하면 안 됩니다.
 
 ## 글꼴, 의존성, 로컬 미디어 {#fonts-dependencies-and-local-media}
 

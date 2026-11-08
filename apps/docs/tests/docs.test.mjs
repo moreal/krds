@@ -29,8 +29,10 @@ test('54 distinct web entries retain exact source identity, states and native pr
     const official = await readFile(resolve(root, item.source.localPath));
     assert.equal(createHash('sha256').update(official).digest('hex'), item.source.sha256, `${item.id}: official source bytes`);
     const text = await readFile(resolve(site, 'components', `${item.id}.md`), 'utf8');
-    assert.ok(text.includes(item.source.sha256), `${item.id}: source SHA`);
+    assert.ok(text.includes('/sources/catalog/components.json.txt'), `${item.id}: frozen source record`);
+    assert.ok(!text.includes(item.source.sha256) && !text.includes(item.source.retrievedAt), `${item.id}: machine provenance stays in the record, not the page`);
     assert.ok(text.includes(item.canonicalUrl), `${item.id}: official source`);
+    assert.ok(text.includes(`# ${item.nameEn} {#`), `${item.id}: English component title`);
     assert.ok(text.includes(item.nameKo), `${item.id}: Korean search name`);
     for (const framework of profileIds) {
       const row = coverage.coverage.find(record => record.componentId === item.id && record.framework === framework);
@@ -72,7 +74,7 @@ test('generated metadata binds current source bytes and compiler registrations',
     const source = await readFile(resolve(site, 'public/sources', `${example.sourcePath}.txt`));
     assert.equal(createHash('sha256').update(source).digest('hex'), example.sourceSha256, `${example.framework}: actual source download`);
     for (const proof of example.proofInputs) {
-      const bytes = await readFile(resolve(site, 'public/sources', `${proof.path}.txt`));
+      const bytes = await readFile(resolve(root, proof.path));
       assert.equal(createHash('sha256').update(bytes).digest('hex'), proof.sha256, proof.path);
     }
   }

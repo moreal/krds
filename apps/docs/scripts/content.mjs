@@ -4,7 +4,8 @@ import { marked } from 'marked';
 /** @typedef {import('../src/content.ts').DocInline} DocInline */
 /** @typedef {import('../src/content.ts').DocBlock} DocBlock */
 /** @typedef {import('../src/content.ts').DocPage} DocPage */
-const excluded = new Set(['node_modules', 'dist', 'src', 'public', '.astro', '.vitepress', 'tests']);
+// compiler-checkpoints holds build evidence (logs, proofs) with a repository README; it is not site content.
+const excluded = new Set(['node_modules', 'dist', 'src', 'public', '.astro', '.vitepress', 'tests', 'compiler-checkpoints']);
 import { docUrl, decodeEntities as decode } from '../src/urls.ts';
 export { docUrl } from '../src/urls.ts';
 /** Exact VitePress 1.6.4 default slug algorithm, without a runtime VitePress dependency. */
@@ -82,7 +83,7 @@ export function parseDocument(markdown, sourcePath) {
 export function buildNavigation(pages) {
  const sections=[['getting-started','빠른 시작','getting-started/installation.md'],['components','컴포넌트','components/index.md'],['patterns','패턴','patterns/index.md'],['compatibility','호환성','compatibility/index.md'],['examples','네이티브 예시','compatibility/examples.md'],['legal','출처와 권리','legal/index.md']];
  return sections.map(([section,label,landing])=>{
-  const members=pages.filter(page=>section==='examples'?page.sourcePath==='compatibility/examples.md'||page.sourcePath?.startsWith('examples/')||page.sourcePath?.startsWith('compiler-checkpoints/'):page.sourcePath?.startsWith(section+'/')&&page.sourcePath!=='compatibility/examples.md');
+  const members=pages.filter(page=>section==='examples'?page.sourcePath==='compatibility/examples.md'||page.sourcePath?.startsWith('examples/'):page.sourcePath?.startsWith(section+'/')&&page.sourcePath!=='compatibility/examples.md');
   const first=members.find(page=>page.sourcePath===landing);
   if(!first)throw new Error(`Missing navigation landing page: ${landing}`);
   const ordered=[first,...members.filter(page=>page!==first)];

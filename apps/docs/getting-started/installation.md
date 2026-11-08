@@ -66,4 +66,3 @@ node tools/yarn.mjs workspace @unofficial-krds/vue pack --out /tmp/krds-vue-loca
 
 `package.json`, 공개 `dist/` export, 라이선스·출처·provenance를 검사하세요. 독립 앱에서 사용할 때는 선언된 모든 내부 공개 의존성의 실제 로컬 tarball과 정확한 프레임워크 버전이 필요합니다. 워크스페이스 빌드만으로 독립 설치를 검증했다고 볼 수 없습니다.
 
-[과거 산출물 기록](./artifacts)은 당시 버전·파일명·해시를 보존한 체크포인트입니다. 현재 파일의 존재나 릴리스 승인을 뜻하지 않습니다. 현재 후보의 실제 바이트·설치·승인은 별도 릴리스 기록에서 확인해야 합니다. 이번 문서 작업은 npm 게시와 태그 생성을 포함하지 않습니다.

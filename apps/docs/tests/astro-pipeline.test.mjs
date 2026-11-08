@@ -45,7 +45,7 @@ test('migration downloads and historical identities follow the explicit current-
   const baseline = await json(resolve(site, 'tests/fixtures/vitepress-baseline.json'));
   const allowlist = await json(resolve(site, 'migration-current-inputs.json'));
   const metadata = await json(resolve(site, 'public/docs-metadata.json'));
-  assert.equal(baseline.downloads.length, 609);
+  assert.equal(baseline.downloads.length, 547);
   assert.equal(baseline.declarations.length, 385);
   assert.equal(baseline.checkpoints.length, 62);
   const current = new Map(metadata.distributedSources.map(record => [record.outputPath, record]));

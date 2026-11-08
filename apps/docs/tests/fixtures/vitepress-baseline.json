@@ -42,12 +42,6 @@
       ]
     },
     {
-      "path": "compiler-checkpoints/final-versions/README.html",
-      "headingIds": [
-        "native-compiler-checkpoints-after-version-application"
-      ]
-    },
-    {
       "path": "components/accessible-media.html",
       "headingIds": [
         "accessible-multimedia",
@@ -1434,14 +1428,6 @@
       ]
     },
     {
-      "path": "getting-started/artifacts.html",
-      "headingIds": [
-        "historical-local-artifact-records",
-        "artifacts-debug-inventory-json",
-        "artifacts-debug-solid-inventory-json"
-      ]
-    },
-    {
       "path": "getting-started/forms.html",
       "headingIds": [
         "forms-and-controlled-state",
@@ -2567,363 +2553,6 @@
       "kind": "current-input"
     },
     {
-      "sourcePath": "apps/docs/artifact-checkpoint.json",
-      "outputPath": "sources/apps/docs/artifact-checkpoint.json.txt",
-      "bytes": 11325,
-      "sha256": "a81678d8973d4754840c87ee2de95b65fb622b7885d9a38497bedaaba1d3952b",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-result.json.txt",
-      "bytes": 420,
-      "sha256": "58baa1dbacae141eb9b1db2048f601fa3ec5b5ed267e7cc08c50d561a5af0bb4",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stderr.log.txt",
-      "bytes": 29332,
-      "sha256": "9a09cb98da8d7616e75959b39750b86ea687430909f857a8be58db5c2d220f82",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/angular/package-build-stdout.log.txt",
-      "bytes": 12533,
-      "sha256": "ebcebffef05f4b6ee9a5e41b73f2b0b98f9a1039dfbf45e78b966f1d2b2a3d53",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/proof.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/angular/proof.json.txt",
-      "bytes": 38519,
-      "sha256": "70f705367a99430b770c7eb50e0c620956dc88dfa0de2dfc2764466bd98845c9",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/angular/result.json.txt",
-      "bytes": 439,
-      "sha256": "b2daa533bca2c3e6c276c8062ee24fe4b65397f47e76831fecf7df8832812a12",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/angular/stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/angular/stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/angular/stdout.log.txt",
-      "bytes": 491,
-      "sha256": "decb1cccc9cdea364347022a4fd3345231f5595820175b6408ab43ed4c0a9001",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-result.json.txt",
-      "bytes": 412,
-      "sha256": "7dc8b17d7cc6c6855e7862bb45d6b876b026885c031f1fbe1bdd793d9393a623",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/lit/package-build-stdout.log.txt",
-      "bytes": 4772,
-      "sha256": "3e057afc33fa6d019c2c1d697d68d083120cc346f8a98df4579a70bfe82685f0",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/proof.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/lit/proof.json.txt",
-      "bytes": 41135,
-      "sha256": "4260369fa95fbb5af86b4418c5ec7dc11d773eb354ae9ba5b78f62f1652d38fa",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/lit/result.json.txt",
-      "bytes": 419,
-      "sha256": "6735331f757cd9bdafb823d27bc53aa210f7e5e408b52ebce06c1f63e6e4c851",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/lit/stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/lit/stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/lit/stdout.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/package-build-result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-result.json.txt",
-      "bytes": 414,
-      "sha256": "9b993104bd27782e1e520105a993969cb5f492da78f5204d05688d19e7eb68ad",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/qwik/package-build-stdout.log.txt",
-      "bytes": 257,
-      "sha256": "60ecd63264b0dcd9d31d406d7127846d8432f22642ef4ad02cf9040b56de53b4",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/proof.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/qwik/proof.json.txt",
-      "bytes": 30925,
-      "sha256": "3d63337ed2e9158595d687acc10630faf4c45336c4cf4d5f6338384b2626306f",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/qwik/result.json.txt",
-      "bytes": 483,
-      "sha256": "5aee4dbec394feaf3995e63a9a387f0c0a909ff0a3c1a044df83fa98b53bcedf",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/qwik/stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/qwik/stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/qwik/stdout.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/package-build-result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-result.json.txt",
-      "bytes": 416,
-      "sha256": "6a35480d465d3e09581f157860b4d52b2b0bbf46ba6f7bc664706606eebf7cdc",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/package-build-stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/package-build-stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/react/package-build-stdout.log.txt",
-      "bytes": 4259,
-      "sha256": "88da4f27066eeac828a165f07c36a3d0d0b730115c14a1155a0dfee531468438",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/proof.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/react/proof.json.txt",
-      "bytes": 39004,
-      "sha256": "31ec9a0c700338a968d3700c2715485957a64d6f3111c69029a33268b9d2ec42",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/react/result.json.txt",
-      "bytes": 461,
-      "sha256": "8dc3e07a91bd2429ae18d4e92cfcbb6c2f991f2d71e519c04065e6e2a855cb99",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/react/stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/react/stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/react/stdout.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/package-build-result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-result.json.txt",
-      "bytes": 416,
-      "sha256": "09299de67b3e7578ddb104a6cbb3cadd5adf2c101f822d07c48ea1b33a166757",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/package-build-stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stderr.log.txt",
-      "bytes": 332,
-      "sha256": "d5be3733d7cee4a7a6b8ff5485a6099619141ae66c0b5c9d79591f4cd2d7f23b",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/package-build-stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/solid/package-build-stdout.log.txt",
-      "bytes": 8635,
-      "sha256": "72de18f4d844a41dfe7f14ef20dff7aff156c84386886e655ec7f0b7fec16db6",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/proof.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/solid/proof.json.txt",
-      "bytes": 50981,
-      "sha256": "6925fd251afe8a8a688e1a480a310aa40ec40e6c8bc58cce023f81a3b09bf1d4",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/solid/result.json.txt",
-      "bytes": 423,
-      "sha256": "216f80fead653cbce427fcbb4566032bd001e2cc1c2d2250a0742ee1c8d9aa50",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/solid/stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/solid/stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/solid/stdout.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-result.json.txt",
-      "bytes": 418,
-      "sha256": "bbd186e5ed1c13145cde3e5e5c59d60feeefc94fd7cddd29df128a33c7f641e1",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stderr.log.txt",
-      "bytes": 4173,
-      "sha256": "f2263de5d1986e311e7cb2406f813bdb6083d2e39d20219488a23e7307719bb6",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/svelte/package-build-stdout.log.txt",
-      "bytes": 16,
-      "sha256": "1cff3a15b64eec658c1cc9cf77f8d3579688147204a80d9fde225dac5d71b3ff",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/proof.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/svelte/proof.json.txt",
-      "bytes": 55521,
-      "sha256": "419779d2087bd8e3c4498c1c0d768ec50d128e0c82f7311e1f3b0b352f48864d",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/svelte/result.json.txt",
-      "bytes": 425,
-      "sha256": "2643e64dcea75fa4fc67f59699c4699c41e0f14c76877ad21d00626437ed418f",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/svelte/stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/svelte/stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/svelte/stdout.log.txt",
-      "bytes": 162,
-      "sha256": "fdf7ccaaa8007d396fce127e1e5acd181a532747980203720b3fe1bdd4c71515",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-result.json.txt",
-      "bytes": 412,
-      "sha256": "b2c7262e972b78d16abd68de849bc71f9cd5b7ff8b04b48b5e7e3a946497b5b8",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/vue/package-build-stdout.log.txt",
-      "bytes": 7474,
-      "sha256": "468f64893264abce2a608dd61a0e945e29039bacda77efa2487b85f514a8dcd6",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/proof.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/vue/proof.json.txt",
-      "bytes": 50574,
-      "sha256": "a18810ec1c65605923c3880a6a987a0b214731adf62c65ef3ceb360434b1773e",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/result.json",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/vue/result.json.txt",
-      "bytes": 419,
-      "sha256": "7eb2acc429af72305522e801dfbf4425a7bca1106aa6a6646340fbd6beab00c5",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/stderr.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/vue/stderr.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/docs/compiler-checkpoints/final-versions/vue/stdout.log",
-      "outputPath": "sources/apps/docs/compiler-checkpoints/final-versions/vue/stdout.log.txt",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "kind": "historical"
-    },
-    {
-      "sourcePath": "apps/fixture-angular/package.json",
-      "outputPath": "sources/apps/fixture-angular/package.json.txt",
-      "bytes": 2167,
-      "sha256": "cc59371c5c494a6592d8d0c0ba1a886caf6de0a226ea080ef95ba8b8369fe522",
-      "kind": "current-input"
-    },
-    {
       "sourcePath": "apps/fixture-angular/src/fixture-app.ts",
       "outputPath": "sources/apps/fixture-angular/src/fixture-app.ts.txt",
       "bytes": 11982,
@@ -2938,13 +2567,6 @@
       "kind": "historical"
     },
     {
-      "sourcePath": "apps/fixture-lit/package.json",
-      "outputPath": "sources/apps/fixture-lit/package.json.txt",
-      "bytes": 1047,
-      "sha256": "590e94b4ce00340b23e34c78d2708e5dd1a0b71d84f0323afdeb5461675c5e0f",
-      "kind": "current-input"
-    },
-    {
       "sourcePath": "apps/fixture-lit/src/examples/catalog.ts",
       "outputPath": "sources/apps/fixture-lit/src/examples/catalog.ts.txt",
       "bytes": 13497,
@@ -2956,13 +2578,6 @@
       "outputPath": "sources/apps/fixture-lit/src/full-catalog.ts.txt",
       "bytes": 3129,
       "sha256": "8be1b6382ef6ddfd68360a6147d1267449e55544be5c17d83538e8c1ea0c4430",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "apps/fixture-qwik/package.json",
-      "outputPath": "sources/apps/fixture-qwik/package.json.txt",
-      "bytes": 1469,
-      "sha256": "3042eb5f3e31707a8e39cc753a59c8448385c65f092befb3045745243a8c47b7",
       "kind": "current-input"
     },
     {
@@ -2980,13 +2595,6 @@
       "kind": "current-input"
     },
     {
-      "sourcePath": "apps/fixture-react/package.json",
-      "outputPath": "sources/apps/fixture-react/package.json.txt",
-      "bytes": 1439,
-      "sha256": "a3d179be15676db4a2806412ad356eecc7e0b65de47198564588b821791e043e",
-      "kind": "current-input"
-    },
-    {
       "sourcePath": "apps/fixture-react/src/CatalogExample.tsx",
       "outputPath": "sources/apps/fixture-react/src/CatalogExample.tsx.txt",
       "bytes": 37626,
@@ -3001,24 +2609,10 @@
       "kind": "current-input"
     },
     {
-      "sourcePath": "apps/fixture-solid-next/package.json",
-      "outputPath": "sources/apps/fixture-solid-next/package.json.txt",
-      "bytes": 1421,
-      "sha256": "74f3d74522be160dfe2a20cd9eaa29b8458e7741a913196ba26e3563fe488429",
-      "kind": "current-input"
-    },
-    {
       "sourcePath": "apps/fixture-solid-next/src/main.tsx",
       "outputPath": "sources/apps/fixture-solid-next/src/main.tsx.txt",
       "bytes": 6167,
       "sha256": "8540730e84927e6a52a61908c41638689bbb60e3c91751b860f7b89256bf334d",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "apps/fixture-solid/package.json",
-      "outputPath": "sources/apps/fixture-solid/package.json.txt",
-      "bytes": 1430,
-      "sha256": "ee7cdd8d2682c1ed4e2e2499e108bd47a79db66929690822bd5fe658b45367b6",
       "kind": "current-input"
     },
     {
@@ -3040,13 +2634,6 @@
       "outputPath": "sources/apps/fixture-solid/src/main.tsx.txt",
       "bytes": 975,
       "sha256": "5f95b36e2bfe2d981a9d1324d0297b82d9682b7d303fa95594981bdb293640c4",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "apps/fixture-svelte/package.json",
-      "outputPath": "sources/apps/fixture-svelte/package.json.txt",
-      "bytes": 1466,
-      "sha256": "77e8c50e264a7ed63e9af513988d649cf2ca259095f0a98c2d586defded11a29",
       "kind": "current-input"
     },
     {
@@ -3435,13 +3022,6 @@
       "kind": "historical"
     },
     {
-      "sourcePath": "apps/fixture-vue/package.json",
-      "outputPath": "sources/apps/fixture-vue/package.json.txt",
-      "bytes": 1535,
-      "sha256": "f8fdf65e64c4bb30c2c70c9f99bc9208b47fc0679749e572ebc34f1fecb3e3ca",
-      "kind": "current-input"
-    },
-    {
       "sourcePath": "apps/fixture-vue/src/CatalogExamples.vue",
       "outputPath": "sources/apps/fixture-vue/src/CatalogExamples.vue.txt",
       "bytes": 28372,
@@ -3467,27 +3047,6 @@
       "outputPath": "sources/catalog/components.json.txt",
       "bytes": 125882,
       "sha256": "19e186cae7c965dec3697ae20d993b9c676cb4852b6e668eb03c2c9d02e12ae4",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "catalog/coverage.json",
-      "outputPath": "sources/catalog/coverage.json.txt",
-      "bytes": 84796,
-      "sha256": "b01b8a846cc121f04fe6df5a578744501c73218b3d59250aac64e9515413cb95",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "catalog/full-catalog-stories.json",
-      "outputPath": "sources/catalog/full-catalog-stories.json.txt",
-      "bytes": 754582,
-      "sha256": "7b0b27e91ad2c056c4c249bc9391e1b5e0acaa01896b18da8754e2fbec0ea6da",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "catalog/story-cases.json",
-      "outputPath": "sources/catalog/story-cases.json.txt",
-      "bytes": 5408,
-      "sha256": "b9799b5c0151569d69c48f2deab3c7ef61284c60315007e5ea3aedcbf8bc22ab",
       "kind": "current-input"
     },
     {
@@ -3586,13 +3145,6 @@
       "outputPath": "sources/docs/compatibility/vue.md.txt",
       "bytes": 2379,
       "sha256": "e96ef68f932be638db6671f7d6e48f6fe2b8b964adba9e2d3085aac39122369b",
-      "kind": "current-input"
-    },
-    {
-      "sourcePath": "docs/execution/evidence/T14/reports/task-T14-report.md",
-      "outputPath": "sources/docs/execution/evidence/T14/reports/task-T14-report.md.txt",
-      "bytes": 11091,
-      "sha256": "06768af169ccc32a6c9b2a5ab7ad8a1d05de0f68b1816d424051d32665eefecf",
       "kind": "current-input"
     },
     {
