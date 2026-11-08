@@ -3,13 +3,13 @@ import vue from '@vitejs/plugin-vue';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { sha256 } from '../../tools/docs-previews/contract.mjs';
+import { sha256, type Definitions } from '../../tools/docs-previews/contract.mjs';
 import { writeArtifactManifest } from '../../tools/docs-previews/manifest.mjs';
 
 const fixture = dirname(fileURLToPath(import.meta.url));
 const root = resolve(fixture, '../..');
 const sourceRoot = 'apps/fixture-vue/src/docs-preview';
-const definitions = JSON.parse(readFileSync(resolve(root, sourceRoot, 'definitions.json'), 'utf8'));
+const definitions = JSON.parse(readFileSync(resolve(root, sourceRoot, 'definitions.json'), 'utf8')) as Definitions;
 const captured = new Map();
 function identity(id: string) {
   let dir = dirname(id.split('?')[0]);
@@ -41,7 +41,7 @@ const capture: Plugin = {
   },
   writeBundle() {
     const inputs = [...captured.values()];
-    const bindings = definitions.demos.flatMap(d => d.sources.map(s => ({
+    const bindings = definitions.demos.flatMap(d => (d.sources ?? []).map(s => ({
       componentId: d.componentId, exampleId: d.exampleId,
       hostPath: `${sourceRoot}/main.ts`, sourcePath: s.path,
       symbolOrBranch: s.symbolOrBranch, sha256: sha256(readFileSync(resolve(root, s.path))),

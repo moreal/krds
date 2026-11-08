@@ -127,7 +127,8 @@ test('pilot parts and all 48 accepted shared contracts stay in sync', () => {
       assert.deepEqual(spec.presentation, presentation[name] ?? {}, name);
     } else {
       const text = read(`../../../specs/components/${name}.md`);
-      const line = text.match(/Parts: ([^\n]+)/u)?.[1]?.split(/[.;]/u)[0];
+      // Specs are written in Korean (파트:) since 2026-11-07; the English label is kept for historical snapshots.
+      const line = text.match(/(?:Parts|파트): ([^\n]+)/u)?.[1]?.split(/[.;]/u)[0];
       const expected = [...(line ?? '').matchAll(/`([^`]+)`/gu)].map((match) => match[1]);
       assert.deepEqual(spec.parts, expected, name);
     }

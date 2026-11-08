@@ -26,7 +26,7 @@ test('FileUpload: native file input is visually hidden but stays labelled, focus
 test('FileUpload: the visible picker is the single keyboard/AT file control and opens the native chooser',async()=>{
  const before=document.createElement('button');before.textContent='before';document.body.append(before);
  const host=document.createElement('div');document.body.append(host);
- const app=mount(FileUpload,{target:host,props:{label:'첨부 파일',files:[],onFilesChange:vi.fn()}});
+ const app=mount(FileUpload,{target:host,props:{name:'documents',label:'첨부 파일',files:[],onFilesChange:vi.fn()}});
  cleanup.push(async()=>{await unmount(app);host.remove();before.remove();});await tick();
  const input=host.querySelector<HTMLInputElement>('[data-krds-component="file-upload"][data-krds-part="file-input"]')!;
  const picker=host.querySelector<HTMLButtonElement>('[data-krds-component="file-upload"][data-krds-part="picker"]')!;

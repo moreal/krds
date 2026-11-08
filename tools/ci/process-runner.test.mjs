@@ -62,6 +62,34 @@ test('cache verification runs exactly scoped cold/restored builds through bounde
   await assert.rejects(() => cache.verifyCache({projects: ['krds-tokens', 'krds-tokens'], graph, rootDir: dir, reportPath, timeoutMs: 1000}), /duplicate/i);
 });
 
+test('cache verification scopes to named dist entries and leaves a sibling docs-preview artifact untouched', async t => {
+  const {mkdirSync, writeFileSync, existsSync} = await import('node:fs');
+  const {verifyCache} = await import('./verify-cache.mjs');
+  const dir = temp(t); const reportPath = join(dir, 'cache-restoration.json');
+  // Fixture builds name their own dist entries because dist/docs-preview belongs to another target.
+  const graph = {nodes: {'fixture-x': {data: {root: 'apps/fixture-x', targets: {build: {cache: true, outputs: ['{projectRoot}/dist/index.html', '{projectRoot}/dist/assets']}}}}}};
+  mkdirSync(join(dir, 'apps/fixture-x/dist/docs-preview'), {recursive: true});
+  writeFileSync(join(dir, 'apps/fixture-x/dist/docs-preview/artifact-manifest.json'), '{}');
+  let calls = 0;
+  const report = await verifyCache({projects: ['fixture-x'], graph, rootDir: dir, reportPath, timeoutMs: 3000, runner: async ({logPath}) => {
+    calls++;
+    if (calls === 2) assert.ok(existsSync(join(dir, 'apps/fixture-x/dist/docs-preview/artifact-manifest.json')), 'only declared outputs are removed');
+    mkdirSync(join(dir, 'apps/fixture-x/dist/assets'), {recursive: true});
+    writeFileSync(join(dir, 'apps/fixture-x/dist/index.html'), '<p>ordinary</p>');
+    writeFileSync(join(dir, 'apps/fixture-x/dist/assets/main.js'), 'export {}');
+    writeFileSync(logPath, calls === 2 ? 'nx run fixture-x:build  [local cache]\n' : 'nx run fixture-x:build\n');
+    return {status: 'passed'};
+  }});
+  assert.equal(report.status, 'passed');
+  assert.deepEqual(report.first.map(entry => entry.output), ['apps/fixture-x/dist/index.html', 'apps/fixture-x/dist/assets']);
+  assert.deepEqual(report.first, report.restored);
+  assert.ok(existsSync(join(dir, 'apps/fixture-x/dist/docs-preview/artifact-manifest.json')));
+  const outside = {nodes: {'fixture-x': {data: {root: 'apps/fixture-x', targets: {build: {cache: true, outputs: ['{projectRoot}/dist/index.html', '{projectRoot}/public']}}}}}};
+  await assert.rejects(() => verifyCache({projects: ['fixture-x'], graph: outside, rootDir: dir, reportPath, timeoutMs: 1000}), /lacks its own declared dist output/);
+  const none = {nodes: {'fixture-x': {data: {root: 'apps/fixture-x', targets: {build: {cache: true, outputs: []}}}}}};
+  await assert.rejects(() => verifyCache({projects: ['fixture-x'], graph: none, rootDir: dir, reportPath, timeoutMs: 1000}), /lacks its own declared dist output/);
+});
+
 test('cache semantics accept hosted ANSI headers while preserving raw logs and exact project/byte/mode guards', async t => {
   const {mkdirSync, writeFileSync, chmodSync} = await import('node:fs');
   const {verifyCache} = await import('./verify-cache.mjs');

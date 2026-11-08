@@ -8,17 +8,21 @@ import {stripVTControlCharacters} from 'node:util';
 import {assertNode, env, readJson, root, writeJson} from './common.mjs';
 import {loadGraph} from './selection.mjs';
 import {runCommand} from './process-runner.mjs';
-function inventory(directory) {
+function inventory(output) {
   const files = [];
+  const record = (file, path, stat) => files.push({path, mode: stat.mode & 0o777, sha256: createHash('sha256').update(stat.isSymbolicLink() ? readlinkSync(file) : readFileSync(file)).digest('hex')});
   function visit(path) {
     for (const entry of readdirSync(path).sort()) {
       const file = join(path, entry); const stat = lstatSync(file);
       if (stat.isDirectory()) visit(file);
-      else files.push({path: relative(directory, file), mode: stat.mode & 0o777, sha256: createHash('sha256').update(stat.isSymbolicLink() ? readlinkSync(file) : readFileSync(file)).digest('hex')});
+      else record(file, relative(output, file), stat);
     }
   }
-  assert.ok(existsSync(directory), `Missing build output ${directory}`); visit(directory);
-  assert.ok(files.length, `Empty build output ${directory}`); return files;
+  assert.ok(existsSync(output), `Missing build output ${output}`);
+  // A declared output is a directory or a single file (fixtures name dist entries, not the whole dist).
+  const stat = lstatSync(output);
+  if (stat.isDirectory()) visit(output); else record(output, relative(dirname(output), output), stat);
+  assert.ok(files.length, `Empty build output ${output}`); return files;
 }
 export async function verifyCache({projects, graph, rootDir = root, reportPath = resolve(rootDir, 'test-results/ci/cache-restoration.json'), timeoutMs = 20 * 60_000, runner = runCommand}) {
   const started = Date.now();
@@ -29,12 +33,16 @@ export async function verifyCache({projects, graph, rootDir = root, reportPath =
     assert.ok(Array.isArray(projects) && projects.length, 'Zero cache verification projects selected');
     assert.equal(new Set(projects).size, projects.length, 'Duplicate cache verification projects');
     assert.ok(Number.isFinite(timeoutMs) && timeoutMs > 0, 'Positive cache timeout required');
-    const outputs = projects.map(project => {
+    const outputs = projects.flatMap(project => {
       const data = graph.nodes[project]?.data;
       assert.equal(data?.targets?.build?.cache, true, `${project}:build is missing a real cacheable build`);
-      const path = resolve(rootDir, data.root, 'dist');
-      assert.ok(path.startsWith(`${rootDir}${sep}`) && data.targets.build.outputs?.includes('{projectRoot}/dist'), `${project} lacks its own declared dist output`);
-      return {project, path};
+      const dist = resolve(rootDir, data.root, 'dist');
+      // A build declares its whole dist, or named entries inside it when another target (the
+      // fixtures' docs-preview artifact) shares that dist. Every declared output must stay inside
+      // the project's own dist: only those paths are inventoried and removed here.
+      const paths = (data.targets.build.outputs ?? []).map(output => resolve(rootDir, output.replace('{projectRoot}', data.root)));
+      assert.ok(dist.startsWith(`${rootDir}${sep}`) && paths.length && paths.every(path => path === dist || path.startsWith(`${dist}${sep}`)), `${project} lacks its own declared dist output`);
+      return paths.map(path => ({project, path}));
     });
     assert.equal(new Set(outputs.map(o => o.path)).size, outputs.length, 'Duplicate cache output paths');
     cache = mkdtempSync(join(tmpdir(), 'krds-ci-cache-'));
@@ -51,12 +59,12 @@ export async function verifyCache({projects, graph, rootDir = root, reportPath =
     };
     const firstLog = stripVTControlCharacters(await build('first'));
     assert.ok(!firstLog.includes('[local cache]') && !firstLog.includes('[remote cache]'), 'The isolated first build unexpectedly used a cache');
-    report.first = outputs.map(({project, path}) => ({project, files: inventory(path)})); writeJson(reportPath, report);
+    report.first = outputs.map(({project, path}) => ({project, output: relative(rootDir, path), files: inventory(path)})); writeJson(reportPath, report);
     // Only the explicitly selected own dist outputs are removed in this worker checkout.
     for (const output of outputs) rmSync(output.path, {recursive: true, force: true});
     const secondLog = stripVTControlCharacters(await build('second'));
-    for (const {project} of outputs) assert.ok(secondLog.split('\n').some(line => line.includes(`nx run ${project}:build `) && line.includes('[local cache]')), `${project}:build did not restore from local cache`);
-    report.restored = outputs.map(({project, path}) => ({project, files: inventory(path)}));
+    for (const project of projects) assert.ok(secondLog.split('\n').some(line => line.includes(`nx run ${project}:build `) && line.includes('[local cache]')), `${project}:build did not restore from local cache`);
+    report.restored = outputs.map(({project, path}) => ({project, output: relative(rootDir, path), files: inventory(path)}));
     assert.deepEqual(report.restored, report.first, 'Cache restoration changed emitted files, bytes or permissions');
     report.status = 'passed'; writeJson(reportPath, report);
     console.log(`Verified cold build, local-cache hit and exact restoration for ${projects.length} real build target(s)`);
