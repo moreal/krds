@@ -45,9 +45,15 @@ test('a restored docs-preview subtree alone does not count as an ordinary build 
   const f = await fixture(t);
   await rm(join(f.root, 'apps/fixture/dist'), { recursive: true });
   await f.put('apps/fixture/dist/docs-preview/artifact-manifest.json', '{}');
-  await loadDistribution(f.root);
+  const inventory = await loadDistribution(f.root);
+  const outputs = await distributionArtifacts(f.root, inventory);
+  assert.ok(!([...outputs.keys()].some((path) => path.includes('apps/fixture/dist/_legal/'))), 'no notice copies are written into a preview-only dist');
+  assert.ok([...outputs.keys()].some((path) => path.endsWith('apps/fixture/public/_legal/index.html')));
   await f.put('apps/fixture/dist/index.html', 'ordinary build without its asset copy');
   await assert.rejects(loadDistribution(f.root), /ENOENT|dist/);
+  await f.put('apps/fixture/dist/local-assets/asset.svg', '<svg>independent geometry</svg>\n');
+  const built = await distributionArtifacts(f.root, await loadDistribution(f.root));
+  assert.ok([...built.keys()].some((path) => path.endsWith('apps/fixture/dist/_legal/index.html')), 'an ordinary build receives its notice copies');
 });
 test('discovers unregistered new framework asset roots and built destinations', async (t) => {
   const f = await fixture(t); await f.put('apps/new-framework/public/local-assets/mystery.wav', 'unknown');
