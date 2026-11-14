@@ -22,7 +22,10 @@ test('actual KRDS CSS computes decimal, dot, hollow and dash markers',()=>{
  const view=render(()=><><TextList ordered items={[{id:'a',content:'number'}]} /><TextList marker="dot" items={[{id:'a',content:'dot'}]} /><TextList marker="hollow" items={[{id:'a',content:'hollow'}]} /><TextList marker="dash" items={[{id:'a',content:'dash'}]} /></>);
  const lists=[...view.container.querySelectorAll('ol,ul')];
  expect(lists.map(x=>x.getAttribute('data-krds-ordering'))).toEqual(['ordered','unordered','unordered','unordered']);
- expect(lists.map(x=>getComputedStyle(x).listStyleType)).toEqual(['decimal','disc','circle','"–  "']);
+ // KRDS draws markers on the item (component.css 1579–1612), not with native list-style.
+ expect(lists.map(x=>getComputedStyle(x).listStyleType)).toEqual(['none','none','none','none']);
+ const markers=lists.map(x=>getComputedStyle(x.querySelector('li')!,'::before'));
+ expect(markers.map(m=>m.content)).toEqual(['counter(list-item) "."','""','""','"-"']);
 });
 test('default string and three-level children stay intact and reject deeper data',()=>{
  const view=render(()=><TextList items={[{id:'a',content:'one',children:[{id:'b',content:'two',children:[{id:'c',content:'three'}]}]}]} />);

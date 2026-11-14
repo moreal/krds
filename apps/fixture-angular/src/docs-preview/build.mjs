@@ -10,7 +10,10 @@ const outputDir=resolve(fixture,'dist/docs-preview');
 const definitions=JSON.parse(readFileSync(resolve(fixture,'src/docs-preview/definitions.json'),'utf8'));
 const snapshots=new Map(definitions.demos.flatMap(d=>d.sources.map(s=>[s.path,readFileSync(resolve(root,s.path))])));
 for(const name of readdirSync(resolve(fixture,'src/docs-preview')))if(/\.(ts|css|html)$/.test(name)){const path=relative(root,resolve(fixture,'src/docs-preview',name));if(!snapshots.has(path))snapshots.set(path,readFileSync(resolve(root,path)));}
-const result=spawnSync(process.execPath,[resolve(fixture,'node_modules/@angular/cli/bin/ng.js'),'run','fixture-angular:docs-preview'],{cwd:fixture,stdio:'inherit',env:{...process.env,NG_CLI_ANALYTICS:'false',NG_BUILD_MAX_WORKERS:'2'}});
+// Identifier mangling picks short names from character frequencies, and equal counts resolved differently on
+// macOS and Linux (same bytes, `$p`/`Hp` swapped), which broke the committed artifact hash. The preview keeps
+// whitespace/syntax minification but leaves identifiers alone so every host emits the same main.js.
+const result=spawnSync(process.execPath,[resolve(fixture,'node_modules/@angular/cli/bin/ng.js'),'run','fixture-angular:docs-preview'],{cwd:fixture,stdio:'inherit',env:{...process.env,NG_CLI_ANALYTICS:'false',NG_BUILD_MAX_WORKERS:'2',NG_BUILD_MANGLE:'false'}});
 if(result.status!==0) { console.error({status:result.status,signal:result.signal,error:result.error}); process.exit(result.status??1); }
 const stats=JSON.parse(readFileSync(resolve(outputDir,'browser-stats.json'),'utf8'));
 function packageIdentity(path){let dir=dirname(path);while(dir.startsWith(root)){const file=resolve(dir,'package.json');if(existsSync(file)){const p=JSON.parse(readFileSync(file,'utf8'));return {package:p.name,version:p.version};}dir=dirname(dir);}throw new Error(`Missing package identity ${path}`);}
