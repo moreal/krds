@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `default`, `error`, `success`, `small`, `medium`, `large`, `icon-action`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 네이티브 한 줄 입력에 지속되는 레이블, 선택적 도움말/오류와 플레이스홀더, 선택적이며 별도 이름을 가진 아이콘 버튼을 둡니다. 보이는 초점과 오류/성공 표시가 있어야 합니다. 반복되는 개인 정보에는 브라우저 자동 완성을 씁니다. 붙여넣기를 막지 않습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: type=text|email|tel|url|password|search (기본 text), value/defaultValue="", onValueChange({value}), name, autocomplete,inputMode, required, disabled, readOnly, minLength/maxLength/pattern, status=default|error|success, helpId/errorId, size=medium, iconAction? {label,onAction}. 기본적으로 날짜 파싱이나 숫자 변환은 하지 않습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 편집/선택은 네이티브 동작이며 레이블을 클릭하면 초점이 갑니다. 아이콘 버튼은 type=button이며 제출하지 않습니다. 한글 IME 조합 중에는 값을 다시 쓰지 않으며 조합 중 Enter를 확정으로 취급하지 않습니다. 조합이 끝난 뒤의 일반 Enter 폼 제출은 호스트/브라우저 동작으로 남습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 유동 필드는 보통 섹션을 채웁니다. 예측 가능한 짧은 필드는 예상 입력 크기에 맞출 수 있으나 작은 화면에서 잘리면 안 됩니다. 모바일 키보드는 제공된 type/inputMode를 따르며, 임의의 식별자에 숫자 키보드를 강제하지 않습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 네이티브 name/value FormData를 따릅니다. disabled는 제외하고 readonly는 포함하며, 리셋은 defaultValue로 되돌립니다. 제어 리셋은 콜백 없이 현재 prop을 유지합니다. 오류는 aria-invalid/설명과 required 유효성으로 나타냅니다. 비밀번호 표시 기능을 제공한다면 값과 캐럿을 보존하고 접근 가능한 토글 레이블을 바꿔야 합니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 검증 시점, 개인 정보 자동 완성 토큰, 선택적 표시/검색 동작, 원격 검사는 호스트가 소유합니다. 로컬 스토리는 인증/API를 호출할 수 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, label, control, help, error, icon-action; invalid,success,disabled,readonly,focused.
 

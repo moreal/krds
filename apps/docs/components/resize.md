@@ -4,11 +4,11 @@ title: 'Resize'
 
 # Resize {#resize}
 
-화면 크기 조정 · `Resize`
+화면 크기 조정 · `Resize` — 화면의 글자와 요소 크기를 사용자가 조절하게 합니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_10_02.html) · [전체 명세](/sources/specs/components/resize.md.txt) · [프레임워크 지원](../compatibility/)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,21 @@ title: 'Resize'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `value` | `string` | 선택 | 속성 |
+| `defaultValue` | `string` | 선택 | 속성 |
+| `onValueChange` | `(detail: ValueChangeDetails<string>) => void` | 선택 | 이벤트 |
+| `open` | `boolean` | 선택 | 속성 |
+| `defaultOpen` | `boolean` | 선택 | 속성 |
+| `onOpenChange` | `(detail: OpenChangeDetails) => void` | 선택 | 이벤트 |
+| `levels` | `readonly {id: string; label: string; percent: number}[]` | 선택 | 속성 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface ResizeContract extends ControlledValue<string>, ControlledOpen {
@@ -57,59 +69,51 @@ export interface OpenChangeDetails {
 }
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `value` | 아니요 | `string` | 데이터 / 상태 |
-| `defaultValue` | 아니요 | `string` | 데이터 / 상태 |
-| `onValueChange` | 아니요 | `(detail: ValueChangeDetails<string>) => void` | 이벤트 |
-| `open` | 아니요 | `boolean` | 데이터 / 상태 |
-| `defaultOpen` | 아니요 | `boolean` | 데이터 / 상태 |
-| `onOpenChange` | 아니요 | `(detail: OpenChangeDetails) => void` | 이벤트 |
-| `levels` | 아니요 | `readonly {id: string; label: string; percent: number}[]` | 데이터 / 상태 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름 있는 화면 크기 컨트롤입니다. 설명 레이블이 있는 옵션과 현재 선택 값을 보여 줍니다. 공식 예시는 90%,100%,110%,130%,150%이며 옵션은 5개 이하입니다. 텍스트 레이블이 크기 아이콘/숫자와 함께 표시됩니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: `levels` `{id,label,percent}[]`=공식 5단계, `value?:string`, `defaultValue?:string="100"`, `onValueChange({value:id})`, `open`/`defaultOpen=false`, `onOpenChange`. 요청 값은 옵션 ID이며 콜백은 [ValueChangeDetails&lt;T>](/sources/packages/contracts/src/types.ts.txt)를 따릅니다. 호스트는 호환되지 않는 id 전용 페이로드를 받는 대신 `levels`에서 percent를 찾습니다. 정의된 `value`는 제어 모드를 택하고, 없으면 한 번만 읽는 기본값을 씁니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 사용자의 선택 변경은 요청 하나를 내며, 같은 값/비활성 동작, props, 마운트, 리셋은 요청을 내지 않습니다. 호스트가 범위가 한정된 배율을 적용하고 값을 확정하며, 브라우저/기기 확대는 조작하지 않습니다.
 
 제어 모드에서 거부된 클릭/Enter/접힌 상태 화살표 요청은 현재 옵션, 표시 값, 호스트 배율을 커밋된 값으로 유지합니다. 요청된 percent를 낙관적으로 적용하거나 조정 중에 두 번째 요청을 내보내지 않습니다. 배율 적용과 선택은 같은 권위 있는 값을 공유합니다. [파일럿 정책](/sources/specs/components/README.md.txt)과 별도의 열림 상태 소유는 그대로 적용됩니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 클릭/Enter/Space로 열고, Tab으로 옵션을 방문하며, 바깥 클릭/Escape로 닫고, Escape는 트리거로 초점을 돌려줍니다. Enter는 선택하고 닫습니다. 접힌 상태의 ArrowUp/Down은 공식 표에 따라 이전/다음 옵션을 선택하며 끝에서 순환하지 않습니다(프로젝트 정책). 리플로 후에도 선택 초점이 사용 가능해야 합니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 확대된 배율에서도 모든 콘텐츠와 동작에 접근할 수 있고, 문서화된 미디어/표 예외를 제외하면 페이지는 한 방향으로만 스크롤합니다. 컴포넌트 단계와 함께 실제 브라우저 200/400% 확대를 확인합니다. CSS transform만으로는 사용 가능한 레이아웃 리플로를 대신할 수 없습니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값이 없습니다. 설정 리셋은 암묵적 폼 리셋이 아니라 명시적인 호스트 환경설정 동작입니다. IME 편집은 없습니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 배율 적용, 환경설정 영속화, 범위는 호스트가 맡습니다. 레이블 변경만이 아니라 리플로를 보여 주는 동작하는 로컬 설정 드라이버와 대표 페이지가 완료 조건입니다. 원격 저장소나 전역 브라우저 설정 편집은 없습니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, trigger, current, list, option, scale-icon; open,closed,selected.
 
 렌더링되는 모든 소유 파트는 `data-krds-component="resize"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 사용합니다. 네이티브/ARIA 상태가 기준입니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `five-levels`, `custom-levels`, `narrow-reflow`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`five-levels`, `custom-levels`, `narrow-reflow`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-48) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

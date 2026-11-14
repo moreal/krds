@@ -4,11 +4,11 @@ title: 'Main menu'
 
 # Main menu {#main-menu}
 
-메인 메뉴 · `MainMenu`
+메인 메뉴 · `MainMenu` — 서비스의 주요 메뉴를 펼쳐 보여 주는 전역 탐색입니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_02.html) · [전체 명세](/sources/specs/components/main-menu.md.txt) · [프레임워크 지원](../compatibility/README.md)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,27 @@ title: 'Main menu'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `label` | `string` | 선택 | 속성 |
+| `mobileTriggerId` | `string` | 선택 | 속성 |
+| `mobileTriggerLabel` | `string` | 선택 | 속성 |
+| `items` | `readonly NavigationItem[]` | 필수 | 속성 |
+| `currentId` | `string` | 선택 | 속성 |
+| `expandedId` | `string \| null` | 선택 | 속성 |
+| `defaultExpandedId` | `string \| null` | 선택 | 속성 |
+| `onExpandedChange` | `(detail: {id: string \| null}) => void` | 선택 | 이벤트 |
+| `mobileOpen` | `boolean` | 선택 | 속성 |
+| `defaultMobileOpen` | `boolean` | 선택 | 속성 |
+| `onMobileOpenChange` | `(detail: OpenChangeDetails) => void` | 선택 | 이벤트 |
+| `query` | `string` | 선택 | 속성 |
+| `onQueryChange` | `(detail: ValueChangeDetails<string>) => void` | 선택 | 이벤트 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface MainMenuContract {
@@ -63,31 +81,15 @@ export interface ValueChangeDetails<T> {
 }
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `label` | 아니요 | `string` | 데이터 / 상태 |
-| `mobileTriggerId` | 아니요 | `string` | 데이터 / 상태 |
-| `mobileTriggerLabel` | 아니요 | `string` | 데이터 / 상태 |
-| `items` | 예 | `readonly NavigationItem[]` | 데이터 / 상태 |
-| `currentId` | 아니요 | `string` | 데이터 / 상태 |
-| `expandedId` | 아니요 | `string \| null` | 데이터 / 상태 |
-| `defaultExpandedId` | 아니요 | `string \| null` | 데이터 / 상태 |
-| `onExpandedChange` | 아니요 | `(detail: {id: string \| null}) => void` | 이벤트 |
-| `mobileOpen` | 아니요 | `boolean` | 데이터 / 상태 |
-| `defaultMobileOpen` | 아니요 | `boolean` | 데이터 / 상태 |
-| `onMobileOpenChange` | 아니요 | `(detail: OpenChangeDetails) => void` | 이벤트 |
-| `query` | 아니요 | `string` | 데이터 / 상태 |
-| `onQueryChange` | 아니요 | `(detail: ValueChangeDetails<string>) => void` | 이벤트 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름 있는 `<nav aria-label="메인 메뉴">`가 제목/목록 계층을 담습니다. 말단 항목은 실제 링크입니다. 하위 항목을 펼치는 항목은 버튼이며, 꺾쇠와 현재/펼침 단서를 갖습니다. 데스크톱 드롭다운은 제목과 선택적 설명/유틸리티를 포함합니다. 모바일 레이어는 여는 버튼, 유틸리티, 섹션 탐색, 선택적 메뉴 내 검색, 상위 이동 버튼, 닫기 버튼을 포함합니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: `items` `{id,label,href?,description?,children?}[]`, `currentId`, `expandedId`/`defaultExpandedId`, `onExpandedChange({id})`, `mobileOpen`/`defaultMobileOpen`, `onMobileOpenChange({open})`, 검색을 제공할 때 로컬 `query`/`onQueryChange`. 노출하는 탐색 수준은 최대 3단계입니다. 더 깊은 드릴다운 데이터는 데스크톱 평탄화와 분리합니다.
 
@@ -95,35 +97,37 @@ React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular�
 
 **추가 랜드마크·트리거 식별:** `label`로 실제 내비게이션 랜드마크 이름을 줄 수 있습니다(기존 기본값 메인 메뉴는 그대로). `mobileTriggerId`/`mobileTriggerLabel`로 실제 기본 모바일 여는 버튼 하나의 ID와 이름을 줄 수 있습니다. 생략하면 기존 기본값을 유지합니다. 헤더(Header)가 조합하면 그 `navigationLabel`이 이 `label`에 대응하고, 공유 현재/모바일 상태는 같은 메뉴 인스턴스를 대상으로 합니다. Header가 기본 네이티브 트리거를 소유하면 어댑터가 그 실제 네이티브 컨트롤을 내부에서 연결하고, ID 중복 없이 중복 여는 버튼을 숨깁니다. 네이티브 콘텐츠 슬롯은 이 실제 메뉴의 전달 통로이며, 빈 두 번째 메뉴나 추가 내비게이션 래퍼를 렌더링해도 된다는 허가가 아닙니다. 일반 ID는 어댑터 네이티브 ref나 유효한 같은 루트 관계를 대체하지 않습니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 클릭/Enter가 부모를 토글합니다. 호버만으로 열지 않습니다. Escape는 펼친 드롭다운을 모두 닫고 최상위 트리거로 초점을 옮깁니다. Tab은 계층 순서를 따릅니다. 공식 드롭다운 활성 단서 `aria-current=true`는 현재 말단의 `aria-current=page`와 구분합니다. `aria-expanded`/`controls`도 노출합니다. 닫힌 하위 항목은 초점/접근성 트리에서 제외합니다. 모바일 전체 화면 모달 레이어는 프로젝트 선택으로 검토된 모달(Modal)의 초점/격리 계약을 따르며, 말단 앵커는 브라우저 동작을 유지합니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 데스크톱 드롭다운의 최대 높이는 70vh이며 내부에서 스크롤합니다. 좁은 화면은 잘린 데스크톱 링크 대신 햄버거 레이어를 씁니다. 검색은 복잡한 메뉴에서 선택 사항이며 스토리에서는 로컬입니다. 레이아웃을 바꿀 때 초점 순서를 재배열하지 않습니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 탐색에는 폼 값/리셋이 없습니다. 선택적 검색은 IME를 보존하며, 조합 중 Enter로 탐색을 활성화하지 않습니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 링크(Link), 버튼, 모바일 대화상자, 선택적 텍스트 입력 필드(TextInput), 유틸리티를 각 렌더러에서 네이티브로 조합합니다. 라우트 맵/현재 페이지, 인증/유틸리티, 검색 결정은 호스트가 맡습니다. 메뉴는 데이터를 가져오지 않으며 네이티브 링크 외에 히스토리를 바꾸지 않습니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, trigger, link, indicator, submenu, submenu-title, description, utilities, mobile-trigger, mobile-content, back, close, search; expanded/collapsed,current, mobile-open.
 
 렌더링되는 모든 소유 파트는 `data-krds-component="main-menu"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 사용합니다. 네이티브/ARIA 상태가 기준입니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `desktop-links`, `desktop-dropdown`, `desktop-described`, `mobile-simple`, `mobile-sections`, `mobile-drilldown`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`desktop-links`, `desktop-dropdown`, `desktop-described`, `mobile-simple`, `mobile-sections`, `mobile-drilldown`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-9) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

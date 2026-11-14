@@ -36,9 +36,9 @@ export async function captureVisual({ browser, browserName, origin, entry, evide
       const preview = async () => { await page.locator('.native-demo').evaluate(n => n.scrollIntoView({ block: 'start' })); await page.waitForTimeout(100); };
       await preview();
       await shot('preview', path => page.screenshot({ path }));
-      // Result first, source below it.
-      const [frameBox, sourceBox] = await Promise.all([page.locator('.native-demo-frame').boundingBox(), page.locator('.native-demo-source').boundingBox()]);
-      assert.ok(frameBox && sourceBox && frameBox.y < sourceBox.y, 'result precedes source');
+      // The preview is the default view; the source waits behind the code tab.
+      assert.ok(await page.locator('.native-demo-frame').boundingBox(), 'preview is shown first');
+      assert.equal(await page.locator('.native-demo-source').isVisible(), false, 'source stays behind the code tab');
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `no horizontal overflow at ${width}`);
       let captured = false;
       // Same acceptance hooks as the matrix row: inventory-driven scenarios (Image) need the item.

@@ -4,11 +4,11 @@ title: 'Textarea'
 
 # Textarea {#textarea}
 
-텍스트 영역 (Textarea) · `Textarea`
+텍스트 영역 (Textarea) · `Textarea` — 여러 줄의 글을 입력받습니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_02.html) · [전체 명세](/sources/specs/components/textarea.md.txt) · [프레임워크 지원](../compatibility/)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,28 @@ title: 'Textarea'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `value` | `string` | 선택 | 속성 |
+| `defaultValue` | `string` | 선택 | 속성 |
+| `onValueChange` | `(detail: ValueChangeDetails<string>) => void` | 선택 | 이벤트 |
+| `id` | `string` | 선택 | 속성 |
+| `name` | `string` | 선택 | 속성 |
+| `label` | `string` | 필수 | 속성 |
+| `disabled` | `boolean` | 선택 | 속성 |
+| `required` | `boolean` | 선택 | 속성 |
+| `invalid` | `boolean` | 선택 | 속성 |
+| `helpId` | `string` | 선택 | 속성 |
+| `errorId` | `string` | 선택 | 속성 |
+| `rows` | `number` | 선택 | 속성 |
+| `readOnly` | `boolean` | 선택 | 속성 |
+| `maxLength` | `number` | 선택 | 속성 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface TextareaContract extends ControlledValue<string>, FieldContract {
@@ -56,66 +75,51 @@ export interface FieldContract {
 }
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `value` | 아니요 | `string` | 데이터 / 상태 |
-| `defaultValue` | 아니요 | `string` | 데이터 / 상태 |
-| `onValueChange` | 아니요 | `(detail: ValueChangeDetails<string>) => void` | 이벤트 |
-| `id` | 아니요 | `string` | 데이터 / 상태 |
-| `name` | 아니요 | `string` | 데이터 / 상태 |
-| `label` | 예 | `string` | 데이터 / 상태 |
-| `disabled` | 아니요 | `boolean` | 데이터 / 상태 |
-| `required` | 아니요 | `boolean` | 데이터 / 상태 |
-| `invalid` | 아니요 | `boolean` | 데이터 / 상태 |
-| `helpId` | 아니요 | `string` | 데이터 / 상태 |
-| `errorId` | 아니요 | `string` | 데이터 / 상태 |
-| `rows` | 아니요 | `number` | 데이터 / 상태 |
-| `readOnly` | 아니요 | `boolean` | 데이터 / 상태 |
-| `maxLength` | 아니요 | `number` | 데이터 / 상태 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 실제 &lt;textarea>에 지속적으로 연결된 레이블을 두고, 선택적 플레이스홀더/도움말/오류를 둡니다. 글자 수 제한이 있으면 최대 글자 수와 남은 글자 수를 안내합니다. 글자 수는 레이블이나 필드 뒤에 옵니다. 플레이스홀더는 레이블/도움말을 대체하지 않으며 복사/붙여넣기를 제한하지 않습니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: value/defaultValue="", onValueChange({value}), name, rows=5 (제안), required/disabled/readOnly=false, maxLength?, helpId/errorId, invalid=false. 글자 수는 maxlength와 일치하도록 HTML UTF-16 코드 유닛으로 셉니다. 사용자에게 보이는 글자 수가 다르면 레이블/글자 수 문구에 이 프로젝트 정책을 드러냅니다.
 
 공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 편집, 선택, 붙여넣기, Enter 줄 바꿈은 네이티브입니다. Tab은 초점을 일반적으로 옮기며 Enter 제출이나 단축키는 없습니다. IME 중에는 선택/조합 문자열을 보존합니다. 조합 중인 텍스트를 다시 쓰거나 자르지 않고 입력 갱신을 내보냅니다. 글자 수 표시는 키 입력마다 단호하게(assertive) 알리지 않아야 합니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 예상 텍스트에 맞는 크기로 만듭니다. 더 긴 입력은 textarea 안에서 세로로 스크롤하며 화살표 키는 네이티브 편집을 유지합니다. 쓸 수 있는 크기 조절을 허용하고 좁은 화면/확대에서 리플로우합니다. 오류/글자 수가 잘리면 안 됩니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 이름이 있고 활성인 textarea는 네이티브 FormData에 참여합니다(readonly 포함, disabled 제외). 리셋은 기본 문자열과 글자 수를 복원합니다. 제어 리셋은 콜백 없이 현재 prop을 유지합니다. required/maxLength는 네이티브 유효성과 명시적 오류 연결을 함께 씁니다. 브라우저 FormData의 CRLF 의미를 보존합니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 검증 시점과 오류 문구는 컴포넌트가 아니라 호스트가 소유합니다. 완료에는 긴 입력, 붙여넣기, 한글 IME, 레이블/오류, FormData/리셋이 포함됩니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, label, control, help, error, count; disabled,readonly,invalid,focused.
 
 렌더링되는 모든 소유 파트는 `data-krds-component="textarea"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `default`, `limited`, `invalid`, `disabled`, `readonly`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`default`, `limited`, `invalid`, `disabled`, `readonly`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-44) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

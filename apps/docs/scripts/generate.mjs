@@ -53,6 +53,9 @@ const catalog = await trackedJson('catalog/components.json');
 const coverage = await trackedJson('catalog/coverage.json');
 const stories = await trackedJson('catalog/full-catalog-stories.json');
 const web = catalog.components.filter(component => component.webApplicable);
+// Reader-facing one-sentence summaries, written for this site (not KRDS text).
+const summaries = (await trackedJson('catalog/component-summaries.json')).summaries;
+for (const component of web) if (!summaries[component.id]?.trim()) throw new Error(`Missing component summary: ${component.id}`);
 for (const component of catalog.components) referenceOnlySources.set(component.source.localPath, component.canonicalUrl);
 if (existsSync(resolve(root, 'docs/patterns/evidence/sources.json'))) {
   const patterns = await trackedJson('docs/patterns/evidence/sources.json');
@@ -191,21 +194,21 @@ for (const component of web) {
   // The h1 anchor keeps the English-name slug the published URLs already use (e.g. `critical-alerts`).
   const titleAnchor = slugify(component.nameEn);
   if (!anchorPattern.test(titleAnchor)) throw new Error(`Component title anchor is not a valid explicit anchor: ${component.id}: ${titleAnchor}`);
-  let page = `---\ntitle: '${component.nameEn.replaceAll("'", "''")}'\n---\n\n# ${component.nameEn} {#${titleAnchor}}\n\n${component.nameKo} · \`${component.exportName}\`\n\n[KRDS 공식 안내](${component.canonicalUrl}) · ${link(component.specPath, '전체 명세')} · [프레임워크 지원](../compatibility/)\n\n## 네이티브 지원 현황 {#native-availability}\n\n상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.\n\n| 프레임워크 | 패키지 버전 | 상태 | 예제 |\n| --- | --- | --- | --- |\n`;
+  let page = `---\ntitle: '${component.nameEn.replaceAll("'", "''")}'\n---\n\n# ${component.nameEn} {#${titleAnchor}}\n\n${component.nameKo} · \`${component.exportName}\` — ${summaries[component.id]}\n\n[KRDS 공식 안내](${component.canonicalUrl}) · ${link(component.specPath, '전체 명세')} · [프레임워크 지원](../compatibility/)\n\n## 프레임워크 지원 현황 {#native-availability}\n\n상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.\n\n| 프레임워크 | 패키지 버전 | 상태 | 예제 |\n| --- | --- | --- | --- |\n`;
   for (const framework of frameworks) {
     const manifest = manifests.get(framework.id);
     const record = coverage.coverage.find(row => row.framework === framework.id && row.componentId === component.id);
     page += `| ${framework.id}${framework.supportChannel.includes('preview') ? ' (미리보기)' : ''} | \`${manifest.version}\` | ${record?.status ?? '기록 없음'} | [${framework.id} 예제](../compatibility/examples#${framework.id}) |\n`;
   }
-  page += '\n## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}\n\n모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.\n';
-  if (contract) page += code(contract);
-  else page += `\n공개 API는 아래 검토된 안내와 각 네이티브 공개 선언이 정의합니다. ${link('packages/contracts/src/types.ts', '공유 이벤트·날짜 타입')}.\n`;
+  page += '\n## 속성과 이벤트 {#props-events-content-and-defaults}\n\n모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.\n';
   const properties = semanticProperties(component.exportName);
-  if (properties.length) page += '\n| 속성 / 콜백 | 필수 | 타입 | 역할 |\n| --- | --- | --- | --- |\n' + properties.map(([name, property]) => `| \`${name}\` | ${property.required ? '예' : '아니요'} | \`${property.type.replaceAll('|', '\\|')}\` | ${property.event ? '이벤트' : '데이터 / 상태'} |\n`).join('') + '';
-  page += '\n### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}\n\nReact와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.\n';
+  if (properties.length) page += '\n| 이름 | 타입 | 필수 | 구분 |\n| --- | --- | --- | --- |\n' + properties.map(([name, property]) => `| \`${name}\` | \`${property.type.replaceAll('|', '\\|')}\` | ${property.required ? '필수' : '선택'} | ${property.event ? '이벤트' : '속성'} |\n`).join('') + '';
+  if (contract) page += '\n표에 나온 타입의 정의입니다.\n' + code(contract);
+  else page += `\n공개 API는 아래 안내와 각 패키지의 공개 선언이 정의합니다. ${link('packages/contracts/src/types.ts', '공유 이벤트·날짜 타입')}.\n`;
+  page += '\n### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}\n\nReact와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.\n';
   for (const section of selected) page += `\n### ${section.heading} {#${section.anchor}}\n\n${safeProse(section.body.replaceAll(/\[([^\]]+)\]\(([^)]+)\)/g, (all, label, path) => /^https?:/.test(path) ? all : link(relative(root, resolve(root, 'specs/components', path)), label)))}\n`;
-  page += `\n## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}\n\n케이스: ${component.variants.map(value => `\`${value}\``).join(', ')}. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.\n`;
-  page += '\n### 로컬 네이티브 스토리 {#local-native-stories}\n\n이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.\n';
+  page += `\n## 지원하는 변형 {#state-examples-and-native-checks}\n\n${component.variants.map(value => `\`${value}\``).join(', ')}\n\n이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.\n`;
+  page += '\n### 예제 코드 {#local-native-stories}\n\n위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.\n';
   const examples = exampleEvidence.filter(example => example.componentIds.includes(component.id));
   page += examples.length ? `\n프레임워크별 예제 코드: ${examples.map(example => `[${example.framework}](/examples/${example.framework}-${exampleEvidence.indexOf(example) + 1})`).join(' · ')}.\n` : '\n이 컴포넌트의 예제 코드는 아직 없습니다. [예제 목록](../compatibility/examples)을 참고하세요.\n';
   page += `\n## 출처와 권리 {#source-identity-and-rights}\n\n이 안내는 [공식 KRDS 문서](${component.canonicalUrl})를 바탕으로 합니다. 수집 시각과 원본 해시는 ${link('catalog/components.json', '출처 기록')}에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.\n\nKRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.\n`;

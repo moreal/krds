@@ -12,17 +12,17 @@
 
 지원하는 네이티브 사례(변형·상태 축): `information`, `warning`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 간결한 한 문장을 담은 일시적 비대화형 컨테이너입니다. 페이지 위 하단 중앙에 두고 TabBar/FAB와 겹치지 않게 합니다. 액션 버튼은 없으며, 조치가 필요한 콘텐츠는 Snackbar를 씁니다. 긴급/치명적 알림이나 개별 필드 오류에는 쓰지 않습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 **호스트가 소유하는 현재 메시지와 큐** API를 택합니다. 필수 `message:{id:string,text:string,tone:information|warning,persistentResultId:string}|null`이며 초기값은 null입니다. durationMs 기본값은 information 3000, warning 4000입니다. `onDismiss({id,reason:"timeout",generation})`은 호스트 콘텐츠가 제거되었다는 알림이 아니라 해제 **요청**입니다. defaultMessage, 내부 큐, enqueue/store 객체는 없습니다. 결과의 정확성, 현재 메시지, 순서, 큐 진행은 호스트가 소유하며, 호스트는 더 긴 양수 duration을 설정할 수 있습니다. role=status/aria-live=polite는 독립 네이티브 정책입니다. 토스트는 비대화형으로 남으며 초점 목적지가 되지 않습니다.
 
 **충분한 노출/재조회는 필수 완료 조건**이며, 짧은 기본 타이머를 맞추는 것만으로는 부족합니다([공식 L946–949](../../upstream/krds/raw/components/component_12_05.html:946)). 이 프로젝트의 구체적 대응은 persistentResultId가, 일시적 토스트 바깥의 찾을 수 있는 접근 가능한 **지속 결과/상태 또는 이력**에서 같은 결과 텍스트를 가리키도록 하는 것입니다. 이는 일반 읽기/탐색 순서에 있어야 하며, 호스트/사용자가 의도적으로 지우거나 해당 화면을 떠날 때까지 남아 있습니다. 느리게 읽는 사용자나 알림이 지연된 사용자가 토스트가 사라진 뒤에도 결과를 다시 얻을 수 있도록, 픽스처에 이 실제 로컬 지속 결과가 있어야 합니다. 이력/로그 방식은 독립 프로젝트 정책이며 KRDS가 정확히 그 UI를 규정한다는 주장이 아닙니다. 충분한 노출/재조회가 없으면 완료를 통과할 수 없습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 초점을 빼앗지 않으며 액션/닫기 컨트롤을 추가하지 않습니다. 호스트가 선택했으므로 메시지 ID가 바뀌면 보이는 메시지를 즉시 교체합니다. 컴포넌트는 이전/현재 스냅샷을 큐에 넣지 않습니다. message=null이면 제거합니다. 교체나 prop 제거는 onDismiss를 내지 않고 내부적으로 큐를 진행하지 않습니다.
 
@@ -30,15 +30,15 @@
 
 전체 카운트다운은 해당 generation이 실제로 렌더링된 뒤에 시작합니다. 문서가 숨겨진 동안은 남은 시간을 멈추고, 보이면 남은 시간을 이어 갑니다. 교체, 제거, 의미 있는 수정, 언마운트는 이전 generation의 타이머/리스너를 취소합니다. 오래된 콜백은 무언가를 요청하기 전에 현재 generation을 확인해야 합니다. 타임아웃은 해당 generation에 대해 해제 요청을 정확히 한 번 내보낸 뒤 그 타이머를 소비합니다. 제어 호스트가 메시지를 유지하면 계속 보입니다. 로컬 숨김, 큐 진행, 타임아웃 반복 루프, 거짓 “실제 해제” 콜백은 없습니다. 의미 있는 새 generation은 새 타이머를 시작할 수 있습니다. 초점, prop 갱신, 마운트, 리셋은 사용자 변경/해제 이벤트를 만들어 내지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 하단 안전 영역/내비게이션/FAB와 겹치지 않게 합니다. 번역 텍스트나 확대 텍스트에 필요할 때만 줄 바꿈하고, 잘림보다 읽을 수 있는 메시지를 우선합니다. 움직임은 필수가 아니며 동작 줄이기에서는 슬라이드 없이 나타나고 사라집니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋/IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 큐/현재 메시지 prop, 지속 결과/이력 대상, 결과의 진실성/복구는 호스트가 소유합니다. 완료 조건은 다음과 같습니다.
 
@@ -48,7 +48,7 @@
 
 공식 information 2–3초/warning 3–4초 값은 충분한 노출 지침 안의 기본값이며 모든 사용자가 결과를 읽거나 들었다는 증거가 아닙니다. 시간은 맞지만 다시 얻을 수 없는 결과는 관문을 통과하지 못합니다. Toast를 Snackbar로 바꾸는 액션이나 닫기 버튼은 추가하지 않습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, message; information,warning,open,closed.
 

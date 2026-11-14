@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `basic`, `sortable`, `narrow-scroll`, `narrow-stacked`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 실제 <table>에 caption, thead/tbody, th scope, 적절한 행 헤더/tfoot을 둡니다. 복잡한 관계는 headers/id를 씁니다. 개발 메모에 따라 caption이 헤더 내용을 설명합니다. 비어 있는 데이터 셀은 대시를 표시합니다. 정량 수치는 오른쪽 정렬하고, 텍스트·명목 숫자는 왼쪽 정렬합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: caption, columns {id,label,kind,sortable?}[], rows {id,cells}[], 기존 열 하나를 가리키는 rowHeaderColumnId?, 선택적 sort {columnId,direction}/onSortChange. 없으면 정렬 동작이 없습니다. 정렬 가능하면 공식 지침에 따라 초기 정렬은 첫 번째 열입니다. 헤더 버튼은 th 안에 두고, aria-sort는 실제 순서를 따릅니다. rowHeaderColumnId가 있으면 그 열은 안정적인 ID를 가진 네이티브 th scope=row로 렌더링되며, 모든 데이터 셀이 요구되는 대로 자신의 행·열 헤더를 참조합니다. 알 수 없는 rowHeaderColumnId는 구성 오류입니다. 셀 텍스트나 kind로 행 헤더를 자동 추론하지 않습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 일반 표는 읽기 전용이며, 포함된 링크·버튼을 제외하면 Tab으로 이동하지 않습니다. 정렬을 활성화해도 헤더 버튼의 초점을 유지합니다. 넘침 래퍼는 이름을 가지며, 필요할 때만 초점을 받습니다. 드래그 전용 이동이 아니라 단순한 클릭·탭 스크롤 컨트롤을 제공합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 단순한 1차원 표는 연관성을 보존하면서 헤더·데이터 쌍을 쌓을 수 있습니다. 복잡한 표는 가로 영역 스크롤을 씁니다. 가로 스크롤바를 발견하기 쉽게 유지하고 데이터를 잘라내지 않습니다. 제한적인 모달·아코디언 배치는 피합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 표 자체의 폼·리셋 상태는 없습니다. 포함된 컨트롤은 자신의 의미를 유지합니다. 선택 중심 상호작용은 StructuredList의 몫입니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 데이터, 형식, 정렬 핸들러를 소유합니다. 로컬 예시는 실제로 행을 재정렬하며 헤더 연관을 보존합니다. 완료는 div 그리드가 아니라 네이티브 의미와 조건부 정렬을 요구합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, caption, head, body, row, header-cell, cell, sort-trigger, scroll-region, scroll-previous, scroll-next; ascending,descending,overflow.
 

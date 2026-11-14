@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `three-items`, `five-items`, `with-badge`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 웹 <nav> 랜드마크에 크기가 같은 내비게이션 항목을 5개 이하로 두며, 각 항목은 아이콘과 짧은 레이블로 구성합니다. 현재 항목은 aria-current=page를 가지며 채운 아이콘과 윤곽 아이콘 또는 표시기로 구분합니다. 홈이 있으면 맨 앞(맨 왼쪽), 전체 메뉴가 있으면 맨 뒤(맨 오른쪽)에 둡니다. 선택적 Badge로 읽지 않음·새 항목 상태를 전달합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: items {id,label,href,icon,currentIcon?,badge?}[], currentId, 선택적 마지막 항목 menuAction {label,onRequest}. 페이지 경로에는 실제 앵커를 쓰고, 이름 있는 버튼은 전체 메뉴를 여는 데만 씁니다. 이것은 내비게이션이며 role=tablist나 Tabs의 공통 상태 패널 API가 아닙니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 링크는 네이티브 Tab/Shift+Tab과 Enter, 전체 메뉴의 네이티브 버튼은 Enter/Space를 씁니다. 방향키나 탭 패널 자동 활성화는 추정하지 않습니다. 현재 경로는 호스트가 제공하며, 수동적인 prop 변경은 선택 이벤트를 내지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 하단에 고정하며 스크롤해도 숨기지 않습니다. 호스트가 그에 맞는 콘텐츠 하단 패딩·safe-area inset을 더합니다. 더 깊은 화면에서의 생략은 경로 설계에 따를 때만 허용합니다. 번역을 포함해 레이블은 말줄임하지 않습니다. 너비가 충분하면 MainMenu를 씁니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼·리셋·IME 동작은 없습니다. 메뉴 버튼은 type=button입니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 경로 맵·현재 페이지, 전체 메뉴 레이어, 배지 출처를 소유합니다. 완료는 실제 로컬 페이지 이동과 전체 메뉴 조합을 포함합니다. 배지는 정적 메타데이터이며 원격 알림 요구는 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, link, icon, label, indicator, badge, menu-trigger; current.
 

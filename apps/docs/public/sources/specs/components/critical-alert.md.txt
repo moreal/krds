@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `high-urgency`, `medium-urgency`, `low-urgency`. 이는 네이티브 케이스 이름이며, 상태·반응형·외관 축이 공식 명명 변형인 것은 아닙니다. 공식 유형/예시 제목 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 본문 첫 콘텐츠로 MainMenu와 히어로 사이에 전체 너비 섹션을 둡니다. 장식용 긴급도 아이콘, 보이는 긴급도 레이블, 간결한 공지, 직접 관련된 상세 링크(최대 하나)로 구성합니다. 닫기/접기 컨트롤은 없습니다. 공식 텍스트는 role=banner를 명시적으로 요청합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: urgency=high|medium|low, label, message, details? {href,label,destinationTitle}. open/defaultOpen이나 닫기 이벤트는 없습니다. 기간 제한 게시는 호스트가 제어합니다. danger/ok/info 스타일 선택자는 예시일 뿐이며, "safe"가 숫자 긴급도 수준과 같다는 증거가 아닙니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 커밋된 UI와 초점 상태를 유지합니다. 취소된 리셋은 아무 일도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며, 제어 prop이 계속 우선합니다. 추가 필드로 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 상세 앵커만 Tab 순서에 들어갑니다. 긴급도에서 자동 초점이나 단정적(assertive) 라이브 역할을 추론하지 않습니다. 장식 아이콘에는 중복 alt가 없습니다. 배너 랜드마크의 이름 지정과 페이지 Header와의 구분은 검토가 필요합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 텍스트는 보통 한 줄, 좁은 화면에서는 최대 두 줄입니다. 줄 수를 맞추려고 필수 정보를 잘라내지 않습니다. 호스트 문구와 상세 링크는 간결하게 씁니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋/IME 동작이 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 사실에 맞는 긴급 정보와 게시 기간을 소유합니다. 완료 시험은 닫을 수 없음과 상세 링크 목적지를 확인하며, 컴포넌트 안에 폴링이나 네트워크 긴급도 피드는 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, icon, label, message, link; urgency=high|medium|low.
 

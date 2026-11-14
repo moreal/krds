@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `default`. 이는 네이티브 케이스 이름이며, 상태·반응형·외관 축이 공식 명명 변형인 것은 아닙니다. 공식 유형/예시 제목 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 설명 텍스트와 갈매기(chevron)가 있는 type=button 트리거 뒤에 연결된 콘텐츠가 옵니다. 처음에는 접혀 있고 관련 정보 아래에 두며, 섹션마다 디스클로저는 보통 하나입니다. aria-expanded와 aria-controls로 상태를 노출합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: open/defaultOpen=false, onOpenChange({open}), label, contentId. 폼 값이나 href는 없습니다. 사용자 토글마다 전이를 한 번 요청하며, 제어 거부는 현재 가시성을 유지합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 커밋된 UI와 초점 상태를 유지합니다. 취소된 리셋은 아무 일도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며, 제어 prop이 계속 우선합니다. 추가 필드로 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 클릭/Enter/Space로 토글하며 초점은 트리거에 남습니다. 닫힌 콘텐츠와 하위 요소는 초점·접근성 트리에서 제외됩니다. 초점이 안에 있을 때 호스트가 닫으면 숨기기 전에 트리거로 초점을 돌립니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 콘텐츠는 필수 정보를 숨기지 않고 정상적으로 재배치됩니다. 필수 애니메이션은 없으며, 동작 줄이기에서도 읽을 수 있어야 합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 값/리셋이 없습니다. 내부 자식 폼은 자신의 상태를 소유하며, 호스트가 언마운트를 요청하지 않는 한 일반 접기로 버려서는 안 됩니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 적절한 보충 콘텐츠를 정하며, 필수 오류나 필수 작업 정보를 숨기지 않습니다. 완료에는 실제 숨김/표시 콘텐츠와 초점 검사가 포함됩니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, trigger, icon, content; open,closed.
 

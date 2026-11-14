@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `text`, `interactive-overlay`, `aria-association`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 의미 있는 콘텐츠를 접근성 트리에 보존하는 텍스트 숨김 프리미티브와, 보이는 대체 요소의 기하와 일치하는 별도의 대화형 오버레이 패턴을 둡니다. display:none/visibility:hidden, 크기가 0인 텍스트/글꼴 크기 0 텍스트, 화면 밖으로 옮긴 초점 대상은 절대 쓰지 않습니다. 네이티브 시맨틱과 보이는 정보를 먼저 선택합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: VisuallyHidden은 기본적으로 id/lang/콘텐츠를 가진 span을 렌더링하며, text 변형은 0이 아닌 클리핑 스타일을 씁니다. interactive-overlay 변형에는 보이는 표현 위에 같은 크기, opacity/z-index, 보이는 대체 초점 윤곽선을 가진 실제 네이티브 자식 컨트롤이 필요합니다. ARIA 관계 모드는 숨은 중복 이름을 추가하지 않고 실제 ID/속성을 씁니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 텍스트 프리미티브에는 탭 정지점이나 키 동작이 없습니다. 대화형 자식은 네이티브 키보드 동작을 유지하고 실제 위치에 보이는 초점 표시를 둡니다. 초점 가능한 컨트롤에는 1px 텍스트 클리핑 스타일을 적용하지 않습니다. 스크린 리더 가상 커서 기하는 수동으로 테스트합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 반응형 레이아웃/확대에서 오버레이 정렬을 유지하고, 서비스 언어가 바뀌면 숨긴 텍스트도 번역합니다. 출처에 명시된 데스크톱 조합뿐 아니라 모바일 VoiceOver/TalkBack도 테스트합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 숨긴 콘텐츠 자체에는 폼 값이 없습니다. 위에 겹친 네이티브 입력은 이를 소비하는 컨트롤의 name/value/리셋/IME 규칙을 모두 유지합니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 의미 있는 설명과 번역은 호스트가 소유합니다. 이 프리미티브는 올바른 네이티브 시맨틱이나 보편적인 이름 결정을 대체하지 않습니다. 완료에는 텍스트의 접근성 트리 증명과 대화형 기하/수동 보조 기술 근거가 포함됩니다. 테스트하지 않은 CSS 클래스만으로는 부족합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, overlay-control, visible-surrogate; text,interactive-overlay,focus-visible.
 

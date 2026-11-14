@@ -4,11 +4,11 @@ title: 'Date input'
 
 # Date input {#date-input}
 
-날짜 입력 필드 · `DateInput`
+날짜 입력 필드 · `DateInput` — 연, 월, 일을 직접 입력하거나 달력에서 골라 날짜를 넣게 합니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_01.html) · [전체 명세](/sources/specs/components/date-input.md.txt) · [프레임워크 지원](../compatibility/)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
 
@@ -23,13 +23,13 @@ title: 'Date input'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
 
-공개 API는 아래 검토된 안내와 각 네이티브 공개 선언이 정의합니다. [공유 이벤트·날짜 타입](/sources/packages/contracts/src/types.ts.txt).
+공개 API는 아래 안내와 각 패키지의 공개 선언이 정의합니다. [공유 이벤트·날짜 타입](/sources/packages/contracts/src/types.ts.txt).
 
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
@@ -89,13 +89,15 @@ KRDS는 단일, 범위, 분할, 달력 보조 입력을 구분합니다. 의미 
 
 인수: 유효한 윤일, 잘못된/0 채움 없는 날짜, 0001/9999년, 원시 붙여넣기와 IME 조합, 그룹 blur 대 범위 필드 초점, Enter와 blur 이벤트 횟수, 같은/거절된 제어 커밋, 경계 포함 min/max와 뒤바뀐/미완성 범위, 팝업 확인/취소 일관성, 번역된 한국어 필드/버튼/날짜(day) 이름, 오류 관계, 폼 데이터/리셋/필수 및 잘못된 초안 제출 차단. 브라우저 로케일이나 시간대가 이 기대 값을 바꿔서는 안 됩니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `single`, `range`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`single`, `range`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-2) · [svelte](/examples/svelte-43) · [vue](/examples/vue-59) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

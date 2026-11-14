@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `informative`, `decorative`, `complex-description`, `responsive`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 명시적 alt를 가진 네이티브 img를 씁니다. 장식 이미지는 alt=""입니다. 정보 이미지의 대체 텍스트는 간결하고 맥락에 맞아야 합니다. 저작자 표기, 불필요한 “이미지”라는 말, 인접 설명과의 중복, 지어낸 세부 사항은 넣지 않습니다. 복잡한 설명은 가까운 figure/figcaption이나 연결된 설명 콘텐츠로 줄 수 있습니다. 픽셀에 굽힌 텍스트보다 실제 텍스트를 우선합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. src, alt(필수이며 장식이면 비어도 됨), width/height, srcset/sizes, loading, 선택 caption/descriptionId를 씁니다. 장식 플래그는 alt와 일치해야 합니다. 네이티브 이미지 role 재정의와 클릭 콜백은 없습니다. 클릭 가능한 이미지는 Link/Button과 조합합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 정적 이미지는 탭 정지점을 더하지 않습니다. 링크 조합의 접근 가능한 이름은 목적을 설명합니다. 로드/오류 이벤트는 네이티브 결과를 노출하며, 실제 디코드 전에는 콘텐츠가 로드되었다고 주장하지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 호스트가 의미 있는 자르기/소스 선택을 제공합니다. 좁은 화면에서도 핵심 정보를 보존합니다. 장식 이미지는 좁은 화면에서 생략할 수 있지만, 정보 콘텐츠에는 동등한 텍스트가 필요합니다. 환경에 맞게 자산 크기를 정합니다. 외부 CDN을 요구하지 않습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋/IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 로컬이며 출처가 바르게 표시된 자산과 설명을 제공합니다. 완료에는 정보, 장식, 복잡, 이미지 로드 실패 결과가 포함됩니다. 원격 자리표시 이미지는 해당하지 않습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root (img), figure, caption, description; 관찰될 때 loaded,error.
 

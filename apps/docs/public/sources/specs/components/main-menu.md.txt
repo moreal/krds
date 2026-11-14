@@ -12,11 +12,11 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `desktop-links`, `desktop-dropdown`, `desktop-described`, `mobile-simple`, `mobile-sections`, `mobile-drilldown`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름 있는 `<nav aria-label="메인 메뉴">`가 제목/목록 계층을 담습니다. 말단 항목은 실제 링크입니다. 하위 항목을 펼치는 항목은 버튼이며, 꺾쇠와 현재/펼침 단서를 갖습니다. 데스크톱 드롭다운은 제목과 선택적 설명/유틸리티를 포함합니다. 모바일 레이어는 여는 버튼, 유틸리티, 섹션 탐색, 선택적 메뉴 내 검색, 상위 이동 버튼, 닫기 버튼을 포함합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: `items` `{id,label,href?,description?,children?}[]`, `currentId`, `expandedId`/`defaultExpandedId`, `onExpandedChange({id})`, `mobileOpen`/`defaultMobileOpen`, `onMobileOpenChange({open})`, 검색을 제공할 때 로컬 `query`/`onQueryChange`. 노출하는 탐색 수준은 최대 3단계입니다. 더 깊은 드릴다운 데이터는 데스크톱 평탄화와 분리합니다.
 
@@ -24,23 +24,23 @@
 
 **추가 랜드마크·트리거 식별:** `label`로 실제 내비게이션 랜드마크 이름을 줄 수 있습니다(기존 기본값 메인 메뉴는 그대로). `mobileTriggerId`/`mobileTriggerLabel`로 실제 기본 모바일 여는 버튼 하나의 ID와 이름을 줄 수 있습니다. 생략하면 기존 기본값을 유지합니다. 헤더(Header)가 조합하면 그 `navigationLabel`이 이 `label`에 대응하고, 공유 현재/모바일 상태는 같은 메뉴 인스턴스를 대상으로 합니다. Header가 기본 네이티브 트리거를 소유하면 어댑터가 그 실제 네이티브 컨트롤을 내부에서 연결하고, ID 중복 없이 중복 여는 버튼을 숨깁니다. 네이티브 콘텐츠 슬롯은 이 실제 메뉴의 전달 통로이며, 빈 두 번째 메뉴나 추가 내비게이션 래퍼를 렌더링해도 된다는 허가가 아닙니다. 일반 ID는 어댑터 네이티브 ref나 유효한 같은 루트 관계를 대체하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 클릭/Enter가 부모를 토글합니다. 호버만으로 열지 않습니다. Escape는 펼친 드롭다운을 모두 닫고 최상위 트리거로 초점을 옮깁니다. Tab은 계층 순서를 따릅니다. 공식 드롭다운 활성 단서 `aria-current=true`는 현재 말단의 `aria-current=page`와 구분합니다. `aria-expanded`/`controls`도 노출합니다. 닫힌 하위 항목은 초점/접근성 트리에서 제외합니다. 모바일 전체 화면 모달 레이어는 프로젝트 선택으로 검토된 모달(Modal)의 초점/격리 계약을 따르며, 말단 앵커는 브라우저 동작을 유지합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 데스크톱 드롭다운의 최대 높이는 70vh이며 내부에서 스크롤합니다. 좁은 화면은 잘린 데스크톱 링크 대신 햄버거 레이어를 씁니다. 검색은 복잡한 메뉴에서 선택 사항이며 스토리에서는 로컬입니다. 레이아웃을 바꿀 때 초점 순서를 재배열하지 않습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 탐색에는 폼 값/리셋이 없습니다. 선택적 검색은 IME를 보존하며, 조합 중 Enter로 탐색을 활성화하지 않습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 링크(Link), 버튼, 모바일 대화상자, 선택적 텍스트 입력 필드(TextInput), 유틸리티를 각 렌더러에서 네이티브로 조합합니다. 라우트 맵/현재 페이지, 인증/유틸리티, 검색 결정은 호스트가 맡습니다. 메뉴는 데이터를 가져오지 않으며 네이티브 링크 외에 히스토리를 바꾸지 않습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, trigger, link, indicator, submenu, submenu-title, description, utilities, mobile-trigger, mobile-content, back, close, search; expanded/collapsed,current, mobile-open.
 

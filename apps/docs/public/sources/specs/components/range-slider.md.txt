@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `single-value`, `disabled`, `discrete`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 상시 레이블, 슬라이더 트랙/핸들, 핸들 위나 트랙 끝에 현재 값(손가락 아래가 아님), 보이는 최솟값/최댓값으로 구성합니다. 공식 상세는 범위 안의 선택 값 하나를 보여 주며, 두 핸들 구간 선택의 증거는 아닙니다. 권장 step은 범위의 약 10–20%입니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: `min=0`, `max=100`, `step=10`, `value`/`defaultValue=0`, `onValueChange({value:number})`, `name`, `label`, `disabled=false`, `valueText?` 포매터. **이 계약에는 `onValueCommit` API가 없습니다.** 네이티브 `input[type=range]`를 선호하며, output은 커밋된 값을 단위와 함께 반영합니다. 잘못된 경계/step은 거부하고 소수 연산은 오차 없이 정규화합니다. 정의된 값, 한 번만 읽는 기본값, 모드 전환 금지, 마운트/prop/리셋 콜백 없음 규칙은 [파일럿 규약](./README.md)을 따릅니다. 제어 모드의 네이티브 입력 변경은 요청이며, 거부되면 표시/output/제출 값은 커밋된 prop으로 남습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 핸들 드래그와 트랙 클릭을 공식 지원합니다. 독립 네이티브 키보드 정책: 화살표는 한 step씩 바꾸고, Home/End는 한계에 닿으며, Tab/초점과 숫자 네이티브 값 의미는 일반 그대로입니다. 두 핸들 role은 만들어 내지 않습니다. 정규화한 요청 숫자가 커밋된 값과 다른 네이티브 사용자 input 이벤트마다 `onValueChange`를 한 번 내보냅니다. 비제어 입력은 콜백 전에 그 숫자를 커밋하고, 제어 입력은 요청을 한 번 내보낸 뒤 거부되면 네이티브 값/output을 prop으로 되돌립니다.
 
 드래그는 변경된 input 이벤트마다 하나씩, 서로 다른 입력 요청을 여러 개 낼 수 있습니다. 변경된 입력 하나를 만드는 트랙 클릭은 요청 하나를, 변경된 키보드 조정은 각각 요청 하나를 냅니다. 같은 값/경계 입력은 아무것도 내지 않습니다. 네이티브 change, pointerup, blur, 제스처 완료는 **두 번째 콜백이나 commit 콜백을 추가하지 않습니다.** 포인터 취소는 마지막으로 커밋된 값을 보존하며 합성 롤백/commit 요청을 내지 않습니다. input/change 이중 알림이 없습니다. 터치 중 세로 페이지 스크롤과 실제 네이티브 폼 수명주기를 보존합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 현재 값은 위쪽/끝에 있고 손가락에 가려지지 않으며, 최솟값/최댓값은 좁은 화면과 확대에서 읽을 수 있습니다. 핸들은 충분히 크고, 드래그 없이 쓸 수 있는 키보드/클릭 대안이 있습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 이름 있는 활성 네이티브 range는 값을 전달하고, 비활성은 제외되며, 리셋은 기본값과 output을 복원합니다. 제어 리셋은 콜백 없이 현재 prop을 유지합니다. IME 편집은 없고, 내장된 편집 가능한 값 대안은 이 초안의 범위 밖입니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 단위와 설정 효과는 호스트가 맡습니다. 장식용 트랙이 아니라 경계가 있는 실제 네이티브 range, output, 폼 수명주기가 완료 조건입니다. 외부 엔진은 필요 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, label, control, track, range, thumb, output, minimum, maximum; disabled,dragging.
 

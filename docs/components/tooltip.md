@@ -4,11 +4,11 @@ title: 'Tooltip'
 
 # Tooltip {#tooltip}
 
-툴팁 · `Tooltip`
+툴팁 · `Tooltip` — 요소에 마우스를 올리거나 초점을 두면 짧은 설명을 보여 줍니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_05.html) · [전체 명세](/sources/specs/components/tooltip.md.txt) · [프레임워크 지원](../compatibility/README.md)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,25 @@ title: 'Tooltip'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `open` | `boolean` | 선택 | 속성 |
+| `defaultOpen` | `boolean` | 선택 | 속성 |
+| `onOpenChange` | `(detail: OpenChangeDetails) => void` | 선택 | 이벤트 |
+| `text` | `string` | 필수 | 속성 |
+| `relationship` | `'description' \| 'label'` | 선택 | 속성 |
+| `triggerLabel` | `string` | 선택 | 속성 |
+| `triggerId` | `string` | 필수 | 속성 |
+| `textId` | `string` | 필수 | 속성 |
+| `placement` | `HelpPlacement` | 선택 | 속성 |
+| `fallbackFocusId` | `string` | 선택 | 속성 |
+| `touchToggle` | `boolean` | 선택 | 속성 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface TooltipContract extends ControlledOpen {
@@ -52,29 +68,15 @@ export interface OpenChangeDetails {
 export type HelpPlacement = 'top-start' | 'top' | 'top-end' | 'bottom-start' | 'bottom' | 'bottom-end';
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `open` | 아니요 | `boolean` | 데이터 / 상태 |
-| `defaultOpen` | 아니요 | `boolean` | 데이터 / 상태 |
-| `onOpenChange` | 아니요 | `(detail: OpenChangeDetails) => void` | 이벤트 |
-| `text` | 예 | `string` | 데이터 / 상태 |
-| `relationship` | 아니요 | `'description' \| 'label'` | 데이터 / 상태 |
-| `triggerLabel` | 아니요 | `string` | 데이터 / 상태 |
-| `triggerId` | 예 | `string` | 데이터 / 상태 |
-| `textId` | 예 | `string` | 데이터 / 상태 |
-| `placement` | 아니요 | `HelpPlacement` | 데이터 / 상태 |
-| `fallbackFocusId` | 아니요 | `string` | 데이터 / 상태 |
-| `touchToggle` | 아니요 | `boolean` | 데이터 / 상태 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름이 있는 트리거 버튼 바로 뒤에 짧은 비대화형 팝업을 둡니다. 툴팁 안에는 링크/버튼을 두지 않습니다. 정보 아이콘과 아이콘 버튼 레이블 툴팁은 서로 다른 사용 사례입니다. HTML title을 중복해 쓰지 않습니다. 출처는 aria-labelledby가 트리거와 컨테이너를 연결한다고만 하며 정확한 방향은 밝히지 않습니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: `text`, `relationship:description|label=description`, `triggerLabel?`, `triggerId`, `textId`, placement, open/defaultOpen=false, onOpenChange, `fallbackFocusId?`, touchToggle=false (별도의 정보 트리거가 아니면). 팝업은 role=tooltip이며 콘텐츠는 비대화형입니다. relationship 판별자는 필수 의미 동작입니다. 아이콘 모양이나 렌더러가 우연히 고른 속성에서 추론하지 않습니다.
 
@@ -82,7 +84,7 @@ React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular�
 
 두 모드 모두 Lit Shadow DOM을 포함해 실제 루트에서 트리거/텍스트 관계가 실제로 해석되어야 합니다. light DOM ID가 경계 너머의 내부 컨트롤에 이름을 붙일 수 있다고 가정하지 않습니다. 같은 루트에 속한 트리거/텍스트 관계 또는 검증된 네이티브 대체를 쓰고, 해석되지 않는 잘못된 구성은 실패시킵니다. 공식 aria-labelledby 문구([L1163–1164](https://www.krds.go.kr/html/site/component/component_08_05.html))는 아래에 그대로 인용되어 있습니다. description 모드의 aria-describedby는 보충 콘텐츠에 대한 명시적 독립 해석이며 KRDS의 문자 그대로의 지시라고 주장하지 않습니다. 제어 props/기본값/리셋/중복 금지 규칙은 [파일럿 정책](/sources/specs/components/README.md.txt)을 따릅니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 hover/초점으로 표시합니다. 포인터가 트리거와 팝업 둘 다에서 벗어나거나 blur되면 숨깁니다. 일반 hover 열기는 다른 곳의 키보드 초점을 빼앗지 않습니다. 포인터는 닫히지 않고 팝업으로 이동할 수 있습니다. 별도의 정보 버튼을 터치하면 토글하고 바깥을 탭하면 닫으며, 기본 아이콘 동작은 삼키지 않습니다. 팝업에는 Tab 정지점이 없습니다.
 
@@ -90,15 +92,15 @@ hover/초점으로 표시합니다. 포인터가 트리거와 팝업 둘 다에�
 
 승인된 닫기나 해체로 트리거가 제거되거나 사용할 수 없게 되면 리스너와 대기 중인 요청을 정리하고, 다음 순서로 사용 가능한 대상을 고릅니다. 사용 가능한 fallbackFocusId, 저장된 트리거에서 가장 가까운 사용 가능한 초점 가능 조상, 그리고 임시 tabindex=-1을 쓰고 이전 값을 복원하는 살아 있는 document body입니다. 사용 가능이란 마운트됨, 보임, 활성, 초점 가능, 같은 살아 있는 document, inert 아님을 뜻합니다. 숨겨졌거나 제거된 트리거 노드에 초점을 두지 않으며, 오래된 generation의 초점 작업을 실행하지 않고, 복원 때문에 추가 사용자 이벤트를 내지 않습니다. 외부 prop으로 닫는 것만으로 Escape 동작인 척하지 않습니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 팝업은 충돌을 고려해 화면 안에 완전히 들어오고 대상을 가리지 않습니다. 터치 사용자에게도 의미 있는 아이콘/레이블이 있어야 합니다. 약 150자를 유지하며, 더 긴 대화형 콘텐츠는 ContextualHelp로 보냅니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋 상태는 없습니다. Enter/Space 활성화는 툴팁이 아니라 트리거 동작에 속합니다. 조합 중 Escape는 무시합니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트는 label 모드에는 의미 있는 기능 텍스트를, description 모드에는 별도의 기능 트리거 이름과 보충 텍스트를 제공합니다. 완료 조건은 다음과 같습니다.
 
@@ -109,19 +111,21 @@ hover/초점으로 표시합니다. 포인터가 트리거와 팝업 둘 다에�
 
 title 텍스트를 렌더링하거나 ID 문자열을 저장하는 것만으로는 이러한 네이티브 관계가 성립하지 않습니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, trigger, popup, icon, text; open,closed,suppressed,placement.
 
 렌더링되는 모든 소유 파트는 `data-krds-component="tooltip"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `information-icon`, `icon-button`, `vertical`, `box`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`information-icon`, `icon-button`, `vertical`, `box`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-41) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

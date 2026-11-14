@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `light`, `dark`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 푸터 안의 마지막 하위 영역으로 section/article을 둡니다. 운영기관 로고 뒤에 정해진 관리 문장이 옵니다. 로고는 책임 운영기관을 나타내며, 서비스 로고는 푸터의 다른 곳에 속합니다. 요소 배치와 문장 패턴을 보존합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. Identifier는 institutionName, logo {src, alt}, theme light/dark(기본 light), 호스트가 검증하는 명시적 기관 관계 문구를 받습니다. alt는 실제 기관을 가리킵니다. 기본 기관, 저작권자, 정부 관계는 없습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 정적 콘텐츠이므로 탭 정지점, 라이브 역할, 변경 이벤트가 없습니다. 호스트가 기관을 별도로 링크하더라도 그 Link 동작은 식별자 계약과 별개입니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 좁은 레이아웃에서도 로고/텍스트 순서를 유지합니다. 정체성을 바꾸지 않고 밝은/어두운 스킴 모두에서 대비를 유지합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값, 리셋, IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 사실에 맞는 기관/관계와 사용이 승인된 로고를 제공합니다. 완료하려면 로컬 자산 출처 기록이 있어야 하며 브랜딩을 지어내지 않습니다. 비정부 사이트의 사용을 금지하는 공식 제한은 공식 배너(Masthead)와 마찬가지로 표본에도 적용됩니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, logo, text; theme=light|dark.
 

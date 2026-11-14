@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `audio`, `silent-video`, `multimedia`, `captions`, `description`, `transcript`, `sign-language`. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형·예시 제목은 근거 부록에 그대로 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 시맨틱 오디오/비디오와, 인접한 레이블 있는 대체 정보 영역·링크로 구성합니다. 오디오는 캡션 또는 단순 원고가 필요합니다. 소리 없는 시각 비디오는 화면 해설 또는 설명적 원고가 필요합니다. 시청각 콘텐츠는 복잡도에 따라 대체 정보를 복합 제공해야 합니다. 캡션은 의미 있는 발화·소리·화자를 동기화해 표시하며 번역 자막만으로는 부족합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: media {kind,src,type,poster?}, captionTracks {src,lang,label}[], transcript {content|href}, descriptionTrack?, signLanguageSource?, title. 네이티브 controls=true, autoplay=false를 제안합니다. 원고 슬롯만으로 임의의 미디어가 접근 가능해진다고 주장하지 않습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 정의된 value/open은 제어 모드이고 undefined는 비제어 모드입니다. 제어 prop과 기본값을 함께 주거나 모드를 바꾸면 잘못된 구성입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 시맨틱 변경 요청을 한 번 내보냅니다. 비활성, 변화 없음, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 모드에서 거부되면 커밋된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드로 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 네이티브 미디어 키보드 컨트롤이 초점을 유지합니다. 대체 원고 링크·버튼은 표준 시맨틱을 씁니다. 접근할 수 없는 사용자 정의 플레이어 단축키를 도입하지 않습니다. 화면 해설 트랙 전환을 제공한다면 상태를 명시하며 자동 재생하지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 캡션은 가려지지 않고 충분한 대비로 읽을 수 있으며 동기화되어야 합니다. 플레이어가 지원하면 캡션 사용자 설정을 허용합니다. 로컬 반응형 비디오는 의미 있는 정보를 자르지 않고 가로세로 비율을 유지합니다. 원고는 선택 가능하고 리플로우됩니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼·리셋·IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트·콘텐츠 제작자가 완전하고 정확하며 동기화된 캡션, 화면 해설, 원고, 수어를 소유하고 미디어와 함께 갱신합니다. 완료에는 로컬에서 재생 가능한 라이선스 샘플, 실제 VTT·대체 콘텐츠, 키보드 컨트롤, 수동 타이밍·내용 검토가 필요합니다. 빈 미디어 래퍼는 완료가 아닙니다. 외부 비디오·텔레메트리 플레이어는 쓰지 않습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 파트: root, media, caption-track, alternatives, transcript, description, sign-language. 상태: playing,paused,ended,error (네이티브 상태에 한함).
 

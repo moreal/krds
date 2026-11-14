@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `default`, `dirty-confirmation`, `no-history-fallback`. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형·예시 제목은 근거 부록에 그대로 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 상단 바 왼쪽에 현재 화면 제목 옆 뒤로가기 컨트롤을 둡니다. 이전 화면(또는 정의된 상위)으로 돌아가며 취소·닫기와 시각적으로 구별됩니다. 입력 중인 내용을 잃기 전에 경고합니다. 호스트가 제어할 수 있으면 시스템·브라우저 뒤로가기와 앱 내 동작을 일치시켜야 합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: label="뒤로가기", onBackRequest({reason}), canGoBack, fallbackHref?, dirty=false, 호스트가 제공하는 requestConfirmation. 이력 동작에는 type=button을 씁니다. 상위 목적지가 명시되면 실제 Link 변형을 씁니다. 알려진 앱 내 항목이 없을 때 history.back을 무작정 호출하지 않습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 정의된 value/open은 제어 모드이고 undefined는 비제어 모드입니다. 제어 prop과 기본값을 함께 주거나 모드를 바꾸면 잘못된 구성입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 시맨틱 변경 요청을 한 번 내보냅니다. 비활성, 변화 없음, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 모드에서 거부되면 커밋된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드로 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 독립 네이티브 정책: 버튼의 Enter/Space/클릭은 한 번만 동작합니다. 변경 확인은 검토된 Modal을 열고, 취소하면 페이지·값·초점을 유지하며, 확인하면 호스트 내비게이션을 한 번 호출합니다. 목적지 초점과 이력·제스처 가로채기는 라우터·호스트 소관입니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 좁은 화면에서도 왼쪽 위치와 제목이 읽기 쉽고, 충분한 대상 크기가 시스템 안전 영역과 겹치지 않습니다. 이는 웹에 적용되는 맥락이며 브라우저 UI의 대체가 아닙니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 자체 폼 값이나 리셋은 없습니다. 버튼은 폼을 제출하거나 지우지 않습니다. 호스트의 dirty 상태는 폼·IME를 정확히 관찰해야 합니다. 조합 중인 텍스트가 성급한 이동으로 사라지면 안 됩니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 컴포넌트에서 통합으로 올리기를 권장합니다. 호스트가 라우터·이력, 브라우저 뒤로가기 가드, 대체 이동, 데이터 손실 정책을 소유합니다. 완료에는 로컬 내비게이션 스택과 저장 안 된 폼 목업(취소된 확인 포함)이 필요합니다. 스토리에서 실제 페이지 이탈은 필요 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 파트: root, icon, label. 상태: disabled,pending-confirmation. 인접한 페이지 제목은 호스트 페이지 조합에 속하며 BackButton의 소유 파트가 아닙니다.
 

@@ -12,11 +12,11 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `vertical-actions`, `horizontal-actions`, `mobile-menu`, `sticky`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 공식 상대 순서대로 구성합니다. 건너뛰기 링크(SkipLink)가 첫째, 이어서 공식 배너(Masthead), 서비스 정체성/홈 링크, 유틸리티 그룹(유틸리티 링크가 다섯 개 이상이면 드롭다운), 검색 동작, 메인 메뉴(MainMenu)입니다. 정부 로고는 왼쪽 위, 유틸리티는 오른쪽 위에 둡니다. 네이티브 <header>가 서비스 배너 랜드마크입니다. 문서에서 가장 먼저 오도록 건너뛰기 링크는 그 앞에 인접해 둘 수 있습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. Header는 home {href,label,logo}, utilityItems {id,label,href}, search {label,onRequest}, mainNavigation 의미 데이터, actionLayout vertical/horizontal(기본 horizontal), sticky=false를 받습니다. 불투명한 임의 컨테이너가 아니라 이름이 있는 명시적 컴포넌트 영역을 씁니다. 공개 데이터와 이벤트는 Ark/Zag 인스턴스를 노출하지 않습니다.
 
@@ -24,23 +24,23 @@
 
 **추가되는 네이티브 조합 입력:** currentId는 기존 실제 MainMenu에서 현재 경로를 선택적으로 표시합니다. mobileOpen/defaultMobileOpen/onMobileOpenChange({open})는 같은 메뉴의 모바일 펼침을 노출합니다. false를 포함해 mobileOpen이 정의되면 그 값이 우선하고, 아니면 기본값을 한 번 읽습니다(기존 기본값은 닫힘). 둘을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 사용자 동작이 수용되면 일반 요청 하나를 냅니다. 마운트, prop, 리셋은 요청을 내지 않습니다. 거부되면 확정된 실제 패널·초점 상태를 보존합니다. mobileTriggerId/mobileTriggerLabel은 실제 기본 모바일 트리거를 선택적으로 식별하고 이름 붙입니다. navigationLabel은 실제 MainMenu 랜드마크의 이름을 선택적으로 정하며 그 레이블로 전달됩니다. 생략하면 기존 기본값을 유지합니다. 네이티브 navigationContent/슬롯 전달로 같은 실제 네이티브 MainMenu 하나를 줄 수 있습니다. 이때 current/open/기본 트리거 정체성을 공유해야 하며, 빈 메뉴나 추가 내비게이션 래퍼를 만들면 안 됩니다. 전달하는 트리거 ID와 레이블은 비어 있지 않아야 하고 실제 컨트롤에 이름을 붙입니다. 이 의미 API에는 렌더러 객체가 들어가지 않습니다. T11은 주요 메뉴와 그 실제 트리거 ID를 명시적으로 전달합니다. 사이드바 이름은 기존 제목 예제 메뉴를 씁니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 링크 이동에는 네이티브 앵커를 씁니다. 유틸리티/메뉴 토글과 검색에는 이름 있는 버튼을 씁니다. 하위 MainMenu가 펼침/현재 상태와 모바일 레이어 초점을 맡습니다. 검색은 가짜 로컬 검색 서비스를 만들지 않고 onRequest를 한 번 요청합니다. 로고 링크 이름에는 중복되는 “logo”를 넣지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 메뉴가 더는 들어가지 않으면 바를 이름 있는 햄버거 열기 버튼과 키보드로 조작할 수 있는 메뉴 레이어로 바꿉니다. 고정(sticky) 동작은 선택입니다. 공식 배너는 고정 영역에서 제외합니다. 헤더가 두 줄을 넘으면 위로 스크롤할 때 나타나고 아래로 스크롤할 때 풀립니다. 네이티브 모바일 앱 전용 왼쪽 메뉴 제한·설정은 모바일 웹의 보편 의무가 아닙니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 Header 자체에는 폼 상태가 없습니다. 검색 폼은 호스트/검색 조합에 속하며 입력한 검색어와 IME 동작은 거기서 보존합니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 완료하려면 SkipLink, 공식 배너 표본, Link, MainMenu, 선택 LanguageSwitcher/Resize를 결정적 상태로 조합한 동작하는 로컬 구성이 필요합니다. 다른 렌더러에서 어댑터를 가져오지 않습니다. 인증, 검색 이동, 기관 로고, 유틸리티 목적지는 호스트가 책임집니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, identity, utilities, utility-trigger, actions, search, navigation, mobile-trigger; expanded/collapsed, sticky.
 

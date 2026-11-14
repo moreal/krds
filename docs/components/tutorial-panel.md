@@ -4,11 +4,11 @@ title: 'Tutorial panel'
 
 # Tutorial panel {#tutorial-panel}
 
-따라하기 패널 · `TutorialPanel`
+따라하기 패널 · `TutorialPanel` — 작업을 단계별로 따라 할 수 있게 옆 패널에서 안내합니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_02.html) · [전체 명세](/sources/specs/components/tutorial-panel.md.txt) · [프레임워크 지원](../compatibility/README.md)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,31 @@ title: 'Tutorial panel'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `open` | `boolean` | 선택 | 속성 |
+| `defaultOpen` | `boolean` | 선택 | 속성 |
+| `onOpenChange` | `(detail: OpenChangeDetails) => void` | 선택 | 이벤트 |
+| `onStart` | `(detail: TutorialStartDetails) => void` | 선택 | 이벤트 |
+| `tasks` | `readonly {id: string; title: string; steps: readonly TutorialStep[]}[]` | 필수 | 속성 |
+| `activeTaskId` | `string \| null` | 필수 | 속성 |
+| `activeStepId` | `string \| null` | 필수 | 속성 |
+| `running` | `boolean` | 선택 | 속성 |
+| `defaultRunning` | `boolean` | 선택 | 속성 |
+| `activePanel` | `'help' \| 'tutorial'` | 선택 | 속성 |
+| `defaultActivePanel` | `'help' \| 'tutorial'` | 선택 | 속성 |
+| `onTaskChange` | `(detail: {id: string \| null}) => void` | 선택 | 이벤트 |
+| `onStepChange` | `(detail: {id: string \| null}) => void` | 선택 | 이벤트 |
+| `onActivePanelChange` | `(detail: ValueChangeDetails<'help' \| 'tutorial'>) => void` | 선택 | 이벤트 |
+| `onStop` | `(detail: TutorialStopDetails) => void` | 선택 | 이벤트 |
+| `startActionId` | `string` | 필수 | 속성 |
+| `fallbackFocusId` | `string` | 선택 | 속성 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface TutorialPanelContract extends ControlledOpen {
@@ -90,37 +112,17 @@ export interface TutorialStopDetails {
 }
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `open` | 아니요 | `boolean` | 데이터 / 상태 |
-| `defaultOpen` | 아니요 | `boolean` | 데이터 / 상태 |
-| `onOpenChange` | 아니요 | `(detail: OpenChangeDetails) => void` | 이벤트 |
-| `onStart` | 아니요 | `(detail: TutorialStartDetails) => void` | 이벤트 |
-| `tasks` | 예 | `readonly {id: string; title: string; steps: readonly TutorialStep[]}[]` | 데이터 / 상태 |
-| `activeTaskId` | 예 | `string \| null` | 데이터 / 상태 |
-| `activeStepId` | 예 | `string \| null` | 데이터 / 상태 |
-| `running` | 아니요 | `boolean` | 데이터 / 상태 |
-| `defaultRunning` | 아니요 | `boolean` | 데이터 / 상태 |
-| `activePanel` | 아니요 | `'help' \| 'tutorial'` | 데이터 / 상태 |
-| `defaultActivePanel` | 아니요 | `'help' \| 'tutorial'` | 데이터 / 상태 |
-| `onTaskChange` | 아니요 | `(detail: {id: string \| null}) => void` | 이벤트 |
-| `onStepChange` | 아니요 | `(detail: {id: string \| null}) => void` | 이벤트 |
-| `onActivePanelChange` | 아니요 | `(detail: ValueChangeDetails<'help' \| 'tutorial'>) => void` | 이벤트 |
-| `onStop` | 아니요 | `(detail: TutorialStopDetails) => void` | 이벤트 |
-| `startActionId` | 예 | `string` | 데이터 / 상태 |
-| `fallbackFocusId` | 아니요 | `string` | 데이터 / 상태 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 본문 뒤에 오는 열기 버튼/패널입니다. 선택적 Help/Tutorial 탭, 닫기, 제목, 개요로 돌아가기, 과업/세부 과업 목록, 명시적 Stop 버튼을 둡니다. 세부 과업 제목은 CoachMark 제목과 같습니다. 패널 표시 여부는 진행 중인 따라하기와 독립입니다.
 
 **개요와 과업 보기(공식 구조 3–4번을 따르는 독립 규칙):** 본문은 개요 또는 한 과업의 보기 중 하나만 보여 주며 둘을 함께 보이지 않습니다. 호스트가 `activeTaskId`(실제 과업)와 `activeStepId`를 모두 확정하면 과업 보기로 들어갑니다. 이때 `task-list`에는 그 과업만 있고 `back` 컨트롤이 렌더링됩니다. `back`을 활성화하면 개요로 돌아가며, 과업이 확정되어 있으면 `onTaskChange({id:null})` 요청(각 어댑터의 과업 변경 이벤트)을 한 번 내보냅니다. `activeTaskId`는 계속 호스트 권한입니다. 개요에서는 모든 과업을 나열하고 `back`은 렌더링하지 않습니다. 단계 없이 확정된 과업은 자신의 disclosure만 펼칩니다. disclosure를 로컬에서 소유하는 렌더러(Angular)는 그 disclosure에서 같은 필터된 과업 보기로 들어갈 수도 있습니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: tasks {id,title,steps:{id,title,targetId,instruction}[]}[], activeTaskId, activeStepId, `running?/defaultRunning=false`, `open?/defaultOpen=true` (넓은 화면), `activePanel?/defaultActivePanel=help|tutorial`, onOpenChange, `onStart({taskId,stepId})`, onTaskChange, onStepChange, onActivePanelChange({value}), `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})`, `startActionId`, `fallbackFocusId?`. running/open/activePanel이 정의되면 해당 필드가 제어 소유권을 갖고, 없는 필드는 한 번만 읽는 기본값을 씁니다. 제어와 기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. Stop의 returnTo는 일반 노출 요청이며 제어 prop을 강제할 권한이 아닙니다.
 
@@ -128,7 +130,7 @@ React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular�
 
 패널을 닫거나 접거나 Help로 전환해도 running/과업/단계는 보존됩니다. 수락된 명시적 Stop 트랜잭션만 실행 중인 따라하기를 끝냅니다. 일반 패널 표시 여부는 독립입니다. props/마운트/리셋/초점 복원은 사용자 변경 알림을 내지 않습니다. 변경된 상태 요청은 각각 한 번만 내보냅니다. onStop은 경쟁하는 닫기/복원 콜백이 아니라 하나의 통합 Stop 요청입니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 열면 패널 컨테이너에 초점이 갑니다. 일반 닫기는 하나의 조합 소유자를 통해 사용 가능한 열기 버튼으로 돌아갑니다. 네이티브 disclosure 자식은 Click/Enter/Space로 실제로 펼치고 접으며 트리거에 초점을 유지합니다. 넓은 패널은 초점이 갇히지 않습니다. 좁은 셸은 네이티브 모달의 격리/진입/가둠을 재사용하고, 복원은 관련 Tutorial 또는 Stop 조정자에게 위임합니다. 공개 Modal의 저장된 열기 버튼 규칙을 덮어쓰지 않습니다.
 
@@ -142,15 +144,15 @@ React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular�
 
 같은 Stop 조정자가 이 하나의 해석을 소유하며 모달 셸 진입/복귀를 위임해 경쟁하는 초점 작업을 막습니다. 공개 Modal returnFocusId 규칙은 바뀌지 않습니다. 거부된 Stop은 복원을 하지 않습니다. 이후의 비동기 탭/열림 변경이 이미 끝난 Stop 복원을 되풀이해서는 안 됩니다. 이후 수락된 일반 모달 닫기는 이 이전 Stop 대체 대상을 되풀이하지 않고 기존의 단일 닫기/복원 소유자를 씁니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 좁은 화면의 열기 버튼 전용 패널은 Modal로 엽니다. 레이아웃이 바뀌어도 따라하기 상태를 보존합니다. 모달 패널이 활성 CoachMark 대상을 가리지 않게 합니다. 과업이 계속되는 동안 호스트가 패널을 일시적으로 닫을 수 있습니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값은 없습니다. 따라하기는 실제 사용자 폼을 제출하거나 리셋해서는 안 됩니다. 동작 완료 신호는 호스트에서 오며, IME Enter가 과업 완료로 가장해서는 안 됩니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 완료 조건은 다음을 포함합니다.
 
@@ -161,19 +163,21 @@ React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular�
 
 호스트는 검증된 과업 신호/라우트/콘텐츠, 확정된 Stop/탭/열림 트랜잭션, 선호 시작 동작 렌더링, body 대체 대상이 좋지 않을 때의 유효한 fallbackFocusId를 소유합니다. 로컬 픽스처는 접기, Help 탭 전환, 좁은 모달, 거부된 제어 Stop/노출, 라우트에서 제거된 시작 동작을 보여 주어야 합니다. 초점 전에 선호 동작을 눈에 보이게 노출하거나 문서화된 대체 대상을 눈에 보이게 써야 하며, 내보낸 요청이나 로그만으로는 부족합니다. 라우트 해체는 완료된 과업을 지어내거나 페이지 폼을 제출/리셋하지 않고 코치와 패널 격리/옵저버를 정리합니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, opener, header, tabs, tab, close, title, back, start, task-list, task, task-toggle, step-list, step, stop; open,closed,running,idle,active-step,selected,current. `tab`은 각 Help/Tutorial 패널 선택 탭을 표시하며(`selected`는 aria-selected를 반영), `start`는 명시적 Start 동작, `task-toggle`은 과업의 step-list를 보여 주는 네이티브 disclosure 컨트롤(summary 또는 aria-expanded 버튼, 펼침은 네이티브 `details[open]` 또는 `aria-expanded`로 유지), `step`은 step-list 안의 각 단계 활성화 컨트롤(`current`는 aria-current=step을 반영)을 표시합니다.
 
 렌더링되는 모든 소유 파트는 `data-krds-component="tutorial-panel"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `task-overview`, `active-step`, `suspended-panel`, `narrow-modal`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`task-overview`, `active-step`, `suspended-panel`, `narrow-modal`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-38) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

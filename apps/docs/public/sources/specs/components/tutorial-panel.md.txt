@@ -12,13 +12,13 @@
 
 지원하는 네이티브 사례(변형·상태 축): `task-overview`, `active-step`, `suspended-panel`, `narrow-modal`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 본문 뒤에 오는 열기 버튼/패널입니다. 선택적 Help/Tutorial 탭, 닫기, 제목, 개요로 돌아가기, 과업/세부 과업 목록, 명시적 Stop 버튼을 둡니다. 세부 과업 제목은 CoachMark 제목과 같습니다. 패널 표시 여부는 진행 중인 따라하기와 독립입니다.
 
 **개요와 과업 보기(공식 구조 3–4번을 따르는 독립 규칙):** 본문은 개요 또는 한 과업의 보기 중 하나만 보여 주며 둘을 함께 보이지 않습니다. 호스트가 `activeTaskId`(실제 과업)와 `activeStepId`를 모두 확정하면 과업 보기로 들어갑니다. 이때 `task-list`에는 그 과업만 있고 `back` 컨트롤이 렌더링됩니다. `back`을 활성화하면 개요로 돌아가며, 과업이 확정되어 있으면 `onTaskChange({id:null})` 요청(각 어댑터의 과업 변경 이벤트)을 한 번 내보냅니다. `activeTaskId`는 계속 호스트 권한입니다. 개요에서는 모든 과업을 나열하고 `back`은 렌더링하지 않습니다. 단계 없이 확정된 과업은 자신의 disclosure만 펼칩니다. disclosure를 로컬에서 소유하는 렌더러(Angular)는 그 disclosure에서 같은 필터된 과업 보기로 들어갈 수도 있습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: tasks {id,title,steps:{id,title,targetId,instruction}[]}[], activeTaskId, activeStepId, `running?/defaultRunning=false`, `open?/defaultOpen=true` (넓은 화면), `activePanel?/defaultActivePanel=help|tutorial`, onOpenChange, `onStart({taskId,stepId})`, onTaskChange, onStepChange, onActivePanelChange({value}), `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})`, `startActionId`, `fallbackFocusId?`. running/open/activePanel이 정의되면 해당 필드가 제어 소유권을 갖고, 없는 필드는 한 번만 읽는 기본값을 씁니다. 제어와 기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. Stop의 returnTo는 일반 노출 요청이며 제어 prop을 강제할 권한이 아닙니다.
 
@@ -26,7 +26,7 @@
 
 패널을 닫거나 접거나 Help로 전환해도 running/과업/단계는 보존됩니다. 수락된 명시적 Stop 트랜잭션만 실행 중인 따라하기를 끝냅니다. 일반 패널 표시 여부는 독립입니다. props/마운트/리셋/초점 복원은 사용자 변경 알림을 내지 않습니다. 변경된 상태 요청은 각각 한 번만 내보냅니다. onStop은 경쟁하는 닫기/복원 콜백이 아니라 하나의 통합 Stop 요청입니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 열면 패널 컨테이너에 초점이 갑니다. 일반 닫기는 하나의 조합 소유자를 통해 사용 가능한 열기 버튼으로 돌아갑니다. 네이티브 disclosure 자식은 Click/Enter/Space로 실제로 펼치고 접으며 트리거에 초점을 유지합니다. 넓은 패널은 초점이 갇히지 않습니다. 좁은 셸은 네이티브 모달의 격리/진입/가둠을 재사용하고, 복원은 관련 Tutorial 또는 Stop 조정자에게 위임합니다. 공개 Modal의 저장된 열기 버튼 규칙을 덮어쓰지 않습니다.
 
@@ -40,15 +40,15 @@
 
 같은 Stop 조정자가 이 하나의 해석을 소유하며 모달 셸 진입/복귀를 위임해 경쟁하는 초점 작업을 막습니다. 공개 Modal returnFocusId 규칙은 바뀌지 않습니다. 거부된 Stop은 복원을 하지 않습니다. 이후의 비동기 탭/열림 변경이 이미 끝난 Stop 복원을 되풀이해서는 안 됩니다. 이후 수락된 일반 모달 닫기는 이 이전 Stop 대체 대상을 되풀이하지 않고 기존의 단일 닫기/복원 소유자를 씁니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 좁은 화면의 열기 버튼 전용 패널은 Modal로 엽니다. 레이아웃이 바뀌어도 따라하기 상태를 보존합니다. 모달 패널이 활성 CoachMark 대상을 가리지 않게 합니다. 과업이 계속되는 동안 호스트가 패널을 일시적으로 닫을 수 있습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값은 없습니다. 따라하기는 실제 사용자 폼을 제출하거나 리셋해서는 안 됩니다. 동작 완료 신호는 호스트에서 오며, IME Enter가 과업 완료로 가장해서는 안 됩니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 완료 조건은 다음을 포함합니다.
 
@@ -59,7 +59,7 @@
 
 호스트는 검증된 과업 신호/라우트/콘텐츠, 확정된 Stop/탭/열림 트랜잭션, 선호 시작 동작 렌더링, body 대체 대상이 좋지 않을 때의 유효한 fallbackFocusId를 소유합니다. 로컬 픽스처는 접기, Help 탭 전환, 좁은 모달, 거부된 제어 Stop/노출, 라우트에서 제거된 시작 동작을 보여 주어야 합니다. 초점 전에 선호 동작을 눈에 보이게 노출하거나 문서화된 대체 대상을 눈에 보이게 써야 하며, 내보낸 요청이나 로그만으로는 부족합니다. 라우트 해체는 완료된 과업을 지어내거나 페이지 폼을 제출/리셋하지 않고 코치와 패널 격리/옵저버를 정리합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, opener, header, tabs, tab, close, title, back, start, task-list, task, task-toggle, step-list, step, stop; open,closed,running,idle,active-step,selected,current. `tab`은 각 Help/Tutorial 패널 선택 탭을 표시하며(`selected`는 aria-selected를 반영), `start`는 명시적 Start 동작, `task-toggle`은 과업의 step-list를 보여 주는 네이티브 disclosure 컨트롤(summary 또는 aria-expanded 버튼, 펼침은 네이티브 `details[open]` 또는 `aria-expanded`로 유지), `step`은 step-list 안의 각 단계 활성화 컨트롤(`current`는 aria-current=step을 반영)을 표시합니다.
 

@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `standalone`, `inline`, `group`, `external`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 목적지를 구체적으로 알리는 레이블과 선택적 장식/외부 아이콘·밑줄을 담은 실제 <a href>를 씁니다. 인라인 크기는 본문과 같게 합니다. 외부 목적지와 새 창 동작을 구분해 알립니다. 사용할 수 없는 링크는 href를 생략하며 키보드 동작이 아닙니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. href, target, rel, label/content, disabled=false, appearance=basic|emphasis, size=small|medium|large, underline=true(명확한 내비게이션 맥락은 예외)를 씁니다. disabled는 href를 생략하고 모든 이동과 콜백을 막습니다. 오래된 클릭 핸들러를 남기지 않습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 네이티브 Tab과 Enter/클릭 이동을 따르며, 보조키 클릭, 컨텍스트 메뉴, 새 탭 열기를 포함합니다. Space를 버튼처럼 처리하는 핸들러는 없습니다. 같은 문서 초점 정책은 모든 링크가 아니라 SkipLink/InPageNavigation의 몫입니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 레이블은 읽기 쉬워야 하고 초점이 보여야 합니다. 권장 클릭 영역은 포인터 17×17, 터치 44×44이며 적절한 레이아웃에서 적용됩니다. 인라인 링크는 텍스트 흐름을 유지합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋/IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 실제 목적지, tel:/mailto: 값, 외부 링크의 의미는 호스트가 책임집니다. 필요하다고 명시한 출처별 조합을 제외하고 target=_blank를 자동으로 붙이지 않습니다. 네이티브 브라우저 Link 동작은 라우터 통합 뒤에도 유지되어야 합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, label, icon; disabled,external.
 

@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `default`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 고정된 공식 문장 “이 누리집은 대한민국 공식 전자정부 누리집입니다.”를 담은 비대화형 배너 컨테이너입니다. 각 정부 서비스 페이지 최상단에서 건너뛰기 링크(SkipLink) 뒤, 헤더(Header) 앞에 둡니다. 공식 문구와 외형을 보존하며, 예시의 toggle-wrap 클래스를 근거로 펼침 UI를 만들지 않습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: Masthead에는 동작/선택 API가 없습니다. 조합 수준에서 `governmentService` 승인 플래그를 명시적으로 제공합니다. 일반 콘텐츠는 고정된 한국어 문구이며, 번역 문구는 근거 검토 때까지 보류합니다. `href`, dismiss, open, `onClick` 의미는 없습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/열림 상태를 정의하면 제어 모드, 없으면 비제어 모드입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 내보냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내보내지 않습니다. 제어 모드에서 거부되면 커밋된 UI/초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 그대로 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 탭 정지, 키 핸들러, 초점 이동, 라이브 안내가 없습니다. 이 반복 영역 앞에서 SkipLink가 첫 번째로 닿는 콘텐츠여야 합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 좁은 너비와 확대에서도 공식 문장을 읽을 수 있게 둡니다. 주의를 끄는 애니메이션은 피합니다. 페이지 구성에서 상대 순서를 동일하게 유지합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값, 리셋, IME 동작이 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 실제 공식 정부 서비스만 배너를 서비스 주장으로 표시할 수 있습니다. 독립 라이브러리/데모는 로컬 표본에 예시임을 표시해야 하며, 저장소를 정부 사이트로 보이게 해서는 안 됩니다. 호스팅과 자격은 호스트 책임입니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, text; 대화형 상태 없음.
 

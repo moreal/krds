@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `simple`, `with-header`, `mobile-dropdown`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름 있는 내비게이션 랜드마크에 선택적 제목·상위로 돌아가기 컨트롤, 중첩된 <ul>/<li> 링크, 선택된 잎 항목 단서, 별도의 하위 펼침 버튼을 둡니다. 한 번에 최대 두 수준만 노출합니다. 더 깊은 구조는 헤더 맥락과 함께 점진적으로 노출합니다. 현재 잎 항목은 aria-current=page, 트리거는 aria-expanded/controls를 갖습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: items {id,label,href?,children?}[], currentId, expandedIds/defaultExpandedIds(초기값은 현재 가지), onExpandedChange({ids}), title/parentLink(선택). 여러 가지를 독립적으로 펼칠 수 있습니다. 아코디언(Accordion)의 단일 열림 기본값을 적용하지 않습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 Tab은 보이는 계층 순서를 따릅니다. Enter/클릭은 잎 항목에서는 이동하고 부모에서는 펼침을 토글합니다. 두 번째 가지를 열어도 첫 번째는 열려 있습니다. 접힌 하위 항목은 초점과 접근성 트리에서 제외합니다. 초점이 있는 하위 항목을 포함한 가지를 접으면 초점은 그 가지의 트리거로 돌아갑니다. 비모달 데스크톱 내비게이션에는 초점 트랩이 없습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 너비가 부족하면 사이드바를 숨기고, 호스트의 MainMenu가 동등한 내비게이션을 제공합니다. 전체 4수준 이상이면 페이지 제목 드롭다운이 현재 깊은 수준을 노출할 수 있습니다. 동등한 경로 접근이 있을 때만 숨깁니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼·리셋·IME 상태는 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 완료는 실제 Link·펼침 동작과 헤더 기반 깊은 내비게이션 픽스처를 조합합니다. 호스트가 경로 트리, 현재 상태, 좁은 화면의 동등한 내비게이션을 소유합니다. 문서화되지 않은 어댑터 간 재사용은 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, header, parent-link, list, item, link, trigger, submenu, indicator; current,expanded,collapsed.
 

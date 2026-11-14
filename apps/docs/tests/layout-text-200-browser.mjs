@@ -36,7 +36,7 @@ async function measure(page) {
     const box = selector => { const node = document.querySelector(selector); return node ? node.getBoundingClientRect() : null; };
     const code = document.querySelector('.native-demo-source .docs-code pre');
     const codeStyle = code && getComputedStyle(code);
-    const select = document.querySelector('.native-demo-toolbar select');
+    const select = document.querySelector('.native-demo [role="tablist"]');
     const frame = box('.native-demo-frame');
     const offenders = [...document.querySelectorAll('body *')].filter(node => node.getBoundingClientRect().right > innerWidth + 1 && getComputedStyle(node).position !== 'fixed');
     return {
@@ -46,7 +46,7 @@ async function measure(page) {
       frameBottom: frame?.bottom ?? null,
       // Lines spanned by the widest word of "코드 복사": 1 means no word is broken.
       copyLines: (() => { const button = [...document.querySelectorAll('.native-demo-source .docs-code-actions button')].find(node => node.textContent.trim() === '코드 복사'); if (!button) return -1; const walker = document.createTreeWalker(button, NodeFilter.SHOW_TEXT); let node, worst = 0; while ((node = walker.nextNode())) for (const match of node.textContent.matchAll(/\S+/g)) { const lines = new Set(); for (let i = match.index; i < match.index + match[0].length; i++) { const range = document.createRange(); range.setStart(node, i); range.setEnd(node, i + 1); const rect = range.getBoundingClientRect(); if (rect.width) lines.add(Math.round(rect.top)); } worst = Math.max(worst, lines.size); } return worst; })(),
-      source: (() => { const section = document.querySelector('.native-demo-source'), sourceSelect = section?.querySelector('select'), path = section?.querySelector('.native-demo-path'); return section && { section: section.getBoundingClientRect().width, select: sourceSelect?.getBoundingClientRect().width ?? 0, firstLabel: sourceSelect?.selectedOptions[0]?.textContent ?? '', value: sourceSelect?.value ?? '', pathText: path?.textContent ?? '', pathClipped: path ? path.scrollWidth > path.clientWidth + 1 : true }; })(),
+      source: (() => { const section = document.querySelector('.native-demo-source'), link = section?.querySelector('.native-demo-download a'); return section && { section: section.getBoundingClientRect().width, link: link ? link.getBoundingClientRect().right <= innerWidth + 1 && link.getBoundingClientRect().width > 0 : false }; })(),
       offenders: offenders.filter(node => !offenders.includes(node.parentElement)).slice(0, 6).map(node => `${node.tagName.toLowerCase()}.${String(node.className).split(' ')[0]}[${node.getAttribute('data-krds-part') ?? ''}]`),
     };
   });
@@ -92,6 +92,9 @@ try {
         await page.waitForFunction(() => document.querySelector('[data-docs-ready]')?.dataset.docsReady === 'true');
         if (text !== '100') await page.addStyleTag({ content: `html{font-size:${text}% !important}` });
         await page.waitForTimeout(100);
+        // The source sits behind the code tab; open it so both the tab rows and the code are measured.
+        const view = tab => page.locator('.native-demo').getByRole('tab', { name: tab, exact: true }).click();
+        await view('코드');
         const state = await measure(page), label = `${name} ${path} text-${text} ${width}`;
         check(`${label} page overflow ${state.scrollWidth - state.innerWidth}px ${JSON.stringify(state.offenders)}`, () => assert.ok(state.scrollWidth <= state.innerWidth + 1));
         if (text === '200' && width === 1280) {
@@ -107,14 +110,15 @@ try {
             check(`${label} overflowing code shows a scroll cue`, () => { assert.match(code.backgroundImage, /gradient/); assert.match(code.backgroundAttachment, /local/); });
           }
           check(`${label} copy label word broken across ${state.copyLines} lines`, () => assert.equal(state.copyLines, 1));
-          check(`${label} source path readable`, () => { const source = state.source; assert.ok(source); assert.ok(source.select >= source.section - 1); assert.ok(source.firstLabel.startsWith(source.value.split('/').at(-1))); assert.equal(source.pathText, source.value); assert.equal(source.pathClipped, false); });
-          if (width <= 390) check(`${label} preview frame stays above the code`, () => assert.ok(state.frameBottom !== null && state.frameBottom <= code.top));
+          check(`${label} source download reachable`, () => { assert.ok(state.source); assert.ok(state.source.link); });
         }
         if (text === '200' && (width === 1280 || width === 320)) await interact(page, label, name);
         if (path === pages[0] && (width === 1280 || width === 320) && text !== '150') {
           await page.screenshot({ path: resolve(evidence, `${name}-button-text-${text}-${width}.png`) });
+          await view('미리보기');
           await page.locator('.native-demo').evaluate(node => node.scrollIntoView({ block: 'start' }));
           await page.screenshot({ path: resolve(evidence, `${name}-button-text-${text}-${width}-demo.png`) });
+          await view('코드');
           await page.locator('.native-demo-source').evaluate(node => node.scrollIntoView({ block: 'start' }));
           await page.screenshot({ path: resolve(evidence, `${name}-button-text-${text}-${width}-source.png`) });
         }

@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `default`, `narrow`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 실제 <footer>가 페이지의 마지막 랜드마크입니다. 서비스 로고/연락처/유틸리티 링크를 묶고, 이어서 정책 링크, 저작권 정보, 마지막 하위 영역으로 운영기관 식별자(Identifier)를 둡니다. 눈에 띄게 구분되는 “개인정보 처리방침”을 포함합니다. 전자상거래 서비스는 이용약관과 사업자 신원을 추가로 제공합니다. 선택 서비스 내비게이션은 메인 내비게이션의 레이블과 계층을 그대로 따라야 합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. Footer는 serviceLogo {src,alt}, contacts {label,href,text}[], utilityLinks[], privacyPolicy {href,label}, policyLinks[], 명시적으로 전달되는 copyrightText, 선택 기관 식별 정보를 받습니다. 지어낸 원시 주소 대신 의미 Link 데이터를 보존합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 실제 링크를 통해 자연스러운 Tab 순서를 따릅니다. 동작 가능한 연락처 값에는 tel:/mailto:를 씁니다. 외부/새 창 링크는 이동 동작을 알려야 합니다. 푸터 자체는 초점을 가두거나 돌리지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 작은 화면에서도 열을 같은 순서로 쌓습니다. 짧은 페이지에서는 호스트 페이지 레이아웃이 콘텐츠를 덮지 않고 푸터를 뷰포트 하단에 둡니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 집계된 폼/리셋/IME 상태는 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 정확하고 최신인 연락처, 정책, 저작권, 자산 권리는 호스트가 책임집니다. 저작권 기본값을 저장소 소유자나 KRDS 권리자로 두지 않습니다. 완료에는 실제 로컬 연락처·정책 링크, 운영기관 식별자(Identifier) 조합, 페이지 레이아웃 데모가 포함됩니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, logo, contacts, utilities, policies, privacy-link, copyright, identifier; 값 상태 없음.
 

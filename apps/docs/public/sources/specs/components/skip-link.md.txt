@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `visible`, `focus-revealed`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 Masthead와 헤더보다 앞선 목록 안에 같은 문서 안의 실제 앵커를 둡니다. 본문 링크가 첫 번째이며, 사이드 내비게이션·브레드크럼·유틸리티를 제외한 콘텐츠를 가리킵니다. 링크는 세 개를 넘지 않습니다. 반복 영역이 없는 페이지에서는 생략합니다. 초점 시 표시(focus-revealed)가 제안 기본값입니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: SkipLink는 links {id,label,targetId}[] (보통 본문 대상 하나)와 visibility=focus-revealed|visible을 받습니다. 대상 ID는 같은 문서·루트 전략 안에서 해석되어야 합니다. 잘못된 대상은 조용히 #으로 연결하지 말고 개발 중에 보고합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 Enter는 대상 섹션·제목으로 스크롤하고 초점을 옮깁니다. 초점을 받을 수 없는 대상에는 임시 tabindex=-1을 쓰되 일반 Tab 순서에는 넣지 않습니다. 다음 Tab은 대상의 첫 번째 상호작용 자손에서 시작합니다. 탭(터치)은 스크롤합니다. 스크린 리더 가상 탐색은 수동 검증이 필요합니다. 초점 시 표시는 가려지지 않은 초점 링을 보여야 합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 필수 웹 동작은 모바일 웹에서도 유지합니다. 네이티브 앱 예외는 모바일 웹 제외가 아닙니다. 링크는 읽을 수 있게, 고정(sticky) 콘텐츠 위에 둡니다. 동작 줄이기를 존중해 스크롤합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값·리셋·IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 안정적인 대상 ID와 의미 있는 콘텐츠 랜드마크를 제공합니다. Lit의 Shadow DOM 경계에서는 명시적 대상 등록이나 light-DOM 앵커 해석이 필요합니다. 닫힌 루트를 넘어서 document.getElementById를 쓴다고 가정해서는 안 됩니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, link; focus-visible.
 

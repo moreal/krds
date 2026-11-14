@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `five-levels`, `custom-levels`, `narrow-reflow`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름 있는 화면 크기 컨트롤입니다. 설명 레이블이 있는 옵션과 현재 선택 값을 보여 줍니다. 공식 예시는 90%,100%,110%,130%,150%이며 옵션은 5개 이하입니다. 텍스트 레이블이 크기 아이콘/숫자와 함께 표시됩니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: `levels` `{id,label,percent}[]`=공식 5단계, `value?:string`, `defaultValue?:string="100"`, `onValueChange({value:id})`, `open`/`defaultOpen=false`, `onOpenChange`. 요청 값은 옵션 ID이며 콜백은 [ValueChangeDetails<T>](../../packages/contracts/src/types.ts:7)를 따릅니다. 호스트는 호환되지 않는 id 전용 페이로드를 받는 대신 `levels`에서 percent를 찾습니다. 정의된 `value`는 제어 모드를 택하고, 없으면 한 번만 읽는 기본값을 씁니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 사용자의 선택 변경은 요청 하나를 내며, 같은 값/비활성 동작, props, 마운트, 리셋은 요청을 내지 않습니다. 호스트가 범위가 한정된 배율을 적용하고 값을 확정하며, 브라우저/기기 확대는 조작하지 않습니다.
 
 제어 모드에서 거부된 클릭/Enter/접힌 상태 화살표 요청은 현재 옵션, 표시 값, 호스트 배율을 커밋된 값으로 유지합니다. 요청된 percent를 낙관적으로 적용하거나 조정 중에 두 번째 요청을 내보내지 않습니다. 배율 적용과 선택은 같은 권위 있는 값을 공유합니다. [파일럿 정책](./README.md)과 별도의 열림 상태 소유는 그대로 적용됩니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 클릭/Enter/Space로 열고, Tab으로 옵션을 방문하며, 바깥 클릭/Escape로 닫고, Escape는 트리거로 초점을 돌려줍니다. Enter는 선택하고 닫습니다. 접힌 상태의 ArrowUp/Down은 공식 표에 따라 이전/다음 옵션을 선택하며 끝에서 순환하지 않습니다(프로젝트 정책). 리플로 후에도 선택 초점이 사용 가능해야 합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 확대된 배율에서도 모든 콘텐츠와 동작에 접근할 수 있고, 문서화된 미디어/표 예외를 제외하면 페이지는 한 방향으로만 스크롤합니다. 컴포넌트 단계와 함께 실제 브라우저 200/400% 확대를 확인합니다. CSS transform만으로는 사용 가능한 레이아웃 리플로를 대신할 수 없습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값이 없습니다. 설정 리셋은 암묵적 폼 리셋이 아니라 명시적인 호스트 환경설정 동작입니다. IME 편집은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 배율 적용, 환경설정 영속화, 범위는 호스트가 맡습니다. 레이블 변경만이 아니라 리플로를 보여 주는 동작하는 로컬 설정 드라이버와 대표 페이지가 완료 조건입니다. 원격 저장소나 전역 브라우저 설정 편집은 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, trigger, current, list, option, scale-icon; open,closed,selected.
 

@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `default`, `minimum`, `maximum`, `disabled`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 레이블이 있는 그룹입니다. 감소 버튼, 가운데에 보이는 현재 수량, 필드로 분리된 증가 버튼으로 구성합니다. 사용자는 키보드 텍스트 입력이 아니라 버튼으로 조정합니다. 기준값을 포함해 선택 가능한 값을 11단계 이하로 제한하고, 한계에 닿으면 해당 버튼을 비활성화합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: `min=0`, `max=10`, `step=1`, `value`/`defaultValue=min`, `onValueChange({value})`, `name?`, `disabled=false`, `label`, `unit?`. 선택 가능한 값이 11개를 넘거나 step이 일관되지 않은 설정은 거부합니다. 가운데 출력은 편집할 수 없는 텍스트이며 편집 가능한 spinbutton이 아닙니다. 이름 붙은 숨김 값이 직렬화될 수 있습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/열림 상태를 정의하면 제어 모드, 없으면 비제어 모드입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 내보냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내보내지 않습니다. 제어 모드에서 거부되면 커밋된 UI/초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 그대로 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 독립 정책: 네이티브 버튼의 클릭/Enter/Space는 한 번만 변경합니다. 고정 이름은 “decrease/increase [quantity label]”입니다. 출력 관계가 현재 값을 식별합니다. 새로 비활성이 된 경계에서도 초점 유지가 인지 가능해야 합니다(수용된 독립 정책: 활성화를 막은 `aria-disabled` 버튼을 쓰면서 초점 유지).
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 버튼 클릭 영역은 가운데 값 주변에서 충분히 크고 간격을 둡니다. 좁은 화면과 확대에서도 레이블과 값이 보입니다. 기본값으로 길게 눌러 자동 반복하거나 드래그 제스처를 쓰지 않습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 이름 붙은 선택적 숨김 입력이 실제 숫자 문자열을 전달하며, 비활성이면 생략됩니다. 리셋은 초기값을 복원하고, 제어 리셋은 콜백 없이 현재 prop을 유지합니다. 버튼은 `type=button`입니다. 자유 텍스트/IME 경로는 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 흔히 선택되는 기본값, 경계, 실제 수량 효과는 호스트가 맡습니다. 정적인 더하기/빼기 아이콘이 아니라 실제 경계 피드백과 폼 리셋이 완료 조건입니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, label, decrement, output, increment, hidden-input; at-minimum,at-maximum,disabled.
 

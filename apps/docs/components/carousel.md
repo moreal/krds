@@ -4,11 +4,11 @@ title: 'Carousel'
 
 # Carousel {#carousel}
 
-캐러셀 · `Carousel`
+캐러셀 · `Carousel` — 여러 콘텐츠를 한 자리에서 차례로 넘겨 보여 줍니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_09.html) · [전체 명세](/sources/specs/components/carousel.md.txt) · [프레임워크 지원](../compatibility/)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,25 @@ title: 'Carousel'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `items` | `readonly {id: string; label: string; content: string}[]` | 필수 | 속성 |
+| `index` | `number` | 선택 | 속성 |
+| `defaultIndex` | `number` | 선택 | 속성 |
+| `onIndexChange` | `(detail: {index: number; reason: 'previous' \| 'next' \| 'indicator' \| 'swipe' \| 'timer'}) => void` | 선택 | 이벤트 |
+| `layout` | `'single' \| 'multiple'` | 선택 | 속성 |
+| `autoplay` | `boolean` | 선택 | 속성 |
+| `intervalMs` | `number` | 선택 | 속성 |
+| `playing` | `boolean` | 선택 | 속성 |
+| `defaultPlaying` | `boolean` | 선택 | 속성 |
+| `onPlayingChange` | `(detail: {playing: boolean; reason: 'play' \| 'stop' \| 'navigation'}) => void` | 선택 | 이벤트 |
+| `loop` | `boolean` | 선택 | 속성 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface CarouselContract {
@@ -53,29 +69,15 @@ export interface CarouselContract {
 }
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `items` | 예 | `readonly {id: string; label: string; content: string}[]` | 데이터 / 상태 |
-| `index` | 아니요 | `number` | 데이터 / 상태 |
-| `defaultIndex` | 아니요 | `number` | 데이터 / 상태 |
-| `onIndexChange` | 아니요 | `(detail: {index: number; reason: 'previous' \| 'next' \| 'indicator' \| 'swipe' \| 'timer'}) => void` | 이벤트 |
-| `layout` | 아니요 | `'single' \| 'multiple'` | 데이터 / 상태 |
-| `autoplay` | 아니요 | `boolean` | 데이터 / 상태 |
-| `intervalMs` | 아니요 | `number` | 데이터 / 상태 |
-| `playing` | 아니요 | `boolean` | 데이터 / 상태 |
-| `defaultPlaying` | 아니요 | `boolean` | 데이터 / 상태 |
-| `onPlayingChange` | 아니요 | `(detail: {playing: boolean; reason: 'play' \| 'stop' \| 'navigation'}) => void` | 이벤트 |
-| `loop` | 아니요 | `boolean` | 데이터 / 상태 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 라벨이 있는 캐러셀 영역에 슬라이드, 이전/다음 버튼, 위치/전체 표시기를 둡니다. 자동 재생을 요청할 수 있는 경우(제어된 playing=true, 또는 처음 수동 의도에서의 명시적 재생 포함) 정지/재생이 첫 번째 상호작용 하위 요소입니다. 상호작용 하위 요소와 AT에는 주로 보이는 슬라이드만 노출하며, 숨겨졌거나 일부만 보이는 슬라이드는 노출하지 않습니다. 항목이 하나면 캐러셀 컨트롤을 모두 숨깁니다. 슬라이드는 5개 이하를 권장합니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: items {id,label,content}[], `index?/defaultIndex=0`, `onIndexChange({index,reason})`, layout=single|multiple, autoplay=false, intervalMs=6000, `playing?:boolean`, `defaultPlaying?:boolean`, `onPlayingChange({playing:boolean,reason:play|stop|navigation})`, loop=false. playing이 정의되면 제어되는 **재생 의도(playback intent)**이고, 없으면 비제어 의도입니다. defaultPlaying은 한 번만 읽으며 기본값은 autoplay입니다. 둘 다 주거나 모드를 바꾸는 것은 잘못된 사용입니다. autoplay는 한 번만 읽는 비제어 의도 초기화 값이며, 제어된 playing이나 정지 래치를 덮어쓰지 않습니다. 슬라이드가 둘 이상이면 재생 가능 API는 처음 의도가 수동/false여도 재생/정지 컨트롤을 첫 번째로 렌더합니다. prop만으로는 콜백이 나오지 않습니다. 표시기는 데스크톱에서 점(dots), 1023px 미만에서 분수(fraction)입니다.
 
@@ -83,7 +85,7 @@ React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular�
 
 타이머 틱은 진행이 허용될 때만 `onIndexChange`를 `reason:"timer"`로 한 번 호출해 다음 인덱스를 요청합니다. 이는 명시적인 시스템 기원 인덱스 요청이며, 사용자 사유 next/previous/indicator/swipe와 구별되고 사용자 재생 알림이 아닙니다. 비제어 인덱스는 변경된 적격 틱마다 커밋합니다. 제어 인덱스는 호스트가 요청을 거부하면 prop 값을 유지합니다. 중복 입력/클릭 이벤트나 prop/리셋/마운트 인덱스 콜백은 나오지 않습니다. 새 간격마다 현재 커밋된 인덱스를 기준으로 다음 인덱스를 다시 요청할 수 있습니다. 거부된 틱이 인덱스를 몰래 바꾸지 않습니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 이전/다음/표시기 버튼과 좌우 표시기 탐색은 스와이프 없이 동작합니다. 스와이프/드래그가 세로 페이지 스크롤을 가로채면 안 됩니다. 공식 초점 진입은 실제로 진행을 멈추고, 명시적 재생 전까지 그 정지를 래치합니다([L1335–1338](https://www.krds.go.kr/html/site/component/component_04_09.html)). 초점을 벗어나거나 호스트가 playing=true를 써도 이 래치는 풀리지 않습니다. 초점 진입은 바깥에서 캐러셀 안으로 넘어오는 것을 뜻하며, 내부 초점 이동은 두 번째 진입을 만들지 않습니다. 호버는 포인터가 캐러셀 위에 있는 동안 제어 의도나 무시된 일시정지 요청과 관계없이 항상 실제 진행을 막습니다([L1347–1350](https://www.krds.go.kr/html/site/component/component_04_09.html)).
 
@@ -93,31 +95,33 @@ React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular�
 
 **로컬 억제 중 명시적 정지(수용된 독립 결정):** 슬라이드가 둘 이상이면 첫 재생 컨트롤 그룹은 기본 재생-일시정지 레이블을 실제 허용된 진행에 맞춰 정직하게 유지합니다. 진행 중에는 정지, 일시정지 중에는 재생입니다. 커밋된 재생 의도가 true인데 실제 진행이 억제된 동안에는, 이름이 자동 재생 중지인 별도의 네이티브 type=button도 렌더합니다. 소유 파트는 stop-intent이고 paused/disabled 어휘를 씁니다. 이 버튼은 슬라이드 탐색보다 앞선 첫 재생 그룹에 둡니다. 실제 포인터 클릭이나 키보드 활성화로 누르면 수동 정지를 래치하고, 제어 호스트가 거부해도 reason stop인 playing=false 요청을 한 번 냅니다. 거부가 래치를 풀거나 의도 prop을 바꾸지 않습니다. 수동적 초점/호버는 재생 요청을 내지 않습니다. 호버/초점 이전의 오래된 레이블을 캡처하거나 합성 디스패치로 정지 동작을 주장하면 안 됩니다. 명시적 재생은 기존 래치 해제 및 현재 의도 무동작 콜백 규칙을 유지합니다. 항목이 하나인 캐러셀은 기본 컨트롤, stop-intent, 탐색 컨트롤을 렌더하지 않습니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 1023px 미만에서는 점 대신 분수 표시기를 씁니다. 터치 컨트롤은 44×44 이상을 권장하고 포인터는 17×17 이상입니다. 내용은 1~2줄로 읽을 수 있어야 하고 경계가 분명해야 합니다. 동작 줄이기에서는 기본적으로 자동 재생과 슬라이드 애니메이션이 없으며, 이는 문서화된 독립 접근성 선택입니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋 상태가 없습니다. 내장 입력에서 조합 키로 탐색하지 않습니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 공식 예시는 Swiper CSS/JS를 참조합니다. 네이티브 계약은 KRDS 원본 JS를 실행하거나 Swiper를 요구하지 않고 문서화된 결과를 재현합니다. 슬라이드 콘텐츠와 로컬 자산은 호스트 소유입니다. 완료에는 실제 탐색·자동 재생 상태와 숨겨진 슬라이드 접근성이 포함되어야 합니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, viewport, list, slide, previous, next, indicators, indicator, position, play-pause, stop-intent; active,hidden,playing,paused,disabled.
 
 렌더되는 모든 소유 파트는 `data-krds-component="carousel"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위 열거는 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `single`, `multiple`, `autoplay`, `manual`, `full-banner`, `element-banner`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`single`, `multiple`, `autoplay`, `manual`, `full-banner`, `element-banner`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-22) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

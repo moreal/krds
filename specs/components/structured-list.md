@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `list`, `table`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 선택적 섹션 제목, 일관된 검색·필터·정렬·동작 툴바, 항목 목록·표, 선택적 Pagination으로 구성합니다. 각 항목은 메타데이터 분류·순서, 미리보기, 콘텐츠·CTA, 뒤따르는 공유·저장 동작을 보존합니다. 출처는 마크업에서 공유·저장이 콘텐츠 뒤에 오도록 요구합니다. 분류 값이 없으면 대시를 표시합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: items {id,title,href?,metadata:{label,value}[],image?,tags?}[], variant=list|table, 툴바 의미 컨트롤, 선택적 selection {ids,onChange}, 선택적 sort {key,direction,onChange}. 항목의 링크·동작 계약을 명시적으로 제공합니다. 카드 전체가 버튼 안에 버튼을 담는 중첩 버튼이 되어서는 안 됩니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 모든 동작은 키보드·터치, 보이는 초점, 네이티브 링크·버튼으로 작동합니다. 정렬·검색 활성화는 활성화한 UI에 초점을 유지합니다. 선택은 레이블이 있는 체크박스를 씁니다. 새 창·애플리케이션을 여는 동작은 결과를 설명합니다. 호스트가 구성한 동작만 제공합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 쌓을 때 메타데이터 순서를 유지하고, 툴바 순서도 일관되게 둡니다. 표 변형은 넘침·리플로 상황에서도 표 의미와 헤더 관계를 보존합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 하위 검색·선택 필드는 네이티브 폼·리셋·IME 계약을 유지합니다. 직렬화되는 집계 “list” 필드를 만들어 내지 않습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 완료하려면 로컬 데이터 조합에서 툴바, 선택, CTA, 공유·저장, Badge/Tag, 선택적 Pagination이 작동해야 합니다. 자식을 담은 div만으로는 부족합니다. 필터링 알고리즘·데이터, 공유 대상, 저장 영속성은 호스트가 소유합니다. 스토리는 순수 로컬 상태를 씁니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, header, toolbar, list, item, preview, content, metadata, cta, badges, tags, actions, pagination; selected,pending,empty.
 

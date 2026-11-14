@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `unordered-dot`, `unordered-dash`, `unordered-hollow`, `ordered`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 중요도가 같은 순서 없는 내용에는 네이티브 ul/li를, 순서/순위에는 ol/li를 씁니다. 중첩 목록은 부모 li 안에 둡니다. 수준은 최대 3개이며 들여쓰기, 어투, 문장 부호가 일관되어야 합니다. list-style:none이면 명시적 role=list/listitem으로 모바일 목록 탐색을 유지합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: ordered=false, marker=dot|dash|hollow (dot), items {id,content,children?}[]. ordered 변형은 실제 숫자 순서를 씁니다. 콘텐츠에는 네이티브 링크를 담을 수 있습니다. 선택/현재 값이나 만들어 낸 listbox role은 없습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 정적 텍스트는 탭 정지점이나 화살표 탐색을 추가하지 않습니다. 포함된 네이티브 대화형 콘텐츠는 일반 읽기 순서를 따릅니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 줄 바꿈된 텍스트는 같은 수준 텍스트 아래에 내어쓰기로 정렬합니다. 확대/좁은 너비에서도 계층을 유지합니다. 목록을 줄 바꿈으로 평탄화하지 않습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋/IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 공개 export `TextList`는 유지하되 잠정 종류를 composition→component로 바꾸기를 권장합니다. 출처는 여러 컴포넌트의 작업 워크플로 없이 시맨틱 목록 프리미티브를 정의합니다. 편집상의 순서와 문장 부호는 호스트가, 올바른 중첩은 렌더러가 소유합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, item, marker, content, nested-list; ordered/unordered,level.
 

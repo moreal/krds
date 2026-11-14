@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `outline`, `filled`, `pastel`, `numeric`. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형·예시 제목은 근거 부록에 그대로 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 outline/filled/pastel 컨테이너 안의 비상호작용 레이블입니다. 텍스트는 항상 보이며 button/link 역할, href, 0 이상의 tabindex를 갖지 않습니다. 숫자 내용도 카운터 동작이 아니라 텍스트 정보입니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: label, appearance=outline|filled|pastel (기본 outline), tone=secondary|gray|point|danger|warning|success|information|disabled, size=small|medium|large (기본 medium), numeric=false. 공식 선택자 표에는 primary도 있으나 원문 지침이 primary 배경을 금지하므로, 지원 API는 primary 톤과 primary 배경을 제외합니다. 선택자와 본문의 충돌은 독립 프로젝트 정책으로 해소합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 정의된 value/open은 제어 모드이고 undefined는 비제어 모드입니다. 제어 prop과 기본값을 함께 주거나 모드를 바꾸면 잘못된 구성입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 시맨틱 변경 요청을 한 번 내보냅니다. 비활성, 변화 없음, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 모드에서 거부되면 커밋된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드로 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 기본적으로 키보드 동작, 선택 이벤트, 초점, 라이브 안내가 없습니다. disabled 톤은 정보용 스타일이며 컨트롤이 실제로 비활성이라는 의미를 암시하면 안 됩니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 레이블은 줄바꿈 없이 짧게 유지하고 연결된 요소마다 배지는 하나입니다. 호스트가 상태를 말없이 자르지 않고 문구를 줄입니다. 텍스트·배경 대비는 4.5:1 이상입니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼·리셋·IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 간결하고 사실인 상태를 제공합니다. 완료는 실제 레이블이 있는 모든 톤·크기에서 시각·시맨틱을 만족하는 것이며 빈 장식 캡슐이 아닙니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 파트: root, label. 상태: appearance,tone,size,numeric. pressed/selected는 없습니다.
 

@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `number-links`, `direct-page`, `load-more`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 데이터셋에 연결된 이름 있는 `<nav>`입니다. 소스 순서는 이전, 번호 링크 `<ul>`, 다음, 선택적 페이지 입력, 전체 레이블, 이동 버튼입니다. 더보기 유형을 제외하면 첫/마지막 페이지에 항상 닿을 수 있어야 합니다. 현재 번호는 `href`를 제거하고 `aria-current=true`를 가집니다. 줄임표는 비대화형입니다. 더보기는 결과 목록 뒤에 둡니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: `page`/`defaultPage=1`, `pageCount`, `hrefForPage(page)`, `onPageChange({page})`, `variant=number-links`, 선택적 직접 페이지 입력, 또는 더보기 `{shown,total,pending,onLoadMore,firstNewItemId}`. 페이지 크기를 뷰포트에서 유도하지 않습니다. 범위를 벗어난 페이지 입력은 편집 가능한 문자열로 남고, 이동 없이 오류를 알립니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/열림 상태를 정의하면 제어 모드, 없으면 비제어 모드입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 내보냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내보내지 않습니다. 제어 모드에서 거부되면 커밋된 UI/초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 그대로 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 네이티브 앵커가 탐색을 보존합니다. 현재/사용 불가 링크는 활성화되지 않습니다. 이동과 더보기는 버튼입니다(Enter/Space). 호스트가 결과를 덧붙인 뒤 더보기는 처음 추가된 항목으로 스크롤하고 초점을 옮기며, 표시 개수를 갱신하고, 실패 시 맥락을 보존합니다. 제어 prop만으로는 아무것도 내보내지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 번호/줄임표는 데스크톱에서 최대 11개, 좁은 화면에서 7개입니다. 좁은 화면에서는 이전/다음 줄이 시각적으로 번호 줄 앞에 오지만 공식 DOM 순서는 바뀌지 않습니다. 데이터셋의 페이지 수와 페이지당 개수는 뷰포트와 무관하게 안정적이어야 합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 직접 페이지 입력에는 보이는 레이블과 오류 관계가 있으며, 둘러싼 폼의 암묵적 제출은 없습니다. 리셋은 페이지 입력 초안 텍스트를 실제 페이지로 복원합니다. IME 조합은 이동을 실행하지 않습니다. Pagination 자체는 폼 값을 내지 않습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 데이터 로딩, URL, 총계, 덧붙이기 성공 확인은 호스트가 맡습니다. 로컬 스토리는 고정된 메모리 내 레코드를 쓰며 fetch하지 않습니다. 원본의 더보기 설명 문단은 직접 페이지 텍스트를 반복합니다. 일치하는 동작을 지어내지 말고 더보기 구조와 상호작용에 의존합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, link, previous, next, ellipsis, input, total, go, load-more, count; current,disabled,pending,invalid.
 

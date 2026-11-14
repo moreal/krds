@@ -4,11 +4,11 @@ title: 'Skip link'
 
 # Skip link {#skip-link}
 
-건너뛰기 링크 · `SkipLink`
+건너뛰기 링크 · `SkipLink` — 키보드 사용자가 반복되는 영역을 지나 본문으로 바로 이동하게 합니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_01.html) · [전체 명세](/sources/specs/components/skip-link.md.txt) · [프레임워크 지원](../compatibility/README.md)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,16 @@ title: 'Skip link'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `links` | `readonly {id: string; label: string; targetId: string}[]` | 필수 | 속성 |
+| `visibility` | `'focus-revealed' \| 'visible'` | 선택 | 속성 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface SkipLinkContract {
@@ -38,54 +45,51 @@ export interface SkipLinkContract {
 }
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `links` | 예 | `readonly {id: string; label: string; targetId: string}[]` | 데이터 / 상태 |
-| `visibility` | 아니요 | `'focus-revealed' \| 'visible'` | 데이터 / 상태 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 Masthead와 헤더보다 앞선 목록 안에 같은 문서 안의 실제 앵커를 둡니다. 본문 링크가 첫 번째이며, 사이드 내비게이션·브레드크럼·유틸리티를 제외한 콘텐츠를 가리킵니다. 링크는 세 개를 넘지 않습니다. 반복 영역이 없는 페이지에서는 생략합니다. 초점 시 표시(focus-revealed)가 제안 기본값입니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: SkipLink는 links {id,label,targetId}[] (보통 본문 대상 하나)와 visibility=focus-revealed|visible을 받습니다. 대상 ID는 같은 문서·루트 전략 안에서 해석되어야 합니다. 잘못된 대상은 조용히 #으로 연결하지 말고 개발 중에 보고합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 Enter는 대상 섹션·제목으로 스크롤하고 초점을 옮깁니다. 초점을 받을 수 없는 대상에는 임시 tabindex=-1을 쓰되 일반 Tab 순서에는 넣지 않습니다. 다음 Tab은 대상의 첫 번째 상호작용 자손에서 시작합니다. 탭(터치)은 스크롤합니다. 스크린 리더 가상 탐색은 수동 검증이 필요합니다. 초점 시 표시는 가려지지 않은 초점 링을 보여야 합니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 필수 웹 동작은 모바일 웹에서도 유지합니다. 네이티브 앱 예외는 모바일 웹 제외가 아닙니다. 링크는 읽을 수 있게, 고정(sticky) 콘텐츠 위에 둡니다. 동작 줄이기를 존중해 스크롤합니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값·리셋·IME 동작은 없습니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 안정적인 대상 ID와 의미 있는 콘텐츠 랜드마크를 제공합니다. Lit의 Shadow DOM 경계에서는 명시적 대상 등록이나 light-DOM 앵커 해석이 필요합니다. 닫힌 루트를 넘어서 document.getElementById를 쓴다고 가정해서는 안 됩니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, link; focus-visible.
 
 렌더링되는 모든 소유 파트는 `data-krds-component="skip-link"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `visible`, `focus-revealed`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`visible`, `focus-revealed`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-8) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

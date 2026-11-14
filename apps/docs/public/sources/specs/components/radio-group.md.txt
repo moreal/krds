@@ -12,11 +12,11 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `default`, `chip`, `medium`, `large`. 이는 네이티브 케이스 이름이며, 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형/예시 헤딩은 근거 부록에 그대로 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름 있는 fieldset/legend 그룹 안에 같은 `name`의 네이티브 `input[type=radio]`와 오른쪽 레이블을 연결합니다. 기본은 세로이며, 가로 배치는 충분한 간격이 필요합니다. 정확한 선택이 중요한 경우 미리 선택하지 않습니다. 선택적 “없음/모름”은 호스트가 명시하는 옵션입니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: `options: readonly RadioGroupOption[]`(`RadioGroupOption`은 기존 `SelectOption`을 확장하며 선택적 `id?:string`을 가짐), `name`, `value?: string | null`, `defaultValue?: string | null`(비제어 기준선은 `null`), `onValueChange({value:string | null})`, `required=false`, `disabled=false`, `invalid`/`errorId`/`helpId`, `size=medium`, `appearance=default|chip`. `null`을 포함해 정의된 `value`는 제어 모드를 택하며, `undefined`만 비제어를 뜻합니다. `null`은 체크된 라디오가 없음을 뜻합니다. 빈 문자열 `""`을 포함한 모든 문자열은 유효한 일반 옵션 값이며, 고유한 옵션 하나와 정확히 일치해야 합니다. 빈 문자열도, 없는 옵션도 빈 값 표지(sentinel)가 아닙니다. 알 수 없는 non-null 값과 중복 옵션 값은 설정 오류입니다. “없음/모름” 옵션을 자동으로 넣지 않으며, 그것은 호스트가 명시하는 콘텐츠입니다.
 
@@ -24,25 +24,25 @@
 
 **명시적 옵션 식별(추가 조합 API):** 옵션은 실제 네이티브 라디오 입력에 쓸 비어 있지 않은 고유 `id`를 줄 수 있습니다. 그 ID를 그대로 적용하고 실제 레이블을 같은 컨트롤에 연결하며, 중복 프록시 입력을 만들거나 ID를 선택 값으로 쓰지 않습니다. 생략하면 기존의 안정적인 생성 ID 동작이 그대로입니다. 중복되거나 빈 명시 ID는 설정 오류입니다. 이 라디오 전용 하위 타입은 NativeSelect와 무관한 `SelectOption` 계약에 ID를 더하거나 의미를 바꾸지 않습니다. 선택, 그룹화, `null`/빈 문자열 값, 리셋, 콜백은 그대로입니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 공식 요구 **활성화된 모든 라디오를 Tab과 Shift+Tab으로 순차 접근할 수 있어야 한다**를 보존합니다. 이는 실제 같은 `name` 네이티브 라디오 그룹화, 그리고 별도로 요구되는 화살표 이동/선택과 함께 적용됩니다([공식 L1211–1218](../../upstream/krds/raw/components/component_06_01.html:1211)). 비활성 라디오는 건너뜁니다. Tab 순회는 초점만 바꿉니다. Space, 연결된 레이블/컨트롤 클릭, 해당 화살표 키가 옵션 하나를 선택하며, 중복 합성 활성화 없이 변경 값 요청 하나를 내보냅니다. 초점 링은 보이는 라디오 영역에 둡니다.
 
 고정된 같은 `name` 네이티브 예시는 브라우저의 통상적인 단일 그룹 Tab 동작을 가지며, 이는 모든 라디오 순차 접근이라는 명시적 행과 충돌합니다. 이 긴장이 그 행을 부정하거나 네이티브 기본 그룹화를 적합하다고 선언할 근거가 되지는 않습니다. 제안 계약은 활성화된 모든 라디오의 순차 접근을 보존합니다. 수용된 독립 구현 정책은 초점이 그룹 안에 있을 때 Tab/Shift+Tab을 가로채 체크 상태를 바꾸지 않고 다음/이전의 활성화된 실제 같은 `name` 네이티브 라디오로 초점을 옮기며, 그룹 경계에서는 브라우저가 빠져나가도록 허용하는 것입니다. 모든 실제 라디오는 일반 네이티브 그룹 속성을 유지하며 이름을 바꾸거나 복제하거나 대체하지 않습니다. 이로써 네이티브 화살표/폼 동작을 유지하면서 명시된 순차 접근 행을 보존합니다. 각 렌더러는 역방향 진입/이탈과 거부된 제어 선택을 검증해야 하며, 네이티브 기본 Tab만으로는 충분하지 않습니다. 각 렌더러/브라우저는 실제 라디오 폼/그룹 의미와 화살표 선택을 보존하고 Tab으로 인한 추가 선택이 없는 상태에서, 활성화된 모든 라디오에 대한 정방향·역방향 순차 접근을 입증해야 합니다. 백엔드/네이티브 기본값만으로는 이 결과의 근거가 되지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 세로 배치와 오른쪽 레이블을 선호합니다. 옵션이 많으면(익숙한 기준 7개 초과) 셀렉트(Select)가 나을 수 있습니다. 네이티브 앱/모바일 권고는 맥락에 따르며 배제가 아닙니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 `null`이면 모든 실제 라디오가 해제되고, 필수 그룹은 유효하지 않으며, FormData에 name/값이 담기지 않습니다. 체크된 활성 옵션은 정확한 문자열(빈 문자열 값 포함)을 전달하고, 비활성 컨트롤/fieldset은 제외됩니다. 취소되지 않은 리셋은 비제어 초기 `defaultValue`/`null`을 복원하고, 제어 상태는 현재 prop을 유지합니다. 모든 네이티브 체크 비트와 필수 유효성을 콜백 없이 조정합니다. 취소된 리셋은 선택도 네이티브 조정 기준선도 바꾸지 않습니다. prop에 의한 해제는 리셋도 사용자 동작도 아닙니다. 레이블과 오류/도움말 연결은 네이티브로 남아 테스트 가능해야 합니다. 편집 가능한 IME 경로는 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 정렬(정당한 우선순위가 없으면 가나다순 기본), 옵션 데이터, 필수 검증 문구는 호스트가 맡습니다. 버튼 role 대체물이 아니라 실제 네이티브 라디오의 폼 참여가 완료 조건입니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, legend, item, control, indicator, label, help, error; checked,unchecked,disabled,invalid.
 

@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `default`, `limited`, `invalid`, `disabled`, `readonly`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 실제 <textarea>에 지속적으로 연결된 레이블을 두고, 선택적 플레이스홀더/도움말/오류를 둡니다. 글자 수 제한이 있으면 최대 글자 수와 남은 글자 수를 안내합니다. 글자 수는 레이블이나 필드 뒤에 옵니다. 플레이스홀더는 레이블/도움말을 대체하지 않으며 복사/붙여넣기를 제한하지 않습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: value/defaultValue="", onValueChange({value}), name, rows=5 (제안), required/disabled/readOnly=false, maxLength?, helpId/errorId, invalid=false. 글자 수는 maxlength와 일치하도록 HTML UTF-16 코드 유닛으로 셉니다. 사용자에게 보이는 글자 수가 다르면 레이블/글자 수 문구에 이 프로젝트 정책을 드러냅니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 편집, 선택, 붙여넣기, Enter 줄 바꿈은 네이티브입니다. Tab은 초점을 일반적으로 옮기며 Enter 제출이나 단축키는 없습니다. IME 중에는 선택/조합 문자열을 보존합니다. 조합 중인 텍스트를 다시 쓰거나 자르지 않고 입력 갱신을 내보냅니다. 글자 수 표시는 키 입력마다 단호하게(assertive) 알리지 않아야 합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 예상 텍스트에 맞는 크기로 만듭니다. 더 긴 입력은 textarea 안에서 세로로 스크롤하며 화살표 키는 네이티브 편집을 유지합니다. 쓸 수 있는 크기 조절을 허용하고 좁은 화면/확대에서 리플로우합니다. 오류/글자 수가 잘리면 안 됩니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 이름이 있고 활성인 textarea는 네이티브 FormData에 참여합니다(readonly 포함, disabled 제외). 리셋은 기본 문자열과 글자 수를 복원합니다. 제어 리셋은 콜백 없이 현재 prop을 유지합니다. required/maxLength는 네이티브 유효성과 명시적 오류 연결을 함께 씁니다. 브라우저 FormData의 CRLF 의미를 보존합니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 검증 시점과 오류 문구는 컴포넌트가 아니라 호스트가 소유합니다. 완료에는 긴 입력, 붙여넣기, 한글 IME, 레이블/오류, FormData/리셋이 포함됩니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, label, control, help, error, count; disabled,readonly,invalid,focused.
 

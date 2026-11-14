@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `two-language-link`, `dropdown`, `separate-service`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 두 언어 서비스는 실제 다른 언어 링크를 노출합니다. 세 언어 이상이면 현재 언어와 선택지를 가진 이름 있는 드롭다운을 씁니다. 선택지는 해당 언어의 고유 이름을 보이고, 필요하면 현재 언어로의 번역도 함께 보입니다. 보이는 레이블로 국기나 낯선 언어 코드를 쓰지 않습니다. 각 링크의 lang은 발음되는 레이블과 일치하게 설정합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. currentLocale, options {locale,nativeLabel,translatedLabel,href,separateService?}[], open/defaultOpen=false, onOpenChange, 호스트의 같은 페이지 현지화용 선택 onLocaleRequest({locale,href})를 씁니다. 별도 서비스 링크는 새 창으로 열리며 그 동작을 표시합니다. 일반 번역 라우트는 계속 실제 링크입니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 클릭/Enter/Space로 드롭다운을 토글합니다. Tab/Shift+Tab으로 선택지를 순회합니다. 바깥 클릭은 닫습니다. Escape는 닫고 트리거로 초점을 되돌립니다. 선택지를 고르면 네이티브 href를 따르거나 명시적으로 처리되는 호스트 현지화를 실행하며, 호스트를 통해 문서 언어와 콘텐츠를 갱신합니다. 컨트롤만으로 가짜 번역 페이지를 만들지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 좁은 화면에서는 보통 햄버거 메뉴나 푸터로 옮깁니다. 언어를 자주 바꾸는 서비스는 푸터에서 바로 찾을 수 있게 둘 수 있습니다. 위치를 옮겨도 현재 로케일을 유지합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋/IME 동작은 없습니다. 번역 선택기는 폼 값을 직렬화하지 않습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 번역, 라우트 대응, 문서 lang, 별도 서비스 목적지는 호스트가 책임집니다. 완료에는 네이티브 레이블과 트리거 초점을 갖춘 로컬 라우트/번역 모의가 포함됩니다. 외부 번역 API는 쓰지 않습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, trigger, globe, current, list, option, external-icon; open,closed,current.
 

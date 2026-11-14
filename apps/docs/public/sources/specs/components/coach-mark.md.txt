@@ -12,19 +12,19 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `single`, `multi-step`, `action-gated`. 이는 네이티브 케이스 이름이며, 상태·반응형·외관 축이 공식 명명 변형인 것은 아닙니다. 공식 유형/예시 제목 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 **실제 관련 대상/컨트롤** 바로 다음에 현재 코치 팝오버가 논리적 DOM/접근성 순서로 옵니다([공식 L1123–1124](../../upstream/krds/raw/components/component_08_04.html:1123)). 스포트라이트는 대상 주변의 aria-hidden 시각 장식일 뿐입니다. 원격 오버레이/스포트라이트 뒤에 팝오버가 오는 것은 대상→안내 순서를 충족하지 못합니다. 실제 대상과 같은 관련 DOM/접근성 루트의 인접 삽입 경계를 함께 등록하고, 팝오버를 그곳에 네이티브로 렌더합니다. 이 순서를 만들려고 살아 있는 대상이나 폼 입력을 이동·교체·복제·부모 변경하지 않습니다. Portal은 등록된 인접 동일 루트 경계로만 허용되며 순서가 증명되어야 합니다. 장식용 body 수준 Portal은 충분하지 않습니다.
 
 팝오버에는 단계/제목, 간결한 안내, 현재/전체, 동작 행(중단(Stop), 이전(Previous), 다음(Next))이 있습니다. 첫 단계에는 이전이 없고, 마지막 단계의 다음은 완료(Finish)가 되며, 단일 단계는 확인(Confirm)이 됩니다. 한 번에 보이는 코치는 하나입니다. 제목은 가급적 한 줄, 안내는 3 이하이며, 페이지당 4개 이하를 권장하고 최대 15단계입니다. 동작 요구 단계 내내 네이티브 대상 조작, 레이블 관계, 값, 초점/캐럿, IME가 온전해야 합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: steps {id,targetId,title,instruction,requiresAction?}[], 등록된 인접 팝오버 삽입 경계, open/defaultOpen=false, stepId/defaultStepId, onStepChange({id,reason}), onOpenChange, `startActionId`, `fallbackFocusId?`, TutorialPanel과 연결되면 `onStop({reason,running:false,returnTo:{panel:"tutorial",open:true,startActionId}})`. 등록 계약은 일반 ID와 관계를 전달하며, 각 어댑터는 다른 렌더러 래퍼 없이 자체 네이티브 삽입 방식을 제공합니다. requiresAction 단계에는 onTargetAction({stepId,targetId}): boolean|Promise<boolean>을 제공해야 합니다. 이는 해당 실제 등록 대상의 동작이 실행된 뒤에만, 일반 ID와 네이티브 Event 없이 호출됩니다. 네이티브 호스트 클로저가 실제 커밋된 애플리케이션 상태를 검증하며, true만 다음 단계 요청 하나를 승인합니다. false, 거부, 부재는 진행시키지 않습니다. 검증자가 없는 requiresAction 구성은 잘못이며 TypeError입니다. 합성 스포트라이트 클릭이 아니라 네이티브 대상 핸들러/커밋 뒤에 호출합니다. 검증이 보류 중이면 같은 단계의 중복 활성화를 합칩니다. 실제 open/단계/대상 세대에 묶으며, 닫기·단계 변경·라우트 변경·대상 제거·언마운트는 보류 중인 결과를 무효화합니다. 오래된 true는 진행시키거나 초점을 복원하지 않습니다. 제어에서 거절된 진행은 현재 단계를 유지하며, 이후 별개의 실제 동작이 다시 요청할 수 있습니다. 마운트, prop, 초점은 검증자를 호출하지 않습니다. 이는 공식 실제 동작 결과를 보존하는 독립적이고 구체적인 호스트 검증 API입니다.
 
 제어/기본값 및 모드 전환 금지 규칙은 [파일럿 규약](./README.md)을 따릅니다. 연결 모드에서는 튜토리얼 조정자가 커밋된 running/단계/대상 상태에서 CoachMark 표시를 도출하며, 합동 onStop 요청이 유일한 중단 트랜잭션 이벤트입니다. 독립 CoachMark의 중단은 단일 소유자를 통해 실제 open=false를 요청하며, 거부되면 열린 채로 남고 초점을 복원하지 않습니다. 마운트·prop·초점·정리는 합성 사용자 변경 이벤트를 내지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 사용자가 요청한 경우에만 시작하며 페이지 로드 시 자동 실행하지 않습니다. Tab은 필수 대상 동작을 막지 않고 실제 대상과 현재 팝오버 컨트롤을 실제 읽는 순서로 순회합니다. 독립 진입 정책은 수락된 단계 변경 시 팝오버 제목에 초점을 둡니다. Escape는 중단을 요청하되, 조합 중이거나 내부 위젯이 이미 처리했으면 요청하지 않습니다. 화면 밖의 기존 대상은 스크롤해 보이게 할 수 있습니다. 대상이 없으면 보이는 복구/중단 수단과 함께 표시를 보류하며, 꾸며 낸 대상 좌표나 대체 컨트롤을 만들지 않습니다.
 
@@ -38,19 +38,19 @@
 
 같은 중단 조정자가 이 하나의 확인을 소유하고, 경쟁하는 초점 작업을 막기 위해 모달 셸 진입/복귀를 위임합니다. 공개 Modal의 returnFocusId 규칙은 바뀌지 않습니다. 거부된 중단은 복원을 하지 않습니다. 나중의 비동기 탭/open 변경이 이미 끝난 중단 복원을 재생해서는 안 됩니다. 이후 수락된 일반 모달 닫기는 기존의 단일 닫기/복원 소유자를 쓰며, 앞선 중단 대체를 재생하지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 투어 전체에서 팝업 너비를 일관되게 하고, 충돌을 인식해 화면 안에 머물면서 대상을 가리지 않습니다. 동작 줄이기는 스포트라이트 애니메이션과 부드러운 스크롤을 없앱니다. 대상 크기 조정/스크롤은 배치를 갱신하고, 닫으면 옵저버를 정리합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼/리셋이 없습니다. 호스트가 검증한 이벤트만 실제 폼 작업을 진행시키며, 조합 중 입력은 완료로 치지 않습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 독립 API: 조합 완료에는 실제 등록된 대상→팝오버 DOM/접근성 순서, 스포트라이트 기하, 순서가 있는 작업 상태, 합동 TutorialPanel 복귀가 포함됩니다. 호스트가 인접 네이티브 삽입 경계를 제공하고 대상을 조작 가능하게 유지하며, 라우트/작업 성공, 조정된 중단/노출 상태, 경쟁 레이어 억제를 소유합니다. 동작 요구 로컬 스토리는 값/레이블/IME 동작이 온전한 채 실제 네이티브 자식 폼 컨트롤을 조작한 뒤, 검증된 동작에서 눈에 보이게 진행해야 합니다. 분리된 오버레이만으로는 완료가 아닙니다. 삽입 경계나 대상이 없으면 구성 오류 또는 보류된 대상 결과이며, 컨트롤을 복제·이동할 허가가 아닙니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, spotlight, popover, title, instruction, position, actions, stop, previous, next; open,closed,current-step,waiting,missing-target.
 

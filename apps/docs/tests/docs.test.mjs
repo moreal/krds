@@ -39,7 +39,7 @@ test('54 distinct web entries retain exact source identity, states and native pr
       assert.ok(text.includes(`| ${framework}${framework === 'solid-next' ? ' (미리보기)' : ''} |`), `${item.id}/${framework}: profile`);
       assert.ok(text.includes(`| ${row.status} |`), `${item.id}/${framework}: recorded state`);
     }
-    assert.ok(text.includes('## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}'));
+    assert.ok(text.includes('## 속성과 이벤트 {#props-events-content-and-defaults}'));
     assert.ok(text.includes('## 출처와 권리 {#source-identity-and-rights}'));
     assert.ok(!/\bas any\b/.test(text), `${item.id}: no example escape hatch`);
   }

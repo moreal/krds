@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `static`, `toggle`, `removable`, `add-filter`, `link`. 이는 네이티브 사례 이름입니다. 상태, 반응형, 외관 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형/예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 레이블/컨테이너에 선택적 선행 체크 아이콘 또는 후행 삭제 아이콘이 붙습니다. 그룹은 대화형 또는 비대화형 중 하나로 통일합니다. 일괄 액션은 그룹 우측에, 더 보기 컨트롤은 선택적으로 둡니다. 필터링/삭제에는 실제 버튼을, 탐색 예시에만 실제 링크를 사용합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: items {id,label,href?}[], mode=static|toggle|removable|add-filter|link, selectedIds/onSelectionChange, onRemove({id}), onAdd({id}), onClear(), appliedBarId. mode가 의미를 결정합니다. toggle은 aria-pressed를 사용합니다. 삭제 이름은 “[label] 옵션 삭제”, 추가 이름은 “[label] 필터 옵션 추가”입니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 대화형 그룹에 진입하면 첫 태그에 초점이 갑니다. 태그 탭 정지점은 하나이며 roving 초점을 씁니다(ArrowLeft/Right/Home/End 제안). 공식 Space/Enter keyup 활성화는 keydown과 네이티브 click으로 두 번 실행되지 않고 한 번만 실행되어야 합니다. 토글은 초점을 유지합니다. 필터를 추가하면 초점이 적용된 필터 막대로 이동합니다. 삭제하면 초점이 이전의 남은 활성 태그로 이동하고, 없으면 다음의 남은 활성 태그로, 사용할 태그가 없으면 실제 그룹 컨테이너로 이동합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 레이블은 2단어 이내로 줄 바꿈 없이 짧게 하고 색은 최소한으로 일관되게 씁니다. 숨겨진 넘침 태그는 더 보기가 드러내기 전까지 접근할 수 없습니다. 네이티브 터치 대상과 초점 링은 분명해야 합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 자동 폼 직렬화는 없습니다. 필터링 상태는 호스트가 소유합니다. 폼에 명시적으로 조합한 경우 그룹 리셋은 호스트 기본 selectedIds를 복원할 수 있습니다. IME는 사용자 지정 Enter 동작을 일으키면 안 됩니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 실제 필터 결과와 적용 막대 대상은 호스트가 소유합니다. 로컬 스토리는 로그만 내보내지 않고 데이터를 눈에 보이게 필터링하며 초점을 관리해야 합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, label, icon, remove, clear, more; selected,disabled,expanded.
 

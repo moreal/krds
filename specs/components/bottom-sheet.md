@@ -12,35 +12,35 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `modal`, `short-content`, `select-cancel`. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형·예시 제목은 근거 부록에 그대로 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 하단 오버레이/시트에는 선택적 시각 헤더, 드래그 핸들, 본문, 분명히 알아볼 수 있는 상단 닫기 버튼이 있습니다. 닫기는 확정되지 않은 선택·동작을 취소합니다. 시트는 한 번에 하나만 둡니다. 긴 정책·작업 단계 콘텐츠는 피합니다. 원문의 핸들 설명은 슬라이더 문구를 반복한 것이며 범위 컨트롤을 구현하라는 지시가 아닙니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: open/defaultOpen=false, onOpenChange({open,reason}), 필수 접근 가능한 제목(보이는 제목 또는 aria-label), description?, content, onCancel(), initialFocusId?, returnFocusId?, dismissOnOutside=false. 첫 계약은 모달 전용입니다. 드래그로 닫기는 선택이며 동등한 닫기 동작이 있어야 합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 정의된 value/open은 제어 모드이고 undefined는 비제어 모드입니다. 제어 prop과 기본값을 함께 주거나 모드를 바꾸면 잘못된 구성입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 시맨틱 변경 요청을 한 번 내보냅니다. 비활성, 변화 없음, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 모드에서 거부되면 커밋된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드로 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 독립 네이티브 정책은 검토된 Modal의 dialog 역할과 초점 진입, 트랩, 배경 격리, Escape, 여는 요소로의 복귀·언마운트 정리를 따릅니다. 닫기는 이름이 있는 type=button입니다. 포인터 핸들은 아래로 드래그하거나 탭하여 닫기를 요청할 수 있으며, 드래그가 유일한 닫기 수단이어서는 안 됩니다. 취소하면 호스트가 초안 값을 복원하며 조용히 커밋하지 않습니다.
 
 **독립 핸들 이름과 구조 순서:** 초점을 받을 수 있는 탭하여 닫기 컨트롤로 렌더링된 핸들은 모든 렌더러에서 “시트 닫기”라는 이름의 `type=button`입니다(보이는 텍스트 없음, 막대는 공유 CSS가 그림). 탭은 이유 `close`로 닫기를 요청합니다(완료된 드래그는 `drag`를 한 번 보고하고 뒤따르는 클릭을 무시합니다). 순수 장식 핸들(드래그 전용)은 `aria-hidden`이며 텍스트가 없습니다. 렌더링 순서는 핸들, 헤더(제목, 닫기), 설명과 본문, 동작 순입니다. 이 문구는 로컬 기준이며 KRDS 공식 원문으로 귀속하지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 시트는 하단 안전 영역과 가상 키보드를 존중하고 높이가 제한되며, 스크롤되는 콘텐츠와 동작 버튼에 접근할 수 있습니다. 동작 줄이기는 슬라이드 이동을 제거합니다. 첫 계약에서는 시트를 겹쳐 쌓지 않습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 시트 자체의 값이나 리셋은 없습니다. 자식 폼은 독립적이며 Enter는 폼 시맨틱을 따르고 조합 중인 Escape는 무시합니다. 닫기 취소가 무관한 페이지 폼을 리셋하면 안 됩니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 선택 초안과 커밋·취소를 소유합니다. 완료에는 사용할 수 있는 대화상자, 닫기·드래그 동등성, 로컬 선택·취소 흐름이 필요합니다. 하단에 놓은 div는 완료가 아닙니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 파트: root, backdrop, content, handle, header, title, body, actions, close. 상태: open,closed,dragging.
 

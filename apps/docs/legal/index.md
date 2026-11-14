@@ -22,7 +22,7 @@ Unofficial KRDS는 독립 구현입니다. 공식 KRDS도 정부 서비스도 �
 
 ## 글꼴, 의존성, 로컬 미디어 {#fonts-dependencies-and-local-media}
 
-Pretendard GOV 글꼴 바이트는 자체 OFL 라이선스, 저작자 표시, 출처를 유지합니다. 이 사이트는 원본 로컬 Pretendard GOV Regular, Medium, Bold 파일을 sans-serif 대체 글꼴과 함께 불러옵니다. 독립 제작한 단색 워드마크와 K 아이콘은 Pretendard GOV로 만든 윤곽선 아트워크입니다. 이는 원본 글꼴 소프트웨어를 재라이선스하지 않으며 정부 보증을 뜻하지도 않습니다. 의존성은 원래 라이선스와 고지를 유지합니다. 재배포하는 관련 바이트와 함께 패키지의 `LICENSE.md`, `LICENSES/`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md`, `provenance.json`을 보관합니다.
+Pretendard GOV 글꼴 바이트는 자체 OFL 라이선스, 저작자 표시, 출처를 유지합니다. 이 사이트는 원본 로컬 Pretendard GOV Regular, Medium, Bold 파일을 sans-serif 대체 글꼴과 함께 불러옵니다. 독립 제작한 단색 워드마크와 K 아이콘은 Pretendard GOV로 만든 윤곽선 아트워크입니다. 이는 원본 글꼴 소프트웨어를 재라이선스하지 않으며 정부 보증을 뜻하지도 않습니다. 미리보기의 프레임워크 탭에 쓰는 로고는 Simple Icons(CC0-1.0)의 아이콘 데이터이며, 각 이름과 로고의 상표권은 해당 프로젝트에 있습니다. 어떤 프레임워크의 미리보기인지 알리는 용도로만 쓰며 제휴나 보증을 뜻하지 않습니다. 의존성은 원래 라이선스와 고지를 유지합니다. 재배포하는 관련 바이트와 함께 패키지의 `LICENSE.md`, `LICENSES/`, `ATTRIBUTION.md`, `THIRD-PARTY-NOTICES.md`, `provenance.json`을 보관합니다.
 
 현재 미디어 시연에는 사용 허락이 확인된 로컬 수학적 톤, 기하학적 비디오, VTT 픽스처만 쓸 수 있습니다. 이 작업에서 사용 허락이 확인된 Yuna 녹음은 없습니다. 로컬 자산이 있다는 사실만으로 재배포 허가의 증거가 되지 않습니다. 실제 자산 출처 기록과 해시를 사용합니다.
 

@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `desktop-side`, `mobile-inline`, `mobile-disclosure`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 구성은 개요 제목(h1 아님), 같은 문서 섹션 링크의 중첩 목록, 활성 섹션 표시입니다. 데스크톱 CSS가 오른쪽에 두더라도 마크업은 페이지 제목과 본문 사이에 둡니다. 링크 레이블은 대상 헤딩과 일치해야 합니다. 단계는 최대 세 개이며 보통 한 개를 씁니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. sections {id,label,children?}[], title="이 페이지의 구성", activeId/onActiveChange({id,reason}), 선택적 접이식 좁은 화면 모드를 씁니다. 실제 앵커가 등록된 섹션을 가리킵니다. 활성 상태는 링크 활성화와 무관하게 스크롤 관찰을 따릅니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 변경 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 Tab/Shift+Tab으로 링크를 순회합니다. Enter와 공식 Space 동작은 대상 헤딩/섹션으로 스크롤하고 초점을 옮깁니다. 마우스 클릭은 스크롤하되 초점은 링크에 남습니다. Space의 페이지 스크롤 방지는 개요 링크 활성화에서만 하고, 조합 입력은 무시합니다. 스크롤 관찰자의 패시브 갱신으로는 초점을 옮기지 않습니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 데스크톱에서는 오른쪽에 배치합니다. 좁은 화면에서는 개요가 제목과 본문 사이에 고정되지 않은 채 놓이며, 길면 선택적으로 Disclosure를 씁니다. 고정 헤더 오프셋과 동작 줄이기를 고려합니다. 무한 스크롤 개요는 없습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값과 리셋은 없습니다. 키보드 처리가 조합(composing) 이벤트를 받을 때만 IME를 고려한 키 필터링을 합니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 일치하는 안정적인 섹션 헤딩/대상을 제공하며 섹션을 제거할 수도 있습니다. 언마운트·라우트 변경 시 관찰자를 정리하고, 오래된 대상에 초점을 두지 않고 활성 상태를 갱신합니다. 완료하려면 실제 목적지가 있는 긴 페이지가 필요합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, header, title, list, item, link, indicator, disclosure-trigger; active,expanded/collapsed.
 

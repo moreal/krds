@@ -12,17 +12,17 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `desktop-open`, `narrow-modal`, `initial`, `context-detail`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 본문 뒤에 열기 버튼과 도움 패널이 옵니다. 패널 헤더에는 선택 도움말/따라하기 탭과 닫기 버튼이 있습니다. 내용은 초기 안내 또는 맥락별 제목/본문이며, 구분선과 관련 링크/도움 채널 푸터가 이어집니다. 관련 필드·섹션 옆의 맥락 아이콘 트리거는 고유한 이름을 가집니다. 섹션 제목은 연결된 레이블과 일치해야 합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API입니다. open/defaultOpen(넓은 레이아웃에서 true), selectedTopicId/defaultSelectedTopicId=null, onOpenChange({open}), onTopicChange({id}), topics {id,title,content,relatedLinks}[], 조합 시 mode=help|tutorial, `fallbackFocusId?`를 씁니다. 닫았다 다시 열어도 마지막 주제를 보존합니다. 내용은 명시적 맥락 트리거에서만 바뀝니다. 패널 열기 버튼은 별도의 지속되는 “패널 열기” 버튼입니다. 이번 열기를 시작한 맥락 주제 아이콘이 그 역할을 하지 않습니다.
 
 [파일럿 제어/리셋 규약](./README.md)은 선언된 각 제어 필드에 적용됩니다. prop이 우선하고, 기본값은 한 번만 읽으며, 제어와 기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 사용자 요청은 변경당 하나이며, 마운트·prop·리셋 콜백은 없습니다. 거부된 제어 닫기는 보이는 패널과 그 좁은 화면 모달 격리·트랩을 유지하며 초점 복귀를 앞당기지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 열면 패널 컨테이너 자체에 초점이 갑니다. 데스크톱 패널은 트랩 없이 Tab으로 벗어날 수 있습니다. 좁은 화면 표현은 실제로 열려 있는 동안 모달(Modal)과 같은 초기 컨테이너 초점, 격리, 스크롤 잠금, 최상위 Escape, Tab 순환을 씁니다. 링크는 새 창으로 열리며 그 목적을 알려야 합니다.
 
@@ -30,19 +30,19 @@
 
 실제 true→false 전환이 수용되면 먼저 이 패널의 격리와 스크롤 잠금을 해제합니다. 그런 다음 초점을 정확히 한 번 옮깁니다. 순서는 다음과 같습니다. 사용 가능한 패널 열기 버튼, 없으면 사용 가능한 fallbackFocusId, 없으면 저장된 시작 주제 아이콘(사용 가능할 때), 없으면 그 아이콘에서 가장 가까운 사용 가능한 초점 가능 상위 요소, 없으면 임시 tabindex=-1을 단 document body(이전 tabindex는 복원). 사용 가능은 마운트됨, 보임, 활성, 초점 가능, 같은 라이브 문서, inert 아님을 뜻합니다. 열린 패널이 언마운트될 때도 정리 후 복귀 정책이 돌며 합성 변경 이벤트는 내지 않습니다. 거부된 제어 닫기는 이 중 아무것도 하지 않으며 초점은 활성 좁은 화면 모달 안에 남습니다. 따라하기/코치마크 중단 트랜잭션이 이 전환을 소유하면 두 소유자를 함께 돌리지 않고 복원을 그 코디네이터 하나에 명시적으로 넘깁니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 넓은 화면에서는 초기 안내와 함께 패널이 열린 채 시작합니다. 좁은 화면에서는 처음에 열기 버튼만 보이고 열면 모달이 됩니다. 해당하는 경우 아이콘 대상 크기를 44px 이상으로 유지하고, 필수 정보를 도움말에만 숨기지 않습니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 집계된 폼/리셋은 없습니다. 패널은 본문에서 입력 중인 값을 지우거나 조합 중인 키를 가로채서는 안 됩니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 component→composition을 권고합니다. 주제 트리거, 상태를 가진 패널, 선택 탭(Tabs)/따라하기 패널(TutorialPanel), 좁은 화면의 모달(Modal), 관련 링크를 포함합니다. 완료하려면 동작하는 필드/주제 데모와 반응형 셸이 필요합니다. 도움말 콘텐츠, URL, 외부 도움 채널은 호스트가 책임집니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, opener, topic-trigger, header, tabs, close, title, body, related; open,closed,active-topic,modal.
 

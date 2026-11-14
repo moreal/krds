@@ -9,7 +9,7 @@ export const scenarioKey = entry => entry.exampleId === 'default' ? entry.compon
 
 export const READY = '미리보기가 준비되었습니다.';
 export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
-const RESET = '초기화 / 다시 시도';
+const RESET = '초기화';
 // Acceptance outcomes that are invariants: critical-alert cannot be dismissed; header keeps its order while scrolling.
 const invariant = new Set(['critical-alert', 'header']);
 const benignFailure = text => /ERR_ABORTED|cancelled|Load request cancelled|interrupted/i.test(text ?? '');
@@ -117,7 +117,7 @@ export async function runRow({ browser, browserName, origin, entry, manifest, re
     const demo = page.locator('.native-demo');
     assert.equal(await demo.count(), 1, 'exactly one native demo section');
     await demo.scrollIntoViewIfNeeded();
-    assert.equal(await page.getByLabel('프레임워크 패키지', { exact: true }).inputValue(), entry.framework, 'framework selector binding');
+    assert.equal((await demo.locator('.native-demo-frameworks > [role="tablist"] > [role="tab"][aria-selected="true"]').textContent()).trim(), entry.label, 'framework tab binding');
     assert.equal((await page.locator('.native-demo-package').textContent()).replace(/\s+/g, ' ').trim(), `${entry.package} ${entry.packageVersion}`, 'displayed package identity');
     if (entry.status === 'unavailable') {
       await page.waitForTimeout(400);
@@ -161,7 +161,7 @@ export async function runRow({ browser, browserName, origin, entry, manifest, re
         }
         if (s === example) row.sourceBytes = bytes;
       }
-      assert.equal(await demo.locator('.native-demo-source select').inputValue(), example.path, 'selected source file');
+      assert.equal(await demo.locator('.native-demo-download a').getAttribute('href'), example.downloadUrl, 'shown source is the example file');
       // Ranged example: excerpts (exact range bytes) by default, full file only behind "전체 파일 보기".
       const display = expectedSourceDisplay(example, row.sourceBytes);
       const source = demo.locator('.native-demo-source');
@@ -204,6 +204,7 @@ export async function runRow({ browser, browserName, origin, entry, manifest, re
       // The on-demand full file is checked last: activating a shell control moves page focus (and
       // scroll) out of the frame, which must not precede the initial/reset baselines or scenarios.
       if (example.excerpts?.length) {
+        await demo.getByRole('tab', { name: '코드', exact: true }).click();
         await source.getByRole('button', { name: '전체 파일 보기' }).click();
         await expect.poll(() => source.locator('pre code').count(), { message: 'full file opens on demand' }).toBe(display.length + 1);
         assert.equal(await source.locator('pre code').last().textContent(), fullBytes.toString(), 'full file equals downloaded bytes');

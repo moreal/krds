@@ -4,11 +4,11 @@ title: 'Spinner'
 
 # Spinner {#spinner}
 
-스피너 · `Spinner`
+스피너 · `Spinner` — 처리가 진행 중임을 알립니다.
 
 [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_07_02.html) · [전체 명세](/sources/specs/components/spinner.md.txt) · [프레임워크 지원](../compatibility/)
 
-## 네이티브 지원 현황 {#native-availability}
+## 프레임워크 지원 현황 {#native-availability}
 
 상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
 
@@ -23,9 +23,19 @@ title: 'Spinner'
 | angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
 | solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
 
-## 속성·이벤트·콘텐츠·기본값 {#props-events-content-and-defaults}
+## 속성과 이벤트 {#props-events-content-and-defaults}
 
-모든 프레임워크가 공유하는 의미 계약입니다. 콜백 이름과 detail 타입은 그대로 씁니다. 네이티브 콘텐츠, ref, 이벤트 전달은 각 어댑터가 맡습니다. 선택 속성의 기본값은 자동으로 채워지지 않으므로 아래 안내의 명시적 기본값을 씁니다.
+모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+
+| 이름 | 타입 | 필수 | 구분 |
+| --- | --- | --- | --- |
+| `pending` | `boolean` | 필수 | 속성 |
+| `value` | `number` | 선택 | 속성 |
+| `label` | `string` | 필수 | 속성 |
+| `completionMessage` | `string` | 필수 | 속성 |
+| `size` | `Size` | 선택 | 속성 |
+
+표에 나온 타입의 정의입니다.
 
 ```ts
 export interface SpinnerContract {
@@ -39,57 +49,51 @@ export interface SpinnerContract {
 export type Size = 'small' | 'medium' | 'large';
 ```
 
-| 속성 / 콜백 | 필수 | 타입 | 역할 |
-| --- | --- | --- | --- |
-| `pending` | 예 | `boolean` | 데이터 / 상태 |
-| `value` | 아니요 | `number` | 데이터 / 상태 |
-| `label` | 예 | `string` | 데이터 / 상태 |
-| `completionMessage` | 예 | `string` | 데이터 / 상태 |
-| `size` | 아니요 | `Size` | 데이터 / 상태 |
-
-### 네이티브 콘텐츠와 이벤트 전달 {#native-content-and-event-transport}
+### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
 
 React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
 
-### 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 진행 경로·표시기는 실제 대기 중인 작업 가까이에 둡니다. 확정형(determinate)은 실제 진행률에 따라 0–360도를 시계 방향으로 채우고, 불확정형(indeterminate)은 시계 방향으로 회전합니다. 장식이 아닙니다. 1초 미만 대기에는 불필요한 스피너를 쓰지 않습니다. 영역당 스피너는 하나이며, 독립된 인라인 작업은 예외입니다.
 
-### 의미 API {#plain-semantic-api}
+### API와 기본값 {#plain-semantic-api}
 
 독립 API: pending, value?(0–100), label, completionMessage, size=medium. value가 없으면 불확정형입니다. 확정형은 min/max/now를 가진 role=progressbar입니다. 로딩·완료 안내는 애니메이션 장식과 구별되는 polite 상태입니다. 잘못되었거나 유한하지 않은 범위는 구성 오류입니다.
 
 공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-### 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+### 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 초점 이동, 키보드 동작, 초점 트랩이 없습니다. 진행률·완료를 흉내 내는 타이머를 두지 않으며, 호스트가 pending/value를 바꿉니다. polite 로딩·완료 메시지는 애니메이션 프레임마다가 아니라 실제 수명주기당 한 번 나옵니다.
 
-### 반응형·모바일 요구 {#responsive-mobile-requirements}
+### 반응형 동작 {#responsive-mobile-requirements}
 
 크기를 충분히 확보하고 경로·배경 대비는 3:1 이상입니다. 동작 줄이기에서는 연속 회전을 안정적인 진행률·레이블로 대체하며, 이는 독립 정책입니다. 출처는 0에서 멈추지 않고 반복하라고 하므로 접근성 대안을 명시적으로 기록합니다.
 
-### 폼·리셋·조합 {#forms-reset-and-composition}
+### 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값·리셋·IME 동작은 없습니다.
 
-### 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 실제 로딩 수명, 콘텐츠 준비 상태, 대상 영역의 aria-busy를 소유합니다. 완료는 실제 로컬 작업의 전환과 접근 가능한 시작·종료를 요구하며, 영구히 도는 링은 인정하지 않습니다.
 
-### 고정 파트와 상태 {#stable-parts-and-states}
+### 파트와 상태 속성 {#stable-parts-and-states}
 
 root, track, indicator, label, status; pending,complete,determinate,indeterminate.
 
 렌더링되는 모든 소유 파트는 `data-krds-component="spinner"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
 
-## 상태 예제와 네이티브 검사 {#state-examples-and-native-checks}
+## 지원하는 변형 {#state-examples-and-native-checks}
 
-케이스: `determinate`, `indeterminate`, `inline`, `region`. 프로젝트가 정한 축이며 공식 KRDS 유형 이름은 아닙니다.
+`determinate`, `indeterminate`, `inline`, `region`
 
-### 로컬 네이티브 스토리 {#local-native-stories}
+이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
 
-이 페이지에서 조작할 수 있는 예제는 `/krds/previews/<framework>/`에 조립된 네이티브 미리보기입니다. 픽스처와 Storybook은 로컬 전용이며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
+### 예제 코드 {#local-native-stories}
+
+위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
 
 프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-36) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
 

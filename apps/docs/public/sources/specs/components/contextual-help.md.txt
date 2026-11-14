@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `information`, `help`, `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center`, `bottom-right`. 이는 네이티브 케이스 이름이며, 상태·반응형·외관 축이 공식 명명 변형인 것은 아닙니다. 공식 유형/예시 제목 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 연관된 필드/레이블 옆에 이름 있는 정보/물음표 버튼을 두고, DOM에서 바로 다음에 팝오버(제목, 선택적 링크가 있는 본문, 닫기 버튼)를 둡니다. 중첩된 도움말/모달은 없으며, 필수 작업 정보를 여기에만 숨기지 않습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: open/defaultOpen=false, onOpenChange({open}), title, content, variant=information|help, placement=bottom-start 기본(공식 여섯 정렬을 매핑), triggerLabel, relatedId. 네이티브 버튼은 aria-expanded/controls를 갖고, 비모달 팝오버 영역에는 레이블이 있으며, 상호작용 콘텐츠에 tooltip 역할을 쓰지 않습니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 커밋된 UI와 초점 상태를 유지합니다. 취소된 리셋은 아무 일도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며, 제어 prop이 계속 우선합니다. 추가 필드로 렌더러/머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 클릭/Enter/Space로 열거나 토글합니다. 링크가 있으면 열릴 때 첫 상호작용 요소에 초점을 둡니다. Tab으로 벗어날 수 있습니다(트랩 없음). 바깥 클릭, Escape, 트리거 토글로 닫으며 공식 표대로 트리거로 초점을 돌려줍니다. Escape는 조합 중이거나 이미 처리된 이벤트를 무시합니다. 트리거가 제거되면 제공된 쓸 수 있는 복귀 대상, 없으면 body로 대체합니다. 실제로 닫힌 경우에만 복원합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 충돌 시 뒤집기/이동으로 팝업 전체를 화면 안에 두고 트리거나 중요한 대상을 가리지 않습니다. 뷰포트가 매우 작으면 콘텐츠를 스크롤하며, 200–400% 확대에서 불투명한 잘림이 없어야 합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 상태가 없습니다. 도움말 버튼은 type=button이며, 조합 중 Escape는 무시됩니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 짧은 맥락 콘텐츠와 새 창 링크를 소유하고, 같은 작업에서 HelpPanel과 동시에 쓰지 않습니다. 완료에는 실제 상호작용 링크 초점, 닫기, 재배치 동작이 필요합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, trigger, icon, popover, title, body, close; open,closed,placement.
 

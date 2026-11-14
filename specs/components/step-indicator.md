@@ -12,33 +12,33 @@
 
 지원하는 네이티브 사례(변형·상태 축): `sequential`, `adaptive`, `compact`. 이는 네이티브 사례 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 레이블이 있는 3–7개 단계를 네이티브 순서 목록으로 둡니다. 단계 번호, 현재·완료 단서, 연결선을 포함합니다. 현재 상태는 aria-current=true 또는 동등한 텍스트로 알리며, 완료를 색만으로 나타내지 않습니다. 프로세스는 정적 표시기일 수도 있고, 호스트가 허용하면 명시적 내비게이션일 수도 있습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: steps {id,label,status:pending|current|complete,href?,optional?}[], mode=sequential|adaptive. 선택적 onStepRequest({id})는 내비게이션이 구성된 경우에만 둡니다. 막힌 이후 단계와 선택 단계의 건너뛰기 컨트롤은 프로세스 소유자가 결정합니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 정적 레이블은 Tab 정지점이 아닙니다. 실제로 이동할 수 있는 단계는 앵커나 이름 있는 작업 버튼을 씁니다. 비활성 이후 단계는 활성화할 수 없습니다. 단계를 선택하면 검증이 완료된다는 암시를 하지 않습니다. 선택 단계의 건너뛰기는 명시적인 이름과 도착지를 가집니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 좁은 화면의 압축 보기는 현재/전체만 보여 줄 수 있습니다(예: 4단계 중 1단계). 숨겨진 초점 가능 단계 없이 접근 가능한 전체 프로세스 개요를 유지합니다. 왼쪽→오른쪽 또는 위→아래의 논리적 진행을 유지합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼 값·리셋·IME 상태는 없습니다. 자식 단계의 폼은 호스트가 소유합니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 프로세스 상태, 완료된 선행 조건, 경로·검증, 선택 건너뛰기를 소유합니다. 완료는 색 점만이 아니라 실제 순차·적응형 로컬 흐름을 포함합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, list, item, number, label, connector, current-indicator, complete-indicator; current,complete,pending,blocked.
 

@@ -49,8 +49,8 @@ export async function shellProof({ browser, browserName, origin, framework, regi
     const others = [...new Set(registry.filter(r => r.componentId === 'button' && r.framework !== framework).map(r => r.framework))];
     if (others.length) {
       await page.goto(`${origin}/krds/components/button.html?framework=${framework}`); await ready(page);
-      const selector = page.getByLabel('프레임워크 패키지', { exact: true });
-      await selector.focus(); await selector.selectOption(others[0]);
+      const selector = page.locator('.native-demo').getByRole('tab', { name: registry.find(r => r.framework === others[0]).label, exact: true });
+      await selector.focus(); await page.keyboard.press('Enter');
       assert.ok(await selector.evaluate(node => node === document.activeElement), 'package switch keeps selector focus');
       assert.equal(new URL(page.url()).searchParams.get('framework'), others[0]);
       const target = registry.find(r => r.framework === others[0] && r.componentId === 'button' && r.exampleId === 'default');
@@ -77,7 +77,7 @@ export async function shellProof({ browser, browserName, origin, framework, regi
       // A tiny size message clamps to the registry floor (minHeight, then the layout floor), not a fixed 240.
       const floor = frameFloor(registry.find(r => r.framework === framework && r.componentId === component && r.exampleId === 'default'));
       await send('size', 1); await page.waitForFunction(expected => document.querySelector('.native-demo iframe').style.height === expected, `${floor}px`);
-      const old = currentSrc, oldToken = tokenOf(); await page.getByRole('button', { name: '초기화 / 다시 시도' }).click();
+      const old = currentSrc, oldToken = tokenOf(); await page.getByRole('button', { name: '초기화', exact: true }).click();
       await page.waitForFunction(previous => document.querySelector('.native-demo iframe')?.getAttribute('src') !== previous, old); await ready(page);
       currentSrc = await page.locator('.native-demo iframe').getAttribute('src'); assert.notEqual(currentSrc, old);
       // A stale token from the disposed frame is ignored by the fresh session.
@@ -85,8 +85,11 @@ export async function shellProof({ browser, browserName, origin, framework, regi
       await send('size', 1111, oldToken); await page.waitForTimeout(50); assert.notEqual(await page.locator('.native-demo iframe').evaluate(node => node.style.height), '1111px');
       await iframe.getByRole('button', { name: '문서로 돌아가기' }).click(); await page.waitForFunction(() => document.activeElement?.classList.contains('native-demo-exit'));
       const code = await page.locator('.native-demo pre code').first().textContent();
+      const view = name => page.locator('.native-demo').getByRole('tab', { name, exact: true }).click();
+      await view('코드');
       if (clipboard) { await page.locator('.native-demo').getByRole('button', { name: '코드 복사', exact: true }).first().click(); assert.equal(await page.evaluate(() => navigator.clipboard.readText()), code); }
-      const href = await page.locator('.native-demo-source').getByRole('link', { name: '원본 소스 다운로드' }).getAttribute('href'); const bytes = await (await page.request.get(origin + href)).body();
+      await view('미리보기');
+      const href = await page.locator('.native-demo-download a').getAttribute('href'); const bytes = await (await page.request.get(origin + href)).body();
       // A ranged example shows its first excerpt (exact range bytes); the download is the full file.
       const shown = registry.find(r => r.framework === framework && r.componentId === component && r.exampleId === 'default');
       const example = shown?.sources?.find(s => s.downloadUrl === href);

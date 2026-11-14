@@ -76,24 +76,35 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: var(--krds-pc-font-
  .docs-demo { padding: var(--krds-padding-5); }
  .docs-reading { margin-block-start: .8rem; gap: 1.6rem; }
  .docs-article > h1:first-child { margin-block-start: .8rem; }
- .native-demo-toolbar { gap: .4rem; }
- .native-demo-toolbar > div { flex-basis: 100%; }
  .native-demo-actions { gap: .8rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media (forced-colors: active) { body { background: Canvas; color: CanvasText; } }
 /* Result-first native playground, independent of runtime styling inside its frame. */
 .native-demo { margin-block: 1.6rem 3.2rem; min-inline-size: 0; }
-.native-demo-toolbar, .native-demo-actions { display: flex; flex-wrap: wrap; align-items: end; gap: 1.2rem; }
-.native-demo-toolbar > div { flex: 1 1 22rem; }
+.native-demo-actions { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+/* Framework tabs: logo beside the name; the panel sits close under the tab row. */
+.native-demo-frameworks > [data-krds-part="list"] { gap: 0; border-block-end: 1px solid var(--krds-light-color-border-gray-light); }
+.native-demo-frameworks > [data-krds-part="list"] > [data-krds-part="trigger"] { padding-inline: var(--krds-padding-5); }
+.native-demo-frameworks > [data-krds-part="panel"] { margin-block-start: 1.2rem; }
+.native-demo-framework { display: inline-flex; align-items: center; gap: .8rem; }
+.native-demo-framework > svg { inline-size: 2rem; block-size: 2rem; flex: none; fill: currentColor; }
+@media (forced-colors: active) { .native-demo-framework > svg { fill: CanvasText; } }
 .native-demo-package { font-size: 1.4rem; overflow-wrap: anywhere; margin: 0; }
-.native-demo-actions { margin-block: 1.2rem; align-items: center; }
-.native-demo-status { font-size: 1.4rem; margin-block: .8rem; }
+.native-demo-actions { margin-block: 0 1.2rem; align-items: center; }
+/* The status shares the action row, so its text changing never moves the frame. */
+.native-demo-status { font-size: 1.4rem; margin: 0 0 0 auto; color: var(--krds-light-color-text-subtle); }
+/* Preview / code views: a lighter second tab row inside the framework panel. */
+.native-demo-views { margin-block-start: 1.2rem; }
+.native-demo-views > [data-krds-part="list"] { gap: 0; }
+.native-demo-views > [data-krds-part="list"] > [data-krds-part="trigger"] { min-inline-size: 0; block-size: var(--krds-size-height-5); padding-inline: var(--krds-padding-5); font-size: 1.5rem; background: transparent; border-color: transparent; }
+.native-demo-views > [data-krds-part="panel"] { margin-block-start: 1.2rem; }
+.native-demo-views .native-demo-source { margin-block-start: 0; }
+/* Keyboard helpers appear only while focused. */
+.native-demo-skip:not(:focus-within), .native-demo-exit:not(:focus) { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .native-demo iframe { width: 100%; display: block; border: 1px solid var(--krds-light-color-border-gray-light); border-radius: .8rem; background: white; }
 .native-demo-source { margin-block-start: 1.6rem; min-inline-size: 0; }
-.native-demo-source > div[data-krds-component="native-select"] { margin-block-end: .8rem; }
-.native-demo-source select { inline-size: 100%; text-overflow: ellipsis; }
-.native-demo-path { margin-block: 0 .8rem; font-size: 1.4rem; overflow-wrap: anywhere; }
+.native-demo-download { margin-block: .8rem 0; font-size: 1.4rem; }
 .native-demo-source .docs-code pre { max-block-size: 48rem; }
 .native-demo-excerpt { margin: .8rem 0 1.2rem; min-inline-size: 0; }
 .native-demo-excerpt > figcaption { margin-block-end: .4rem; font-size: 1.4rem; font-weight: 700; overflow-wrap: anywhere; }

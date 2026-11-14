@@ -12,11 +12,11 @@
 
 지원하는 네이티브 케이스(변형·상태 축)는 `single`, `multiple`, `button`, `dropzone`, `pending`, `success`, `error`입니다. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 자동으로 공식 명명 변형이 되지는 않습니다. 공식 유형·예시 헤딩 원문은 근거 부록에 남아 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 순서는 다음과 같습니다. 섹션 레이블/제목, 선택 설명, 유형·크기·개수 제약, 실제 파일 선택 컨트롤, 선택 드롭 영역, 개수, 파일 레코드(이름/확장자/크기/상태/삭제). 단일 파일은 p로, 다중 파일은 ul/li로 묶습니다. 삭제 버튼은 해당 파일 텍스트로 설명합니다. 긴 파일 이름은 시각적으로 한 줄로 두고 접근 가능한 이름에는 전체를 담습니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 **제어 전용 확정 파일 집합**을 씁니다. 필수 `files: readonly FileRecord[]`는 처음에 `[]`로 명시해 전달합니다. defaultFiles나 비제어 기준선(비어 있지 않은/빈)은 없습니다. `FileRecord={id:string,file:File,status:staged|uploading|success|error,progress?:number,error?:string}`는 고유하고 안정적인 ID와 실제 불변 File 핸들을 가집니다. 경로명이나 렌더러·머신 객체는 담지 않습니다. 다른 prop은 multiple=false, accept?, maxFiles?, maxBytes?, disabled=false, name입니다. 보관된 브라우저 File은 의도적으로 지원하는 네이티브 파일 데이터입니다. 콜백은 네이티브 Event 객체를 전달하지 않습니다. 파일 변경·삭제는 호스트가 새 files prop을 줄 때만 일어납니다. 마운트·하이드레이션·prop·리셋·재조정은 사용자 변경 콜백을 내지 않습니다.
 
@@ -24,25 +24,25 @@
 
 multiple=true일 때 선택기 선택과 드롭은 유효한 후보를 전달된 순서대로 현재 확정 집합 뒤에 추가하고, 기존 파일은 모두 유지합니다. 유형/확장자/크기를 검증한 뒤 남은 개수 칸을 순서대로 채우며, 초과분은 거부로 보고하되 기존 레코드는 지우지 않습니다. 새로 고른 서로 다른 File 객체는 파일명·메타데이터가 같아도 새 ID를 받습니다. 내용 중복 제거는 주장하지 않습니다. 이미 확정된 바로 그 File 객체는 중복이므로 아무 일도 하지 않습니다. multiple=false이면 유효한 후보 하나가 현재 집합을 대체합니다. 여러 파일 드롭은 하나를 임의로 고르지 않고 개수 안내와 함께 통째로 거부합니다. 잘못된 선택이나 취소한 선택은 이전 집합을 지우지 않습니다. accept는 선택기 힌트로만 남습니다. 비밀번호·바이러스 검사나 선택 시 전송을 꾸며 내지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 네이티브 선택기가 OS 키보드 탐색을 맡으며 실제 사용자 동작으로만 열립니다. 드롭 영역은 클릭/키보드 선택기 대응 수단을 포함합니다. 고른 File 객체를 스냅샷한 뒤 임시 네이티브 선택기 값만 비워 같은 파일을 다시 고를 수 있게 합니다. 이 선택기는 확정 파일 저장소가 아닙니다. 취소는 files-change도 거부도 내지 않으며 확정 레코드를 보존합니다. 삭제는 최종 집합을 한 번 요청합니다. **실제로 삭제가 수용된 뒤** 초점은 앞에 남은 삭제 컨트롤로, 없으면 다음 것으로, 그것도 없으면 선택기로 옮깁니다. 거부된 삭제는 레코드·컨트롤·초점을 그대로 둡니다. 네이티브 목록을 갱신하는 동안 입력과 선택기를 안정적으로 유지합니다. 추가만으로 호스트 전송을 시작하지 않습니다. pending/success/error 레코드는 명시적 제출로 시작된 호스트 상태에서 옵니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 다중 파일용 모달 레이아웃을 쓰지 않습니다. 좁은 화면에서도 목록을 읽을 수 있고 개수가 보여야 합니다. 드래그 안내가 터치 사용자를 배제해서는 안 됩니다. pending/success/error는 아이콘과 텍스트를 함께 씁니다. 추가에 성공한 뒤에도 호스트가 입력을 비활성화하지 않는 한 선택 컨트롤을 계속 쓸 수 있어야 합니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 실제 네이티브 파일 입력은 사용자 선택기로서 계속 필요합니다. 그러나 임시 FileList는 선택기와 드롭이 누적된 저장소가 아닙니다. 비어 있지 않은 input.value를 설정하지 않으며, 네이티브 FormData가 확정 배열을 자동으로 담는다고 주장하지 않습니다. 호스트 제출 드라이버는 이 필드의 임시 선택기 항목을 제거해야 합니다. 그리고 명시적 제출 시 **현재 확정된 활성** 레코드만 정확히 `FormData.append(name,record.file,record.file.name)`으로 추가해야 합니다. 비활성 업로더는 아무것도 보내지 않습니다. 호스트의 필수·개수 검증도 빈 선택기가 아니라 확정 레코드를 읽습니다. 선택기에서 A 선택, B 드롭, 삭제 수용으로 A 제거, 제출 순서면 B만 전송해야 합니다. 거부된 추가·삭제는 이 결과를 바꾸지 않습니다.
 
 취소된 네이티브 리셋은 선택기, 확정 레코드, 오류, 미리보기에 아무 영향이 없습니다. 취소되지 않은 리셋은 선택기와 일시적 드래그·검증 상태를 비웁니다. 이 API는 제어 전용이므로 현재 files prop과 같은 제출 집합은 유지하며, files-change·삭제 알림은 0건입니다. 폼 리셋으로 확정 파일을 비우려는 호스트는 자체의 취소되지 않은 리셋 정책에서 명시적으로 files=[]를 설정합니다. 그 prop 갱신은 컴포넌트 콜백을 내지 않습니다. 비제어 리셋 기준선이 있는 것처럼 암시하지 않습니다. 컴포넌트가 소유한 객체 URL은 해당 확정 레코드가 실제로 제거·대체되거나 언마운트될 때만 해제합니다. 네이티브 리셋이 보관된 제어 파일에 필요한 미리보기를 해제해서는 안 됩니다. 명시적 제출 전에는 서버 전송·저장이 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 수용된 프로젝트 component→integration 완료 조건은 다음과 같습니다. 필수 네이티브 선택기·스테이징 UI가 명시적 호스트 FormData/전송 드라이버와 연결되어야 합니다. 공식 지침인 추가 선택 지속, 네이티브 입력, 제출 전 전송 금지([L989–1006](../../upstream/krds/raw/components/component_09_04.html:989), [L1188–1189](../../upstream/krds/raw/components/component_09_04.html:1188))는 계속 구속력을 가집니다. 드롭 문구 “업로드 시작”은 명시적 제출 경계에 맞춘 스테이징으로 해석하며, 조용히 네트워크 전송을 실행한다는 뜻이 아닙니다. 완료하려면 다음이 모두 필요합니다. 최종 집합 요청을 실제로 수락·거절하는 제어 로컬 저장소, 선택기+드롭 누적·대체, 제출된 파일 검사, 리셋 정책, 제출로 시작되는 결정적 모의 진행·실패·삭제, 미리보기 정리. 로그만 내보내거나 input type=file을 감싸기만 하는 것으로는 부족합니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 root, label, description, help, picker, file-input, dropzone, count, list, item, filename, size, status, progress, remove, error; staged,drag-over,uploading,success,error,disabled.
 

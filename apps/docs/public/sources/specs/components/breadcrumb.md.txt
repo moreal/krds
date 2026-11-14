@@ -12,33 +12,33 @@
 
 지원하는 네이티브 케이스(변형·상태 축): `default`, `collapsed`, `narrow`. 이는 네이티브 케이스 이름입니다. 상태·반응형·외형 축이 곧 공식 명명 변형은 아닙니다. 공식 유형·예시 제목은 근거 부록에 그대로 있습니다.
 
-## 네이티브 구조와 필수 순서 {#native-structure-and-mandatory-ordering}
+## 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
 
 이름 있는 `<nav aria-label="브레드크럼">` 안에 `<ol><li>`를 씁니다. 첫 항목은 홈 링크입니다. 목적지가 없어도 모든 상위 수준을 포함하며 그 경우 일반 텍스트로 표시합니다. 구분자는 보조 기술에서 숨기고 보이는 대비는 3:1입니다. 브레드크럼은 페이지 제목 앞에 옵니다. 상위 마지막 모드는 다른 콘텐츠가 끼어들지 않을 때만 현재 제목을 생략합니다.
 
-## 의미 API {#plain-semantic-api}
+## API와 기본값 {#plain-semantic-api}
 
 독립 API: items {id,label,href?}[], home {href,label}, currentItem? {id,label}, omitCurrent=true, maxVisible=데스크톱 4/좁은 화면 2. 줄임표는 홈 바로 뒤에 오며 설명용 비상호작용 텍스트이고, 지어낸 펼치기 동작이 아닙니다. items에는 홈과 현재 페이지를 제외한 조상·상위만 담습니다. `omitCurrent`는 별도의 명시적 `currentItem`만 제어합니다. 마지막 상위를 버리거나 href가 없다는 이유로 현재 페이지를 추정하지 않습니다. 상위의 href가 없으면 텍스트로 렌더링하며 항목은 남습니다. `omitCurrent=false`이면 currentItem이 필요하고 비상호작용 aria-current=page 텍스트로 덧붙입니다. 홈은 항상 별도의 첫 항목입니다.
 
 공통 상태 정책은 [현재 파일럿 규약](./README.md)을 따릅니다. 정의된 value/open은 제어 모드이고 undefined는 비제어 모드입니다. 제어 prop과 기본값을 함께 주거나 모드를 바꾸면 잘못된 구성입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 시맨틱 변경 요청을 한 번 내보냅니다. 비활성, 변화 없음, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 모드에서 거부되면 커밋된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드로 렌더러·머신 객체를 노출하지 않습니다.
 
-## 키보드·초점·상태 전이 {#keyboard-focus-and-state-transitions}
+## 키보드와 초점 {#keyboard-focus-and-state-transitions}
 
 네이티브 Tab/Shift+Tab과 Enter는 링크에만 적용됩니다. 목적지가 없는 항목과 줄임표는 탭 정지점이 아닙니다. 중간 경로를 시각적으로 접어도 보이지 않는 초점 가능 링크를 만들지 않고 접근 가능한 전체 계층을 보존합니다.
 
-## 반응형·모바일 요구 {#responsive-mobile-requirements}
+## 반응형 동작 {#responsive-mobile-requirements}
 
 한 줄로 표시합니다. 경로가 다섯 개 이상이면 홈 뒤를 접습니다. 좁은 화면에서는 홈과 마지막 상위를 보이고 그 사이에 줄임표를 둡니다. 마지막 레이블은 경로 축소 후에도 필요할 때만 잘릴 수 있으며 전체 접근 가능한 이름은 유지됩니다.
 
-## 폼·리셋·조합 {#forms-reset-and-composition}
+## 폼 제출과 초기화 {#forms-reset-and-composition}
 
 폼·리셋·IME 동작은 없습니다.
 
-## 자산·통합·조합 완료 조건 {#asset-integration-and-composition-completion}
+## 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
 
 호스트가 방문 이력이 아닌 실제 계층과 목적지, 인접한 페이지 제목을 제공합니다. 완료에는 상위 마지막 배치와 계층 픽스처가 포함됩니다. 라우터 의존성은 필요 없습니다.
 
-## 고정 파트와 상태 {#stable-parts-and-states}
+## 파트와 상태 속성 {#stable-parts-and-states}
 
 파트: root, list, item, link, home, separator, ellipsis. 상태: current,collapsed.
 

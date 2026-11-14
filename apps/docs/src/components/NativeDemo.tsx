@@ -1,5 +1,6 @@
-import { createSignal, createEffect, onMount, onCleanup, Show } from 'solid-js';
+import { createSignal, createEffect, onMount, onCleanup, Show, type JSX } from 'solid-js';
 import { NativeSelect } from '@unofficial-krds/solid/native-select';
+import { Tabs } from '@unofficial-krds/solid/tabs';
 import { Button } from '@unofficial-krds/solid/button';
 import { Link } from '@unofficial-krds/solid/link';
 import type { DemoRegistryEntry, PlayableDemo } from '../../../../tools/docs-previews/contract';
@@ -7,15 +8,16 @@ import { matchesPreviewEvent, type PreviewIdentity } from '../../../../tools/doc
 import { resolveDemoSelection } from '../demo-selection';
 import { clampFrameHeight } from '../demo-frame';
 import { NativeDemoSource, type DemoSourceFile } from './NativeDemoSource';
+import { frameworkMark } from '../framework-marks';
 export type NativeDemoRecord=DemoRegistryEntry & {files:DemoSourceFile[]};
 export function NativeDemo(props:{componentId:string;demos:NativeDemoRecord[]}) {
  const [selection,setSelection]=createSignal(resolveDemoSelection({records:props.demos}));
  const [mounted,setMounted]=createSignal(false),[generation,setGeneration]=createSignal(0),[status,setStatus]=createSignal('미리보기를 준비하고 있습니다.');
- const [nearViewport,setNearViewport]=createSignal(false);
+ const [nearViewport,setNearViewport]=createSignal(false),[view,setView]=createSignal('preview');
  // Server markup already reserves the selected example's recorded height.
  const first=selection();let sized='';
  const [height,setHeight]=createSignal(first.status==='playable'?clampFrameHeight(first,first.minHeight):240),[url,setUrl]=createSignal('');
- let region:HTMLDivElement|undefined;let frame:HTMLIFrameElement|undefined;let exit:HTMLDivElement|undefined;
+ let region:HTMLElement|undefined;let frame:HTMLIFrameElement|undefined;let exit:HTMLDivElement|undefined;
  let current:PreviewIdentity|undefined;let timer:ReturnType<typeof setTimeout>|undefined;
  const selected=()=>selection();
  onMount(()=>{
@@ -46,16 +48,26 @@ export function NativeDemo(props:{componentId:string;demos:NativeDemoRecord[]}) 
  onCleanup(()=>{clearTimeout(timer);current=undefined;});
  function initialize(){if(!current||!frame?.contentWindow)return;frame.contentWindow.postMessage({...current,type:'init',presentation:{colorMode:matchMedia('(forced-colors: active)').matches?'forced-colors':'light',reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches}},location.origin);}
  function change(framework:string,exampleId=selected().exampleId){const next=resolveDemoSelection({records:props.demos,query:`?framework=${encodeURIComponent(framework)}&example=${encodeURIComponent(exampleId)}`});setSelection(next);try{sessionStorage.setItem('krds-demo-framework',next.framework);}catch{}const target=new URL(location.href);target.searchParams.set('framework',next.framework);target.searchParams.set('example',next.exampleId);history.replaceState(null,'',target);}
- return <section class="native-demo" aria-label={`${props.componentId} 네이티브 예시`}>
- <div class="native-demo-toolbar"><NativeSelect label="프레임워크 패키지" size="small" value={selected().framework} options={[...new Map(props.demos.map(record=>[record.framework,{value:record.framework,label:record.label}])).values()]} onValueChange={({value})=>change(value)}/><p class="native-demo-package">{selected().package} <code>{selected().packageVersion}</code></p></div>
+ // Label and content are accessors so each is created where Tabs inserts it, on the server and during hydration alike.
+ const lazy=(render:()=>JSX.Element)=>render as unknown as JSX.Element;
+ const Preview=()=><>
+ <div class="native-demo-actions"><Button size="small" variant="tertiary" disabled={!mounted()} onClick={()=>setGeneration(value=>value+1)}>초기화</Button><Link href={(selected() as PlayableDemo).entryUrl} label="전체 화면에서 열기"/><span class="native-demo-skip"><Button size="small" variant="text" onClick={()=>exit?.focus()}>미리보기 건너뛰기</Button></span><p class="native-demo-status" role="status" aria-live="polite">{status()}</p></div>
+ <div class="native-demo-frame" style={{'min-height':`${height()}px`}}><Show when={url()} keyed>{src=><iframe ref={frame} src={src} title={`${selected().label} ${props.componentId} ${selected().exampleId} 네이티브 미리보기`} sandbox="allow-scripts allow-same-origin" style={{height:`${height()}px`}} onLoad={initialize}/>}</Show></div>
+ <noscript><p>미리보기 실행에는 JavaScript가 필요합니다. 아래 코드를 읽거나 전체 화면 링크를 여세요.</p><style>{'.native-demo-views > [role="tabpanel"] { display: block !important; }'}</style></noscript>
+ <div id={`demo-exit-${props.componentId}`} ref={exit} tabIndex={-1} class="native-demo-exit">미리보기 끝</div>
+ </>;
+ // The same body sits in whichever framework tab is selected; only that panel mounts it. The chosen view survives a framework change.
+ const Body=()=><>
+ <p class="native-demo-package">{selected().package} <code>{selected().packageVersion}</code></p>
  <Show when={props.demos.filter(record=>record.framework===selected().framework).length>1}><NativeSelect label="예시" size="small" value={selected().exampleId} options={props.demos.filter(record=>record.framework===selected().framework).map(record=>({value:record.exampleId,label:record.exampleId}))} onValueChange={({value})=>change(selected().framework,value)} /></Show>
- <Show when={selected().status==='playable'} fallback={<p role="status">{(selected() as Extract<DemoRegistryEntry,{status:'unavailable'}>).reason}</p>}>
- <div class="native-demo-actions"><Button size="small" variant="tertiary" disabled={!mounted()} onClick={()=>setGeneration(value=>value+1)}>초기화 / 다시 시도</Button><Link href={(selected() as PlayableDemo).entryUrl} label="전체 화면에서 열기"/><Button size="small" variant="text" onClick={()=>exit?.focus()}>예시 건너뛰기</Button></div>
- <p class="native-demo-status" role="status" aria-live="polite">{status()}</p>
- <div class="native-demo-frame" ref={region} style={{'min-height':`${height()}px`}}><Show when={url()} keyed>{src=><iframe ref={frame} src={src} title={`${selected().label} ${props.componentId} ${selected().exampleId} 네이티브 미리보기`} sandbox="allow-scripts allow-same-origin" style={{height:`${height()}px`}} onLoad={initialize}/>}</Show></div>
- <noscript><p>네이티브 예시 실행에는 JavaScript가 필요합니다. 아래에서 소스를 읽거나 전체 화면 링크를 여세요.</p></noscript>
+ <Show when={selected().status==='playable'} fallback={<><p role="status">{(selected() as Extract<DemoRegistryEntry,{status:'unavailable'}>).reason}</p><NativeDemoSource files={selected().files}/></>}>
+ <Tabs class="native-demo-views" aria-label="보기" value={view()} onValueChange={({value})=>setView(value)} items={[{value:'preview',label:'미리보기',content:lazy(()=><Preview/>)},{value:'code',label:'코드',content:lazy(()=><NativeDemoSource files={selected().files}/>)}]}/>
  </Show>
- <div id={`demo-exit-${props.componentId}`} ref={exit} tabIndex={-1} class="native-demo-exit">예시 다음: 소스 코드</div>
- <NativeDemoSource files={selected().files}/>
+ </>;
+ const frameworks=[...new Map(props.demos.map(record=>[record.framework,record.label])).entries()].map(([framework,label])=>({value:framework,
+  label:lazy(()=><span class="native-demo-framework"><Show when={frameworkMark(framework)}>{d=><svg viewBox="0 0 24 24" aria-hidden="true"><path d={d()}/></svg>}</Show>{label}</span>),
+  content:lazy(()=><Show when={selected().framework===framework}><Body/></Show>)}));
+ return <section class="native-demo" ref={region} aria-label={`${props.componentId} 네이티브 예시`}>
+ <Tabs class="native-demo-frameworks" aria-label="프레임워크" value={selected().framework} items={frameworks} onValueChange={({value})=>change(value)}/>
  </section>;
 }
