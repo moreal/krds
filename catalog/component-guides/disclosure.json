@@ -1,0 +1,29 @@
+{
+  "usage": [
+    "여러 섹션으로 이루어진 화면에서 부가 안내나 이미지 설명 같은 보충 정보를 접어 둘 때 씁니다.",
+    "오류 메시지나 꼭 봐야 하는 정보는 넣지 않습니다. 접혀 있으면 사용자가 발견하지 못할 수 있습니다.",
+    "섹션이 하나뿐인 화면이나 표의 셀 안에서는 쓰지 않습니다.",
+    "보충하려는 정보나 컨트롤 바로 아래에 두고, 처음에는 접힌 상태로 제공합니다.",
+    "한 섹션에는 하나만 씁니다."
+  ],
+  "props": [
+    { "name": "open", "default": null, "description": "펼침 상태를 직접 제어할 때 넘깁니다. 넘기면 `onOpenChange`에서 받은 값을 반영해야 펼쳐지거나 접힙니다." },
+    { "name": "defaultOpen", "default": "`false`", "description": "직접 제어하지 않을 때의 초기 펼침 상태입니다." },
+    { "name": "onOpenChange", "default": null, "description": "사용자가 버튼을 눌러 펼치거나 접으려 할 때 한 번 불리며 `{open}`을 받습니다." },
+    { "name": "label", "default": null, "description": "버튼에 보이는 텍스트입니다. 펼쳤을 때 나올 내용을 짐작할 수 있게 씁니다." },
+    { "name": "contentId", "default": null, "description": "펼쳐지는 콘텐츠 영역의 `id`입니다. 버튼과 콘텐츠를 연결하는 데 씁니다." }
+  ],
+  "keyboard": [
+    { "keys": "`Tab` / `Shift+Tab`", "action": "디스클로저 버튼으로 초점을 옮깁니다." },
+    { "keys": "`Enter` / `Space`", "action": "콘텐츠를 펼치거나 접습니다. 초점은 버튼에 남습니다." }
+  ],
+  "accessibility": [
+    "여닫는 컨트롤은 `button`이며 펼침 상태를 `aria-expanded`로, 연결된 콘텐츠를 `aria-controls`로 알립니다.",
+    "접힌 콘텐츠는 화면 낭독기가 읽지 않고, 그 안의 링크나 버튼도 `Tab`으로 닿지 않습니다.",
+    "초점이 콘텐츠 안에 있을 때 `open`을 `false`로 바꾸면 초점이 버튼으로 돌아갑니다."
+  ],
+  "notes": [
+    "`open`과 `defaultOpen`은 함께 넘기지 않습니다.",
+    "접어도 콘텐츠 안의 입력값은 사라지지 않습니다."
+  ]
+}

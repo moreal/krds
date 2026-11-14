@@ -40,13 +40,13 @@ test('fenced native source remains inert and duplicate Korean/code headings matc
 test('all real documents parse once with baseline heading parity and deterministic search records',async()=>{
  const {buildPages,buildSearchRecords}=await api(); const pages=await buildPages(site);
  const baseline=JSON.parse(await readFile(resolve(site,'tests/fixtures/vitepress-baseline.json'),'utf8'));
- assert.equal(pages.length,132);
+ assert.equal(pages.length,77);
  for(const before of baseline.pages.filter(x=>x.path!=='_legal/index.html')){
   const page=pages.find(x=>x.outputPath===before.path);assert.ok(page,before.path);
   assert.deepEqual(page.headings.map(x=>x.id),before.headingIds,before.path);
  }
  assert.ok(pages.find(x=>x.sourcePath==='components/button.md').blocks.some(x=>x.type==='table'));
- assert.ok(pages.find(x=>x.sourcePath==='examples/solid-2.md').blocks.some(x=>x.type==='code'));
+ assert.ok(pages.find(x=>x.sourcePath==='examples/solid.md').blocks.some(x=>x.type==='code'));
  const records=buildSearchRecords(pages);assert.deepEqual(records,buildSearchRecords(await buildPages(site)));
  assert.ok(records.some(x=>x.title==='Badge'&&x.text.includes('배지')));
 });
@@ -67,7 +67,7 @@ test('navigation exposes deliberate landing pages, unique real page IDs and a di
  const links=navigation.flatMap(item=>item.children??[item]);assert.equal(new Set(links.map(item=>item.id)).size,links.length);
  for(const page of pages.filter(page=>page.sourcePath&&page.sourcePath!=='index.md')) assert.equal(links.filter(item=>item.id===page.currentId).length,1,page.currentId);
  assert.deepEqual(pages.find(page=>page.sourcePath==='getting-started/forms.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'getting-started',label:'빠른 시작',href:'/krds/getting-started/installation.html'}]);
- assert.deepEqual(pages.find(page=>page.sourcePath==='compatibility/examples.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'examples',label:'네이티브 예시',href:'/krds/compatibility/examples.html'}]);
+ assert.deepEqual(pages.find(page=>page.sourcePath==='compatibility/examples.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'examples',label:'예제',href:'/krds/compatibility/examples.html'}]);
 });
 test('browser-recognized encoded dots and backslashes stay beneath the base',async()=>{
  const {docUrl}=await api();const suffix='?next=%2Fdeep%3Fx#frag%2Fpart';

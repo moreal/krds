@@ -11,17 +11,17 @@ try{for(const [name,engine]of [['chromium',chromium],['webkit',webkit]]){
  const context=await browser.newContext({viewport:{width:320,height:800},reducedMotion:'reduce'});const page=await context.newPage();const errors=[];page.on('pageerror',error=>errors.push(error.message));page.on('console',message=>{if(message.type()==='error'||/hydration/i.test(message.text()))errors.push(message.text());});
  await page.goto(origin+'/krds/components/button.html',{waitUntil:'networkidle'});
  await page.waitForFunction(()=>!document.querySelector('astro-island[ssr]'));
- assert.ok(await page.locator('table [data-krds-component="link"]').count()>10);assert.ok(await page.locator('table code').count()>5);
+ assert.ok(await page.locator('article [data-krds-component="link"]').count()>=3);assert.ok(await page.locator('article table tbody tr').count()>5);assert.ok(await page.locator('table code').count()>5);
  const ids=await page.locator('th[id]').evaluateAll(nodes=>nodes.map(n=>n.id));assert.equal(new Set(ids).size,ids.length);
  for(const href of await page.locator('article a[href]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href'))))assert.ok(href.startsWith('/krds/')||/^(https?:|mailto:|tel:|#)/.test(href),href);
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1),'narrow table stays in its scroll region');
  // Reference and compiler-source documents can exceed WebKit's full-page bitmap limit.
  await page.locator('article table').first().scrollIntoViewIfNeeded();await page.screenshot({path:resolve(evidence,`${name}-table.png`)});
- await page.goto(origin+'/krds/examples/solid-2.html',{waitUntil:'networkidle'});await page.waitForFunction(()=>!document.querySelector('astro-island[ssr]'));
+ await page.goto(origin+'/krds/examples/solid.html',{waitUntil:'networkidle'});await page.waitForFunction(()=>!document.querySelector('astro-island[ssr]'));
  assert.match(await page.locator('pre code').first().textContent(),/import/);assert.ok(await page.getByRole('button',{name:'코드 복사',exact:true}).first().isEnabled());
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1),'long source stays in pre scroll region');
  await page.locator('pre code').first().scrollIntoViewIfNeeded();await page.screenshot({path:resolve(evidence,`${name}-code.png`)});assert.deepEqual(errors,[]);
- const ssr=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:800}});const staticPage=await ssr.newPage();await staticPage.goto(origin+'/krds/components/button.html');assert.ok(await staticPage.locator('article table a[href]').count()>=8);const download=await staticPage.locator('article a[href*="/sources/"]').first().getAttribute('href');assert.equal((await staticPage.request.get(origin+download)).status(),200);
+ const ssr=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:800}});const staticPage=await ssr.newPage();await staticPage.goto(origin+'/krds/components/button.html');assert.ok(await staticPage.locator('article table code').count()>=8);const download=await staticPage.locator('article a[href*="/sources/"]').first().getAttribute('href');assert.equal((await staticPage.request.get(origin+download)).status(),200);
  console.log(`${name}: rich public table/link/code, unique IDs, 320px reflow, hydration and no-JS downloads passed`);await context.close();await ssr.close();
  }finally{await browser.close();}
 }}finally{await new Promise(resolve=>server.close(resolve));}

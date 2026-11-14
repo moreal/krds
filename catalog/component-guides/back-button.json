@@ -1,0 +1,30 @@
+{
+  "usage": [
+    "이전 화면이나 상위 화면으로 돌아가는 버튼이 필요할 때 씁니다. 상단 바 왼쪽, 화면 제목 옆에 둡니다.",
+    "닫기나 취소 용도로 쓰지 않습니다. 사용자가 눌렀을 때 어디로 갈지 예측할 수 있어야 합니다.",
+    "작성 중인 내용이 사라질 수 있으면 `dirty`와 `requestConfirmation`으로 이동 전에 반드시 경고합니다.",
+    "브라우저나 기기의 뒤로가기와 같은 결과가 되도록 맞춥니다. 한쪽은 팝업을 닫고 다른 쪽은 페이지를 떠나는 식으로 달라지면 안 됩니다."
+  ],
+  "props": [
+    { "name": "label", "default": "`\"뒤로가기\"`", "description": "버튼의 이름입니다." },
+    { "name": "canGoBack", "default": null, "description": "돌아갈 앱 내 이전 화면이 있는지 알려 줍니다. `false`이면 이력을 거슬러 가지 않고 `fallbackHref`를 씁니다." },
+    { "name": "fallbackHref", "default": null, "description": "돌아갈 이전 화면이 없을 때 이동할 상위 화면의 주소입니다." },
+    { "name": "dirty", "default": "`false`", "description": "저장하지 않은 입력이 있는지 알려 줍니다. `true`이면 이동하기 전에 `requestConfirmation`으로 확인을 받습니다." },
+    { "name": "onBackRequest", "default": null, "description": "뒤로 가야 할 때 한 번 불립니다. 여기서 실제 화면 이동을 처리합니다. `reason`은 바로 누른 경우 `activate`, 확인을 거친 경우 `confirmed`입니다." },
+    { "name": "requestConfirmation", "default": null, "description": "`dirty`일 때 버튼을 누르면 불립니다. 확인 창을 띄운 뒤 계속 진행하려면 `true`, 머물려면 `false`를 돌려줍니다. `Promise`도 돌려줄 수 있습니다." }
+  ],
+  "keyboard": [
+    { "keys": "`Enter` / `Space`", "action": "뒤로가기를 요청합니다. 저장하지 않은 입력이 있으면 먼저 확인을 받습니다." }
+  ],
+  "accessibility": [
+    "실제 `button`으로 제공되며 `label`이 접근 가능한 이름이 됩니다.",
+    "확인을 취소하면 페이지, 입력 값, 초점이 그대로 유지됩니다.",
+    "이동한 뒤 새 화면의 어디에 초점을 둘지는 화면 이동을 처리하는 쪽에서 정합니다.",
+    "좁은 화면에서도 누르기 충분한 크기를 유지하고, 기기의 안전 영역과 겹치지 않게 배치합니다."
+  ],
+  "notes": [
+    "이 버튼은 화면을 직접 이동시키지 않습니다. 라우터 이동, 브라우저 뒤로가기 처리, 입력 손실 경고는 `onBackRequest`와 `requestConfirmation`에서 구현합니다.",
+    "폼 안에 두어도 폼을 제출하거나 초기화하지 않습니다.",
+    "`dirty`는 한글처럼 조합 중인 입력까지 반영해서 계산합니다. 조합 중인 글자가 이동 때문에 사라지면 안 됩니다."
+  ]
+}

@@ -4,46 +4,36 @@ title: 'Range slider'
 
 # Range slider {#range-slider}
 
-범위슬라이드 · `RangeSlider` — 막대를 움직여 범위 안의 값을 고르게 합니다.
+**범위슬라이드** — 막대를 움직여 범위 안의 값을 고르게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_01.html) · [전체 명세](/sources/specs/components/range-slider.md.txt) · [프레임워크 지원](../compatibility/README.md)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 볼륨, 밝기, 글자 크기, 선호도처럼 정확한 수치보다 범위 안에서의 상대적인 값을 고르게 할 때 씁니다.
+- 정확한 수치를 입력받아야 하면 쓰지 않습니다. 켜기/끄기나 낮음/보통/높음처럼 몇 개 중 하나를 빠르게 고르는 경우에도 알맞지 않습니다.
+- 단계를 너무 촘촘하게 나누지 않습니다. `step`은 전체 범위의 10~20% 정도가 적당합니다.
+- 레이블을 항상 제공해 어떤 값을 고르는지 알 수 있게 합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
+| `value` | `number` | — | 현재 값을 직접 제어합니다. `defaultValue`와 함께 쓸 수 없습니다. |
+| `defaultValue` | `number` | `0` | 직접 제어하지 않을 때 처음 값입니다. |
+| `onValueChange` | `(detail: ValueChangeDetails<number>) => void` | — | 드래그, 트랙 클릭, 키보드로 값이 바뀔 때마다 `{value}`를 받아 불립니다. 드래그하는 동안에는 값이 바뀔 때마다 여러 번 불리고, 손을 뗄 때 따로 불리지는 않습니다. |
+| `id` | `string` | — | 슬라이더 입력의 `id`입니다. 주지 않으면 자동으로 만들어 레이블과 연결합니다. |
+| `name` | `string` | — | 폼을 제출할 때 쓰는 이름입니다. |
+| `label` **필수** | `string` | — | 어떤 값을 고르는지 알려 주는 레이블입니다. 항상 화면에 보입니다. |
+| `disabled` | `boolean` | `false` | `true`이면 조작할 수 없고 폼 제출 값에서도 빠집니다. |
+| `required` | `boolean` | `false` | 반드시 값을 골라야 하는 항목임을 나타냅니다. |
+| `invalid` | `boolean` | `false` | 입력값에 오류가 있는 상태로 표시합니다. 오류 내용은 `errorId`가 가리키는 문구로 알려 줍니다. |
+| `helpId` | `string` | — | 도움말 문구 요소의 `id`입니다. 화면 낭독기가 컨트롤과 함께 읽도록 설명으로 연결합니다. |
+| `errorId` | `string` | — | 오류 문구 요소의 `id`입니다. `invalid`일 때 설명으로 연결합니다. |
+| `min` | `number` | `0` | 고를 수 있는 가장 작은 값입니다. 트랙 끝에 표시합니다. |
+| `max` | `number` | `100` | 고를 수 있는 가장 큰 값입니다. 트랙 끝에 표시합니다. |
+| `step` | `number` | `10` | 한 단계의 크기입니다. 값은 `min`에서 `step` 간격으로만 고를 수 있습니다. |
+| `valueText` | `(value: number) => string` | — | 값을 받아 표시할 문구를 돌려줍니다. 단위를 붙일 때 쓰며, 화면에 보이는 현재 값과 화면 낭독기가 읽는 값에 함께 적용됩니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `value` | `number` | 선택 | 속성 |
-| `defaultValue` | `number` | 선택 | 속성 |
-| `onValueChange` | `(detail: ValueChangeDetails<number>) => void` | 선택 | 이벤트 |
-| `id` | `string` | 선택 | 속성 |
-| `name` | `string` | 선택 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `disabled` | `boolean` | 선택 | 속성 |
-| `required` | `boolean` | 선택 | 속성 |
-| `invalid` | `boolean` | 선택 | 속성 |
-| `helpId` | `string` | 선택 | 속성 |
-| `errorId` | `string` | 선택 | 속성 |
-| `min` | `number` | 선택 | 속성 |
-| `max` | `number` | 선택 | 속성 |
-| `step` | `number` | 선택 | 속성 |
-| `valueText` | `(value: number) => string` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -77,56 +67,50 @@ export interface FieldContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 슬라이더 핸들로 초점을 옮기거나 벗어납니다. |
+| 화살표 키 | 값을 한 `step`씩 줄이거나 늘립니다. |
+| `Home` / `End` | 최솟값 또는 최댓값으로 이동합니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-상시 레이블, 슬라이더 트랙/핸들, 핸들 위나 트랙 끝에 현재 값(손가락 아래가 아님), 보이는 최솟값/최댓값으로 구성합니다. 공식 상세는 범위 안의 선택 값 하나를 보여 주며, 두 핸들 구간 선택의 증거는 아닙니다. 권장 step은 범위의 약 10–20%입니다.
+- 실제 `input[type=range]`를 쓰므로 드래그하지 않고도 키보드나 트랙 클릭으로 값을 바꿀 수 있습니다.
+- 레이블을 슬라이더와 연결하고, 현재 값과 최솟값·최댓값을 항상 화면에 보여 줍니다.
+- 단위가 있으면 `valueText`로 붙여 화면 낭독기도 같은 값을 읽게 합니다.
+- 현재 값은 핸들 위나 트랙 끝에 표시해 손가락에 가려지지 않게 합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: `min=0`, `max=100`, `step=10`, `value`/`defaultValue=0`, `onValueChange({value:number})`, `name`, `label`, `disabled=false`, `valueText?` 포매터. **이 계약에는 `onValueCommit` API가 없습니다.** 네이티브 `input[type=range]`를 선호하며, output은 커밋된 값을 단위와 함께 반영합니다. 잘못된 경계/step은 거부하고 소수 연산은 오차 없이 정규화합니다. 정의된 값, 한 번만 읽는 기본값, 모드 전환 금지, 마운트/prop/리셋 콜백 없음 규칙은 [파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 제어 모드의 네이티브 입력 변경은 요청이며, 거부되면 표시/output/제출 값은 커밋된 prop으로 남습니다.
+- `name`을 주면 현재 값이 폼과 함께 제출됩니다.
+- 폼을 초기화하면 처음 값으로 돌아갑니다. 이때 `onValueChange`는 불리지 않습니다.
+- `value`로 직접 제어할 때 `onValueChange`에서 값을 갱신하지 않으면 핸들과 표시 값은 원래 값으로 되돌아갑니다.
+- 터치 화면에서 슬라이더 위를 세로로 쓸어도 페이지 스크롤은 그대로 동작합니다.
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+## 스타일링 {#styling}
 
-핸들 드래그와 트랙 클릭을 공식 지원합니다. 독립 네이티브 키보드 정책: 화살표는 한 step씩 바꾸고, Home/End는 한계에 닿으며, Tab/초점과 숫자 네이티브 값 의미는 일반 그대로입니다. 두 핸들 role은 만들어 내지 않습니다. 정규화한 요청 숫자가 커밋된 값과 다른 네이티브 사용자 input 이벤트마다 `onValueChange`를 한 번 내보냅니다. 비제어 입력은 콜백 전에 그 숫자를 커밋하고, 제어 입력은 요청을 한 번 내보낸 뒤 거부되면 네이티브 값/output을 prop으로 되돌립니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-드래그는 변경된 input 이벤트마다 하나씩, 서로 다른 입력 요청을 여러 개 낼 수 있습니다. 변경된 입력 하나를 만드는 트랙 클릭은 요청 하나를, 변경된 키보드 조정은 각각 요청 하나를 냅니다. 같은 값/경계 입력은 아무것도 내지 않습니다. 네이티브 change, pointerup, blur, 제스처 완료는 **두 번째 콜백이나 commit 콜백을 추가하지 않습니다.** 포인터 취소는 마지막으로 커밋된 값을 보존하며 합성 롤백/commit 요청을 내지 않습니다. input/change 이중 알림이 없습니다. 터치 중 세로 페이지 스크롤과 실제 네이티브 폼 수명주기를 보존합니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `disabled`, `dragging` |
+| `label` | 없음 |
+| `control` | `disabled`, `dragging` |
+| `track` | `disabled`, `dragging` |
+| `range` | `disabled` |
+| `thumb` | `disabled`, `dragging` |
+| `output` | 없음 |
+| `minimum` | 없음 |
+| `maximum` | 없음 |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="range-slider"][data-krds-part="root"] { /* ... */ }
+```
 
-현재 값은 위쪽/끝에 있고 손가락에 가려지지 않으며, 최솟값/최댓값은 좁은 화면과 확대에서 읽을 수 있습니다. 핸들은 충분히 크고, 드래그 없이 쓸 수 있는 키보드/클릭 대안이 있습니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-이름 있는 활성 네이티브 range는 값을 전달하고, 비활성은 제외되며, 리셋은 기본값과 output을 복원합니다. 제어 리셋은 콜백 없이 현재 prop을 유지합니다. IME 편집은 없고, 내장된 편집 가능한 값 대안은 이 초안의 범위 밖입니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-단위와 설정 효과는 호스트가 맡습니다. 장식용 트랙이 아니라 경계가 있는 실제 네이티브 range, output, 폼 수명주기가 완료 조건입니다. 외부 엔진은 필요 없습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, label, control, track, range, thumb, output, minimum, maximum; disabled,dragging.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="range-slider"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 사용합니다. 네이티브/ARIA 상태가 기준입니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`single-value`, `disabled`, `discrete`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-51) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_12_01.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/index.md)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_01.html)
+- [상세 명세](/sources/specs/components/range-slider.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

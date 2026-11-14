@@ -4,45 +4,36 @@ title: 'Textarea'
 
 # Textarea {#textarea}
 
-텍스트 영역 (Textarea) · `Textarea` — 여러 줄의 글을 입력받습니다.
+**텍스트 영역 (Textarea)** — 여러 줄의 글을 입력받습니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_02.html) · [전체 명세](/sources/specs/components/textarea.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 여러 줄의 텍스트를 입력받을 때 씁니다. 한 줄로 끝나는 값에는 텍스트 입력 필드를 씁니다.
+- 여러 질문의 답을 한 영역에 받지 않습니다. 질문을 나누고, 가능하면 라디오 버튼이나 체크박스로 답하게 합니다.
+- 높이는 예상되는 입력 분량에 맞춥니다. 사용자가 스크롤하지 않고도 적당한 양의 텍스트를 한 번에 볼 수 있어야 합니다.
+- 글자 수 제한이 있으면 최대 글자 수와 남은 글자 수를 레이블이나 입력 영역 바로 뒤에 보여 줍니다.
+- 플레이스홀더를 레이블이나 도움말 대신 쓰지 않습니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `value` | `string` | — | 입력 값입니다. 지정하면 값을 직접 관리하는 제어 방식이 되며 `defaultValue`와 함께 쓰지 않습니다. |
+| `defaultValue` | `string` | `""` | 처음 표시할 값입니다. 처음 한 번만 읽으며, 폼을 초기화하면 이 값으로 돌아갑니다. |
+| `onValueChange` | `(detail: ValueChangeDetails<string>) => void` | — | 사용자가 값을 바꿀 때 불리며 새 값을 `value`로 받습니다. 한글을 조합하는 도중의 텍스트는 덮어쓰거나 자르지 않습니다. |
+| `id` | `string` | — | `textarea` 요소의 `id`입니다. 레이블이 이 `id`로 연결되며, 생략하면 자동으로 만듭니다. |
+| `name` | `string` | — | 폼을 제출할 때 쓰는 필드 이름입니다. |
+| `label` **필수** | `string` | — | 입력 영역 위에 항상 보이는 레이블입니다. 무엇을 입력해야 하는지 알려 줍니다. |
+| `disabled` | `boolean` | `false` | 입력을 비활성화합니다. 초점을 받지 않고 폼 제출에서도 빠집니다. |
+| `required` | `boolean` | `false` | 필수 입력으로 표시하고 브라우저의 필수 값 검사를 적용합니다. |
+| `invalid` | `boolean` | `false` | 오류 상태로 표시하고 `aria-invalid`로 알립니다. 이때 `errorId`의 메시지가 설명으로 연결됩니다. |
+| `helpId` | `string` | — | 도움말 요소의 `id`입니다. 입력 영역의 설명으로 연결되어 화면 낭독기가 함께 읽습니다. |
+| `errorId` | `string` | — | 오류 메시지 요소의 `id`입니다. `invalid`일 때 입력 영역의 설명으로 연결됩니다. |
+| `rows` | `number` | `5` | 처음 보이는 줄 수입니다. 입력 영역의 기본 높이를 정합니다. |
+| `readOnly` | `boolean` | `false` | 값을 읽기 전용으로 만듭니다. 초점은 받을 수 있고 폼 제출에도 포함됩니다. |
+| `maxLength` | `number` | — | 입력할 수 있는 최대 글자 수입니다. 지정하면 글자 수를 함께 표시합니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `value` | `string` | 선택 | 속성 |
-| `defaultValue` | `string` | 선택 | 속성 |
-| `onValueChange` | `(detail: ValueChangeDetails<string>) => void` | 선택 | 이벤트 |
-| `id` | `string` | 선택 | 속성 |
-| `name` | `string` | 선택 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `disabled` | `boolean` | 선택 | 속성 |
-| `required` | `boolean` | 선택 | 속성 |
-| `invalid` | `boolean` | 선택 | 속성 |
-| `helpId` | `string` | 선택 | 속성 |
-| `errorId` | `string` | 선택 | 속성 |
-| `rows` | `number` | 선택 | 속성 |
-| `readOnly` | `boolean` | 선택 | 속성 |
-| `maxLength` | `number` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -75,56 +66,49 @@ export interface FieldContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 입력 영역으로 초점을 옮기거나 벗어납니다. 비활성 상태에서는 건너뜁니다. |
+| `Enter` | 줄을 바꿉니다. 폼을 제출하지 않습니다. |
+| `↑` / `↓` | 커서를 위아래 줄로 옮깁니다. 내용이 높이를 넘으면 영역 안에서 세로로 스크롤됩니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-실제 &lt;textarea>에 지속적으로 연결된 레이블을 두고, 선택적 플레이스홀더/도움말/오류를 둡니다. 글자 수 제한이 있으면 최대 글자 수와 남은 글자 수를 안내합니다. 글자 수는 레이블이나 필드 뒤에 옵니다. 플레이스홀더는 레이블/도움말을 대체하지 않으며 복사/붙여넣기를 제한하지 않습니다.
+- `label`이 `textarea`와 연결되어 접근 가능한 이름이 되고, 레이블을 눌러도 입력 영역에 초점이 갑니다.
+- `helpId`와 `errorId`로 넘긴 요소가 입력 영역의 설명으로 연결됩니다. 도움말과 오류 메시지 요소는 직접 렌더링하고 같은 `id`를 붙입니다.
+- 글자 수 표시는 키를 누를 때마다 화면 낭독기의 읽기를 끊지 않습니다.
+- 입력 영역의 테두리나 배경은 인접 배경과 3:1 이상의 명도 대비를 유지합니다.
+- 복사와 붙여넣기를 막지 않습니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: value/defaultValue="", onValueChange({value}), name, rows=5 (제안), required/disabled/readOnly=false, maxLength?, helpId/errorId, invalid=false. 글자 수는 maxlength와 일치하도록 HTML UTF-16 코드 유닛으로 셉니다. 사용자에게 보이는 글자 수가 다르면 레이블/글자 수 문구에 이 프로젝트 정책을 드러냅니다.
+- `name`을 주면 값이 폼과 함께 제출됩니다. `disabled`이면 제출에서 빠지고 `readOnly`이면 포함됩니다.
+- 폼을 초기화하면 `defaultValue`와 글자 수 표시가 처음 상태로 돌아갑니다. `value`로 제어하는 경우에는 넘긴 값을 그대로 유지하며 `onValueChange`는 불리지 않습니다.
+- 글자 수는 `maxlength`와 같은 기준(UTF-16 코드 유닛)으로 셉니다. 이모지처럼 눈에 보이는 글자 수와 다를 수 있습니다.
+- 유효성 검사 시점과 오류 문구는 직접 정합니다.
+- 화면이 좁거나 글자를 확대해도 오류 메시지와 글자 수가 잘리지 않습니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-편집, 선택, 붙여넣기, Enter 줄 바꿈은 네이티브입니다. Tab은 초점을 일반적으로 옮기며 Enter 제출이나 단축키는 없습니다. IME 중에는 선택/조합 문자열을 보존합니다. 조합 중인 텍스트를 다시 쓰거나 자르지 않고 입력 갱신을 내보냅니다. 글자 수 표시는 키 입력마다 단호하게(assertive) 알리지 않아야 합니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `disabled`, `readonly`, `invalid`, `focused` |
+| `label` | 없음 |
+| `control` | `disabled`, `readonly`, `invalid`, `focused` |
+| `help` | 없음 |
+| `error` | 없음 |
+| `count` | `invalid` |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="textarea"][data-krds-part="root"] { /* ... */ }
+```
 
-예상 텍스트에 맞는 크기로 만듭니다. 더 긴 입력은 textarea 안에서 세로로 스크롤하며 화살표 키는 네이티브 편집을 유지합니다. 쓸 수 있는 크기 조절을 허용하고 좁은 화면/확대에서 리플로우합니다. 오류/글자 수가 잘리면 안 됩니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-이름이 있고 활성인 textarea는 네이티브 FormData에 참여합니다(readonly 포함, disabled 제외). 리셋은 기본 문자열과 글자 수를 복원합니다. 제어 리셋은 콜백 없이 현재 prop을 유지합니다. required/maxLength는 네이티브 유효성과 명시적 오류 연결을 함께 씁니다. 브라우저 FormData의 CRLF 의미를 보존합니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-검증 시점과 오류 문구는 컴포넌트가 아니라 호스트가 소유합니다. 완료에는 긴 입력, 붙여넣기, 한글 IME, 레이블/오류, FormData/리셋이 포함됩니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, label, control, help, error, count; disabled,readonly,invalid,focused.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="textarea"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`default`, `limited`, `invalid`, `disabled`, `readonly`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-44) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_09_02.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_02.html)
+- [상세 명세](/sources/specs/components/textarea.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

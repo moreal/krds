@@ -4,41 +4,32 @@ title: 'Contextual help'
 
 # Contextual help {#contextual-help}
 
-맥락적 도움말 · `ContextualHelp` — 입력 항목이나 용어 옆에서 짧은 도움말을 눌러 볼 수 있게 합니다.
+**맥락적 도움말** — 입력 항목이나 용어 옆에서 짧은 도움말을 눌러 볼 수 있게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_03.html) · [전체 명세](/sources/specs/components/contextual-help.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 필드나 레이블 옆에서, 알면 도움이 되는 부가 설명을 사용자가 원할 때 펼쳐 보여 줄 때 씁니다. 입력 방법 설명, 전문 용어 해설, 컨트롤을 쓸 수 없는 이유 안내 등에 맞습니다.
+- 작업을 마치는 데 꼭 필요한 정보는 여기에 숨기지 않습니다. 필수 정보는 본문에 적고, 보충 설명만 도움말로 제공합니다.
+- 아이콘만 있는 컨트롤의 이름을 알려 주거나 아주 짧은 정보를 덧붙일 때는 툴팁이나 인라인 도움말을 씁니다.
+- 도움말 안에서 다른 도움말이나 모달을 열지 않습니다. 한 과업 흐름에서 도움 패널과 함께 쓰지도 않습니다.
+- 본문에 넣는 링크는 새 창으로 엽니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `open` | `boolean` | — | 팝오버의 열림 상태를 직접 제어할 때 넘깁니다. |
+| `defaultOpen` | `boolean` | `false` | 직접 제어하지 않을 때의 초기 열림 상태입니다. |
+| `onOpenChange` | `(detail: OpenChangeDetails) => void` | — | 사용자가 팝오버를 열거나 닫으려 할 때 불리며 `{open}`을 받습니다. |
+| `title` **필수** | `string` | — | 팝오버 제목입니다. |
+| `content` **필수** | `string` | — | 팝오버 본문입니다. 짧은 단락으로 씁니다. |
+| `variant` | `'information' \| 'help'` | — | 버튼 아이콘의 종류입니다. `information`은 정보(i) 아이콘, `help`는 물음표(?) 아이콘을 씁니다. |
+| `placement` | `HelpPlacement` | `bottom-start` | 버튼을 기준으로 팝오버가 열리는 위치입니다. 위아래와 시작, 가운데, 끝 정렬을 조합한 여섯 가지 가운데 고릅니다. |
+| `triggerLabel` **필수** | `string` | — | 아이콘 버튼의 접근 가능한 이름입니다. 무엇에 대한 도움말인지 드러나게 쓰고, 페이지 안에서 겹치지 않게 합니다. |
+| `relatedId` | `string` | — | 이 도움말이 설명하는 필드나 레이블의 `id`입니다. |
+| `fallbackFocusId` | `string` | — | 닫힐 때 버튼이 사라지고 없으면 대신 초점을 받을 요소의 `id`입니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `open` | `boolean` | 선택 | 속성 |
-| `defaultOpen` | `boolean` | 선택 | 속성 |
-| `onOpenChange` | `(detail: OpenChangeDetails) => void` | 선택 | 이벤트 |
-| `title` | `string` | 필수 | 속성 |
-| `content` | `string` | 필수 | 속성 |
-| `variant` | `'information' \| 'help'` | 선택 | 속성 |
-| `placement` | `HelpPlacement` | 선택 | 속성 |
-| `triggerLabel` | `string` | 필수 | 속성 |
-| `relatedId` | `string` | 선택 | 속성 |
-| `fallbackFocusId` | `string` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -66,56 +57,47 @@ export interface OpenChangeDetails {
 export type HelpPlacement = 'top-start' | 'top' | 'top-end' | 'bottom-start' | 'bottom' | 'bottom-end';
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Enter` / `Space` | 아이콘 버튼에 초점이 있을 때 팝오버를 열거나 닫습니다. |
+| `Tab` | 팝오버 안의 링크와 닫기 버튼을 차례로 이동하고, 끝에서는 팝오버 밖으로 나갑니다. |
+| `Esc` | 팝오버를 닫고 아이콘 버튼으로 초점을 돌려줍니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-연관된 필드/레이블 옆에 이름 있는 정보/물음표 버튼을 두고, DOM에서 바로 다음에 팝오버(제목, 선택적 링크가 있는 본문, 닫기 버튼)를 둡니다. 중첩된 도움말/모달은 없으며, 필수 작업 정보를 여기에만 숨기지 않습니다.
+- 아이콘 버튼은 `button`이며 열림 상태를 `aria-expanded`로 알립니다. 팝오버는 버튼 바로 뒤에 놓여 화면 낭독기가 순서대로 읽습니다.
+- 본문에 링크가 있으면 열릴 때 첫 링크로 초점을 옮깁니다. 초점을 가두지 않습니다.
+- 바깥을 누르거나 `Esc`를 눌러 닫으면 아이콘 버튼으로 초점이 돌아갑니다.
+- `triggerLabel`은 버튼마다 고유하게 씁니다. '도움말'처럼 같은 이름을 반복하지 않습니다.
+- 스타일을 바꿀 때는 아이콘과 주변 배경의 명도 대비를 3:1 이상으로 유지하고, 버튼 크기는 44px 이상을 권장합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: open/defaultOpen=false, onOpenChange({open}), title, content, variant=information|help, placement=bottom-start 기본(공식 여섯 정렬을 매핑), triggerLabel, relatedId. 네이티브 버튼은 aria-expanded/controls를 갖고, 비모달 팝오버 영역에는 레이블이 있으며, 상호작용 콘텐츠에 tooltip 역할을 쓰지 않습니다.
+- 화면 가장자리에서는 팝오버가 잘리지 않도록 방향을 뒤집거나 위치를 옮깁니다. 화면이 아주 작으면 내용을 스크롤합니다.
+- `open`과 `defaultOpen`은 함께 넘기지 않습니다. `open`을 넘겼다면 `onOpenChange`에서 받은 값을 반영해야 열리고 닫힙니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 커밋된 UI와 초점 상태를 유지합니다. 취소된 리셋은 아무 일도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며, 제어 prop이 계속 우선합니다. 추가 필드로 렌더러/머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-클릭/Enter/Space로 열거나 토글합니다. 링크가 있으면 열릴 때 첫 상호작용 요소에 초점을 둡니다. Tab으로 벗어날 수 있습니다(트랩 없음). 바깥 클릭, Escape, 트리거 토글로 닫으며 공식 표대로 트리거로 초점을 돌려줍니다. Escape는 조합 중이거나 이미 처리된 이벤트를 무시합니다. 트리거가 제거되면 제공된 쓸 수 있는 복귀 대상, 없으면 body로 대체합니다. 실제로 닫힌 경우에만 복원합니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `open`, `closed`, `top-start`, `top`, `top-end`, `bottom-start`, `bottom`, `bottom-end` |
+| `trigger` | `open`, `closed` |
+| `icon` | 없음 |
+| `popover` | `open`, `closed`, `top-start`, `top`, `top-end`, `bottom-start`, `bottom`, `bottom-end` |
+| `title` | 없음 |
+| `body` | 없음 |
+| `close` | 없음 |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="contextual-help"][data-krds-part="root"] { /* ... */ }
+```
 
-충돌 시 뒤집기/이동으로 팝업 전체를 화면 안에 두고 트리거나 중요한 대상을 가리지 않습니다. 뷰포트가 매우 작으면 콘텐츠를 스크롤하며, 200–400% 확대에서 불투명한 잘림이 없어야 합니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼 상태가 없습니다. 도움말 버튼은 type=button이며, 조합 중 Escape는 무시됩니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트가 짧은 맥락 콘텐츠와 새 창 링크를 소유하고, 같은 작업에서 HelpPanel과 동시에 쓰지 않습니다. 완료에는 실제 상호작용 링크 초점, 닫기, 재배치 동작이 필요합니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, trigger, icon, popover, title, body, close; open,closed,placement.
-
-렌더되는 모든 소유 파트는 `data-krds-component="contextual-help"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위 열거는 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`information`, `help`, `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center`, `bottom-right`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-39) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_08_03.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_03.html)
+- [상세 명세](/sources/specs/components/contextual-help.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

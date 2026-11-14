@@ -4,37 +4,27 @@ title: 'Back button'
 
 # Back button {#back-button}
 
-뒤로가기 버튼 · `BackButton` — 이전 화면으로 돌아가게 합니다.
+**뒤로가기 버튼** — 이전 화면으로 돌아가게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_02.html) · [전체 명세](/sources/specs/components/back-button.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 이전 화면이나 상위 화면으로 돌아가는 버튼이 필요할 때 씁니다. 상단 바 왼쪽, 화면 제목 옆에 둡니다.
+- 닫기나 취소 용도로 쓰지 않습니다. 사용자가 눌렀을 때 어디로 갈지 예측할 수 있어야 합니다.
+- 작성 중인 내용이 사라질 수 있으면 `dirty`와 `requestConfirmation`으로 이동 전에 반드시 경고합니다.
+- 브라우저나 기기의 뒤로가기와 같은 결과가 되도록 맞춥니다. 한쪽은 팝업을 닫고 다른 쪽은 페이지를 떠나는 식으로 달라지면 안 됩니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `label` | `string` | `"뒤로가기"` | 버튼의 이름입니다. |
+| `canGoBack` **필수** | `boolean` | — | 돌아갈 앱 내 이전 화면이 있는지 알려 줍니다. `false`이면 이력을 거슬러 가지 않고 `fallbackHref`를 씁니다. |
+| `fallbackHref` | `string` | — | 돌아갈 이전 화면이 없을 때 이동할 상위 화면의 주소입니다. |
+| `dirty` | `boolean` | `false` | 저장하지 않은 입력이 있는지 알려 줍니다. `true`이면 이동하기 전에 `requestConfirmation`으로 확인을 받습니다. |
+| `onBackRequest` **필수** | `(detail: {reason: 'activate' \| 'confirmed'}) => void` | — | 뒤로 가야 할 때 한 번 불립니다. 여기서 실제 화면 이동을 처리합니다. `reason`은 바로 누른 경우 `activate`, 확인을 거친 경우 `confirmed`입니다. |
+| `requestConfirmation` | `() => boolean \| Promise<boolean>` | — | `dirty`일 때 버튼을 누르면 불립니다. 확인 창을 띄운 뒤 계속 진행하려면 `true`, 머물려면 `false`를 돌려줍니다. `Promise`도 돌려줄 수 있습니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `label` | `string` | 선택 | 속성 |
-| `canGoBack` | `boolean` | 필수 | 속성 |
-| `fallbackHref` | `string` | 선택 | 속성 |
-| `dirty` | `boolean` | 선택 | 속성 |
-| `onBackRequest` | `(detail: {reason: 'activate' \| 'confirmed'}) => void` | 필수 | 이벤트 |
-| `requestConfirmation` | `() => boolean \| Promise<boolean>` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -51,56 +41,41 @@ export interface BackButtonContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Enter` / `Space` | 뒤로가기를 요청합니다. 저장하지 않은 입력이 있으면 먼저 확인을 받습니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-상단 바 왼쪽에 현재 화면 제목 옆 뒤로가기 컨트롤을 둡니다. 이전 화면(또는 정의된 상위)으로 돌아가며 취소·닫기와 시각적으로 구별됩니다. 입력 중인 내용을 잃기 전에 경고합니다. 호스트가 제어할 수 있으면 시스템·브라우저 뒤로가기와 앱 내 동작을 일치시켜야 합니다.
+- 실제 `button`으로 제공되며 `label`이 접근 가능한 이름이 됩니다.
+- 확인을 취소하면 페이지, 입력 값, 초점이 그대로 유지됩니다.
+- 이동한 뒤 새 화면의 어디에 초점을 둘지는 화면 이동을 처리하는 쪽에서 정합니다.
+- 좁은 화면에서도 누르기 충분한 크기를 유지하고, 기기의 안전 영역과 겹치지 않게 배치합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: label="뒤로가기", onBackRequest({reason}), canGoBack, fallbackHref?, dirty=false, 호스트가 제공하는 requestConfirmation. 이력 동작에는 type=button을 씁니다. 상위 목적지가 명시되면 실제 Link 변형을 씁니다. 알려진 앱 내 항목이 없을 때 history.back을 무작정 호출하지 않습니다.
+- 이 버튼은 화면을 직접 이동시키지 않습니다. 라우터 이동, 브라우저 뒤로가기 처리, 입력 손실 경고는 `onBackRequest`와 `requestConfirmation`에서 구현합니다.
+- 폼 안에 두어도 폼을 제출하거나 초기화하지 않습니다.
+- `dirty`는 한글처럼 조합 중인 입력까지 반영해서 계산합니다. 조합 중인 글자가 이동 때문에 사라지면 안 됩니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 정의된 value/open은 제어 모드이고 undefined는 비제어 모드입니다. 제어 prop과 기본값을 함께 주거나 모드를 바꾸면 잘못된 구성입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 시맨틱 변경 요청을 한 번 내보냅니다. 비활성, 변화 없음, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 모드에서 거부되면 커밋된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 우선합니다. 추가 필드로 렌더러·머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-독립 네이티브 정책: 버튼의 Enter/Space/클릭은 한 번만 동작합니다. 변경 확인은 검토된 Modal을 열고, 취소하면 페이지·값·초점을 유지하며, 확인하면 호스트 내비게이션을 한 번 호출합니다. 목적지 초점과 이력·제스처 가로채기는 라우터·호스트 소관입니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `disabled`, `pending-confirmation` |
+| `icon` | 없음 |
+| `label` | 없음 |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="back-button"][data-krds-part="root"] { /* ... */ }
+```
 
-좁은 화면에서도 왼쪽 위치와 제목이 읽기 쉽고, 충분한 대상 크기가 시스템 안전 영역과 겹치지 않습니다. 이는 웹에 적용되는 맥락이며 브라우저 UI의 대체가 아닙니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-자체 폼 값이나 리셋은 없습니다. 버튼은 폼을 제출하거나 지우지 않습니다. 호스트의 dirty 상태는 폼·IME를 정확히 관찰해야 합니다. 조합 중인 텍스트가 성급한 이동으로 사라지면 안 됩니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-컴포넌트에서 통합으로 올리기를 권장합니다. 호스트가 라우터·이력, 브라우저 뒤로가기 가드, 대체 이동, 데이터 손실 정책을 소유합니다. 완료에는 로컬 내비게이션 스택과 저장 안 된 폼 목업(취소된 확인 포함)이 필요합니다. 스토리에서 실제 페이지 이탈은 필요 없습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-파트: root, icon, label. 상태: disabled,pending-confirmation. 인접한 페이지 제목은 호스트 페이지 조합에 속하며 BackButton의 소유 파트가 아닙니다.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="back-button"`, 하나의 `data-krds-part` 토큰, 공백으로 구분된 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 우선합니다. 위 문장의 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`default`, `dirty-confirmation`, `no-history-fallback`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-52) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_12_02.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_02.html)
+- [상세 명세](/sources/specs/components/back-button.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

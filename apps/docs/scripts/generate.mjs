@@ -104,13 +104,12 @@ const semanticProperties = name => {
   collect(`${name}Contract`);
   return [...properties.entries()];
 };
+// Reader-facing names. The ids stay the package and URL identifiers.
+const frameworkLabel = { react: 'React', solid: 'Solid 1', svelte: 'Svelte', vue: 'Vue', lit: 'Lit', qwik: 'Qwik', angular: 'Angular', 'solid-next': 'Solid 2' };
+const partVocabulary = (await trackedJson('packages/styles/src/parts.json')).components;
 const manifests = new Map();
 for (const framework of frameworks) manifests.set(framework.id, await trackedJson(`packages/${framework.id}/package.json`));
 const prettyPeers = manifest => Object.entries(manifest.peerDependencies ?? {}).map(([name, version]) => `\`${name}@${version}\``).join('<br>') || '선언된 런타임 피어 없음';
-const countStates = id => {
-  const rows = coverage.coverage.filter(row => row.framework === id);
-  return [...new Set(rows.map(row => row.status))].map(status => `${rows.filter(row => row.status === status).length} ${status}`).join(', ');
-};
 // Spec `## 제목 {#anchor}` sections republished on component pages, selected by stable anchor.
 // Derived once from apps/docs/tests/fixtures/vitepress-baseline.json: the h3 ids of every
 // components/*.html page minus its h1 and the six fixed generator anchors. Not read at runtime.
@@ -159,6 +158,7 @@ let index = '# 컴포넌트 목록 {#component-catalog}\n\nKRDS 웹 컴포넌트
 const exampleRegistryPath = 'apps/docs/example-evidence.json';
 const exampleRegistry = existsSync(resolve(root, exampleRegistryPath)) ? await trackedJson(exampleRegistryPath) : { examples: [] };
 const exampleEvidence = [];
+const exampleSources = new Map();
 const examplePages = [];
 for (const example of exampleRegistry.examples) {
   const source = await trackedRead(example.sourcePath);
@@ -174,9 +174,21 @@ for (const example of exampleRegistry.examples) {
     if (hash(bytes) !== example.consumedArtifact.sha256) throw new Error(`Compiler-consumed artifact changed: ${example.consumedArtifact.path}`);
   }
   exampleEvidence.push(example);
-  const nameOf = id => web.find(component => component.id === id)?.nameEn ?? id;
-  const title = example.componentIds.length === 1 ? `${nameOf(example.componentIds[0])} · ${example.framework} {#${example.componentIds[0]}-·-${example.framework}}` : `${example.framework} · 컴포넌트 ${example.componentIds.length}개 {#${example.framework}-·-${example.componentIds.length}-components}`;
-  examplePages.push({ path: resolve(site, 'examples', `${example.framework}-${exampleEvidence.length}.md`), text: `# ${title}\n\n공개 \`@unofficial-krds/${example.framework}\` 패키지를 사용하는 예제 코드입니다. 컴파일 검사를 통과한 소스를 그대로 싣습니다. ${link(example.sourcePath, '소스 파일 내려받기')}.\n\n${code(source, extname(example.sourcePath).slice(1))}\n` });
+  exampleSources.set(example, source);
+}
+const nameOf = id => web.find(component => component.id === id)?.nameEn ?? id;
+for (const framework of frameworks) {
+  const registered = exampleEvidence.filter(example => example.framework === framework.id);
+  if (!registered.length) continue;
+  const label = frameworkLabel[framework.id];
+  let text = `# ${label} 예제 {#${framework.id}-examples}\n\n\`@unofficial-krds/${framework.id}\` 패키지로 각 컴포넌트를 쓰는 예제 코드입니다.\n`;
+  for (const example of registered) {
+    const single = example.componentIds.length === 1;
+    const file = example.sourcePath.split('/').at(-1);
+    text += single ? `\n## ${nameOf(example.componentIds[0])} {#${example.componentIds[0]}}\n\n` : `\n## \`${file}\` {#${slugify(file)}}\n\n컴포넌트 ${example.componentIds.length}개를 다룹니다. `;
+    text += `${link(example.sourcePath, '소스 파일 내려받기')}\n${code(exampleSources.get(example), extname(example.sourcePath).slice(1))}`;
+  }
+  examplePages.push({ path: resolve(site, 'examples', `${framework.id}.md`), text });
 }
 for (const framework of coverage.stableFrameworks) {
   const mapped = new Set(exampleEvidence.filter(example => example.framework === framework).flatMap(example => example.componentIds));
@@ -194,49 +206,63 @@ for (const component of web) {
   // The h1 anchor keeps the English-name slug the published URLs already use (e.g. `critical-alerts`).
   const titleAnchor = slugify(component.nameEn);
   if (!anchorPattern.test(titleAnchor)) throw new Error(`Component title anchor is not a valid explicit anchor: ${component.id}: ${titleAnchor}`);
-  let page = `---\ntitle: '${component.nameEn.replaceAll("'", "''")}'\n---\n\n# ${component.nameEn} {#${titleAnchor}}\n\n${component.nameKo} · \`${component.exportName}\` — ${summaries[component.id]}\n\n[KRDS 공식 안내](${component.canonicalUrl}) · ${link(component.specPath, '전체 명세')} · [프레임워크 지원](../compatibility/)\n\n## 프레임워크 지원 현황 {#native-availability}\n\n상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.\n\n| 프레임워크 | 패키지 버전 | 상태 | 예제 |\n| --- | --- | --- | --- |\n`;
-  for (const framework of frameworks) {
-    const manifest = manifests.get(framework.id);
-    const record = coverage.coverage.find(row => row.framework === framework.id && row.componentId === component.id);
-    page += `| ${framework.id}${framework.supportChannel.includes('preview') ? ' (미리보기)' : ''} | \`${manifest.version}\` | ${record?.status ?? '기록 없음'} | [${framework.id} 예제](../compatibility/examples#${framework.id}) |\n`;
-  }
-  page += '\n## 속성과 이벤트 {#props-events-content-and-defaults}\n\n모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.\n';
   const properties = semanticProperties(component.exportName);
-  if (properties.length) page += '\n| 이름 | 타입 | 필수 | 구분 |\n| --- | --- | --- | --- |\n' + properties.map(([name, property]) => `| \`${name}\` | \`${property.type.replaceAll('|', '\\|')}\` | ${property.required ? '필수' : '선택'} | ${property.event ? '이벤트' : '속성'} |\n`).join('') + '';
-  if (contract) page += '\n표에 나온 타입의 정의입니다.\n' + code(contract);
-  else page += `\n공개 API는 아래 안내와 각 패키지의 공개 선언이 정의합니다. ${link('packages/contracts/src/types.ts', '공유 이벤트·날짜 타입')}.\n`;
-  page += '\n### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}\n\nReact와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.\n';
-  for (const section of selected) page += `\n### ${section.heading} {#${section.anchor}}\n\n${safeProse(section.body.replaceAll(/\[([^\]]+)\]\(([^)]+)\)/g, (all, label, path) => /^https?:/.test(path) ? all : link(relative(root, resolve(root, 'specs/components', path)), label)))}\n`;
-  page += `\n## 지원하는 변형 {#state-examples-and-native-checks}\n\n${component.variants.map(value => `\`${value}\``).join(', ')}\n\n이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.\n`;
-  page += '\n### 예제 코드 {#local-native-stories}\n\n위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.\n';
-  const examples = exampleEvidence.filter(example => example.componentIds.includes(component.id));
-  page += examples.length ? `\n프레임워크별 예제 코드: ${examples.map(example => `[${example.framework}](/examples/${example.framework}-${exampleEvidence.indexOf(example) + 1})`).join(' · ')}.\n` : '\n이 컴포넌트의 예제 코드는 아직 없습니다. [예제 목록](../compatibility/examples)을 참고하세요.\n';
-  page += `\n## 출처와 권리 {#source-identity-and-rights}\n\n이 안내는 [공식 KRDS 문서](${component.canonicalUrl})를 바탕으로 합니다. 수집 시각과 원본 해시는 ${link('catalog/components.json', '출처 기록')}에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.\n\nKRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.\n`;
+  // Reader-facing guide, written for this site. The spec stays an internal contract and is only linked.
+  const guide = await trackedJson(`catalog/component-guides/${component.id}.json`);
+  const at = `catalog/component-guides/${component.id}.json`;
+  const prose = (value, where) => { if (typeof value !== 'string' || !value.trim() || /[|\n]/.test(value)) throw new Error(`${at}: ${where} must be one line of prose without "|"`); return safeProse(value.trim()); };
+  for (const key of ['usage', 'props', 'keyboard', 'accessibility', 'notes']) if (!Array.isArray(guide[key])) throw new Error(`${at}: ${key} must be a list`);
+  if (!guide.usage.length || !guide.accessibility.length) throw new Error(`${at}: usage and accessibility are required`);
+  if (properties.length && guide.props.map(prop => prop.name).join() !== properties.map(([name]) => name).join()) throw new Error(`${at}: props must list exactly ${properties.map(([name]) => name).join(', ')}`);
+  const list = (items, where) => items.map((item, index) => `- ${prose(item, `${where}[${index}]`)}\n`).join('');
+  let page = `---\ntitle: '${component.nameEn.replaceAll("'", "''")}'\n---\n\n# ${component.nameEn} {#${titleAnchor}}\n\n**${component.nameKo}** — ${summaries[component.id]}\n\n## 사용법 {#usage}\n\n${list(guide.usage, 'usage')}`;
+  if (guide.props.length) {
+    page += '\n## 속성 {#props}\n\n| 이름 | 타입 | 기본값 | 설명 |\n| --- | --- | --- | --- |\n';
+    for (const prop of guide.props) {
+      const declared = properties.find(([name]) => name === prop.name)?.[1];
+      const type = declared?.type ?? prop.type;
+      if (typeof type !== 'string' || !type.trim()) throw new Error(`${at}: ${prop.name} needs a type`);
+      const required = declared ? declared.required : prop.required === true;
+      page += `| \`${prop.name}\`${required ? ' **필수**' : ''} | \`${type.replaceAll('|', '\\|')}\` | ${prop.default == null ? '—' : prose(prop.default, `${prop.name}.default`)} | ${prose(prop.description, `${prop.name}.description`)} |\n`;
+    }
+    page += '\n모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).\n';
+    if (contract) page += '\n표에 나온 타입의 정의입니다.\n' + code(contract);
+  }
+  if (guide.keyboard.length) page += '\n## 키보드 조작 {#keyboard}\n\n| 키 | 동작 |\n| --- | --- |\n' + guide.keyboard.map((row, index) => `| ${prose(row.keys, `keyboard[${index}].keys`)} | ${prose(row.action, `keyboard[${index}].action`)} |\n`).join('');
+  page += `\n## 접근성 {#accessibility}\n\n${list(guide.accessibility, 'accessibility')}`;
+  if (guide.notes.length) page += `\n## 알아 둘 점 {#notes}\n\n${list(guide.notes, 'notes')}`;
+  const vocabulary = partVocabulary[component.id];
+  if (vocabulary?.parts.length) page += `\n## 스타일링 {#styling}\n\n각 부분에는 \`data-krds-part\` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 \`data-krds-state\`에 공백으로 구분해 담깁니다.\n\n| 파트 | 상태 값 |\n| --- | --- |\n${vocabulary.parts.map(part => `| \`${part}\` | ${(vocabulary.states[part] ?? []).map(state => `\`${state}\``).join(', ') || '없음'} |\n`).join('')}\n\`\`\`css\n[data-krds-component="${component.id}"][data-krds-part="${vocabulary.parts[0]}"] { /* ... */ }\n\`\`\`\n`;
+  page += `\n## 참고 {#references}\n\n- [KRDS 공식 안내](${component.canonicalUrl})\n- ${link(component.specPath, '상세 명세')}\n- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.\n`;
+  // Downloads the spec sections used to link stay published, so existing URLs keep working.
+  for (const section of selected) section.body.replaceAll(/\[([^\]]+)\]\(([^)]+)\)/g, (all, label, path) => /^(?:https?:|#)/.test(path) ? all : link(relative(root, resolve(root, 'specs/components', path)), label));
+  for (const path of ['packages/contracts/src/types.ts', 'catalog/components.json']) sourceLinks.add(path);
   await write(resolve(site, 'components', `${component.id}.md`), page);
   await write(resolve(root, 'docs/components', `${component.id}.md`), page.replaceAll('../compatibility/', '../compatibility/README.md').replaceAll('../legal/', '../legal/index.md'));
 }
 await write(resolve(site, 'components/index.md'), index);
 await write(resolve(root, 'docs/components/README.md'), index);
-let matrix = '# 프레임워크 호환성 {#framework-compatibility}\n\n버전, 피어 범위, 지원 상태는 현재 네이티브 패키지 매니페스트, 호환성 대상, 커버리지 기록에서 생성합니다. 안정 **대상**이라고 해서 54개 컴포넌트가 모두 인수를 통과했다는 뜻은 아닙니다. 독립 리뷰, 동작 근거, 시각 검사, 출처 권리, 격리된 소비는 각각 별도 관문입니다.\n\n| 네이티브 렌더러 | 패키지 | 선택한 런타임/컴파일러 | 공개 피어 | 기록된 커버리지 |\n| --- | --- | --- | --- | --- |\n';
+let matrix = '# 프레임워크 호환성 {#framework-compatibility}\n\n프레임워크마다 패키지가 따로 있습니다. 아래는 각 패키지를 빌드하고 테스트할 때 쓰는 런타임과 컴파일러 버전, 그리고 설치할 때 필요한 피어 의존성입니다. 패키지는 아직 npm에 게시하지 않았습니다.\n\n| 프레임워크 | 패키지 | 빌드·테스트에 쓰는 버전 | 피어 의존성 |\n| --- | --- | --- | --- |\n';
 for (const framework of frameworks) {
   const manifest = manifests.get(framework.id);
-  matrix += `| ${framework.renderer}${framework.supportChannel.includes('preview') ? ' · **미리보기**' : ''} | \`${manifest.name}@${manifest.version}\` | ${Object.entries(framework.pins).map(([name, version]) => `\`${name}@${version}\``).join('<br>')} | ${prettyPeers(manifest)} | ${countStates(framework.id)} |\n`;
+  matrix += `| ${frameworkLabel[framework.id]}${framework.supportChannel.includes('preview') ? ' · **미리보기**' : ''} | \`${manifest.name}@${manifest.version}\` | ${Object.entries(framework.pins).map(([name, version]) => `\`${name}@${version}\``).join('<br>')} | ${prettyPeers(manifest)} |\n`;
 }
-matrix += '\n## 근거의 의미 {#what-the-evidence-means}\n\n`planned`는 작업을 예약한 상태입니다. `in-progress`는 진행 중인 작업을 기록합니다. `implemented`는 완전한 인수 없이 구현만 기록합니다. `blocked`는 해결되지 않은 관문을 기록합니다. `verified`에는 커버리지 스키마가 정한 컨트롤러 소유 네이티브 근거와 독립 리뷰가 필요합니다. 미리보기는 안정 합계와 분리됩니다. 기록된 상태는 각 컴포넌트 페이지에서 확인합니다.\n\n## 패키지와 브라우저 경계 {#package-and-browser-boundaries}\n\nQwik은 Vite 7을 씁니다. 나머지 선택된 네이티브 Vite 워크스페이스는 Vite 8을 씁니다. Angular는 자체 CLI/ng-packagr의 partial APF 출력과 CVA 폼을 맡습니다. Solid 1과 Solid 2는 런타임, 컴파일러, 렌더러 그래프가 서로 격리됩니다. Svelte 2/3은 현재 안정 대상이 아닙니다. 선언된 피어 범위가 그 안의 모든 버전을 테스트했다는 근거는 아닙니다.\n\n[네이티브 예제](./examples) · [Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)\n';
+matrix += '\nSolid 2는 미리보기 단계라 일부 컴포넌트만 제공합니다. 제공 여부는 각 컴포넌트 페이지의 Solid 2 탭에서 확인합니다.\n\n## 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}\n\n속성 이름과 타입은 모든 프레임워크가 같습니다. 콘텐츠를 넣고 이벤트를 받는 문법만 각 프레임워크의 방식을 따릅니다.\n\n- React, Solid: JSX와 콘텐츠 prop\n- Svelte: snippet\n- Vue: 슬롯\n- Angular: input, output, 콘텐츠 투영\n- Lit: custom element 속성, 슬롯, DOM 이벤트\n- Qwik: QRL 이벤트\n\n정확한 문법은 각 컴포넌트 페이지의 코드 탭에서 프레임워크별로 확인합니다. 속성 표의 `on…` 콜백 이름이 Lit의 DOM 이벤트 이름과 같다는 뜻은 아닙니다.\n\n## 버전을 고를 때 {#package-and-browser-boundaries}\n\n- Qwik은 Vite 7, 나머지 Vite 기반 프레임워크는 Vite 8에 맞췄습니다.\n- Angular 패키지는 ng-packagr로 만든 partial APF 형식이고, 폼 컴포넌트는 `ControlValueAccessor`로 연결합니다.\n- Solid 1과 Solid 2는 패키지가 다릅니다. 한 앱에서 섞어 쓰지 않습니다.\n- Svelte는 5 버전만 지원합니다.\n- 피어 의존성 범위 안의 모든 버전을 테스트하지는 않았습니다. 표의 버전이 가장 확실합니다.\n\n[프레임워크별 예제](./examples) · [Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)\n';
 await write(resolve(site, 'compatibility/index.md'), matrix);
 await write(resolve(root, 'docs/compatibility/README.md'), matrix);
-let examplesPage = '# 네이티브 예제 {#native-examples}\n\n프레임워크마다 공개 패키지를 사용하는 예제 코드와 조립된 미리보기가 있습니다. 예제는 컴파일 검사를 통과한 소스이며, 동작 검증이나 릴리스 준비를 뜻하지는 않습니다.\n\n## 예제 커버리지 {#checkpoint-coverage}\n\n| 프레임워크 | 예제가 있는 컴포넌트 수 |\n| --- | --- |\n' + coverage.stableFrameworks.map(framework => `| [${framework}](#${framework}) | ${new Set(exampleEvidence.filter(example => example.framework === framework).flatMap(example => example.componentIds)).size} |\n`).join('') + '\n## 로컬 네이티브 미리보기 {#local-native-previews}\n\n각 프레임워크의 미리보기는 `/krds/previews/<framework>/`에 조립됩니다. 문서를 빌드한 뒤 `node apps/docs/scripts/serve.mjs`를 실행하면 같은 트리를 로컬에서 볼 수 있습니다. 이 서버는 네이티브 앱을 다시 빌드하지 않으며 없는 파일에는 404를 반환합니다.\n\n';
+let examplesPage = '# 프레임워크별 예제 {#native-examples}\n\n프레임워크별로 54개 컴포넌트를 쓰는 예제 코드를 모았습니다. 컴포넌트 하나의 예제만 필요하면 그 컴포넌트 페이지의 코드 탭이 더 빠릅니다.\n\n| 프레임워크 | 패키지 | 예제 |\n| --- | --- | --- |\n';
 for (const framework of frameworks) {
   const compatibilityPath = `docs/compatibility/${framework.id === 'solid-next' ? 'solid-2' : framework.id}.md`;
-  examplesPage += `\n## ${framework.id} {#${framework.id}}\n\n${link(`packages/${framework.id}/package.json`, '패키지 매니페스트')}${existsSync(resolve(root, compatibilityPath)) ? ` · ${link(compatibilityPath, '호환성 보고서')}` : ''}\n\n미리보기: \`/krds/previews/${framework.id}/\`${framework.id === 'qwik' ? ' (사전 렌더링된 정적 페이지입니다. 프로덕션 SSR/resume은 네이티브 서버가 필요합니다)' : ''}${framework.id === 'solid-next' ? ' · Storybook 통합 없음' : ''}\n\n`;
   const registered = exampleEvidence.filter(example => example.framework === framework.id);
-  for (const example of registered) examplesPage += `- [예제 코드 보기](/examples/${example.framework}-${exampleEvidence.indexOf(example) + 1}) · ${link(example.sourcePath, '소스 파일 내려받기')} · 컴포넌트 ${example.componentIds.length}개\n`;
-  if (!registered.length) examplesPage += '등록된 예제 코드가 아직 없습니다. 아래는 픽스처 소스입니다.\n\n';
-  const candidates = ['CatalogExample.tsx','catalog-examples.tsx','examples.tsx','DocsConsumer.svelte','CatalogExamples.vue','ConsumerExample.vue','full-catalog.ts','fixture-app.ts','main.tsx'];
-  for (const name of candidates) { const path = `apps/fixture-${framework.id}/src/${name}`; if (existsSync(resolve(root, path))) examplesPage += `- ${link(path)}\n`; }
+  examplesPage += `| ${frameworkLabel[framework.id]} | \`${manifests.get(framework.id).name}\` | ${registered.length ? `[컴포넌트 ${new Set(registered.flatMap(example => example.componentIds)).size}개 예제](/examples/${framework.id})` : '아직 없음'} |\n`;
+  // These stay published downloads although the page no longer lists them.
+  link(`packages/${framework.id}/package.json`); if (existsSync(resolve(root, compatibilityPath))) link(compatibilityPath);
+  for (const example of registered) link(example.sourcePath);
+  for (const name of ['CatalogExample.tsx','catalog-examples.tsx','examples.tsx','DocsConsumer.svelte','CatalogExamples.vue','ConsumerExample.vue','full-catalog.ts','fixture-app.ts','main.tsx']) { const path = `apps/fixture-${framework.id}/src/${name}`; if (existsSync(resolve(root, path))) link(path); }
 }
+examplesPage += '\n## 로컬에서 미리보기 열기 {#local-native-previews}\n\n문서를 빌드한 뒤 `node apps/docs/scripts/serve.mjs`를 실행하면 이 사이트와 미리보기를 로컬에서 볼 수 있습니다. 자세한 순서는 [로컬에서 시작하기](../getting-started/installation)에 있습니다.\n';
 await write(resolve(site, 'compatibility/examples.md'), examplesPage);
-await write(resolve(site, 'compatibility/solid-migration.md'), '# Solid 1 → Solid 2 {#solid-1-→-solid-2}\n\nSolid 2는 `2.0.0-rc.19` 런타임, 렌더러, 컴파일러로 고정한 격리된 미리보기입니다. 안정 Solid 1 어댑터의 피어 범위를 넓힌 것이 아닙니다. `@unofficial-krds/solid-next`는 자기 매니페스트 도구 체인과 미리보기 픽스처에서만 씁니다. `solid-js` 세대를 섞지 않습니다. Solid 2 렌더러에 `solid-js/web`을 import하지 않습니다. 모든 런타임을 저장소 루트에서 해석하지 않습니다.\n\n먼저 의미 데이터, 제어(controlled) 값, 콜백 페이로드, CSS 토큰을 옮깁니다. 그다음 선택된 Solid 2 선언과 컴파일러에 맞춰 네이티브 콘텐츠·ref·생명주기 사용을 옮깁니다. Solid 1 JSX 예제가 자동으로 Solid 2 예제가 되지는 않습니다.\n\n미리보기에는 지원되는 upstream siheom이나 안정 네이티브 Storybook 통합이 없습니다. 네이티브 미리보기 빌드, SSR, 브라우저 근거는 따로 기록합니다. [버전과 상태](./) · [네이티브 소스 예제](./examples#solid-next).\n');
+await write(resolve(site, 'compatibility/solid-migration.md'), '# Solid 1 → Solid 2 {#solid-1-→-solid-2}\n\nSolid 2 지원은 미리보기 단계입니다. `@unofficial-krds/solid-next`는 Solid `2.0.0-rc.19`에 맞춘 별도 패키지이고, 아직 일부 컴포넌트만 제공합니다. Solid 1용 `@unofficial-krds/solid`와 한 앱에서 섞어 쓸 수 없습니다.\n\n옮길 때는 이 순서를 권합니다.\n\n1. 의존성을 Solid 2의 `solid-js`와 `@solidjs/web`으로 바꾸고, 컴포넌트 패키지를 `@unofficial-krds/solid-next`로 교체합니다.\n2. `solid-js/web`을 import하던 코드는 `@solidjs/web`으로 바꿉니다.\n3. 속성 이름, 제어 값, 콜백이 받는 값, CSS 토큰은 그대로 씁니다.\n4. 콘텐츠 전달, ref, 생명주기 코드는 Solid 2 문법에 맞게 고칩니다. Solid 1용 JSX 예제가 그대로 동작하지는 않습니다.\n\nSolid 2용 Storybook 통합은 아직 없습니다.\n\n[프레임워크 호환성](./) · [프레임워크별 예제](./examples)\n');
 // Release manifests and tarballs are mutable ignored producer outputs. Only this
 // reviewed historical checkpoint is an input to protected documentation source.
 const artifactCheckpointPath = 'apps/docs/artifact-checkpoint.json';

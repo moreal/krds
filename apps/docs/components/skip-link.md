@@ -4,33 +4,24 @@ title: 'Skip link'
 
 # Skip link {#skip-link}
 
-건너뛰기 링크 · `SkipLink` — 키보드 사용자가 반복되는 영역을 지나 본문으로 바로 이동하게 합니다.
+**건너뛰기 링크** — 키보드 사용자가 반복되는 영역을 지나 본문으로 바로 이동하게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_01.html) · [전체 명세](/sources/specs/components/skip-link.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 키보드나 화면 낭독기 사용자가 헤더와 메뉴처럼 페이지마다 반복되는 영역을 건너뛰고 본문으로 바로 갈 수 있게 할 때 씁니다. 반복 영역이 있는 모든 페이지에 둡니다.
+- 문서의 가장 첫 요소로, 마스트헤드와 헤더보다 앞에 둡니다.
+- 보통 본문으로 가는 링크 하나면 충분합니다. 링크는 세 개까지만 넣고, 본문 링크를 항상 첫 번째에 둡니다.
+- 내비게이션 없이 단일 화면으로 된 페이지처럼 반복 영역이 없는 곳에는 쓰지 않습니다.
+- 본문 링크의 목적지에는 사이드 메뉴, 브레드크럼, 페이지 유틸리티 버튼이 들어가지 않게 합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `links` **필수** | `readonly {id: string; label: string; targetId: string}[]` | — | 건너뛰기 링크 목록입니다. 각 항목의 `label`은 링크 문구이고, `targetId`는 같은 문서 안에서 이동할 요소의 `id`입니다. |
+| `visibility` | `'focus-revealed' \| 'visible'` | `focus-revealed` | `focus-revealed`는 평소에는 숨겨 두었다가 키보드 초점을 받을 때 링크를 보여 줍니다. `visible`은 링크를 항상 보여 줍니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `links` | `readonly {id: string; label: string; targetId: string}[]` | 필수 | 속성 |
-| `visibility` | `'focus-revealed' \| 'visible'` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -45,56 +36,45 @@ export interface SkipLinkContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` | 페이지에서 처음 누르면 건너뛰기 링크로 초점이 이동하고, 숨겨져 있던 링크가 나타납니다. |
+| `Enter` | 목적지로 스크롤하고 키보드 초점도 목적지로 옮깁니다. 이어서 `Tab`을 누르면 목적지 안의 첫 번째 상호작용 요소로 이동합니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-Masthead와 헤더보다 앞선 목록 안에 같은 문서 안의 실제 앵커를 둡니다. 본문 링크가 첫 번째이며, 사이드 내비게이션·브레드크럼·유틸리티를 제외한 콘텐츠를 가리킵니다. 링크는 세 개를 넘지 않습니다. 반복 영역이 없는 페이지에서는 생략합니다. 초점 시 표시(focus-revealed)가 제안 기본값입니다.
+- 링크를 실행하면 스크롤만 하지 않고 초점도 목적지로 옮기므로, 사용자가 그 지점부터 탐색을 이어 갈 수 있습니다.
+- 목적지가 초점을 받을 수 없는 요소이면 임시로 `tabindex="-1"`을 붙여 초점을 줍니다. 목적지가 일반 `Tab` 순서에 추가되지는 않습니다.
+- `targetId`가 가리키는 요소는 직접 준비합니다. 변하지 않는 `id`를 가진 본문 영역이나 제목을 목적지로 씁니다.
+- 초점을 받아 나타난 링크의 초점 표시가 주변 콘텐츠에 가려지지 않게 합니다.
+- 고정 헤더가 있다면 이동한 목적지가 헤더에 가려지지 않게 합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: SkipLink는 links {id,label,targetId}[] (보통 본문 대상 하나)와 visibility=focus-revealed|visible을 받습니다. 대상 ID는 같은 문서·루트 전략 안에서 해석되어야 합니다. 잘못된 대상은 조용히 #으로 연결하지 말고 개발 중에 보고합니다.
+- 링크는 고정(sticky) 콘텐츠보다 위에 표시됩니다.
+- 동작 줄이기 설정이 켜져 있으면 부드러운 스크롤 없이 이동합니다.
+- `targetId`에 해당하는 요소가 없으면 링크를 눌렀을 때 오류를 냅니다. 개발 중에 대상 `id`를 맞춰 둡니다.
+- Lit처럼 Shadow DOM 안에 목적지가 있으면 문서 전체에서 `id`로 찾을 수 없으므로, 목적지를 건너뛰기 링크와 같은 루트 안에 두거나 light DOM에 둡니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-Enter는 대상 섹션·제목으로 스크롤하고 초점을 옮깁니다. 초점을 받을 수 없는 대상에는 임시 tabindex=-1을 쓰되 일반 Tab 순서에는 넣지 않습니다. 다음 Tab은 대상의 첫 번째 상호작용 자손에서 시작합니다. 탭(터치)은 스크롤합니다. 스크린 리더 가상 탐색은 수동 검증이 필요합니다. 초점 시 표시는 가려지지 않은 초점 링을 보여야 합니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `focus-visible` |
+| `list` | 없음 |
+| `item` | 없음 |
+| `link` | `focus-visible` |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="skip-link"][data-krds-part="root"] { /* ... */ }
+```
 
-필수 웹 동작은 모바일 웹에서도 유지합니다. 네이티브 앱 예외는 모바일 웹 제외가 아닙니다. 링크는 읽을 수 있게, 고정(sticky) 콘텐츠 위에 둡니다. 동작 줄이기를 존중해 스크롤합니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼 값·리셋·IME 동작은 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트가 안정적인 대상 ID와 의미 있는 콘텐츠 랜드마크를 제공합니다. Lit의 Shadow DOM 경계에서는 명시적 대상 등록이나 light-DOM 앵커 해석이 필요합니다. 닫힌 루트를 넘어서 document.getElementById를 쓴다고 가정해서는 안 됩니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, list, item, link; focus-visible.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="skip-link"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`visible`, `focus-revealed`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-8) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_03_01.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_01.html)
+- [상세 명세](/sources/specs/components/skip-link.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

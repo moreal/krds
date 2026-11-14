@@ -4,34 +4,25 @@ title: 'Toast'
 
 # Toast {#toast}
 
-토스트 · `Toast` — 방금 한 동작의 결과를 잠시 띄워 알립니다.
+**토스트** — 방금 한 동작의 결과를 잠시 띄워 알립니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_05.html) · [전체 명세](/sources/specs/components/toast.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 저장 완료, 파일 업로드 실패처럼 사용자 행동의 결과를 한 줄로 잠깐 알릴 때 씁니다.
+- 버튼 같은 추가 행동이 필요하거나 두 줄 이상의 설명이 필요하면 스낵바를, 더 긴 설명이 필요하면 모달을 씁니다.
+- 중요하거나 긴급한 메시지에는 긴급공지나 모달을 씁니다.
+- 개별 입력 항목의 오류·성공·경고는 토스트가 아니라 해당 입력 옆에 인라인 텍스트로 보여 줍니다.
+- 화면 하단 중앙, 다른 요소 위에 표시하며 하단 탭 바나 플로팅 버튼과 겹치지 않게 합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `message` **필수** | `ToastMessage \| null` | `null` | 지금 보여 줄 메시지입니다. `id`, `text`, `tone`(`information` 또는 `warning`)과, 같은 결과를 계속 확인할 수 있는 화면 요소를 가리키는 `persistentResultId`를 담습니다. `null`이면 토스트를 표시하지 않습니다. |
+| `durationMs` | `number` | `3000` (`warning`은 `4000`) | 메시지를 보여 주는 시간(밀리초)입니다. 사용자가 충분히 읽을 수 있도록 더 길게 지정할 수 있습니다. |
+| `onDismiss` **필수** | `(detail: {id: string; reason: 'timeout'; generation: number}) => void` | — | 표시 시간이 끝났을 때 한 번 불립니다. 메시지의 `id`, `reason`(`timeout`), 표시 회차를 구분하는 `generation`을 받습니다. 토스트는 스스로 사라지지 않으므로 여기서 `message`를 `null`이나 다음 메시지로 바꿉니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `message` | `ToastMessage \| null` | 필수 | 속성 |
-| `durationMs` | `number` | 선택 | 속성 |
-| `onDismiss` | `(detail: {id: string; reason: 'timeout'; generation: number}) => void` | 필수 | 이벤트 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -54,66 +45,36 @@ export interface ToastMessage {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 접근성 {#accessibility}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+- `role="status"`와 `aria-live="polite"`로 메시지를 화면 낭독기에 알립니다. 초점은 옮기지 않습니다.
+- 토스트 안에는 버튼이나 닫기 컨트롤이 없으며 초점을 받지 않습니다.
+- 토스트는 곧 사라지므로, 같은 결과를 나중에도 확인할 수 있는 상태 표시나 이력을 화면에 따로 두고 그 요소의 `id`를 `persistentResultId`로 넘깁니다.
+- 동작 줄이기 설정을 켠 사용자에게는 슬라이드 없이 나타나고 사라집니다.
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 알아 둘 점 {#notes}
 
-간결한 한 문장을 담은 일시적 비대화형 컨테이너입니다. 페이지 위 하단 중앙에 두고 TabBar/FAB와 겹치지 않게 합니다. 액션 버튼은 없으며, 조치가 필요한 콘텐츠는 Snackbar를 씁니다. 긴급/치명적 알림이나 개별 필드 오류에는 쓰지 않습니다.
+- 한 번에 메시지 하나만 보여 줍니다. 여러 메시지의 순서와 대기열은 직접 관리하고, 보여 줄 메시지를 `message`로 넘깁니다.
+- `message`의 `id`가 바뀌면 보이는 메시지를 즉시 교체합니다. 교체하거나 `null`로 지울 때는 `onDismiss`가 불리지 않습니다.
+- 같은 `id`에서 `text`가 바뀌면 바뀐 내용을 다시 알리고 표시 시간을 처음부터 다시 셉니다. `tone`이나 `durationMs`만 바뀌면 다시 알리지 않습니다.
+- 탭이 숨겨진 동안에는 남은 표시 시간을 멈췄다가, 다시 보이면 이어서 셉니다.
+- 긴 번역문이나 확대된 글자는 자르지 않고 줄을 바꿔 보여 줍니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 스타일링 {#styling}
 
-**호스트가 소유하는 현재 메시지와 큐** API를 택합니다. 필수 `message:{id:string,text:string,tone:information|warning,persistentResultId:string}|null`이며 초기값은 null입니다. durationMs 기본값은 information 3000, warning 4000입니다. `onDismiss({id,reason:"timeout",generation})`은 호스트 콘텐츠가 제거되었다는 알림이 아니라 해제 **요청**입니다. defaultMessage, 내부 큐, enqueue/store 객체는 없습니다. 결과의 정확성, 현재 메시지, 순서, 큐 진행은 호스트가 소유하며, 호스트는 더 긴 양수 duration을 설정할 수 있습니다. role=status/aria-live=polite는 독립 네이티브 정책입니다. 토스트는 비대화형으로 남으며 초점 목적지가 되지 않습니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-**충분한 노출/재조회는 필수 완료 조건**이며, 짧은 기본 타이머를 맞추는 것만으로는 부족합니다([공식 L946–949](https://www.krds.go.kr/html/site/component/component_12_05.html)). 이 프로젝트의 구체적 대응은 persistentResultId가, 일시적 토스트 바깥의 찾을 수 있는 접근 가능한 **지속 결과/상태 또는 이력**에서 같은 결과 텍스트를 가리키도록 하는 것입니다. 이는 일반 읽기/탐색 순서에 있어야 하며, 호스트/사용자가 의도적으로 지우거나 해당 화면을 떠날 때까지 남아 있습니다. 느리게 읽는 사용자나 알림이 지연된 사용자가 토스트가 사라진 뒤에도 결과를 다시 얻을 수 있도록, 픽스처에 이 실제 로컬 지속 결과가 있어야 합니다. 이력/로그 방식은 독립 프로젝트 정책이며 KRDS가 정확히 그 UI를 규정한다는 주장이 아닙니다. 충분한 노출/재조회가 없으면 완료를 통과할 수 없습니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `information`, `warning`, `open`, `closed` |
+| `message` | `information`, `warning`, `open`, `closed` |
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+```css
+[data-krds-component="toast"][data-krds-part="root"] { /* ... */ }
+```
 
-초점을 빼앗지 않으며 액션/닫기 컨트롤을 추가하지 않습니다. 호스트가 선택했으므로 메시지 ID가 바뀌면 보이는 메시지를 즉시 교체합니다. 컴포넌트는 이전/현재 스냅샷을 큐에 넣지 않습니다. message=null이면 제거합니다. 교체나 prop 제거는 onDismiss를 내지 않고 내부적으로 큐를 진행하지 않습니다.
+## 참고 {#references}
 
-새 ID마다, 그리고 같은 ID의 의미 있는 text/tone/유효 duration 수정마다 단조 증가하는 내부 generation을 유지합니다. 같은 ID에서 text가 바뀌면 현재 토스트를 갱신하고, 바뀐 텍스트를 한 번 알리며, 처음부터 전체 노출을 다시 시작합니다. 같은 ID에서 tone/duration만 바뀌면 외형/수명만 갱신하고 같은 텍스트를 다시 알리지 않습니다. 같은 ID의 동일한 내용이나 콜백/객체 동일성 변화만으로는 다시 알리거나 재시작하지 않습니다. message=null 뒤에 같은 ID를 다시 쓰면 새로운 가시 generation입니다. 요청은 해당 ID와 generation을 담으며, 콜백에 렌더러 객체는 없습니다.
-
-전체 카운트다운은 해당 generation이 실제로 렌더링된 뒤에 시작합니다. 문서가 숨겨진 동안은 남은 시간을 멈추고, 보이면 남은 시간을 이어 갑니다. 교체, 제거, 의미 있는 수정, 언마운트는 이전 generation의 타이머/리스너를 취소합니다. 오래된 콜백은 무언가를 요청하기 전에 현재 generation을 확인해야 합니다. 타임아웃은 해당 generation에 대해 해제 요청을 정확히 한 번 내보낸 뒤 그 타이머를 소비합니다. 제어 호스트가 메시지를 유지하면 계속 보입니다. 로컬 숨김, 큐 진행, 타임아웃 반복 루프, 거짓 “실제 해제” 콜백은 없습니다. 의미 있는 새 generation은 새 타이머를 시작할 수 있습니다. 초점, prop 갱신, 마운트, 리셋은 사용자 변경/해제 이벤트를 만들어 내지 않습니다.
-
-### 반응형 동작 {#responsive-mobile-requirements}
-
-하단 안전 영역/내비게이션/FAB와 겹치지 않게 합니다. 번역 텍스트나 확대 텍스트에 필요할 때만 줄 바꿈하고, 잘림보다 읽을 수 있는 메시지를 우선합니다. 움직임은 필수가 아니며 동작 줄이기에서는 슬라이드 없이 나타나고 사라집니다.
-
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼/리셋/IME 동작은 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-큐/현재 메시지 prop, 지속 결과/이력 대상, 결과의 진실성/복구는 호스트가 소유합니다. 완료 조건은 다음과 같습니다.
-
-- 실제 지속 결과와 일시적 메시지를 모두 만드는 로컬 동작.
-- 느리게 읽거나 알림이 지연된 경우의 재조회.
-- 결정적인 타임아웃, 갱신, 교체, 거부된 해제, 정리 동작.
-
-공식 information 2–3초/warning 3–4초 값은 충분한 노출 지침 안의 기본값이며 모든 사용자가 결과를 읽거나 들었다는 증거가 아닙니다. 시간은 맞지만 다시 얻을 수 없는 결과는 관문을 통과하지 못합니다. Toast를 Snackbar로 바꾸는 액션이나 닫기 버튼은 추가하지 않습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, message; information,warning,open,closed.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="toast"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`information`, `warning`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-55) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_12_05.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_05.html)
+- [상세 명세](/sources/specs/components/toast.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

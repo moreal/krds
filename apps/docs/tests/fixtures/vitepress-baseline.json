@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "producer": "pre-migration VitePress 1.6.4 dist at 5c8633289609c843e25cd2badd9e67efa1112bcf",
   "recordedAt": "2026-11-01",
+  "pagesNote": "Page paths and heading IDs were revised on 2026-11-15: one example page per framework, and component pages without the repeated example and transport sections.",
   "pages": [
     {
       "path": "404.html",
@@ -15,23 +16,14 @@
       "path": "compatibility/examples.html",
       "headingIds": [
         "native-examples",
-        "checkpoint-coverage",
-        "local-native-previews",
-        "react",
-        "solid",
-        "svelte",
-        "vue",
-        "lit",
-        "qwik",
-        "angular",
-        "solid-next"
+        "local-native-previews"
       ]
     },
     {
       "path": "compatibility/index.html",
       "headingIds": [
         "framework-compatibility",
-        "what-the-evidence-means",
+        "native-content-and-event-transport",
         "package-and-browser-boundaries"
       ]
     },
@@ -45,449 +37,307 @@
       "path": "components/accessible-media.html",
       "headingIds": [
         "accessible-multimedia",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/accordion.html",
       "headingIds": [
         "accordion",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/back-button.html",
       "headingIds": [
         "back-button",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/badge.html",
       "headingIds": [
         "badge",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/bottom-sheet.html",
       "headingIds": [
         "bottom-sheet",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/breadcrumb.html",
       "headingIds": [
         "breadcrumb",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/button.html",
       "headingIds": [
         "button",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "official-requirements",
-        "project-api-and-defaults",
-        "structure-and-acceptance",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/calendar.html",
       "headingIds": [
         "calendar",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "official-requirements",
-        "project-api-and-defaults",
-        "view-and-date-interaction",
-        "keyboard-and-accessibility",
-        "structure-and-acceptance",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/carousel.html",
       "headingIds": [
         "carousel",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/checkbox.html",
       "headingIds": [
         "checkbox",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/coach-mark.html",
       "headingIds": [
         "coach-mark",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/contextual-help.html",
       "headingIds": [
         "contextual-help",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/critical-alert.html",
       "headingIds": [
         "critical-alerts",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/date-input.html",
       "headingIds": [
         "date-input",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "official-requirements",
-        "project-api-and-defaults",
-        "editing-commits-and-notifications",
-        "calendar-integration",
-        "translation-and-accessible-feedback",
-        "form-structure-and-acceptance",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/disclosure.html",
       "headingIds": [
         "disclosure",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/fab.html",
       "headingIds": [
         "fab",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/favicon.html",
       "headingIds": [
         "favicon",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "references"
       ]
     },
     {
       "path": "components/file-upload.html",
       "headingIds": [
         "file-upload",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/footer.html",
       "headingIds": [
         "footer",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/header.html",
       "headingIds": [
         "header",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/help-panel.html",
       "headingIds": [
         "help-panel",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/identifier.html",
       "headingIds": [
         "identifier",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/image.html",
       "headingIds": [
         "image",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/in-page-navigation.html",
       "headingIds": [
         "in-page-navigation",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
@@ -500,931 +350,489 @@
       "path": "components/language-switcher.html",
       "headingIds": [
         "language-switcher",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/link.html",
       "headingIds": [
         "link",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/main-menu.html",
       "headingIds": [
         "main-menu",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/masthead.html",
       "headingIds": [
         "masthead",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/modal.html",
       "headingIds": [
         "modal",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "official-requirements",
-        "project-api-and-defaults",
-        "dismissal-and-focus-policy",
-        "form-states-and-acceptance",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/native-select.html",
       "headingIds": [
         "select",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "official-requirements",
-        "project-api-and-defaults",
-        "keyboard-form-and-structure",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/pagination.html",
       "headingIds": [
         "pagination",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/quantity-toggle.html",
       "headingIds": [
         "quantity-toggle",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/radio-group.html",
       "headingIds": [
         "radio-button",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/range-slider.html",
       "headingIds": [
         "range-slider",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/resize.html",
       "headingIds": [
         "resize",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/side-navigation.html",
       "headingIds": [
         "side-navigation",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/skip-link.html",
       "headingIds": [
         "skip-link",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/snackbar.html",
       "headingIds": [
         "snackbar",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/spinner.html",
       "headingIds": [
         "spinner",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/step-indicator.html",
       "headingIds": [
         "step-indicator",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/structured-list.html",
       "headingIds": [
         "structured-list",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/switch.html",
       "headingIds": [
         "toggle-switch",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/tab-bar.html",
       "headingIds": [
         "tab-bars",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/table.html",
       "headingIds": [
         "table",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/tabs.html",
       "headingIds": [
         "tab",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "official-requirements",
-        "project-api-and-defaults",
-        "focus-and-activation-policy",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/tag.html",
       "headingIds": [
         "tag",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/text-input.html",
       "headingIds": [
         "text-input",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/text-list.html",
       "headingIds": [
         "text-list",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/textarea.html",
       "headingIds": [
         "textarea",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/toast.html",
       "headingIds": [
         "toast",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/tooltip.html",
       "headingIds": [
         "tooltip",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/tts.html",
       "headingIds": [
         "tts",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/tutorial-panel.html",
       "headingIds": [
         "tutorial-panel",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "keyboard",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
       "path": "components/visually-hidden.html",
       "headingIds": [
         "visually-hidden",
-        "native-availability",
-        "props-events-content-and-defaults",
-        "native-content-and-event-transport",
-        "native-structure-and-mandatory-ordering",
-        "plain-semantic-api",
-        "keyboard-focus-and-state-transitions",
-        "responsive-mobile-requirements",
-        "forms-reset-and-composition",
-        "asset-integration-and-composition-completion",
-        "stable-parts-and-states",
-        "state-examples-and-native-checks",
-        "local-native-stories",
-        "source-identity-and-rights"
+        "usage",
+        "props",
+        "accessibility",
+        "notes",
+        "styling",
+        "references"
       ]
     },
     {
-      "path": "examples/angular-62.html",
+      "path": "examples/angular.html",
       "headingIds": [
-        "angular-·-54-components"
+        "angular-examples",
+        "public-catalog-examples-ts"
       ]
     },
     {
-      "path": "examples/lit-60.html",
+      "path": "examples/lit.html",
       "headingIds": [
-        "lit-·-54-components"
+        "lit-examples",
+        "catalog-ts"
       ]
     },
     {
-      "path": "examples/qwik-61.html",
+      "path": "examples/qwik.html",
       "headingIds": [
-        "qwik-·-54-components"
+        "qwik-examples",
+        "catalog-examples-tsx"
       ]
     },
     {
-      "path": "examples/react-1.html",
+      "path": "examples/react.html",
       "headingIds": [
-        "react-·-54-components"
+        "react-examples",
+        "catalog-tsx"
       ]
     },
     {
-      "path": "examples/solid-2.html",
+      "path": "examples/solid.html",
       "headingIds": [
-        "solid-·-6-components"
+        "solid-examples",
+        "examples-tsx",
+        "catalog-examples-tsx"
       ]
     },
     {
-      "path": "examples/solid-3.html",
+      "path": "examples/svelte.html",
       "headingIds": [
-        "solid-·-48-components"
+        "svelte-examples",
+        "masthead",
+        "identifier",
+        "header",
+        "footer",
+        "skip-link",
+        "main-menu",
+        "breadcrumb",
+        "side-navigation",
+        "in-page-navigation",
+        "pagination",
+        "structured-list",
+        "critical-alert",
+        "calendar",
+        "disclosure",
+        "modal",
+        "badge",
+        "accordion",
+        "image",
+        "carousel",
+        "tabs",
+        "table",
+        "text-list",
+        "favicon",
+        "link",
+        "button",
+        "fab",
+        "radio-group",
+        "checkbox",
+        "native-select",
+        "tag",
+        "switch",
+        "step-indicator",
+        "spinner",
+        "help-panel",
+        "tutorial-panel",
+        "contextual-help",
+        "coach-mark",
+        "tooltip",
+        "tts",
+        "date-input",
+        "textarea",
+        "text-input",
+        "file-upload",
+        "language-switcher",
+        "resize",
+        "accessible-media",
+        "visually-hidden",
+        "range-slider",
+        "back-button",
+        "bottom-sheet",
+        "quantity-toggle",
+        "toast",
+        "snackbar",
+        "tab-bar"
       ]
     },
     {
-      "path": "examples/svelte-10.html",
+      "path": "examples/vue.html",
       "headingIds": [
-        "breadcrumb-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-11.html",
-      "headingIds": [
-        "side-navigation-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-12.html",
-      "headingIds": [
-        "in-page-navigation-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-13.html",
-      "headingIds": [
-        "pagination-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-14.html",
-      "headingIds": [
-        "structured-list-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-15.html",
-      "headingIds": [
-        "critical-alert-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-16.html",
-      "headingIds": [
-        "calendar-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-17.html",
-      "headingIds": [
-        "disclosure-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-18.html",
-      "headingIds": [
-        "modal-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-19.html",
-      "headingIds": [
-        "badge-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-20.html",
-      "headingIds": [
-        "accordion-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-21.html",
-      "headingIds": [
-        "image-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-22.html",
-      "headingIds": [
-        "carousel-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-23.html",
-      "headingIds": [
-        "tabs-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-24.html",
-      "headingIds": [
-        "table-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-25.html",
-      "headingIds": [
-        "text-list-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-26.html",
-      "headingIds": [
-        "favicon-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-27.html",
-      "headingIds": [
-        "link-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-28.html",
-      "headingIds": [
-        "button-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-29.html",
-      "headingIds": [
-        "fab-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-30.html",
-      "headingIds": [
-        "radio-group-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-31.html",
-      "headingIds": [
-        "checkbox-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-32.html",
-      "headingIds": [
-        "native-select-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-33.html",
-      "headingIds": [
-        "tag-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-34.html",
-      "headingIds": [
-        "switch-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-35.html",
-      "headingIds": [
-        "step-indicator-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-36.html",
-      "headingIds": [
-        "spinner-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-37.html",
-      "headingIds": [
-        "help-panel-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-38.html",
-      "headingIds": [
-        "tutorial-panel-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-39.html",
-      "headingIds": [
-        "contextual-help-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-4.html",
-      "headingIds": [
-        "masthead-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-40.html",
-      "headingIds": [
-        "coach-mark-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-41.html",
-      "headingIds": [
-        "tooltip-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-42.html",
-      "headingIds": [
-        "tts-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-43.html",
-      "headingIds": [
-        "date-input-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-44.html",
-      "headingIds": [
-        "textarea-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-45.html",
-      "headingIds": [
-        "text-input-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-46.html",
-      "headingIds": [
-        "file-upload-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-47.html",
-      "headingIds": [
-        "language-switcher-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-48.html",
-      "headingIds": [
-        "resize-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-49.html",
-      "headingIds": [
-        "accessible-media-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-5.html",
-      "headingIds": [
-        "identifier-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-50.html",
-      "headingIds": [
-        "visually-hidden-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-51.html",
-      "headingIds": [
-        "range-slider-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-52.html",
-      "headingIds": [
-        "back-button-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-53.html",
-      "headingIds": [
-        "bottom-sheet-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-54.html",
-      "headingIds": [
-        "quantity-toggle-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-55.html",
-      "headingIds": [
-        "toast-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-56.html",
-      "headingIds": [
-        "snackbar-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-57.html",
-      "headingIds": [
-        "tab-bar-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-6.html",
-      "headingIds": [
-        "header-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-7.html",
-      "headingIds": [
-        "footer-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-8.html",
-      "headingIds": [
-        "skip-link-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/svelte-9.html",
-      "headingIds": [
-        "main-menu-·-svelte"
-      ]
-    },
-    {
-      "path": "examples/vue-58.html",
-      "headingIds": [
-        "vue-·-48-components"
-      ]
-    },
-    {
-      "path": "examples/vue-59.html",
-      "headingIds": [
-        "vue-·-6-components"
+        "vue-examples",
+        "publiccatalogexamples-vue",
+        "consumerexample-vue"
       ]
     },
     {

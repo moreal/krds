@@ -4,38 +4,29 @@ title: 'Pagination'
 
 # Pagination {#pagination}
 
-페이지네이션 · `Pagination` — 여러 페이지로 나뉜 목록에서 페이지를 옮겨 다니게 합니다.
+**페이지네이션** — 여러 페이지로 나뉜 목록에서 페이지를 옮겨 다니게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_06.html) · [전체 명세](/sources/specs/components/pagination.md.txt) · [프레임워크 지원](../compatibility/README.md)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 긴 목록을 여러 화면으로 나누어 탐색하게 할 때 씁니다. 한 화면에 모두 보여 주면 목록 높이가 화면의 2배를 넘거나 항목이 20개를 넘을 때 검토합니다.
+- 항목이 적으면 한 화면에 모두 보여 주고, 주제나 범주로 나눌 목록에는 사이드 메뉴 같은 탐색 수단을 씁니다. 무한 스크롤과 함께 쓰지 않습니다.
+- 목록 아래 가운데에 두고, 서비스 전체에서 같은 위치를 유지합니다. 한 화면에는 하나만 씁니다.
+- 페이지 수가 아주 많으면 번호를 직접 입력하는 `direct-page`를, 목록 아래에 항목을 이어 붙이려면 `load-more`를 씁니다.
+- 전체 페이지 수와 페이지당 항목 수는 화면 크기와 상관없이 같게 유지합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
+| `page` | `number` | — | 현재 페이지를 직접 제어합니다. 1부터 시작하며 `defaultPage`와 함께 쓸 수 없습니다. |
+| `defaultPage` | `number` | `1` | 직접 제어하지 않을 때 처음 페이지입니다. |
+| `pageCount` **필수** | `number` | — | 전체 페이지 수입니다. |
+| `hrefForPage` **필수** | `(page: number) => string` | — | 페이지 번호를 받아 그 페이지의 주소를 돌려줍니다. 번호와 이전·다음 링크의 `href`로 쓰입니다. |
+| `onPageChange` | `(detail: {page: number}) => void` | — | 사용자가 번호, 이전·다음, 이동 버튼으로 다른 페이지를 요청하면 `{page}`를 받아 불립니다. `page`를 바깥에서 바꾸는 것으로는 불리지 않습니다. |
+| `variant` | `'number-links' \| 'direct-page' \| 'load-more'` | `number-links` | `number-links`는 번호 링크 목록, `direct-page`는 페이지 번호 입력란과 이동 버튼, `load-more`는 더 보기 버튼을 보여 줍니다. |
+| `loadMore` | `{shown: number; total: number; pending: boolean; firstNewItemId?: string; onLoadMore: () => void}` | — | `load-more`에서 쓰는 설정입니다. `shown`과 `total`은 표시된 항목 수와 전체 항목 수, `pending`은 불러오는 중인지, `onLoadMore`는 버튼을 눌렀을 때 불리는 콜백, `firstNewItemId`는 새로 추가된 첫 항목의 `id`입니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `page` | `number` | 선택 | 속성 |
-| `defaultPage` | `number` | 선택 | 속성 |
-| `pageCount` | `number` | 필수 | 속성 |
-| `hrefForPage` | `(page: number) => string` | 필수 | 속성 |
-| `onPageChange` | `(detail: {page: number}) => void` | 선택 | 이벤트 |
-| `variant` | `'number-links' \| 'direct-page' \| 'load-more'` | 선택 | 속성 |
-| `loadMore` | `{shown: number; total: number; pending: boolean; firstNewItemId?: string; onLoadMore: () => void}` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -59,56 +50,55 @@ export interface PaginationContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 이전, 번호 링크, 다음, 페이지 입력란, 이동 버튼 순으로 이동합니다. 현재 페이지 번호는 건너뜁니다. |
+| `Enter` | 초점이 있는 링크의 페이지로 이동합니다. 페이지 입력란에서는 입력한 번호로 이동합니다. |
+| `Enter` / `Space` | 이동 버튼이나 더 보기 버튼을 실행합니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-데이터셋에 연결된 이름 있는 `<nav>`입니다. 소스 순서는 이전, 번호 링크 `<ul>`, 다음, 선택적 페이지 입력, 전체 레이블, 이동 버튼입니다. 더보기 유형을 제외하면 첫/마지막 페이지에 항상 닿을 수 있어야 합니다. 현재 번호는 `href`를 제거하고 `aria-current=true`를 가집니다. 줄임표는 비대화형입니다. 더보기는 결과 목록 뒤에 둡니다.
+- 전체를 이름이 있는 `nav` 영역으로 감싸고 번호를 목록으로 전달합니다.
+- 현재 페이지 번호는 링크가 아니며 `aria-current`로 현재 위치임을 알립니다. 색만으로 구분하지 않습니다.
+- 화면 너비와 상관없이 이전, 번호 목록, 다음, 페이지 입력란, 전체 페이지 수, 이동 버튼 순으로 읽습니다.
+- 페이지 입력란에는 보이는 레이블이 있고, 범위를 벗어난 번호를 넣으면 이동하지 않고 오류 문구를 알려 줍니다.
+- 더 보기로 항목이 추가되면 `firstNewItemId`가 가리키는 첫 새 항목으로 스크롤하고 초점을 옮깁니다. 추가한 첫 항목에 그 `id`를 붙여 둡니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: `page`/`defaultPage=1`, `pageCount`, `hrefForPage(page)`, `onPageChange({page})`, `variant=number-links`, 선택적 직접 페이지 입력, 또는 더보기 `{shown,total,pending,onLoadMore,firstNewItemId}`. 페이지 크기를 뷰포트에서 유도하지 않습니다. 범위를 벗어난 페이지 입력은 편집 가능한 문자열로 남고, 이동 없이 오류를 알립니다.
+- 번호와 줄임표는 넓은 화면에서 최대 11개, 좁은 화면에서 최대 7개를 보여 줍니다. 첫 페이지와 마지막 페이지는 항상 표시하며 줄임표는 누를 수 없습니다.
+- 좁은 화면에서는 이전·다음 버튼이 번호 목록 위에 놓입니다.
+- `onPageChange`를 주지 않으면 번호 링크는 `hrefForPage`가 돌려준 주소로 이동하는 일반 링크로 동작합니다.
+- 데이터를 불러오고 `shown`, `total`, `pending`을 갱신하는 일은 쓰는 쪽에서 합니다. 불러오기에 실패하면 초점과 표시 개수는 그대로 남습니다.
+- 폼을 초기화하면 페이지 입력란에 입력하던 내용이 현재 페이지 번호로 돌아갑니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/열림 상태를 정의하면 제어 모드, 없으면 비제어 모드입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 내보냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내보내지 않습니다. 제어 모드에서 거부되면 커밋된 UI/초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 그대로 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-네이티브 앵커가 탐색을 보존합니다. 현재/사용 불가 링크는 활성화되지 않습니다. 이동과 더보기는 버튼입니다(Enter/Space). 호스트가 결과를 덧붙인 뒤 더보기는 처음 추가된 항목으로 스크롤하고 초점을 옮기며, 표시 개수를 갱신하고, 실패 시 맥락을 보존합니다. 제어 prop만으로는 아무것도 내보내지 않습니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `current`, `disabled`, `pending`, `invalid` |
+| `list` | 없음 |
+| `item` | `current` |
+| `link` | `current`, `disabled` |
+| `previous` | `disabled` |
+| `next` | `disabled` |
+| `ellipsis` | 없음 |
+| `input` | `invalid` |
+| `total` | 없음 |
+| `go` | `disabled` |
+| `load-more` | `pending`, `disabled` |
+| `count` | `pending` |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="pagination"][data-krds-part="root"] { /* ... */ }
+```
 
-번호/줄임표는 데스크톱에서 최대 11개, 좁은 화면에서 7개입니다. 좁은 화면에서는 이전/다음 줄이 시각적으로 번호 줄 앞에 오지만 공식 DOM 순서는 바뀌지 않습니다. 데이터셋의 페이지 수와 페이지당 개수는 뷰포트와 무관하게 안정적이어야 합니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-직접 페이지 입력에는 보이는 레이블과 오류 관계가 있으며, 둘러싼 폼의 암묵적 제출은 없습니다. 리셋은 페이지 입력 초안 텍스트를 실제 페이지로 복원합니다. IME 조합은 이동을 실행하지 않습니다. Pagination 자체는 폼 값을 내지 않습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-데이터 로딩, URL, 총계, 덧붙이기 성공 확인은 호스트가 맡습니다. 로컬 스토리는 고정된 메모리 내 레코드를 쓰며 fetch하지 않습니다. 원본의 더보기 설명 문단은 직접 페이지 텍스트를 반복합니다. 일치하는 동작을 지어내지 말고 더보기 구조와 상호작용에 의존합니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, list, item, link, previous, next, ellipsis, input, total, go, load-more, count; current,disabled,pending,invalid.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="pagination"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 사용합니다. 네이티브/ARIA 상태가 기준입니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`number-links`, `direct-page`, `load-more`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-13) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_03_06.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/index.md)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_06.html)
+- [상세 명세](/sources/specs/components/pagination.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

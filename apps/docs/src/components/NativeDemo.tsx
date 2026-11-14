@@ -65,9 +65,9 @@ export function NativeDemo(props:{componentId:string;demos:NativeDemoRecord[]}) 
  </Show>
  </>;
  const frameworks=[...new Map(props.demos.map(record=>[record.framework,record.label])).entries()].map(([framework,label])=>({value:framework,
-  label:lazy(()=><span class="native-demo-framework"><Show when={frameworkMark(framework)}>{d=><svg viewBox="0 0 24 24" aria-hidden="true"><path d={d()}/></svg>}</Show>{label}</span>),
+  label:lazy(()=><span class="native-demo-framework"><Show when={frameworkMark(framework)}>{d=><svg viewBox="0 0 24 24" aria-hidden="true"><path d={d()}/></svg>}</Show><span class="native-demo-framework-name">{label}</span><Show when={props.demos.every(record=>record.framework!==framework||record.status!=='playable')}><span class="native-demo-framework-note">미제공</span></Show></span>),
   content:lazy(()=><Show when={selected().framework===framework}><Body/></Show>)}));
- return <section class="native-demo" ref={region} aria-label={`${props.componentId} 네이티브 예시`}>
+ return <section class="native-demo" ref={region} aria-label={`${props.componentId} 예제`}>
  <Tabs class="native-demo-frameworks" aria-label="프레임워크" value={selected().framework} items={frameworks} onValueChange={({value})=>change(value)}/>
  </section>;
 }

@@ -18,7 +18,9 @@ export function parseDocument(markdown, sourcePath) {
  const frontmatter = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
  const body = frontmatter ? markdown.slice(frontmatter[0].length) : markdown;
  const metadata = Object.fromEntries((frontmatter?.[1] ?? '').split('\n').filter(line => /^\w+:/.test(line)).map(line => { const i=line.indexOf(':');return [line.slice(0,i),line.slice(i+1).trim().replace(/^(['"])(.*)\1$/, '$2')]; }));
- const headings = []; const slugs = new Set(); let tableNumber = 0; let itemNumber = 0;
+ const headings = []; const slugs = new Set(); const captions = new Map(); let itemNumber = 0;
+ // A table is named after its section; a second table in the same section gets a number.
+ const tableCaption = title => { const n=(captions.get(title)??0)+1; captions.set(title,n); return n===1?title:`${title} (${n})`; };
  const fail = (raw, reason) => { const offset = markdown.indexOf(raw); const line=markdown.slice(0,Math.max(0,offset)).split('\n').length; throw new Error(`${sourcePath}:${line}: Unsupported ${reason}`); };
  const inline = tokens => {
   const roots=[]; const stack=[{children: roots,tag: null}];
@@ -68,7 +70,7 @@ export function parseDocument(markdown, sourcePath) {
    case 'paragraph': case 'text': return [{type:'paragraph',children:inline(token.tokens??marked.Lexer.lexInline(token.text))}];
    case 'code': { const language=token.lang??''; const lines=highlight(token.text,language); return [{type:'code',language,value:token.text,...(lines?{lines}:{})}]; }
    case 'list': return [{type:'list',ordered:token.ordered,start:typeof token.start==='number'?token.start:1,items:token.items.map(item=>{if(item.task)fail(item.raw,'task list');return {id:`item-${++itemNumber}`,blocks:blocks(item.tokens)};})}];
-   case 'table': return [{type:'table',caption:`${headings.at(-1)?.title??metadata.title??sourcePath} — Table ${++tableNumber}`,headers:token.header.map(cell=>inline(cell.tokens)),rows:token.rows.map(row=>row.map(cell=>inline(cell.tokens))),align:token.align}];
+   case 'table': return [{type:'table',caption:tableCaption(headings.at(-1)?.title??metadata.title??sourcePath),headers:token.header.map(cell=>inline(cell.tokens)),rows:token.rows.map(row=>row.map(cell=>inline(cell.tokens))),align:token.align}];
    case 'blockquote': return [{type:'quote',blocks:blocks(token.tokens)}];
    case 'hr': return [{type:'rule'}];
    case 'html': if(sourcePath==='index.md'&&token.raw.trim()==='<HomeIntro />'){headings.push({id:'home-title',title:'Unofficial KRDS 익숙한 디자인을, 나의 프레임워크로.',level:1},{id:'example-title',title:'문서 안에서 만나는 Solid 컴포넌트',level:2});return [{type:'home'}];}return [{type:'paragraph',children:inline(marked.Lexer.lexInline(token.raw))}];
@@ -82,7 +84,7 @@ export function parseDocument(markdown, sourcePath) {
 }
 /** Explicit section destinations, with historical checkpoints retained as children. */
 export function buildNavigation(pages) {
- const sections=[['getting-started','빠른 시작','getting-started/installation.md'],['components','컴포넌트','components/index.md'],['patterns','패턴','patterns/index.md'],['compatibility','호환성','compatibility/index.md'],['examples','네이티브 예시','compatibility/examples.md'],['legal','출처와 권리','legal/index.md']];
+ const sections=[['getting-started','빠른 시작','getting-started/installation.md'],['components','컴포넌트','components/index.md'],['patterns','패턴','patterns/index.md'],['compatibility','호환성','compatibility/index.md'],['examples','예제','compatibility/examples.md'],['legal','출처와 권리','legal/index.md']];
  return sections.map(([section,label,landing])=>{
   const members=pages.filter(page=>section==='examples'?page.sourcePath==='compatibility/examples.md'||page.sourcePath?.startsWith('examples/'):page.sourcePath?.startsWith(section+'/')&&page.sourcePath!=='compatibility/examples.md');
   const first=members.find(page=>page.sourcePath===landing);

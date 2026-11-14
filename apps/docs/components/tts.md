@@ -4,38 +4,29 @@ title: 'TTS'
 
 # TTS {#tts}
 
-음성지원 · `TTS` — 화면의 글을 음성으로 들을 수 있게 합니다.
+**음성지원** — 화면의 글을 음성으로 들을 수 있게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_06.html) · [전체 명세](/sources/specs/components/tts.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 페이지 전체의 목적과 이용 순서를 요약해 들려주거나, 신청 안내·약관 같은 특정 영역의 내용을 음성으로 설명할 때 씁니다.
+- 고령자, 외국인 등 텍스트만으로는 이해가 어려운 사용자를 돕거나, 도움말 흐름에서 단계별 사용법을 읽어 줄 때 적합합니다.
+- 페이지 전체를 그대로 읽거나 화면 낭독기가 읽는 내용을 똑같이 반복하지 않습니다. 무엇을 할 수 있는지, 어떤 순서로 진행하는지처럼 꼭 필요한 내용만 요약합니다.
+- 페이지 단위는 페이지 제목 근처에, 영역 단위는 해당 카드나 소제목 옆에 둡니다.
+- 화면이 바뀔 때 자동으로 재생하지 않습니다. 사용자가 언제든 일시정지하고 정지할 수 있어야 합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `summary` **필수** | `string` | — | 음성으로 읽을 요약 텍스트입니다. |
+| `locale` **필수** | `string` | — | 요약 텍스트의 언어입니다. 재생 요청에 함께 전달됩니다. |
+| `state` **필수** | `'idle' \| 'playing' \| 'paused' \| 'error' \| 'unsupported'` | — | 현재 재생 상태입니다. `idle`, `playing`, `paused`, `error`, `unsupported` 중 하나이며 이에 따라 보이는 버튼과 상태 문구가 바뀝니다. `unsupported`이면 재생 버튼을 비활성화하고 이유를 보여 줍니다. |
+| `onRequest` **필수** | `(detail: {action: 'play' \| 'pause' \| 'resume' \| 'stop'; summary: string; locale: string}) => void` | — | 사용자가 재생, 일시정지, 이어 듣기, 정지 버튼을 누를 때 불립니다. `action`(`play`, `pause`, `resume`, `stop`)과 `summary`, `locale`을 받습니다. |
+| `label` **필수** | `string` | — | 재생 버튼의 레이블입니다. 무엇을 읽어 주는지 드러나게 씁니다. |
+| `size` | `'xsmall' \| 'small' \| 'medium'` | `small` | 버튼 크기입니다. `xsmall`, `small`, `medium` 중 하나입니다. |
+| `iconOnly` | `boolean` | `false` | `true`로 두면 레이블을 숨기고 아이콘만 보여 줍니다. `label`은 버튼의 접근 가능한 이름으로 계속 쓰입니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `summary` | `string` | 필수 | 속성 |
-| `locale` | `string` | 필수 | 속성 |
-| `state` | `'idle' \| 'playing' \| 'paused' \| 'error' \| 'unsupported'` | 필수 | 속성 |
-| `onRequest` | `(detail: {action: 'play' \| 'pause' \| 'resume' \| 'stop'; summary: string; locale: string}) => void` | 필수 | 이벤트 |
-| `label` | `string` | 필수 | 속성 |
-| `size` | `'xsmall' \| 'small' \| 'medium'` | 선택 | 속성 |
-| `iconOnly` | `boolean` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -55,56 +46,45 @@ export interface TTSContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 재생, 일시정지, 정지 버튼 사이로 초점을 옮깁니다. |
+| `Enter` / `Space` | 초점이 있는 버튼을 실행합니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-이름이 있는 음성 시작 버튼을 페이지 제목이나 영역 옆에 두고, 명시적인 일시정지/정지 컨트롤을 함께 둡니다. 페이지 전체 텍스트를 무분별하게 읽거나 스크린 리더와 중복하지 않고, 간결한 목적/흐름 요약을 읽습니다. 마운트/내비게이션 시 자동 재생은 없습니다.
+- 재생 상태를 텍스트와 버튼 이름으로 전달합니다. 화면 낭독기와 겹치는 별도의 음성 알림은 내지 않습니다.
+- 재생 중에는 일시정지와 정지 버튼을 항상 쓸 수 있습니다.
+- `label`에는 동작과 목적이 드러나는 이름을 줍니다. 가능하면 레이블을 보이게 두고, `iconOnly`는 공간이 부족할 때만 씁니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: summary, locale, state=idle|playing|paused|error, onRequest({action:play|pause|resume|stop,summary,locale}), label, size=small, iconOnly=false. 상태는 호스트가 확인합니다. 컴포넌트는 prop 변경으로 음성 엔진을 호출하지 않습니다.
+- 이 컴포넌트는 소리를 직접 내지 않습니다. `onRequest`를 받아 `SpeechSynthesis`나 음성 서비스로 재생하고, 그 결과를 `state`로 다시 넘깁니다.
+- `state`만 바꾼다고 재생이 시작되거나 멈추지 않습니다.
+- 브라우저가 음성 재생을 지원하지 않으면 `state`를 `unsupported`로 넘깁니다.
+- 페이지를 이동하거나 컴포넌트를 화면에서 제거할 때는 재생 중인 음성을 직접 정지합니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어 값과 기본값을 함께 주거나 mode를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청을 한 번 내보냅니다. disabled, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 확정된 UI/초점 상태를 유지하고, 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며 제어 prop이 계속 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-네이티브 버튼은 Enter/Space/click에 한 번 동작합니다. 재생 중에는 일시정지와 정지를 항상 쓸 수 있습니다. 상태는 경쟁하는 자동 음성/라이브 알림 없이 텍스트와 컨트롤 이름으로 노출합니다. 독립 정책: 지원되지 않으면 재생을 비활성화하고 이유를 보여 줍니다. 정리 시에는 호스트 수명 주기를 통해 라우트 이동/언마운트에서 정지 요청을 냅니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `idle`, `playing`, `paused`, `error`, `unsupported` |
+| `play` | `idle`, `playing`, `paused`, `error`, `unsupported` |
+| `pause` | `playing`, `paused`, `unsupported` |
+| `stop` | `idle`, `playing`, `paused`, `unsupported` |
+| `label` | 없음 |
+| `status` | `idle`, `playing`, `paused`, `error`, `unsupported` |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="tts"][data-krds-part="root"] { /* ... */ }
+```
 
-보이는 레이블을 권장합니다. 아이콘 전용은 기능적인 접근 가능한 이름을 가집니다. 좁은 화면에서도 페이지/영역 배치는 올바른 요약에 붙어 있어야 합니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼/리셋/IME 동작은 없으며 컨트롤은 type=button입니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-통합 완료에는 네이티브 컨트롤, 문서화된 호스트 드라이버 경계, play/pause/stop/error를 지원하는 명시적 로컬 목(mock)이 포함됩니다. SpeechSynthesis/서비스, 음성, 동의/런타임 지원, 실제 오디오는 호스트가 소유합니다. 스토리에 네트워크나 실제 음성은 필요하지 않습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, play, pause, stop, label, status; idle,playing,paused,error,unsupported.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="tts"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`page`, `region`, `play`, `icon`, `xsmall`, `small`, `medium`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-42) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_08_06.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_06.html)
+- [상세 명세](/sources/specs/components/tts.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

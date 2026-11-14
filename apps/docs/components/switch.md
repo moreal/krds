@@ -4,44 +4,35 @@ title: 'Toggle switch'
 
 # Toggle switch {#toggle-switch}
 
-토글 스위치 · `Switch` — 설정 하나를 켜거나 끕니다.
+**토글 스위치** — 설정 하나를 켜거나 끕니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_06_07.html) · [전체 명세](/sources/specs/components/switch.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 알림 표시 여부처럼 켜짐과 꺼짐 두 상태뿐인 설정을 바꾸고, 그 결과가 즉시 반영될 때 씁니다.
+- 별도의 제출이나 적용 단계가 있어야 반영되는 선택에는 체크박스나 라디오 버튼을 씁니다. 선택지가 셋 이상이거나 두 상태가 서로 반대가 아닐 때도 라디오 버튼을 씁니다.
+- 레이블은 가능하면 명사형으로 스위치의 목적을 적고, 상태가 바뀌어도 레이블을 바꾸지 않습니다. 상태를 글로 보여 주려면 스위치 옆에 별도 텍스트를 둡니다.
+- 레이블과 스위치를 가까이 둡니다. 한 화면의 스위치는 모두 같은 배치를 씁니다.
+- 켜짐도 꺼짐도 아닌 기본 상태가 필요한 경우에는 쓰지 않습니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `id` | `string` | — | 스위치 입력 요소의 `id`입니다. 생략하면 자동으로 만들어 레이블과 연결합니다. |
+| `name` | `string` | — | 폼으로 제출할 때 쓰는 필드 이름입니다. |
+| `label` **필수** | `string` | — | 스위치가 무엇을 켜고 끄는지 알려 주는 레이블입니다. 레이블을 눌러도 스위치가 전환됩니다. |
+| `disabled` | `boolean` | `false` | `true`이면 스위치를 조작할 수 없습니다. |
+| `required` | `boolean` | — | 폼을 제출하려면 스위치가 켜져 있어야 함을 나타냅니다. |
+| `invalid` | `boolean` | — | 현재 값이 유효하지 않음을 보조 기술에 알리고, `errorId`의 오류 문구를 설명으로 연결합니다. |
+| `helpId` | `string` | — | 도움말 요소의 `id`입니다. 스위치에 초점이 가면 화면 낭독기가 그 도움말을 함께 읽습니다. |
+| `errorId` | `string` | — | 오류 문구 요소의 `id`입니다. `invalid`일 때만 스위치의 설명으로 연결됩니다. |
+| `checked` | `boolean` | — | 켜짐 상태를 직접 제어할 때 넘깁니다. 넘기면 `onCheckedChange`에서 값을 바꿔야 화면이 바뀝니다. |
+| `defaultChecked` | `boolean` | `false` | 상태를 직접 제어하지 않을 때의 처음 상태입니다. |
+| `onCheckedChange` | `(detail: {checked: boolean}) => void` | — | 사용자가 스위치를 전환할 때 한 번 불리고, 바뀔 `checked` 값을 받습니다. 설정을 바로 적용하는 곳입니다. |
+| `value` | `string` | — | 켜져 있을 때 폼으로 제출되는 값입니다. |
+| `size` | `'medium' \| 'large'` | `medium` | 스위치 크기입니다. `medium` 또는 `large`입니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `id` | `string` | 선택 | 속성 |
-| `name` | `string` | 선택 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `disabled` | `boolean` | 선택 | 속성 |
-| `required` | `boolean` | 선택 | 속성 |
-| `invalid` | `boolean` | 선택 | 속성 |
-| `helpId` | `string` | 선택 | 속성 |
-| `errorId` | `string` | 선택 | 속성 |
-| `checked` | `boolean` | 선택 | 속성 |
-| `defaultChecked` | `boolean` | 선택 | 속성 |
-| `onCheckedChange` | `(detail: {checked: boolean}) => void` | 선택 | 이벤트 |
-| `value` | `string` | 선택 | 속성 |
-| `size` | `'medium' \| 'large'` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -68,56 +59,48 @@ export interface FieldContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 스위치로 초점을 옮기거나 스위치에서 벗어납니다. |
+| `Space` | 스위치를 켜거나 끕니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-레이블이 있는 불리언 컨트롤로, 트랙, 핸들, 상태 아이콘, 선택적 aria-describedby 도움말을 가집니다. 목적을 나타내는 레이블은 상태에 따라 바뀌지 않습니다. role=switch를 가진 네이티브 체크박스를 쓰며, checked는 실제 불리언입니다. mixed 상태는 없습니다.
+- `role="switch"`인 체크박스로 표시되어 화면 낭독기가 스위치임과 현재 켜짐 상태를 읽어 줍니다.
+- `label`이 스위치의 이름이 되며, 레이블 영역까지 누를 수 있어 조작 대상이 넓어집니다.
+- 도움말이 있으면 `helpId`로 연결해 화면 낭독기가 스위치에 닿았을 때 함께 읽게 합니다.
+- 핸들 위치와 상태 아이콘으로 상태를 전달하므로 색만으로 구분하지 않습니다.
+- 트랙, 핸들, 상태 아이콘과 주변 배경의 명도 대비를 3:1 이상으로 유지합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: checked/defaultChecked=false, onCheckedChange({checked}), label, 선택적 name/value, disabled=false, 도움말·오류 ID, size=medium. 콜백은 설정을 즉시 적용하라는 요청입니다. 제어하는 호스트는 대기 중에 요청을 거부할 수 있으며, 이때 화면이 거짓 상태를 보여서는 안 됩니다.
+- `checked`와 `defaultChecked`는 함께 쓰지 않습니다. `checked`를 넘기면 제어 방식, 넘기지 않으면 `defaultChecked`에서 시작해 컴포넌트가 상태를 관리합니다.
+- 제어 방식에서 `onCheckedChange`를 받고도 `checked`를 바꾸지 않으면 스위치는 이전 상태로 남습니다. 저장에 실패했을 때 화면이 실제 설정과 어긋나지 않게 할 수 있습니다.
+- `name`이 있으면 체크박스처럼 켜져 있을 때만 폼 데이터에 포함됩니다.
+- 폼을 초기화하면 `defaultChecked` 상태로 돌아갑니다. 제어 방식에서는 `checked` 값을 그대로 유지하며, 어느 쪽도 `onCheckedChange`를 부르지 않습니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-레이블·컨트롤 클릭과 Space는 한 번만 토글합니다. Tab과 초점은 일반적으로 동작합니다. aria-checked는 실제 상태입니다. 추가 Enter 요구는 추정하지 않습니다. 상태 아이콘·핸들이 색에 의존하지 않는 단서와 3:1 대비를 제공합니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `checked`, `unchecked`, `disabled` |
+| `control` | `checked`, `unchecked`, `disabled` |
+| `track` | `checked`, `unchecked`, `disabled` |
+| `handle` | `checked`, `unchecked`, `disabled` |
+| `state-icon` | `checked`, `unchecked`, `disabled` |
+| `label` | 없음 |
+| `help` | 없음 |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="switch"][data-krds-part="root"] { /* ... */ }
+```
 
-페이지 전체에서 레이블·컨트롤 배치를 일관되게 유지하고, 넓은 컨테이너에서는 레이블을 컨트롤 가까이에 둡니다. 좁은 화면에서는 터치하기 쉬운 대상과 읽기 좋은 도움말을 제공합니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-name이 있으면 네이티브 checked 체크박스의 FormData 동작을 따릅니다. 비제어 리셋은 defaultChecked로 복원하고, 제어 상태는 콜백 없이 현재 prop을 유지합니다. 설정 부수 효과는 명시적 사용자 동작이나 호스트 정책에서만 일어나며, 마운트·prop·리셋을 재생해 일으키지 않습니다. IME는 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트가 실제 설정·저장소·비동기 오류를 소유합니다. 별도의 적용 동작이 필요한 선택에는 쓰지 않으며, 그런 경우에는 Checkbox/Radio가 맞습니다. 로컬 스토리는 관찰 가능한 로컬 설정을 바꿉니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, control, track, handle, state-icon, label, help; checked,unchecked,disabled.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="switch"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`medium`, `large`, `with-help`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-34) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_06_07.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_06_07.html)
+- [상세 명세](/sources/specs/components/switch.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

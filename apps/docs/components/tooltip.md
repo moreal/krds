@@ -4,42 +4,33 @@ title: 'Tooltip'
 
 # Tooltip {#tooltip}
 
-툴팁 · `Tooltip` — 요소에 마우스를 올리거나 초점을 두면 짧은 설명을 보여 줍니다.
+**툴팁** — 요소에 마우스를 올리거나 초점을 두면 짧은 설명을 보여 줍니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_05.html) · [전체 명세](/sources/specs/components/tooltip.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 텍스트 레이블이 없는 아이콘 버튼에 레이블을 보여 줄 때 씁니다.
+- 단어 뜻처럼, 꼭 필요하지는 않지만 도움이 되는 짧은 추가 정보를 정보 아이콘 옆에 제공할 때 씁니다.
+- 150자 안팎의 짧은 설명에만 씁니다. 더 긴 설명이나 링크·버튼이 들어가야 하면 맥락적 도움말이나 도움 패널을 씁니다.
+- HTML `title` 속성 대신 툴팁을 쓰고, 둘을 함께 쓰지 않습니다.
+- 팝업이 화면 밖으로 나가거나 트리거와 설명 대상 콘텐츠를 가리지 않도록 `placement`를 정합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `open` | `boolean` | — | 툴팁이 열려 있는지 여부입니다. 지정하면 열림 상태를 직접 관리하는 제어 방식이 되며 `defaultOpen`과 함께 쓰지 않습니다. |
+| `defaultOpen` | `boolean` | `false` | 처음에 열어 둘지 정합니다. 처음 한 번만 읽습니다. |
+| `onOpenChange` | `(detail: OpenChangeDetails) => void` | — | 마우스를 올리거나 초점을 주거나 `Esc`를 누르는 등 사용자 동작으로 열림 상태가 바뀌려 할 때 불리며 새 상태를 `open`으로 받습니다. |
+| `text` **필수** | `string` | — | 툴팁에 표시할 텍스트입니다. `label` 관계에서는 이 텍스트가 트리거 버튼의 이름이 됩니다. |
+| `relationship` | `'description' \| 'label'` | `description` | 텍스트와 트리거의 관계입니다. `description`은 트리거의 보충 설명으로, `label`은 트리거의 이름으로 연결합니다. |
+| `triggerLabel` | `string` | — | 트리거 버튼의 접근 가능한 이름입니다. `description` 관계에서 필요하며, `label` 관계에서는 쓰지 않습니다. |
+| `triggerId` **필수** | `string` | — | 트리거 버튼의 `id`입니다. |
+| `textId` **필수** | `string` | — | 툴팁 텍스트 요소의 `id`입니다. 트리거가 이 `id`를 `aria-describedby` 또는 `aria-labelledby`로 참조합니다. |
+| `placement` | `HelpPlacement` | — | 팝업을 트리거의 어느 쪽에 둘지 정합니다. `top-start`, `top`, `top-end`, `bottom-start`, `bottom`, `bottom-end` 중 하나입니다. |
+| `fallbackFocusId` | `string` | — | 툴팁이 닫힐 때 트리거가 사라졌거나 쓸 수 없으면 대신 초점을 받을 요소의 `id`입니다. |
+| `touchToggle` | `boolean` | `false` | `true`로 두면 터치 화면에서 트리거를 눌러 툴팁을 열고 닫을 수 있습니다. 바깥을 누르면 닫힙니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `open` | `boolean` | 선택 | 속성 |
-| `defaultOpen` | `boolean` | 선택 | 속성 |
-| `onOpenChange` | `(detail: OpenChangeDetails) => void` | 선택 | 이벤트 |
-| `text` | `string` | 필수 | 속성 |
-| `relationship` | `'description' \| 'label'` | 선택 | 속성 |
-| `triggerLabel` | `string` | 선택 | 속성 |
-| `triggerId` | `string` | 필수 | 속성 |
-| `textId` | `string` | 필수 | 속성 |
-| `placement` | `HelpPlacement` | 선택 | 속성 |
-| `fallbackFocusId` | `string` | 선택 | 속성 |
-| `touchToggle` | `boolean` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -68,69 +59,47 @@ export interface OpenChangeDetails {
 export type HelpPlacement = 'top-start' | 'top' | 'top-end' | 'bottom-start' | 'bottom' | 'bottom-end';
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 트리거에 초점이 가면 툴팁이 열리고, 초점이 벗어나면 닫힙니다. 팝업 자체는 초점을 받지 않습니다. |
+| `Esc` | 툴팁을 닫고 초점을 트리거로 옮깁니다. 초점이 트리거를 벗어났다가 다시 들어올 때까지 툴팁은 다시 열리지 않습니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-이름이 있는 트리거 버튼 바로 뒤에 짧은 비대화형 팝업을 둡니다. 툴팁 안에는 링크/버튼을 두지 않습니다. 정보 아이콘과 아이콘 버튼 레이블 툴팁은 서로 다른 사용 사례입니다. HTML title을 중복해 쓰지 않습니다. 출처는 aria-labelledby가 트리거와 컨테이너를 연결한다고만 하며 정확한 방향은 밝히지 않습니다.
+- 팝업은 `role="tooltip"`이며 트리거 바로 뒤에 놓여 화면 낭독기가 논리적인 순서로 읽습니다.
+- `description` 관계에서는 `triggerLabel`로 트리거의 기능을 나타내는 고유한 이름을 주고, 툴팁 텍스트는 `aria-describedby`로 연결됩니다.
+- `label` 관계에서는 툴팁 텍스트가 `aria-labelledby`로 트리거의 이름이 됩니다. 툴팁이 닫혀 있어도 이름은 유지됩니다.
+- 화면에 트리거가 여럿이면 이름이 서로 겹치지 않게 합니다.
+- 툴팁 안에는 링크나 버튼을 넣지 않습니다.
+- 터치 사용자는 마우스를 올릴 수 없으므로 트리거의 아이콘이나 레이블만으로도 의미가 통해야 합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: `text`, `relationship:description|label=description`, `triggerLabel?`, `triggerId`, `textId`, placement, open/defaultOpen=false, onOpenChange, `fallbackFocusId?`, touchToggle=false (별도의 정보 트리거가 아니면). 팝업은 role=tooltip이며 콘텐츠는 비대화형입니다. relationship 판별자는 필수 의미 동작입니다. 아이콘 모양이나 렌더러가 우연히 고른 속성에서 추론하지 않습니다.
+- 마우스를 트리거에 올리면 열리고, 트리거와 팝업 모두에서 벗어나면 닫힙니다. 포인터를 팝업 위로 옮겨도 닫히지 않습니다.
+- 마우스로 열려도 다른 곳에 있던 키보드 초점은 옮기지 않습니다.
+- `open`으로 제어하는 경우 `onOpenChange`를 받고도 `open`을 바꾸지 않으면 툴팁은 그대로 열려 있고 초점도 움직이지 않습니다.
+- 팝업은 화면 가장자리에서 잘리지 않도록 위치를 조정합니다.
 
-**description** 모드에서는 독립적인 기능/맥락 triggerLabel(또는 검증된 동등한 네이티브 보이는 이름)이 필요하며, 이것이 계속 트리거의 실제 이름입니다. textId는 그 트리거의 aria-describedby에 정확히 한 번 추가합니다. 설명용 툴팁 텍스트로 aria-labelledby를 설정하지 않습니다. **label** 모드에서는 text 자체가 안정적인 기능 버튼 이름이어야 합니다. 트리거 aria-labelledby는 textId를 가리키고, triggerLabel/대체 aria-label은 허용되지 않으며, 같은 텍스트를 aria-describedby에도 쓰지 않습니다. 시각 팝업이 닫혀 있는 동안에도 실제 textId 노드를 같은 접근성 트리/루트에 유지해, 열기 전에도 기능 이름이 존재하게 합니다. 시각적으로 숨기는 것은 참조되는 텍스트를 언마운트하는 것이 아닙니다. 중복된 숨은 레이블/라이브 메시지를 또 만들지 않습니다. 다른 도움말 설명을 쓰는 소비자는 textId를 반복하지 않고 서로 다른 유효한 ID를 유지합니다.
+## 스타일링 {#styling}
 
-두 모드 모두 Lit Shadow DOM을 포함해 실제 루트에서 트리거/텍스트 관계가 실제로 해석되어야 합니다. light DOM ID가 경계 너머의 내부 컨트롤에 이름을 붙일 수 있다고 가정하지 않습니다. 같은 루트에 속한 트리거/텍스트 관계 또는 검증된 네이티브 대체를 쓰고, 해석되지 않는 잘못된 구성은 실패시킵니다. 공식 aria-labelledby 문구([L1163–1164](https://www.krds.go.kr/html/site/component/component_08_05.html))는 아래에 그대로 인용되어 있습니다. description 모드의 aria-describedby는 보충 콘텐츠에 대한 명시적 독립 해석이며 KRDS의 문자 그대로의 지시라고 주장하지 않습니다. 제어 props/기본값/리셋/중복 금지 규칙은 [파일럿 정책](/sources/specs/components/README.md.txt)을 따릅니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `open`, `closed`, `suppressed`, `top-start`, `top`, `top-end`, `bottom-start`, `bottom`, `bottom-end` |
+| `trigger` | `open`, `closed`, `suppressed` |
+| `popup` | `open`, `closed`, `suppressed`, `top-start`, `top`, `top-end`, `bottom-start`, `bottom`, `bottom-end` |
+| `icon` | 없음 |
+| `text` | 없음 |
 
-hover/초점으로 표시합니다. 포인터가 트리거와 팝업 둘 다에서 벗어나거나 blur되면 숨깁니다. 일반 hover 열기는 다른 곳의 키보드 초점을 빼앗지 않습니다. 포인터는 닫히지 않고 팝업으로 이동할 수 있습니다. 별도의 정보 버튼을 터치하면 토글하고 바깥을 탭하면 닫으며, 기본 아이콘 동작은 삼키지 않습니다. 팝업에는 Tab 정지점이 없습니다.
+```css
+[data-krds-component="tooltip"][data-krds-part="root"] { /* ... */ }
+```
 
-처리되는 Escape는 닫기를 한 번만 요청합니다. 조합 중이거나 keyCode229이거나 내부에서 이미 처리된 이벤트는 무시합니다. **실제 닫힘이 승인된 경우에만**, 초점을 옮기기 전에 Escape 억제를 표시한 뒤 사용 가능한 트리거에 초점을 둡니다. 툴팁이 hover로 열렸고 초점이 이전에 다른 곳에 있었어도 마찬가지입니다([공식 L1251–1255](https://www.krds.go.kr/html/site/component/component_08_05.html)). 이때 유발된 트리거 초점이 다시 열어서는 안 됩니다. Tab/Shift+Tab으로 그 트리거에서 다른 요소로 벗어났다가 초점이 다시 들어올 때까지 자동 hover/초점 재열기를 억제합니다. 포인터 이동이나 prop 변경만으로는 이 초기화가 충족되지 않습니다. 제어 닫기가 거부되면 실제 열림 상태를 유지하고 초점을 옮기지 않으며 해제에 성공했다고 주장하지 않습니다.
+## 참고 {#references}
 
-승인된 닫기나 해체로 트리거가 제거되거나 사용할 수 없게 되면 리스너와 대기 중인 요청을 정리하고, 다음 순서로 사용 가능한 대상을 고릅니다. 사용 가능한 fallbackFocusId, 저장된 트리거에서 가장 가까운 사용 가능한 초점 가능 조상, 그리고 임시 tabindex=-1을 쓰고 이전 값을 복원하는 살아 있는 document body입니다. 사용 가능이란 마운트됨, 보임, 활성, 초점 가능, 같은 살아 있는 document, inert 아님을 뜻합니다. 숨겨졌거나 제거된 트리거 노드에 초점을 두지 않으며, 오래된 generation의 초점 작업을 실행하지 않고, 복원 때문에 추가 사용자 이벤트를 내지 않습니다. 외부 prop으로 닫는 것만으로 Escape 동작인 척하지 않습니다.
-
-### 반응형 동작 {#responsive-mobile-requirements}
-
-팝업은 충돌을 고려해 화면 안에 완전히 들어오고 대상을 가리지 않습니다. 터치 사용자에게도 의미 있는 아이콘/레이블이 있어야 합니다. 약 150자를 유지하며, 더 긴 대화형 콘텐츠는 ContextualHelp로 보냅니다.
-
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼/리셋 상태는 없습니다. Enter/Space 활성화는 툴팁이 아니라 트리거 동작에 속합니다. 조합 중 Escape는 무시합니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트는 label 모드에는 의미 있는 기능 텍스트를, description 모드에는 별도의 기능 트리거 이름과 보충 텍스트를 제공합니다. 완료 조건은 다음과 같습니다.
-
-- 시각적으로 열리기 전, 열리는 동안, 열린 후의 결정적인 계산된 이름/설명.
-- 같은 루트/Shadow DOM에서 실제 관계.
-- hover/초점/터치/Escape 억제.
-- hover로 시작한 Escape의 복귀/대체/거부된 닫기 사례.
-
-title 텍스트를 렌더링하거나 ID 문자열을 저장하는 것만으로는 이러한 네이티브 관계가 성립하지 않습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, trigger, popup, icon, text; open,closed,suppressed,placement.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="tooltip"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위의 파트/상태 어휘는 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`information-icon`, `icon-button`, `vertical`, `box`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-41) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_08_05.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_05.html)
+- [상세 명세](/sources/specs/components/tooltip.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

@@ -4,42 +4,33 @@ title: 'Carousel'
 
 # Carousel {#carousel}
 
-캐러셀 · `Carousel` — 여러 콘텐츠를 한 자리에서 차례로 넘겨 보여 줍니다.
+**캐러셀** — 여러 콘텐츠를 한 자리에서 차례로 넘겨 보여 줍니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_09.html) · [전체 명세](/sources/specs/components/carousel.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 관련 있는 콘텐츠 여러 개를 한 영역에서 넘겨 보게 할 때 씁니다.
+- 중요한 정보에는 쓰지 않습니다. 사용자는 대개 모든 슬라이드를 넘겨 보지 않습니다.
+- 슬라이드는 5개 이내로 두고 중요한 것을 앞에 둡니다. 더 많으면 목록으로 보여 줍니다.
+- 슬라이드의 글은 1~2줄로 짧게 쓰고, 글자를 이미지 안에 넣지 않습니다.
+- 자동으로 넘기려면 내용을 읽기에 충분한 간격을 `intervalMs`로 줍니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `items` **필수** | `readonly {id: string; label: string; content: string}[]` | — | 슬라이드 목록입니다. 항목마다 고유한 `id`, 슬라이드 이름 `label`, 표시할 `content`를 넣습니다. 항목이 하나뿐이면 이동 버튼과 위치 표시, 재생 버튼을 모두 숨깁니다. |
+| `index` | `number` | — | 현재 슬라이드의 순번을 직접 제어합니다. 넘기면 `onIndexChange`에서 받은 값으로 갱신해야 합니다. |
+| `defaultIndex` | `number` | `0` | 처음에 보여 줄 슬라이드의 순번입니다. 상태를 직접 제어하지 않을 때 씁니다. |
+| `onIndexChange` | `(detail: {index: number; reason: 'previous' \| 'next' \| 'indicator' \| 'swipe' \| 'timer'}) => void` | — | 슬라이드를 바꾸려 할 때 불립니다. 옮겨 갈 `index`와 `reason`을 받습니다. `reason`은 이전·다음 버튼이면 `previous`·`next`, 위치 표시를 누르면 `indicator`, 밀어서 넘기면 `swipe`, 자동 재생이면 `timer`입니다. |
+| `layout` | `'single' \| 'multiple'` | — | 한 번에 슬라이드 하나만 보여 줄지(`single`) 여러 개를 나란히 보여 줄지(`multiple`) 정합니다. |
+| `autoplay` | `boolean` | `false` | 처음부터 자동으로 넘기기 시작할지 정합니다. 처음 한 번만 읽습니다. |
+| `intervalMs` | `number` | `6000` | 자동 재생에서 다음 슬라이드로 넘어가기까지의 시간(밀리초)입니다. |
+| `playing` | `boolean` | — | 자동 재생 여부를 직접 제어합니다. `true`여도 사용자가 정지했거나 캐러셀 위에 포인터나 초점이 있으면 넘어가지 않습니다. |
+| `defaultPlaying` | `boolean` | — | 처음에 자동 재생을 켤지 정합니다. 지정하지 않으면 `autoplay` 값을 따릅니다. |
+| `onPlayingChange` | `(detail: {playing: boolean; reason: 'play' \| 'stop' \| 'navigation'}) => void` | — | 사용자가 자동 재생을 켜거나 끄려 할 때 불립니다. 바뀔 `playing` 값과 `reason`을 받습니다. `reason`은 재생 버튼이면 `play`, 정지 버튼이면 `stop`, 슬라이드를 직접 넘겨 멈춘 경우 `navigation`입니다. |
+| `loop` | `boolean` | `false` | `true`로 두면 마지막 슬라이드 다음에 첫 슬라이드로 이어집니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `items` | `readonly {id: string; label: string; content: string}[]` | 필수 | 속성 |
-| `index` | `number` | 선택 | 속성 |
-| `defaultIndex` | `number` | 선택 | 속성 |
-| `onIndexChange` | `(detail: {index: number; reason: 'previous' \| 'next' \| 'indicator' \| 'swipe' \| 'timer'}) => void` | 선택 | 이벤트 |
-| `layout` | `'single' \| 'multiple'` | 선택 | 속성 |
-| `autoplay` | `boolean` | 선택 | 속성 |
-| `intervalMs` | `number` | 선택 | 속성 |
-| `playing` | `boolean` | 선택 | 속성 |
-| `defaultPlaying` | `boolean` | 선택 | 속성 |
-| `onPlayingChange` | `(detail: {playing: boolean; reason: 'play' \| 'stop' \| 'navigation'}) => void` | 선택 | 이벤트 |
-| `loop` | `boolean` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -69,64 +60,55 @@ export interface CarouselContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 정지·재생 버튼, 이동 버튼, 위치 표시, 보이는 슬라이드 안의 요소를 차례로 이동합니다. 초점이 캐러셀 안으로 들어오면 자동 재생이 멈춥니다. |
+| `Enter` / `Space` | 초점이 있는 버튼을 실행합니다. 이전·다음 슬라이드로 넘기거나 자동 재생을 멈추고 다시 시작합니다. |
+| `←` / `→` | 위치 표시에 초점이 있을 때 이전이나 다음 슬라이드로 넘깁니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-라벨이 있는 캐러셀 영역에 슬라이드, 이전/다음 버튼, 위치/전체 표시기를 둡니다. 자동 재생을 요청할 수 있는 경우(제어된 playing=true, 또는 처음 수동 의도에서의 명시적 재생 포함) 정지/재생이 첫 번째 상호작용 하위 요소입니다. 상호작용 하위 요소와 AT에는 주로 보이는 슬라이드만 노출하며, 숨겨졌거나 일부만 보이는 슬라이드는 노출하지 않습니다. 항목이 하나면 캐러셀 컨트롤을 모두 숨깁니다. 슬라이드는 5개 이하를 권장합니다.
+- 자동 재생을 쓸 수 있는 캐러셀에서는 정지·재생 버튼이 가장 먼저 초점을 받습니다.
+- 키보드 초점이 들어오거나 사용자가 슬라이드를 직접 넘기면 자동 재생이 멈추고, 재생 버튼을 누르기 전에는 다시 시작하지 않습니다. 포인터를 올려 둔 동안에도 멈춥니다.
+- 가려졌거나 일부만 보이는 슬라이드는 초점을 받지 않고 화면 낭독기도 읽지 않습니다.
+- 밀어서 넘기는 동작 없이도 버튼만으로 모든 슬라이드에 갈 수 있습니다.
+- 동작 줄이기 설정을 켠 사용자에게는 자동 재생과 슬라이드 애니메이션을 쓰지 않습니다.
+- 슬라이드마다 배경색이나 테두리로 경계를 분명히 하고, 이동 버튼과 위치 표시가 슬라이드 내용을 가리지 않게 합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: items {id,label,content}[], `index?/defaultIndex=0`, `onIndexChange({index,reason})`, layout=single|multiple, autoplay=false, intervalMs=6000, `playing?:boolean`, `defaultPlaying?:boolean`, `onPlayingChange({playing:boolean,reason:play|stop|navigation})`, loop=false. playing이 정의되면 제어되는 **재생 의도(playback intent)**이고, 없으면 비제어 의도입니다. defaultPlaying은 한 번만 읽으며 기본값은 autoplay입니다. 둘 다 주거나 모드를 바꾸는 것은 잘못된 사용입니다. autoplay는 한 번만 읽는 비제어 의도 초기화 값이며, 제어된 playing이나 정지 래치를 덮어쓰지 않습니다. 슬라이드가 둘 이상이면 재생 가능 API는 처음 의도가 수동/false여도 재생/정지 컨트롤을 첫 번째로 렌더합니다. prop만으로는 콜백이 나오지 않습니다. 표시기는 데스크톱에서 점(dots), 1023px 미만에서 분수(fraction)입니다.
+- 위치 표시는 넓은 화면에서 점 모양 버튼이고, 화면 너비가 1023px보다 좁으면 '3/5' 같은 숫자로 바뀝니다.
+- `index`와 `defaultIndex`, `playing`과 `defaultPlaying`은 각각 함께 쓰지 않습니다.
+- 자동 재생으로 넘어갈 때도 `onIndexChange`가 `reason: 'timer'`로 불립니다. `index`를 직접 제어한다면 이때도 값을 갱신해야 슬라이드가 넘어갑니다.
+- 멈췄다가 다시 재생하면 남은 시간이 아니라 `intervalMs` 전체를 새로 기다립니다.
+- 좌우로 밀어서 넘길 수 있으며, 세로 페이지 스크롤은 방해하지 않습니다.
 
-재생 의도는 허락일 뿐, 타이머가 진행 중이라는 증거가 아닙니다. 실제 진행에는 다음이 모두 필요합니다. 커밋된 의도 true, 사용 가능한 슬라이드 둘 이상, 이용 가능한 다음 인덱스, 보이는 마운트된 문서, 현재 호버 억제 없음, 초점 정지/수동·탐색 정지 래치 없음, 동작 줄이기 허용. 로컬 안전/공식 억제 상태는 제어된 playing prop을 바꾸지 않고도 진행을 멈출 수 있습니다. 초점, 호버, 문서 가시성, 마운트, prop 변경은 **사용자 재생 변경 알림을 내지 않습니다**. 재생/정지 또는 사용자 탐색은 요청 의도가 다를 때만 의도 변경을 한 번 요청합니다. 제어 거부는 의도 prop을 바꾸지 않지만, 해당 정지 래치가 실제 움직임을 계속 막습니다. 재생/일시정지 레이블과 재생 중/일시정지 렌더 상태는 의도가 아니라 실제 허용된 진행을 나타냅니다.
+## 스타일링 {#styling}
 
-타이머 틱은 진행이 허용될 때만 `onIndexChange`를 `reason:"timer"`로 한 번 호출해 다음 인덱스를 요청합니다. 이는 명시적인 시스템 기원 인덱스 요청이며, 사용자 사유 next/previous/indicator/swipe와 구별되고 사용자 재생 알림이 아닙니다. 비제어 인덱스는 변경된 적격 틱마다 커밋합니다. 제어 인덱스는 호스트가 요청을 거부하면 prop 값을 유지합니다. 중복 입력/클릭 이벤트나 prop/리셋/마운트 인덱스 콜백은 나오지 않습니다. 새 간격마다 현재 커밋된 인덱스를 기준으로 다음 인덱스를 다시 요청할 수 있습니다. 거부된 틱이 인덱스를 몰래 바꾸지 않습니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `active`, `hidden`, `playing`, `paused`, `disabled` |
+| `viewport` | `playing`, `paused` |
+| `list` | 없음 |
+| `slide` | `active`, `hidden` |
+| `previous` | `disabled` |
+| `next` | `disabled` |
+| `indicators` | 없음 |
+| `indicator` | `active` |
+| `position` | 없음 |
+| `play-pause` | `playing`, `paused`, `disabled` |
+| `stop-intent` | `paused`, `disabled` |
 
-이전/다음/표시기 버튼과 좌우 표시기 탐색은 스와이프 없이 동작합니다. 스와이프/드래그가 세로 페이지 스크롤을 가로채면 안 됩니다. 공식 초점 진입은 실제로 진행을 멈추고, 명시적 재생 전까지 그 정지를 래치합니다([L1335–1338](https://www.krds.go.kr/html/site/component/component_04_09.html)). 초점을 벗어나거나 호스트가 playing=true를 써도 이 래치는 풀리지 않습니다. 초점 진입은 바깥에서 캐러셀 안으로 넘어오는 것을 뜻하며, 내부 초점 이동은 두 번째 진입을 만들지 않습니다. 호버는 포인터가 캐러셀 위에 있는 동안 제어 의도나 무시된 일시정지 요청과 관계없이 항상 실제 진행을 막습니다([L1347–1350](https://www.krds.go.kr/html/site/component/component_04_09.html)).
+```css
+[data-krds-component="carousel"][data-krds-part="root"] { /* ... */ }
+```
 
-명시적 정지와 사용자 슬라이드 탐색도 로컬 정지 래치를 설정합니다(탐색 정지는 프로젝트 정책). 명시적 재생만이 초점/수동/탐색 정지 래치를 모두 풀며, 현재 의도가 false면 true 의도도 요청합니다. 따라서 초점이 안에 남아 있어도 재생은 재생을 허용할 수 있지만, 여전히 호버 중이면 포인터가 떠날 때까지 실제로는 멈춰 있습니다. 호버 종료만으로는 초점/수동 래치를 풀 수 없습니다. 제어된 재생 요청이 거부되면 의도는 false로 남고 움직임은 없습니다. 의도가 이미 true인데 억제된 상태라면, 재생은 중복 현재값 콜백 없이 래치만 풀 수 있습니다. 제어된 playing=true에서 명시적 정지는 false를 한 번 요청하고, 부모가 거부해도 로컬에서 멈춥니다. 의도를 외부에서 false/true로 바꾸는 것은 명시적 재생으로 치지 않습니다.
+## 참고 {#references}
 
-억제가 시작되면 활성 간격을 즉시 취소합니다. 모든 게이트가 다시 진행을 허용하면 이미 일부 지난 틱을 발사하지 않고 새 전체 간격을 시작합니다. 현재 초점이 있는 슬라이드가 숨겨지기 전에 안전한 초점을 복원합니다. 숨김/언마운트 시 타이머와 옵저버를 정리합니다. 이전 세대 틱은 해체나 교체 후 인덱스를 요청할 수 없습니다.
-
-**로컬 억제 중 명시적 정지(수용된 독립 결정):** 슬라이드가 둘 이상이면 첫 재생 컨트롤 그룹은 기본 재생-일시정지 레이블을 실제 허용된 진행에 맞춰 정직하게 유지합니다. 진행 중에는 정지, 일시정지 중에는 재생입니다. 커밋된 재생 의도가 true인데 실제 진행이 억제된 동안에는, 이름이 자동 재생 중지인 별도의 네이티브 type=button도 렌더합니다. 소유 파트는 stop-intent이고 paused/disabled 어휘를 씁니다. 이 버튼은 슬라이드 탐색보다 앞선 첫 재생 그룹에 둡니다. 실제 포인터 클릭이나 키보드 활성화로 누르면 수동 정지를 래치하고, 제어 호스트가 거부해도 reason stop인 playing=false 요청을 한 번 냅니다. 거부가 래치를 풀거나 의도 prop을 바꾸지 않습니다. 수동적 초점/호버는 재생 요청을 내지 않습니다. 호버/초점 이전의 오래된 레이블을 캡처하거나 합성 디스패치로 정지 동작을 주장하면 안 됩니다. 명시적 재생은 기존 래치 해제 및 현재 의도 무동작 콜백 규칙을 유지합니다. 항목이 하나인 캐러셀은 기본 컨트롤, stop-intent, 탐색 컨트롤을 렌더하지 않습니다.
-
-### 반응형 동작 {#responsive-mobile-requirements}
-
-1023px 미만에서는 점 대신 분수 표시기를 씁니다. 터치 컨트롤은 44×44 이상을 권장하고 포인터는 17×17 이상입니다. 내용은 1~2줄로 읽을 수 있어야 하고 경계가 분명해야 합니다. 동작 줄이기에서는 기본적으로 자동 재생과 슬라이드 애니메이션이 없으며, 이는 문서화된 독립 접근성 선택입니다.
-
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼/리셋 상태가 없습니다. 내장 입력에서 조합 키로 탐색하지 않습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-공식 예시는 Swiper CSS/JS를 참조합니다. 네이티브 계약은 KRDS 원본 JS를 실행하거나 Swiper를 요구하지 않고 문서화된 결과를 재현합니다. 슬라이드 콘텐츠와 로컬 자산은 호스트 소유입니다. 완료에는 실제 탐색·자동 재생 상태와 숨겨진 슬라이드 접근성이 포함되어야 합니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, viewport, list, slide, previous, next, indicators, indicator, position, play-pause, stop-intent; active,hidden,playing,paused,disabled.
-
-렌더되는 모든 소유 파트는 `data-krds-component="carousel"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위 열거는 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`single`, `multiple`, `autoplay`, `manual`, `full-banner`, `element-banner`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-22) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_04_09.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_09.html)
+- [상세 명세](/sources/specs/components/carousel.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

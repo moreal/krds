@@ -88,6 +88,7 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: var(--krds-pc-font-
 .native-demo-frameworks > [data-krds-part="list"] > [data-krds-part="trigger"] { padding-inline: var(--krds-padding-5); }
 .native-demo-frameworks > [data-krds-part="panel"] { margin-block-start: 1.2rem; }
 .native-demo-framework { display: inline-flex; align-items: center; gap: .8rem; }
+.native-demo-framework-note { font-size: 1.3rem; font-weight: 400; color: var(--krds-light-color-text-subtle); }
 .native-demo-framework > svg { inline-size: 2rem; block-size: 2rem; flex: none; fill: currentColor; }
 @media (forced-colors: active) { .native-demo-framework > svg { fill: CanvasText; } }
 .native-demo-package { font-size: 1.4rem; overflow-wrap: anywhere; margin: 0; }

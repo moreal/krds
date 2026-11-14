@@ -4,37 +4,28 @@ title: 'Table'
 
 # Table {#table}
 
-표 · `Table` — 행과 열로 정리한 데이터를 비교하기 쉽게 보여 줍니다.
+**표** — 행과 열로 정리한 데이터를 비교하기 쉽게 보여 줍니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_11.html) · [전체 명세](/sources/specs/components/table.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 통계 데이터나 게시물 목록처럼 행과 열로 정리되는 데이터를 비교해 볼 수 있게 할 때 씁니다.
+- 요소를 격자로 배치하려는 목적으로는 쓰지 않습니다. 목록이나 제목과 문단이 더 어울리는 내용, 구조가 일정하지 않은 데이터에도 쓰지 않습니다.
+- 항목 선택이나 항목별 동작처럼 복잡한 상호작용이 필요하면 구조화 목록을 씁니다.
+- 열 수를 최소로 줄이고, 데이터가 잘리지 않는 넓이의 영역에 둡니다. 모달이나 아코디언처럼 좁은 영역은 피합니다.
+- 셀 텍스트는 가능하면 3줄을 넘지 않게 합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `rowHeaderColumnId` | `string` | — | 행 제목으로 쓸 열의 `id`입니다. 지정하면 그 열의 셀을 행 헤더로 표시해, 화면 낭독기가 각 데이터 셀을 행 제목과 함께 읽습니다. |
+| `caption` **필수** | `string` | — | 표의 제목이자 설명입니다. 표의 목적과 어떤 헤더로 구성되는지를 문장으로 적습니다. |
+| `columns` **필수** | `readonly TableColumn[]` | — | 열 정의 목록입니다. `label`은 열 헤더 문구이고, `kind`(`text`, `number`, `date`)에 따라 셀 정렬 방향이 정해집니다. `sortable`이 `true`인 열은 헤더에 정렬 버튼이 생깁니다. |
+| `rows` **필수** | `readonly {id: string; cells: Readonly<Record<string, string \| number \| null>>}[]` | — | 행 데이터 목록입니다. `cells`는 열 `id`를 키로 하는 값의 묶음이며, 값이 `null`인 셀에는 대시를 표시합니다. |
+| `sort` | `{columnId: string; direction: 'ascending' \| 'descending'}` | — | 현재 정렬 기준 열과 방향입니다. 해당 열 헤더에 정렬 상태를 표시합니다. 생략하면 정렬 기능이 없습니다. |
+| `onSortChange` | `(detail: {columnId: string; direction: 'ascending' \| 'descending'}) => void` | — | 사용자가 열 헤더의 정렬 버튼을 누르면 불리고, 요청한 `columnId`와 `direction`을 받습니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `rowHeaderColumnId` | `string` | 선택 | 속성 |
-| `caption` | `string` | 필수 | 속성 |
-| `columns` | `readonly TableColumn[]` | 필수 | 속성 |
-| `rows` | `readonly {id: string; cells: Readonly<Record<string, string \| number \| null>>}[]` | 필수 | 속성 |
-| `sort` | `{columnId: string; direction: 'ascending' \| 'descending'}` | 선택 | 속성 |
-| `onSortChange` | `(detail: {columnId: string; direction: 'ascending' \| 'descending'}) => void` | 선택 | 이벤트 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -65,56 +56,53 @@ export interface TableColumn {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 정렬 버튼처럼 표 안에서 조작할 수 있는 요소 사이를 이동합니다. 일반 셀에는 초점이 가지 않습니다. |
+| `Enter` / `Space` | 초점이 있는 열 헤더의 정렬 버튼을 실행합니다. 초점은 그 버튼에 남습니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-실제 &lt;table>에 caption, thead/tbody, th scope, 적절한 행 헤더/tfoot을 둡니다. 복잡한 관계는 headers/id를 씁니다. 개발 메모에 따라 caption이 헤더 내용을 설명합니다. 비어 있는 데이터 셀은 대시를 표시합니다. 정량 수치는 오른쪽 정렬하고, 텍스트·명목 숫자는 왼쪽 정렬합니다.
+- 실제 `<table>`로 표시하고 `caption`, 열 헤더, 행 헤더를 연결하므로 화면 낭독기가 셀을 헤더와 함께 읽습니다.
+- 정렬된 열 헤더에는 `aria-sort`로 현재 정렬 방향을 전달합니다.
+- `caption`은 헤더 문구를 대신하는 것이 아닙니다. 헤더 `label`은 그대로 두고, `caption`에는 표의 목적과 헤더 구성을 풀어 적습니다.
+- 행마다 그 행을 대표하는 열이 있으면 `rowHeaderColumnId`로 지정합니다. 자동으로 정해지지 않습니다.
+- 가로로 넘치는 표는 스크롤 영역에 이름이 붙고, 끌기뿐 아니라 누르는 동작으로도 스크롤 위치를 옮길 수 있습니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: caption, columns {id,label,kind,sortable?}[], rows {id,cells}[], 기존 열 하나를 가리키는 rowHeaderColumnId?, 선택적 sort {columnId,direction}/onSortChange. 없으면 정렬 동작이 없습니다. 정렬 가능하면 공식 지침에 따라 초기 정렬은 첫 번째 열입니다. 헤더 버튼은 th 안에 두고, aria-sort는 실제 순서를 따릅니다. rowHeaderColumnId가 있으면 그 열은 안정적인 ID를 가진 네이티브 th scope=row로 렌더링되며, 모든 데이터 셀이 요구되는 대로 자신의 행·열 헤더를 참조합니다. 알 수 없는 rowHeaderColumnId는 구성 오류입니다. 셀 텍스트나 kind로 행 헤더를 자동 추론하지 않습니다.
+- 개수, 비율, 용량 같은 양적 숫자 열은 오른쪽으로, 텍스트와 날짜·우편번호 같은 명목 데이터 열은 왼쪽으로 정렬합니다.
+- 행을 실제로 재정렬하는 일은 쓰는 쪽에서 합니다. `onSortChange`에서 `rows`를 다시 정렬하고 `sort`를 갱신해 넘깁니다.
+- 정렬 기능을 제공할 때 처음 상태는 첫 번째 열 기준으로 정렬된 상태로 둡니다.
+- 화면이 좁으면 단순한 표는 헤더와 데이터를 세로로 쌓아 보여 줄 수 있고, 복잡한 표는 표 영역을 가로로 스크롤합니다. 데이터는 잘라 내지 않습니다.
+- `rowHeaderColumnId`가 `columns`에 없는 `id`이면 오류를 냅니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-일반 표는 읽기 전용이며, 포함된 링크·버튼을 제외하면 Tab으로 이동하지 않습니다. 정렬을 활성화해도 헤더 버튼의 초점을 유지합니다. 넘침 래퍼는 이름을 가지며, 필요할 때만 초점을 받습니다. 드래그 전용 이동이 아니라 단순한 클릭·탭 스크롤 컨트롤을 제공합니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `ascending`, `descending`, `overflow` |
+| `caption` | 없음 |
+| `head` | 없음 |
+| `body` | 없음 |
+| `row` | 없음 |
+| `header-cell` | `ascending`, `descending` |
+| `cell` | 없음 |
+| `sort-trigger` | `ascending`, `descending` |
+| `scroll-region` | `overflow` |
+| `scroll-previous` | `overflow` |
+| `scroll-next` | `overflow` |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="table"][data-krds-part="root"] { /* ... */ }
+```
 
-단순한 1차원 표는 연관성을 보존하면서 헤더·데이터 쌍을 쌓을 수 있습니다. 복잡한 표는 가로 영역 스크롤을 씁니다. 가로 스크롤바를 발견하기 쉽게 유지하고 데이터를 잘라내지 않습니다. 제한적인 모달·아코디언 배치는 피합니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-표 자체의 폼·리셋 상태는 없습니다. 포함된 컨트롤은 자신의 의미를 유지합니다. 선택 중심 상호작용은 StructuredList의 몫입니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트가 데이터, 형식, 정렬 핸들러를 소유합니다. 로컬 예시는 실제로 행을 재정렬하며 헤더 연관을 보존합니다. 완료는 div 그리드가 아니라 네이티브 의미와 조건부 정렬을 요구합니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, caption, head, body, row, header-cell, cell, sort-trigger, scroll-region, scroll-previous, scroll-next; ascending,descending,overflow.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="table"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`basic`, `sortable`, `narrow-scroll`, `narrow-stacked`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-24) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_04_11.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_11.html)
+- [상세 명세](/sources/specs/components/table.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

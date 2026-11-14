@@ -25,7 +25,7 @@ export async function shellProof({ browser, browserName, origin, framework, regi
     // Anchored reference navigation must not eagerly start a distant runtime.
     const lazy = await context.newPage(); const nativeRequests = [];
     lazy.on('request', request => { if (request.url().includes('/previews/')) nativeRequests.push(request.url()); });
-    await lazy.goto(`${origin}/krds/components/button.html?framework=${framework}#native-availability`);
+    await lazy.goto(`${origin}/krds/components/button.html?framework=${framework}#references`);
     await lazy.waitForFunction(() => document.querySelector('[data-docs-ready]')?.dataset.docsReady === 'true');
     await lazy.waitForTimeout(150); assert.equal(await lazy.locator('.native-demo iframe').count(), 0); assert.deepEqual(nativeRequests, []);
     await lazy.locator('.native-demo-frame').scrollIntoViewIfNeeded(); await ready(lazy); assert.equal(await lazy.locator('.native-demo iframe').count(), 1);

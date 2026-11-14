@@ -4,34 +4,24 @@ title: 'Favicon'
 
 # Favicon {#favicon}
 
-파비콘 · `Favicon` — 브라우저 탭과 즐겨찾기에 표시되는 서비스 아이콘입니다.
+**파비콘** — 브라우저 탭과 즐겨찾기에 표시되는 서비스 아이콘입니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_14.html) · [전체 명세](/sources/specs/components/favicon.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 브라우저 탭, 즐겨찾기, 모바일 홈 화면에서 기관이나 서비스를 알아볼 수 있도록 파비콘을 문서 `head`에 등록할 때 씁니다. 화면에 보이는 요소는 렌더링하지 않습니다.
+- 정부 상징을 쓰는 기관은 표준형을, 자체 로고를 쓰는 기관과 서비스는 그 로고를 바탕으로 한 확장형을 씁니다.
+- 16px에서도 알아볼 수 있도록 세부를 덜어 낸 심볼이나 약칭으로 만듭니다.
+- 대표 도메인과 하위 서비스에 같은 파비콘을 적용합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `light` **필수** | `IconAsset` | — | 기본으로 쓰는 밝은 테마용 아이콘입니다. 파일 경로 `href`, MIME 타입 `type`, 크기 `sizes`를 넘깁니다. |
+| `dark` | `IconAsset` | — | 어두운 테마에서 쓸 아이콘입니다. 넘기면 브라우저의 색상 테마에 따라 `light`와 바꿔 씁니다. |
+| `touchIcon` | `IconAsset` | — | 모바일 홈 화면에 추가할 때 쓰는 아이콘입니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `light` | `IconAsset` | 필수 | 속성 |
-| `dark` | `IconAsset` | 선택 | 속성 |
-| `touchIcon` | `IconAsset` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -49,56 +39,16 @@ export interface IconAsset {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 접근성 {#accessibility}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+- 밝은 배경과 어두운 배경 모두에서 또렷하게 보이도록 대비를 확보합니다. 어두운 테마용은 같은 심볼을 유지한 채 명도 반전, 외곽선, 배경판으로 구분합니다.
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 알아 둘 점 {#notes}
 
-문서 head의 파비콘 자산 통합이며 페이지 안의 div가 아닙니다. 공식 표준형은 정부상징 기관에, 확장형은 자체 CI 기관/서비스에 적용됩니다. 알아볼 수 있는 16px 마크를 제공하고, 대표/하위 서비스 도메인 전반에 일관된 기관 정체성을 유지합니다.
+- 아이콘 파일은 직접 준비해 서비스와 함께 배포하고 그 경로를 넘깁니다. 기본으로 들어 있는 아이콘은 없습니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 참고 {#references}
 
-독립 API: Favicon 자산 기술자 {light:{href,type,sizes},dark?:{href,type,sizes},touchIcon?}. head 통합은 지원되는 범위에서 color-scheme 미디어와 함께 실제 &lt;link rel=icon>을 냅니다. 이벤트, 초점, 폼, 런타임 값 상태는 없습니다. 경로는 로컬에 번들된 승인 파일을 가리키며, 기본 정부 문장(crest) 이미지는 없습니다.
-
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 커밋된 UI와 초점 상태를 유지합니다. 취소된 리셋은 아무 일도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며, 제어 prop이 계속 우선합니다. 추가 필드로 렌더러/머신 객체를 노출하지 않습니다.
-
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
-
-키보드 동작이 없습니다. 가짜 시각 컨트롤을 만들지 않고, 브라우저/head 메타데이터와 호스트 설치용 접근 가능한 안내를 검증합니다.
-
-### 반응형 동작 {#responsive-mobile-requirements}
-
-같은 심볼을 유지하는 라이트/다크 버전을 준비합니다. 모바일 홈 화면/터치 자산 지원은 호스트의 통합 선택이며, 일치하는 플랫폼 메타데이터 검토가 필요합니다.
-
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼/리셋/IME 동작이 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트가 CI 권리, 파일, 도메인 일관성, head 삽입을 소유합니다. 자산 완료에는 출처 기록/해시가 있는 커밋된 로컬 파일, 올바른 MIME/크기/head 링크, 각 호스트 픽스처의 브라우저/탭 검토가 필요하며, 컴포넌트 export만으로는 충족할 수 없습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-렌더되는 data-krds 파트가 필요 없습니다. 선택적 문서 미리보기 루트와 라이트/다크 샘플은 명시적으로 미리보기이며 런타임 파비콘 DOM이 아닙니다.
-
-렌더되는 모든 소유 파트는 `data-krds-component="favicon"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위 열거는 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`standard`, `extended`, `light`, `dark`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-26) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_04_14.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_14.html)
+- [상세 명세](/sources/specs/components/favicon.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

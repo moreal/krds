@@ -4,105 +4,95 @@ title: 'Date input'
 
 # Date input {#date-input}
 
-날짜 입력 필드 · `DateInput` — 연, 월, 일을 직접 입력하거나 달력에서 골라 날짜를 넣게 합니다.
+**날짜 입력 필드** — 연, 월, 일을 직접 입력하거나 달력에서 골라 날짜를 넣게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_01.html) · [전체 명세](/sources/specs/components/date-input.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 날짜 하나 또는 시작일과 종료일로 된 기간을 입력받을 때 씁니다.
+- 날짜는 `YYYY-MM-DD` 형식으로 직접 입력하거나 달력에서 고릅니다. 달력을 함께 써도 입력란은 항상 키보드로 입력할 수 있습니다.
+- `label`에는 `방문일`처럼 무엇을 위한 날짜인지 드러나는 이름을 씁니다.
+- 형식 안내는 입력란 아래에 항상 보입니다. 플레이스홀더만으로 형식을 알리지 않습니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | implemented | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `mode` | `'single' \| 'range'` | `'single'` | `single`은 날짜 하나, `range`는 시작일과 종료일 두 입력란을 표시합니다. 처음 렌더링한 뒤에는 바꿀 수 없습니다. |
+| `value` | `string \| null \| DateRangeValue` | — | 값을 직접 제어할 때 넘깁니다. `single`에서는 `YYYY-MM-DD` 문자열 또는 `null`, `range`에서는 `{start, end}`입니다. 범위는 둘 다 비어 있거나 둘 다 채워져 있어야 합니다. |
+| `defaultValue` | `string \| null \| DateRangeValue` | — | 직접 제어하지 않을 때의 초기값입니다. 형태는 `value`와 같습니다. |
+| `onValueChange` | `(details: ValueChangeDetails<string \| null>) => void \| (details: ValueChangeDetails<DateRangeValue>) => void` | — | 올바른 날짜가 확정되어 값이 바뀔 때 한 번 불리며 `{value}`를 받습니다. 입력 중이거나 잘못된 날짜일 때는 불리지 않습니다. |
+| `id` | `string` | — | 입력 요소의 `id`입니다. `range`에서는 종료일 입력란에 `-end`가 붙습니다. |
+| `name` | `string` | — | 폼 제출에 쓰는 필드 이름입니다. `range`에서는 `name.start`와 `name.end` 두 이름으로 제출합니다. |
+| `form` | `string` | — | 입력란을 연결할 `form` 요소의 `id`입니다. |
+| `returnFocusId` | `string` | — | 달력을 닫을 때 달력 버튼이 사라지고 없으면 대신 초점을 받을 요소의 `id`입니다. |
+| `autocomplete` | `JSX.InputHTMLAttributes<HTMLInputElement>['autocomplete']` | — | 입력란의 `autocomplete` 속성으로 전달합니다. |
+| `label` | `JSX.Element` | — | 필수입니다. 입력란의 레이블이며, `range`에서는 두 입력란을 묶는 `legend`가 됩니다. |
+| `hint` | `JSX.Element` | — | 입력란 아래에 항상 보이는 안내입니다. 생략하면 기본 형식 안내를 표시합니다. |
+| `error` | `JSX.Element` | — | 서버 검사 결과처럼 바깥에서 정한 오류 내용입니다. 넘기면 입력란을 오류 상태로 표시합니다. |
+| `errorMessage` | `JSX.Element` | — | `error`와 같은 역할입니다. `error`가 없을 때 사용합니다. |
+| `invalid` | `boolean` | — | `true`이면 오류 내용 없이도 입력란을 오류 상태로 표시합니다. |
+| `required` | `boolean` | `false` | `true`이면 날짜를 입력해야 폼을 제출할 수 있습니다. |
+| `disabled` | `boolean` | `false` | `true`이면 입력과 달력 열기를 막고 폼 제출에서도 뺍니다. |
+| `min` | `string` | `'0001-01-01'` | 고를 수 있는 가장 이른 날짜입니다. 그 날짜도 포함합니다. |
+| `max` | `string` | `'9999-12-31'` | 고를 수 있는 가장 늦은 날짜입니다. 그 날짜도 포함합니다. |
+| `locale` | `'ko-KR' \| 'en-US'` | `'ko-KR'` | 레이블, 안내, 오류 문구의 언어입니다. 입력 형식과 제출 값은 바뀌지 않습니다. |
+| `translations` | `Partial<DateInputTranslations>` | — | 기본 문구를 바꿀 때 넘깁니다. 넘긴 키만 바뀌고 나머지는 `locale`의 기본 문구를 씁니다. 빈 문자열은 쓸 수 없습니다. |
+| `calendarTranslations` | `Partial<CalendarTranslations>` | — | 달력 안의 문구를 바꿀 때 넘깁니다. |
+| `withCalendar` | `boolean` | `true` | `false`이면 달력 버튼 없이 입력란만 표시합니다. |
+| `referenceDate` | `string` | `'2000-01-01'` | 값이 비어 있을 때 달력이 처음 보여 줄 달을 정하는 기준 날짜입니다. |
+| `today` | `string` | — | 달력에서 오늘로 표시할 날짜입니다. |
+| `class` | `string` | — | 가장 바깥 요소에 붙일 클래스입니다. |
+| `style` | `JSX.CSSProperties \| string` | — | 가장 바깥 요소에 적용할 인라인 스타일입니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+## 키보드 조작 {#keyboard}
 
-공개 API는 아래 안내와 각 패키지의 공개 선언이 정의합니다. [공유 이벤트·날짜 타입](/sources/packages/contracts/src/types.ts.txt).
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 입력란과 달력 버튼 사이를 이동합니다. 컴포넌트 밖으로 초점이 나가면 입력한 날짜를 확정합니다. |
+| `Enter` | 입력란에서는 입력한 날짜를 확정합니다. 폼은 제출하지 않습니다. 달력 버튼에서는 달력을 엽니다. |
+| `Space` | 달력 버튼에 초점이 있을 때 달력을 엽니다. |
+| `Esc` | 달력을 닫고 고르던 날짜를 버립니다. 초점은 달력 버튼으로 돌아갑니다. |
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 접근성 {#accessibility}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+- 입력란은 `label`과 연결되고, `range`에서는 `fieldset`과 `legend` 아래에 `시작일`, `종료일` 이름을 가진 입력란 두 개가 놓입니다.
+- 형식 안내와 오류 메시지는 `aria-describedby`로 입력란에 연결하고, 오류가 있으면 `aria-invalid`를 설정합니다.
+- 오류는 입력할 때마다가 아니라 날짜를 확정할 때 한 번 화면 낭독기에 알립니다. 잘못 입력해도 초점을 옮기지 않습니다.
+- 달력 버튼은 `달력 열기`라는 이름을 가지며 열림 상태를 `aria-expanded`로 알립니다.
+- 한 화면에 날짜 입력이 여럿이면 `label`로 각각을 구분할 수 있게 합니다.
 
-### 공식 요구사항 {#official-requirements}
+## 알아 둘 점 {#notes}
 
-KRDS는 단일, 범위, 분할, 달력 보조 입력을 구분합니다. 의미 있는 필드 레이블, 지속적인 형식 안내, 달력이 있어도 키보드 입력, 프로그램적 레이블 관계를 요구합니다. 달력이 있다고 텍스트 필드를 비활성화하거나 읽기 전용으로 만들 수 없습니다. 파일럿은 전체 날짜 단일 입력과 두 필드 범위 입력을 지원하며, 달력 보조는 선택입니다. 연/월만 있는 입력과 분할 입력은 앞으로의 변형이며 구현됐다고 주장하지 않습니다.
+- 입력한 글자는 `Enter`를 누르거나 초점이 컴포넌트 밖으로 나갈 때 확정됩니다. `range`에서 두 입력란 사이를 오갈 때는 확정하지 않습니다.
+- 형식이 틀리거나 `min`, `max`를 벗어난 날짜는 입력란에 그대로 남고 오류를 표시합니다. 이전에 확정된 값은 유지됩니다. 슬래시나 공백이 섞인 날짜를 고쳐 주거나 범위 안으로 끌어오지 않습니다.
+- 달력에서 고른 날짜는 `확인`을 눌러야 반영됩니다. 취소하거나 `Esc`로 닫으면 원래 값이 남습니다.
+- 폼에는 확정된 값을 `YYYY-MM-DD` 문자열로 제출합니다. 비어 있으면 빈 문자열을 보냅니다. 확정되지 않은 잘못된 입력이 남아 있으면 제출을 막습니다.
+- 폼을 초기화하면 직접 제어하지 않는 값은 초기값으로 돌아가고, `value`로 제어하는 값은 그대로 유지됩니다. 열려 있던 달력은 닫힙니다.
 
-### 프로젝트 API와 기본값 {#project-api-and-defaults}
+## 스타일링 {#styling}
 
-옵션: `mode: 'single' | 'range'`(single, 마운트 후 변경 불가), `value`, `defaultValue`, `onValueChange`, 네이티브 `name`, `required`(false), `disabled`(false), `id`, `form`, `autocomplete`, `min?: string`, `max?: string`, `locale: 'ko-KR' | 'en-US'`(ko-KR), `translations?: DateInputTranslations`, `withCalendar: boolean`(true), `referenceDate: string`('2000-01-01'), `today?: string`, 필드 레이블, 지속 힌트, 선택적 외부 오류 콘텐츠. 파일럿은 readOnly 모드를 추가하지 않습니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-단일 값은 `string | null`이며 비어 있으면 기본 null이고, 이벤트는 `ValueChangeDetails<string | null>`입니다. 범위 값은 `DateRangeValue`이며 비어 있으면 기본 `{start:null,end:null}`이고, 이벤트는 `ValueChangeDetails<DateRangeValue>`입니다. 커밋된 범위는 비어 있거나 순서가 맞는 유효한 두 끝점을 가져야 합니다. 부분 범위는 로컬 편집/달력 초안으로만 존재합니다. 모드와 맞지 않는 페이로드 형태는 TypeError입니다. 유효하지 않거나, 부분적이거나, 뒤바뀌었거나, 범위를 벗어난 제어/기본 날짜 값은 RangeError입니다. min/max/referenceDate/today는 엄격한 ISO 날짜입니다. min과 max는 경계를 포함하며, 경계가 없으면 0001-01-01과 9999-12-31입니다. min>max는 RangeError입니다. referenceDate/today는 허용 범위 밖일 수 있으며, 보기와 표시만 안내하고 경계를 덮어쓰지 않습니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `disabled`, `invalid` |
+| `label` | 없음 |
+| `control` | `disabled`, `invalid` |
+| `start-input` | `disabled`, `invalid` |
+| `end-input` | `disabled`, `invalid` |
+| `trigger` | `open`, `closed` |
+| `hint` | 없음 |
+| `error` | 없음 |
+| `popup` | `open`, `closed` |
 
-실제 type=text 입력을 렌더하고 inputmode=numeric이며, 네이티브 날짜 선택기와 자동 구분자 삽입은 없습니다. 허용 텍스트, 표시 텍스트, 제출 값은 두 로케일 모두 정확히 ASCII YYYY-MM-DD입니다. `parseIsoDate`와 `formatIsoDate`는 그레고리력 1–9999년과 윤년을 따릅니다. 공백 제거, 일/월 순서 추측, 슬래시 허용, 넘치는 날짜 정규화, 타임스탬프 변환, 호스트 시간대 적용을 하지 않습니다. 로케일은 레이블과 안내를 바꿀 뿐 데이터나 파싱은 바꾸지 않습니다. 네이티브 텍스트 편집, 붙여넣기, 선택, 실행 취소가 동작해야 합니다.
+```css
+[data-krds-component="date-input"][data-krds-part="root"] { /* ... */ }
+```
 
-범위는 과업을 알려 주는 보이는 fieldset legend 아래에 별도 이름의 입력 둘(기본 `시작일`/`종료일`)을 둡니다. 단일 입력은 과업별 레이블 내용(예: `방문일`)이 필요하며, 라이브러리가 업무 목적 레이블을 만들어 내서는 안 됩니다. 플레이스홀더 `YYYY-MM-DD`는 지속 형식 힌트를 보완할 뿐 대체하지 않습니다.
+## 참고 {#references}
 
-### 편집, 커밋, 알림 {#editing-commits-and-notifications}
-
-원시 텍스트 초안을 커밋된 의미 값과 분리해 유지합니다. 입력 이벤트는 초안만 갱신합니다. 필드에서 Enter를 누르거나 입력/달력 그룹 전체에서 초점이 벗어날 때 검증하고 커밋을 시도하며, 키 입력마다 또는 범위 필드 사이 이동 시에는 하지 않습니다. 조합 중이 아닌 Enter는 커밋하도록 소비해 의도치 않은 폼 제출을 막으며, 명시적 폼 제출 버튼은 그대로 동작합니다. 유효하고 바뀐 값이 커밋된 뒤의 blur는 다시 내보내지 않습니다. 비어 있는 단일 텍스트는 null을 커밋합니다. 범위의 두 텍스트가 모두 비면 빈 범위를 커밋하고, 한쪽 끝점만 비면 미완성이라 커밋하지 않습니다. 뒤바뀐 범위는 유효하지 않으며, 날짜를 몰래 재정렬하거나 min/max로 고정(clamp)하지 않습니다.
-
-조합 중에는 원시 입력을 유지하고 검증, 서식, Enter 커밋, 달력 단축키를 억제합니다. compositionstart/end와 `isComposing`(keyCode 229 대체)을 추적하며, compositionend는 초안만 갱신합니다. 이후 조합 중이 아닌 Enter나 그룹 blur가 이를 검증합니다. 숫자 필터링을 강제하거나 중간 한글을 파싱하지 않습니다. 완성된 한글 텍스트는 고칠 때까지 잘못된 형식으로 남으며, 사용자의 초안과 캐럿을 보존합니다. 달력을 열어도 끝나지 않은 텍스트 초안을 커밋하지 않고, 마지막으로 커밋된 값에서 초기화합니다.
-
-유효한 비제어 커밋은 상태를 갱신하고 한 번 내보냅니다. 제어 커밋은 한 번 내보내고, 핸들러 뒤에 표시된 커밋 값을 부모 prop에 맞춰 조정하며, 거절된 요청은 prop의 서식 텍스트를 복원합니다. 잘못된 원시 텍스트는 계속 보이고, 이전 커밋 의미 값을 유지하며, aria-invalid를 설정하고, 보이는 오류를 노출하며, 값 이벤트를 내지 않습니다. 외부 값 변경은 초안을 교체하고 로컬 오류를 지우되 내보내지 않습니다. 외부 disabled 변경은 편집/달력 활성화를 막으며 변경을 내보내지 않습니다. 형식 오류가 범위 오류보다 우선하며, 범위는 시작, 끝, 순서 순으로 검증합니다. 필수 빈 값은 필수 오류입니다. 로케일 변경이나 검증 과정은 사용자 값 이벤트를 내지 않습니다.
-
-### 달력 통합 {#calendar-integration}
-
-여는 컨트롤은 type=button이며 이름은 `달력 열기`/`Open calendar`이고 aria-haspopup=dialog, aria-expanded, aria-controls를 가집니다. 범위 모드에서는 두 필드에 여는 컨트롤 하나를 쓰며, 날짜 입력이 여럿이면 과업 레이블을 맥락으로 이름을 붙입니다. 열면 이름 있는 모달 달력 대화상자를 보이고 트리거를 저장합니다. 초점은 선택된 활성 날짜에, 없으면 표시된 달의 첫 선택 가능한 날짜에, 없으면 활성 이전/다음 달 컨트롤에, 없으면 대화상자 컨테이너에 둡니다. [달력(Calendar)](/sources/specs/components/calendar.md.txt)이 날짜 탐색, 임시 선택, 확인/취소를 정의합니다.
-
-달력 선택은 `확인`/`Confirm` 전까지 임시입니다. 유효하고 다른 값의 확인은 DateInput 값 변경을 정확히 한 번 내보내고 닫습니다. 같은 값의 확인은 값 변경 없이 닫습니다. 취소, 허용된 Escape, 확인 없는 닫기는 임시 날짜를 버리고 커밋된 입력 값을 보존합니다. 확인 시 원시 텍스트 초안을 교체하고 로컬 검증 오류를 지웁니다. 팝업 열기/닫기는 내부 표시 상태이며 두 번째 값 이벤트가 아니고, 이 파일럿에는 공개 open-change API가 없습니다. Escape는 조합 중이거나 내부 컨트롤이 처리했으면 무시합니다. 최상위 대화상자만 Escape를 처리합니다. 백드롭 클릭은 막히며 기본적으로 닫지 않습니다. 실제로 닫힌 뒤 트리거 초점을 복원하고, 트리거가 사라졌으면 Modal의 대체를 씁니다. 확인 뒤에도 부모가 제어하는 값이 권위를 갖습니다. 열고 닫는 것만으로 기존의 잘못된 텍스트 초안을 지우지 않습니다.
-
-### 번역과 접근성 피드백 {#translation-and-accessible-feedback}
-
-`DateInputTranslations`는 이 명세의 의미 사전입니다(어댑터는 대응하는 일반 인터페이스를 노출할 수 있음). 부분 재정의는 선택한 로케일과 병합하며, 어떤 키도 빈 문자열이 될 수 없습니다. 필수 키와 기본값:
-
-| 키 | ko-KR | en-US |
-| --- | --- | --- |
-| startLabel | 시작일 | Start date |
-| endLabel | 종료일 | End date |
-| formatHint | YYYY-MM-DD 형식으로 입력하세요. 예: 2024-02-29 | Enter YYYY-MM-DD, for example 2024-02-29 |
-| openCalendar | 달력 열기 | Open calendar |
-| calendarTitle | 날짜 선택 | Choose date |
-| requiredError | 날짜를 입력하세요 | Enter a date |
-| formatError | YYYY-MM-DD 형식의 올바른 날짜를 입력하세요 | Enter a valid date in YYYY-MM-DD format |
-| incompleteRangeError | 시작일과 종료일을 모두 입력하세요 | Enter both start and end dates |
-| orderError | 종료일은 시작일보다 빠를 수 없습니다 | End date must not precede start date |
-| minError | {min} 이후 날짜를 입력하세요 (당일 포함) | Enter a date on or after {min} |
-| maxError | {max} 이전 날짜를 입력하세요 (당일 포함) | Enter a date on or before {max} |
-
-{min}/{max}는 HTML이 아닌 ISO 텍스트로 보간합니다. 달력 번역은 따로 규정합니다. 보이는 힌트/오류 노드는 aria-describedby로 연결하고, 영향받는 필드에 aria-invalid를 설정합니다. 지속적인 polite 상태 영역은 새 오류를 키 입력마다가 아니라 검증 시 한 번 알립니다. 단정적 안내를 중복하지 않습니다. 잘못된 입력은 초점을 빼앗지 않습니다. 오류 텍스트는 레이블을 보완하며 오류가 지속되는 동안 계속 보입니다. 외부 오류 콘텐츠는 설명용이며 잘못된 표시를 붙일 수는 있지만, 잘못된 의미 날짜를 커밋하게 만들 수는 없습니다.
-
-### 폼·구조·인수 기준 {#form-structure-and-acceptance}
-
-단일은 성공 이름 하나(정식)를 쓰고, 범위는 `${name}.start`와 `${name}.end`를 씁니다. 편집 가능한 초안에는 성공 이름이 없습니다. 정식 숨은 입력이 커밋된 ISO 텍스트를 담으며, 빈 값은 빈 문자열입니다. 비활성은 모든 성공 항목을 생략합니다. 활성화된 선택 빈 값은 이름 있는 정식 항목에 빈 문자열을 기여합니다. `form`은 보이는 입력과 숨은 입력에 전달하고, required/validity는 보이는 입력에 전달합니다. 현재 초안의 형식/경계/순서/필수 유효성을 네이티브 setCustomValidity로 반영하므로, 커밋된 숨은 값이 유효해도 잘못된 초안은 제출을 막습니다. 제출은 보류 중인 초안을 먼저 검증하며, 커밋되지 않고 값이 다른 초안은 고치거나 커밋할 때까지 막습니다. 오래된 값을 몰래 보내지 않습니다. 유효한 보류 초안은 네이티브 FormData 구성 전에 제출 중 한 번 커밋할 수 있으며, 제어에서 거절된 커밋은 그 제출을 막습니다. 네이티브 invalid 초점은 영향받는 첫 보이는 입력입니다. 제출을 재귀 호출하지 않습니다. 비제어 리셋은 초기 커밋 값과 표시를 복원하고, 팝업을 닫고, 임시 상태와 오류를 버리며, 아무것도 내보내지 않습니다. 제어 리셋은 현재 prop에서 표시를 복원하고 팝업을 닫으며 아무것도 내보내지 않습니다. 취소된 리셋은 아무것도 바꾸지 않습니다.
-
-파트: `root`, `label`, `control`, `start-input`, `end-input`, `trigger`, `hint`, `error`, `popup`. 단일은 `control`, 범위는 start/end 파트를 씁니다. 루트/필드 상태: `disabled`, `invalid`. 팝업/트리거: `open` 또는 `closed`. 콘텐츠 순서: 레이블/legend, 여는 컨트롤이 있는 입력, 힌트, 오류, 연결된 팝업. 달력은 자체 중첩 식별과 파트를 기여합니다.
-
-인수: 유효한 윤일, 잘못된/0 채움 없는 날짜, 0001/9999년, 원시 붙여넣기와 IME 조합, 그룹 blur 대 범위 필드 초점, Enter와 blur 이벤트 횟수, 같은/거절된 제어 커밋, 경계 포함 min/max와 뒤바뀐/미완성 범위, 팝업 확인/취소 일관성, 번역된 한국어 필드/버튼/날짜(day) 이름, 오류 관계, 폼 데이터/리셋/필수 및 잘못된 초안 제출 차단. 브라우저 로케일이나 시간대가 이 기대 값을 바꿔서는 안 됩니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`single`, `range`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-2) · [svelte](/examples/svelte-43) · [vue](/examples/vue-59) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_09_01.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_01.html)
+- [상세 명세](/sources/specs/components/date-input.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

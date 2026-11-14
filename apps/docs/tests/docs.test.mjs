@@ -17,7 +17,6 @@ test('54 distinct web entries retain exact source identity, states and native pr
   const coverage = await json('catalog/coverage.json');
   const web = catalog.components.filter(item => item.webApplicable);
   assert.equal(web.length, 54);
-  const profileIds = [...coverage.stableFrameworks, ...coverage.previewFrameworks];
   const metadata = await json('apps/docs/public/docs-metadata.json');
   assert.equal(metadata.runKind, 'local-documentation-checkpoint');
   assert.equal(metadata.globalCandidate, false);
@@ -29,18 +28,13 @@ test('54 distinct web entries retain exact source identity, states and native pr
     const official = await readFile(resolve(root, item.source.localPath));
     assert.equal(createHash('sha256').update(official).digest('hex'), item.source.sha256, `${item.id}: official source bytes`);
     const text = await readFile(resolve(site, 'components', `${item.id}.md`), 'utf8');
-    assert.ok(text.includes('/sources/catalog/components.json.txt'), `${item.id}: frozen source record`);
     assert.ok(!text.includes(item.source.sha256) && !text.includes(item.source.retrievedAt), `${item.id}: machine provenance stays in the record, not the page`);
     assert.ok(text.includes(item.canonicalUrl), `${item.id}: official source`);
     assert.ok(text.includes(`# ${item.nameEn} {#`), `${item.id}: English component title`);
     assert.ok(text.includes(item.nameKo), `${item.id}: Korean search name`);
-    for (const framework of profileIds) {
-      const row = coverage.coverage.find(record => record.componentId === item.id && record.framework === framework);
-      assert.ok(text.includes(`| ${framework}${framework === 'solid-next' ? ' (미리보기)' : ''} |`), `${item.id}/${framework}: profile`);
-      assert.ok(text.includes(`| ${row.status} |`), `${item.id}/${framework}: recorded state`);
-    }
-    assert.ok(text.includes('## 속성과 이벤트 {#props-events-content-and-defaults}'));
-    assert.ok(text.includes('## 출처와 권리 {#source-identity-and-rights}'));
+    // Pages are user guides: no verification states, fixtures or contract vocabulary.
+    assert.ok(!/planned|검증 전|픽스처|파일럿|체크포인트|인수 기준|독립 정책/.test(text), `${item.id}: no process vocabulary`);
+    assert.ok(text.includes('## 사용법 {#usage}') && text.includes('## 접근성 {#accessibility}') && text.includes('## 참고 {#references}'), `${item.id}: guide sections`);
     assert.ok(!/\bas any\b/.test(text), `${item.id}: no example escape hatch`);
   }
 });

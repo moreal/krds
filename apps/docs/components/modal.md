@@ -4,97 +4,82 @@ title: 'Modal'
 
 # Modal {#modal}
 
-모달 · `Modal` — 현재 화면 위에 대화상자를 띄워 확인이나 입력을 받습니다.
+**모달** — 현재 화면 위에 대화상자를 띄워 확인이나 입력을 받습니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_05.html) · [전체 명세](/sources/specs/components/modal.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 사용자가 현재 화면에서 벗어나지 않고 반드시 확인하거나 응답해야 하는 내용을 띄울 때 씁니다. 열려 있는 동안 뒤쪽 화면은 조작할 수 없습니다.
+- 제목은 필수입니다. 본문은 `children`에, 확인·취소 같은 버튼은 `actions`에 넣습니다.
+- 사용자가 항상 닫을 수 있어야 합니다. `showCloseButton`을 `false`로 두면 본문이나 `actions`에 닫기 또는 취소 버튼을 직접 넣습니다.
+- 동작이 실패하면 모달을 닫지 말고 안에서 오류를 보여 줍니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | implemented | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `title` | `JSX.Element` | — | 모달의 제목입니다. 화면에 보이며 대화상자의 이름으로 쓰입니다. 비워 둘 수 없습니다. |
+| `titleId` | `string` | — | 제목 요소의 `id`입니다. 주지 않으면 자동으로 만듭니다. |
+| `description` | `JSX.Element` | — | 제목 아래에 보여 줄 짧은 설명입니다. 있으면 대화상자의 설명으로 연결합니다. |
+| `descriptionId` | `string` | — | 설명 요소의 `id`입니다. 주지 않으면 자동으로 만듭니다. |
+| `children` | `JSX.Element` | — | 모달의 본문입니다. |
+| `actions` | `JSX.Element` | — | 본문 아래에 두는 동작 버튼 영역입니다. |
+| `open` | `boolean` | — | 열림 상태를 직접 제어합니다. `onOpenChange`에서 받은 값으로 갱신합니다. `defaultOpen`과 함께 쓸 수 없습니다. |
+| `defaultOpen` | `boolean` | `false` | 직접 제어하지 않을 때 처음 열림 상태입니다. |
+| `onOpenChange` | `(details: OpenChangeDetails) => void` | — | 닫기 버튼, `Esc`, 바깥 클릭으로 사용자가 닫으려 할 때 `{open: false}`를 받아 불립니다. `open`을 바깥에서 바꾸는 것으로는 불리지 않습니다. |
+| `closeOnOutsideClick` | `boolean` | `false` | `true`이면 모달 바깥 배경을 눌렀을 때 닫습니다. 배경에서 누르기 시작해 배경에서 뗀 경우에만 닫으므로, 안에서 시작한 드래그로는 닫히지 않습니다. |
+| `showCloseButton` | `boolean` | `true` | 오른쪽 위의 아이콘 닫기 버튼을 표시합니다. `false`로 두려면 모달 안에 닫기 또는 취소 버튼이 있어야 합니다. |
+| `initialFocusId` | `string` | — | 열릴 때 초점을 둘 요소의 `id`입니다. 모달 자체이거나 모달 안의 첫 번째 조작 가능한 요소만 지정할 수 있습니다. 주지 않으면 모달 자체에 초점을 둡니다. |
+| `returnFocusId` | `string` | — | 닫힐 때 모달을 연 요소로 초점을 돌려줄 수 없으면 대신 초점을 둘 요소의 `id`입니다. |
+| `closeLabel` | `string` | — | 아이콘 닫기 버튼의 접근 가능한 이름입니다. 주지 않으면 언어에 따라 `닫기` 또는 `Close`를 씁니다. |
+| `locale` | `'ko-KR' \| 'en-US'` | — | 모달의 언어입니다. 닫기 버튼의 기본 이름과 `lang` 속성에 반영됩니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
+## 키보드 조작 {#keyboard}
 
-공개 API는 아래 안내와 각 패키지의 공개 선언이 정의합니다. [공유 이벤트·날짜 타입](/sources/packages/contracts/src/types.ts.txt).
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 모달 안의 조작 가능한 요소 사이를 순환합니다. 모달 밖으로 나가지 않습니다. |
+| `Esc` | 모달을 닫습니다. 안에 열려 있는 셀렉트나 팝오버가 있으면 그것이 먼저 닫힙니다. 한글 조합 중에는 동작하지 않습니다. |
+| `Enter` | 초점이 있는 버튼을 실행합니다. 모달 안에 폼이 있으면 제출 버튼을 통해서만 제출합니다. |
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 접근성 {#accessibility}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+- `role="dialog"`와 `aria-modal="true"`를 주고, 보이는 제목을 대화상자의 이름으로 연결합니다.
+- 열리면 초점을 모달로 옮기고, 열려 있는 동안 화면 낭독기와 키보드가 모달 밖 콘텐츠에 닿지 않게 합니다.
+- 닫히면 모달을 열었던 요소로 초점을 돌려줍니다. 그 요소가 사라졌으면 `returnFocusId`가 가리키는 요소로 갑니다.
+- 아이콘 닫기 버튼은 모달 안에서 읽기 순서의 맨 마지막에 옵니다. 제목, 설명, 본문, 동작 버튼 순으로 읽습니다.
+- 제목은 모달의 목적을 알 수 있게 씁니다. 본문 전체를 `description`에 넣지 말고 짧은 요약만 넣습니다.
 
-### 공식 요구사항 {#official-requirements}
+## 알아 둘 점 {#notes}
 
-KRDS는 다음을 요구합니다.
+- `open`을 주면 열림 상태를 직접 관리해야 합니다. `onOpenChange`에서 `open`을 `false`로 바꾸지 않으면 모달은 열린 채로 남습니다.
+- 열려 있는 동안 뒤쪽 페이지는 스크롤되지 않습니다. 화면이 작으면 모달 안에서 내용을 스크롤합니다.
+- 모달 위에 모달을 열면 맨 위 모달만 `Esc`와 바깥 클릭에 반응합니다.
+- 열리고 닫히는 애니메이션은 사용자의 동작 줄이기 설정을 따릅니다.
 
-- 초기 초점은 대화상자 자체나 첫 번째 대화형 요소에 둡니다.
-- 키보드와 스크린 리더 초점을 활성 모달 안에 가둡니다.
-- 닫으면 열었던 컨트롤로 초점을 복원합니다.
-- 읽기 순서를 논리적으로 유지합니다.
+## 스타일링 {#styling}
 
-아이콘 닫기 버튼은 모달 마크업의 마지막 요소입니다. Tab/Shift+Tab은 모달 안에서 순환합니다. 닫기 버튼이 있으면 Escape로 닫습니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-### 프로젝트 API와 기본값 {#project-api-and-defaults}
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `open`, `closed` |
+| `trigger` | 없음 |
+| `backdrop` | `open`, `closed` |
+| `content` | `open`, `closed` |
+| `title` | 없음 |
+| `description` | 없음 |
+| `body` | 없음 |
+| `actions` | 없음 |
+| `close` | 없음 |
 
-옵션: `open?: boolean`, `defaultOpen?: boolean`(false), `onOpenChange(OpenChangeDetails)`, `closeOnOutsideClick: boolean`(false), `showCloseButton: boolean`(true), `initialFocusId?: string`, `returnFocusId?: string`, 필수 제목 콘텐츠/ID, 선택적 설명 콘텐츠/ID, 본문 및 동작 콘텐츠.
+```css
+[data-krds-component="modal"][data-krds-part="root"] { /* ... */ }
+```
 
-`showCloseButton=false`이면 본문/푸터에 활성화된 명시적 닫기/취소 동작이 필요합니다. `showCloseButton`은 아이콘 닫기 버튼만 제어하며 Escape 허용 여부는 제어하지 않습니다. 파일럿에서는 닿을 수 있는 닫기 동작이 없는 모달을 허용하지 않습니다. 닫기 버튼이 있으면 독립적인 Escape 해제 옵션도 없습니다.
+## 참고 {#references}
 
-`role=dialog`, `aria-modal=true`, 보이는 제목을 가리키는 `aria-labelledby`를 렌더링합니다. 설명은 선택 사항이며 있을 때만 참조합니다. 구조화된 본문 전체를 평면 설명으로 안내하지 않습니다. 순서는 제목, 선택적 설명, 본문, 동작, 마지막에 아이콘 닫기 버튼입니다. 아이콘 닫기 버튼의 기본 이름은 번역된 `닫기`(영어는 `Close`)이거나 명시적 로컬 레이블입니다. 닫기 컨트롤은 `type=button`입니다. 작은 뷰포트에서도 대화상자 콘텐츠를 스크롤할 수 있어야 하며, 실제로 열려 있는 동안 배경 스크롤과 상호작용을 막습니다. 닫힌 콘텐츠는 hidden/inert이며 접근성 트리와 탭 트리에 없습니다.
-
-### 닫기와 초점 정책 {#dismissal-and-focus-policy}
-
-실제 false→true 전환 때 여는 요소/활성 요소를 저장합니다. `initialFocusId`를 주면 대화상자 컨테이너 자체나, 대화상자의 논리적 DOM 순서에서 첫 번째로 활성화되고 보이며 초점을 받을 수 있는 대화형 요소만 가리킬 수 있습니다. 그 밖의 대상(뒤쪽 동작, 앞에 다른 대화형 요소가 있는 마지막 닫기 버튼 포함)은 설정 오류입니다. 주지 않으면 `tabindex=-1`인 대화상자 컨테이너에 초점을 둡니다. 명시적으로 대상으로 지정해도 대화상자 컨테이너는 `tabindex=-1`을 씁니다. 후자가 의도된 기본값이며, 동작보다 제목과 콘텐츠 맥락이 먼저 오게 합니다. 활성 포털 밖에는 스크린 리더 접근을 포함한 inert/배경 격리를 적용하고, 기존 inert/스크롤 상태를 보존했다가 복원합니다. Tab과 Shift+Tab은 활성화되고 보이는 초점 가능 요소를 순환하며, 남은 것이 없으면 대화상자에 초점을 유지합니다. 중첩 모달에서는 최상위 모달만 초점을 가두고 닫기를 처리합니다. 자식이 닫힐 때까지 부모는 inert로 남습니다.
-
-바깥 포인터 상호작용은 백드롭이 막으며 기본적으로 닫지 않습니다. `closeOnOutsideClick=true`이면 백드롭에서 시작해 백드롭에서 끝나는 기본 포인터 제스처만 닫습니다. 안쪽에서 시작한 드래그, 보조 클릭, 하위 요소 클릭은 닫지 않습니다. `{open:false}` 요청 하나를 내보냅니다. 이 옵션은 프로젝트 정책이며 KRDS 요구사항에서 추론한 것이 아닙니다.
-
-Escape는 실제로 열려 있고, 최상위이며, 닫기 버튼(아이콘 닫기 버튼 또는 필수 명시적 닫기/취소 동작)이 있고, 내부 위젯이 아직 처리하지 않은 이벤트일 때 닫기를 요청합니다. 닫기 버튼을 유지한 채 이 닫기를 끄는 설정은 불가능합니다. IME 조합 중(`keyCode` 229 폴백 포함)에는 Escape를 무시합니다. 처리한 Escape만 소비합니다. 내부 select/popover는 먼저 자기 Escape를 받습니다. 명시적 닫기/취소, 트리거 열기, 허용된 바깥 닫기는 상태가 다를 때 각각 요청 하나를 내보냅니다. 이미 열린 대화상자의 열기 트리거는 요청을 내보내지 않습니다. 제어 모드에서 거부된 닫기는 초점 가둠, 배경 격리, UI를 열린 채로 둡니다. 부모의 false prop이 도착하기 전에는 초점을 복원하지 않습니다.
-
-실제 true→false 때 격리를 제거하고, 저장한 여는 요소가 여전히 마운트되어 있고 보이며 활성화되고 초점을 받을 수 있으며 inert가 아니면 그곳으로 초점을 복원합니다. `returnFocusId`가 사용 가능한 여는 요소를 덮어쓰면 안 됩니다. 여는 요소가 없거나 쓸 수 없을 때만 주어진 `returnFocusId`가 보이고 활성화되며 초점을 받을 수 있고 inert가 아닌 대체 대상을 가리킬 수 있습니다. 그 대체 대상도 없거나 쓸 수 없으면 여는 요소의 남은 가장 가까운 사용 가능한 초점 가능 조상에 초점을 둡니다. 그것도 없으면 임시 `tabindex=-1`로 document body에 초점을 둡니다(이전 `tabindex`는 복원). 열린 대화상자를 언마운트해도 합성 사용자 변경 이벤트 없이 같은 정리와 복원을 합니다. 여는 동작 없이 처음부터 열린 대화상자에는 여는 요소가 없으므로, 사용 가능한 `returnFocusId`를 쓰고 없으면 body를 씁니다. prop 전환과 마운트는 open-change 콜백을 내보내지 않습니다.
-
-### 폼·상태·인수 기준 {#form-states-and-acceptance}
-
-값/name이나 폼 리셋 상태가 없습니다. Enter는 중첩 폼을 일반 제출 버튼을 통해서만 제출하며, 모든 Enter를 모달 확인으로 취급하지 않습니다. 동작 실패는 애플리케이션 콘텐츠입니다. 열린 채로 두고 보이는 오류를 안내하며, 암묵적 재시도나 닫기를 하지 않습니다. 열기/닫기 애니메이션은 이 논리 상태를 보존하고 동작 줄이기를 따라야 합니다.
-
-파트: `root`, `trigger`, `backdrop`, `content`, `title`, `description`, `body`, `actions`, `close`. 루트/백드롭/콘텐츠 상태: `open` 또는 `closed`.
-
-인수 기준:
-
-- 제목 관계
-- 마지막 닫기 마크업
-- 대화상자/첫 대화형 요소로만 초점 진입
-- 초점 가둠
-- 사용 가능한 여는 요소로의 필수 복귀와 제거된 여는 요소의 폴백
-- 백드롭 기본값과 옵트인 드래그 보호
-- 닫기 버튼에 의한 필수 Escape와 최상위/처리됨/조합 중 안전장치
-- 제어 모드의 거부된 닫기
-- 언마운트 시 복원
-- 중복 열림 알림 없음
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`default`, `scrolling`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-2) · [svelte](/examples/svelte-18) · [vue](/examples/vue-59) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_04_05.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_05.html)
+- [상세 명세](/sources/specs/components/modal.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

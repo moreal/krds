@@ -4,36 +4,27 @@ title: 'Spinner'
 
 # Spinner {#spinner}
 
-스피너 · `Spinner` — 처리가 진행 중임을 알립니다.
+**스피너** — 처리가 진행 중임을 알립니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_07_02.html) · [전체 명세](/sources/specs/components/spinner.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 페이지나 영역 전체가 새로 로딩될 때, 또는 버튼이나 검색 필드 같은 일부 요소에서 처리가 진행 중일 때 대기 상태를 알리는 데 씁니다.
+- 진행률을 계산할 수 있으면(파일 업로드, 다운로드 등) `value`를 주어 확정형으로, 걸리는 시간을 알 수 없으면 `value` 없이 불확정형으로 씁니다.
+- 처리가 진행 중인 영역 가까이에 둡니다. 페이지 전체나 넓은 영역에는 큰 크기를, 버튼이나 입력 필드 안에는 작은 크기를 씁니다.
+- 1초 안에 끝나는 작업에는 쓰지 않습니다. 장식용으로도 쓰지 않습니다.
+- 개별 항목마다 진행 상태를 보여야 하는 경우가 아니면 화면에 스피너를 하나만 표시합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `pending` **필수** | `boolean` | — | `true`인 동안 스피너와 `label`을 보여 줍니다. `false`로 바꾸면 스피너를 숨기고 `completionMessage`를 알립니다. |
+| `value` | `number` | — | 0에서 100 사이의 진행률입니다. 주면 그만큼 시계 방향으로 채워지는 확정형이 되고, 생략하면 계속 회전하는 불확정형이 됩니다. |
+| `label` **필수** | `string` | — | 로딩 중에 표시하고 화면 낭독기에 알리는 문구입니다. 무엇을 기다리는지 적습니다. |
+| `completionMessage` **필수** | `string` | — | 로딩이 끝났을 때 화면 낭독기에 알리는 문구입니다. |
+| `size` | `Size` | `medium` | 스피너 크기입니다. `small`, `medium`, `large` 가운데 고릅니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `pending` | `boolean` | 필수 | 속성 |
-| `value` | `number` | 선택 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `completionMessage` | `string` | 필수 | 속성 |
-| `size` | `Size` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -49,56 +40,39 @@ export interface SpinnerContract {
 export type Size = 'small' | 'medium' | 'large';
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 접근성 {#accessibility}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+- 확정형은 진행률을 `progressbar` 역할의 현재 값으로 전달합니다. 불확정형은 현재 값을 전달하지 않습니다.
+- 로딩 시작과 완료를 `aria-live="polite"` 상태 메시지로 각각 한 번 알립니다. 진행 중에 반복해서 읽지 않습니다.
+- 스피너는 초점을 받지 않고 초점을 옮기지도 않습니다.
+- `label`과 `completionMessage`는 반드시 의미 있는 문구로 채웁니다.
+- 스피너의 경로와 배경, 경로와 표시기 사이의 명도 대비를 3:1 이상으로 유지합니다.
+- 로딩 중인 콘텐츠 영역에는 직접 `aria-busy`를 붙여 아직 준비되지 않았음을 알립니다.
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 알아 둘 점 {#notes}
 
-진행 경로·표시기는 실제 대기 중인 작업 가까이에 둡니다. 확정형(determinate)은 실제 진행률에 따라 0–360도를 시계 방향으로 채우고, 불확정형(indeterminate)은 시계 방향으로 회전합니다. 장식이 아닙니다. 1초 미만 대기에는 불필요한 스피너를 쓰지 않습니다. 영역당 스피너는 하나이며, 독립된 인라인 작업은 예외입니다.
+- `pending`과 `value`는 실제 작업 상태에 맞춰 직접 갱신합니다. 컴포넌트가 스스로 진행률을 올리거나 완료로 바꾸지 않습니다.
+- `value`가 0에서 100 범위를 벗어나거나 유한한 수가 아니면 오류를 냅니다.
+- 동작 줄이기 설정이 켜져 있으면 불확정형의 회전을 멈추고 정지된 표시와 문구로 대기 상태를 알립니다. 확정형은 실제 진행률을 그대로 보여 줍니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 스타일링 {#styling}
 
-독립 API: pending, value?(0–100), label, completionMessage, size=medium. value가 없으면 불확정형입니다. 확정형은 min/max/now를 가진 role=progressbar입니다. 로딩·완료 안내는 애니메이션 장식과 구별되는 polite 상태입니다. 잘못되었거나 유한하지 않은 범위는 구성 오류입니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 의미 변경 요청 하나를 냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 0회 냅니다. 제어 거부 시 확정된 UI·초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고, 제어 props가 계속 우선합니다. 추가 필드는 렌더러·머신 객체를 노출하지 않습니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `pending`, `complete`, `determinate`, `indeterminate` |
+| `track` | `pending`, `complete`, `determinate`, `indeterminate` |
+| `indicator` | `pending`, `complete`, `determinate`, `indeterminate` |
+| `label` | `pending`, `complete` |
+| `status` | `pending`, `complete` |
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+```css
+[data-krds-component="spinner"][data-krds-part="root"] { /* ... */ }
+```
 
-초점 이동, 키보드 동작, 초점 트랩이 없습니다. 진행률·완료를 흉내 내는 타이머를 두지 않으며, 호스트가 pending/value를 바꿉니다. polite 로딩·완료 메시지는 애니메이션 프레임마다가 아니라 실제 수명주기당 한 번 나옵니다.
+## 참고 {#references}
 
-### 반응형 동작 {#responsive-mobile-requirements}
-
-크기를 충분히 확보하고 경로·배경 대비는 3:1 이상입니다. 동작 줄이기에서는 연속 회전을 안정적인 진행률·레이블로 대체하며, 이는 독립 정책입니다. 출처는 0에서 멈추지 않고 반복하라고 하므로 접근성 대안을 명시적으로 기록합니다.
-
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼 값·리셋·IME 동작은 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트가 실제 로딩 수명, 콘텐츠 준비 상태, 대상 영역의 aria-busy를 소유합니다. 완료는 실제 로컬 작업의 전환과 접근 가능한 시작·종료를 요구하며, 영구히 도는 링은 인정하지 않습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, track, indicator, label, status; pending,complete,determinate,indeterminate.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="spinner"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브·ARIA 상태가 기준입니다. 위 열거는 파트·상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`determinate`, `indeterminate`, `inline`, `region`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-36) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_07_02.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_07_02.html)
+- [상세 명세](/sources/specs/components/spinner.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

@@ -117,7 +117,7 @@ export async function runRow({ browser, browserName, origin, entry, manifest, re
     const demo = page.locator('.native-demo');
     assert.equal(await demo.count(), 1, 'exactly one native demo section');
     await demo.scrollIntoViewIfNeeded();
-    assert.equal((await demo.locator('.native-demo-frameworks > [role="tablist"] > [role="tab"][aria-selected="true"]').textContent()).trim(), entry.label, 'framework tab binding');
+    assert.equal((await demo.locator('.native-demo-frameworks > [role="tablist"] > [role="tab"][aria-selected="true"] .native-demo-framework-name').textContent()).trim(), entry.label, 'framework tab binding');
     assert.equal((await page.locator('.native-demo-package').textContent()).replace(/\s+/g, ' ').trim(), `${entry.package} ${entry.packageVersion}`, 'displayed package identity');
     if (entry.status === 'unavailable') {
       await page.waitForTimeout(400);

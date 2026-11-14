@@ -1,21 +1,30 @@
 # 로컬에서 시작하기
 
-Unofficial KRDS는 `@unofficial-krds` 이름을 선택한 비공식 독립 프로젝트입니다. 공개 패키지의 소스 버전은 `0.1.0`, 비공개 문서 워크스페이스는 `0.0.0`입니다. 이름과 저장소 메타데이터는 인증된 소유권이나 npm 게시 여부를 증명하지 않습니다. 이 안내는 저장소의 로컬 빌드를 사용합니다.
+Unofficial KRDS는 KRDS를 여러 프레임워크의 컴포넌트로 구현한 비공식 독립 프로젝트입니다. 패키지 이름은 `@unofficial-krds`로 시작하고 현재 버전은 `0.1.0`입니다.
+
+아직 npm에 게시하지 않았습니다. [저장소](https://github.com/moreal/krds)를 내려받아 빌드해서 씁니다.
 
 ## 도구와 의존성 설치
 
-저장소가 선택한 버전은 Node **24.18.0**, Yarn **4.14.1**입니다. `compatibility/toolchain.json`과 저장소 래퍼가 정확한 도구를 지정합니다. 전역 도구는 바꾸지 않습니다. 다른 환경에서는 먼저 이 Node 버전을 설치하세요.
+Node **24.18.0**과 Yarn **4.14.1**을 씁니다. Yarn은 저장소에 들어 있으므로 따로 설치하지 않습니다.
+
+1. Node 24.18.0을 설치합니다.
+2. 저장소 루트에서 아래 명령을 실행합니다.
 
 ```sh
 node tools/yarn.mjs --version
 node tools/yarn.mjs install --immutable
 ```
 
-Yarn Berry와 단일 `yarn.lock`을 사용합니다. `.yarnrc.yml`의 `nodeLinker: pnpm`은 Yarn의 연결 방식입니다. `pnpm install`이나 별도 npm/pnpm lockfile을 사용하지 않습니다.
+`node tools/yarn.mjs`는 저장소가 지정한 Yarn을 실행합니다. 전역 도구는 바꾸지 않습니다. 정확한 버전은 `compatibility/toolchain.json`에 있습니다.
+
+설치는 Yarn으로만 합니다. lockfile은 `yarn.lock` 하나입니다. `.yarnrc.yml`의 `nodeLinker: pnpm`은 Yarn이 패키지를 연결하는 방식일 뿐이므로 `pnpm install`은 쓰지 않습니다.
 
 ## Vue 컴포넌트로 첫 화면 만들기
 
-[호환성 기록](../compatibility/)에서 원하는 프레임워크의 런타임·컴파일러와 지원 범위를 확인하세요. 아래 Vue 예시는 공개 Vue subpath를 사용합니다. 문서 사이트 자체는 Astro와 공개 Solid 1 컴포넌트로 렌더링합니다. 다른 프레임워크는 각자의 네이티브 어댑터와 소비자 코드가 있습니다.
+아래는 Vue 예시입니다. 다른 프레임워크에도 각자의 패키지와 예제 앱이 있습니다. 프레임워크별 지원 버전은 [호환성 기록](../compatibility/)에서 확인하세요.
+
+먼저 Vue 패키지와 Vue 예제 앱을 빌드합니다.
 
 ```sh
 node tools/yarn.mjs nx run krds-vue:build
@@ -23,7 +32,9 @@ node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck
 node tools/yarn.mjs workspace @unofficial-krds/fixture-vue build:local
 ```
 
-Nx는 공유 contracts·tokens·styles를 먼저 빌드합니다. 출력은 각 워크스페이스의 `dist/`에 생성됩니다. 다음 코드는 같은 저장소에서 해당 패키지를 직접 의존성으로 선언한 Vue 앱에서 사용할 수 있습니다.
+Nx가 공유 패키지(contracts, tokens, styles)를 먼저 빌드합니다. 결과물은 각 워크스페이스의 `dist/`에 생깁니다.
+
+이제 같은 저장소 안에서 이 패키지를 의존성으로 선언한 Vue 앱이라면 다음처럼 쓸 수 있습니다.
 
 ```vue
 <script setup lang="ts">
@@ -41,11 +52,18 @@ const enabled = ref(false);
 </template>
 ```
 
-컴포넌트 스타일과 토큰은 명시적으로 가져옵니다. 전역 reset과 글꼴은 자동 적용하지 않습니다. KRDS의 rem 토큰과 기존 앱의 기본 글자 크기를 함께 검토하고 [CSS·토큰·글꼴 안내](./styling)를 따르세요. 문서 사이트는 공개 reset과 KRDS 스타일을 전체 UI에 적용하며, 원본 로컬 Pretendard GOV 글꼴을 사용합니다. 기본 root는 10px, 본문은 16px이고 medium Button은 48px입니다. 밝은 테마와 forced-colors를 지원합니다.
+스타일은 쓰는 컴포넌트마다 직접 import합니다. 전역 reset과 글꼴은 자동으로 적용되지 않습니다.
 
-[54개 참조 문서](../components/)에서 API·키보드 규칙·출처를 확인하고, [네이티브 예시](../compatibility/examples)에서 실제 소비자 코드와 보존된 컴파일 체크포인트를 읽으세요. 컴파일 성공과 전체 동작 검증은 별도입니다.
+KRDS 토큰은 rem 단위입니다. 기존 앱에 넣을 때는 앱의 기본 글자 크기와 맞는지 확인하고 [CSS·토큰·글꼴 안내](./styling)를 따르세요. 참고로 이 문서 사이트는 reset과 KRDS 스타일을 전체에 적용했습니다. root는 10px, 본문은 16px이고 medium Button은 48px입니다. 밝은 테마와 forced-colors를 지원합니다.
+
+다음에 볼 문서는 두 가지입니다.
+
+- [컴포넌트 문서](../components/): 컴포넌트별 API와 키보드 규칙
+- [네이티브 예시](../compatibility/examples): 프레임워크별 실제 사용 코드
 
 ## 문서와 로컬 미리보기
+
+이 문서 사이트를 로컬에서 빌드해 띄울 수 있습니다.
 
 ```sh
 node tools/yarn.mjs nx run krds-docs:build
@@ -54,15 +72,21 @@ node tools/yarn.mjs workspace @unofficial-krds/docs test
 node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs
 ```
 
-`http://127.0.0.1:49100/krds/`를 여세요. 공개 문서의 하위 페이지는 `.html` 주소를 사용하므로 직접 진입·새로고침할 수 있습니다. 공개 사이트에는 Fixture나 Storybook을 호스팅하지 않습니다. 각각 빌드한 뒤 로컬 서버의 `/krds/native/fixture-vue/`, `/krds/native/storybook-vue/` 같은 경로를 사용하세요. 없는 출력은 404로 명확히 표시합니다. Qwik 프로덕션 resume은 실제 SSR 서버와 첫 lazy 이벤트 검사가 필요합니다.
+서버가 뜨면 `http://127.0.0.1:49100/krds/`를 여세요. 하위 페이지는 `.html` 주소를 쓰므로 주소로 바로 들어가거나 새로고침해도 됩니다.
+
+예제 앱과 Storybook은 공개 사이트에 올리지 않습니다. 각각 빌드한 뒤 로컬 서버의 `/krds/native/fixture-vue/`, `/krds/native/storybook-vue/` 같은 경로에서 봅니다. 빌드하지 않은 경로는 404로 표시됩니다.
 
 ## 로컬 패키지 파일 검사
 
-패키징은 npm 게시와 별도입니다. 필요한 패키지를 빌드한 뒤 임시 위치에 로컬 tarball을 만들 수 있습니다.
+저장소 밖의 앱에서 써 보려면 패키지를 tarball로 만듭니다. 필요한 패키지를 빌드한 뒤 실행합니다.
 
 ```sh
 node tools/yarn.mjs workspace @unofficial-krds/vue pack --out /tmp/krds-vue-local.tgz
 ```
 
-`package.json`, 공개 `dist/` export, 라이선스·출처·provenance를 검사하세요. 독립 앱에서 사용할 때는 선언된 모든 내부 공개 의존성의 실제 로컬 tarball과 정확한 프레임워크 버전이 필요합니다. 워크스페이스 빌드만으로 독립 설치를 검증했다고 볼 수 없습니다.
+tarball에서 `package.json`, 공개 `dist/` export, 라이선스와 출처 파일을 확인하세요.
 
+독립 앱에 설치할 때는 두 가지가 더 필요합니다.
+
+- 그 패키지가 의존하는 다른 `@unofficial-krds` 패키지의 tarball
+- [호환성 기록](../compatibility/)에 적힌 정확한 프레임워크 버전

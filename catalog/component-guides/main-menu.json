@@ -1,0 +1,43 @@
+{
+  "usage": [
+    "사이트의 주요 영역을 탐색하는 최상위 메뉴로 씁니다. 보통 `Header` 안에 둡니다.",
+    "메뉴는 서비스의 정보 구조를 반영해 최대 3단계까지 구성하고, 꼭 필요한 링크만 넣습니다.",
+    "자주 쓰고 중요한 메뉴일수록 왼쪽에 둡니다. 레이블은 전문 용어 대신 이해하기 쉬운 말로 씁니다.",
+    "레이블만으로 내용을 알기 어려운 메뉴에는 `description`으로 설명을 덧붙입니다.",
+    "하위 메뉴는 마우스를 올리는 것만으로 열리지 않습니다. 눌러서 엽니다."
+  ],
+  "props": [
+    { "name": "label", "default": "`\"메인 메뉴\"`", "description": "내비게이션 영역의 이름입니다. 화면 낭독기가 이 이름으로 영역을 읽습니다." },
+    { "name": "mobileTriggerId", "default": null, "description": "좁은 화면에 나타나는 메뉴 열기 버튼의 `id`입니다." },
+    { "name": "mobileTriggerLabel", "default": null, "description": "메뉴 열기 버튼의 이름입니다." },
+    { "name": "items", "default": null, "description": "메뉴 항목 목록입니다. 항목마다 `id`와 `label`을 넘깁니다. `href`가 있는 말단 항목은 링크가 되고, `children`이 있는 항목은 하위 메뉴를 여는 버튼이 됩니다." },
+    { "name": "currentId", "default": null, "description": "현재 페이지에 해당하는 항목의 `id`입니다. 그 항목을 현재 위치로 표시합니다." },
+    { "name": "expandedId", "default": null, "description": "펼쳐진 최상위 항목의 `id`를 직접 제어합니다. `null`이면 모두 접힌 상태입니다." },
+    { "name": "defaultExpandedId", "default": null, "description": "직접 제어하지 않을 때 처음 펼쳐 둘 항목의 `id`입니다." },
+    { "name": "onExpandedChange", "default": null, "description": "사용자가 하위 메뉴를 펼치거나 접으려 할 때 불립니다. 펼칠 항목을 `{id}`로 받고, 모두 접을 때는 `id`가 `null`입니다." },
+    { "name": "mobileOpen", "default": null, "description": "좁은 화면의 메뉴 레이어가 열려 있는지를 직접 제어합니다. `onMobileOpenChange`와 함께 씁니다." },
+    { "name": "defaultMobileOpen", "default": null, "description": "직접 제어하지 않을 때 메뉴 레이어의 처음 열림 상태입니다." },
+    { "name": "onMobileOpenChange", "default": null, "description": "사용자가 메뉴 레이어를 열거나 닫으려 할 때 불립니다. 바뀔 상태를 `{open}`으로 받습니다." },
+    { "name": "query", "default": null, "description": "메뉴 안 검색창에 입력된 검색어입니다. 메뉴가 복잡해 메뉴 검색을 제공할 때 씁니다." },
+    { "name": "onQueryChange", "default": null, "description": "사용자가 메뉴 검색어를 바꿀 때 불립니다. 새 검색어를 `{value}`로 받습니다." }
+  ],
+  "keyboard": [
+    { "keys": "`Tab` / `Shift+Tab`", "action": "메뉴의 계층 순서대로 이동합니다. 접힌 하위 메뉴는 건너뜁니다." },
+    { "keys": "`Enter`", "action": "하위 메뉴가 있는 항목에서는 하위 메뉴를 펼치거나 접고, 링크에서는 해당 페이지로 이동합니다." },
+    { "keys": "`Escape`", "action": "펼쳐진 하위 메뉴를 모두 닫고 초점을 그 최상위 항목으로 옮깁니다." }
+  ],
+  "accessibility": [
+    "`<nav>` 영역에 `label`을 이름으로 붙이고, 제목과 중첩 목록으로 메뉴 계층을 전달합니다.",
+    "하위 메뉴를 여는 버튼은 `aria-expanded`로 펼침 상태를 알립니다.",
+    "현재 페이지 링크에는 `aria-current=\"page\"`를, 펼쳐진 최상위 항목에는 `aria-current=\"true\"`를 붙여 활성 표시를 화면 낭독기에도 전달합니다.",
+    "접힌 하위 메뉴는 초점 순서와 화면 낭독기에서 모두 빠집니다.",
+    "펼친 하위 메뉴에는 어떤 메뉴의 하위 목록인지 알 수 있도록 제목을 함께 표시합니다."
+  ],
+  "notes": [
+    "넓은 화면에서는 최상위 메뉴를 모두 보여 줍니다. 하위 메뉴 영역은 화면 높이의 70%까지만 커지고, 넘치면 그 안에서 스크롤됩니다.",
+    "좁은 화면에서는 메뉴를 잘라 보여 주지 않고 메뉴 열기 버튼과 전체 화면 메뉴 레이어로 바꿉니다. 레이어가 열려 있는 동안 초점은 레이어 안에 머뭅니다.",
+    "`expandedId`나 `mobileOpen`을 넘기면 제어 방식으로 동작하므로 콜백에서 값을 갱신해야 화면이 바뀝니다. 제어 속성과 같은 상태의 `default` 속성은 함께 쓰지 않습니다.",
+    "`Header`와 함께 쓸 때는 `Header`의 `navigationLabel`이 이 메뉴의 `label`이 됩니다.",
+    "메뉴 검색창에서 한글을 조합하는 중에 누른 `Enter`는 메뉴 이동으로 처리하지 않습니다."
+  ]
+}

@@ -12,7 +12,9 @@ async function fixture(engine, component, caseId, run, beforeNavigation) {
  const browser = await ({chromium, webkit})[engine].launch();
  try {
   const page = await browser.newPage();
-  page.setDefaultTimeout(2500);
+  // A loaded CI runner can starve WebKit of animation frames, and Playwright's "stable" check
+  // before a click waits on them: 2.5s was too tight there although the fixture responds at once.
+  page.setDefaultTimeout(10000);
   if (beforeNavigation) await page.addInitScript(beforeNavigation);
   await page.goto(`${server.origin}/fixtures/${component}?case=${caseId}`);
   await page.waitForFunction(() => window.__KRDS_FIXTURE__);

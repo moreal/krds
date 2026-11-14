@@ -98,9 +98,9 @@ try {
    await page.goto(origin + '/krds/getting-started/forms.html', { waitUntil: 'networkidle' }); await settle(page);
    assert.equal(await page.locator('.docs-sidebar a[href="/krds/getting-started/installation.html"]').count(), 1);
    await page.goto(origin + '/krds/compatibility/examples.html', { waitUntil: 'networkidle' }); await settle(page);
-   assert.equal(await page.locator('.docs-header button[aria-label="네이티브 예시"]').getAttribute('aria-current'), 'true');
+   assert.equal(await page.locator('.docs-header button[aria-label="예제"]').getAttribute('aria-current'), 'true');
    await resize(page, 320); await page.evaluate(() => document.documentElement.style.fontSize = '125%');
-   const crumb = page.locator(part('breadcrumb', 'root')); assert.match(await crumb.textContent(), /홈.*네이티브 예제/);
+   const crumb = page.locator(part('breadcrumb', 'root')); assert.match(await crumb.textContent(), /홈.*프레임워크별 예제/);
    assert.ok(await crumb.evaluate(element => element.scrollWidth <= element.clientWidth + 1));
    await page.screenshot({ path: resolve(evidence, name + '-nonhome-text200.png') });
    assert.deepEqual(errors, []); await page.close();

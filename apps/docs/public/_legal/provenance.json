@@ -578,6 +578,20 @@
         "rights": "independent"
       },
       {
+        "sourcePath": "ATTRIBUTION.md",
+        "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
+        "bytes": 2409,
+        "destination": "apps/docs/public/sources/ATTRIBUTION.md.txt",
+        "rights": "mixed-record"
+      },
+      {
+        "sourcePath": "THIRD-PARTY-NOTICES.md",
+        "sha256": "69af0d9d2281f522c32b3917600547315767fdcc7b0303926db4c052df01b4af",
+        "bytes": 49869,
+        "destination": "apps/docs/public/sources/THIRD-PARTY-NOTICES.md.txt",
+        "rights": "mixed-record"
+      },
+      {
         "sourcePath": "catalog/components.json",
         "sha256": "19e186cae7c965dec3697ae20d993b9c676cb4852b6e668eb03c2c9d02e12ae4",
         "bytes": 125882,
@@ -972,20 +986,6 @@
             "retrievedAt": "2026-10-30T04:41:31.787168+00:00"
           }
         ]
-      },
-      {
-        "sourcePath": "ATTRIBUTION.md",
-        "sha256": "cca428ecc1b7e3495031a1adf9b3b9c90d6ddbb63f0e430d88520d1096bed00a",
-        "bytes": 2409,
-        "destination": "apps/docs/public/sources/ATTRIBUTION.md.txt",
-        "rights": "mixed-record"
-      },
-      {
-        "sourcePath": "THIRD-PARTY-NOTICES.md",
-        "sha256": "69af0d9d2281f522c32b3917600547315767fdcc7b0303926db4c052df01b4af",
-        "bytes": 49869,
-        "destination": "apps/docs/public/sources/THIRD-PARTY-NOTICES.md.txt",
-        "rights": "mixed-record"
       },
       {
         "sourcePath": "specs/components/header.md",
@@ -1670,6 +1670,13 @@
         "upstreamReferences": []
       },
       {
+        "sourcePath": "packages/contracts/src/types.ts",
+        "sha256": "6687a5fb1abd38d220ab226d63aaa3707ef32ace9ff24fef6de0022787165d05",
+        "bytes": 3042,
+        "destination": "apps/docs/public/sources/packages/contracts/src/types.ts.txt",
+        "rights": "independent"
+      },
+      {
         "sourcePath": "specs/components/breadcrumb.md",
         "sha256": "564968ee793011eb046734bb244a3c03b805a4b0f066cc6a91a3516a30763d5e",
         "bytes": 23375,
@@ -1728,13 +1735,6 @@
             "retrievedAt": "2026-10-29T23:28:03.411Z"
           }
         ]
-      },
-      {
-        "sourcePath": "packages/contracts/src/types.ts",
-        "sha256": "6687a5fb1abd38d220ab226d63aaa3707ef32ace9ff24fef6de0022787165d05",
-        "bytes": 3042,
-        "destination": "apps/docs/public/sources/packages/contracts/src/types.ts.txt",
-        "rights": "independent"
       },
       {
         "sourcePath": "specs/components/disclosure.md",
@@ -5371,7 +5371,7 @@
         "url": "https://www.krds.go.kr/html/site/service/service_02_04.html"
       }
     ],
-    "metadataSha256": "bde776c6c31e5141982b51f9e623d171173ece7264db53a823956b525816a765",
+    "metadataSha256": "cb6286f3e979eb432f7b8a3f1a3e033386ca11f6f89ae13b8197742ced649dd7",
     "reboundAt": "2026-11-01"
   },
   "fontAssets": [

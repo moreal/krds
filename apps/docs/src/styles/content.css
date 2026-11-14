@@ -70,3 +70,8 @@
 .docs-article blockquote { margin-inline: 0; padding-inline-start: var(--krds-padding-6); border-inline-start: var(--krds-number-3) solid var(--krds-light-color-border-gray); }
 .docs-article :is(pre,code,kbd) { font-family: ui-monospace, monospace; }
 @container docs-frame (max-width: 76.7rem) { .docs-article h1 { font-size: var(--krds-mobile-font-size-heading-xlarge); } .docs-article h2 { font-size: var(--krds-mobile-font-size-heading-large); } .docs-article h3 { font-size: var(--krds-mobile-font-size-heading-medium); } }
+/* A list item's text starts on the marker's line: the paragraph spacing belongs between blocks, not above the first one. */
+[data-krds-component="text-list"][data-krds-part="content"] > :first-child { margin-block-start: 0; }
+[data-krds-component="text-list"][data-krds-part="content"] > :last-child { margin-block-end: 0; }
+/* Names in a reference table stay whole; the table scrolls instead of breaking an identifier mid-word. */
+.docs-table [data-krds-part="cell"]:first-child code { white-space: nowrap; overflow-wrap: normal; }

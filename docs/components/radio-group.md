@@ -4,45 +4,36 @@ title: 'Radio button'
 
 # Radio button {#radio-button}
 
-라디오 버튼 · `RadioGroup` — 여러 선택지 가운데 하나만 고르게 합니다.
+**라디오 버튼** — 여러 선택지 가운데 하나만 고르게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_06_01.html) · [전체 명세](/sources/specs/components/radio-group.md.txt) · [프레임워크 지원](../compatibility/README.md)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 여러 선택지 가운데 하나만 고르게 할 때 씁니다. 선택지를 서로 비교해야 하는 설문 문항 같은 곳에 알맞습니다.
+- 여러 개를 고를 수 있어야 하면 체크박스를 씁니다. 선택지가 7개를 넘으면 셀렉트를 먼저 검토합니다.
+- 선택지는 세로로 배치하고, 특별한 이유가 없으면 가나다순으로 정렬합니다.
+- 정확한 선택이 중요한 항목은 미리 선택해 두지 않습니다.
+- 한 번 고르면 선택을 취소할 수 없으므로, 필수가 아닌 항목에는 “해당 없음”이나 “잘 모름” 같은 선택지를 `options`에 직접 넣습니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
+| `value` | `string \| null` | — | 선택된 값을 직접 제어합니다. `null`은 아무것도 선택하지 않은 상태입니다. `defaultValue`와 함께 쓸 수 없습니다. |
+| `defaultValue` | `string \| null` | `null` | 직접 제어하지 않을 때 처음 선택 값입니다. |
+| `onValueChange` | `(detail: ValueChangeDetails<string \| null>) => void` | — | 사용자가 다른 선택지를 고르면 `{value}`를 받아 불립니다. 이미 선택된 항목을 다시 누르거나 `value`를 바깥에서 바꿀 때는 불리지 않습니다. |
+| `id` | `string` | — | 그룹 전체를 감싸는 `fieldset`의 `id`입니다. |
+| `name` | `string` | — | 폼을 제출할 때 쓰는 이름입니다. 그룹 안의 모든 라디오 버튼이 같은 이름을 씁니다. |
+| `label` **필수** | `string` | — | 그룹 레이블입니다. 무엇을 고르는지 알려 주며 `legend`로 표시합니다. |
+| `disabled` | `boolean` | `false` | `true`이면 그룹 전체를 조작할 수 없고 폼 제출 값에서도 빠집니다. |
+| `required` | `boolean` | `false` | 필수 항목으로 만듭니다. 아무것도 고르지 않으면 폼이 제출되지 않습니다. |
+| `invalid` | `boolean` | — | 그룹을 오류 상태로 표시합니다. 오류 내용은 `errorId`가 가리키는 문구로 알려 줍니다. |
+| `helpId` | `string` | — | 도움말 문구 요소의 `id`입니다. 그룹의 설명으로 연결합니다. |
+| `errorId` | `string` | — | 오류 문구 요소의 `id`입니다. `invalid`일 때 그룹의 설명으로 연결합니다. |
+| `options` **필수** | `readonly RadioGroupOption[]` | — | 선택지 목록입니다. 각 항목은 `value`, `label`과 선택적인 `disabled`, `id`를 가집니다. `value`는 서로 달라야 하며, `id`를 주면 해당 라디오 버튼의 `id`로 씁니다. |
+| `size` | `'medium' \| 'large'` | `medium` | 라디오 버튼과 레이블의 크기입니다. `medium` 또는 `large`입니다. |
+| `appearance` | `'default' \| 'chip'` | — | `chip`으로 두면 선택지를 칩 모양으로 표시합니다. 동작은 일반 라디오 버튼과 같습니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `value` | `string \| null` | 선택 | 속성 |
-| `defaultValue` | `string \| null` | 선택 | 속성 |
-| `onValueChange` | `(detail: ValueChangeDetails<string \| null>) => void` | 선택 | 이벤트 |
-| `id` | `string` | 선택 | 속성 |
-| `name` | `string` | 선택 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `disabled` | `boolean` | 선택 | 속성 |
-| `required` | `boolean` | 선택 | 속성 |
-| `invalid` | `boolean` | 선택 | 속성 |
-| `helpId` | `string` | 선택 | 속성 |
-| `errorId` | `string` | 선택 | 속성 |
-| `options` | `readonly RadioGroupOption[]` | 필수 | 속성 |
-| `size` | `'medium' \| 'large'` | 선택 | 속성 |
-| `appearance` | `'default' \| 'chip'` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -85,60 +76,51 @@ export interface SelectOption {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 그룹 안의 라디오 버튼을 하나씩 차례로 이동합니다. 초점만 옮기며 선택은 바뀌지 않습니다. 비활성 항목은 건너뜁니다. |
+| `↓` / `→` | 다음 라디오 버튼으로 초점을 옮기고 선택합니다. |
+| `↑` / `←` | 이전 라디오 버튼으로 초점을 옮기고 선택합니다. |
+| `Space` | 초점이 있는 라디오 버튼을 선택합니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-이름 있는 fieldset/legend 그룹 안에 같은 `name`의 네이티브 `input[type=radio]`와 오른쪽 레이블을 연결합니다. 기본은 세로이며, 가로 배치는 충분한 간격이 필요합니다. 정확한 선택이 중요한 경우 미리 선택하지 않습니다. 선택적 “없음/모름”은 호스트가 명시하는 옵션입니다.
+- `fieldset`과 `legend`로 그룹과 그룹 레이블의 관계를 전달하고, 실제 `input[type=radio]`를 씁니다.
+- 각 선택지의 레이블을 눌러도 선택됩니다. 레이블은 무엇을 고르는지 분명하게 씁니다.
+- `helpId`와 `errorId`가 가리키는 문구를 그룹의 설명으로 연결합니다. 해당 `id`를 가진 요소는 직접 화면에 둡니다.
+- 선택 상태는 색만으로 구분하지 않으며, 라디오 버튼과 배경의 명도 대비를 3:1 이상으로 유지합니다.
+- 가로로 배치할 때는 선택지 사이 간격을 버튼과 레이블 사이 간격보다 넓게 둡니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: `options: readonly RadioGroupOption[]`(`RadioGroupOption`은 기존 `SelectOption`을 확장하며 선택적 `id?:string`을 가짐), `name`, `value?: string | null`, `defaultValue?: string | null`(비제어 기준선은 `null`), `onValueChange({value:string | null})`, `required=false`, `disabled=false`, `invalid`/`errorId`/`helpId`, `size=medium`, `appearance=default|chip`. `null`을 포함해 정의된 `value`는 제어 모드를 택하며, `undefined`만 비제어를 뜻합니다. `null`은 체크된 라디오가 없음을 뜻합니다. 빈 문자열 `""`을 포함한 모든 문자열은 유효한 일반 옵션 값이며, 고유한 옵션 하나와 정확히 일치해야 합니다. 빈 문자열도, 없는 옵션도 빈 값 표지(sentinel)가 아닙니다. 알 수 없는 non-null 값과 중복 옵션 값은 설정 오류입니다. “없음/모름” 옵션을 자동으로 넣지 않으며, 그것은 호스트가 명시하는 콘텐츠입니다.
+- 선택된 항목의 `value`가 `name`과 함께 제출됩니다. 아무것도 선택하지 않았으면 제출 값에 포함되지 않습니다.
+- 빈 문자열도 일반 선택지 값입니다. 선택하지 않은 상태는 `null`로만 나타냅니다.
+- 폼을 초기화하면 처음 선택 상태로 돌아갑니다. 이때 `onValueChange`는 불리지 않습니다.
+- `value`로 직접 제어할 때 `onValueChange`에서 값을 갱신하지 않으면 선택은 원래 값으로 되돌아갑니다.
 
-[파일럿 제어/리셋 규약](/sources/specs/components/README.md.txt)을 적용합니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 선택이 바뀔 때마다 사용자 요청 하나를 내보내며, 거부되어도 마찬가지입니다. 마운트, 하이드레이션, prop, 리셋 변경은 콜백을 내보내지 않습니다. 이미 선택된 옵션을 클릭하면 no-op입니다. prop이 `null`로 바뀌면 이벤트 없이 체크된 비트를 모두 지웁니다. 제어 모드에서 거부되면 모든 실제 네이티브 라디오의 체크 비트를 커밋된 prop에 맞춰 조정하며, `null`이면 모두 해제로 복원합니다. 수용되지 않은 브라우저 토글이 렌더링, 유효성, FormData로 새어 나가면 안 됩니다.
+## 스타일링 {#styling}
 
-**명시적 옵션 식별(추가 조합 API):** 옵션은 실제 네이티브 라디오 입력에 쓸 비어 있지 않은 고유 `id`를 줄 수 있습니다. 그 ID를 그대로 적용하고 실제 레이블을 같은 컨트롤에 연결하며, 중복 프록시 입력을 만들거나 ID를 선택 값으로 쓰지 않습니다. 생략하면 기존의 안정적인 생성 ID 동작이 그대로입니다. 중복되거나 빈 명시 ID는 설정 오류입니다. 이 라디오 전용 하위 타입은 NativeSelect와 무관한 `SelectOption` 계약에 ID를 더하거나 의미를 바꾸지 않습니다. 선택, 그룹화, `null`/빈 문자열 값, 리셋, 콜백은 그대로입니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `checked`, `unchecked`, `disabled`, `invalid` |
+| `legend` | 없음 |
+| `item` | `checked`, `unchecked`, `disabled`, `invalid` |
+| `control` | `checked`, `unchecked`, `disabled`, `invalid` |
+| `indicator` | `checked`, `unchecked`, `disabled`, `invalid` |
+| `label` | 없음 |
+| `help` | 없음 |
+| `error` | 없음 |
 
-공식 요구 **활성화된 모든 라디오를 Tab과 Shift+Tab으로 순차 접근할 수 있어야 한다**를 보존합니다. 이는 실제 같은 `name` 네이티브 라디오 그룹화, 그리고 별도로 요구되는 화살표 이동/선택과 함께 적용됩니다([공식 L1211–1218](https://www.krds.go.kr/html/site/component/component_06_01.html)). 비활성 라디오는 건너뜁니다. Tab 순회는 초점만 바꿉니다. Space, 연결된 레이블/컨트롤 클릭, 해당 화살표 키가 옵션 하나를 선택하며, 중복 합성 활성화 없이 변경 값 요청 하나를 내보냅니다. 초점 링은 보이는 라디오 영역에 둡니다.
+```css
+[data-krds-component="radio-group"][data-krds-part="root"] { /* ... */ }
+```
 
-고정된 같은 `name` 네이티브 예시는 브라우저의 통상적인 단일 그룹 Tab 동작을 가지며, 이는 모든 라디오 순차 접근이라는 명시적 행과 충돌합니다. 이 긴장이 그 행을 부정하거나 네이티브 기본 그룹화를 적합하다고 선언할 근거가 되지는 않습니다. 제안 계약은 활성화된 모든 라디오의 순차 접근을 보존합니다. 수용된 독립 구현 정책은 초점이 그룹 안에 있을 때 Tab/Shift+Tab을 가로채 체크 상태를 바꾸지 않고 다음/이전의 활성화된 실제 같은 `name` 네이티브 라디오로 초점을 옮기며, 그룹 경계에서는 브라우저가 빠져나가도록 허용하는 것입니다. 모든 실제 라디오는 일반 네이티브 그룹 속성을 유지하며 이름을 바꾸거나 복제하거나 대체하지 않습니다. 이로써 네이티브 화살표/폼 동작을 유지하면서 명시된 순차 접근 행을 보존합니다. 각 렌더러는 역방향 진입/이탈과 거부된 제어 선택을 검증해야 하며, 네이티브 기본 Tab만으로는 충분하지 않습니다. 각 렌더러/브라우저는 실제 라디오 폼/그룹 의미와 화살표 선택을 보존하고 Tab으로 인한 추가 선택이 없는 상태에서, 활성화된 모든 라디오에 대한 정방향·역방향 순차 접근을 입증해야 합니다. 백엔드/네이티브 기본값만으로는 이 결과의 근거가 되지 않습니다.
+## 참고 {#references}
 
-### 반응형 동작 {#responsive-mobile-requirements}
-
-세로 배치와 오른쪽 레이블을 선호합니다. 옵션이 많으면(익숙한 기준 7개 초과) 셀렉트(Select)가 나을 수 있습니다. 네이티브 앱/모바일 권고는 맥락에 따르며 배제가 아닙니다.
-
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-`null`이면 모든 실제 라디오가 해제되고, 필수 그룹은 유효하지 않으며, FormData에 name/값이 담기지 않습니다. 체크된 활성 옵션은 정확한 문자열(빈 문자열 값 포함)을 전달하고, 비활성 컨트롤/fieldset은 제외됩니다. 취소되지 않은 리셋은 비제어 초기 `defaultValue`/`null`을 복원하고, 제어 상태는 현재 prop을 유지합니다. 모든 네이티브 체크 비트와 필수 유효성을 콜백 없이 조정합니다. 취소된 리셋은 선택도 네이티브 조정 기준선도 바꾸지 않습니다. prop에 의한 해제는 리셋도 사용자 동작도 아닙니다. 레이블과 오류/도움말 연결은 네이티브로 남아 테스트 가능해야 합니다. 편집 가능한 IME 경로는 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-정렬(정당한 우선순위가 없으면 가나다순 기본), 옵션 데이터, 필수 검증 문구는 호스트가 맡습니다. 버튼 role 대체물이 아니라 실제 네이티브 라디오의 폼 참여가 완료 조건입니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, legend, item, control, indicator, label, help, error; checked,unchecked,disabled,invalid.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="radio-group"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 사용합니다. 네이티브/ARIA 상태가 기준입니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`default`, `chip`, `medium`, `large`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-30) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_06_01.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/index.md)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_06_01.html)
+- [상세 명세](/sources/specs/components/radio-group.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

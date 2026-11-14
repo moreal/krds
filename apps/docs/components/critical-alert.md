@@ -4,35 +4,26 @@ title: 'Critical alerts'
 
 # Critical alerts {#critical-alerts}
 
-긴급 공지 · `CriticalAlert` — 모든 사용자가 반드시 알아야 하는 긴급한 내용을 화면 상단에 알립니다.
+**긴급 공지** — 모든 사용자가 반드시 알아야 하는 긴급한 내용을 화면 상단에 알립니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_02.html) · [전체 명세](/sources/specs/components/critical-alert.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 재난·재해, 갑작스러운 서비스 장애, 예정된 이용 중단처럼 대부분의 사용자가 지금 알아야 하는 정보를 전할 때 씁니다.
+- 홍보, 일반 공지, 폼 검사 결과나 완료 안내 같은 피드백에는 쓰지 않습니다.
+- 본문의 첫 요소로, 메인 메뉴와 히어로 영역 사이에 화면 전체 너비로 둡니다.
+- 공지가 유효한 기간에만 게시하고, 한 번에 하나만 씁니다.
+- 문구는 한 줄로 간결하게 쓰고, 자세한 내용은 상세 링크 하나로 연결합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `urgency` **필수** | `'high' \| 'medium' \| 'low'` | — | 긴급도입니다. `high`는 재난·재해나 예고 없는 장애, `medium`은 이용 중단 사전 예고, `low`는 이용에 큰 영향은 없지만 알아야 하는 상황에 씁니다. 아이콘과 강조 색이 달라집니다. |
+| `label` **필수** | `string` | — | 긴급도를 알려 주는 보이는 레이블입니다. 색 없이도 공지의 종류를 구분할 수 있게 합니다. |
+| `message` **필수** | `string` | — | 공지 내용입니다. |
+| `details` | `LinkData & {destinationTitle: string}` | — | 공지와 직접 관련된 상세 화면으로 가는 링크입니다. `href`, `label`과 함께 목적지 문서 제목인 `destinationTitle`을 넘깁니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `urgency` | `'high' \| 'medium' \| 'low'` | 필수 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `message` | `string` | 필수 | 속성 |
-| `details` | `LinkData & {destinationTitle: string}` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -55,56 +46,43 @@ export interface LinkData {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 상세 링크로 이동합니다. |
+| `Enter` | 초점이 있는 상세 링크로 이동합니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-본문 첫 콘텐츠로 MainMenu와 히어로 사이에 전체 너비 섹션을 둡니다. 장식용 긴급도 아이콘, 보이는 긴급도 레이블, 간결한 공지, 직접 관련된 상세 링크(최대 하나)로 구성합니다. 닫기/접기 컨트롤은 없습니다. 공식 텍스트는 role=banner를 명시적으로 요청합니다.
+- 공지 영역에 `banner` 역할을 주고 `label`을 영역 이름으로 써서, 화면 낭독기 사용자가 바로 찾아갈 수 있습니다.
+- 긴급도 아이콘은 장식입니다. 레이블이 항상 함께 보이므로 화면 낭독기는 아이콘을 읽지 않습니다.
+- 상세 링크에는 `destinationTitle`이 부가 설명으로 붙습니다. '자세히 보기'만으로는 목적지를 알 수 없으므로 목적지 문서 제목을 넘깁니다.
+- 공지가 나타나도 초점을 옮기거나 화면 낭독기를 끊고 읽게 하지 않습니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: urgency=high|medium|low, label, message, details? {href,label,destinationTitle}. open/defaultOpen이나 닫기 이벤트는 없습니다. 기간 제한 게시는 호스트가 제어합니다. danger/ok/info 스타일 선택자는 예시일 뿐이며, "safe"가 숫자 긴급도 수준과 같다는 증거가 아닙니다.
+- 닫기나 접기 버튼이 없습니다. 게시를 끝내려면 컴포넌트를 렌더링하지 않습니다.
+- 화면이 좁으면 문구가 두 줄까지 늘어납니다. 내용이 잘리지 않도록 짧게 씁니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/open이 정의되면 제어, 없으면 비제어입니다. 제어/기본값을 함께 주거나 모드를 바꾸는 것은 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 냅니다. 비활성, 무동작, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내지 않습니다. 제어 거부는 커밋된 UI와 초점 상태를 유지합니다. 취소된 리셋은 아무 일도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하며, 제어 prop이 계속 우선합니다. 추가 필드로 렌더러/머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-상세 앵커만 Tab 순서에 들어갑니다. 긴급도에서 자동 초점이나 단정적(assertive) 라이브 역할을 추론하지 않습니다. 장식 아이콘에는 중복 alt가 없습니다. 배너 랜드마크의 이름 지정과 페이지 Header와의 구분은 검토가 필요합니다.
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `high`, `medium`, `low` |
+| `icon` | 없음 |
+| `label` | `high`, `medium`, `low` |
+| `message` | 없음 |
+| `link` | 없음 |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="critical-alert"][data-krds-part="root"] { /* ... */ }
+```
 
-텍스트는 보통 한 줄, 좁은 화면에서는 최대 두 줄입니다. 줄 수를 맞추려고 필수 정보를 잘라내지 않습니다. 호스트 문구와 상세 링크는 간결하게 씁니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-폼/리셋/IME 동작이 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-호스트가 사실에 맞는 긴급 정보와 게시 기간을 소유합니다. 완료 시험은 닫을 수 없음과 상세 링크 목적지를 확인하며, 컴포넌트 안에 폴링이나 네트워크 긴급도 피드는 없습니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, icon, label, message, link; urgency=high|medium|low.
-
-렌더되는 모든 소유 파트는 `data-krds-component="critical-alert"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 가집니다. 네이티브/ARIA 상태가 기준입니다. 위 열거는 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정됩니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`high-urgency`, `medium-urgency`, `low-urgency`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-15) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_04_02.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_02.html)
+- [상세 명세](/sources/specs/components/critical-alert.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

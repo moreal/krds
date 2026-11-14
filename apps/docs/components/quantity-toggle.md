@@ -4,46 +4,36 @@ title: 'Quantity toggle'
 
 # Quantity toggle {#quantity-toggle}
 
-수량 토글 · `QuantityToggle` — 버튼으로 수량을 하나씩 늘리거나 줄이게 합니다.
+**수량 토글** — 버튼으로 수량을 하나씩 늘리거나 줄이게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_04.html) · [전체 명세](/sources/specs/components/quantity-toggle.md.txt) · [프레임워크 지원](../compatibility/)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 증명서 발급 부수나 관람 인원처럼 대부분의 사용자가 비슷한 값을 고르는 수량을, 키보드 입력 없이 버튼으로 조정하게 할 때 씁니다.
+- 나이처럼 고를 수 있는 값의 범위가 넓으면 쓰지 않습니다. 선택할 수 있는 값은 11단계 이내로 제한하고, 더 많이 필요하면 텍스트 입력 필드를 씁니다.
+- 처음 값은 사용자가 가장 자주 고르는 값으로 둡니다.
+- 레이블을 항상 제공해 어떤 수량을 고르는지 알 수 있게 합니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/examples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/examples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/examples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/examples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/examples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/examples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/examples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/examples#solid-next) |
+| `value` | `number` | — | 현재 수량을 직접 제어합니다. `defaultValue`와 함께 쓸 수 없습니다. |
+| `defaultValue` | `number` | `min` 값 | 직접 제어하지 않을 때 처음 수량입니다. |
+| `onValueChange` | `(detail: ValueChangeDetails<number>) => void` | — | 사용자가 감소·증가 버튼으로 수량을 바꾸면 `{value}`를 받아 불립니다. 최솟값이나 최댓값에서 더 누를 때는 불리지 않습니다. |
+| `id` | `string` | — | 컨트롤에 붙일 `id`입니다. 바깥의 레이블이나 설명에서 이 컨트롤을 가리킬 때 씁니다. |
+| `name` | `string` | — | 폼을 제출할 때 쓰는 이름입니다. 주면 현재 수량이 이 이름으로 제출됩니다. |
+| `label` **필수** | `string` | — | 어떤 수량인지 알려 주는 레이블입니다. 감소·증가 버튼의 이름에도 쓰입니다. |
+| `disabled` | `boolean` | `false` | `true`이면 두 버튼 모두 조작할 수 없고 폼 제출 값에서도 빠집니다. |
+| `required` | `boolean` | `false` | 반드시 값을 골라야 하는 항목임을 나타냅니다. |
+| `invalid` | `boolean` | `false` | 입력값에 오류가 있는 상태로 표시합니다. 오류 내용은 `errorId`가 가리키는 문구로 알려 줍니다. |
+| `helpId` | `string` | — | 도움말 문구 요소의 `id`입니다. 화면 낭독기가 컨트롤과 함께 읽도록 설명으로 연결합니다. |
+| `errorId` | `string` | — | 오류 문구 요소의 `id`입니다. `invalid`일 때 설명으로 연결합니다. |
+| `min` | `number` | `0` | 고를 수 있는 가장 작은 값입니다. |
+| `max` | `number` | `10` | 고를 수 있는 가장 큰 값입니다. |
+| `step` | `number` | `1` | 버튼을 한 번 누를 때 바뀌는 크기입니다. `min`부터 `max`까지 `step` 간격으로 나눈 값이 11개를 넘을 수 없습니다. |
+| `unit` | `string` | — | 수량 뒤에 붙여 보여 줄 단위입니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `value` | `number` | 선택 | 속성 |
-| `defaultValue` | `number` | 선택 | 속성 |
-| `onValueChange` | `(detail: ValueChangeDetails<number>) => void` | 선택 | 이벤트 |
-| `id` | `string` | 선택 | 속성 |
-| `name` | `string` | 선택 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `disabled` | `boolean` | 선택 | 속성 |
-| `required` | `boolean` | 선택 | 속성 |
-| `invalid` | `boolean` | 선택 | 속성 |
-| `helpId` | `string` | 선택 | 속성 |
-| `errorId` | `string` | 선택 | 속성 |
-| `min` | `number` | 선택 | 속성 |
-| `max` | `number` | 선택 | 속성 |
-| `step` | `number` | 선택 | 속성 |
-| `unit` | `string` | 선택 | 속성 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -77,56 +67,46 @@ export interface FieldContract {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 감소 버튼과 증가 버튼 사이를 이동합니다. |
+| `Enter` / `Space` | 초점이 있는 버튼으로 수량을 한 단계 줄이거나 늘립니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-레이블이 있는 그룹입니다. 감소 버튼, 가운데에 보이는 현재 수량, 필드로 분리된 증가 버튼으로 구성합니다. 사용자는 키보드 텍스트 입력이 아니라 버튼으로 조정합니다. 기준값을 포함해 선택 가능한 값을 11단계 이하로 제한하고, 한계에 닿으면 해당 버튼을 비활성화합니다.
+- 레이블이 붙은 그룹으로 묶고, 버튼에는 레이블을 포함한 이름(예: “인원 줄이기”, “인원 늘리기”)을 붙입니다.
+- 수량이 바뀌면 화면 낭독기가 새 값을 읽습니다. 가운데 수량은 읽기 전용 텍스트이며 직접 입력할 수 없습니다.
+- 최솟값이나 최댓값에 닿은 버튼은 사용할 수 없는 상태로 알리되 초점은 그대로 유지합니다.
+- 버튼은 수량을 가운데 두고 양쪽에 떨어뜨려 배치하고, 누르기 쉽게 충분히 크게 유지합니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-독립 API: `min=0`, `max=10`, `step=1`, `value`/`defaultValue=min`, `onValueChange({value})`, `name?`, `disabled=false`, `label`, `unit?`. 선택 가능한 값이 11개를 넘거나 step이 일관되지 않은 설정은 거부합니다. 가운데 출력은 편집할 수 없는 텍스트이며 편집 가능한 spinbutton이 아닙니다. 이름 붙은 숨김 값이 직렬화될 수 있습니다.
+- `name`을 주면 현재 수량을 숫자 문자열로 폼과 함께 제출합니다.
+- 폼을 초기화하면 처음 수량으로 돌아갑니다. 이때 `onValueChange`는 불리지 않습니다.
+- 버튼을 길게 눌러도 값이 연속으로 바뀌지 않습니다. 한 번 누를 때마다 한 단계씩 바뀝니다.
+- 버튼은 `type="button"`이므로 폼 안에서 눌러도 폼이 제출되지 않습니다.
 
-공통 상태 정책은 [현재 파일럿 규약](/sources/specs/components/README.md.txt)을 따릅니다. 값/열림 상태를 정의하면 제어 모드, 없으면 비제어 모드입니다. 제어/기본값을 함께 주거나 모드를 바꾸면 잘못된 사용입니다. 기본값은 한 번만 읽습니다. 사용자 동작은 일반 의미 요청 하나를 내보냅니다. 비활성, no-op, 마운트, 하이드레이션, prop 갱신, 폼 리셋은 사용자 변경 콜백을 내보내지 않습니다. 제어 모드에서 거부되면 커밋된 UI/초점 상태를 유지합니다. 취소된 리셋은 아무것도 하지 않습니다. 취소되지 않은 리셋은 비제어 기준선을 복원하고 제어 prop을 그대로 우선합니다. 추가 필드는 렌더러/머신 객체를 노출하지 않습니다.
+## 스타일링 {#styling}
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-독립 정책: 네이티브 버튼의 클릭/Enter/Space는 한 번만 변경합니다. 고정 이름은 “decrease/increase [quantity label]”입니다. 출력 관계가 현재 값을 식별합니다. 새로 비활성이 된 경계에서도 초점 유지가 인지 가능해야 합니다(수용된 독립 정책: 활성화를 막은 `aria-disabled` 버튼을 쓰면서 초점 유지).
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `at-minimum`, `at-maximum`, `disabled` |
+| `label` | 없음 |
+| `decrement` | `at-minimum`, `disabled` |
+| `output` | `at-minimum`, `at-maximum`, `disabled` |
+| `increment` | `at-maximum`, `disabled` |
+| `hidden-input` | `disabled` |
 
-### 반응형 동작 {#responsive-mobile-requirements}
+```css
+[data-krds-component="quantity-toggle"][data-krds-part="root"] { /* ... */ }
+```
 
-버튼 클릭 영역은 가운데 값 주변에서 충분히 크고 간격을 둡니다. 좁은 화면과 확대에서도 레이블과 값이 보입니다. 기본값으로 길게 눌러 자동 반복하거나 드래그 제스처를 쓰지 않습니다.
+## 참고 {#references}
 
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-이름 붙은 선택적 숨김 입력이 실제 숫자 문자열을 전달하며, 비활성이면 생략됩니다. 리셋은 초기값을 복원하고, 제어 리셋은 콜백 없이 현재 prop을 유지합니다. 버튼은 `type=button`입니다. 자유 텍스트/IME 경로는 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-흔히 선택되는 기본값, 경계, 실제 수량 효과는 호스트가 맡습니다. 정적인 더하기/빼기 아이콘이 아니라 실제 경계 피드백과 폼 리셋이 완료 조건입니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, label, decrement, output, increment, hidden-input; at-minimum,at-maximum,disabled.
-
-렌더링되는 모든 소유 파트는 `data-krds-component="quantity-toggle"`, 하나의 `data-krds-part` 토큰, 공백으로 구분한 `data-krds-state` 집합을 사용합니다. 네이티브/ARIA 상태가 기준입니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`default`, `minimum`, `maximum`, `disabled`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-54) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_12_04.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_04.html)
+- [상세 명세](/sources/specs/components/quantity-toggle.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

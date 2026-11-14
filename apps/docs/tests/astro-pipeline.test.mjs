@@ -23,7 +23,7 @@ test('Astro pipeline retains directory indexes and .html pages with public Solid
   const html = await readFile(resolve(site, 'dist/components/button.html'), 'utf8');
   assert.match(html, /data-krds-component="link"/);
   assert.match(html, /data-krds-component="table"/);
-  assert.match(html, /속성과 이벤트/);
+  assert.match(html, /사용법/);
   // Component pages with native demos apply exactly the documented availability relocation
   // (shared rule); every other page keeps the baseline order strictly.
   const demoPages = new Set(pages.filter(page => page.demos?.length && /^components\/[^/]+\.md$/.test(page.sourcePath ?? '')).map(page => page.outputPath));

@@ -4,41 +4,32 @@ title: 'File upload'
 
 # File upload {#file-upload}
 
-파일 업로드 · `FileUpload` — 파일을 고르고 올리기 전에 목록으로 확인하게 합니다.
+**파일 업로드** — 파일을 고르고 올리기 전에 목록으로 확인하게 합니다.
 
-[KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_04.html) · [전체 명세](/sources/specs/components/file-upload.md.txt) · [프레임워크 지원](../compatibility/README.md)
+## 사용법 {#usage}
 
-## 프레임워크 지원 현황 {#native-availability}
+- 신청서의 첨부 서류처럼 사용자가 파일을 골라 폼과 함께 제출해야 할 때 씁니다. 첨부가 꼭 필요한 경우에만 요구합니다.
+- 서로 관련 없는 파일은 파일마다 단일 업로드를 따로 두고, 사진 여러 장처럼 한 묶음인 파일은 `multiple`로 받습니다.
+- 파일 형식, 크기, 개수 제한이 있으면 도움말로 미리 알립니다. 형식과 크기는 가능한 한 제한하지 않습니다.
+- 파일을 골랐다고 바로 서버로 보내지 않습니다. 사용자가 폼을 제출할 때 전송합니다.
+- 파일 목록이 아래로 길어지므로 여러 파일 업로드는 모달 안에 두지 않습니다.
 
-상태는 기록된 커버리지 기준입니다. [상태의 의미](../compatibility/README.md#what-the-evidence-means)를 참고하세요.
+## 속성 {#props}
 
-| 프레임워크 | 패키지 버전 | 상태 | 예제 |
+| 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| react | `0.1.0` | planned | [react 예제](../compatibility/README.mdexamples#react) |
-| solid | `0.1.0` | planned | [solid 예제](../compatibility/README.mdexamples#solid) |
-| svelte | `0.1.0` | planned | [svelte 예제](../compatibility/README.mdexamples#svelte) |
-| vue | `0.1.0` | planned | [vue 예제](../compatibility/README.mdexamples#vue) |
-| lit | `0.1.0` | planned | [lit 예제](../compatibility/README.mdexamples#lit) |
-| qwik | `0.1.0` | planned | [qwik 예제](../compatibility/README.mdexamples#qwik) |
-| angular | `0.1.0` | planned | [angular 예제](../compatibility/README.mdexamples#angular) |
-| solid-next (미리보기) | `0.1.0-preview.0` | planned | [solid-next 예제](../compatibility/README.mdexamples#solid-next) |
+| `files` **필수** | `readonly FileRecord[]` | — | 현재 첨부된 파일 목록입니다. 항상 직접 관리하며 처음에는 `[]`를 넘깁니다. 각 항목은 고유한 `id`, 실제 `file`, `status`(`staged`, `uploading`, `success`, `error`)와 선택적인 `progress`, `error`를 가집니다. |
+| `name` **필수** | `string` | — | 폼 제출에 쓰는 필드 이름입니다. |
+| `label` **필수** | `string` | — | 업로드 영역의 레이블입니다. 어떤 용도의 파일을 올려야 하는지 알 수 있게 씁니다. |
+| `multiple` | `boolean` | `false` | `true`이면 새로 고른 파일을 기존 목록 뒤에 추가합니다. `false`이면 새 파일이 기존 파일을 대체하고, 여러 파일을 한꺼번에 끌어다 놓으면 모두 거부합니다. |
+| `accept` | `string` | — | 허용하는 파일 형식입니다. 파일 선택 창의 필터로 쓰이고, 맞지 않는 파일은 거부합니다. |
+| `maxFiles` | `number` | — | 첨부할 수 있는 최대 파일 수입니다. 넘치는 파일은 거부하고 기존 파일은 그대로 둡니다. |
+| `maxBytes` | `number` | — | 파일 하나의 최대 크기(바이트)입니다. 넘는 파일은 거부합니다. |
+| `disabled` | `boolean` | `false` | `true`이면 파일을 고르거나 삭제할 수 없습니다. |
+| `onFilesChange` **필수** | `(detail: {value: readonly FileRecord[]; reason: 'picker' \| 'drop' \| 'remove'; addedIds: readonly string[]; removedIds: readonly string[]}) => void` | — | 사용자가 파일을 추가하거나 삭제하려 할 때 한 번 불립니다. 바뀐 뒤의 전체 목록 `value`, 원인 `reason`(`picker`, `drop`, `remove`), `addedIds`, `removedIds`를 받습니다. 받은 `value`를 `files`로 다시 넘겨야 화면에 반영됩니다. |
+| `onFilesRejected` | `(detail: {rejected: readonly FileValidationFailure[]}) => void` | — | 형식, 크기, 개수 제한에 걸려 받지 못한 파일이 있을 때 불립니다. `rejected`의 각 항목은 `file`, `code`(`accept`, `max-files`, `max-bytes`), `message`를 가집니다. |
 
-## 속성과 이벤트 {#props-events-content-and-defaults}
-
-모든 프레임워크가 같은 속성 이름과 이벤트 타입을 씁니다. 콘텐츠를 넣는 방법과 이벤트를 받는 문법만 프레임워크마다 다릅니다. 선택 속성의 기본값은 아래 안내를 따릅니다.
-
-| 이름 | 타입 | 필수 | 구분 |
-| --- | --- | --- | --- |
-| `files` | `readonly FileRecord[]` | 필수 | 속성 |
-| `name` | `string` | 필수 | 속성 |
-| `label` | `string` | 필수 | 속성 |
-| `multiple` | `boolean` | 선택 | 속성 |
-| `accept` | `string` | 선택 | 속성 |
-| `maxFiles` | `number` | 선택 | 속성 |
-| `maxBytes` | `number` | 선택 | 속성 |
-| `disabled` | `boolean` | 선택 | 속성 |
-| `onFilesChange` | `(detail: {value: readonly FileRecord[]; reason: 'picker' \| 'drop' \| 'remove'; addedIds: readonly string[]; removedIds: readonly string[]}) => void` | 필수 | 이벤트 |
-| `onFilesRejected` | `(detail: {rejected: readonly FileValidationFailure[]}) => void` | 선택 | 이벤트 |
+모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 표에 나온 타입의 정의입니다.
 
@@ -79,60 +70,58 @@ export interface FileValidationFailure {
 }
 ```
 
-### 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}
+## 키보드 조작 {#keyboard}
 
-React와 Solid는 JSX/콘텐츠 prop, Svelte는 snippet, Vue는 슬롯, Angular는 input·output·콘텐츠 투영, Lit은 custom element 속성·슬롯·DOM 이벤트, Qwik은 QRL 이벤트 경계를 씁니다. 정확한 이름과 필수 콘텐츠는 각 패키지의 공개 선언에서 확인합니다. 아래 콜백 이름이 같은 이름의 Lit DOM 이벤트를 뜻하지는 않습니다.
+| 키 | 동작 |
+| --- | --- |
+| `Tab` / `Shift+Tab` | 파일 선택 버튼(또는 드롭 영역)과 각 파일의 삭제 버튼 사이를 이동합니다. |
+| `Enter` / `Space` | 파일 선택 버튼에서는 파일 선택 창을 열고, 삭제 버튼에서는 해당 파일을 삭제합니다. |
 
-### 마크업 구조와 순서 {#native-structure-and-mandatory-ordering}
+## 접근성 {#accessibility}
 
-순서는 다음과 같습니다. 섹션 레이블/제목, 선택 설명, 유형·크기·개수 제약, 실제 파일 선택 컨트롤, 선택 드롭 영역, 개수, 파일 레코드(이름/확장자/크기/상태/삭제). 단일 파일은 p로, 다중 파일은 ul/li로 묶습니다. 삭제 버튼은 해당 파일 텍스트로 설명합니다. 긴 파일 이름은 시각적으로 한 줄로 두고 접근 가능한 이름에는 전체를 담습니다.
+- 실제 `input type="file"`을 쓰므로 화면 낭독기가 파일 업로드로 인식하고, 끌어다 놓기 없이 클릭이나 키보드만으로도 파일을 고를 수 있습니다.
+- 파일 하나는 `p`로, 여러 파일은 `ul`과 `li`로 묶고, 삭제 버튼을 해당 파일 이름과 연결해 어떤 파일을 지우는지 알려 줍니다.
+- 긴 파일 이름은 화면에서 한 줄로 줄여 보여 주지만 화면 낭독기에는 전체 이름을 전달합니다.
+- 파일을 삭제하면 초점이 앞 파일의 삭제 버튼으로, 없으면 다음 파일의 삭제 버튼으로, 그것도 없으면 파일 선택 버튼으로 옮겨 갑니다.
+- 업로드 중, 성공, 오류 상태는 아이콘과 텍스트를 함께 보여 줍니다. 오류는 `error`에 구체적인 이유를 담아 넘깁니다.
 
-### API와 기본값 {#plain-semantic-api}
+## 알아 둘 점 {#notes}
 
-**제어 전용 확정 파일 집합**을 씁니다. 필수 `files: readonly FileRecord[]`는 처음에 `[]`로 명시해 전달합니다. defaultFiles나 비제어 기준선(비어 있지 않은/빈)은 없습니다. `FileRecord={id:string,file:File,status:staged|uploading|success|error,progress?:number,error?:string}`는 고유하고 안정적인 ID와 실제 불변 File 핸들을 가집니다. 경로명이나 렌더러·머신 객체는 담지 않습니다. 다른 prop은 multiple=false, accept?, maxFiles?, maxBytes?, disabled=false, name입니다. 보관된 브라우저 File은 의도적으로 지원하는 네이티브 파일 데이터입니다. 콜백은 네이티브 Event 객체를 전달하지 않습니다. 파일 변경·삭제는 호스트가 새 files prop을 줄 때만 일어납니다. 마운트·하이드레이션·prop·리셋·재조정은 사용자 변경 콜백을 내지 않습니다.
+- `onFilesChange`에서 받은 목록을 `files`에 반영하지 않으면 추가와 삭제가 일어나지 않습니다.
+- 선택한 파일은 브라우저의 기본 폼 제출에 자동으로 들어가지 않습니다. 제출할 때 `files`의 각 `file`을 `FormData`에 `name`으로 직접 추가해 보냅니다.
+- `status`와 `progress`는 전송을 진행하면서 직접 갱신합니다.
+- 폼을 초기화해도 `files`는 그대로입니다. 함께 비우려면 `files`에 `[]`를 넘깁니다.
+- 파일을 고른 뒤에도 선택 버튼은 계속 쓸 수 있고, 삭제한 파일을 다시 고를 수 있습니다.
 
-수용된 후보 선택·삭제 요청은 `onFilesChange({value:FileRecord[],reason:picker|drop|remove,addedIds:string[],removedIds:string[]})`만 한 번 호출합니다. 여기에는 **요청된 최종 집합 전체**를 담습니다. 삭제도 같은 이벤트를 쓰며 별도 onRemove 요청은 없습니다. 검증에서 거부된 후보는 별도 `onFilesRejected({rejected:{file,code,message}[]})`로 한 번 보고하고, 연결된 오류를 화면에 표시합니다. 이는 검증 피드백이지 값 변경 알림이 아닙니다. 유효한 후보가 요청 집합을 바꾸지 않으면 onFilesChange를 내지 않습니다. 제어 호스트는 유효한 요청도 거절할 수 있습니다. 이때 표시, 개수, 실제 제출 집합, 보관된 미리보기는 확정된 파일 기준을 유지합니다. 낙관적 삭제·추가가 FormData로 새어 나가서는 안 됩니다.
+## 스타일링 {#styling}
 
-multiple=true일 때 선택기 선택과 드롭은 유효한 후보를 전달된 순서대로 현재 확정 집합 뒤에 추가하고, 기존 파일은 모두 유지합니다. 유형/확장자/크기를 검증한 뒤 남은 개수 칸을 순서대로 채우며, 초과분은 거부로 보고하되 기존 레코드는 지우지 않습니다. 새로 고른 서로 다른 File 객체는 파일명·메타데이터가 같아도 새 ID를 받습니다. 내용 중복 제거는 주장하지 않습니다. 이미 확정된 바로 그 File 객체는 중복이므로 아무 일도 하지 않습니다. multiple=false이면 유효한 후보 하나가 현재 집합을 대체합니다. 여러 파일 드롭은 하나를 임의로 고르지 않고 개수 안내와 함께 통째로 거부합니다. 잘못된 선택이나 취소한 선택은 이전 집합을 지우지 않습니다. accept는 선택기 힌트로만 남습니다. 비밀번호·바이러스 검사나 선택 시 전송을 꾸며 내지 않습니다.
+각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
-### 키보드와 초점 {#keyboard-focus-and-state-transitions}
+| 파트 | 상태 값 |
+| --- | --- |
+| `root` | `staged`, `drag-over`, `uploading`, `success`, `error`, `disabled` |
+| `label` | 없음 |
+| `description` | 없음 |
+| `help` | 없음 |
+| `picker` | `disabled` |
+| `file-input` | `disabled` |
+| `dropzone` | `drag-over`, `disabled` |
+| `count` | 없음 |
+| `list` | `disabled` |
+| `item` | `staged`, `uploading`, `success`, `error`, `disabled` |
+| `filename` | 없음 |
+| `size` | 없음 |
+| `status` | `staged`, `uploading`, `success`, `error` |
+| `progress` | `uploading`, `success`, `error` |
+| `remove` | `disabled` |
+| `error` | `error` |
 
-네이티브 선택기가 OS 키보드 탐색을 맡으며 실제 사용자 동작으로만 열립니다. 드롭 영역은 클릭/키보드 선택기 대응 수단을 포함합니다. 고른 File 객체를 스냅샷한 뒤 임시 네이티브 선택기 값만 비워 같은 파일을 다시 고를 수 있게 합니다. 이 선택기는 확정 파일 저장소가 아닙니다. 취소는 files-change도 거부도 내지 않으며 확정 레코드를 보존합니다. 삭제는 최종 집합을 한 번 요청합니다. **실제로 삭제가 수용된 뒤** 초점은 앞에 남은 삭제 컨트롤로, 없으면 다음 것으로, 그것도 없으면 선택기로 옮깁니다. 거부된 삭제는 레코드·컨트롤·초점을 그대로 둡니다. 네이티브 목록을 갱신하는 동안 입력과 선택기를 안정적으로 유지합니다. 추가만으로 호스트 전송을 시작하지 않습니다. pending/success/error 레코드는 명시적 제출로 시작된 호스트 상태에서 옵니다.
+```css
+[data-krds-component="file-upload"][data-krds-part="root"] { /* ... */ }
+```
 
-### 반응형 동작 {#responsive-mobile-requirements}
+## 참고 {#references}
 
-다중 파일용 모달 레이아웃을 쓰지 않습니다. 좁은 화면에서도 목록을 읽을 수 있고 개수가 보여야 합니다. 드래그 안내가 터치 사용자를 배제해서는 안 됩니다. pending/success/error는 아이콘과 텍스트를 함께 씁니다. 추가에 성공한 뒤에도 호스트가 입력을 비활성화하지 않는 한 선택 컨트롤을 계속 쓸 수 있어야 합니다.
-
-### 폼 제출과 초기화 {#forms-reset-and-composition}
-
-실제 네이티브 파일 입력은 사용자 선택기로서 계속 필요합니다. 그러나 임시 FileList는 선택기와 드롭이 누적된 저장소가 아닙니다. 비어 있지 않은 input.value를 설정하지 않으며, 네이티브 FormData가 확정 배열을 자동으로 담는다고 주장하지 않습니다. 호스트 제출 드라이버는 이 필드의 임시 선택기 항목을 제거해야 합니다. 그리고 명시적 제출 시 **현재 확정된 활성** 레코드만 정확히 `FormData.append(name,record.file,record.file.name)`으로 추가해야 합니다. 비활성 업로더는 아무것도 보내지 않습니다. 호스트의 필수·개수 검증도 빈 선택기가 아니라 확정 레코드를 읽습니다. 선택기에서 A 선택, B 드롭, 삭제 수용으로 A 제거, 제출 순서면 B만 전송해야 합니다. 거부된 추가·삭제는 이 결과를 바꾸지 않습니다.
-
-취소된 네이티브 리셋은 선택기, 확정 레코드, 오류, 미리보기에 아무 영향이 없습니다. 취소되지 않은 리셋은 선택기와 일시적 드래그·검증 상태를 비웁니다. 이 API는 제어 전용이므로 현재 files prop과 같은 제출 집합은 유지하며, files-change·삭제 알림은 0건입니다. 폼 리셋으로 확정 파일을 비우려는 호스트는 자체의 취소되지 않은 리셋 정책에서 명시적으로 files=[]를 설정합니다. 그 prop 갱신은 컴포넌트 콜백을 내지 않습니다. 비제어 리셋 기준선이 있는 것처럼 암시하지 않습니다. 컴포넌트가 소유한 객체 URL은 해당 확정 레코드가 실제로 제거·대체되거나 언마운트될 때만 해제합니다. 네이티브 리셋이 보관된 제어 파일에 필요한 미리보기를 해제해서는 안 됩니다. 명시적 제출 전에는 서버 전송·저장이 없습니다.
-
-### 호스트 책임과 완료 기준 {#asset-integration-and-composition-completion}
-
-수용된 프로젝트 component→integration 완료 조건은 다음과 같습니다. 필수 네이티브 선택기·스테이징 UI가 명시적 호스트 FormData/전송 드라이버와 연결되어야 합니다. 공식 지침인 추가 선택 지속, 네이티브 입력, 제출 전 전송 금지([L989–1006](https://www.krds.go.kr/html/site/component/component_09_04.html), [L1188–1189](https://www.krds.go.kr/html/site/component/component_09_04.html))는 계속 구속력을 가집니다. 드롭 문구 “업로드 시작”은 명시적 제출 경계에 맞춘 스테이징으로 해석하며, 조용히 네트워크 전송을 실행한다는 뜻이 아닙니다. 완료하려면 다음이 모두 필요합니다. 최종 집합 요청을 실제로 수락·거절하는 제어 로컬 저장소, 선택기+드롭 누적·대체, 제출된 파일 검사, 리셋 정책, 제출로 시작되는 결정적 모의 진행·실패·삭제, 미리보기 정리. 로그만 내보내거나 input type=file을 감싸기만 하는 것으로는 부족합니다.
-
-### 파트와 상태 속성 {#stable-parts-and-states}
-
-root, label, description, help, picker, file-input, dropzone, count, list, item, filename, size, status, progress, remove, error; staged,drag-over,uploading,success,error,disabled.
-
-렌더링된 모든 소유 파트는 `data-krds-component="file-upload"`, `data-krds-part` 토큰 하나, 공백으로 구분한 `data-krds-state` 집합을 씁니다. 네이티브/ARIA 상태가 우선합니다. 위 나열은 파트/상태 어휘이며 `packages/contracts/src/full-catalog.ts`에 고정되어 있습니다. 자산 전용 Favicon에는 런타임 파트가 없습니다.
-
-## 지원하는 변형 {#state-examples-and-native-checks}
-
-`single`, `multiple`, `button`, `dropzone`, `pending`, `success`, `error`
-
-이 이름은 프로젝트가 정한 구분이며 공식 KRDS 유형 이름은 아닙니다.
-
-### 예제 코드 {#local-native-stories}
-
-위 미리보기는 각 프레임워크의 실제 패키지로 만든 예제입니다. Storybook은 로컬에서만 실행하며 이 사이트에 올리지 않습니다. Solid 2에는 Storybook 통합이 없고, Qwik 프로덕션 SSR/resume은 실제 서버가 필요합니다.
-
-프레임워크별 예제 코드: [react](/examples/react-1) · [solid](/examples/solid-3) · [svelte](/examples/svelte-46) · [vue](/examples/vue-58) · [lit](/examples/lit-60) · [qwik](/examples/qwik-61) · [angular](/examples/angular-62).
-
-## 출처와 권리 {#source-identity-and-rights}
-
-이 안내는 [공식 KRDS 문서](https://www.krds.go.kr/html/site/component/component_09_04.html)를 바탕으로 합니다. 수집 시각과 원본 해시는 [출처 기록](/sources/catalog/components.json.txt)에 있습니다. 원본 HTML은 이 사이트에 복사하지 않습니다.
-
-KRDS에서 인용하거나 파생한 안내는 원래 조건을 따릅니다. 독립 코드의 MIT 허가는 이 안내, 공식 자산, 글꼴, 제3자 자료를 재라이선스하지 않습니다. 재배포 전에 [출처와 권리](../legal/index.md)를 읽어야 합니다.
+- [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_04.html)
+- [상세 명세](/sources/specs/components/file-upload.md.txt)
+- KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.
