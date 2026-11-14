@@ -104,9 +104,10 @@ test('frame size messages clamp to the registry minHeight, then layout floors, a
  assert.equal(clampFrameHeight({layout:'overlay',minHeight:240},300),640,'overlay floor applies below a smaller registry minimum');
  assert.equal(clampFrameHeight(inline,5000),1200);assert.equal(clampFrameHeight(tall,Number.NaN),720);
 });
-test('NativeDemo applies the shared clamp to both the initial and every size message',async()=>{
+test('NativeDemo applies the shared clamp to the server height, each load and every size message',async()=>{
  const source=await readFile(new URL('../src/components/NativeDemo.tsx',import.meta.url),'utf8');
- assert.equal((source.match(/clampFrameHeight\(/g)??[]).length,2);
+ assert.equal((source.match(/clampFrameHeight\(/g)??[]).length,3);
+ assert.match(source,/key===sized\?value:record\.minHeight/,'a reset keeps the height on screen');
  assert.doesNotMatch(source,/overlay'\?640:240/);
 });
 import {excerptLabel} from '../src/demo-source-view.ts';

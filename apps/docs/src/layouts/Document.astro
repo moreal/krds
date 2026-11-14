@@ -26,6 +26,8 @@ import type { DocPage } from '../content';
 import DocsShell from '../components/DocsShell';
 import navigation from '../generated/navigation.json';
 import { branding } from '../branding';
+import fontRegular from '@unofficial-krds/fonts/fonts/PretendardGOV-Regular.woff2?url';
+import fontBold from '@unofficial-krds/fonts/fonts/PretendardGOV-Bold.woff2?url';
 interface Props { page: DocPage; }
 const { page } = Astro.props;
 const title = `${page.title} | ${branding.name}`;
@@ -40,6 +42,9 @@ const socialImage = new URL(branding.social, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light" />
+    {/* Fetch the two text faces before first paint: a late swap re-wraps Korean paragraphs. */}
+    <link rel="preload" href={fontRegular} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={fontBold} as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={branding.favicon} type="image/svg+xml" sizes="any" />

@@ -15,6 +15,10 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: var(--krds-pc-font-
 .docs-header [data-krds-part="utilities"] { display: none; }
 .docs-header [data-krds-part="identity"] { grid-column: 1; grid-row: 1; }
 .docs-header [data-krds-part="actions"] { grid-column: 2; grid-row: 1; }
+/* The search trigger mounts after hydration; hold its row height so the page below does not move. */
+.docs-header [data-krds-part="actions"] { box-sizing: border-box; min-block-size: calc(var(--krds-size-height-6) + 2 * var(--krds-padding-4)); }
+/* The status line changes between one and two lines; a centred dialog would re-centre each time. */
+#docs-search-status { min-block-size: 3em; }
 .docs-header [data-krds-part="navigation"] { grid-column: 1 / -1; grid-row: 2; min-inline-size: 0; }
 .docs-header [data-krds-part="mobile-trigger"] { display: none; }
 .docs-project-note { margin: 0; padding: var(--krds-padding-4) var(--docs-gutter); background: var(--krds-light-color-surface-gray-subtler); font-size: var(--krds-pc-font-size-body-small); }

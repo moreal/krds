@@ -12,7 +12,9 @@ export function NativeDemo(props:{componentId:string;demos:NativeDemoRecord[]}) 
  const [selection,setSelection]=createSignal(resolveDemoSelection({records:props.demos}));
  const [mounted,setMounted]=createSignal(false),[generation,setGeneration]=createSignal(0),[status,setStatus]=createSignal('미리보기를 준비하고 있습니다.');
  const [nearViewport,setNearViewport]=createSignal(false);
- const [height,setHeight]=createSignal(240),[url,setUrl]=createSignal('');
+ // Server markup already reserves the selected example's recorded height.
+ const first=selection();let sized='';
+ const [height,setHeight]=createSignal(first.status==='playable'?clampFrameHeight(first,first.minHeight):240),[url,setUrl]=createSignal('');
  let region:HTMLDivElement|undefined;let frame:HTMLIFrameElement|undefined;let exit:HTMLDivElement|undefined;
  let current:PreviewIdentity|undefined;let timer:ReturnType<typeof setTimeout>|undefined;
  const selected=()=>selection();
@@ -36,7 +38,9 @@ export function NativeDemo(props:{componentId:string;demos:NativeDemoRecord[]}) 
   if(!mounted()||!nearViewport()||record.status!=='playable')return;
   current={version:1,framework:record.framework,componentId:record.componentId,exampleId:record.exampleId,token:crypto.randomUUID().replaceAll('-','')};
   const target=new URL(record.entryUrl,location.origin);for(const [key,value]of Object.entries(current))target.searchParams.set(key,String(value));
-  setHeight(clampFrameHeight(record,record.minHeight));setStatus('미리보기를 불러오는 중입니다.');setUrl(target.href);
+  // A reset keeps the height already on screen, so the content below does not drop and grow again;
+  // another framework or example starts from its own recorded height.
+  const key=`${record.framework}/${record.exampleId}`;setHeight(value=>clampFrameHeight(record,key===sized?value:record.minHeight));sized=key;setStatus('미리보기를 불러오는 중입니다.');setUrl(target.href);
   timer=setTimeout(()=>setStatus('15초 안에 응답하지 않았습니다. 다시 시도해 주세요.'),15000);
  });
  onCleanup(()=>{clearTimeout(timer);current=undefined;});
