@@ -189,3 +189,13 @@ test('G16 an accepted pointer-close timer cannot restore over a reopened Context
   setOpen(true); await flush(); host.querySelector<HTMLButtonElement>('#context-inner')!.focus();
   vi.runOnlyPendingTimers(); expect(document.activeElement?.id).toBe('context-inner');
 });
+
+test('Tooltip stays open when keyboard focus arrives right after the pointer leaves', async () => {
+  const host = mount(() => <K.Tooltip text="Details" relationship="description" triggerLabel="Details help" triggerId="late-leave-tip" textId="late-leave-tip-text"/>);
+  const root = host.querySelector<HTMLElement>('[data-krds-part="root"]')!, trigger = host.querySelector<HTMLButtonElement>('#late-leave-tip')!, popup = host.querySelector<HTMLElement>('#late-leave-tip-text')!;
+  root.dispatchEvent(new PointerEvent('pointerleave'));
+  trigger.focus();
+  expect(popup.hidden).toBe(false);
+  await new Promise(resolve => setTimeout(resolve, 200));
+  expect(popup.hidden).toBe(false);
+});
