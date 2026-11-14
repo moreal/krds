@@ -30,7 +30,7 @@
     {
       "name": "name",
       "default": null,
-      "description": "폼을 제출할 때 쓰는 이름입니다. 그룹 안의 모든 라디오 버튼이 같은 이름을 씁니다."
+      "description": "폼을 제출할 때 쓰는 이름입니다. 그룹 안의 모든 라디오 버튼이 같은 이름을 씁니다. 주지 않으면 자동으로 만든 이름을 씁니다."
     },
     {
       "name": "label",
@@ -49,7 +49,7 @@
     },
     {
       "name": "invalid",
-      "default": null,
+      "default": "`false`",
       "description": "그룹을 오류 상태로 표시합니다. 오류 내용은 `errorId`가 가리키는 문구로 알려 줍니다."
     },
     {
@@ -69,12 +69,12 @@
     },
     {
       "name": "size",
-      "default": "`medium`",
+      "default": "`\"medium\"`",
       "description": "라디오 버튼과 레이블의 크기입니다. `medium` 또는 `large`입니다."
     },
     {
       "name": "appearance",
-      "default": null,
+      "default": "`\"default\"`",
       "description": "`chip`으로 두면 선택지를 칩 모양으로 표시합니다. 동작은 일반 라디오 버튼과 같습니다."
     }
   ],
@@ -85,11 +85,11 @@
     },
     {
       "keys": "`↓` / `→`",
-      "action": "다음 라디오 버튼으로 초점을 옮기고 선택합니다."
+      "action": "다음 라디오 버튼으로 초점을 옮기고 선택합니다. 마지막 항목에서는 첫 항목으로 돌아갑니다."
     },
     {
       "keys": "`↑` / `←`",
-      "action": "이전 라디오 버튼으로 초점을 옮기고 선택합니다."
+      "action": "이전 라디오 버튼으로 초점을 옮기고 선택합니다. 첫 항목에서는 마지막 항목으로 돌아갑니다."
     },
     {
       "keys": "`Space`",

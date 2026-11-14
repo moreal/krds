@@ -18,9 +18,9 @@ title: 'Range slider'
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | `value` | `number` | — | 현재 값을 직접 제어합니다. `defaultValue`와 함께 쓸 수 없습니다. |
-| `defaultValue` | `number` | `0` | 직접 제어하지 않을 때 처음 값입니다. |
+| `defaultValue` | `number` | `min` 값 | 직접 제어하지 않을 때 처음 값입니다. |
 | `onValueChange` | `(detail: ValueChangeDetails<number>) => void` | — | 드래그, 트랙 클릭, 키보드로 값이 바뀔 때마다 `{value}`를 받아 불립니다. 드래그하는 동안에는 값이 바뀔 때마다 여러 번 불리고, 손을 뗄 때 따로 불리지는 않습니다. |
-| `id` | `string` | — | 슬라이더 입력의 `id`입니다. 주지 않으면 자동으로 만들어 레이블과 연결합니다. |
+| `id` | `string` | 자동 생성 | 슬라이더 입력의 `id`입니다. 주지 않으면 자동으로 만들어 레이블과 연결합니다. |
 | `name` | `string` | — | 폼을 제출할 때 쓰는 이름입니다. |
 | `label` **필수** | `string` | — | 어떤 값을 고르는지 알려 주는 레이블입니다. 항상 화면에 보입니다. |
 | `disabled` | `boolean` | `false` | `true`이면 조작할 수 없고 폼 제출 값에서도 빠집니다. |
@@ -87,7 +87,6 @@ export interface FieldContract {
 - `name`을 주면 현재 값이 폼과 함께 제출됩니다.
 - 폼을 초기화하면 처음 값으로 돌아갑니다. 이때 `onValueChange`는 불리지 않습니다.
 - `value`로 직접 제어할 때 `onValueChange`에서 값을 갱신하지 않으면 핸들과 표시 값은 원래 값으로 되돌아갑니다.
-- 터치 화면에서 슬라이더 위를 세로로 쓸어도 페이지 스크롤은 그대로 동작합니다.
 
 ## 스타일링 {#styling}
 

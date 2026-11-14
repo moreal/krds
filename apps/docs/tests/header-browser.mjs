@@ -97,10 +97,10 @@ try {
    assert.match(await page.locator(part('breadcrumb', 'root')).textContent(), /홈.*컴포넌트.*Badge/);
    await page.goto(origin + '/krds/getting-started/forms.html', { waitUntil: 'networkidle' }); await settle(page);
    assert.equal(await page.locator('.docs-sidebar a[href="/krds/getting-started/installation.html"]').count(), 1);
-   await page.goto(origin + '/krds/compatibility/examples.html', { waitUntil: 'networkidle' }); await settle(page);
-   assert.equal(await page.locator('.docs-header button[aria-label="예제"]').getAttribute('aria-current'), 'true');
+   await page.goto(origin + '/krds/compatibility/solid-migration.html', { waitUntil: 'networkidle' }); await settle(page);
+   assert.equal(await page.locator('.docs-header button[aria-label="호환성"]').getAttribute('aria-current'), 'true');
    await resize(page, 320); await page.evaluate(() => document.documentElement.style.fontSize = '125%');
-   const crumb = page.locator(part('breadcrumb', 'root')); assert.match(await crumb.textContent(), /홈.*프레임워크별 예제/);
+   const crumb = page.locator(part('breadcrumb', 'root')); assert.match(await crumb.textContent(), /홈.*호환성/);
    assert.ok(await crumb.evaluate(element => element.scrollWidth <= element.clientWidth + 1));
    await page.screenshot({ path: resolve(evidence, name + '-nonhome-text200.png') });
    assert.deepEqual(errors, []); await page.close();

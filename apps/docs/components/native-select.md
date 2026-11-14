@@ -19,14 +19,14 @@ title: 'Select'
 | --- | --- | --- | --- |
 | `options` | `SelectOption[]` | — | 선택지 목록입니다. 각 항목은 `value`, `label`, 선택적인 `disabled`를 가지며 `value`는 서로 달라야 합니다. 적은 순서대로 표시합니다. |
 | `value` | `string` | — | 선택된 값을 직접 제어합니다. `options`에 있는 값이어야 하며 `defaultValue`와 함께 쓸 수 없습니다. |
-| `defaultValue` | `string` | — | 직접 제어하지 않을 때 처음 선택 값입니다. 주지 않으면 비활성이 아닌 첫 번째 옵션을 선택합니다. |
+| `defaultValue` | `string` | 비활성이 아닌 첫 번째 옵션의 값 | 직접 제어하지 않을 때 처음 선택 값입니다. `options`에 있는 값이어야 합니다. |
 | `label` | `JSX.Element` | — | 컨트롤 위에 보이는 레이블입니다. 생략하려면 `aria-label`이나 `aria-labelledby`를 대신 줍니다. |
 | `hint` | `JSX.Element` | — | 컨트롤 아래에 보여 주는 도움말입니다. 오류 상태에서도 숨기지 않습니다. |
 | `error` | `JSX.Element` | — | 컨트롤 아래에 보여 주는 오류 문구입니다. |
 | `invalid` | `boolean` | `false` | 오류 상태로 표시하고 `aria-invalid="true"`를 설정합니다. |
-| `size` | `'small' \| 'medium' \| 'large'` | `medium` | 컨트롤의 크기입니다. |
+| `size` | `'small' \| 'medium' \| 'large'` | `"medium"` | 컨트롤의 크기입니다. |
 | `onValueChange` | `(details: ValueChangeDetails<string>) => void` | — | 사용자가 다른 옵션을 골랐을 때 `{value}`를 받아 한 번 불립니다. 이미 선택된 옵션을 다시 고르거나 `value`를 바깥에서 바꿀 때는 불리지 않습니다. |
-| `id` | `string` | — | `select` 요소의 `id`입니다. 주지 않으면 자동으로 만들어 레이블과 연결합니다. |
+| `id` | `string` | 자동 생성 | `select` 요소의 `id`입니다. 주지 않으면 자동으로 만들어 레이블과 연결합니다. |
 | `name` | `string` | — | 폼을 제출할 때 쓰는 이름입니다. |
 | `required` | `boolean` | `false` | 필수 항목으로 만듭니다. 빈 값이 선택된 채로는 폼이 제출되지 않습니다. |
 | `disabled` | `boolean` | `false` | `true`이면 조작할 수 없고 폼 제출 값에서도 빠집니다. |

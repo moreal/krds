@@ -17,7 +17,7 @@ try{for(const [name,engine]of [['chromium',chromium],['webkit',webkit]]){
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1),'narrow table stays in its scroll region');
  // Reference and compiler-source documents can exceed WebKit's full-page bitmap limit.
  await page.locator('article table').first().scrollIntoViewIfNeeded();await page.screenshot({path:resolve(evidence,`${name}-table.png`)});
- await page.goto(origin+'/krds/examples/solid.html',{waitUntil:'networkidle'});await page.waitForFunction(()=>!document.querySelector('astro-island[ssr]'));
+ await page.goto(origin+'/krds/getting-started/styling.html',{waitUntil:'networkidle'});await page.waitForFunction(()=>!document.querySelector('astro-island[ssr]'));
  assert.match(await page.locator('pre code').first().textContent(),/import/);assert.ok(await page.getByRole('button',{name:'코드 복사',exact:true}).first().isEnabled());
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1),'long source stays in pre scroll region');
  await page.locator('pre code').first().scrollIntoViewIfNeeded();await page.screenshot({path:resolve(evidence,`${name}-code.png`)});assert.deepEqual(errors,[]);

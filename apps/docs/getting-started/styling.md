@@ -15,7 +15,7 @@
 @import '@unofficial-krds/styles/button.css';
 ```
 
-번들러별 import 방법은 [네이티브 예시](../compatibility/examples)에서 확인합니다.
+프레임워크별 import 코드는 각 [컴포넌트 페이지](../components/)의 코드 탭에 있습니다.
 
 `reset.css`는 직접 가져올 때만 적용되는 전역 스타일입니다. KRDS의 루트 rem 스케일을 포함하므로 기존 앱에 넣기 전에 영향을 확인합니다. 컴포넌트 CSS는 reset을 포함하지 않습니다.
 
@@ -48,4 +48,4 @@
 - 원시 CSS 문자열 export는 Lit 어댑터가 문서화한 방식으로만 씁니다.
 - light DOM에서 스타일이 잘 보여도 Shadow DOM에서 같다고 가정하지 않습니다. 레이블, 초점, 폼 연관, 스타일을 Shadow DOM에서 직접 확인합니다.
 
-자세한 내용은 [네이티브 호환성 근거](../compatibility/examples#lit)를 읽습니다.
+Lit 패키지의 버전과 피어 의존성은 [프레임워크 호환성](../compatibility/)에 있습니다.

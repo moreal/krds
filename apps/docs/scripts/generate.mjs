@@ -151,6 +151,8 @@ for (const name of ['README.md', 'native-handoff.md', 'sources.md']) {
     if (/^docs\/patterns\/[^/]+\.md$/.test(destination)) return `[${label}](/patterns/${destination.endsWith('/README.md') ? '' : destination.split('/').at(-1).replace(/\.md$/, '')})`;
     return link(destination, label);
   }));
+  // The handoff note is for contributors wiring fixtures; it is not a site page. Its downloads stay published.
+  if (name === 'native-handoff.md') { await rm(resolve(site, 'patterns', name), { force: true }); continue; }
   await write(resolve(site, 'patterns', name === 'README.md' ? 'index.md' : name), content + '\n\n> 보존된 공식 원본 HTML은 이 사이트로 배포하지 않습니다. 위 공식 링크가 1차 출처입니다.\n');
 }
 await mkdir(resolve(site, 'components'), { recursive: true });
@@ -159,7 +161,6 @@ const exampleRegistryPath = 'apps/docs/example-evidence.json';
 const exampleRegistry = existsSync(resolve(root, exampleRegistryPath)) ? await trackedJson(exampleRegistryPath) : { examples: [] };
 const exampleEvidence = [];
 const exampleSources = new Map();
-const examplePages = [];
 for (const example of exampleRegistry.examples) {
   const source = await trackedRead(example.sourcePath);
   if (hash(source) !== example.sourceSha256) throw new Error(`Compiler example source changed: ${example.sourcePath}`);
@@ -176,26 +177,13 @@ for (const example of exampleRegistry.examples) {
   exampleEvidence.push(example);
   exampleSources.set(example, source);
 }
-const nameOf = id => web.find(component => component.id === id)?.nameEn ?? id;
-for (const framework of frameworks) {
-  const registered = exampleEvidence.filter(example => example.framework === framework.id);
-  if (!registered.length) continue;
-  const label = frameworkLabel[framework.id];
-  let text = `# ${label} 예제 {#${framework.id}-examples}\n\n\`@unofficial-krds/${framework.id}\` 패키지로 각 컴포넌트를 쓰는 예제 코드입니다.\n`;
-  for (const example of registered) {
-    const single = example.componentIds.length === 1;
-    const file = example.sourcePath.split('/').at(-1);
-    text += single ? `\n## ${nameOf(example.componentIds[0])} {#${example.componentIds[0]}}\n\n` : `\n## \`${file}\` {#${slugify(file)}}\n\n컴포넌트 ${example.componentIds.length}개를 다룹니다. `;
-    text += `${link(example.sourcePath, '소스 파일 내려받기')}\n${code(exampleSources.get(example), extname(example.sourcePath).slice(1))}`;
-  }
-  examplePages.push({ path: resolve(site, 'examples', `${framework.id}.md`), text });
-}
 for (const framework of coverage.stableFrameworks) {
   const mapped = new Set(exampleEvidence.filter(example => example.framework === framework).flatMap(example => example.componentIds));
   if (mapped.size !== web.length || web.some(component => !mapped.has(component.id))) throw new Error(`Incomplete ${framework} public compiler checkpoint mapping`);
 }
+// Example code lives in each component page's code tab; the old per-framework listings are gone.
+await rm(resolve(site, 'compatibility/examples.md'), { force: true });
 for (const directory of ['components', 'examples', 'public/sources']) await rm(resolve(site, directory), { recursive: true, force: true });
-for (const page of examplePages) await write(page.path, page.text);
 for (const component of web) {
   const officialSource = await trackedRead(component.source.localPath);
   if (hash(officialSource) !== component.source.sha256) throw new Error(`Frozen KRDS source changed: ${component.source.localPath}`);
@@ -247,22 +235,18 @@ for (const framework of frameworks) {
   const manifest = manifests.get(framework.id);
   matrix += `| ${frameworkLabel[framework.id]}${framework.supportChannel.includes('preview') ? ' · **미리보기**' : ''} | \`${manifest.name}@${manifest.version}\` | ${Object.entries(framework.pins).map(([name, version]) => `\`${name}@${version}\``).join('<br>')} | ${prettyPeers(manifest)} |\n`;
 }
-matrix += '\nSolid 2는 미리보기 단계라 일부 컴포넌트만 제공합니다. 제공 여부는 각 컴포넌트 페이지의 Solid 2 탭에서 확인합니다.\n\n## 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}\n\n속성 이름과 타입은 모든 프레임워크가 같습니다. 콘텐츠를 넣고 이벤트를 받는 문법만 각 프레임워크의 방식을 따릅니다.\n\n- React, Solid: JSX와 콘텐츠 prop\n- Svelte: snippet\n- Vue: 슬롯\n- Angular: input, output, 콘텐츠 투영\n- Lit: custom element 속성, 슬롯, DOM 이벤트\n- Qwik: QRL 이벤트\n\n정확한 문법은 각 컴포넌트 페이지의 코드 탭에서 프레임워크별로 확인합니다. 속성 표의 `on…` 콜백 이름이 Lit의 DOM 이벤트 이름과 같다는 뜻은 아닙니다.\n\n## 버전을 고를 때 {#package-and-browser-boundaries}\n\n- Qwik은 Vite 7, 나머지 Vite 기반 프레임워크는 Vite 8에 맞췄습니다.\n- Angular 패키지는 ng-packagr로 만든 partial APF 형식이고, 폼 컴포넌트는 `ControlValueAccessor`로 연결합니다.\n- Solid 1과 Solid 2는 패키지가 다릅니다. 한 앱에서 섞어 쓰지 않습니다.\n- Svelte는 5 버전만 지원합니다.\n- 피어 의존성 범위 안의 모든 버전을 테스트하지는 않았습니다. 표의 버전이 가장 확실합니다.\n\n[프레임워크별 예제](./examples) · [Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)\n';
+matrix += '\nSolid 2는 미리보기 단계라 일부 컴포넌트만 제공합니다. 제공 여부는 각 컴포넌트 페이지의 Solid 2 탭에서 확인합니다.\n\n## 프레임워크별 콘텐츠와 이벤트 {#native-content-and-event-transport}\n\n속성 이름과 타입은 모든 프레임워크가 같습니다. 콘텐츠를 넣고 이벤트를 받는 문법만 각 프레임워크의 방식을 따릅니다.\n\n- React, Solid: JSX와 콘텐츠 prop\n- Svelte: snippet\n- Vue: 슬롯\n- Angular: input, output, 콘텐츠 투영\n- Lit: custom element 속성, 슬롯, DOM 이벤트\n- Qwik: QRL 이벤트\n\n정확한 문법은 각 컴포넌트 페이지의 코드 탭에서 프레임워크별로 확인합니다. 속성 표의 `on…` 콜백 이름이 Lit의 DOM 이벤트 이름과 같다는 뜻은 아닙니다.\n\n## 버전을 고를 때 {#package-and-browser-boundaries}\n\n- Qwik은 Vite 7, 나머지 Vite 기반 프레임워크는 Vite 8에 맞췄습니다.\n- Angular 패키지는 ng-packagr로 만든 partial APF 형식이고, 폼 컴포넌트는 `ControlValueAccessor`로 연결합니다.\n- Solid 1과 Solid 2는 패키지가 다릅니다. 한 앱에서 섞어 쓰지 않습니다.\n- Svelte는 5 버전만 지원합니다.\n- 피어 의존성 범위 안의 모든 버전을 테스트하지는 않았습니다. 표의 버전이 가장 확실합니다.\n\n[Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)\n';
 await write(resolve(site, 'compatibility/index.md'), matrix);
 await write(resolve(root, 'docs/compatibility/README.md'), matrix);
-let examplesPage = '# 프레임워크별 예제 {#native-examples}\n\n프레임워크별로 54개 컴포넌트를 쓰는 예제 코드를 모았습니다. 컴포넌트 하나의 예제만 필요하면 그 컴포넌트 페이지의 코드 탭이 더 빠릅니다.\n\n| 프레임워크 | 패키지 | 예제 |\n| --- | --- | --- |\n';
+// These stay published downloads although no page lists them.
 for (const framework of frameworks) {
   const compatibilityPath = `docs/compatibility/${framework.id === 'solid-next' ? 'solid-2' : framework.id}.md`;
   const registered = exampleEvidence.filter(example => example.framework === framework.id);
-  examplesPage += `| ${frameworkLabel[framework.id]} | \`${manifests.get(framework.id).name}\` | ${registered.length ? `[컴포넌트 ${new Set(registered.flatMap(example => example.componentIds)).size}개 예제](/examples/${framework.id})` : '아직 없음'} |\n`;
-  // These stay published downloads although the page no longer lists them.
   link(`packages/${framework.id}/package.json`); if (existsSync(resolve(root, compatibilityPath))) link(compatibilityPath);
   for (const example of registered) link(example.sourcePath);
   for (const name of ['CatalogExample.tsx','catalog-examples.tsx','examples.tsx','DocsConsumer.svelte','CatalogExamples.vue','ConsumerExample.vue','full-catalog.ts','fixture-app.ts','main.tsx']) { const path = `apps/fixture-${framework.id}/src/${name}`; if (existsSync(resolve(root, path))) link(path); }
 }
-examplesPage += '\n## 로컬에서 미리보기 열기 {#local-native-previews}\n\n문서를 빌드한 뒤 `node apps/docs/scripts/serve.mjs`를 실행하면 이 사이트와 미리보기를 로컬에서 볼 수 있습니다. 자세한 순서는 [로컬에서 시작하기](../getting-started/installation)에 있습니다.\n';
-await write(resolve(site, 'compatibility/examples.md'), examplesPage);
-await write(resolve(site, 'compatibility/solid-migration.md'), '# Solid 1 → Solid 2 {#solid-1-→-solid-2}\n\nSolid 2 지원은 미리보기 단계입니다. `@unofficial-krds/solid-next`는 Solid `2.0.0-rc.19`에 맞춘 별도 패키지이고, 아직 일부 컴포넌트만 제공합니다. Solid 1용 `@unofficial-krds/solid`와 한 앱에서 섞어 쓸 수 없습니다.\n\n옮길 때는 이 순서를 권합니다.\n\n1. 의존성을 Solid 2의 `solid-js`와 `@solidjs/web`으로 바꾸고, 컴포넌트 패키지를 `@unofficial-krds/solid-next`로 교체합니다.\n2. `solid-js/web`을 import하던 코드는 `@solidjs/web`으로 바꿉니다.\n3. 속성 이름, 제어 값, 콜백이 받는 값, CSS 토큰은 그대로 씁니다.\n4. 콘텐츠 전달, ref, 생명주기 코드는 Solid 2 문법에 맞게 고칩니다. Solid 1용 JSX 예제가 그대로 동작하지는 않습니다.\n\nSolid 2용 Storybook 통합은 아직 없습니다.\n\n[프레임워크 호환성](./) · [프레임워크별 예제](./examples)\n');
+await write(resolve(site, 'compatibility/solid-migration.md'), '# Solid 1 → Solid 2 {#solid-1-→-solid-2}\n\nSolid 2 지원은 미리보기 단계입니다. `@unofficial-krds/solid-next`는 Solid `2.0.0-rc.19`에 맞춘 별도 패키지이고, 아직 일부 컴포넌트만 제공합니다. Solid 1용 `@unofficial-krds/solid`와 한 앱에서 섞어 쓸 수 없습니다.\n\n옮길 때는 이 순서를 권합니다.\n\n1. 의존성을 Solid 2의 `solid-js`와 `@solidjs/web`으로 바꾸고, 컴포넌트 패키지를 `@unofficial-krds/solid-next`로 교체합니다.\n2. `solid-js/web`을 import하던 코드는 `@solidjs/web`으로 바꿉니다.\n3. 속성 이름, 제어 값, 콜백이 받는 값, CSS 토큰은 그대로 씁니다.\n4. 콘텐츠 전달, ref, 생명주기 코드는 Solid 2 문법에 맞게 고칩니다. Solid 1용 JSX 예제가 그대로 동작하지는 않습니다.\n\nSolid 2용 Storybook 통합은 아직 없습니다.\n\n[프레임워크 호환성](./)\n');
 // Release manifests and tarballs are mutable ignored producer outputs. Only this
 // reviewed historical checkpoint is an input to protected documentation source.
 const artifactCheckpointPath = 'apps/docs/artifact-checkpoint.json';

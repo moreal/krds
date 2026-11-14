@@ -17,9 +17,9 @@ title: 'Button'
 
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| `variant` | `'primary' \| 'secondary' \| 'tertiary' \| 'text' \| 'icon'` | `primary` | 버튼의 모양과 강조 수준입니다. `icon`은 아이콘만 보이는 모양이며 접근 가능한 이름이 따로 필요합니다. |
-| `size` | `'xsmall' \| 'small' \| 'medium' \| 'large' \| 'xlarge'` | `medium` | 버튼의 크기입니다. |
-| `type` | `'button' \| 'submit' \| 'reset'` | `button` | 폼 안에서의 동작입니다. `submit`은 폼을 제출하고 `reset`은 폼을 초기화합니다. 기본값인 `button`은 폼에 아무 영향도 주지 않습니다. |
+| `variant` | `'primary' \| 'secondary' \| 'tertiary' \| 'text' \| 'icon'` | `"primary"` | 버튼의 모양과 강조 수준입니다. `icon`은 아이콘만 보이는 모양이며 접근 가능한 이름이 따로 필요합니다. |
+| `size` | `'xsmall' \| 'small' \| 'medium' \| 'large' \| 'xlarge'` | `"medium"` | 버튼의 크기입니다. |
+| `type` | `'button' \| 'submit' \| 'reset'` | `"button"` | 폼 안에서의 동작입니다. `submit`은 폼을 제출하고 `reset`은 폼을 초기화합니다. 기본값인 `button`은 폼에 아무 영향도 주지 않습니다. |
 | `disabled` | `boolean` | `false` | 버튼을 비활성화합니다. 비활성 버튼은 초점을 받지 않고 `onClick`도 불리지 않습니다. |
 | `icon` | `JSX.Element` | — | 레이블 뒤에 표시하는 장식 아이콘입니다. 화면 낭독기는 읽지 않습니다. |
 | `children` | `JSX.Element` | — | 버튼의 레이블입니다. 이 내용이 버튼의 접근 가능한 이름이 됩니다. |

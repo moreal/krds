@@ -20,11 +20,11 @@ title: 'Link'
 | --- | --- | --- | --- |
 | `href` **필수** | `string` | — | 이동할 주소입니다. |
 | `label` **필수** | `string` | — | 링크에 표시할 텍스트입니다. 목적지를 설명하는 내용으로 씁니다. |
-| `target` | `string` | — | 링크를 열 위치입니다. `_blank`를 주면 새 창으로 열리고 그 사실을 함께 표시합니다. |
-| `rel` | `string` | — | 현재 문서와 목적지의 관계입니다. `a` 요소의 `rel`과 같습니다. |
+| `target` | `string` | — | 링크를 열 위치입니다. `_blank`를 주면 새 창으로 열리고 레이블 뒤에 '(새 창)'을 표시합니다. |
+| `rel` | `string` | — | 현재 문서와 목적지의 관계입니다. `a` 요소의 `rel`과 같습니다. `target`이 `_blank`면 `noopener noreferrer`를 자동으로 더합니다. |
 | `disabled` | `boolean` | `false` | `true`면 사용할 수 없는 링크로 표시합니다. 이동하지 않고 키보드 초점도 받지 않습니다. |
-| `appearance` | `'basic' \| 'emphasis'` | — | 강조 수준입니다. `basic`은 일반 링크, `emphasis`는 가장 중요한 링크에 씁니다. |
-| `size` | `Size` | — | 글자 크기입니다. `small`, `medium`, `large` 가운데 고릅니다. 문장 안에 넣는 링크는 주변 글자와 같은 크기로 맞춥니다. |
+| `appearance` | `'basic' \| 'emphasis'` | `"basic"` | 강조 수준입니다. `basic`은 일반 링크, `emphasis`는 가장 중요한 링크에 씁니다. |
+| `size` | `Size` | `"medium"` | 글자 크기입니다. `small`, `medium`, `large` 가운데 고릅니다. 문장 안에 넣는 링크는 주변 글자와 같은 크기로 맞춥니다. |
 | `underline` | `boolean` | `true` | 밑줄 표시 여부입니다. 메뉴처럼 링크임이 분명한 곳에서만 `false`로 둡니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).

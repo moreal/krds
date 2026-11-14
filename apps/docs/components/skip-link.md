@@ -19,7 +19,7 @@ title: 'Skip link'
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | `links` **필수** | `readonly {id: string; label: string; targetId: string}[]` | — | 건너뛰기 링크 목록입니다. 각 항목의 `label`은 링크 문구이고, `targetId`는 같은 문서 안에서 이동할 요소의 `id`입니다. |
-| `visibility` | `'focus-revealed' \| 'visible'` | `focus-revealed` | `focus-revealed`는 평소에는 숨겨 두었다가 키보드 초점을 받을 때 링크를 보여 줍니다. `visible`은 링크를 항상 보여 줍니다. |
+| `visibility` | `'focus-revealed' \| 'visible'` | `"focus-revealed"` | `focus-revealed`는 평소에는 숨겨 두었다가 키보드 초점을 받을 때 링크를 보여 줍니다. `visible`은 링크를 항상 보여 줍니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
@@ -53,9 +53,8 @@ export interface SkipLinkContract {
 
 ## 알아 둘 점 {#notes}
 
-- 링크는 고정(sticky) 콘텐츠보다 위에 표시됩니다.
-- 동작 줄이기 설정이 켜져 있으면 부드러운 스크롤 없이 이동합니다.
-- `targetId`에 해당하는 요소가 없으면 링크를 눌렀을 때 오류를 냅니다. 개발 중에 대상 `id`를 맞춰 둡니다.
+- 기본 방식에서는 화면 맨 위에 고정되어 다른 고정(sticky) 콘텐츠보다 위에 나타납니다. `visible`로 두면 문서 흐름 안에 자리를 차지합니다.
+- `targetId`에 해당하는 요소가 없으면 링크를 눌러도 본문으로 이동하지 못합니다. 개발 중에 대상 `id`를 맞춰 둡니다.
 - Lit처럼 Shadow DOM 안에 목적지가 있으면 문서 전체에서 `id`로 찾을 수 없으므로, 목적지를 건너뛰기 링크와 같은 루트 안에 두거나 light DOM에 둡니다.
 
 ## 스타일링 {#styling}

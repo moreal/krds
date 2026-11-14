@@ -20,7 +20,7 @@ title: 'Side navigation'
 | `items` **필수** | `readonly NavigationItem[]` | — | 메뉴 항목의 계층 목록입니다. 각 항목은 `id`, `label`과 선택적인 `href`, `children`을 가집니다. `children`이 있는 항목에는 하위 메뉴를 펼치는 버튼이 붙습니다. |
 | `currentId` | `string` | — | 현재 화면에 해당하는 항목의 `id`입니다. 그 링크를 강조하고 `aria-current="page"`로 표시합니다. |
 | `expandedIds` | `readonly string[]` | — | 펼쳐진 가지의 `id` 목록을 직접 제어합니다. `defaultExpandedIds`와 함께 쓸 수 없습니다. |
-| `defaultExpandedIds` | `readonly string[]` | 현재 항목이 속한 가지 | 직접 제어하지 않을 때 처음에 펼쳐 둘 가지의 `id` 목록입니다. |
+| `defaultExpandedIds` | `readonly string[]` | — | 직접 제어하지 않을 때 처음에 펼쳐 둘 가지의 `id` 목록입니다. |
 | `onExpandedChange` | `(detail: {ids: readonly string[]}) => void` | — | 사용자가 가지를 펼치거나 접으면 바뀐 뒤의 전체 목록을 `{ids}`로 받아 불립니다. |
 | `title` | `string` | — | 메뉴 위에 보여 줄 제목입니다. 내비게이션 영역의 이름으로도 쓰이며, 주지 않으면 이름은 “사이드 메뉴”입니다. |
 | `parentLink` | `LinkData` | — | 헤더에 두는 상위 메뉴로 가는 링크입니다. `label`과 `href`를 가집니다. |
@@ -78,7 +78,7 @@ export interface LinkData {
 ## 알아 둘 점 {#notes}
 
 - 여러 가지를 동시에 펼쳐 둘 수 있습니다. 한 가지를 펼쳐도 다른 가지는 접히지 않습니다.
-- 화면이 좁으면 사이드 메뉴를 숨기고 햄버거 메뉴로 바뀐 메인 메뉴에서 같은 경로를 탐색하게 합니다. 같은 경로로 갈 다른 수단이 있을 때만 숨깁니다.
+- 좁은 화면에서도 스스로 숨지 않습니다. 숨기려면 직접 숨기되, 햄버거 메뉴로 바뀐 메인 메뉴처럼 같은 경로를 탐색할 다른 수단이 있을 때만 숨깁니다.
 - `expandedIds`로 직접 제어할 때는 `onExpandedChange`에서 받은 목록으로 갱신해야 펼침 상태가 바뀝니다.
 
 ## 스타일링 {#styling}

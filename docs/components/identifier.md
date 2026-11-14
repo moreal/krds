@@ -18,10 +18,10 @@ title: 'Identifier'
 
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| `institutionName` **필수** | `string` | — | 운영기관의 이름입니다. |
+| `institutionName` **필수** | `string` | — | 운영기관의 이름입니다. 화면에는 보이지 않고, 화면 낭독기가 이 구획을 읽을 때 이름으로 씁니다. |
 | `logo` **필수** | `LogoData` | — | 운영기관 로고 이미지입니다. `src`와 함께 기관 이름을 가리키는 대체 텍스트 `alt`를 넘깁니다. |
 | `relationshipText` **필수** | `string` | — | 이 기관이 서비스를 운영한다는 안내 문구입니다. 기본 문구가 없으므로 직접 넘깁니다. |
-| `theme` | `'light' \| 'dark'` | `light` | 배경 테마입니다. 밝은 배경은 `light`, 어두운 배경은 `dark`를 씁니다. |
+| `theme` | `'light' \| 'dark'` | `"light"` | 배경 테마입니다. 밝은 배경은 `light`, 어두운 배경은 `dark`를 씁니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
@@ -43,7 +43,7 @@ export interface LogoData {
 
 ## 접근성 {#accessibility}
 
-- 푸터 안의 마지막 구획으로 `<section>` 요소에 담겨 표시됩니다. `<footer>` 안의 가장 끝에 둡니다.
+- `institutionName`을 이름으로 가진 `<section>` 요소로 표시합니다. `<footer>` 안의 가장 끝에 둡니다.
 - `logo.alt`에는 실제 운영기관의 이름을 넣습니다.
 - `light`와 `dark` 테마 모두에서 문구와 배경의 대비가 유지됩니다.
 

@@ -20,7 +20,7 @@ title: 'Visually hidden'
 | `id` | `string` | — | 숨긴 요소의 `id`입니다. 다른 요소가 `aria-describedby`나 `aria-labelledby`로 이 텍스트를 참조할 때 씁니다. |
 | `lang` | `string` | — | 숨긴 텍스트의 언어입니다. 주변 콘텐츠와 언어가 다를 때 지정합니다. |
 | `content` | `string` | — | 화면 낭독기에 전달할 텍스트입니다. |
-| `variant` | `'text' \| 'interactive-overlay' \| 'aria-association'` | — | 숨기는 방식입니다. `text`는 텍스트를 화면에서만 감추고, `interactive-overlay`는 실제 컨트롤을 눈에 보이는 대체 요소 위에 같은 크기로 투명하게 겹치며, `aria-association`은 다른 요소가 `id`로 참조할 텍스트를 둡니다. |
+| `variant` | `'text' \| 'interactive-overlay' \| 'aria-association'` | `"text"` | 숨기는 방식입니다. `text`는 텍스트를 화면에서만 감추고, `interactive-overlay`는 실제 컨트롤을 눈에 보이는 대체 요소 위에 같은 크기로 투명하게 겹치며, `aria-association`은 다른 요소가 `id`로 참조할 텍스트를 둡니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
@@ -45,7 +45,7 @@ export interface VisuallyHiddenContract {
 
 ## 알아 둘 점 {#notes}
 
-- 기본으로 `span` 요소를 렌더링합니다.
+- `span` 요소로 렌더링합니다.
 - `interactive-overlay`로 겹친 입력은 `name`과 `value`, 폼 초기화 동작을 그대로 유지합니다.
 - 화면 크기가 바뀌거나 글자를 확대해도 겹친 컨트롤은 대체 요소와 같은 위치와 크기를 유지합니다.
 

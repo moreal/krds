@@ -84,9 +84,9 @@ export function parseDocument(markdown, sourcePath) {
 }
 /** Explicit section destinations, with historical checkpoints retained as children. */
 export function buildNavigation(pages) {
- const sections=[['getting-started','빠른 시작','getting-started/installation.md'],['components','컴포넌트','components/index.md'],['patterns','패턴','patterns/index.md'],['compatibility','호환성','compatibility/index.md'],['examples','예제','compatibility/examples.md'],['legal','출처와 권리','legal/index.md']];
+ const sections=[['getting-started','빠른 시작','getting-started/installation.md'],['components','컴포넌트','components/index.md'],['patterns','패턴','patterns/index.md'],['compatibility','호환성','compatibility/index.md'],['legal','출처와 권리','legal/index.md']];
  return sections.map(([section,label,landing])=>{
-  const members=pages.filter(page=>section==='examples'?page.sourcePath==='compatibility/examples.md'||page.sourcePath?.startsWith('examples/'):page.sourcePath?.startsWith(section+'/')&&page.sourcePath!=='compatibility/examples.md');
+  const members=pages.filter(page=>page.sourcePath?.startsWith(section+'/'));
   const first=members.find(page=>page.sourcePath===landing);
   if(!first)throw new Error(`Missing navigation landing page: ${landing}`);
   const ordered=[first,...members.filter(page=>page!==first)];

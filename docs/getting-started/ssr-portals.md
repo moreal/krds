@@ -1,6 +1,6 @@
 # 포털과 서버 렌더링 {#portals-and-server-rendering}
 
-서버 렌더링 지원 범위는 프레임워크마다 다릅니다. 브라우저용 빌드가 된다고 서버 import, 하이드레이션, resume까지 되는 것은 아닙니다. 배포 전에 쓰려는 프레임워크의 [네이티브 호환성 및 예시 링크](../compatibility/examples)를 읽습니다.
+서버 렌더링 지원 범위는 프레임워크마다 다릅니다. 브라우저용 빌드가 된다고 서버 import, 하이드레이션, resume까지 되는 것은 아닙니다. 배포 전에 쓰려는 프레임워크의 [호환성 안내](../compatibility/)를 읽습니다.
 
 ## 문서가 생긴 뒤에 참조하기 {#resolve-the-document-when-it-exists}
 

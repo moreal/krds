@@ -21,14 +21,14 @@ title: 'Tooltip'
 | `open` | `boolean` | — | 툴팁이 열려 있는지 여부입니다. 지정하면 열림 상태를 직접 관리하는 제어 방식이 되며 `defaultOpen`과 함께 쓰지 않습니다. |
 | `defaultOpen` | `boolean` | `false` | 처음에 열어 둘지 정합니다. 처음 한 번만 읽습니다. |
 | `onOpenChange` | `(detail: OpenChangeDetails) => void` | — | 마우스를 올리거나 초점을 주거나 `Esc`를 누르는 등 사용자 동작으로 열림 상태가 바뀌려 할 때 불리며 새 상태를 `open`으로 받습니다. |
-| `text` **필수** | `string` | — | 툴팁에 표시할 텍스트입니다. `label` 관계에서는 이 텍스트가 트리거 버튼의 이름이 됩니다. |
-| `relationship` | `'description' \| 'label'` | `description` | 텍스트와 트리거의 관계입니다. `description`은 트리거의 보충 설명으로, `label`은 트리거의 이름으로 연결합니다. |
-| `triggerLabel` | `string` | — | 트리거 버튼의 접근 가능한 이름입니다. `description` 관계에서 필요하며, `label` 관계에서는 쓰지 않습니다. |
+| `text` **필수** | `string` | — | 툴팁에 표시할 텍스트입니다. 비워 둘 수 없습니다. `label` 관계에서는 이 텍스트가 트리거 버튼의 이름이 됩니다. |
+| `relationship` | `'description' \| 'label'` | `"description"` | 텍스트와 트리거의 관계입니다. `description`은 트리거의 보충 설명으로, `label`은 트리거의 이름으로 연결합니다. |
+| `triggerLabel` | `string` | — | 트리거 버튼의 접근 가능한 이름입니다. `description` 관계에서는 반드시 주고, `label` 관계에서는 주지 않습니다. |
 | `triggerId` **필수** | `string` | — | 트리거 버튼의 `id`입니다. |
 | `textId` **필수** | `string` | — | 툴팁 텍스트 요소의 `id`입니다. 트리거가 이 `id`를 `aria-describedby` 또는 `aria-labelledby`로 참조합니다. |
 | `placement` | `HelpPlacement` | — | 팝업을 트리거의 어느 쪽에 둘지 정합니다. `top-start`, `top`, `top-end`, `bottom-start`, `bottom`, `bottom-end` 중 하나입니다. |
-| `fallbackFocusId` | `string` | — | 툴팁이 닫힐 때 트리거가 사라졌거나 쓸 수 없으면 대신 초점을 받을 요소의 `id`입니다. |
-| `touchToggle` | `boolean` | `false` | `true`로 두면 터치 화면에서 트리거를 눌러 툴팁을 열고 닫을 수 있습니다. 바깥을 누르면 닫힙니다. |
+| `fallbackFocusId` | `string` | — | `Esc`로 툴팁을 닫을 때 트리거가 사라졌거나 쓸 수 없으면 대신 초점을 받을 요소의 `id`입니다. |
+| `touchToggle` | `boolean` | — | `true`로 두면 터치 화면에서 트리거를 눌러 툴팁을 열고 닫을 수 있습니다. 바깥을 누르면 닫힙니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
@@ -80,7 +80,7 @@ export type HelpPlacement = 'top-start' | 'top' | 'top-end' | 'bottom-start' | '
 - 마우스를 트리거에 올리면 열리고, 트리거와 팝업 모두에서 벗어나면 닫힙니다. 포인터를 팝업 위로 옮겨도 닫히지 않습니다.
 - 마우스로 열려도 다른 곳에 있던 키보드 초점은 옮기지 않습니다.
 - `open`으로 제어하는 경우 `onOpenChange`를 받고도 `open`을 바꾸지 않으면 툴팁은 그대로 열려 있고 초점도 움직이지 않습니다.
-- 팝업은 화면 가장자리에서 잘리지 않도록 위치를 조정합니다.
+- 팝업은 화면 가장자리에서 잘리지 않도록 위치를 조정하고, 너비가 넓어지면 줄을 바꿉니다.
 
 ## 스타일링 {#styling}
 

@@ -18,7 +18,7 @@ title: 'Tab bars'
 
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| `items` **필수** | `readonly {id: string; label: string; href: string; icon: string; currentIcon?: string; badge?: string \| number}[]` | — | 탭바에 표시할 페이지 링크 목록입니다. 항목마다 `label`, `href`, `icon`이 필요합니다. `currentIcon`은 현재 페이지일 때 쓸 채워진 아이콘이고, `badge`는 새 소식이나 읽지 않은 개수를 표시합니다. |
+| `items` **필수** | `readonly {id: string; label: string; href: string; icon: string; currentIcon?: string; badge?: string \| number}[]` | — | 탭바에 표시할 페이지 링크 목록입니다. 항목마다 `label`, `href`, `icon`이 필요합니다. `icon`이 `home`, `document`, `person`, `help`, `search` 가운데 하나이면 그림 아이콘으로, 그 밖의 값이면 글자 그대로 표시합니다. `currentIcon`은 현재 페이지일 때 대신 쓸 아이콘이고, `badge`는 새 소식이나 읽지 않은 개수를 표시합니다. |
 | `currentId` **필수** | `string` | — | 현재 페이지에 해당하는 항목의 `id`입니다. 그 항목을 선택된 상태로 표시합니다. |
 | `menuAction` | `{label: string; onRequest: () => void}` | — | 넘기면 마지막 자리에 전체 메뉴 버튼을 둡니다. `label`은 버튼 이름이고, 버튼을 누르면 `onRequest`가 불립니다. |
 
@@ -54,17 +54,18 @@ export interface TabBarContract {
 
 ## 접근성 {#accessibility}
 
-- `<nav>` 영역으로 표시되어 화면 낭독기가 내비게이션으로 인식합니다. 항목은 탭 패널을 바꾸는 탭이 아니라 페이지로 이동하는 링크입니다.
+- '주요 화면'이라는 이름의 `nav` 영역으로 표시되어 화면 낭독기가 내비게이션으로 인식합니다. 항목은 탭 패널을 바꾸는 탭이 아니라 페이지로 이동하는 링크입니다.
 - 현재 페이지 항목에는 `aria-current="page"`가 붙습니다.
-- 선택된 항목은 채워진 아이콘이나 표시기로 구분하므로 색에만 의존하지 않습니다. 선택되지 않은 항목에는 윤곽선 아이콘을 씁니다.
-- 아이콘만으로는 뜻이 모호하므로 `label`을 항상 채웁니다. 번역된 레이블도 잘리지 않게 합니다.
+- 현재 페이지 항목에는 표시기가 함께 붙으므로 색에만 의존하지 않습니다. `currentIcon`에 채워진 아이콘을 주면 더 분명하게 구분됩니다.
+- 아이콘은 화면 낭독기가 읽지 않으므로 `label`을 항상 채웁니다. 번역된 레이블도 잘리지 않게 합니다.
 
 ## 알아 둘 점 {#notes}
 
 - `currentId`는 현재 경로에 맞춰 직접 갱신합니다. 항목을 눌러도 컴포넌트가 스스로 현재 항목을 바꾸지 않습니다.
-- 탭바가 하단에 고정되므로, 본문 아래쪽에 탭바 높이와 safe-area만큼의 여백을 직접 더해 콘텐츠가 가려지지 않게 합니다.
+- 탭바는 화면 하단에 고정되고 safe-area만큼 아래 여백을 스스로 둡니다. 본문 아래쪽에는 탭바 높이만큼의 여백을 직접 더해 콘텐츠가 가려지지 않게 합니다.
 - 전체 메뉴 화면은 직접 만들어 `menuAction.onRequest`에서 엽니다.
 - 정보 구조상 하위 화면에서는 탭바를 표시하지 않아도 됩니다.
+- 항목과 전체 메뉴 버튼을 합쳐 5개를 넘으면 오류를 냅니다.
 
 ## 스타일링 {#styling}
 

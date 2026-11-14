@@ -23,13 +23,13 @@ title: 'Header'
 | `defaultMobileOpen` | `boolean` | `false` | 직접 제어하지 않을 때 메뉴 레이어의 처음 열림 상태입니다. |
 | `onMobileOpenChange` | `(detail: OpenChangeDetails) => void` | — | 사용자가 메뉴 레이어를 열거나 닫으려 할 때 불립니다. 바뀔 상태를 `{open}`으로 받습니다. |
 | `mobileTriggerId` | `string` | — | 좁은 화면에 나타나는 메뉴 열기 버튼의 `id`입니다. |
-| `mobileTriggerLabel` | `string` | — | 메뉴 열기 버튼의 이름입니다. 넘긴다면 빈 문자열이 아니어야 합니다. |
-| `navigationLabel` | `string` | — | 메인 메뉴 내비게이션 영역의 이름입니다. 화면 낭독기가 이 이름으로 영역을 읽습니다. |
-| `home` **필수** | `LinkData & {logo: LogoData}` | — | 홈으로 가는 로고 링크입니다. `href`, `label`, 로고 이미지 `logo`를 넘깁니다. |
+| `mobileTriggerLabel` | `string` | `"메뉴"` | 메뉴 열기 버튼의 이름입니다. 넘긴다면 빈 문자열이 아니어야 합니다. |
+| `navigationLabel` | `string` | `"메인 메뉴"` | 메인 메뉴 내비게이션 영역의 이름입니다. 화면 낭독기가 이 이름으로 영역을 읽습니다. |
+| `home` **필수** | `LinkData & {logo: LogoData}` | — | 홈으로 가는 로고 링크입니다. `href`, 링크 이름이 되는 `label`, 로고 이미지 `logo`를 넘깁니다. |
 | `utilityItems` **필수** | `readonly (LinkData & {id: string})[]` | — | 로그인, 회원가입처럼 대부분의 화면에서 자주 쓰는 보조 링크 목록입니다. 다섯 개 이상이면 드롭다운으로 묶입니다. |
-| `search` | `{label: string; onRequest: () => void}` | — | 검색 버튼입니다. `label`이 버튼 이름이 되고, 누르면 `onRequest`가 한 번 불립니다. 검색 화면이나 레이어를 여는 일은 `onRequest`에서 처리합니다. |
+| `search` | `{label: string; onRequest: () => void}` | — | 넘기면 검색 버튼을 표시합니다. `label`이 버튼 이름이 되고, 누르면 `onRequest`가 한 번 불립니다. 검색 화면이나 레이어를 여는 일은 `onRequest`에서 처리합니다. |
 | `mainNavigation` **필수** | `readonly NavigationItem[]` | — | 메인 메뉴에 표시할 항목 목록입니다. 항목마다 `id`, `label`을 넘기고 `children`으로 하위 메뉴를 둡니다. |
-| `actionLayout` | `'vertical' \| 'horizontal'` | `horizontal` | 아이콘 버튼과 레이블의 배치입니다. `vertical`은 아이콘 아래에, `horizontal`은 아이콘 옆에 레이블을 둡니다. |
+| `actionLayout` | `'vertical' \| 'horizontal'` | `"horizontal"` | 아이콘 버튼과 레이블의 배치입니다. `vertical`은 아이콘 아래에, `horizontal`은 아이콘 옆에 레이블을 둡니다. |
 | `sticky` | `boolean` | `false` | `true`면 스크롤해도 헤더를 화면 위쪽에 고정합니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
@@ -93,6 +93,7 @@ export interface NavigationItem {
 | `Tab` / `Shift+Tab` | 로고, 유틸리티 링크, 검색, 메인 메뉴 순서로 이동합니다. |
 | `Enter` | 초점이 있는 링크로 이동하거나 버튼을 실행합니다. |
 | `Space` | 유틸리티 드롭다운, 검색, 메뉴 열기 버튼을 실행합니다. |
+| `Escape` | 열려 있는 유틸리티 드롭다운을 닫고 초점을 드롭다운 버튼으로 돌려놓습니다. |
 
 ## 접근성 {#accessibility}
 
@@ -104,9 +105,9 @@ export interface NavigationItem {
 
 ## 알아 둘 점 {#notes}
 
-- 화면이 좁아 메인 메뉴가 한 줄에 들어가지 않으면 메뉴 막대 대신 메뉴 열기 버튼과 메뉴 레이어를 보여 줍니다. 레이어 안의 펼침과 초점 이동은 메인 메뉴와 같습니다.
+- 화면이 좁으면 메뉴 막대 대신 메뉴 열기 버튼과 메뉴 레이어를 보여 줍니다. 레이어 안의 펼침과 초점 이동은 메인 메뉴와 같습니다.
 - `mobileOpen`을 넘기면 제어 방식으로 동작하므로 `onMobileOpenChange`에서 값을 갱신해야 레이어가 열리고 닫힙니다. `mobileOpen`과 `defaultMobileOpen`은 함께 쓰지 않습니다.
-- `sticky`로 고정할 때 공식 배너는 고정 영역에 넣지 않습니다. 헤더가 두 줄을 넘으면 아래로 스크롤할 때는 고정을 풀고 위로 스크롤할 때 다시 나타나게 합니다.
+- `sticky`로 고정할 때 공식 배너는 고정 영역에 넣지 않습니다. 헤더가 두 줄을 넘으면 아래로 스크롤할 때 숨기고 위로 스크롤할 때 다시 보여 주는 것이 좋은데, 이 동작은 앱에서 따로 구현합니다.
 - 검색어 입력 폼은 헤더에 들어 있지 않습니다. 검색 화면이나 레이어는 앱에서 따로 만듭니다.
 
 ## 스타일링 {#styling}

@@ -21,8 +21,8 @@
     {
       "name": "defaultValue",
       "type": "string",
-      "default": null,
-      "description": "직접 제어하지 않을 때 처음 선택 값입니다. 주지 않으면 비활성이 아닌 첫 번째 옵션을 선택합니다."
+      "default": "비활성이 아닌 첫 번째 옵션의 값",
+      "description": "직접 제어하지 않을 때 처음 선택 값입니다. `options`에 있는 값이어야 합니다."
     },
     {
       "name": "label",
@@ -51,7 +51,7 @@
     {
       "name": "size",
       "type": "'small' | 'medium' | 'large'",
-      "default": "`medium`",
+      "default": "`\"medium\"`",
       "description": "컨트롤의 크기입니다."
     },
     {
@@ -63,7 +63,7 @@
     {
       "name": "id",
       "type": "string",
-      "default": null,
+      "default": "자동 생성",
       "description": "`select` 요소의 `id`입니다. 주지 않으면 자동으로 만들어 레이블과 연결합니다."
     },
     {

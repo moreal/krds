@@ -9,7 +9,7 @@
   "props": [
     { "name": "serviceLogo", "default": null, "description": "서비스 로고 이미지입니다. `src`와 대체 텍스트 `alt`를 함께 넘깁니다." },
     { "name": "contacts", "default": null, "description": "주소, 전화번호, 이메일 같은 연락처 목록입니다. 항목마다 `label`과 표시할 `text`를 넘기고, `href`에 `tel:`이나 `mailto:` 주소를 주면 바로 연결되는 링크가 됩니다." },
-    { "name": "utilityLinks", "default": null, "description": "오시는 길, 관련 기관, 소셜 채널처럼 자주 찾는 링크 목록입니다. 서비스 로고, 연락처와 한 묶음으로 표시합니다." },
+    { "name": "utilityLinks", "default": null, "description": "오시는 길, 관련 기관, 소셜 채널처럼 자주 찾는 링크 목록입니다. `target`이 `_blank`인 링크에는 레이블 뒤에 '(새 창)'을 붙입니다." },
     { "name": "privacyPolicy", "default": null, "description": "개인정보 처리방침 링크입니다. 다른 정책 링크보다 눈에 띄게 표시합니다." },
     { "name": "policyLinks", "default": null, "description": "웹 접근성 정책, 이용약관 같은 그 밖의 정책 링크 목록입니다." },
     { "name": "copyrightText", "default": null, "description": "저작권 문구입니다. 기본 문구가 없으므로 서비스에 맞는 문구를 직접 넘깁니다." },
@@ -20,9 +20,9 @@
     { "keys": "`Enter`", "action": "초점이 있는 링크로 이동합니다." }
   ],
   "accessibility": [
-    "모든 내용을 `<footer>` 요소 안에 담아 화면 낭독기가 푸터 영역으로 바로 이동할 수 있습니다.",
+    "모든 내용을 `<footer>` 요소 안에 담아 화면 낭독기가 푸터 영역으로 바로 이동할 수 있습니다. 유틸리티 링크와 정책 링크는 각각 '서비스 관련 링크', '정책'이라는 이름의 `nav` 영역이 됩니다.",
     "로고가 이미지라면 `serviceLogo.alt`에 서비스나 기관 이름을 대체 텍스트로 넣습니다.",
-    "외부 사이트로 나가거나 새 창으로 열리는 링크는 레이블에서 그 사실을 알 수 있게 합니다.",
+    "새 창으로 열리는 링크에는 '(새 창)'을 자동으로 붙입니다. 외부 사이트로 나가는 링크는 레이블에서 그 사실을 알 수 있게 씁니다.",
     "연락처와 링크가 없는 페이지나 다른 목적지로 연결되지 않도록 항상 최신 상태로 유지합니다."
   ],
   "notes": [

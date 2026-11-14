@@ -19,10 +19,10 @@ title: 'Tab'
 | `items` | `readonly TabItem[]` | — | 탭 목록입니다. 항목마다 서로 다른 `value`, 탭에 보일 `label`, 패널에 넣을 `content`가 필요합니다. `disabled`인 탭은 선택할 수 없고, `id`를 주면 탭의 `id`로 쓰며 패널은 그 뒤에 `-panel`을 붙인 `id`를 가집니다. |
 | `label` | `JSX.Element` | — | 탭 목록 위에 보이는 이름입니다. 탭 목록의 접근 가능한 이름으로도 쓰입니다. |
 | `value` | `string` | — | 선택된 탭의 `value`를 직접 제어할 때 넘깁니다. 선택할 수 있는 항목의 `value`여야 합니다. |
-| `defaultValue` | `string` | — | 직접 제어하지 않을 때 처음 선택할 탭입니다. 생략하면 선택할 수 있는 첫 번째 탭을 선택합니다. |
+| `defaultValue` | `string` | 선택할 수 있는 첫 번째 탭의 `value` | 직접 제어하지 않을 때 처음 선택할 탭입니다. 선택할 수 있는 항목의 `value`여야 합니다. |
 | `onValueChange` | `(details: ValueChangeDetails<string>) => void` | — | 사용자가 다른 탭을 선택할 때 한 번 불리고, 선택하려는 탭의 `value`를 받습니다. |
-| `activationMode` | `'manual' \| 'automatic'` | `manual` | `manual`은 탭에 초점이 가도 선택되지 않고 `Enter`, `Space`, 클릭으로 선택합니다. `automatic`은 탭에 초점이 가면 바로 선택합니다. |
-| `orientation` | `'horizontal' \| 'vertical'` | `horizontal` | 탭을 놓는 방향입니다. 방향키 이동도 이 방향을 따릅니다. |
+| `activationMode` | `'manual' \| 'automatic'` | `"manual"` | `manual`은 탭에 초점이 가도 선택되지 않고 `Enter`, `Space`, 클릭으로 선택합니다. `automatic`은 탭에 초점이 가면 바로 선택합니다. |
+| `orientation` | `'horizontal' \| 'vertical'` | `"horizontal"` | 탭을 놓는 방향입니다. 방향키 이동도 이 방향을 따릅니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 

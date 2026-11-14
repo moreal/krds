@@ -36,4 +36,4 @@ Solid 2는 미리보기 단계라 일부 컴포넌트만 제공합니다. 제공
 - Svelte는 5 버전만 지원합니다.
 - 피어 의존성 범위 안의 모든 버전을 테스트하지는 않았습니다. 표의 버전이 가장 확실합니다.
 
-[프레임워크별 예제](./examples) · [Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)
+[Solid 1 → 2](./solid-migration) · [테스트 역할](../getting-started/testing)

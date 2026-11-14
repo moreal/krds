@@ -18,12 +18,12 @@ title: 'Checkbox'
 
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| `id` | `string` | — | 체크박스 입력 요소의 `id`입니다. |
+| `id` | `string` | 자동 생성 | 체크박스 입력 요소의 `id`입니다. 생략하면 자동으로 만들어 레이블과 연결합니다. |
 | `name` | `string` | — | 폼을 제출할 때 쓰는 필드 이름입니다. |
 | `label` **필수** | `string` | — | 체크박스 옆에 보이는 레이블입니다. 누르면 체크박스가 토글됩니다. |
 | `disabled` | `boolean` | `false` | `true`이면 조작할 수 없고 폼 제출에서도 빠집니다. |
 | `required` | `boolean` | `false` | `true`이면 체크해야 폼을 제출할 수 있습니다. |
-| `invalid` | `boolean` | — | `true`이면 오류 상태로 표시합니다. |
+| `invalid` | `boolean` | `false` | `true`이면 오류 상태로 표시하고 화면 낭독기에도 오류로 알립니다. |
 | `helpId` | `string` | — | 도움말 요소의 `id`입니다. 체크박스의 설명으로 연결합니다. |
 | `errorId` | `string` | — | 오류 메시지 요소의 `id`입니다. 체크박스의 설명으로 연결합니다. |
 | `checked` | `boolean` | — | 체크 여부를 직접 제어할 때 넘깁니다. 넘기면 `onCheckedChange`에서 받은 값을 반영해야 화면이 바뀝니다. |
@@ -31,8 +31,8 @@ title: 'Checkbox'
 | `indeterminate` | `boolean` | `false` | `true`이면 일부 선택 상태로 표시합니다. 전체 선택 체크박스에서 하위 옵션의 선택 상태를 보고 직접 계산해 넘깁니다. |
 | `onCheckedChange` | `(detail: {checked: boolean}) => void` | — | 사용자가 체크박스를 토글할 때 한 번 불리며 `{checked}`를 받습니다. 속성 변경이나 폼 초기화로 값이 바뀔 때는 불리지 않습니다. |
 | `value` | `string` | `"on"` | 체크된 상태로 폼을 제출할 때 보내는 값입니다. |
-| `appearance` | `'default' \| 'chip'` | — | `default`는 일반 체크박스, `chip`은 칩 모양으로 표시합니다. |
-| `size` | `'medium' \| 'large'` | `medium` | 체크박스와 레이블의 크기입니다. `medium` 또는 `large`입니다. |
+| `appearance` | `'default' \| 'chip'` | `"default"` | `default`는 일반 체크박스, `chip`은 칩 모양으로 표시합니다. |
+| `size` | `'medium' \| 'large'` | `"medium"` | 체크박스와 레이블의 크기입니다. `medium` 또는 `large`입니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 

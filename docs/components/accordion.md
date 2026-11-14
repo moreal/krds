@@ -22,7 +22,7 @@ title: 'Accordion'
 | `defaultOpenIds` | `readonly string[]` | `[]` | 처음에 펼쳐 둘 섹션의 `id` 목록입니다. 상태를 직접 제어하지 않을 때 씁니다. |
 | `onOpenChange` | `(detail: {ids: readonly string[]}) => void` | — | 사용자가 헤더를 눌러 섹션을 펼치거나 접을 때 불립니다. 변경 후 펼쳐져 있어야 할 `ids`를 받습니다. |
 | `multiple` | `boolean` | `true` | 여러 섹션을 동시에 펼칠 수 있게 합니다. `false`로 두면 한 번에 하나만 펼쳐집니다. |
-| `variant` | `'default' \| 'line'` | — | 모양을 고릅니다. `default`는 기본형, `line`은 구분선만 쓰는 라인형입니다. |
+| `variant` | `'default' \| 'line'` | `"default"` | 모양을 고릅니다. `default`는 기본형, `line`은 구분선만 쓰는 라인형입니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
@@ -55,13 +55,13 @@ export interface AccordionContract {
 ## 접근성 {#accessibility}
 
 - 헤더는 제목 안의 버튼으로 제공되며, 펼침 상태가 화면 낭독기에 전달됩니다.
-- 접힌 패널의 내용은 초점을 받지 않고 화면 낭독기도 읽지 않습니다.
+- 접힌 패널의 내용은 초점을 받지 않고 화면 낭독기도 읽지 않습니다. 패널 안에 초점이 있는 채로 접히면 초점은 그 섹션의 헤더로 옮겨집니다.
 - 헤더 전체가 누를 수 있는 영역입니다. 패널 안에 링크나 버튼이 있으면 헤더와 충분히 떨어뜨려 잘못 누르지 않게 합니다.
 - 섹션 제목은 내용을 짐작할 수 있게 짓습니다. 제목만 훑어도 전체 개요를 파악할 수 있어야 합니다.
 
 ## 알아 둘 점 {#notes}
 
-- `openIds`와 `defaultOpenIds`는 함께 쓰지 않습니다.
+- `openIds`와 `defaultOpenIds`를 함께 넘기면 오류가 납니다. `multiple`이 `false`일 때 `id`를 둘 이상 넘겨도 오류가 납니다.
 - 패널에는 자체 스크롤이 생기지 않습니다. 내용이 길면 페이지 스크롤로 읽습니다.
 - 패널을 접어도 그 안에 있는 입력 값은 유지됩니다.
 - 제목이 길면 줄바꿈되며, 상태 아이콘은 같은 위치를 유지합니다.

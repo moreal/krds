@@ -18,14 +18,14 @@ title: 'FAB'
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | `label` **필수** | `string` | — | 버튼의 이름입니다. 레이블을 숨겨도 화면 낭독기에는 이 이름이 전달됩니다. |
-| `icon` **필수** | `string` | — | 버튼에 표시할 아이콘입니다. |
+| `icon` **필수** | `string` | — | 버튼에 표시할 아이콘입니다. `plus`나 `add`를 넘기면 더하기 아이콘을 그리고, 그 밖의 문자열은 글자 그대로 표시합니다. |
 | `showLabel` | `boolean` | `true` | `false`이면 `label`을 화면에 보이지 않게 하고 아이콘만 표시합니다. |
-| `disabled` | `boolean` | — | `true`이면 버튼을 누를 수 없습니다. |
-| `onAction` | `() => void` | — | 버튼을 누르면 불립니다. 인자는 없습니다. |
+| `disabled` | `boolean` | `false` | `true`이면 버튼과 펼쳐진 동작을 모두 누를 수 없습니다. |
+| `onAction` | `() => void` | — | `actions`가 없을 때 버튼을 누르면 불립니다. 인자는 없습니다. |
 | `expanded` | `boolean` | — | 확장형에서 펼침 상태를 직접 제어할 때 넘깁니다. |
 | `defaultExpanded` | `boolean` | `false` | 직접 제어하지 않을 때의 초기 펼침 상태입니다. |
 | `onExpandedChange` | `(detail: {expanded: boolean}) => void` | — | 사용자가 확장형 버튼을 펼치거나 접으려 할 때 불리며 `{expanded}`를 받습니다. |
-| `actions` | `readonly {id: string; label: string; onAction: () => void}[]` | — | 넘기면 확장형이 됩니다. 펼쳤을 때 나오는 동작 목록이며, 각 항목은 `id`, `label`과 눌렀을 때 불리는 `onAction`을 가집니다. |
+| `actions` | `readonly {id: string; label: string; onAction: () => void}[]` | — | 넘기면 확장형이 됩니다. 펼쳤을 때 나오는 동작 목록이며, 각 항목은 `id`, `label`과 눌렀을 때 불리는 `onAction`을 가집니다. 4개 이상 넘기면 오류가 납니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
@@ -71,7 +71,7 @@ export interface FABContract {
 - `expanded`와 `defaultExpanded`는 함께 넘기지 않습니다.
 - 폼 안에 두어도 폼을 제출하지 않습니다.
 - 버튼이 중요한 콘텐츠나 하단 탭바를 가리지 않도록 페이지 아래쪽에 여백을 둡니다.
-- 동작 줄이기 설정에서는 펼침 애니메이션을 끕니다.
+- 펼친 상태에서 동작 목록 바깥의 배경을 누르면 접힙니다. 동작을 눌러도 목록은 저절로 접히지 않습니다.
 
 ## 스타일링 {#styling}
 

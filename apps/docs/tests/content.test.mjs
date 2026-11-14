@@ -40,13 +40,13 @@ test('fenced native source remains inert and duplicate Korean/code headings matc
 test('all real documents parse once with baseline heading parity and deterministic search records',async()=>{
  const {buildPages,buildSearchRecords}=await api(); const pages=await buildPages(site);
  const baseline=JSON.parse(await readFile(resolve(site,'tests/fixtures/vitepress-baseline.json'),'utf8'));
- assert.equal(pages.length,77);
+ assert.equal(pages.length,68);
  for(const before of baseline.pages.filter(x=>x.path!=='_legal/index.html')){
   const page=pages.find(x=>x.outputPath===before.path);assert.ok(page,before.path);
   assert.deepEqual(page.headings.map(x=>x.id),before.headingIds,before.path);
  }
  assert.ok(pages.find(x=>x.sourcePath==='components/button.md').blocks.some(x=>x.type==='table'));
- assert.ok(pages.find(x=>x.sourcePath==='examples/solid.md').blocks.some(x=>x.type==='code'));
+ assert.ok(pages.find(x=>x.sourcePath==='getting-started/styling.md').blocks.some(x=>x.type==='code'));
  const records=buildSearchRecords(pages);assert.deepEqual(records,buildSearchRecords(await buildPages(site)));
  assert.ok(records.some(x=>x.title==='Badge'&&x.text.includes('배지')));
 });
@@ -60,14 +60,14 @@ test('zero is a valid ordered-list start and unordered lists retain their defaul
 });
 test('navigation exposes deliberate landing pages, unique real page IDs and a direct legal leaf',async()=>{
  const {buildPages,buildNavigation}=await api();const pages=await buildPages(site),navigation=buildNavigation(pages);
- const quick=navigation.find(item=>item.id==='getting-started'),examples=navigation.find(item=>item.id==='examples'),legal=navigation.find(item=>item.id==='legal/index.md');
+ const quick=navigation.find(item=>item.id==='getting-started'),compatibility=navigation.find(item=>item.id==='compatibility'),legal=navigation.find(item=>item.id==='legal/index.md');
  assert.equal(quick.href,'/krds/getting-started/installation.html');assert.equal(quick.children[0].id,'getting-started/installation.md');
- assert.equal(examples.href,'/krds/compatibility/examples.html');assert.equal(examples.children[0].id,'compatibility/examples.md');
+ assert.equal(compatibility.href,'/krds/compatibility/index.html');assert.equal(compatibility.children[0].id,'compatibility/index.md');assert.equal(navigation.find(item=>item.id==='examples'),undefined);
  assert.equal(legal.href,'/krds/legal/index.html');assert.equal(legal.children,undefined);
  const links=navigation.flatMap(item=>item.children??[item]);assert.equal(new Set(links.map(item=>item.id)).size,links.length);
  for(const page of pages.filter(page=>page.sourcePath&&page.sourcePath!=='index.md')) assert.equal(links.filter(item=>item.id===page.currentId).length,1,page.currentId);
  assert.deepEqual(pages.find(page=>page.sourcePath==='getting-started/forms.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'getting-started',label:'빠른 시작',href:'/krds/getting-started/installation.html'}]);
- assert.deepEqual(pages.find(page=>page.sourcePath==='compatibility/examples.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'examples',label:'예제',href:'/krds/compatibility/examples.html'}]);
+ assert.deepEqual(pages.find(page=>page.sourcePath==='compatibility/solid-migration.md').breadcrumbs,[{id:'home',label:'홈',href:'/krds/'},{id:'compatibility',label:'호환성',href:'/krds/compatibility/index.html'}]);
 });
 test('browser-recognized encoded dots and backslashes stay beneath the base',async()=>{
  const {docUrl}=await api();const suffix='?next=%2Fdeep%3Fx#frag%2Fpart';

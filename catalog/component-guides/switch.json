@@ -9,7 +9,7 @@
   "props": [
     {
       "name": "id",
-      "default": null,
+      "default": "자동 생성",
       "description": "스위치 입력 요소의 `id`입니다. 생략하면 자동으로 만들어 레이블과 연결합니다."
     },
     {
@@ -29,12 +29,12 @@
     },
     {
       "name": "required",
-      "default": null,
+      "default": "`false`",
       "description": "폼을 제출하려면 스위치가 켜져 있어야 함을 나타냅니다."
     },
     {
       "name": "invalid",
-      "default": null,
+      "default": "`false`",
       "description": "현재 값이 유효하지 않음을 보조 기술에 알리고, `errorId`의 오류 문구를 설명으로 연결합니다."
     },
     {
@@ -64,12 +64,12 @@
     },
     {
       "name": "value",
-      "default": null,
+      "default": "`\"on\"`",
       "description": "켜져 있을 때 폼으로 제출되는 값입니다."
     },
     {
       "name": "size",
-      "default": "`medium`",
+      "default": "`\"medium\"`",
       "description": "스위치 크기입니다. `medium` 또는 `large`입니다."
     }
   ],
@@ -87,8 +87,8 @@
     "`role=\"switch\"`인 체크박스로 표시되어 화면 낭독기가 스위치임과 현재 켜짐 상태를 읽어 줍니다.",
     "`label`이 스위치의 이름이 되며, 레이블 영역까지 누를 수 있어 조작 대상이 넓어집니다.",
     "도움말이 있으면 `helpId`로 연결해 화면 낭독기가 스위치에 닿았을 때 함께 읽게 합니다.",
-    "핸들 위치와 상태 아이콘으로 상태를 전달하므로 색만으로 구분하지 않습니다.",
-    "트랙, 핸들, 상태 아이콘과 주변 배경의 명도 대비를 3:1 이상으로 유지합니다."
+    "켜짐과 꺼짐을 트랙 색과 함께 핸들 위치로도 전달하므로 색만으로 구분하지 않습니다.",
+    "트랙, 핸들과 주변 배경의 명도 대비를 3:1 이상으로 유지합니다."
   ],
   "notes": [
     "`checked`와 `defaultChecked`는 함께 쓰지 않습니다. `checked`를 넘기면 제어 방식, 넘기지 않으면 `defaultChecked`에서 시작해 컴포넌트가 상태를 관리합니다.",

@@ -11,4 +11,4 @@ Solid 2 지원은 미리보기 단계입니다. `@unofficial-krds/solid-next`는
 
 Solid 2용 Storybook 통합은 아직 없습니다.
 
-[프레임워크 호환성](./) · [프레임워크별 예제](./examples)
+[프레임워크 호환성](./)

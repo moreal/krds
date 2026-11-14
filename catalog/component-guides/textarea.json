@@ -3,24 +3,24 @@
     "여러 줄의 텍스트를 입력받을 때 씁니다. 한 줄로 끝나는 값에는 텍스트 입력 필드를 씁니다.",
     "여러 질문의 답을 한 영역에 받지 않습니다. 질문을 나누고, 가능하면 라디오 버튼이나 체크박스로 답하게 합니다.",
     "높이는 예상되는 입력 분량에 맞춥니다. 사용자가 스크롤하지 않고도 적당한 양의 텍스트를 한 번에 볼 수 있어야 합니다.",
-    "글자 수 제한이 있으면 최대 글자 수와 남은 글자 수를 레이블이나 입력 영역 바로 뒤에 보여 줍니다.",
+    "글자 수 제한이 있으면 `maxLength`를 지정해 현재 글자 수와 최대 글자 수를 입력 영역 바로 뒤에 보여 줍니다.",
     "플레이스홀더를 레이블이나 도움말 대신 쓰지 않습니다."
   ],
   "props": [
     { "name": "value", "default": null, "description": "입력 값입니다. 지정하면 값을 직접 관리하는 제어 방식이 되며 `defaultValue`와 함께 쓰지 않습니다." },
     { "name": "defaultValue", "default": "`\"\"`", "description": "처음 표시할 값입니다. 처음 한 번만 읽으며, 폼을 초기화하면 이 값으로 돌아갑니다." },
     { "name": "onValueChange", "default": null, "description": "사용자가 값을 바꿀 때 불리며 새 값을 `value`로 받습니다. 한글을 조합하는 도중의 텍스트는 덮어쓰거나 자르지 않습니다." },
-    { "name": "id", "default": null, "description": "`textarea` 요소의 `id`입니다. 레이블이 이 `id`로 연결되며, 생략하면 자동으로 만듭니다." },
+    { "name": "id", "default": "자동 생성", "description": "`textarea` 요소의 `id`입니다. 레이블이 이 `id`로 연결되며, 생략하면 자동으로 만듭니다." },
     { "name": "name", "default": null, "description": "폼을 제출할 때 쓰는 필드 이름입니다." },
     { "name": "label", "default": null, "description": "입력 영역 위에 항상 보이는 레이블입니다. 무엇을 입력해야 하는지 알려 줍니다." },
     { "name": "disabled", "default": "`false`", "description": "입력을 비활성화합니다. 초점을 받지 않고 폼 제출에서도 빠집니다." },
-    { "name": "required", "default": "`false`", "description": "필수 입력으로 표시하고 브라우저의 필수 값 검사를 적용합니다." },
+    { "name": "required", "default": "`false`", "description": "필수 입력임을 보조 기술에 알리고 브라우저의 필수 값 검사를 적용합니다." },
     { "name": "invalid", "default": "`false`", "description": "오류 상태로 표시하고 `aria-invalid`로 알립니다. 이때 `errorId`의 메시지가 설명으로 연결됩니다." },
     { "name": "helpId", "default": null, "description": "도움말 요소의 `id`입니다. 입력 영역의 설명으로 연결되어 화면 낭독기가 함께 읽습니다." },
     { "name": "errorId", "default": null, "description": "오류 메시지 요소의 `id`입니다. `invalid`일 때 입력 영역의 설명으로 연결됩니다." },
     { "name": "rows", "default": "`5`", "description": "처음 보이는 줄 수입니다. 입력 영역의 기본 높이를 정합니다." },
     { "name": "readOnly", "default": "`false`", "description": "값을 읽기 전용으로 만듭니다. 초점은 받을 수 있고 폼 제출에도 포함됩니다." },
-    { "name": "maxLength", "default": null, "description": "입력할 수 있는 최대 글자 수입니다. 지정하면 글자 수를 함께 표시합니다." }
+    { "name": "maxLength", "default": null, "description": "입력할 수 있는 최대 글자 수입니다. 지정하면 현재 글자 수 옆에 최대 글자 수를 함께 표시합니다." }
   ],
   "keyboard": [
     { "keys": "`Tab` / `Shift+Tab`", "action": "입력 영역으로 초점을 옮기거나 벗어납니다. 비활성 상태에서는 건너뜁니다." },
@@ -30,7 +30,7 @@
   "accessibility": [
     "`label`이 `textarea`와 연결되어 접근 가능한 이름이 되고, 레이블을 눌러도 입력 영역에 초점이 갑니다.",
     "`helpId`와 `errorId`로 넘긴 요소가 입력 영역의 설명으로 연결됩니다. 도움말과 오류 메시지 요소는 직접 렌더링하고 같은 `id`를 붙입니다.",
-    "글자 수 표시는 키를 누를 때마다 화면 낭독기의 읽기를 끊지 않습니다.",
+    "글자 수 표시는 입력할 때마다 화면 낭독기가 읽어 주지 않으므로 입력을 방해하지 않습니다.",
     "입력 영역의 테두리나 배경은 인접 배경과 3:1 이상의 명도 대비를 유지합니다.",
     "복사와 붙여넣기를 막지 않습니다."
   ],

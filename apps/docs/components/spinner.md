@@ -22,7 +22,7 @@ title: 'Spinner'
 | `value` | `number` | — | 0에서 100 사이의 진행률입니다. 주면 그만큼 시계 방향으로 채워지는 확정형이 되고, 생략하면 계속 회전하는 불확정형이 됩니다. |
 | `label` **필수** | `string` | — | 로딩 중에 표시하고 화면 낭독기에 알리는 문구입니다. 무엇을 기다리는지 적습니다. |
 | `completionMessage` **필수** | `string` | — | 로딩이 끝났을 때 화면 낭독기에 알리는 문구입니다. |
-| `size` | `Size` | `medium` | 스피너 크기입니다. `small`, `medium`, `large` 가운데 고릅니다. |
+| `size` | `Size` | `"medium"` | 스피너 크기입니다. `small`, `medium`, `large` 가운데 고릅니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 

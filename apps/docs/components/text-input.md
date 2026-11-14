@@ -21,24 +21,24 @@ title: 'Text input'
 | `value` | `string` | — | 입력 값입니다. 지정하면 값을 직접 관리하는 제어 방식이 되며 `defaultValue`와 함께 쓰지 않습니다. |
 | `defaultValue` | `string` | `""` | 처음 표시할 값입니다. 처음 한 번만 읽으며, 폼을 초기화하면 이 값으로 돌아갑니다. |
 | `onValueChange` | `(detail: ValueChangeDetails<string>) => void` | — | 사용자가 값을 바꿀 때 불리며 새 값을 `value`로 받습니다. 한글을 조합하는 도중에는 값을 덮어쓰지 않습니다. |
-| `id` | `string` | — | 입력 요소의 `id`입니다. 레이블이 이 `id`로 입력과 연결됩니다. |
+| `id` | `string` | 자동 생성 | 입력 요소의 `id`입니다. 레이블이 이 `id`로 입력과 연결되며, 생략하면 자동으로 만듭니다. |
 | `name` | `string` | — | 폼을 제출할 때 쓰는 필드 이름입니다. |
 | `label` **필수** | `string` | — | 입력 위에 항상 보이는 레이블입니다. 무엇을 입력해야 하는지 알려 줍니다. |
-| `disabled` | `boolean` | — | 입력을 비활성화합니다. 초점을 받지 않고 폼 제출에서도 빠집니다. |
-| `required` | `boolean` | — | 필수 입력으로 표시하고 브라우저의 필수 값 검사를 적용합니다. |
-| `invalid` | `boolean` | — | 입력이 유효하지 않음을 `aria-invalid`로 알립니다. |
+| `disabled` | `boolean` | `false` | 입력을 비활성화합니다. 초점을 받지 않고 폼 제출에서도 빠집니다. |
+| `required` | `boolean` | `false` | 필수 입력임을 보조 기술에 알리고 브라우저의 필수 값 검사를 적용합니다. |
+| `invalid` | `boolean` | `false` | 오류 상태로 표시하고 `aria-invalid`로 알립니다. 이때 `errorId`의 메시지가 설명으로 연결됩니다. |
 | `helpId` | `string` | — | 도움말 요소의 `id`입니다. 입력의 설명으로 연결되어 화면 낭독기가 함께 읽습니다. |
 | `errorId` | `string` | — | 오류 메시지 요소의 `id`입니다. 오류 상태일 때 입력의 설명으로 연결됩니다. |
-| `type` | `'text' \| 'email' \| 'tel' \| 'url' \| 'password' \| 'search'` | `text` | 입력 종류입니다. `text`, `email`, `tel`, `url`, `password`, `search` 중 하나이며 모바일 키보드와 브라우저 동작이 이에 맞춰집니다. |
+| `type` | `'text' \| 'email' \| 'tel' \| 'url' \| 'password' \| 'search'` | `"text"` | 입력 종류입니다. `text`, `email`, `tel`, `url`, `password`, `search` 중 하나이며 모바일 키보드와 브라우저 동작이 이에 맞춰집니다. |
 | `autocomplete` | `string` | — | 브라우저 자동 완성 토큰입니다. 이름·연락처처럼 반복해서 입력하는 개인 정보에 지정합니다. |
 | `inputMode` | `string` | — | 모바일에서 띄울 가상 키보드 종류를 지정합니다. |
-| `readOnly` | `boolean` | — | 값을 읽기 전용으로 만듭니다. 초점은 받을 수 있고 폼 제출에도 포함됩니다. |
+| `readOnly` | `boolean` | `false` | 값을 읽기 전용으로 만듭니다. 초점은 받을 수 있고 폼 제출에도 포함됩니다. |
 | `minLength` | `number` | — | 입력해야 하는 최소 글자 수입니다. |
 | `maxLength` | `number` | — | 입력할 수 있는 최대 글자 수입니다. |
 | `pattern` | `string` | — | 값이 따라야 하는 정규식입니다. 브라우저 유효성 검사에 쓰입니다. |
-| `status` | `'default' \| 'error' \| 'success'` | — | `error` 또는 `success`로 두면 오류·성공 상태를 표시합니다. `default`는 일반 상태입니다. |
-| `size` | `Size` | `medium` | 입력의 크기입니다. `small`, `medium`, `large` 중 하나입니다. |
-| `iconAction` | `{label: string; onAction: () => void}` | — | 입력 안에 아이콘 버튼을 추가합니다. `label`은 버튼의 접근 가능한 이름이고, `onAction`은 버튼을 누를 때 불립니다. 이 버튼은 폼을 제출하지 않습니다. |
+| `status` | `'default' \| 'error' \| 'success'` | `"default"`, `invalid`이면 `"error"` | `error` 또는 `success`로 두면 오류·성공 상태를 표시합니다. `error`는 `invalid`를 준 것과 같이 `aria-invalid`도 함께 알립니다. |
+| `size` | `Size` | `"medium"` | 입력의 크기입니다. `small`, `medium`, `large` 중 하나입니다. |
+| `iconAction` | `{label: string; onAction: () => void}` | — | 입력 안에 아이콘 버튼을 추가합니다. `label`은 버튼의 접근 가능한 이름이고, `onAction`은 버튼을 누를 때 불립니다. 이 버튼은 폼을 제출하지 않으며 `disabled`이면 함께 비활성화됩니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
@@ -104,8 +104,7 @@ export type Size = 'small' | 'medium' | 'large';
 
 - `name`을 주면 값이 폼과 함께 제출됩니다. `disabled`이면 제출에서 빠지고 `readOnly`이면 포함됩니다.
 - 폼을 초기화하면 `defaultValue`로 돌아갑니다. `value`로 제어하는 경우에는 넘긴 값을 그대로 유지하며 `onValueChange`는 불리지 않습니다.
-- 유효성 검사 시점과 오류 문구는 직접 정합니다. 날짜 파싱이나 숫자 변환은 하지 않습니다.
-- 한글 조합 중에 누른 `Enter`는 입력 확정으로 처리하지 않습니다.
+- 유효성 검사 시점과 오류 문구는 직접 정합니다.
 
 ## 스타일링 {#styling}
 

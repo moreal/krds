@@ -7,13 +7,13 @@
   ],
   "props": [
     { "name": "src", "default": null, "description": "이미지 주소입니다." },
-    { "name": "alt", "default": null, "description": "이미지가 전달하는 정보를 간결하게 적은 대체 텍스트입니다. 화면 낭독기가 읽고, 이미지를 불러오지 못했을 때 이미지 자리에 표시됩니다." },
+    { "name": "alt", "default": null, "description": "이미지가 전달하는 정보를 간결하게 적은 대체 텍스트입니다. 화면 낭독기가 읽고, 이미지를 불러오지 못했을 때 이미지 자리에 표시됩니다. 장식 이미지가 아니면 비워 둘 수 없습니다." },
     { "name": "width", "default": null, "description": "이미지의 원래 너비(픽셀)입니다. `height`와 함께 주면 불러오기 전에 자리를 미리 잡습니다." },
     { "name": "height", "default": null, "description": "이미지의 원래 높이(픽셀)입니다." },
     { "name": "srcset", "default": null, "description": "화면 크기와 해상도에 따라 고를 이미지 후보 목록입니다. `img`의 `srcset`과 같습니다." },
     { "name": "sizes", "default": null, "description": "레이아웃에서 이미지가 차지할 너비를 알려 `srcset`에서 알맞은 후보를 고르게 합니다." },
-    { "name": "loading", "default": null, "description": "이미지를 불러오는 시점입니다. `eager`는 바로, `lazy`는 화면에 가까워질 때 불러옵니다." },
-    { "name": "decorative", "default": null, "description": "`true`면 장식 이미지로 다뤄 대체 텍스트를 비우고 화면 낭독기가 읽지 않게 합니다." },
+    { "name": "loading", "default": "`\"lazy\"`", "description": "이미지를 불러오는 시점입니다. `eager`는 바로, `lazy`는 화면에 가까워질 때 불러옵니다." },
+    { "name": "decorative", "default": "`false`", "description": "`true`면 장식 이미지로 다뤄 대체 텍스트를 비우고 화면 낭독기가 읽지 않게 합니다." },
     { "name": "caption", "default": null, "description": "이미지 아래에 표시할 캡션입니다. 넘기면 `figcaption`으로 표시합니다." },
     { "name": "descriptionId", "default": null, "description": "이미지를 자세히 설명하는 요소의 `id`입니다. 도표처럼 복잡한 이미지의 긴 설명을 이미지와 연결합니다." }
   ],
@@ -28,6 +28,6 @@
   "notes": [
     "좁은 화면에서는 `srcset`과 `sizes`로 알맞은 크기나 잘라 낸 이미지를 제공하되, 핵심 정보가 잘려 나가지 않게 합니다.",
     "좁은 화면에서 장식 이미지는 빼도 됩니다. 정보를 담은 이미지를 뺀다면 같은 내용을 글로 제공합니다.",
-    "이미지를 불러오지 못하면 대체 텍스트가 이미지 자리에 남습니다."
+    "이미지를 불러오지 못하면 대체 텍스트가 이미지 자리에 남고, 그 아래에 '이미지를 불러올 수 없습니다.'라는 안내를 표시합니다."
   ]
 }

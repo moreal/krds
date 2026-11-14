@@ -18,10 +18,10 @@ title: 'Badge'
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | `label` **필수** | `string` | — | 배지에 표시할 텍스트입니다. 항상 보입니다. |
-| `appearance` | `'outline' \| 'filled' \| 'pastel'` | `outline` | 컨테이너 모양입니다. `outline`은 윤곽선, `filled`는 채운 배경, `pastel`은 옅은 배경입니다. |
-| `tone` | `'secondary' \| 'gray' \| 'point' \| 'danger' \| 'warning' \| 'success' \| 'information' \| 'disabled'` | — | 색으로 전달할 의미입니다. 위험에는 `danger`, 경고에는 `warning`처럼 일반적인 색 의미에 맞춰 고릅니다. `disabled`는 표시용 색일 뿐 무언가를 비활성화하지 않습니다. |
-| `size` | `Size` | `medium` | 크기입니다. `small`, `medium`, `large` 중에서 고릅니다. |
-| `numeric` | `boolean` | `false` | 레이블이 개수 같은 숫자일 때 켭니다. 숫자도 텍스트로 표시될 뿐 자동으로 세지 않습니다. |
+| `appearance` | `'outline' \| 'filled' \| 'pastel'` | `"outline"` | 컨테이너 모양입니다. `outline`은 윤곽선, `filled`는 채운 배경, `pastel`은 옅은 배경입니다. |
+| `tone` | `'secondary' \| 'gray' \| 'point' \| 'danger' \| 'warning' \| 'success' \| 'information' \| 'disabled'` | `"secondary"` | 색으로 전달할 의미입니다. 위험에는 `danger`, 경고에는 `warning`처럼 일반적인 색 의미에 맞춰 고릅니다. `disabled`는 표시용 색일 뿐 무언가를 비활성화하지 않습니다. |
+| `size` | `Size` | `"medium"` | 크기입니다. `small`, `medium`, `large` 중에서 고릅니다. |
+| `numeric` | `boolean` | `false` | 레이블이 개수 같은 숫자일 때 켜면 숫자에 맞는 모양으로 표시합니다. 숫자를 자동으로 세지는 않으므로 표시할 값은 `label`로 넘깁니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 

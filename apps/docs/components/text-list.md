@@ -19,8 +19,8 @@ title: 'Text list'
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | `ordered` | `boolean` | `false` | `true`로 두면 번호가 붙는 순서 있는 목록(`ol`)으로 표시합니다. |
-| `marker` | `'dot' \| 'dash' \| 'hollow'` | `dot` | 순서 없는 목록의 글머리 기호 모양입니다. `dot`, `dash`, `hollow` 중 하나입니다. |
-| `items` **필수** | `readonly TextListItem[]` | — | 목록 항목입니다. 항목마다 `id`와 `content`를 주고, `children`에 하위 항목을 넣으면 중첩 목록이 됩니다. `content`에는 링크를 담을 수 있습니다. |
+| `marker` | `'dot' \| 'dash' \| 'hollow'` | `"dot"` | 순서 없는 목록의 글머리 기호 모양입니다. `dot`, `dash`, `hollow` 중 하나이며 순서 있는 목록에서는 쓰이지 않습니다. |
+| `items` **필수** | `readonly TextListItem[]` | — | 목록 항목입니다. 항목마다 `id`와 `content`를 주고, `children`에 하위 항목을 넣으면 중첩 목록이 됩니다. 3수준을 넘게 중첩하면 오류가 납니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
@@ -43,8 +43,8 @@ export interface TextListItem {
 ## 접근성 {#accessibility}
 
 - 순서 없는 목록은 `ul`, 순서 있는 목록은 `ol`로 표시해 화면 낭독기가 목록과 항목 수를 알려 줍니다.
-- 글머리 기호를 직접 그리는 경우에도 모바일 화면 낭독기가 목록으로 인식하도록 `role="list"`와 `role="listitem"`을 함께 붙입니다.
-- 목록 자체는 초점을 받지 않습니다. 항목 안의 링크는 일반 읽기 순서대로 초점을 받습니다.
+- 글머리 기호 모양을 바꿔도 모바일 화면 낭독기가 목록으로 인식하도록 목록에 `role="list"`를 함께 붙입니다.
+- 목록과 항목은 초점을 받지 않습니다.
 
 ## 알아 둘 점 {#notes}
 

@@ -22,16 +22,16 @@ title: 'Radio button'
 | `defaultValue` | `string \| null` | `null` | 직접 제어하지 않을 때 처음 선택 값입니다. |
 | `onValueChange` | `(detail: ValueChangeDetails<string \| null>) => void` | — | 사용자가 다른 선택지를 고르면 `{value}`를 받아 불립니다. 이미 선택된 항목을 다시 누르거나 `value`를 바깥에서 바꿀 때는 불리지 않습니다. |
 | `id` | `string` | — | 그룹 전체를 감싸는 `fieldset`의 `id`입니다. |
-| `name` | `string` | — | 폼을 제출할 때 쓰는 이름입니다. 그룹 안의 모든 라디오 버튼이 같은 이름을 씁니다. |
+| `name` | `string` | — | 폼을 제출할 때 쓰는 이름입니다. 그룹 안의 모든 라디오 버튼이 같은 이름을 씁니다. 주지 않으면 자동으로 만든 이름을 씁니다. |
 | `label` **필수** | `string` | — | 그룹 레이블입니다. 무엇을 고르는지 알려 주며 `legend`로 표시합니다. |
 | `disabled` | `boolean` | `false` | `true`이면 그룹 전체를 조작할 수 없고 폼 제출 값에서도 빠집니다. |
 | `required` | `boolean` | `false` | 필수 항목으로 만듭니다. 아무것도 고르지 않으면 폼이 제출되지 않습니다. |
-| `invalid` | `boolean` | — | 그룹을 오류 상태로 표시합니다. 오류 내용은 `errorId`가 가리키는 문구로 알려 줍니다. |
+| `invalid` | `boolean` | `false` | 그룹을 오류 상태로 표시합니다. 오류 내용은 `errorId`가 가리키는 문구로 알려 줍니다. |
 | `helpId` | `string` | — | 도움말 문구 요소의 `id`입니다. 그룹의 설명으로 연결합니다. |
 | `errorId` | `string` | — | 오류 문구 요소의 `id`입니다. `invalid`일 때 그룹의 설명으로 연결합니다. |
 | `options` **필수** | `readonly RadioGroupOption[]` | — | 선택지 목록입니다. 각 항목은 `value`, `label`과 선택적인 `disabled`, `id`를 가집니다. `value`는 서로 달라야 하며, `id`를 주면 해당 라디오 버튼의 `id`로 씁니다. |
-| `size` | `'medium' \| 'large'` | `medium` | 라디오 버튼과 레이블의 크기입니다. `medium` 또는 `large`입니다. |
-| `appearance` | `'default' \| 'chip'` | — | `chip`으로 두면 선택지를 칩 모양으로 표시합니다. 동작은 일반 라디오 버튼과 같습니다. |
+| `size` | `'medium' \| 'large'` | `"medium"` | 라디오 버튼과 레이블의 크기입니다. `medium` 또는 `large`입니다. |
+| `appearance` | `'default' \| 'chip'` | `"default"` | `chip`으로 두면 선택지를 칩 모양으로 표시합니다. 동작은 일반 라디오 버튼과 같습니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
@@ -81,8 +81,8 @@ export interface SelectOption {
 | 키 | 동작 |
 | --- | --- |
 | `Tab` / `Shift+Tab` | 그룹 안의 라디오 버튼을 하나씩 차례로 이동합니다. 초점만 옮기며 선택은 바뀌지 않습니다. 비활성 항목은 건너뜁니다. |
-| `↓` / `→` | 다음 라디오 버튼으로 초점을 옮기고 선택합니다. |
-| `↑` / `←` | 이전 라디오 버튼으로 초점을 옮기고 선택합니다. |
+| `↓` / `→` | 다음 라디오 버튼으로 초점을 옮기고 선택합니다. 마지막 항목에서는 첫 항목으로 돌아갑니다. |
+| `↑` / `←` | 이전 라디오 버튼으로 초점을 옮기고 선택합니다. 첫 항목에서는 마지막 항목으로 돌아갑니다. |
 | `Space` | 초점이 있는 라디오 버튼을 선택합니다. |
 
 ## 접근성 {#accessibility}
