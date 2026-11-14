@@ -1,13 +1,19 @@
 /* KRDS-derived: frozen component.css lines 2–1133 link branches; semantic guidance: specs/components/link.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="link"][data-krds-part="root"] { display: inline-flex; align-items: baseline; gap: var(--krds-gap-2); color: var(--krds-light-color-link-default); text-decoration: underline; text-underline-offset: .2em; border-radius: var(--krds-radius-small2); }
+/* Frozen 426–449 .krds-btn.link: transparent fill, 0.2rem inline padding; common.css 1327–1330 underline offset 0.3rem.
+ * The medium size inherits the surrounding text size so a link can sit inside running prose. */
+[data-krds-component="link"][data-krds-part="root"] { display: inline-flex; align-items: baseline; gap: var(--krds-gap-1); padding: 0 var(--krds-padding-1); border-radius: var(--krds-radius-small2); background: var(--krds-light-color-button-text-fill); color: var(--krds-light-color-link-default); text-align: start; text-decoration: underline; text-underline-offset: .3rem; }
 [data-krds-component="link"][data-krds-part="root"][data-krds-underline="false"]:not([aria-disabled="true"]) { text-decoration: none; }
+/* Frozen 526–544: visited, hover, pressed/focus colours. */
 [data-krds-component="link"][data-krds-part="root"]:visited { color: var(--krds-light-color-link-visited); }
-[data-krds-component="link"][data-krds-part="root"]:hover { text-decoration-thickness: .15em; }
+[data-krds-component="link"][data-krds-part="root"]:hover { color: var(--krds-light-color-link-hover); }
+[data-krds-component="link"][data-krds-part="root"]:is(:active, :focus) { color: var(--krds-light-color-link-pressed); }
 [data-krds-component="link"][data-krds-part="root"][data-krds-appearance="emphasis"] { font-weight: 700; }
-[data-krds-component="link"][data-krds-part="root"][aria-disabled="true"] { color: var(--krds-light-color-text-disabled); text-decoration: line-through; cursor: not-allowed; }
+/* Frozen 319–330 disabled link text. */
+[data-krds-component="link"][data-krds-part="root"]:is([aria-disabled="true"], [data-krds-state~="disabled"]) { color: var(--krds-light-color-text-disabled); cursor: not-allowed; }
 [data-krds-component="link"][data-krds-part="label"] { min-inline-size: 0; }
 [data-krds-component="link"][data-krds-part="icon"] { flex: none; inline-size: 1em; block-size: 1em; }
-[data-krds-component="link"][data-krds-part="root"][data-krds-size="small"] { font-size: var(--krds-pc-font-size-body-small); }
-[data-krds-component="link"][data-krds-part="root"][data-krds-size="large"] { font-size: var(--krds-pc-font-size-body-large); }
-@media (max-width: 767px) { [data-krds-component="link"][data-krds-part="root"][data-krds-size="small"] { font-size: var(--krds-mobile-font-size-body-small); } [data-krds-component="link"][data-krds-part="root"][data-krds-size="large"] { font-size: var(--krds-mobile-font-size-body-large); } }
+/* Frozen 454–501 size scale. */
+[data-krds-component="link"][data-krds-part="root"][data-krds-size="small"] { font-size: var(--krds-pc-font-size-label-small); }
+[data-krds-component="link"][data-krds-part="root"][data-krds-size="large"] { font-size: var(--krds-pc-font-size-label-large); }
+@media (max-width: 767px) { [data-krds-component="link"][data-krds-part="root"][data-krds-size="small"] { font-size: var(--krds-mobile-font-size-label-small); } [data-krds-component="link"][data-krds-part="root"][data-krds-size="large"] { font-size: var(--krds-mobile-font-size-label-large); } }

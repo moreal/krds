@@ -4,5 +4,5 @@
 [data-krds-component="image"][data-krds-part="figure"] { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--krds-gap-3); margin: 0; }
 [data-krds-component="image"][data-krds-part="caption"] { color: var(--krds-light-color-text-subtle); font-size: var(--krds-pc-font-size-body-small); }
 [data-krds-component="image"][data-krds-part="description"] { color: var(--krds-light-color-text-basic); }
-[data-krds-component="image"][data-krds-part="root"][data-krds-state~="error"] { border: var(--krds-number-2) dashed var(--krds-light-color-border-gray); }
+[data-krds-component="image"][data-krds-part="root"][data-krds-state~="error"] { border: var(--krds-number-1) solid var(--krds-light-color-border-gray); }
 @media (max-width: 767px) { [data-krds-component="image"][data-krds-part="caption"] { font-size: var(--krds-mobile-font-size-body-small); } }

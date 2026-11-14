@@ -1,31 +1,46 @@
 /* KRDS-derived: frozen component.css lines 2489–2564 with stable reduced-motion alternative; semantic guidance: specs/components/spinner.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="spinner"][data-krds-part="root"] { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--krds-number-5); color: var(--krds-light-color-text-subtle); }
-[data-krds-component="spinner"][data-krds-part="track"] { position: relative; inline-size: var(--krds-size-height-3); block-size: var(--krds-size-height-3); border: var(--krds-number-2) solid var(--krds-light-color-element-disabled-light); border-radius: var(--krds-radius-max); flex: none; }
-[data-krds-component="spinner"][data-krds-part="indicator"] { display: block; inline-size: 100%; block-size: 100%; border: var(--krds-number-2) solid transparent; border-block-start-color: var(--krds-light-color-element-primary); border-radius: var(--krds-radius-max); }
+/* Frozen 2490–2519: centred row, 0.8rem gap, subtle body-small text. */
+[data-krds-component="spinner"][data-krds-part="root"] { position: relative; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--krds-number-5); color: var(--krds-light-color-text-subtle); font-size: var(--krds-pc-font-size-body-small); }
+/* A track, where a renderer emits one, only holds the ring; the indicator draws it (frozen 2520–2529 ::before):
+ * 2.0rem circle, 0.2rem disabled-light border with a primary top arc, one turn every 900ms. */
+[data-krds-component="spinner"][data-krds-part="track"] { position: relative; display: inline-flex; flex: none; inline-size: var(--krds-size-height-3); block-size: var(--krds-size-height-3); }
+[data-krds-component="spinner"][data-krds-part="indicator"]:not(circle, path) { appearance: none; display: block; flex: none; box-sizing: border-box; inline-size: var(--krds-size-height-3); block-size: var(--krds-size-height-3); margin: 0; padding: 0; border: var(--krds-light-border-width-variable-medium) solid var(--krds-light-color-element-disabled-light); border-block-start-color: var(--krds-light-color-element-primary); border-radius: var(--krds-radius-max); background: transparent; color: transparent; overflow: hidden; }
 [data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"] { animation: krds-spinner-rotate 900ms linear infinite; }
 [data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="determinate"] { transform: rotate(-90deg); stroke: var(--krds-light-color-element-primary); fill: none; }
-[data-krds-component="spinner"][data-krds-part="label"], [data-krds-component="spinner"][data-krds-part="status"] { font-size: var(--krds-pc-font-size-body-small); }
-[data-krds-component="spinner"][data-krds-part="root"][data-krds-size="small"] [data-krds-component="spinner"][data-krds-part="track"] { inline-size: var(--krds-size-height-2); block-size: var(--krds-size-height-2); }
-[data-krds-component="spinner"][data-krds-part="root"][data-krds-size="large"] [data-krds-component="spinner"][data-krds-part="track"] { inline-size: var(--krds-size-height-5); block-size: var(--krds-size-height-5); }
-[data-krds-component="spinner"][data-krds-part="root"][data-krds-layout="region"] { inline-size: 100%; padding: var(--krds-padding-8); }
-@keyframes krds-spinner-rotate { to { transform: rotate(360deg); } }
+[data-krds-component="spinner"][data-krds-part="label"], [data-krds-component="spinner"][data-krds-part="status"] { margin: 0; font-size: var(--krds-pc-font-size-body-small); }
+[data-krds-component="spinner"][data-krds-part="root"][data-krds-size="small"] :is([data-krds-component="spinner"][data-krds-part="track"], [data-krds-component="spinner"][data-krds-part="indicator"]:not(circle, path)) { inline-size: var(--krds-size-height-2); block-size: var(--krds-size-height-2); }
+[data-krds-component="spinner"][data-krds-part="root"][data-krds-size="large"] :is([data-krds-component="spinner"][data-krds-part="track"], [data-krds-component="spinner"][data-krds-part="indicator"]:not(circle, path)) { inline-size: var(--krds-size-height-5); block-size: var(--krds-size-height-5); }
+[data-krds-component="spinner"][data-krds-part="root"][data-krds-layout="region"] { display: flex; inline-size: 100%; padding: var(--krds-padding-8); }
+@keyframes krds-spinner-rotate { from { transform: rotate(0deg); } to { transform: rotate(359deg); } }
 @media (prefers-reduced-motion: reduce) { [data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"] { animation: none; border-style: dashed; } }
-@media (forced-colors: active) { [data-krds-component="spinner"][data-krds-part="track"] { border-color: GrayText; } [data-krds-component="spinner"][data-krds-part="indicator"] { border-block-start-color: CanvasText; stroke: CanvasText; } }
-@media (max-width: 767px) { [data-krds-component="spinner"][data-krds-part="label"], [data-krds-component="spinner"][data-krds-part="status"] { font-size: var(--krds-mobile-font-size-body-small); } }
+@media (forced-colors: active) { [data-krds-component="spinner"][data-krds-part="indicator"]:not(circle, path) { border-color: GrayText; border-block-start-color: CanvasText; } [data-krds-component="spinner"][data-krds-part="indicator"] { stroke: CanvasText; } }
+@media (max-width: 767px) { [data-krds-component="spinner"][data-krds-part="root"], [data-krds-component="spinner"][data-krds-part="label"], [data-krds-component="spinner"][data-krds-part="status"] { font-size: var(--krds-mobile-font-size-body-small); } }
 /* Determinate native SVG/path/progress geometry receives the host's actual numeric value. */
-[data-krds-component="spinner"][data-krds-part="track"]:is(svg) { border: 0; overflow: visible; }
-[data-krds-component="spinner"][data-krds-part="indicator"]:is(circle,path) { border: 0; stroke: var(--krds-light-color-element-primary); stroke-width: 2; fill: none; transform-origin: center; }
+[data-krds-component="spinner"][data-krds-part="track"]:is(svg) { overflow: visible; }
+[data-krds-component="spinner"][data-krds-part="indicator"]:is(circle,path) { stroke: var(--krds-light-color-element-primary); stroke-width: 2; fill: none; transform-origin: center; }
 @media (forced-colors: active) { [data-krds-component="spinner"][data-krds-part="indicator"]:is(circle,path) { stroke: CanvasText; } }
 
-/* A real native progress element owns its own fill/indeterminate presentation;
- * the decorative ring's rotation and border must not rotate that native control. */
-progress[data-krds-component="spinner"][data-krds-part="indicator"]:is([data-krds-state~="determinate"], [data-krds-state~="indeterminate"]) {
-  inline-size: min(12em, 100%);
+/* An indeterminate native progress element is drawn as the same ring: its inner bar is cleared. */
+progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"]::-webkit-progress-bar { background: transparent; }
+progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"]::-webkit-progress-value { background: transparent; }
+progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"]::-moz-progress-bar { background: transparent; }
+[data-krds-component="spinner"][data-krds-part="track"]:has(> progress[data-krds-state~="determinate"]) { inline-size: auto; block-size: auto; }
+/* A determinate native progress element keeps its own fill, which carries the numeric value;
+ * the ring's rotation and border must not apply to that native control. */
+progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="determinate"] {
+  appearance: auto;
+  inline-size: 12em;
+  max-inline-size: 100%;
   block-size: 1em;
   border: 0;
   border-radius: 0;
+  overflow: visible;
+  background: initial;
+  color: inherit;
   accent-color: var(--krds-light-color-element-primary);
   transform: none;
   animation: none;
 }
+/* A determinate native progress bar keeps its value semantics and takes the KRDS primary color. */
+progress[data-krds-component="spinner"][data-krds-part="indicator"] { accent-color: var(--krds-light-color-element-primary); }

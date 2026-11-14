@@ -1,16 +1,45 @@
-[data-krds-component="native-select"][data-krds-part="root"] { display: grid; gap: var(--krds-gap-2); }
-[data-krds-component="native-select"][data-krds-part="label"] { font-weight: 700; }
+/* KRDS-derived: frozen component.css lines 9502–9650 (.krds-form-select) and 8725–8912 (.form-group, .form-hint). */
+[data-krds-component="native-select"][data-krds-part="root"] { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--krds-gap-3); inline-size: 100%; }
+[data-krds-component="native-select"][data-krds-part="label"] { inline-size: 100%; color: var(--krds-light-color-text-subtle); font-weight: 400; }
+/* Fixed height per size, 1px input border, trailing angle indicator drawn with gradients in place of the frozen ico_angle asset.
+ * The frozen placeholder/completed text split needs a "value chosen" state; the resting color is the completed one. */
 [data-krds-component="native-select"][data-krds-part="control"] {
+  appearance: none;
+  box-sizing: border-box;
   inline-size: 100%;
-  min-block-size: var(--krds-size-height-7);
-  padding: var(--krds-number-2) var(--krds-padding-6);
-  border: var(--krds-number-1) solid var(--krds-light-color-input-border);
+  block-size: var(--krds-size-height-7);
+  margin: 0;
+  padding-block: 0;
+  padding-inline: var(--krds-padding-6) calc(var(--krds-padding-6) + var(--krds-gap-3) + var(--krds-size-height-3));
+  border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-input-border);
   border-radius: var(--krds-radius-medium2);
-  background: var(--krds-light-color-input-surface);
-  color: var(--krds-light-color-text-basic);
+  background-color: var(--krds-light-color-input-surface);
+  background-image: linear-gradient(45deg, transparent 43%, var(--krds-light-color-icon-gray) 43%, var(--krds-light-color-icon-gray) 57%, transparent 57%), linear-gradient(135deg, transparent 43%, var(--krds-light-color-icon-gray) 43%, var(--krds-light-color-icon-gray) 57%, transparent 57%);
+  background-repeat: no-repeat;
+  background-position: right calc(var(--krds-padding-6) + var(--krds-size-height-3) * .5) center, right calc(var(--krds-padding-6) + var(--krds-size-height-3) * .2) center;
+  background-size: calc(var(--krds-size-height-3) * .3) calc(var(--krds-size-height-3) * .3);
+  color: var(--krds-light-color-text-subtle);
+  font-family: inherit;
+  font-size: var(--krds-pc-font-size-label-medium);
+  transition: border-color .4s ease-in-out, background-color .4s ease-in-out, color .4s ease-in-out;
 }
-[data-krds-component="native-select"][data-krds-part="control"][data-krds-size="small"] { min-block-size: var(--krds-size-height-6); }
-[data-krds-component="native-select"][data-krds-part="control"][data-krds-size="large"] { min-block-size: var(--krds-size-height-8); }
-[data-krds-component="native-select"][data-krds-part="control"]:is([aria-invalid="true"], [data-krds-state~="invalid"]) { border-color: var(--krds-light-color-input-border-error); border-width: var(--krds-number-2); }
-[data-krds-component="native-select"][data-krds-part="control"]:disabled { background: var(--krds-light-color-input-surface-disabled); color: var(--krds-light-color-text-disabled-on); }
+[data-krds-component="native-select"][data-krds-part="control"][data-krds-size="small"] { block-size: var(--krds-size-height-6); padding-inline: var(--krds-padding-6) calc(var(--krds-padding-6) + var(--krds-gap-3) + var(--krds-size-height-2)); background-position: right calc(var(--krds-padding-6) + var(--krds-size-height-2) * .5) center, right calc(var(--krds-padding-6) + var(--krds-size-height-2) * .2) center; background-size: calc(var(--krds-size-height-2) * .3) calc(var(--krds-size-height-2) * .3); border-radius: var(--krds-radius-medium3); font-size: var(--krds-pc-font-size-label-small); }
+[data-krds-component="native-select"][data-krds-part="control"][data-krds-size="medium"] { block-size: var(--krds-size-height-7); padding-inline: var(--krds-padding-6) calc(var(--krds-padding-6) + var(--krds-gap-3) + var(--krds-size-height-3)); background-position: right calc(var(--krds-padding-6) + var(--krds-size-height-3) * .5) center, right calc(var(--krds-padding-6) + var(--krds-size-height-3) * .2) center; background-size: calc(var(--krds-size-height-3) * .3) calc(var(--krds-size-height-3) * .3); border-radius: var(--krds-radius-medium2); font-size: var(--krds-pc-font-size-label-medium); }
+[data-krds-component="native-select"][data-krds-part="control"][data-krds-size="large"] { block-size: var(--krds-size-height-8); padding-inline: var(--krds-padding-6) calc(var(--krds-padding-6) + var(--krds-gap-3) + var(--krds-size-height-4)); background-position: right calc(var(--krds-padding-6) + var(--krds-size-height-4) * .5) center, right calc(var(--krds-padding-6) + var(--krds-size-height-4) * .2) center; background-size: calc(var(--krds-size-height-4) * .3) calc(var(--krds-size-height-4) * .3); border-radius: var(--krds-radius-medium1); font-size: var(--krds-pc-font-size-label-large); }
+[data-krds-component="native-select"][data-krds-part="control"]:focus { border-color: var(--krds-light-color-input-border-active); border-width: var(--krds-number-2); color: var(--krds-light-color-text-basic); }
+/* Frozen 9629–9632 / 9647–9650 draw the error border with the point text color. */
+[data-krds-component="native-select"][data-krds-part="control"]:is([aria-invalid="true"], [data-krds-state~="invalid"]) { border-color: var(--krds-light-color-text-point); border-width: var(--krds-number-2); }
+[data-krds-component="native-select"][data-krds-part="control"]:disabled { background-color: var(--krds-light-color-input-surface-disabled); background-image: linear-gradient(45deg, transparent 43%, var(--krds-light-color-icon-disabled-on) 43%, var(--krds-light-color-icon-disabled-on) 57%, transparent 57%), linear-gradient(135deg, transparent 43%, var(--krds-light-color-icon-disabled-on) 43%, var(--krds-light-color-icon-disabled-on) 57%, transparent 57%); border-color: var(--krds-light-color-input-border-disabled); border-width: var(--krds-light-border-width-variable-regular); color: var(--krds-light-color-text-disabled-on); }
+[data-krds-component="native-select"][data-krds-part="hint"], [data-krds-component="native-select"][data-krds-part="error"] { inline-size: 100%; margin: 0; font-size: var(--krds-pc-font-size-label-xsmall); color: var(--krds-light-color-text-subtle); }
+[data-krds-component="native-select"][data-krds-part="error"] { color: var(--krds-light-color-text-danger); }
+/* The control draws the indicator itself; a renderer-provided icon would draw it twice. */
 [data-krds-component="native-select"][data-krds-part="icon"] { display: none; }
+@media (max-width: 767px) {
+  [data-krds-component="native-select"][data-krds-part="control"] { font-size: var(--krds-mobile-font-size-label-medium); }
+  [data-krds-component="native-select"][data-krds-part="control"][data-krds-size="small"] { font-size: var(--krds-mobile-font-size-label-small); }
+  [data-krds-component="native-select"][data-krds-part="control"][data-krds-size="medium"] { font-size: var(--krds-mobile-font-size-label-medium); }
+  [data-krds-component="native-select"][data-krds-part="control"][data-krds-size="large"] { font-size: var(--krds-mobile-font-size-label-large); }
+  [data-krds-component="native-select"][data-krds-part="hint"], [data-krds-component="native-select"][data-krds-part="error"] { font-size: var(--krds-mobile-font-size-label-xsmall); }
+}
+/* Forced colors drop background images: hand the indicator back to the system control. */
+@media (forced-colors: active) { [data-krds-component="native-select"][data-krds-part="control"] { appearance: auto; background-image: none; } }

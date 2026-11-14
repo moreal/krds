@@ -1,16 +1,23 @@
-[data-krds-component="date-input"][data-krds-part="root"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-2); border: 0; padding: 0; margin: 0; }
-[data-krds-component="date-input"]:is([data-krds-part="label"], [data-krds-part="hint"], [data-krds-part="error"]) { flex-basis: 100%; }
-[data-krds-component="date-input"][data-krds-part="label"] { font-weight: 700; }
-[data-krds-component="date-input"]:is([data-krds-part="control"], [data-krds-part="start-input"], [data-krds-part="end-input"]) { flex: 1 1 10em; inline-size: 10em; min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-4); border: var(--krds-number-1) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-input-surface); color: var(--krds-light-color-text-basic); }
-[data-krds-component="date-input"]:is(input)[data-krds-state~="invalid"] { border-color: var(--krds-light-color-input-border-error); border-width: var(--krds-number-2); }
-[data-krds-component="date-input"]:is(input):disabled { background: var(--krds-light-color-input-surface-disabled); }
-[data-krds-component="date-input"][data-krds-part="trigger"] { flex: 0 0 auto; min-inline-size: var(--krds-size-height-7); min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-3) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-button-secondary-fill); color: var(--krds-light-color-text-primary); font: inherit; cursor: pointer; }
-[data-krds-component="date-input"][data-krds-part="trigger"][data-krds-state~="open"] { text-decoration: underline; }
+/* KRDS-derived: frozen component.css lines 9421–9439 (.calendar-input), 9203–9361 (.krds-input) and 8725–8912 (.form-group, .form-hint). */
+[data-krds-component="date-input"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-3); inline-size: 100%; border: 0; padding: 0; margin: 0; }
+[data-krds-component="date-input"]:is([data-krds-part="label"], [data-krds-part="hint"], [data-krds-part="error"]) { flex-basis: 100%; inline-size: 100%; margin: 0; }
+[data-krds-component="date-input"][data-krds-part="label"] { padding: 0; color: var(--krds-light-color-text-subtle); font-weight: 400; }
+/* Unsized .krds-input.datepicker: height-8, radius-medium3, label-large text, horizontal padding only. */
+[data-krds-component="date-input"]:is([data-krds-part="control"], [data-krds-part="start-input"], [data-krds-part="end-input"]) { appearance: none; box-sizing: border-box; flex: 1 1 10em; inline-size: 10em; block-size: var(--krds-size-height-8); margin: 0; padding: 0 var(--krds-padding-6); border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium3); background: var(--krds-light-color-input-surface); box-shadow: none; color: var(--krds-light-color-text-subtle); font-family: inherit; font-size: var(--krds-pc-font-size-label-large); transition: border-color .4s ease-in-out, background-color .4s ease-in-out, color .4s ease-in-out; }
+[data-krds-component="date-input"]:is([data-krds-part="control"], [data-krds-part="start-input"], [data-krds-part="end-input"])::placeholder { color: var(--krds-light-color-text-disabled); opacity: 1; }
+[data-krds-component="date-input"]:is([data-krds-part="control"], [data-krds-part="start-input"], [data-krds-part="end-input"]):focus { border-color: var(--krds-light-color-input-border-active); border-width: var(--krds-number-2); }
+[data-krds-component="date-input"]:is(input)[data-krds-state~="invalid"] { background: var(--krds-light-color-input-surface); border-color: var(--krds-light-color-input-border-error); border-width: var(--krds-number-2); }
+[data-krds-component="date-input"]:is(input)[data-krds-state~="invalid"]:focus { border-color: var(--krds-light-color-input-border-active); }
+[data-krds-component="date-input"]:is(input):disabled { background: var(--krds-light-color-input-surface-disabled); border-color: var(--krds-light-color-input-border-disabled); border-width: var(--krds-light-border-width-variable-regular); color: var(--krds-light-color-text-disabled-on); }
+[data-krds-component="date-input"][data-krds-part="hint"], [data-krds-component="date-input"][data-krds-part="error"] { font-size: var(--krds-pc-font-size-label-xsmall); color: var(--krds-light-color-text-subtle); }
+[data-krds-component="date-input"][data-krds-part="error"] { color: var(--krds-light-color-text-danger); }
+/* The trigger carries a text label, so it stays a secondary button beside the field (same height) instead of the frozen in-field icon button. */
+[data-krds-component="date-input"][data-krds-part="trigger"] { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--krds-size-height-8); min-block-size: var(--krds-size-height-8); padding: 0 var(--krds-padding-7); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium3); background: var(--krds-light-color-button-secondary-fill); color: var(--krds-light-color-text-primary); font: inherit; font-size: var(--krds-pc-font-size-label-large); font-weight: 400; cursor: pointer; }
 [data-krds-component="date-input"][data-krds-part="popup"] {
   position: fixed;
   inset: 0;
   margin: auto;
-  inline-size: min(40rem, calc(100vw - var(--krds-gap-5)));
+  inline-size: min(calc(38.4rem + var(--krds-padding-6) * 2 + var(--krds-number-1) * 2), calc(100vw - var(--krds-gap-5)));
   max-inline-size: calc(100vw - var(--krds-gap-5));
   max-block-size: calc(100dvh - var(--krds-gap-5));
   padding: var(--krds-padding-6);
@@ -27,4 +34,9 @@
 [data-krds-component="date-input"][data-krds-part="trigger"]:not(:disabled):hover { background: var(--krds-light-color-button-secondary-fill-hover); }
 [data-krds-component="date-input"][data-krds-part="trigger"]:not(:disabled):active { background: var(--krds-light-color-button-secondary-fill-pressed); }
 [data-krds-component="date-input"][data-krds-part="trigger"]:disabled { background: var(--krds-light-color-button-disabled-fill); border-color: var(--krds-light-color-button-disabled-border); color: var(--krds-light-color-text-disabled-on); cursor: not-allowed; }
+@media (max-width: 767px) {
+  [data-krds-component="date-input"]:is([data-krds-part="control"], [data-krds-part="start-input"], [data-krds-part="end-input"]) { font-size: var(--krds-mobile-font-size-label-large); }
+  [data-krds-component="date-input"][data-krds-part="trigger"] { font-size: var(--krds-mobile-font-size-label-large); }
+  [data-krds-component="date-input"][data-krds-part="hint"], [data-krds-component="date-input"][data-krds-part="error"] { font-size: var(--krds-mobile-font-size-label-xsmall); }
+}
 @media (forced-colors: active) { [data-krds-component="date-input"][data-krds-part="trigger"] { border-color: ButtonText; } [data-krds-component="date-input"][data-krds-part="trigger"]:disabled { border-color: GrayText; color: GrayText; } }

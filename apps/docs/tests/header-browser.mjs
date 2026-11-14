@@ -43,7 +43,7 @@ try {
     await page.goto(origin + '/krds/', { waitUntil: 'networkidle' }); await settle(page); await resize(page, width);
     if (doubled) await page.evaluate(() => document.documentElement.style.fontSize = '125%');
     const before = await measurements(page), tag = `${name}-${width}-${doubled ? 'text200' : 'text100'}`;
-    assert.equal(before.bodyFont, doubled ? '32px' : '16px');
+    assert.equal(before.bodyFont, doubled ? '34px' : '17px');
     assert.ok(before.scrollWidth <= width + 1, `${tag} horizontal page fit`);
     const logo = page.locator('.docs-header img');
     const ratio = await logo.evaluate(img => img.naturalWidth / img.naturalHeight); assert.ok(Math.abs(ratio - 338 / 40) < .01);

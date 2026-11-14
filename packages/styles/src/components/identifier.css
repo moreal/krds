@@ -1,7 +1,10 @@
 /* KRDS-derived: frozen component.css lines 5695–5754; semantic guidance: specs/components/identifier.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="identifier"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-4); padding-block: var(--krds-padding-6); color: var(--krds-light-color-text-basic); }
-[data-krds-component="identifier"][data-krds-part="logo"] { flex: none; max-inline-size: 12rem; block-size: auto; }
+/* Frozen 5695–5714: white 4.0rem row, 0.8rem gap, 0.8/1.6rem padding, 0.6rem radius. */
+[data-krds-component="identifier"][data-krds-part="root"] { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--krds-gap-3); inline-size: 100%; min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3) var(--krds-padding-6); border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-surface-white); color: var(--krds-light-color-text-basic); }
+/* Frozen 5715–5728 .logo. */
+[data-krds-component="identifier"][data-krds-part="logo"] { flex: none; inline-size: 6.8rem; block-size: var(--krds-size-height-4); object-fit: contain; object-position: left center; }
+/* Frozen 5729–5737 .ban-txt. */
 [data-krds-component="identifier"][data-krds-part="text"] { margin: 0; font-size: var(--krds-pc-font-size-body-small); }
 [data-krds-component="identifier"][data-krds-part="root"][data-krds-theme="dark"] { background: var(--krds-light-color-background-inverse); color: var(--krds-light-color-text-basic-inverse); }
-@media (max-width: 767px) { [data-krds-component="identifier"][data-krds-part="text"] { font-size: var(--krds-mobile-font-size-body-small); } }
+@media (max-width: 767px) { [data-krds-component="identifier"][data-krds-part="root"] { flex-direction: column; align-items: flex-start; gap: var(--krds-gap-2); } [data-krds-component="identifier"][data-krds-part="logo"] { inline-size: 5.8rem; block-size: var(--krds-size-height-3); } [data-krds-component="identifier"][data-krds-part="text"] { font-size: var(--krds-mobile-font-size-body-xsmall); } }

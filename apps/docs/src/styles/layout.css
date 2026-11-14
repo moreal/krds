@@ -1,10 +1,14 @@
 /* Page composition and document typography. All controls retain public KRDS CSS. */
 html { color-scheme: light; }
-body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(--krds-light-color-text-basic); background: var(--krds-light-color-background-white); }
-.docs-shell { max-inline-size: 144rem; margin-inline: auto; }
-.docs-header { padding-inline: var(--krds-padding-8); }
+/* KRDS body text: body-medium (17px), words kept whole in Korean (common.css keep-all). */
+body { font-family: 'Pretendard GOV', sans-serif; font-size: var(--krds-pc-font-size-body-medium); line-height: 1.5; word-break: keep-all; overflow-wrap: break-word; color: var(--krds-light-color-text-basic); background: var(--krds-light-color-background-white); }
+/* Bands (header, project note, footer) span the viewport like KRDS; only their content is held to the
+ * 144rem reading frame. A percentage inside the custom property resolves against each band's own width. */
+.docs-shell { --docs-gutter: max(var(--krds-padding-8), calc((100% - 144rem) / 2 + var(--krds-padding-8))); }
+.docs-header { padding-inline: var(--docs-gutter); border-block-end: var(--krds-number-1) solid var(--krds-light-color-border-gray-light); }
+.docs-shell > [data-krds-component="footer"][data-krds-part="root"] { padding-inline: var(--docs-gutter); }
 /* The Header host owns its responsive layout and when its mobile trigger is exposed. */
-.docs-header > header { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; }
+.docs-header > header { border-block-end: 0; display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; }
 .docs-header [data-krds-part="identity"] { inline-size: 18rem; min-block-size: 4.4rem; }
 /* Reserve the outlined SVG's exact ratio before it loads. */
 .docs-header [data-krds-part="identity"] img, .docs-shell [data-krds-component="footer"][data-krds-part="logo"] { inline-size: 18rem; block-size: auto; aspect-ratio: 338 / 40; max-inline-size: 100%; }
@@ -13,8 +17,8 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
 .docs-header [data-krds-part="actions"] { grid-column: 2; grid-row: 1; }
 .docs-header [data-krds-part="navigation"] { grid-column: 1 / -1; grid-row: 2; min-inline-size: 0; }
 .docs-header [data-krds-part="mobile-trigger"] { display: none; }
-.docs-project-note { margin: 0; padding: var(--krds-padding-4) var(--krds-padding-8); background: var(--krds-light-color-surface-gray-subtler); font-size: var(--krds-pc-font-size-body-small); }
-.docs-layout { display: grid; grid-template-columns: 24rem minmax(0,1fr); gap: var(--krds-gap-8); padding: var(--krds-padding-8); align-items: start; }
+.docs-project-note { margin: 0; padding: var(--krds-padding-4) var(--docs-gutter); background: var(--krds-light-color-surface-gray-subtler); font-size: var(--krds-pc-font-size-body-small); }
+.docs-layout { display: grid; grid-template-columns: 24rem minmax(0,1fr); gap: var(--krds-gap-8); padding: var(--krds-padding-8) var(--docs-gutter); align-items: start; }
 .docs-sidebar, .docs-body, .docs-reading, #docs-main { min-inline-size: 0; }
 /* Keep the public Breadcrumb's complete route labels readable at narrow widths
  * and enlarged text, after its semantic ancestor reduction has run. */
@@ -45,6 +49,7 @@ body { font-family: 'Pretendard GOV', sans-serif; font-size: 1.6rem; color: var(
  .docs-header [data-krds-part="mobile-trigger"] { display: inline-flex; }
  .docs-shell[data-docs-ready="false"] .docs-header [data-krds-part="mobile-trigger"] { display: none; }
  .docs-project-note { padding-inline: var(--krds-padding-5); }
+ .docs-shell > [data-krds-component="footer"][data-krds-part="root"] { padding-inline: var(--krds-padding-5); }
 }
 /* Reading layout breakpoints are container queries in rem. Viewport media
  * queries ignore the root font size, so at 200 % text the fixed 24rem sidebar

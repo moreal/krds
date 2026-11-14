@@ -1,6 +1,9 @@
 /* KRDS-derived: frozen component.css lines 3466–3554; semantic guidance: specs/components/masthead.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="masthead"][data-krds-part="root"] { padding: var(--krds-padding-3) var(--krds-padding-6); background: var(--krds-light-color-surface-secondary-subtler); color: var(--krds-light-color-text-basic); }
-[data-krds-component="masthead"][data-krds-part="text"] { margin: 0; font-size: var(--krds-pc-font-size-body-small); }
+/* Frozen 3466–3492, 3547–3554: secondary-subtler band, 3.2rem minimum row, 0.4rem block padding (none below 1024px). */
+[data-krds-component="masthead"][data-krds-part="root"] { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-2) var(--krds-gap-5); min-block-size: var(--krds-size-height-5); padding: var(--krds-padding-2) var(--krds-padding-8); background: var(--krds-light-color-surface-secondary-subtler); color: var(--krds-light-color-text-basic); }
+/* Frozen 3493–3506 .nuri-txt. */
+[data-krds-component="masthead"][data-krds-part="text"] { display: flex; align-items: center; gap: var(--krds-gap-3); margin: 0; font-size: var(--krds-pc-font-size-body-small); }
+@media (max-width: 1023px) { [data-krds-component="masthead"][data-krds-part="root"] { padding-block: 0; padding-inline: var(--krds-padding-6); } }
 @media (max-width: 767px) { [data-krds-component="masthead"][data-krds-part="text"] { font-size: var(--krds-mobile-font-size-body-small); } }
 /* Government symbol is host supplied after rights/identity clearance, never synthesized here. */

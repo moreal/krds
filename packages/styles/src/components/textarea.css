@@ -1,13 +1,26 @@
 /* KRDS-derived: frozen component.css lines 9203–9419; semantic guidance: specs/components/textarea.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="textarea"][data-krds-part="root"] { display: grid; gap: var(--krds-gap-3); }
-[data-krds-component="textarea"][data-krds-part="label"] { font-weight: 700; }
-[data-krds-component="textarea"][data-krds-part="control"] { display: block; inline-size: 100%; min-block-size: 8em; padding: var(--krds-padding-6); resize: vertical; border: var(--krds-number-1) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-input-surface); color: var(--krds-light-color-text-basic); font: inherit; }
+/* Frozen 8725–8747 (.form-group) and 9363–9370 (.textarea-wrap): column, gap-3, subtle regular-weight label. */
+[data-krds-component="textarea"][data-krds-part="root"] { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--krds-gap-3); inline-size: 100%; }
+[data-krds-component="textarea"][data-krds-part="label"] { inline-size: 100%; color: var(--krds-light-color-text-subtle); font-weight: 400; }
+/* Frozen 9238–9246 + 9345–9352 (textarea.krds-input, unsized default): 14.4rem tall, padding-3 / padding-6, radius-medium3, label-large text. */
+[data-krds-component="textarea"][data-krds-part="control"] { appearance: none; display: block; box-sizing: border-box; inline-size: 100%; min-block-size: 14.4rem; margin: 0; padding: var(--krds-padding-3) var(--krds-padding-6); resize: vertical; border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium3); background: var(--krds-light-color-input-surface); box-shadow: none; color: var(--krds-light-color-text-subtle); font-family: inherit; font-size: var(--krds-pc-font-size-label-large); transition: border-color .4s ease-in-out, background-color .4s ease-in-out, color .4s ease-in-out; }
 [data-krds-component="textarea"][data-krds-part="control"]::placeholder { color: var(--krds-light-color-text-disabled); opacity: 1; }
-[data-krds-component="textarea"][data-krds-part="control"]:focus { border-color: var(--krds-light-color-input-border-active); }
-[data-krds-component="textarea"][data-krds-part="control"][aria-invalid="true"] { border: var(--krds-number-3) double var(--krds-light-color-input-border-error); }
-[data-krds-component="textarea"][data-krds-part="control"]:is(:disabled,:read-only) { background: var(--krds-light-color-input-surface-disabled); border-color: var(--krds-light-color-input-border-disabled); }
-[data-krds-component="textarea"][data-krds-part="control"]:disabled { color: var(--krds-light-color-text-disabled-on); }
-[data-krds-component="textarea"][data-krds-part="help"] { color: var(--krds-light-color-text-subtle); }
-[data-krds-component="textarea"][data-krds-part="count"] { justify-self: end; font-variant-numeric: tabular-nums; }
-[data-krds-component="textarea"][data-krds-part="error"] { margin: 0; }
+/* Frozen 9300–9323 and 9353–9361: 2px active border on focus, 2px error border, shared disabled surface. */
+[data-krds-component="textarea"][data-krds-part="control"]:focus { border-color: var(--krds-light-color-input-border-active); border-width: var(--krds-number-2); }
+[data-krds-component="textarea"][data-krds-part="control"]:read-only { background: var(--krds-light-color-input-surface-disabled); border-color: var(--krds-light-color-input-border-disabled); color: var(--krds-light-color-text-subtle); }
+[data-krds-component="textarea"][data-krds-part="control"]:read-only:focus { border-color: var(--krds-light-color-input-border-active); }
+[data-krds-component="textarea"][data-krds-part="control"]:is([aria-invalid="true"], [data-krds-state~="invalid"]) { background: var(--krds-light-color-input-surface); border-color: var(--krds-light-color-input-border-error); border-width: var(--krds-number-2); color: var(--krds-light-color-text-subtle); }
+[data-krds-component="textarea"][data-krds-part="control"]:is([aria-invalid="true"], [data-krds-state~="invalid"]):focus { border-color: var(--krds-light-color-input-border-active); }
+[data-krds-component="textarea"][data-krds-part="control"]:disabled { background: var(--krds-light-color-input-surface-disabled); border-color: var(--krds-light-color-input-border-disabled); border-width: var(--krds-light-border-width-variable-regular); color: var(--krds-light-color-text-disabled-on); }
+/* Frozen 8809–8912 (.form-hint / .form-hint-invalid). */
+[data-krds-component="textarea"][data-krds-part="help"], [data-krds-component="textarea"][data-krds-part="error"] { inline-size: 100%; margin: 0; font-size: var(--krds-pc-font-size-label-xsmall); color: var(--krds-light-color-text-subtle); }
+[data-krds-component="textarea"][data-krds-part="error"] { color: var(--krds-light-color-text-danger); }
+/* Frozen 9372–9398 (.textarea-count): right-aligned body-small subtle text, danger when over the limit. */
+[data-krds-component="textarea"][data-krds-part="count"] { justify-self: end; margin: 0; font-size: var(--krds-pc-font-size-body-small); color: var(--krds-light-color-text-subtle); font-variant-numeric: tabular-nums; }
+[data-krds-component="textarea"][data-krds-part="count"][data-krds-state~="invalid"] { color: var(--krds-light-color-text-danger); }
+@media (max-width: 767px) {
+  [data-krds-component="textarea"][data-krds-part="control"] { font-size: var(--krds-mobile-font-size-label-large); }
+  [data-krds-component="textarea"][data-krds-part="help"], [data-krds-component="textarea"][data-krds-part="error"] { font-size: var(--krds-mobile-font-size-label-xsmall); }
+  [data-krds-component="textarea"][data-krds-part="count"] { font-size: var(--krds-mobile-font-size-body-small); }
+}

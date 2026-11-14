@@ -5,7 +5,9 @@
 [data-krds-component="switch"][data-krds-part="control"]::before { content: ""; display: block; inline-size: calc(var(--krds-size-height-3) - .4rem); block-size: calc(var(--krds-size-height-3) - .4rem); border-radius: var(--krds-radius-max); background: var(--krds-light-color-element-inverse); border: var(--krds-number-1) solid currentColor; }
 [data-krds-component="switch"][data-krds-part="control"]:checked { background: var(--krds-light-color-element-primary); border-color: var(--krds-light-color-element-primary); }
 [data-krds-component="switch"][data-krds-part="control"]:checked::before { margin-inline-start: auto; }
-[data-krds-component="switch"][data-krds-part="track"], [data-krds-component="switch"][data-krds-part="handle"], [data-krds-component="switch"][data-krds-part="state-icon"] { pointer-events: none; }
+/* The control draws the track and handle itself; renderer-provided duplicates would break the two-column row. */
+[data-krds-component="switch"][data-krds-part="track"], [data-krds-component="switch"][data-krds-part="handle"], [data-krds-component="switch"][data-krds-part="state-icon"] { display: none; }
+[data-krds-component="switch"][data-krds-part="label"]:has(> [data-krds-component="switch"][data-krds-part="control"]) { grid-column: 1 / -1; display: inline-grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--krds-gap-3); }
 [data-krds-component="switch"][data-krds-part="label"] { cursor: pointer; }
 [data-krds-component="switch"][data-krds-part="help"] { grid-column: 2; color: var(--krds-light-color-text-subtle); }
 [data-krds-component="switch"][data-krds-part="control"]:disabled { background: var(--krds-light-color-element-disabled-light); border-color: var(--krds-light-color-element-disabled-dark); cursor: not-allowed; }

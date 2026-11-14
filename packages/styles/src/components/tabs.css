@@ -1,9 +1,17 @@
-[data-krds-component="tabs"][data-krds-part="list"] { display: flex; overflow-x: auto; gap: var(--krds-gap-2); border-block-end: var(--krds-number-1) solid var(--krds-light-color-border-gray); }
-[data-krds-component="tabs"][data-krds-part="list"][data-krds-orientation="vertical"] { flex-direction: column; }
-[data-krds-component="tabs"][data-krds-part="trigger"] { flex: 0 0 auto; padding: var(--krds-padding-4); border: 0; border-block-end: var(--krds-number-3) solid transparent; background: transparent; color: var(--krds-light-color-text-basic); cursor: pointer; }
-[data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"] { border-block-end-color: var(--krds-light-color-border-primary); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
-[data-krds-component="tabs"][data-krds-part="trigger"]:disabled { color: var(--krds-light-color-text-disabled-on); text-decoration: line-through; }
-[data-krds-component="tabs"][data-krds-part="panel"] { padding-block: var(--krds-padding-6); }
+/* KRDS-derived: frozen component.css lines 1139–1358 (.tab.line, the non-full line type); semantic guidance: specs/components/tabs.md.
+ * Native state, visibility, focus management and host effects remain renderer responsibilities. */
+[data-krds-component="tabs"][data-krds-part="list"] { display: flex; align-items: center; gap: var(--krds-gap-3); overflow-x: auto; }
+[data-krds-component="tabs"][data-krds-part="list"][data-krds-orientation="vertical"] { flex-direction: column; align-items: stretch; }
+/* Frozen .btn-tab (1204–1234) with .tab.line (1293–1314): size-height-7, min 6.4rem, bold subtle heading-xsmall text; the selected tab is secondary text over a 0.4rem bar. */
+[data-krds-component="tabs"][data-krds-part="trigger"] { position: relative; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; min-inline-size: 6.4rem; block-size: var(--krds-size-height-7); padding: 0 var(--krds-padding-2); border: var(--krds-number-1) solid var(--krds-light-color-action-secondary); background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-subtle); font-size: var(--krds-pc-font-size-heading-xsmall); font-weight: 700; white-space: nowrap; cursor: pointer; }
+[data-krds-component="tabs"][data-krds-part="trigger"]::before { content: ""; position: absolute; inset-block-end: 0; inset-inline-start: 0; inline-size: 0; block-size: .4rem; background: var(--krds-light-color-action-secondary-active); }
+[data-krds-component="tabs"][data-krds-part="trigger"]:not(:disabled):hover { background: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="tabs"][data-krds-part="trigger"]:not(:disabled):active { background: var(--krds-light-color-action-secondary-pressed); }
+[data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"] { color: var(--krds-light-color-text-secondary); }
+[data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"]::before { inline-size: 100%; }
+[data-krds-component="tabs"][data-krds-part="trigger"]:disabled { color: var(--krds-light-color-text-disabled); }
+[data-krds-component="tabs"][data-krds-part="panel"] { margin-block-start: var(--krds-padding-10); }
 [data-krds-component="tabs"][data-krds-part="panel"][data-krds-state~="inactive"] { display: none; }
 [data-krds-component="tabs"][data-krds-part="indicator"] { pointer-events: none; }
-@media (forced-colors: active) { [data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"] { border-color: Highlight; } }
+@media (max-width: 767px) { [data-krds-component="tabs"][data-krds-part="trigger"] { font-size: var(--krds-mobile-font-size-heading-xsmall); } }
+@media (forced-colors: active) { [data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"] { border-color: Highlight; } [data-krds-component="tabs"][data-krds-part="trigger"][data-krds-state~="selected"]::before { background: Highlight; } }

@@ -1,9 +1,15 @@
 /* KRDS-derived: frozen component.css lines 3300–3408; semantic guidance: specs/components/disclosure.md.
- * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="disclosure"][data-krds-part="root"] { display: block; }
-[data-krds-component="disclosure"][data-krds-part="trigger"] { display: inline-flex; align-items: center; gap: var(--krds-gap-2); padding: var(--krds-padding-3); border: 0; background: transparent; color: var(--krds-light-color-text-basic); font: inherit; cursor: pointer; text-align: start; }
-[data-krds-component="disclosure"][data-krds-part="trigger"]:hover { background: var(--krds-light-color-action-secondary-hover); }
-[data-krds-component="disclosure"][data-krds-part="icon"] { flex: none; inline-size: 1em; block-size: 1em; }
-[data-krds-component="disclosure"][data-krds-part="trigger"][aria-expanded="true"] [data-krds-component="disclosure"][data-krds-part="icon"] { transform: rotate(180deg); }
-[data-krds-component="disclosure"][data-krds-part="content"] { margin-block-start: var(--krds-gap-3); padding: var(--krds-padding-6); border-inline-start: var(--krds-number-2) solid var(--krds-light-color-divider-gray); }
+ * Native state, visibility, focus management and host effects remain renderer responsibilities.
+ * The trigger draws the leading medium icon itself (clip-path chevron, no asset) for every renderer; the
+ * renderer-provided text glyph is hidden. */
+[data-krds-component="disclosure"][data-krds-part="root"] { display: block; inline-size: 100%; }
+[data-krds-component="disclosure"][data-krds-part="root"] ~ [data-krds-component="disclosure"][data-krds-part="root"] { margin-block-start: 1.4rem; }
+[data-krds-component="disclosure"][data-krds-part="trigger"] { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; min-block-size: 2.6rem; padding: 0; border: 0; background: transparent; color: var(--krds-light-color-text-bolder); font: inherit; font-size: var(--krds-pc-font-size-body-medium); text-align: start; cursor: pointer; }
+[data-krds-component="disclosure"][data-krds-part="trigger"]::before { content: ""; flex: none; inline-size: var(--krds-size-height-3); block-size: var(--krds-size-height-3); margin-inline-end: var(--krds-gap-2); background-color: var(--krds-light-color-text-basic); clip-path: polygon(18% 36%, 26% 28%, 50% 52%, 74% 28%, 82% 36%, 50% 68%); forced-color-adjust: none; transform: rotate(0deg); transition: transform .4s ease-in-out; }
+[data-krds-component="disclosure"][data-krds-part="trigger"][aria-expanded="true"]::before { transform: rotate(180deg); }
+[data-krds-component="disclosure"][data-krds-part="icon"] { display: none; }
+[data-krds-component="disclosure"][data-krds-part="content"] { margin-block-start: var(--krds-gap-2); padding: var(--krds-pc-padding-card-small); border-radius: var(--krds-radius-xlarge2); background-color: var(--krds-light-color-surface-gray-subtle); }
+@media (max-width: 767px) { [data-krds-component="disclosure"][data-krds-part="trigger"] { font-size: var(--krds-mobile-font-size-body-medium); } [data-krds-component="disclosure"][data-krds-part="content"] { padding: var(--krds-mobile-padding-card-small); } }
+@media (prefers-reduced-motion: reduce) { [data-krds-component="disclosure"][data-krds-part="trigger"]::before { transition: none; } }
+@media (forced-colors: active) { [data-krds-component="disclosure"][data-krds-part="trigger"]::before { background-color: ButtonText; } }
 [data-krds-component="disclosure"][data-krds-part="content"][data-krds-state~="closed"] { display: none; }

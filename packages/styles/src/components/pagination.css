@@ -1,36 +1,40 @@
 /* KRDS-derived: frozen component.css lines 7269–7495; semantic guidance: specs/components/pagination.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="pagination"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--krds-gap-3); margin-block-start: var(--krds-pc-gap-layout-h2-h3); color: var(--krds-light-color-text-subtle); }
-[data-krds-component="pagination"][data-krds-part="list"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-3); margin: 0; padding: 0; list-style: none; }
+/* Frozen .krds-pagination (7291–7300): centred row, gap-3, subtle text. */
+[data-krds-component="pagination"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--krds-gap-3); inline-size: 100%; margin-block-start: var(--krds-pc-gap-layout-h2-h3); color: var(--krds-light-color-text-subtle); }
+[data-krds-component="pagination"][data-krds-part="list"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--krds-gap-3); margin: 0; padding: 0; list-style: none; }
 [data-krds-component="pagination"][data-krds-part="item"] { display: inline-flex; }
-[data-krds-component="pagination"][data-krds-part="link"], [data-krds-component="pagination"][data-krds-part="previous"], [data-krds-component="pagination"][data-krds-part="next"] { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--krds-size-height-6); min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-2) var(--krds-padding-3); border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-action-secondary); color: inherit; text-decoration: none; }
+/* Frozen .page-navi/.page-link (7301–7319, 7389–7392): size-height-6 boxes, radius medium1, transparent fill with hover/pressed states. */
+[data-krds-component="pagination"][data-krds-part="link"], [data-krds-component="pagination"][data-krds-part="previous"], [data-krds-component="pagination"][data-krds-part="next"] { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--krds-size-height-6); min-block-size: var(--krds-size-height-6); padding: 0 var(--krds-padding-2); border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-action-secondary); color: inherit; text-decoration: none; }
 [data-krds-component="pagination"][data-krds-part="link"]:hover, [data-krds-component="pagination"][data-krds-part="previous"]:hover, [data-krds-component="pagination"][data-krds-part="next"]:hover { background: var(--krds-light-color-action-secondary-hover); }
-[data-krds-component="pagination"][data-krds-part="link"]:is([aria-current="true"], [aria-current="page"], [data-krds-state~="current"]) { background: var(--krds-light-color-action-secondary-active); color: var(--krds-light-color-text-inverse-static); font-weight: 700; border: var(--krds-number-3) double currentColor; }
-[data-krds-component="pagination"][data-krds-part="previous"][aria-disabled="true"], [data-krds-component="pagination"][data-krds-part="next"][aria-disabled="true"] { color: var(--krds-light-color-text-disabled); cursor: not-allowed; text-decoration: line-through; }
-[data-krds-component="pagination"][data-krds-part="ellipsis"] { padding: var(--krds-padding-3); }
+[data-krds-component="pagination"][data-krds-part="link"]:active, [data-krds-component="pagination"][data-krds-part="previous"]:active, [data-krds-component="pagination"][data-krds-part="next"]:active { background: var(--krds-light-color-action-secondary-pressed); }
+/* Frozen .page-navi.prev/.next (7320–7371): padding-2 on the icon side, padding-3 on the text side, and a medium ico_angle box rotated ±90deg. The asset is not copied: the shared clip-path chevron fills the box in the text color. */
+[data-krds-component="pagination"][data-krds-part="previous"] { padding: 0 var(--krds-padding-3) 0 var(--krds-padding-2); }
+[data-krds-component="pagination"][data-krds-part="next"] { padding: 0 var(--krds-padding-2) 0 var(--krds-padding-3); }
+[data-krds-component="pagination"][data-krds-part="previous"]::before, [data-krds-component="pagination"][data-krds-part="next"]::after { content: ""; flex: none; display: inline-block; inline-size: var(--krds-size-height-3); block-size: var(--krds-size-height-3); background-color: currentColor; clip-path: polygon(18% 36%, 26% 28%, 50% 52%, 74% 28%, 82% 36%, 50% 68%); forced-color-adjust: none; }
+[data-krds-component="pagination"][data-krds-part="previous"]::before { transform: rotate(90deg); }
+[data-krds-component="pagination"][data-krds-part="next"]::after { transform: rotate(-90deg); }
+/* Frozen .page-link.active (7408–7412): active fill, bold inverse text, no border. */
+[data-krds-component="pagination"][data-krds-part="link"]:is([aria-current="true"], [aria-current="page"], [data-krds-state~="current"]) { background: var(--krds-light-color-action-secondary-active); color: var(--krds-light-color-text-inverse-static); font-weight: 700; }
+/* Frozen .page-navi.disabled (7372–7380): disabled text and icon, no hover fill. */
+[data-krds-component="pagination"][data-krds-part="previous"][aria-disabled="true"], [data-krds-component="pagination"][data-krds-part="next"][aria-disabled="true"], [data-krds-component="pagination"][data-krds-part="previous"][data-krds-state~="disabled"], [data-krds-component="pagination"][data-krds-part="next"][data-krds-state~="disabled"], [data-krds-component="pagination"][data-krds-part="link"][data-krds-state~="disabled"] { background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-disabled); cursor: not-allowed; }
+[data-krds-component="pagination"][data-krds-part="ellipsis"] { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--krds-size-height-4); min-block-size: var(--krds-size-height-6); }
 [data-krds-component="pagination"][data-krds-part="input"] { min-block-size: var(--krds-size-height-6); inline-size: 5em; padding: var(--krds-padding-3); border: var(--krds-number-1) solid var(--krds-light-color-input-border); border-radius: var(--krds-radius-medium1); font: inherit; }
-[data-krds-component="pagination"][data-krds-part="input"][aria-invalid="true"] { border: var(--krds-number-3) double var(--krds-light-color-input-border-error); }
+[data-krds-component="pagination"][data-krds-part="input"][aria-invalid="true"] { border-color: var(--krds-light-color-input-border-error); }
 [data-krds-component="pagination"][data-krds-part="go"], [data-krds-component="pagination"][data-krds-part="load-more"] { min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-button-secondary-fill); color: inherit; font: inherit; cursor: pointer; }
 [data-krds-component="pagination"][data-krds-part="total"], [data-krds-component="pagination"][data-krds-part="count"] { font-variant-numeric: tabular-nums; }
-[data-krds-component="pagination"][data-krds-part="load-more"][aria-busy="true"] { border-style: dashed; }
-@media (max-width: 767px) { [data-krds-component="pagination"][data-krds-part="root"] { gap: var(--krds-gap-5) var(--krds-gap-3); margin-block-start: var(--krds-mobile-gap-layout-h2-h3); } }
-@media (forced-colors: active) { [data-krds-component="pagination"][data-krds-part="link"]:is([aria-current="true"], [aria-current="page"], [data-krds-state~="current"]) { background: Canvas; color: CanvasText; } }
+@media (max-width: 767px) { [data-krds-component="pagination"][data-krds-part="root"] { gap: var(--krds-gap-7) var(--krds-gap-3); margin-block-start: var(--krds-mobile-gap-layout-h2-h3); } }
+@media (forced-colors: active) { [data-krds-component="pagination"][data-krds-part="link"]:is([aria-current="true"], [aria-current="page"], [data-krds-state~="current"]) { background: Canvas; color: CanvasText; border: var(--krds-number-2) solid Highlight; } [data-krds-component="pagination"][data-krds-part="previous"]::before, [data-krds-component="pagination"][data-krds-part="next"]::after { background-color: LinkText; } }
 
 /* Keep DOM/focus order previous → numbers → next, while the narrow visual
- * navigation row precedes the number row. Other modes without a list stay flex. */
+ * navigation row precedes the number row (frozen 7481–7491: wrap, full-width links, next ordered first). */
 @media (max-width: 767px) {
-  [data-krds-component="pagination"][data-krds-part="root"]:has(> [data-krds-component="pagination"][data-krds-part="list"]) {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-  [data-krds-component="pagination"][data-krds-part="previous"] { grid-column: 1; grid-row: 1; justify-self: start; }
-  [data-krds-component="pagination"][data-krds-part="next"] { grid-column: 2; grid-row: 1; justify-self: end; }
-  [data-krds-component="pagination"][data-krds-part="list"] {
-    grid-column: 1 / -1;
-    grid-row: 2;
+  [data-krds-component="pagination"][data-krds-part="root"] > [data-krds-component="pagination"][data-krds-part="previous"], [data-krds-component="pagination"][data-krds-part="root"] > [data-krds-component="pagination"][data-krds-part="next"] { order: 1; }
+  [data-krds-component="pagination"][data-krds-part="root"] > [data-krds-component="pagination"][data-krds-part="list"] {
+    order: 2;
+    flex: 0 0 100%;
     flex-wrap: nowrap;
     justify-content: safe center;
-    gap: var(--krds-gap-1);
     overflow-x: auto;
     padding: var(--krds-number-4);
     scroll-padding-inline: var(--krds-number-4);

@@ -1,15 +1,35 @@
 /* KRDS-derived: frozen component.css lines 5186–5694; semantic guidance: specs/components/footer.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="footer"][data-krds-part="root"] { padding: var(--krds-padding-8); background: var(--krds-light-color-surface-gray-subtler); color: var(--krds-light-color-text-basic); }
-[data-krds-component="footer"][data-krds-part="logo"] { display: block; max-inline-size: 16rem; block-size: auto; margin-block-end: var(--krds-gap-7); }
-[data-krds-component="footer"][data-krds-part="contacts"] { display: flex; flex-direction: column; gap: var(--krds-gap-3); font-style: normal; }
-[data-krds-component="footer"][data-krds-part="utilities"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-4); padding-block: var(--krds-padding-6); border-block: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); }
-[data-krds-component="footer"][data-krds-part="policies"] { display: flex; flex-wrap: wrap; gap: var(--krds-gap-5); padding-block: var(--krds-padding-6); }
-[data-krds-component="footer"][data-krds-part="privacy-link"] { color: var(--krds-light-color-text-primary); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
-[data-krds-component="footer"][data-krds-part="copyright"] { margin-block: var(--krds-gap-4); font-size: var(--krds-pc-font-size-body-small); }
-[data-krds-component="footer"][data-krds-part="identifier"] { border-block-start: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); padding-block-start: var(--krds-padding-6); }
-@media (max-width: 767px) { [data-krds-component="footer"][data-krds-part="root"] { padding: var(--krds-padding-6); } [data-krds-component="footer"][data-krds-part="utilities"] { flex-direction: column; align-items: flex-start; } [data-krds-component="footer"][data-krds-part="copyright"] { font-size: var(--krds-mobile-font-size-body-small); } }
-
-/* Footer links use the readable footer text surface pair. Privacy keeps its
- * separate primary emphasis, and link underlines/focus behavior remain intact. */
+/* Frozen 5275–5298: column stack, 4.0rem gap and 4.0/2.4rem block padding on PC; 2.4rem gap and 2.4/1.6rem padding below 1024px.
+ * The renderers emit the parts flat, so a two-column grid stands in for the official .f-cnt and .f-btm-text rows. */
+[data-krds-component="footer"][data-krds-part="root"] { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, auto); align-items: start; row-gap: var(--krds-gap-9); column-gap: 0; padding: var(--krds-padding-10) var(--krds-padding-8) var(--krds-padding-8); background: var(--krds-light-color-surface-gray-subtler); color: var(--krds-light-color-text-basic); }
+/* Frozen 5299–5313 .f-logo. */
+[data-krds-component="footer"][data-krds-part="logo"] { grid-column: 1 / -1; justify-self: start; display: block; inline-size: 13.7rem; block-size: var(--krds-size-height-7); object-fit: contain; object-position: left center; }
+/* Frozen 5337–5360 .f-info. */
+[data-krds-component="footer"][data-krds-part="contacts"] { grid-column: 1; display: flex; flex-direction: column; gap: var(--krds-gap-5); font-style: normal; }
+[data-krds-component="footer"][data-krds-part="contacts"] p { margin: 0; }
+/* Frozen 5437–5498 .f-link .link-go: stacked medium text buttons. */
+[data-krds-component="footer"][data-krds-part="utilities"] { grid-column: 2; display: flex; flex-direction: column; align-items: flex-start; gap: var(--krds-gap-2); margin: 0 0 0 var(--krds-gap-7); padding: 0; list-style: none; }
+/* Frozen 5510–5560 .f-btm, .f-btm-text and .f-menu: divider, then policy links and the copyright on one row. */
+[data-krds-component="footer"][data-krds-part="policies"] { grid-column: 1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-3); margin: 0; padding: var(--krds-padding-6) 0 0; list-style: none; border-block-start: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); }
+[data-krds-component="footer"][data-krds-part="copyright"] { grid-column: 2; align-self: stretch; display: flex; align-items: center; justify-content: flex-end; margin: 0; padding-block-start: var(--krds-padding-6); border-block-start: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); color: var(--krds-light-color-text-subtle); font-size: var(--krds-pc-font-size-body-small); }
+/* Renderers that emit the privacy link beside the policy list keep it on its own full row. */
+[data-krds-component="footer"][data-krds-part="root"] > [data-krds-component="footer"][data-krds-part="privacy-link"] { grid-column: 1 / -1; justify-self: start; }
+[data-krds-component="footer"][data-krds-part="identifier"] { grid-column: 1 / -1; }
+/* Frozen 365–405 .krds-btn.text.medium, as used by the footer link and menu anchors. */
+[data-krds-component="footer"][data-krds-part="utilities"] a, [data-krds-component="footer"][data-krds-part="policies"] a, [data-krds-component="footer"][data-krds-part="privacy-link"] { display: inline-flex; align-items: center; padding: var(--krds-number-2) var(--krds-padding-1); border-radius: var(--krds-radius-medium2); color: inherit; font-size: var(--krds-pc-font-size-label-medium); text-decoration: none; }
+[data-krds-component="footer"][data-krds-part="utilities"] a:hover, [data-krds-component="footer"][data-krds-part="policies"] a:hover, [data-krds-component="footer"][data-krds-part="privacy-link"]:hover { background: var(--krds-light-color-button-text-fill-hover); }
+[data-krds-component="footer"][data-krds-part="utilities"] a:active, [data-krds-component="footer"][data-krds-part="policies"] a:active, [data-krds-component="footer"][data-krds-part="privacy-link"]:active { background: var(--krds-light-color-button-text-fill-pressed); }
+[data-krds-component="footer"][data-krds-part="privacy-link"] { color: var(--krds-light-color-text-primary); font-weight: 700; }
+/* Contact links read as footer text. */
 [data-krds-component="footer"][data-krds-part="root"] a:not([data-krds-part="privacy-link"]) { color: inherit; }
+@media (max-width: 1023px) { [data-krds-component="footer"][data-krds-part="root"] { row-gap: var(--krds-gap-7); padding: var(--krds-padding-8) var(--krds-padding-6); } [data-krds-component="footer"][data-krds-part="utilities"] { margin-inline-start: var(--krds-gap-5); } }
+@media (max-width: 767px) {
+  [data-krds-component="footer"][data-krds-part="root"] { grid-template-columns: minmax(0, 1fr); }
+  [data-krds-component="footer"][data-krds-part="logo"] { inline-size: 9.9rem; block-size: 3.2rem; }
+  [data-krds-component="footer"][data-krds-part="contacts"] { font-size: var(--krds-mobile-font-size-body-small); }
+  [data-krds-component="footer"][data-krds-part="utilities"] { grid-column: 1; margin-inline-start: 0; }
+  [data-krds-component="footer"][data-krds-part="utilities"] a { padding: 0; border-radius: var(--krds-radius-medium1); font-size: var(--krds-mobile-font-size-label-small); }
+  [data-krds-component="footer"][data-krds-part="policies"] a, [data-krds-component="footer"][data-krds-part="privacy-link"] { font-size: var(--krds-mobile-font-size-label-medium); }
+  [data-krds-component="footer"][data-krds-part="copyright"] { grid-column: 1; justify-content: flex-start; margin-block-start: calc(var(--krds-gap-6) - var(--krds-gap-7)); padding-block-start: 0; border-block-start: 0; font-size: var(--krds-mobile-font-size-body-small); }
+}

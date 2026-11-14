@@ -1,12 +1,20 @@
 /* KRDS-derived: frozen component.css lines 7496–7735; semantic guidance: specs/components/breadcrumb.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="breadcrumb"][data-krds-part="root"] { padding-block: var(--krds-padding-5); color: var(--krds-light-color-text-subtle); }
-[data-krds-component="breadcrumb"][data-krds-part="list"] { display: flex; align-items: baseline; flex-wrap: nowrap; white-space: nowrap; overflow-wrap: normal; gap: var(--krds-gap-2); margin: 0; padding: 0; list-style: none; }
-[data-krds-component="breadcrumb"][data-krds-part="item"] { display: inline-flex; align-items: baseline; gap: var(--krds-gap-2); min-inline-size: 0; flex: none; }
-[data-krds-component="breadcrumb"][data-krds-part="link"], [data-krds-component="breadcrumb"][data-krds-part="home"] { display: inline-flex; align-items: center; min-block-size: var(--krds-size-height-5); padding: var(--krds-padding-2); color: inherit; text-decoration: underline; text-underline-offset: .2em; }
-[data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"] { font-weight: 700; text-decoration: none; }
-[data-krds-component="breadcrumb"][data-krds-part="separator"] { flex: none; padding-inline: var(--krds-padding-2); }
+[data-krds-component="breadcrumb"][data-krds-part="root"] { padding-block: var(--krds-padding-5); color: var(--krds-light-color-text-basic); }
+/* Frozen .breadcrumb and li (7516–7535): centred row, gap-2, label-small text. */
+[data-krds-component="breadcrumb"][data-krds-part="list"] { display: flex; align-items: center; flex-wrap: nowrap; white-space: nowrap; overflow-wrap: normal; gap: var(--krds-gap-2); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="breadcrumb"][data-krds-part="item"] { display: inline-flex; align-items: center; gap: var(--krds-gap-2); min-inline-size: 0; flex: none; font-size: var(--krds-pc-font-size-label-small); }
+/* Frozen .txt (7536–7555): underlined text on a transparent action surface, radius medium2, hover and pressed fills. */
+[data-krds-component="breadcrumb"][data-krds-part="link"], [data-krds-component="breadcrumb"][data-krds-part="home"] { display: inline-flex; align-items: center; gap: var(--krds-gap-2); padding: 0 var(--krds-padding-2); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-action-secondary); color: inherit; text-decoration: underline; text-underline-offset: .3rem; }
+[data-krds-component="breadcrumb"][data-krds-part="link"]:hover, [data-krds-component="breadcrumb"][data-krds-part="home"]:hover { background: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="breadcrumb"][data-krds-part="link"]:active, [data-krds-component="breadcrumb"][data-krds-part="home"]:active { background: var(--krds-light-color-action-secondary-pressed); }
+[data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"] { text-decoration: none; }
+[data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"]:hover, [data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"]:active { background: var(--krds-light-color-action-secondary); }
+/* Frozen li:not(:last-child)::after (7564–7585): a small icon box (size-height-2) masked with ico_angle rotated -90deg. The asset is not copied: the separator's own glyph is hidden and the shared clip-path chevron fills the box. */
+[data-krds-component="breadcrumb"][data-krds-part="separator"] { flex: none; display: inline-block; inline-size: var(--krds-size-height-2); block-size: var(--krds-size-height-2); overflow: hidden; font-size: 0; background-color: currentColor; clip-path: polygon(18% 36%, 26% 28%, 50% 52%, 74% 28%, 82% 36%, 50% 68%); forced-color-adjust: none; transform: rotate(-90deg); }
+@media (forced-colors: active) { [data-krds-component="breadcrumb"][data-krds-part="separator"] { background-color: CanvasText; } }
 [data-krds-component="breadcrumb"][data-krds-part="ellipsis"] { padding-inline: var(--krds-padding-2); }
+@media (max-width: 767px) { [data-krds-component="breadcrumb"][data-krds-part="item"] { font-size: var(--krds-mobile-font-size-label-small); } }
 /* The host omits/collapses intermediate items according to its explicit viewport policy. */
 
 /* The renderer first reduces the path. Only the last remaining complete text

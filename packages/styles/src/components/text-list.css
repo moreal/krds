@@ -1,12 +1,22 @@
 /* KRDS-derived: frozen component.css lines 1496–1619; semantic guidance: specs/components/text-list.md.
- * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"] { display: flex; flex-direction: column; gap: var(--krds-gap-4); padding-inline-start: 1.5em; margin-block: 0; color: var(--krds-light-color-text-subtle); }
-[data-krds-component="text-list"][data-krds-part="item"] { position: relative; padding-inline-start: var(--krds-padding-2); }
+ * Native state, visibility, focus management and host effects remain renderer responsibilities.
+ * Bullets are the frozen absolutely positioned li::before shapes. An ordered list has no .num element here, so the
+ * same top-left slot shows the native list-item counter (which honours start). Ordered wins over a marker value. */
+[data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"] { display: flex; flex-direction: column; gap: var(--krds-gap-4); margin: 0; padding: 0; list-style: none; }
+[data-krds-component="text-list"][data-krds-part="item"] { position: relative; padding-inline-start: var(--krds-number-12); color: var(--krds-light-color-text-subtle); font-size: var(--krds-pc-font-size-body-medium); }
+[data-krds-component="text-list"][data-krds-part="item"]::before { position: absolute; inset-block-start: 0; inset-inline-start: 0; }
 [data-krds-component="text-list"][data-krds-part="content"] { min-inline-size: 0; }
 [data-krds-component="text-list"][data-krds-part="nested-list"] { gap: var(--krds-gap-3); margin-block-start: var(--krds-gap-5); }
-[data-krds-component="text-list"][data-krds-part="root"][data-krds-marker="dot"] { list-style-type: disc; }
-[data-krds-component="text-list"][data-krds-part="root"][data-krds-marker="hollow"] { list-style-type: circle; }
-[data-krds-component="text-list"][data-krds-part="root"][data-krds-marker="dash"] { list-style-type: "–  "; }
-[data-krds-component="text-list"][data-krds-part="root"][data-krds-ordering="ordered"] { list-style-type: decimal; }
-[data-krds-component="text-list"][data-krds-part="marker"] { font-variant-numeric: tabular-nums; }
+[data-krds-component="text-list"][data-krds-part="nested-list"] > [data-krds-component="text-list"][data-krds-part="item"] { padding-inline-start: var(--krds-number-10); }
+[data-krds-component="text-list"][data-krds-part="nested-list"] [data-krds-component="text-list"][data-krds-part="nested-list"] { margin-block-start: var(--krds-gap-4); }
+[data-krds-component="text-list"][data-krds-part="nested-list"] [data-krds-component="text-list"][data-krds-part="nested-list"] > [data-krds-component="text-list"][data-krds-part="item"] { padding-inline-start: var(--krds-number-9); font-size: var(--krds-pc-font-size-body-small); }
+:is([data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"])[data-krds-marker="dot"] > [data-krds-component="text-list"][data-krds-part="item"]::before { content: ""; inline-size: .6rem; block-size: .6rem; background-color: var(--krds-light-color-text-subtle); border-radius: var(--krds-radius-max); inset-block-start: 1rem; inset-inline-start: .8rem; }
+:is([data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"])[data-krds-marker="dash"] > [data-krds-component="text-list"][data-krds-part="item"]::before { content: "-"; }
+:is([data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"])[data-krds-marker="hollow"] { gap: var(--krds-gap-3); }
+:is([data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"])[data-krds-marker="hollow"] > [data-krds-component="text-list"][data-krds-part="item"] { padding-inline-start: var(--krds-number-9); }
+:is([data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"])[data-krds-marker="hollow"] > [data-krds-component="text-list"][data-krds-part="item"]::before { content: ""; inline-size: .4rem; block-size: .4rem; border: .1rem solid var(--krds-light-color-text-subtle); border-radius: var(--krds-radius-max); inset-block-start: .95rem; inset-inline-start: .8rem; }
+:is([data-krds-component="text-list"][data-krds-part="root"], [data-krds-component="text-list"][data-krds-part="nested-list"]):is([data-krds-ordering="ordered"], [data-krds-state~="ordered"], :not([data-krds-marker])) > [data-krds-component="text-list"][data-krds-part="item"]::before { content: counter(list-item) "."; inline-size: auto; block-size: auto; background: none; border: 0; border-radius: 0; inset-block-start: 0; inset-inline-start: 0; font-variant-numeric: tabular-nums; }
+[data-krds-component="text-list"][data-krds-part="marker"] { position: absolute; inset-block-start: 0; inset-inline-start: 0; font-variant-numeric: tabular-nums; }
+[data-krds-component="text-list"][data-krds-part="item"]:has(> [data-krds-component="text-list"][data-krds-part="marker"])::before { display: none; }
+@media (max-width: 767px) { [data-krds-component="text-list"][data-krds-part="item"] { font-size: var(--krds-mobile-font-size-body-medium); } [data-krds-component="text-list"][data-krds-part="nested-list"] [data-krds-component="text-list"][data-krds-part="nested-list"] > [data-krds-component="text-list"][data-krds-part="item"] { font-size: var(--krds-mobile-font-size-body-small); } }
 /* Actual ol/ul and li semantics remain in native markup; no listbox selection. */

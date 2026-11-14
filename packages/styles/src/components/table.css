@@ -1,16 +1,19 @@
 /* KRDS-derived: frozen component.css lines 1397–1495; semantic guidance: specs/components/table.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="table"][data-krds-part="scroll-region"] { max-inline-size: 100%; overflow: auto; padding: var(--krds-padding-2); }
-[data-krds-component="table"][data-krds-part="root"] { inline-size: 100%; border-collapse: collapse; }
+[data-krds-component="table"][data-krds-part="scroll-region"] { inline-size: 100%; max-inline-size: 100%; overflow-x: auto; overflow-y: hidden; padding: var(--krds-padding-2); }
+[data-krds-component="table"][data-krds-part="root"] { inline-size: 100%; border-collapse: collapse; border-spacing: 0; }
 [data-krds-component="table"][data-krds-part="caption"] { text-align: start; padding-block-end: var(--krds-padding-4); font-weight: 700; }
-[data-krds-component="table"][data-krds-part="header-cell"] { padding: var(--krds-padding-3) var(--krds-padding-6); background: var(--krds-light-color-surface-secondary-subtler); color: var(--krds-light-color-text-bolder); border-block-end: var(--krds-number-1) solid var(--krds-light-color-border-secondary-light); text-align: start; vertical-align: middle; font-weight: 700; }
-[data-krds-component="table"][data-krds-part="cell"] { padding: var(--krds-padding-5) var(--krds-padding-6); background: var(--krds-light-color-surface-white-subtle); color: var(--krds-light-color-text-subtle); border-block-end: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); text-align: start; vertical-align: middle; }
+[data-krds-component="table"][data-krds-part="header-cell"], [data-krds-component="table"][data-krds-part="cell"] { vertical-align: middle; text-align: start; }
+[data-krds-component="table"][data-krds-part="header-cell"] { padding: var(--krds-padding-3) var(--krds-padding-6); background-color: var(--krds-light-color-surface-secondary-subtler); border-block-end: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-border-secondary-light); color: var(--krds-light-color-text-bolder); font-size: var(--krds-pc-font-size-heading-xxsmall); font-weight: 700; }
+[data-krds-component="table"][data-krds-part="cell"] { padding: var(--krds-padding-5) var(--krds-padding-6); background-color: var(--krds-light-color-surface-white-subtle); border-block-end: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-divider-gray-light); color: var(--krds-light-color-text-subtle); font-size: var(--krds-pc-font-size-label-medium); font-weight: 400; }
 [data-krds-component="table"][data-krds-part="head"], [data-krds-component="table"][data-krds-part="body"], [data-krds-component="table"][data-krds-part="row"] { border-color: inherit; }
-[data-krds-component="table"][data-krds-part="sort-trigger"] { display: inline-flex; align-items: center; gap: var(--krds-gap-2); background: transparent; border: 0; color: inherit; padding: var(--krds-padding-2); font: inherit; cursor: pointer; text-align: start; }
-[data-krds-component="table"][data-krds-part="sort-trigger"][data-krds-state~="ascending"]::after { content: "↑"; }
-[data-krds-component="table"][data-krds-part="sort-trigger"][data-krds-state~="descending"]::after { content: "↓"; }
+[data-krds-component="table"][data-krds-part="sort-trigger"] { display: inline-flex; align-items: center; gap: var(--krds-gap-2); padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; text-align: start; }
+/* Sort direction is a CSS-drawn triangle rather than a text glyph; aria-sort carries the meaning. */
+[data-krds-component="table"][data-krds-part="sort-trigger"]:is([data-krds-state~="ascending"], [data-krds-state~="descending"])::after { content: ""; flex: none; inline-size: .8rem; block-size: .6rem; background-color: currentColor; clip-path: polygon(50% 0, 100% 100%, 0 100%); forced-color-adjust: none; }
+[data-krds-component="table"][data-krds-part="sort-trigger"][data-krds-state~="descending"]::after { transform: rotate(180deg); }
 [data-krds-component="table"][data-krds-part="scroll-previous"], [data-krds-component="table"][data-krds-part="scroll-next"] { padding: var(--krds-padding-3); min-block-size: var(--krds-size-height-6); font: inherit; }
-@media (max-width: 767px) { [data-krds-component="table"][data-krds-part="header-cell"], [data-krds-component="table"][data-krds-part="cell"] { padding-inline: var(--krds-padding-4); } }
+@media (max-width: 767px) { [data-krds-component="table"][data-krds-part="header-cell"] { font-size: var(--krds-mobile-font-size-heading-xxsmall); } [data-krds-component="table"][data-krds-part="cell"] { font-size: var(--krds-mobile-font-size-label-medium); } }
+@media (forced-colors: active) { [data-krds-component="table"][data-krds-part="sort-trigger"]::after { background-color: ButtonText; } }
 
 /* Preserve natural word widths inside a real table. The scoped scroll region
  * handles complex-data overflow instead of crushing references into glyph columns. */

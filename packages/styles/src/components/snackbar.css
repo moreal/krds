@@ -2,7 +2,7 @@
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
 [data-krds-component="snackbar"][data-krds-part="root"] { position: fixed; z-index: 90; inset-inline: var(--krds-gap-5); inset-block-end: calc(10rem + env(safe-area-inset-bottom, 0px)); margin-inline: auto; inline-size: fit-content; max-inline-size: min(56rem, calc(100vw - 3.2rem)); display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-4); padding: var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-medium4); background: var(--krds-light-color-surface-inverse); color: var(--krds-light-color-text-basic-inverse); }
 [data-krds-component="snackbar"][data-krds-part="icon"] { flex: none; inline-size: 1.5em; block-size: 1.5em; }
-[data-krds-component="snackbar"][data-krds-part="title"] { margin: 0; font-weight: 700; }
+[data-krds-component="snackbar"][data-krds-part="title"] { margin: 0; font-size: inherit; line-height: inherit; font-weight: 700; }
 [data-krds-component="snackbar"][data-krds-part="message"] { margin: 0; flex: 1 1 12em; }
 [data-krds-component="snackbar"][data-krds-part="action"], [data-krds-component="snackbar"][data-krds-part="close"] { min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); border: var(--krds-number-1) solid currentColor; border-radius: var(--krds-radius-medium1); background: transparent; color: inherit; font: inherit; cursor: pointer; }
 [data-krds-component="snackbar"][data-krds-part="action"] { text-decoration: underline; text-underline-offset: .2em; }

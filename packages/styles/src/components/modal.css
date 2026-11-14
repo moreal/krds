@@ -1,4 +1,6 @@
-[data-krds-component="modal"][data-krds-part="backdrop"] { position: fixed; inset: 0; background: var(--krds-color-light-alpha-black50); }
+/* KRDS frozen component.css lines 1621-1652 (.krds-modal variables), 1670-1681 (body-medium text, mobile at 767px), 1695-1704 (.modal-back dim) and 1731-1817 (content surface, border, shadow, header/conts/btn padding).
+ * Independent adaptation: renderers place title, description, body, actions and close directly in the content box, so the frozen header/conts/btn paddings are expressed as content padding and part margins. */
+[data-krds-component="modal"][data-krds-part="backdrop"] { position: fixed; inset: 0; background: var(--krds-light-color-background-dim); }
 /* KRDS frozen component.css lines 1731-1746 (.modal-content position relative: the containing block of .btn-close; here the fixed content box is that positioned containing block)
  * and 1754-1761 (.modal-header padding-top number-17 reserves the close row): the content reserves a top row as tall as the close inset plus the sized close control,
  * so the title and body never underlap the absolute close. */
@@ -10,17 +12,21 @@
   max-block-size: calc(100dvh - var(--krds-gap-5));
   overflow: auto;
   overscroll-behavior: contain;
-  padding: var(--krds-padding-8);
+  padding: var(--krds-padding-10);
   padding-block-start: calc(var(--krds-gap-7) + var(--krds-size-height-7) + var(--krds-gap-3));
   border: var(--krds-number-1) solid var(--krds-light-color-border-gray);
   border-radius: var(--krds-radius-xlarge1);
-  background: var(--krds-light-color-surface-white);
+  background: var(--krds-light-color-surface-white-subtler);
   color: var(--krds-light-color-text-basic);
+  box-shadow: 0 0 .2rem 0 var(--krds-light-color-alpha-shadow2), 0 1.6rem 2.4rem 0 var(--krds-light-color-alpha-shadow3);
+  font-size: var(--krds-pc-font-size-body-medium);
+  font-weight: 400;
 }
-[data-krds-component="modal"][data-krds-part="title"] { margin-block: 0 var(--krds-gap-3); font-size: 1.5em; }
-[data-krds-component="modal"][data-krds-part="description"] { margin-block-end: var(--krds-gap-3); }
-[data-krds-component="modal"][data-krds-part="body"] { min-inline-size: 0; }
-[data-krds-component="modal"][data-krds-part="actions"] { display: flex; flex-wrap: wrap; justify-content: end; gap: var(--krds-gap-3); margin-block-start: var(--krds-gap-5); }
+[data-krds-component="modal"][data-krds-part="title"] { margin-block: 0 var(--krds-padding-6); font-size: var(--krds-pc-font-size-heading-medium); font-weight: 700; }
+[data-krds-component="modal"][data-krds-part="description"] { margin-block: 0 var(--krds-gap-5); }
+[data-krds-component="modal"][data-krds-part="body"] { min-inline-size: 0; padding-block-end: var(--krds-padding-3); }
+[data-krds-component="modal"][data-krds-part="actions"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--krds-gap-3); padding-block-start: var(--krds-padding-6); }
+[data-krds-component="modal"][data-krds-part="actions"] > * { min-inline-size: 7.8rem; }
 /* KRDS frozen component.css lines 1818-1823 (.btn-close absolute at top/right --krds-modal--btn-close-position gap-7, z-index above the content) and 1934-1937 (mobile gap-6):
  * the close stays after the actions in DOM order but is placed at the content's top inline-end corner; it remains a visibly bordered, labelled control. */
 [data-krds-component="modal"][data-krds-part="close"] {
@@ -42,8 +48,14 @@
 [data-krds-component="modal"][data-krds-part="close"]:not(:disabled):hover { background: var(--krds-light-color-button-secondary-fill-hover); }
 [data-krds-component="modal"][data-krds-part="close"]:not(:disabled):active { background: var(--krds-light-color-button-secondary-fill-pressed); }
 [data-krds-component="modal"]:is([data-krds-part="backdrop"], [data-krds-part="content"])[data-krds-state~="closed"] { display: none; }
+/* KRDS frozen component.css lines 1911-1937 (mobile: padding-8 sides and bottom, heading-medium mobile title, close at gap-6) and 1677-1681 (mobile body-medium). */
+@media (max-width: 767px) {
+  [data-krds-component="modal"][data-krds-part="content"] { padding-inline: var(--krds-padding-8); padding-block-end: var(--krds-padding-8); font-size: var(--krds-mobile-font-size-body-medium); }
+  [data-krds-component="modal"][data-krds-part="title"] { font-size: var(--krds-mobile-font-size-heading-medium); }
+  [data-krds-component="modal"][data-krds-part="body"] { padding-block-end: 0; }
+}
 @media (max-width: 30rem) {
-  [data-krds-component="modal"][data-krds-part="content"] { padding: var(--krds-padding-5); padding-block-start: calc(var(--krds-gap-6) + var(--krds-size-height-7) + var(--krds-gap-3)); }
+  [data-krds-component="modal"][data-krds-part="content"] { padding: var(--krds-padding-8); padding-block-start: calc(var(--krds-gap-6) + var(--krds-size-height-7) + var(--krds-gap-3)); }
   [data-krds-component="modal"][data-krds-part="close"] { inset-block-start: var(--krds-gap-6); inset-inline-end: var(--krds-gap-6); }
 }
 @media (forced-colors: active) {

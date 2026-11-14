@@ -3,5 +3,5 @@
 [data-krds-component="back-button"][data-krds-part="root"] { display: flex; align-items: center; flex-wrap: wrap; gap: var(--krds-gap-4); min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-3) var(--krds-padding-5); background: transparent; border: 0; color: var(--krds-light-color-text-basic); text-align: start; text-decoration: none; font: inherit; cursor: pointer; }
 [data-krds-component="back-button"][data-krds-part="icon"] { flex: none; inline-size: 1.5em; block-size: 1.5em; }
 [data-krds-component="back-button"][data-krds-part="label"] { text-decoration: underline; text-underline-offset: .2em; }
-[data-krds-component="back-button"][data-krds-part="root"]:is(:disabled,[aria-disabled="true"]) { color: var(--krds-light-color-text-disabled); border: var(--krds-number-1) dashed currentColor; cursor: not-allowed; }
-[data-krds-component="back-button"][data-krds-part="root"][aria-busy="true"] { border: var(--krds-number-1) dashed currentColor; }
+[data-krds-component="back-button"][data-krds-part="root"]:is(:disabled,[aria-disabled="true"]) { color: var(--krds-light-color-text-disabled); cursor: not-allowed; }
+[data-krds-component="back-button"][data-krds-part="root"][aria-busy="true"] { cursor: progress; }

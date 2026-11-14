@@ -7,7 +7,7 @@
 [data-krds-component="fab"][data-krds-part="actions"] { display: grid; justify-items: end; gap: var(--krds-gap-4); position: relative; z-index: 2; }
 [data-krds-component="fab"][data-krds-part="action"] { min-block-size: var(--krds-size-height-7); padding: var(--krds-padding-4) var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-max); background: var(--krds-light-color-background-white); color: var(--krds-light-color-text-basic); font: inherit; cursor: pointer; }
 [data-krds-component="fab"][data-krds-part="overlay"] { position: fixed; inset: 0; background: var(--krds-color-light-alpha-black50); z-index: 1; }
-[data-krds-component="fab"][data-krds-part="trigger"]:disabled, [data-krds-component="fab"][data-krds-part="action"]:disabled { background: var(--krds-light-color-button-disabled-fill); color: var(--krds-light-color-text-disabled-on); border-style: dashed; cursor: not-allowed; }
+[data-krds-component="fab"][data-krds-part="trigger"]:disabled, [data-krds-component="fab"][data-krds-part="action"]:disabled { background: var(--krds-light-color-button-disabled-fill); color: var(--krds-light-color-text-disabled-on); border-color: var(--krds-light-color-button-disabled-border); cursor: not-allowed; }
 [data-krds-component="fab"][data-krds-part="root"][data-krds-variant="extended-label"] [data-krds-component="fab"][data-krds-part="trigger"] { padding-inline: var(--krds-padding-7); }
 /* Host supplies measured tab bar clearance; this baseline gutter is not collision detection. */
 [data-krds-component="fab"][data-krds-part="actions"][data-krds-state~="collapsed"], [data-krds-component="fab"][data-krds-part="overlay"][data-krds-state~="collapsed"] { display: none; }

@@ -3,10 +3,10 @@
 [data-krds-component="tooltip"][data-krds-part="root"] { display: inline; }
 [data-krds-component="tooltip"][data-krds-part="trigger"] { border-radius: var(--krds-radius-small2); }
 [data-krds-component="tooltip"][data-krds-part="icon"] { inline-size: 1em; block-size: 1em; }
-[data-krds-component="tooltip"][data-krds-part="popup"] { position: fixed; z-index: 100; max-inline-size: min(36rem, calc(100vw - 3.2rem)); padding: var(--krds-padding-2) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-border-gray); border-radius: var(--krds-radius-small3); color: var(--krds-light-color-text-basic-inverse); background: var(--krds-light-color-surface-inverse); font-size: var(--krds-pc-font-size-body-small); white-space: normal; pointer-events: auto; }
+[data-krds-component="tooltip"][data-krds-part="popup"] { position: fixed; z-index: 100; max-inline-size: min(36rem, calc(100vw - 3.2rem)); padding: var(--krds-padding-2) var(--krds-padding-5); border: 0; border-radius: var(--krds-radius-small3); color: var(--krds-light-color-text-basic-inverse); background: var(--krds-light-color-surface-inverse); font-size: var(--krds-pc-font-size-body-small); white-space: normal; pointer-events: auto; }
 [data-krds-component="tooltip"][data-krds-part="text"] { margin: 0; }
 [data-krds-component="tooltip"][data-krds-part="popup"][data-krds-state~="suppressed"] { display: none; }
 @media (max-width: 767px) { [data-krds-component="tooltip"][data-krds-part="popup"] { font-size: var(--krds-mobile-font-size-body-small); } }
-@media (forced-colors: active) { [data-krds-component="tooltip"][data-krds-part="popup"] { color: CanvasText; background: Canvas; border-color: CanvasText; } }
+@media (forced-colors: active) { [data-krds-component="tooltip"][data-krds-part="popup"] { color: CanvasText; background: Canvas; border: var(--krds-number-1) solid CanvasText; } }
 /* The renderer supplies collision-aware coordinates for each declared placement. */
 [data-krds-component="tooltip"][data-krds-part="popup"][data-krds-state~="closed"] { display: none; }

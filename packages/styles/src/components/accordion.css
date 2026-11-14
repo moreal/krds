@@ -1,17 +1,29 @@
 /* KRDS-derived: frozen component.css lines 2319–2488; semantic guidance: specs/components/accordion.md.
- * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="accordion"][data-krds-part="root"] { border-block: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); padding-block: var(--krds-padding-2); }
+ * Native state, visibility, focus management and host effects remain renderer responsibilities.
+ * The trigger draws the frozen ::after angle icon itself (clip-path, no asset), so renderers with and without an
+ * icon part look the same; the renderer-provided text glyph is hidden. */
+[data-krds-component="accordion"][data-krds-part="root"] { --krds-accordion-padding: var(--krds-padding-8); --krds-accordion-line-padding: var(--krds-padding-7); --krds-accordion-icon-size: var(--krds-size-height-4); padding-block: var(--krds-padding-2); border-block: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); }
 [data-krds-component="accordion"][data-krds-part="item"] { padding-block: var(--krds-padding-2); }
-[data-krds-component="accordion"][data-krds-part="heading"] { margin: 0; }
-[data-krds-component="accordion"][data-krds-part="trigger"] { display: flex; align-items: center; justify-content: space-between; gap: var(--krds-gap-5); inline-size: 100%; padding: var(--krds-padding-8); border: 0; border-radius: var(--krds-radius-large2); background: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-basic); font: inherit; font-weight: 700; text-align: start; cursor: pointer; }
-[data-krds-component="accordion"][data-krds-part="trigger"]:hover { background: var(--krds-light-color-action-secondary-hover); }
-[data-krds-component="accordion"][data-krds-part="trigger"]:active { background: var(--krds-light-color-action-secondary-pressed); }
-[data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"] { color: var(--krds-light-color-text-secondary); border-block-end: var(--krds-number-2) solid currentColor; }
-[data-krds-component="accordion"][data-krds-part="icon"] { flex: none; inline-size: 1em; block-size: 1em; }
-[data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"] [data-krds-component="accordion"][data-krds-part="icon"] { transform: rotate(180deg); }
-[data-krds-component="accordion"][data-krds-part="panel"] { padding: var(--krds-padding-8); }
-[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="trigger"] { padding-inline: 0; border-radius: 0; background: transparent; }
-[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="panel"] { padding-inline: 0; }
-[data-krds-component="accordion"][data-krds-part="trigger"]:disabled { color: var(--krds-light-color-text-disabled); cursor: not-allowed; border-style: dashed; }
-@media (max-width: 767px) { [data-krds-component="accordion"][data-krds-part="trigger"], [data-krds-component="accordion"][data-krds-part="panel"] { padding: var(--krds-padding-6); } }
+[data-krds-component="accordion"][data-krds-part="heading"] { margin: 0; font-size: inherit; }
+[data-krds-component="accordion"][data-krds-part="trigger"] { position: relative; display: block; inline-size: 100%; padding: var(--krds-accordion-padding) calc(var(--krds-accordion-padding) + var(--krds-gap-5) + var(--krds-accordion-icon-size)) var(--krds-accordion-padding) var(--krds-accordion-padding); border: 0; border-radius: var(--krds-radius-large2); background-color: var(--krds-light-color-action-secondary); color: var(--krds-light-color-text-basic); font: inherit; font-size: var(--krds-pc-font-size-heading-xsmall); font-weight: 700; text-align: start; cursor: pointer; }
+[data-krds-component="accordion"][data-krds-part="trigger"]:hover { background-color: var(--krds-light-color-action-secondary-hover); }
+[data-krds-component="accordion"][data-krds-part="trigger"]:active { background-color: var(--krds-light-color-action-secondary-pressed); }
+[data-krds-component="accordion"][data-krds-part="trigger"]::after { content: ""; position: absolute; inset-block-start: var(--krds-accordion-padding); inset-inline-end: var(--krds-accordion-padding); inline-size: var(--krds-accordion-icon-size); block-size: var(--krds-accordion-icon-size); background-color: var(--krds-light-color-icon-gray); clip-path: polygon(18% 36%, 26% 28%, 50% 52%, 74% 28%, 82% 36%, 50% 68%); forced-color-adjust: none; transform: rotate(0deg); transition: transform .4s ease-in-out; }
+[data-krds-component="accordion"][data-krds-part="icon"] { display: none; }
+[data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"] { background-color: var(--krds-light-color-action-secondary-hover); border-end-start-radius: 0; border-end-end-radius: 0; color: var(--krds-light-color-text-secondary); }
+[data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"]:focus-visible { border-radius: var(--krds-radius-large2); }
+[data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"]::after { transform: rotate(180deg); }
+[data-krds-component="accordion"][data-krds-part="panel"] { padding: 0 var(--krds-accordion-padding) var(--krds-accordion-padding); background-color: var(--krds-light-color-action-secondary-hover); border-end-start-radius: var(--krds-radius-large2); border-end-end-radius: var(--krds-radius-large2); }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] { padding-block: 0; border-block-start: 0; }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="item"] { border-block-start: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); border-radius: 0; }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="item"]:has([data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"]) { border-block-start-color: var(--krds-light-color-divider-gray-dark); }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="trigger"] { padding: var(--krds-accordion-line-padding) calc(var(--krds-gap-5) + var(--krds-accordion-icon-size)) var(--krds-accordion-line-padding) 0; }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="trigger"]::after { inset-block-start: var(--krds-accordion-line-padding); inset-inline-end: 0; }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="trigger"][aria-expanded="true"] { background: none; }
+[data-krds-component="accordion"][data-krds-part="root"][data-krds-variant="line"] [data-krds-component="accordion"][data-krds-part="panel"] { padding: 0 0 var(--krds-accordion-padding); background: none; }
+[data-krds-component="accordion"][data-krds-part="trigger"]:disabled { color: var(--krds-light-color-text-disabled); }
+[data-krds-component="accordion"][data-krds-part="trigger"]:disabled::after { background-color: var(--krds-light-color-icon-disabled); }
+@media (max-width: 767px) { [data-krds-component="accordion"][data-krds-part="root"] { --krds-accordion-padding: var(--krds-padding-6); --krds-accordion-line-padding: var(--krds-padding-5); --krds-accordion-icon-size: var(--krds-size-height-3); } [data-krds-component="accordion"][data-krds-part="trigger"] { font-size: var(--krds-mobile-font-size-heading-xsmall); } }
+@media (prefers-reduced-motion: reduce) { [data-krds-component="accordion"][data-krds-part="trigger"]::after { transition: none; } }
+@media (forced-colors: active) { [data-krds-component="accordion"][data-krds-part="trigger"]::after { background-color: ButtonText; } }
 [data-krds-component="accordion"][data-krds-part="panel"][data-krds-state~="closed"] { display: none; }

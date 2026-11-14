@@ -3,28 +3,33 @@
   box-sizing: border-box;
   min-inline-size: 0;
   max-inline-size: 100%;
+  /* KRDS common.css: Korean breaks between words only; overflow-wrap still rescues unbreakable strings. */
+  word-break: keep-all;
   overflow-wrap: anywhere;
   line-height: 1.5;
 }
 [data-krds-component]:is(button, input, select) { font: inherit; }
+/* KRDS common.css focus: an inverse inner ring plus the 0.4rem primary outer ring, visible on any surface. */
 [data-krds-component]:focus-visible {
-  outline: var(--krds-number-2) solid var(--krds-light-color-border-primary);
-  outline-offset: var(--krds-number-2);
+  outline: var(--krds-number-2) solid var(--krds-light-color-border-inverse);
+  outline-offset: 0;
+  box-shadow: 0 0 0 var(--krds-number-3) var(--krds-light-color-border-primary);
+  transition: outline 0s, box-shadow 0s;
 }
 [data-krds-component][hidden] { display: none !important; }
+/* A closed native dialog stays closed even when its part sets a layout display. */
+dialog[data-krds-component]:not([open]) { display: none !important; }
 [data-krds-component][data-krds-part="error"] {
   color: var(--krds-light-color-text-danger);
   font-weight: 700;
 }
-[data-krds-component][data-krds-part="error"]:not(:empty)::before { content: "! "; }
 [data-krds-component][data-krds-part="hint"] { color: var(--krds-light-color-text-subtle); }
 [data-krds-component]:is(button, input, select):is(:disabled, [data-krds-state~="disabled"]) {
   cursor: not-allowed;
-  border-style: dashed;
 }
 @media (forced-colors: active) {
   [data-krds-component] { forced-color-adjust: auto; }
-  [data-krds-component]:focus-visible { outline-color: Highlight; }
+  [data-krds-component]:focus-visible { outline-color: Highlight; outline-offset: var(--krds-number-2); box-shadow: none; }
   [data-krds-component]:is(button, input, select) { border-color: ButtonText; }
   [data-krds-component]:is(button, input, select):disabled { color: GrayText; border-color: GrayText; }
   [data-krds-component][data-krds-part="error"] { color: CanvasText; }

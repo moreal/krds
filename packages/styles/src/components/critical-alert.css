@@ -1,12 +1,17 @@
 /* KRDS-derived: frozen component.css lines 6574–6771; semantic guidance: specs/components/critical-alert.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="critical-alert"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-5); padding: var(--krds-padding-6); background: var(--krds-light-color-surface-white-subtle); border: var(--krds-number-1) solid var(--krds-light-color-border-gray-light); border-radius: var(--krds-radius-medium2); }
-[data-krds-component="critical-alert"][data-krds-part="icon"] { flex: none; inline-size: 1.5em; block-size: 1.5em; }
-[data-krds-component="critical-alert"][data-krds-part="label"] { font-weight: 700; padding: var(--krds-padding-3) var(--krds-padding-4); border: var(--krds-number-1) solid currentColor; border-radius: var(--krds-radius-medium2); }
-[data-krds-component="critical-alert"][data-krds-part="message"] { flex: 1 1 15em; margin: 0; }
-[data-krds-component="critical-alert"][data-krds-part="link"] { color: var(--krds-light-color-link-default); text-decoration: underline; text-underline-offset: .2em; }
-[data-krds-component="critical-alert"][data-krds-part="root"][data-krds-urgency="high"] [data-krds-component="critical-alert"][data-krds-part="label"] { border-width: var(--krds-number-3); border-style: double; }
-[data-krds-component="critical-alert"][data-krds-part="root"][data-krds-urgency="medium"] [data-krds-component="critical-alert"][data-krds-part="label"] { border-inline-start-width: var(--krds-number-4); }
-[data-krds-component="critical-alert"][data-krds-part="root"][data-krds-urgency="low"] [data-krds-component="critical-alert"][data-krds-part="label"] { border-style: dashed; }
-/* No invented mapping of numeric urgency to the official danger/ok/info example colors. */
-@media (max-width: 767px) { [data-krds-component="critical-alert"][data-krds-part="root"] { align-items: flex-start; gap: var(--krds-gap-3); } }
+/* Frozen 6606–6617 .critical-ban: 1.6rem gap and padding, 1.0rem radius, light border and the two-layer shadow. */
+[data-krds-component="critical-alert"][data-krds-part="root"] { display: flex; align-items: center; gap: var(--krds-gap-5); padding: var(--krds-pc-padding-card-xsmall); background: var(--krds-light-color-surface-white-subtle); border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-border-gray-light); border-radius: var(--krds-radius-large2); box-shadow: 0 0 .2rem 0 var(--krds-light-color-alpha-shadow1), 0 .4rem .8rem 0 var(--krds-light-color-alpha-shadow2); }
+/* The official badge icon is an image asset inside the badge; the renderer's stand-alone text glyph is not shown. */
+[data-krds-component="critical-alert"][data-krds-part="icon"] { display: none; }
+/* Frozen 6618–6636 .critical-badge: 4.8rem high, 7.8rem minimum width, bold inverse text on a filled badge. */
+[data-krds-component="critical-alert"][data-krds-part="label"] { flex: none; display: flex; align-items: center; justify-content: flex-start; gap: var(--krds-gap-2); min-inline-size: 7.8rem; block-size: var(--krds-size-height-7); margin: 0; padding: 0 var(--krds-padding-4); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-element-danger); color: var(--krds-light-color-text-inverse-static); font-size: var(--krds-pc-font-size-body-medium); font-weight: 700; }
+/* Frozen 6646–6706 badge fills. High urgency takes the official danger fill; medium and low take the
+ * information fill. The official "ok" fill marks a safe notice, which is not an urgency level, so it is unused. */
+[data-krds-component="critical-alert"][data-krds-part="root"][data-krds-urgency="medium"] [data-krds-component="critical-alert"][data-krds-part="label"], [data-krds-component="critical-alert"][data-krds-part="root"][data-krds-urgency="low"] [data-krds-component="critical-alert"][data-krds-part="label"] { background: var(--krds-light-color-element-information); }
+/* Frozen 6707–6715 .critical-txt: bold, two lines at most on PC. */
+[data-krds-component="critical-alert"][data-krds-part="message"] { flex: 1; min-inline-size: 0; margin: 0; font-weight: 700; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+[data-krds-component="critical-alert"][data-krds-part="link"] { flex: none; color: var(--krds-light-color-link-default); text-decoration: underline; text-underline-offset: .3rem; }
+/* Frozen 6716–6738 mobile: 1.2rem padding, 3.9rem badge without a minimum width, unclamped text. */
+@media (max-width: 767px) { [data-krds-component="critical-alert"][data-krds-part="root"] { padding: var(--krds-mobile-padding-card-xsmall); } [data-krds-component="critical-alert"][data-krds-part="label"] { min-inline-size: auto; block-size: 3.9rem; padding: var(--krds-padding-3); font-size: var(--krds-mobile-font-size-body-small); } [data-krds-component="critical-alert"][data-krds-part="message"] { display: block; overflow: visible; } }
+@media (forced-colors: active) { [data-krds-component="critical-alert"][data-krds-part="label"] { border: var(--krds-number-1) solid CanvasText; } }

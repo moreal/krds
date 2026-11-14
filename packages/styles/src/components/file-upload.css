@@ -1,26 +1,39 @@
 /* KRDS-derived: frozen component.css lines 2866–3154; semantic guidance: specs/components/file-upload.md.
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
-[data-krds-component="file-upload"][data-krds-part="root"] { display: flex; flex-direction: column; gap: var(--krds-gap-7); inline-size: 100%; }
-[data-krds-component="file-upload"][data-krds-part="label"] { font-weight: 700; font-size: var(--krds-pc-font-size-heading-small); }
-[data-krds-component="file-upload"][data-krds-part="description"], [data-krds-component="file-upload"][data-krds-part="help"] { margin: 0; color: var(--krds-light-color-text-subtle); }
-[data-krds-component="file-upload"][data-krds-part="dropzone"] { display: grid; justify-items: center; gap: var(--krds-gap-5); inline-size: 100%; padding: 6.4rem var(--krds-padding-10); border: var(--krds-number-2) dashed var(--krds-light-color-border-gray); border-radius: var(--krds-radius-xlarge1); background: var(--krds-light-color-surface-gray-subtle); }
-[data-krds-component="file-upload"][data-krds-part="dropzone"][data-krds-state~="drag-over"] { border-style: solid; border-color: var(--krds-light-color-border-primary); }
-[data-krds-component="file-upload"][data-krds-part="picker"] { padding: var(--krds-padding-4) var(--krds-padding-6); min-block-size: var(--krds-size-height-7); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-button-secondary-fill); font: inherit; cursor: pointer; }
+[data-krds-component="file-upload"][data-krds-part="root"] { display: flex; flex-direction: column; align-items: flex-start; gap: var(--krds-gap-7); inline-size: 100%; }
+/* Frozen 2912–2921 (.file-head .tit). */
+[data-krds-component="file-upload"][data-krds-part="label"] { margin: 0; font-weight: 700; font-size: var(--krds-pc-font-size-heading-small); }
+[data-krds-component="file-upload"][data-krds-part="description"], [data-krds-component="file-upload"][data-krds-part="help"] { margin: 0; }
+/* Frozen 2922–2956 (.file-upload): gray surface, transparent 1px dashed border that turns gray while a file is dragged over. */
+[data-krds-component="file-upload"][data-krds-part="dropzone"] { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--krds-gap-9); inline-size: 100%; padding: 6.4rem var(--krds-padding-10); border: var(--krds-light-border-width-variable-regular) dashed transparent; border-radius: var(--krds-radius-xlarge1); background: var(--krds-light-color-surface-gray-subtle); font-size: var(--krds-pc-font-size-body-large); text-align: center; }
+[data-krds-component="file-upload"][data-krds-part="dropzone"][data-krds-state~="drag-over"] { border-color: var(--krds-light-color-border-gray); }
+/* Frozen sample: the picker is an unsized-variant .krds-btn.medium (primary fill). */
+[data-krds-component="file-upload"][data-krds-part="picker"] { display: inline-flex; align-items: center; justify-content: center; gap: var(--krds-gap-2); min-block-size: var(--krds-size-height-7); padding: 0 var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-button-primary-fill); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-button-primary-fill); color: var(--krds-light-color-text-inverse-static); font: inherit; font-size: var(--krds-pc-font-size-label-medium); font-weight: 400; cursor: pointer; }
+[data-krds-component="file-upload"][data-krds-part="picker"]:not(:disabled):hover { background: var(--krds-light-color-button-primary-fill-hover); }
+[data-krds-component="file-upload"][data-krds-part="picker"]:not(:disabled):active { background: var(--krds-light-color-button-primary-fill-pressed); }
+[data-krds-component="file-upload"][data-krds-part="picker"]:disabled { background: var(--krds-light-color-button-disabled-fill); border-color: var(--krds-light-color-button-disabled-border); color: var(--krds-light-color-text-disabled-on); }
 /* KRDS frozen component.css lines 2943-2953 clip the native file input, and the frozen component_09_04 sample removes it from
  * interaction (`hidden`) behind a single visible picker button. Adapters render it with tabindex=-1 and aria-hidden=true, so the
  * picker is the only Tab stop and the only announced file control; the input keeps its label/form association and receives
  * the picker's programmatic click. The picker shows the shared [data-krds-component]:focus-visible outline itself. */
 [data-krds-component="file-upload"][data-krds-part="file-input"] { position: absolute !important; inline-size: 1px !important; block-size: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; font: inherit; }
-[data-krds-component="file-upload"][data-krds-part="count"] { font-variant-numeric: tabular-nums; }
-[data-krds-component="file-upload"][data-krds-part="list"] { display: grid; gap: var(--krds-gap-4); inline-size: 100%; padding: 0; margin: 0; list-style: none; }
-[data-krds-component="file-upload"][data-krds-part="item"] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--krds-gap-3); padding: var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-divider-gray-light); border-radius: var(--krds-radius-medium4); }
-[data-krds-component="file-upload"][data-krds-part="filename"] { flex: 1 1 12em; min-inline-size: 0; max-inline-size: 100%; overflow: hidden; white-space: nowrap; overflow-wrap: normal; text-overflow: ellipsis; font-weight: 700; }
-[data-krds-component="file-upload"][data-krds-part="size"] { font-variant-numeric: tabular-nums; color: var(--krds-light-color-text-subtle); }
-[data-krds-component="file-upload"][data-krds-part="status"] { font-weight: 700; }
+/* Frozen 2966–2969 (.file-list .total). */
+[data-krds-component="file-upload"][data-krds-part="count"] { margin: 0; padding: .3rem 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* Frozen 2973–2999 (.upload-list, li, li.is-error). */
+[data-krds-component="file-upload"][data-krds-part="list"] { display: flex; flex-direction: column; gap: var(--krds-gap-5); inline-size: 100%; padding: 0; margin: 0; list-style: none; }
+[data-krds-component="file-upload"][data-krds-part="item"] { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--krds-gap-5); row-gap: var(--krds-gap-3); padding: var(--krds-padding-6); border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-divider-gray-light); border-radius: var(--krds-radius-medium4); color: var(--krds-light-color-text-bolder); }
+[data-krds-component="file-upload"][data-krds-part="item"][data-krds-state~="error"] { border: var(--krds-light-border-width-variable-medium) solid var(--krds-light-color-border-danger); background: var(--krds-light-color-surface-danger-subtler); }
+/* Frozen 3010–3022 (.file-name): takes the free width on one line. */
+[data-krds-component="file-upload"][data-krds-part="filename"] { flex: 1 1 12em; min-inline-size: 0; max-inline-size: 100%; overflow: hidden; white-space: nowrap; overflow-wrap: normal; text-overflow: ellipsis; }
+[data-krds-component="file-upload"][data-krds-part="size"] { font-variant-numeric: tabular-nums; }
+[data-krds-component="file-upload"][data-krds-part="status"][data-krds-state~="error"] { color: var(--krds-light-color-text-danger); }
 [data-krds-component="file-upload"][data-krds-part="progress"] { flex-basis: 100%; inline-size: 100%; accent-color: var(--krds-light-color-element-primary); }
-[data-krds-component="file-upload"][data-krds-part="remove"] { min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3); font: inherit; cursor: pointer; }
-[data-krds-component="file-upload"][data-krds-part="item"][data-krds-state~="error"] { border: var(--krds-number-3) double var(--krds-light-color-border-danger); background: var(--krds-light-color-surface-danger-subtler); }
-[data-krds-component="file-upload"][data-krds-part="item"][data-krds-state~="success"] { border-inline-start-width: var(--krds-number-4); }
-[data-krds-component="file-upload"][data-krds-part="item"][data-krds-state~="uploading"] [data-krds-component="file-upload"][data-krds-part="status"] { text-decoration: underline; }
-[data-krds-component="file-upload"][data-krds-part="error"] { flex-basis: 100%; margin: 0; }
-@media (max-width: 767px) { [data-krds-component="file-upload"][data-krds-part="dropzone"] { padding: var(--krds-padding-8) var(--krds-padding-6); } [data-krds-component="file-upload"][data-krds-part="label"] { font-size: var(--krds-mobile-font-size-heading-small); } [data-krds-component="file-upload"][data-krds-part="item"] { padding: var(--krds-padding-5); } }
+/* Frozen sample: delete is a .krds-btn.medium.text. */
+[data-krds-component="file-upload"][data-krds-part="remove"] { display: inline-flex; align-items: center; justify-content: center; flex: none; min-block-size: var(--krds-size-height-7); padding: 0 var(--krds-padding-6); border: var(--krds-number-1) solid var(--krds-light-color-button-text-border); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-button-text-fill); color: var(--krds-light-color-text-basic); font: inherit; font-size: var(--krds-pc-font-size-label-medium); font-weight: 400; cursor: pointer; }
+[data-krds-component="file-upload"][data-krds-part="remove"]:not(:disabled):hover { background: var(--krds-light-color-button-text-fill-hover); }
+[data-krds-component="file-upload"][data-krds-part="remove"]:not(:disabled):active { background: var(--krds-light-color-button-text-fill-pressed); }
+[data-krds-component="file-upload"][data-krds-part="remove"]:disabled { color: var(--krds-light-color-text-disabled-on); }
+/* Frozen 3083–3094 (.file-hint-invalid): danger text; inside an item it sits under a divider. */
+[data-krds-component="file-upload"][data-krds-part="error"] { flex-basis: 100%; inline-size: 100%; margin: 0; color: var(--krds-light-color-text-danger); }
+[data-krds-component="file-upload"][data-krds-part="item"] [data-krds-component="file-upload"][data-krds-part="error"] { order: 1; margin-block-start: var(--krds-gap-3); padding-block-start: var(--krds-padding-5); border-block-start: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-divider-gray); }
+@media (max-width: 767px) { [data-krds-component="file-upload"][data-krds-part="label"] { font-size: var(--krds-mobile-font-size-heading-small); } [data-krds-component="file-upload"][data-krds-part="dropzone"] { font-size: var(--krds-mobile-font-size-body-large); } [data-krds-component="file-upload"][data-krds-part="picker"], [data-krds-component="file-upload"][data-krds-part="remove"] { font-size: var(--krds-mobile-font-size-label-medium); } [data-krds-component="file-upload"][data-krds-part="item"] { padding-block: var(--krds-padding-5); } }

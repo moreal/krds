@@ -47,6 +47,16 @@ export function validateCss(css, file, tokenNames) {
   });
   return ast;
 }
+/** KRDS 선명한 화면 모드. Upstream restates every component rule under `[data-krds-mode=high-contrast]`;
+ * every one of those rules only swaps a light semantic color for its high-contrast twin, so the same result
+ * comes from re-pointing the light semantic tokens inside the mode scope. `theme` follows the OS preference,
+ * as upstream does. Custom properties inherit into shadow trees, so one ancestor attribute covers Lit too. */
+export function modeCss(tokenNames) {
+  const pairs = [...tokenNames].filter((name) => name.startsWith('--krds-light-color-')).map((light) => [light, light.replace('--krds-light-color-', '--krds-high-contrast-color-')]).filter(([, contrast]) => tokenNames.has(contrast));
+  if (!pairs.length) throw new Error('modes: no light/high-contrast semantic color pairs found');
+  const body = (indent) => [`${indent}color-scheme: dark;`, ...pairs.map(([light, contrast]) => `${indent}${light}: var(${contrast});`)].join('\n');
+  return `/* KRDS-derived mode switch generated from the token graph; see scripts/build.mjs. */\n[data-krds-mode="high-contrast"] {\n${body('  ')}\n}\n@media (prefers-color-scheme: dark) {\n  [data-krds-mode="theme"] {\n${body('    ')}\n  }\n}\n`;
+}
 export async function build() {
   const tokens = JSON.parse(await readFile(resolve(dir, '../tokens/dist/tokens.json'), 'utf8'));
   const tokenCss = await readFile(resolve(dir, '../tokens/dist/tokens.css'), 'utf8');
@@ -58,9 +68,11 @@ export async function build() {
     validateCss(raw[name], path, tokenNames);
   }
   // A component entry is independently importable with tokens and the scoped foundation.
-  const result = { base: raw.base, reset: raw.reset, fonts: raw.fonts };
-  for (const name of components) result[name] = `${tokenCss}\n${raw.base}\n${raw[name]}`;
-  result.all = `${tokenCss}\n${raw.base}\n${components.map((name) => raw[name]).join('\n')}`;
+  const modes = modeCss(tokenNames);
+  validateCss(modes, 'modes.css', tokenNames);
+  const result = { base: raw.base, reset: raw.reset, fonts: raw.fonts, modes };
+  for (const name of components) result[name] = `${tokenCss}\n${modes}\n${raw.base}\n${raw[name]}`;
+  result.all = `${tokenCss}\n${modes}\n${raw.base}\n${components.map((name) => raw[name]).join('\n')}`;
   await rm(resolve(dir, 'dist'), { recursive: true, force: true });
   await mkdir(resolve(dir, 'dist'), { recursive: true });
   for (const [name, css] of Object.entries(result)) await writeFile(resolve(dir, `dist/${name}.css`), css);
