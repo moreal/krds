@@ -60,7 +60,7 @@ export class NativeLayer implements OnDestroy {
  isActive():boolean{return this.active;}closeForOwner():void{this.close(false);}
  private close(restore=true,destroying=false):void{
   if(!this.active)return;this.active=false;const result=this.layer?.leave(()=>this.detach(destroying))??{wasTop:false,remaining:false};this.layer=null;
-  if(restore&&result.wasTop&&this.layerRestore){const named=this.layerReturnId?this.document.getElementById(this.layerReturnId):null;const fallback=this.layerFallbackId?this.document.getElementById(this.layerFallbackId):null;const candidates=[named,fallback,this.opener,...this.ancestors];
+  if(restore&&result.wasTop&&this.layerRestore){const named=this.layerReturnId?this.document.getElementById(this.layerReturnId):null;const fallback=this.layerFallbackId?this.document.getElementById(this.layerFallbackId):null;const candidates=[named,this.opener,fallback,...this.ancestors];
    // A destroyed layer may belong to a destroyed owner or only to a closed conditional block: decide once Angular has finished removing nodes.
    if(!destroying)restoreCatalogFocus(this.document,candidates);
    else{const document=this.document;queueMicrotask(()=>{const active=document.activeElement;if(usable(active)&&active!==document.body)return;restoreCatalogFocus(document,candidates.filter(node=>node?.isConnected));});}}

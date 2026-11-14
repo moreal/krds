@@ -167,3 +167,30 @@ test('a public Modal nested in the sheet body dismisses without reporting its ca
     } finally { await context.close(); if (engineBrowser !== browser) await engineBrowser.close(); }
   }
 });
+
+test('BackButton fallback link with unsaved input warns before leaving on the first resumed click (KRDS component_12_02 L919-921)', async () => {
+  const link = page => page.locator('a[data-krds-component="back-button"][data-krds-part="root"]');
+  {
+    const { page, close } = await open('back-button-dirty-fallback');
+    try {
+      await link(page).click();
+      await page.waitForFunction(() => document.getElementById('back-log')?.textContent === 'asked');
+      assert.equal(new URL(page.url()).pathname, '/back-button-dirty-fallback.html', 'a rejected host confirmation keeps the page');
+    } finally { await close(); }
+  }
+  {
+    const { page, close } = await open('back-button-dirty-fallback-built-in');
+    try {
+      await link(page).click();
+      const dialog = page.getByRole('dialog', { name: '작성 중인 내용이 있습니다' });
+      await dialog.waitFor();
+      assert.equal(new URL(page.url()).pathname, '/back-button-dirty-fallback-built-in.html', 'the built-in warning holds the link');
+      await dialog.getByRole('button', { name: '취소' }).click();
+      await dialog.waitFor({ state: 'detached' });
+      assert.equal(await page.locator('#back-log').textContent(), '', 'cancel requests no navigation');
+      await link(page).click();
+      await page.getByRole('dialog', { name: '작성 중인 내용이 있습니다' }).getByRole('button', { name: '확인' }).click();
+      await page.waitForFunction(() => document.getElementById('back-log')?.textContent === 'confirmed');
+    } finally { await close(); }
+  }
+});

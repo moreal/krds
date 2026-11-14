@@ -52,9 +52,17 @@ export function MainMenu(props: MainMenuProps) {
   }
   panelLifecycle(() => narrow() && mobile.read(), () => true, panel, () => mobile.request(false));
   createEffect(() => { const actual = narrow() && mobile.read(); if (wasMobile && !actual) queueMicrotask(() => restore(props.mobileTriggerRef?.() ?? trigger)); wasMobile = actual; });
+  const resetLevels = () => { frames.length = 0; contextRoot = null; setContextId(undefined); setChildrenOpen([]); };
+  // Escape collapses every expanded level at once and returns to the first-level trigger.
+  function closeAll() {
+    const id = expanded.read();
+    if (!id) { resetLevels(); return; }
+    expanded.request(null);
+    queueMicrotask(() => { if (!expanded.read()) { resetLevels(); document.getElementById(`${uid}-trigger-${id}`)?.focus(); } });
+  }
   function escape(event: KeyboardEvent) {
     if (ignoredKey(event) || event.key !== 'Escape') return;
-    if (contextId() || expanded.read()) { event.preventDefault(); event.stopPropagation(); back(); }
+    if (contextId() || expanded.read()) { event.preventDefault(); event.stopPropagation(); closeAll(); }
     else if (mobile.read()) { event.preventDefault(); mobile.request(false); }
   }
   // Desktop disclosure dismissal is independent of the mobile modal lifecycle.

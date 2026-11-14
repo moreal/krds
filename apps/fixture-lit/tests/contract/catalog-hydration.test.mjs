@@ -45,7 +45,8 @@ for (const engine of ['chromium', 'webkit']) test(`Lit ${engine} standalone 48-i
           let expectedEvent;
           const host = page.locator(`#ssr-${id}`);
           if (id === 'main-menu' || id === 'side-navigation') { await host.getByRole('button').filter({visible:true}).first().click(); expectedEvent = 'expanded-change'; }
-          if (id === 'disclosure' || id === 'help-panel' || id === 'tutorial-panel' || id === 'contextual-help' || id === 'resize') { await host.getByRole('button').filter({visible:true}).first().click(); expectedEvent = 'open-change'; }
+          if (id === 'help-panel') { await host.getByRole('button', {name:'도움말 열기',exact:true}).click(); assert.deepEqual(await page.evaluate(()=>window.allHydrationRequests), [], 'the opener of an open panel requests nothing'); await host.getByRole('button', {name:'도움말 닫기',exact:true}).click(); expectedEvent = 'open-change'; }
+          if (id === 'disclosure' || id === 'tutorial-panel' || id === 'contextual-help' || id === 'resize') { await host.getByRole('button').filter({visible:true}).first().click(); expectedEvent = 'open-change'; }
           if (id === 'bottom-sheet') { await host.getByRole('button', {name:'닫기',exact:true}).click(); expectedEvent = 'open-change'; }
           if (id === 'carousel') { await host.getByRole('button', {name:'다음 슬라이드'}).click(); expectedEvent = 'index-change'; }
           if (id === 'fab') { await host.getByRole('button').first().click(); expectedEvent = 'expanded-change'; }

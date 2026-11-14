@@ -15,7 +15,7 @@ export class BottomSheet extends KrdsElement {
     private state = new ValueState<boolean>();
     private pointerStart: number | undefined;
     private dragged = false;
-    readonly surface = new SurfaceController(this, { open: () => this.committedOpen, modal: () => true, onClose: () => this.close('escape'), fallback: () => target(this, this.returnFocusId), initialFocus: () => this.initialFocusId ? this.renderRoot.querySelector<HTMLElement>(`#${CSS.escape(this.initialFocusId)}`) ?? target(this, this.initialFocusId) : undefined });
+    readonly surface = new SurfaceController(this, { open: () => this.committedOpen, modal: () => true, onClose: () => this.close('escape'), openerFallback: () => target(this, this.returnFocusId), initialFocus: () => this.initialFocusId ? this.renderRoot.querySelector<HTMLElement>(`#${CSS.escape(this.initialFocusId)}`) ?? target(this, this.initialFocusId) : undefined });
     constructor() { super(); this.description = ''; this.initialFocusId = ''; this.returnFocusId = ''; this.dismissOnOutside = false; this.body = ''; }
     get committedOpen() { return this.state.read(this.open, this.defaultOpen, () => false); }
     private close(reason: 'close' | 'escape' | 'outside' | 'drag') { if (!this.committedOpen)

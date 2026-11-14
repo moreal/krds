@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, watchEffect } from 'vue';
 import type { ImageContract } from '@unofficial-krds/contracts';
 const p = defineProps<ImageContract>();
 const state = ref('');
 watch(() => p.src, () => state.value = '');
+watchEffect(() => { if (!p.decorative && !p.alt?.trim())
+    throw new TypeError('Meaningful images require an alternative'); });
 if (p.decorative && p.alt !== '')
     throw new TypeError('Decorative image requires empty alt');
 </script>

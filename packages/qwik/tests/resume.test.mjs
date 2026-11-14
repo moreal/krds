@@ -530,3 +530,23 @@ for (const [engine, launcher, tab, back] of [['chromium', null, 'Tab', 'Shift+Ta
     } finally { await context.close(); await own?.close(); }
   });
 }
+
+test('Tooltip with touchToggle still opens on mouse hover and keyboard focus, and a touch tap toggles it', async () => {
+  const errors = [], open = async options => { const context = await browser.newContext({ locale: 'ko-KR', reducedMotion: 'reduce', viewport: { width: 1000, height: 800 }, ...options }), page = await context.newPage(); page.on('pageerror', error => errors.push(String(error))); page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); }); await page.goto(`${origin}/tooltip-touch.html`); await page.waitForLoadState('networkidle'); return { context, page, root: page.locator('[data-krds-component="tooltip"][data-krds-part="root"]'), trigger: page.locator('#help-trigger') }; };
+  const mouse = await open({});
+  try {
+    await mouse.trigger.hover(); await poll(() => mouse.root.getAttribute('data-krds-state'), 'open', 'hover opens with touchToggle');
+    await mouse.page.mouse.move(5, 790); await poll(() => mouse.root.getAttribute('data-krds-state'), 'closed', 'pointer leave closes with touchToggle');
+    await mouse.page.locator('#tooltip-before').focus(); await mouse.page.keyboard.press('Tab');
+    await poll(() => mouse.root.getAttribute('data-krds-state'), 'open', 'keyboard focus opens with touchToggle');
+  } finally { await mouse.context.close(); }
+  const touch = await open({ hasTouch: true });
+  try {
+    await touch.trigger.tap(); await poll(() => touch.root.getAttribute('data-krds-state'), 'open', 'tap opens');
+    await new Promise(done => setTimeout(done, 200)); assert.equal(await touch.root.getAttribute('data-krds-state'), 'open', 'tap keeps it open');
+    await touch.trigger.tap(); await poll(() => touch.root.getAttribute('data-krds-state'), 'closed', 'second tap closes');
+    await touch.trigger.tap(); await poll(() => touch.root.getAttribute('data-krds-state'), 'open', 'third tap reopens');
+    await touch.page.touchscreen.tap(5, 790); await poll(() => touch.root.getAttribute('data-krds-state'), 'closed', 'outside tap closes');
+  } finally { await touch.context.close(); }
+  assert.deepEqual(errors, []);
+});

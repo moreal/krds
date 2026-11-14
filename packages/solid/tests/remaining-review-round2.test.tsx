@@ -52,3 +52,13 @@ test('E MainMenu retains four-level data through bounded progressive exposure an
   host.querySelector<HTMLButtonElement>('[data-krds-part="back"]')!.click(); await flush();
   expect(document.activeElement).toBe(trigger('C')); expect(host.querySelector('a[href="#deep-route"]')?.getClientRects().length ?? 0).toBe(0);
 });
+
+test('HelpPanel opener only opens: pressing it while the panel is open requests nothing and keeps the panel', async () => {
+  const requests: boolean[] = [];
+  const host = mount(() => <K.HelpPanel topics={[{ id: 'one', title: 'Topic', content: 'Content', relatedLinks: [] }]} defaultOpen={false} onOpenChange={({ open }) => requests.push(open)}/>);
+  const opener = host.querySelector<HTMLButtonElement>('[data-krds-part="opener"]')!, root = () => document.querySelector('[data-krds-component="help-panel"][data-krds-part="root"]');
+  opener.click(); await flush(); expect(root()).not.toBeNull(); expect(opener.getAttribute('aria-expanded')).toBe('true');
+  opener.click(); await flush(); expect(root()).not.toBeNull(); expect(requests).toEqual([true]);
+  document.querySelector<HTMLButtonElement>('[data-krds-component="help-panel"][data-krds-part="close"]')!.click(); await flush();
+  expect(root()).toBeNull(); expect(requests).toEqual([true, false]);
+});

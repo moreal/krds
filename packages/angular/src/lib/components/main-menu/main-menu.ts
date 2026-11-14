@@ -16,13 +16,16 @@ export class MainMenu implements OnInit,OnChanges,OnDestroy{
  /** Only three levels are exposed in a frame; a third-level branch opens a drill-down context. */
  readonly narrow=signal(false);readonly childrenOpen=signal<readonly string[]>([]);readonly contextId=signal<string|null>(null);
  private readonly expandedState=new OwnedState<string|null>();private readonly mobileState=new OwnedState<boolean>();private readonly element=inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;private readonly document=inject(KRDS_ENVIRONMENT).document;
- private frames:{contextId:string|null;triggerId:string}[]=[];private contextRoot:string|null=null;private pendingFocusId:string|null=null;private pendingParent:string|null=null;private priorExpanded:string|null=null;private focused:HTMLElement|null=null;
+ private frames:{contextId:string|null;triggerId:string}[]=[];private contextRoot:string|null=null;private pendingFocusId:string|null=null;private pendingParent:string|null=null;private pendingCollapse=false;private priorExpanded:string|null=null;private focused:HTMLElement|null=null;
  private media:MediaQueryList|undefined;private readonly resize=()=>this.narrow.set(this.media?.matches??false);
  constructor(){this.media=this.document.defaultView?.matchMedia?.('(max-width: 767px)');this.resize();this.media?.addEventListener('change',this.resize);afterEveryRender(()=>{
   const expanded=this.expanded();
-  if(this.contextId()&&expanded!==this.contextRoot){this.frames=[];this.contextRoot=null;this.contextId.set(null);this.childrenOpen.set([]);}
+  // Leaving a drill-down context re-renders the first-level list; first-level focus waits for that render.
+  const leavingContext=this.contextId()!==null&&expanded!==this.contextRoot;
+  if(leavingContext)this.resetLevels();
   if(this.pendingFocusId){const target=this.document.getElementById(this.pendingFocusId);this.pendingFocusId=null;if(usable(target))target.focus();}
-  if(this.pendingParent&&expanded===null){const target=this.document.getElementById(this.mobileTriggerId+'-trigger-'+this.pendingParent);this.pendingParent=null;if(usable(target))target.focus();}
+  if(this.pendingCollapse&&expanded===null){this.pendingCollapse=false;this.childrenOpen.set([]);}
+  if(this.pendingParent&&expanded===null){if(!leavingContext){const target=this.document.getElementById(this.mobileTriggerId+'-trigger-'+this.pendingParent);this.pendingParent=null;if(usable(target))target.focus();}}
   else if(this.priorExpanded&&expanded!==this.priorExpanded&&this.focused&&!usable(this.focused)){const target=this.document.getElementById(this.mobileTriggerId+'-trigger-'+this.priorExpanded);if(usable(target))target.focus();}
   this.priorExpanded=expanded;this.capture();});}
  private capture():void{const active=this.document.activeElement as HTMLElement|null;if(active&&(this.element.contains(active)||this.layer?.element.contains(active)))this.focused=active;else if(usable(active)&&active!==this.document.body)this.focused=null;}
@@ -44,7 +47,14 @@ export class MainMenu implements OnInit,OnChanges,OnDestroy{
   if(this.contextId()){const frame=this.frames.pop();this.contextId.set(frame?.contextId??null);if(frame)this.pendingFocusId=this.mobileTriggerId+'-trigger-'+frame.triggerId;}
   else{this.pendingParent=this.expanded();this.expandedState.request(this.expandedId,null,id=>this.expandedChange.emit({id}));}
  }
- keyboard(event:KeyboardEvent):void{if(event.key!=='Escape'||event.defaultPrevented||composing(event)||!this.contextId()&&!this.expanded())return;event.preventDefault();event.stopPropagation();this.back();}
+ private resetLevels():void{this.frames=[];this.contextRoot=null;this.contextId.set(null);this.childrenOpen.set([]);}
+ /** Escape collapses every expanded level at once and returns focus to the first-level trigger. */
+ private closeAll():void{
+  const root=this.expanded();
+  if(root===null){this.resetLevels();return;}
+  this.pendingParent=root;this.pendingCollapse=true;this.expandedState.request(this.expandedId,null,id=>this.expandedChange.emit({id}));
+ }
+ keyboard(event:KeyboardEvent):void{if(event.key!=='Escape'||event.defaultPrevented||composing(event)||!this.contextId()&&!this.expanded())return;event.preventDefault();event.stopPropagation();this.closeAll();}
  requestQuery(event:Event):void{const value=(event.target as HTMLInputElement).value;if(value!==this.query)this.queryChange.emit({value});}
  setMobile(open:boolean):void{this.mobileState.request(this.mobileOpen,open,next=>this.mobileOpenChange.emit({open:next}));}
 }

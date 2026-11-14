@@ -35,9 +35,10 @@ export function safeRel(target?: string, rel?: string) { return target === '_bla
 export function described(help?: string, error?: string) { return [help, error].filter(Boolean).join(' ') || undefined; }
 export const focusSelector = 'button:not(:disabled),input:not(:disabled):not([type="hidden"]),textarea:not(:disabled),select:not(:disabled),a[href],[tabindex]';
 export function usable(node: Element | null | undefined): node is HTMLElement { return !!node && 'focus' in node && node.isConnected && !node.closest('[hidden],[inert]') && !node.matches(':disabled,[aria-disabled="true"]') && node.getClientRects().length > 0 && node.ownerDocument.defaultView?.getComputedStyle(node).visibility !== 'hidden'; }
-export function focusSafe(doc: Document, preferred?: string, fallback?: string, saved?: HTMLElement | null) {
+/** Candidates are tried in order: preferred (an id, or the element itself), fallback id, saved element. */
+export function focusSafe(doc: Document, preferred?: string | HTMLElement | null, fallback?: string, saved?: HTMLElement | null) {
     const modal = [...doc.querySelectorAll<HTMLElement>('[role="dialog"][aria-modal="true"]')].filter(usable).at(-1);
-    const candidates = [preferred ? doc.getElementById(preferred) : null, fallback ? doc.getElementById(fallback) : null, saved];
+    const candidates = [typeof preferred === 'string' ? doc.getElementById(preferred) : preferred, fallback ? doc.getElementById(fallback) : null, saved];
     const target = candidates.find(n => usable(n) && n.matches(focusSelector) && (!modal || modal.contains(n)));
     if (target && usable(target)) {
         target.focus();

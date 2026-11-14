@@ -190,6 +190,42 @@ test('G16 an accepted pointer-close timer cannot restore over a reopened Context
   vi.runOnlyPendingTimers(); expect(document.activeElement?.id).toBe('context-inner');
 });
 
+test('Tooltip with touchToggle still opens on mouse hover and on keyboard focus, and a touch tap toggles it', async () => {
+  // Kept away from where earlier tests left the real pointer, so only the dispatched pointer events count.
+  const host = mount(() => <div style={{ position: "fixed", right: "0", bottom: "0" }}><K.Tooltip text="Details" relationship="description" triggerLabel="Details help" triggerId="touch-hover-tip" textId="touch-hover-tip-text" touchToggle/></div>);
+  const root = host.querySelector<HTMLElement>('[data-krds-part="root"]')!, trigger = host.querySelector<HTMLButtonElement>('#touch-hover-tip')!, popup = host.querySelector<HTMLElement>('#touch-hover-tip-text')!;
+  root.dispatchEvent(new PointerEvent('pointerenter', { pointerType: 'mouse' }));
+  expect(popup.hidden).toBe(false);
+  root.dispatchEvent(new PointerEvent('pointerleave', { pointerType: 'mouse' }));
+  await new Promise(resolve => setTimeout(resolve, 200));
+  expect(popup.hidden).toBe(true);
+  trigger.focus();
+  expect(popup.hidden).toBe(false);
+  trigger.blur();
+  expect(popup.hidden).toBe(true);
+  // A touch contact leaves opening to the click, so the tap toggles instead of opening and closing at once.
+  root.dispatchEvent(new PointerEvent('pointerenter', { pointerType: 'touch' }));
+  expect(popup.hidden).toBe(true);
+  trigger.dispatchEvent(new PointerEvent('pointerdown', { pointerType: 'touch', bubbles: true }));
+  root.dispatchEvent(new PointerEvent('pointerleave', { pointerType: 'touch' }));
+  trigger.focus(); trigger.click();
+  expect(popup.hidden).toBe(false);
+  await new Promise(resolve => setTimeout(resolve, 200));
+  expect(popup.hidden).toBe(false);
+  trigger.click();
+  expect(popup.hidden).toBe(true);
+});
+
+test('Tooltip without a placement sits where its reported default placement says', async () => {
+  const host = mount(() => <div style={{ padding: '200px' }}><K.Tooltip text="Details" relationship="description" triggerLabel="Details help" triggerId="default-place-tip" textId="default-place-tip-text" defaultOpen/></div>);
+  const trigger = host.querySelector<HTMLButtonElement>('#default-place-tip')!, popup = host.querySelector<HTMLElement>('#default-place-tip-text')!;
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  expect(popup.getAttribute('data-krds-placement')).toBe('top');
+  const anchor = trigger.getBoundingClientRect(), surface = popup.getBoundingClientRect();
+  expect(surface.bottom).toBeLessThanOrEqual(anchor.top);
+  expect(Math.abs((surface.left + surface.width / 2) - (anchor.left + anchor.width / 2))).toBeLessThan(1);
+});
+
 test('Tooltip stays open when keyboard focus arrives right after the pointer leaves', async () => {
   const host = mount(() => <K.Tooltip text="Details" relationship="description" triggerLabel="Details help" triggerId="late-leave-tip" textId="late-leave-tip-text"/>);
   const root = host.querySelector<HTMLElement>('[data-krds-part="root"]')!, trigger = host.querySelector<HTMLButtonElement>('#late-leave-tip')!, popup = host.querySelector<HTMLElement>('#late-leave-tip-text')!;

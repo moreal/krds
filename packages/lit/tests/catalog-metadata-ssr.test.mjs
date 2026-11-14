@@ -39,6 +39,7 @@ test('SSR preserves selected dynamic state and dynamic pagination part names', a
   assert.match(output, /<section[^>]*data-krds-component="accordion"[^>]*data-krds-part="item"[^>]*data-krds-state="open"/);
   assert.match(output, /<button[^>]*data-krds-component="accordion"[^>]*data-krds-part="trigger"[^>]*aria-expanded="true"/);
   assert.match(output, /<progress[^>]*data-krds-component="spinner"[^>]*data-krds-part="indicator"[^>]*data-krds-state="determinate"/);
-  assert.doesNotMatch(output, /<a[^>]*data-krds-component="pagination"[^>]*data-krds-part="previous"/, 'the first page has no previous link');
+  assert.match(output, /<a[^>]*data-krds-component="pagination"[^>]*data-krds-part="previous"[^>]*data-krds-state="disabled"[^>]*part="previous"[^>]*aria-disabled="true"/, 'the first page keeps a disabled previous control');
+  assert.doesNotMatch(output, /<a[^>]*data-krds-part="previous"[^>]*href=/, 'the disabled previous control is not a navigable link');
   assert.match(output, /<a[^>]*data-krds-component="pagination"[^>]*data-krds-part="next"[^>]*data-krds-state=""[^>]*part="next"/);
 });

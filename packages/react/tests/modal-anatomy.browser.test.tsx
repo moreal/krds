@@ -39,3 +39,20 @@ test('BottomSheet follows the shared order (handle, then header with title and c
   await act(async () => sheet('handle').click());
   expect(requests, 'a tap on the handle is a close request, not a drag').toEqual(['close']);
 });
+
+test('BottomSheet returns focus to the control that opened it and uses returnFocusId only when that control is gone', async () => {
+  const { BottomSheet } = await import('../src/index');
+  const host = document.createElement('div'); document.body.append(host); const root = createRoot(host);
+  cleanup.push(() => { act(() => root.unmount()); host.remove(); });
+  const view = (open: boolean, withOpener = true) => <>{withOpener && <button id="sheet-opener" type="button">열기</button>}<button id="sheet-fallback" type="button">대체</button><BottomSheet title="지역 선택" open={open} returnFocusId="sheet-fallback"><p>본문</p></BottomSheet></>;
+  await act(async () => root.render(view(false)));
+  document.getElementById('sheet-opener')!.focus();
+  await act(async () => root.render(view(true)));
+  expect(document.activeElement?.getAttribute('role'), 'focus enters the sheet').toBe('dialog');
+  await act(async () => root.render(view(false)));
+  expect(document.activeElement?.id, 'the opener wins over returnFocusId').toBe('sheet-opener');
+  await act(async () => root.render(view(true)));
+  await act(async () => root.render(view(true, false)));
+  await act(async () => root.render(view(false, false)));
+  expect(document.activeElement?.id, 'returnFocusId is the fallback for a removed opener').toBe('sheet-fallback');
+});

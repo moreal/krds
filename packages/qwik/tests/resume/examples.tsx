@@ -152,3 +152,9 @@ export const TooltipResume = component$(() => <>
   <Tooltip text="신청 도움말을 엽니다" relationship="description" triggerLabel="신청 도움말" triggerId="help-trigger" textId="help-tooltip" defaultOpen={false} placement="bottom-start"/>
   <button id="tooltip-after" type="button">뒤</button>
 </>);
+
+/** Touch-toggle tooltip: hover and focus still open it; the tap toggle is added on top. */
+export const TooltipTouchResume = component$(() => <>
+  <button id="tooltip-before" type="button">앞</button>
+  <Tooltip text="신청 도움말을 엽니다" relationship="description" triggerLabel="신청 도움말" triggerId="help-trigger" textId="help-tooltip" defaultOpen={false} placement="bottom-start" touchToggle/>
+</>);

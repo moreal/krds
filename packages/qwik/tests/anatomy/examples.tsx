@@ -3,6 +3,7 @@ import { FileUpload } from '../../src/components/file-upload';
 import { TutorialPanel } from '../../src/components/tutorial-panel';
 import { BottomSheet } from '../../src/components/bottom-sheet';
 import { Modal } from '../../src/components/modal';
+import { BackButton } from '../../src/components/back-button';
 
 /** Local-only anatomy fixtures: no API, CDN or external assets. */
 const tasks = [{ id: 'apply', title: '예제 신청하기', steps: [{ id: 'one', title: '이름 입력', targetId: 'applicant-name', instruction: '이름을 입력하세요' }, { id: 'two', title: '신청 저장', targetId: 'save-application', instruction: '저장하세요' }] }];
@@ -24,4 +25,13 @@ export const BottomSheetNestedModalAnatomy = component$(() => <BottomSheet title
 export const BottomSheetNestedDismissAnatomy = component$(() => {
   const log = useSignal<string[]>([]), cancels = useSignal(0);
   return <><output id="sheet-requests">{`${log.value.join(',')}|${cancels.value}`}</output><BottomSheet title="지역 선택" defaultOpen={true} dismissOnOutside={true} onOpenChange$={detail => { log.value = [...log.value, detail.reason]; }} onCancel$={() => { cancels.value++; }}><Modal title="정말 닫을까요?" titleId="inner-title" defaultOpen={true} closeOnOutsideClick={true}><button type="button">내부 동작</button></Modal></BottomSheet></>;
+});
+/** No in-app history: the fallback link with unsaved input. The host records each confirmation and back request. */
+export const BackButtonDirtyFallbackAnatomy = component$(() => {
+  const log = useSignal<string[]>([]);
+  return <><output id="back-log">{log.value.join(',')}</output><BackButton canGoBack={false} fallbackHref="/left.html" dirty={true} requestConfirmation$={() => { log.value = [...log.value, 'asked']; return false; }} onBackRequest$={detail => { log.value = [...log.value, detail.reason]; }}/></>;
+});
+export const BackButtonDirtyFallbackBuiltInAnatomy = component$(() => {
+  const log = useSignal<string[]>([]);
+  return <><output id="back-log">{log.value.join(',')}</output><BackButton canGoBack={false} fallbackHref="/left.html" dirty={true} onBackRequest$={detail => { log.value = [...log.value, detail.reason]; }}/></>;
 });

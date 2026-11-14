@@ -26,12 +26,15 @@ export class Tooltip extends KrdsElement {
     private blurGeneration = 0;
     private keyboardDeparture = false;
     private tabDeparturePending = false;
+    /** A touch contact on the trigger: its focus is left to the click that toggles. */
+    private touching = false;
     private handleFocus() {
         if (this.suppressed && this.keyboardDeparture) {
             this.suppressed = false;
             this.keyboardDeparture = false;
         }
-        if (!this.touchToggle) this.show(true);
+        // Focus always opens; touchToggle only adds the tap toggle.
+        if (!(this.touchToggle && this.touching)) this.show(true);
     }
     private handleBlur(event: FocusEvent) {
         const generation = ++this.blurGeneration;
@@ -76,8 +79,8 @@ export class Tooltip extends KrdsElement {
         this.pendingEscape = false; this.escapeOrigin = null;
     } }
     override render() { if (!this.text || !this.triggerId || !this.textId || this.triggerId === this.textId || !['description', 'label'].includes(this.relationship) || this.relationship === 'description' && !this.triggerLabel)
-        throw new TypeError('Tooltip requires distinct IDs and nonduplicated naming'); const state = this.suppressed ? 'suppressed' : this.committedOpen ? 'open' : 'closed'; return html `<span data-krds-component="tooltip" data-krds-part="root" data-krds-state=${state} part="root" @keydown=${this.key} @pointerenter=${() => { if (!this.touchToggle) { this.hovered = true; clearTimeout(this.closeTimer); this.show(true); } }} @pointerleave=${() => { if (!this.touchToggle) this.leave(); }}><button data-krds-component="tooltip" data-krds-part="trigger" data-krds-state="" part="trigger" id=${this.triggerId} type="button" tabindex="0" aria-label=${ifDefined(this.relationship === 'label' ? undefined : this.triggerLabel)} aria-labelledby=${ifDefined(this.relationship === 'label' ? this.textId : undefined)} aria-describedby=${ifDefined(this.relationship === 'description' ? this.textId : undefined)} @focus=${this.handleFocus} @blur=${this.handleBlur} @click=${() => { if (this.touchToggle)
+        throw new TypeError('Tooltip requires distinct IDs and nonduplicated naming'); const state = this.suppressed ? 'suppressed' : this.committedOpen ? 'open' : 'closed'; return html `<span data-krds-component="tooltip" data-krds-part="root" data-krds-state=${state} part="root" @keydown=${this.key} @pointerenter=${(event: PointerEvent) => { if (event.pointerType !== 'touch') { this.hovered = true; clearTimeout(this.closeTimer); this.show(true); } }} @pointerleave=${(event: PointerEvent) => { if (event.pointerType !== 'touch') this.leave(); }}><button data-krds-component="tooltip" data-krds-part="trigger" data-krds-state="" part="trigger" id=${this.triggerId} type="button" tabindex="0" aria-label=${ifDefined(this.relationship === 'label' ? undefined : this.triggerLabel)} aria-labelledby=${ifDefined(this.relationship === 'label' ? this.textId : undefined)} aria-describedby=${ifDefined(this.relationship === 'description' ? this.textId : undefined)} @pointerdown=${(event: PointerEvent) => { this.touching = event.pointerType === 'touch'; }} @pointercancel=${() => { this.touching = false; }} @focus=${this.handleFocus} @blur=${this.handleBlur} @click=${() => { this.touching = false; if (this.touchToggle)
         this.show(!this.committedOpen);
     else
-        this.emit('action', {}); }}>ⓘ</button><span data-krds-component="tooltip" data-krds-part="popup" data-krds-state=${this.committedOpen ? 'open' : 'closed'} part="popup" data-krds-placement=${this.placement} id=${this.textId} role="tooltip" ?hidden=${!this.committedOpen} @pointerenter=${() => { this.hovered = true; clearTimeout(this.closeTimer); }} @pointerleave=${() => { if (!this.touchToggle) this.leave(); }}>${this.text}</span></span>`; }
+        this.emit('action', {}); }}>ⓘ</button><span data-krds-component="tooltip" data-krds-part="popup" data-krds-state=${this.committedOpen ? 'open' : 'closed'} part="popup" data-krds-placement=${this.placement} id=${this.textId} role="tooltip" ?hidden=${!this.committedOpen} @pointerenter=${() => { this.hovered = true; clearTimeout(this.closeTimer); }} @pointerleave=${(event: PointerEvent) => { if (event.pointerType !== 'touch') this.leave(); }}>${this.text}</span></span>`; }
 }

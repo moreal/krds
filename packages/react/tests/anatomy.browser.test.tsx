@@ -101,3 +101,20 @@ test('TutorialPanel narrow modal keeps the shared panel surface: the modal layer
     probe.remove();
   } finally { await page.viewport(1280, 800); }
 });
+
+test('TutorialPanel without open/defaultOpen starts as the opener alone on a narrow screen and open on a wide one (KRDS component_08_02 L964-965)', async () => {
+  const { page } = await import('vitest/browser');
+  const roots = () => tutorialPart('root'), opener = () => tutorialPart('opener')[0]!;
+  const changes: boolean[] = [];
+  await page.viewport(390, 800);
+  try {
+    await mount(<TutorialPanel tasks={tasks} activeTaskId="apply" activeStepId="one" startActionId="implicit-start" onOpenChange={({ open }) => changes.push(open)}/>);
+    await new Promise(resolve => setTimeout(resolve, 50));
+    expect([roots().length, opener().getAttribute('aria-expanded'), changes]).toEqual([0, 'false', []]);
+    await act(async () => opener().click());
+    expect([roots().map(root => [root.dataset.krdsLayout, root.getAttribute('aria-modal')]), opener().getAttribute('aria-expanded'), changes]).toEqual([[['narrow-modal', 'true']], 'true', [true]]);
+  } finally { await page.viewport(1280, 800); }
+  for (const callback of cleanup.splice(0)) callback();
+  await mount(<TutorialPanel tasks={tasks} activeTaskId="apply" activeStepId="one" startActionId="implicit-wide-start"/>);
+  expect([roots().map(root => root.dataset.krdsLayout), opener().getAttribute('aria-expanded')]).toEqual([['desktop'], 'true']);
+});

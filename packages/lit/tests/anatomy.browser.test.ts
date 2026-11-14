@@ -94,3 +94,20 @@ test('TutorialPanel root is the panel surface: a right-anchored full-height dial
   const toggles = [...root.querySelectorAll<HTMLElement>('[data-krds-part="task-toggle"]')];
   expect(toggles.map(node => (node.parentElement as HTMLDetailsElement).open), 'nothing auto-expands on the overview').toEqual([false, false]);
 });
+
+test('TutorialPanel without open/default-open starts as the opener alone on a narrow screen and open on a wide one (KRDS component_08_02 L964-965)', async () => {
+  const { page } = await import('vitest/browser');
+  const facts = (root: ShadowRoot) => { const panel = root.querySelector<HTMLDialogElement>('[data-krds-component="tutorial-panel"][data-krds-part="root"]')!; return [panel.open, panel.dataset.krdsLayout, root.querySelector('[data-krds-part="opener"]')!.getAttribute('aria-expanded')]; };
+  await page.viewport(390, 800);
+  try {
+    const { host, root } = await mount('krds-tutorial-panel', { tasks, activeTaskId: 'apply', activeStepId: 'one', startActionId: 'tutorial-start' });
+    const changes: boolean[] = []; host.addEventListener('open-change', event => changes.push((event as CustomEvent<{ open: boolean }>).detail.open));
+    expect([facts(root), changes]).toEqual([[false, 'narrow-modal', 'false'], []]);
+    root.querySelector<HTMLButtonElement>('[data-krds-part="opener"]')!.click(); await host.updateComplete;
+    expect([facts(root), root.querySelector('dialog')!.matches(':modal'), changes]).toEqual([[true, 'narrow-modal', 'true'], true, [true]]);
+    root.querySelector<HTMLButtonElement>('[data-krds-part="close"]')!.click(); await host.updateComplete;
+  } finally { await page.viewport(1280, 800); }
+  for (const callback of cleanup.splice(0)) callback();
+  const wide = await mount('krds-tutorial-panel', { tasks, activeTaskId: 'apply', activeStepId: 'one', startActionId: 'tutorial-start' });
+  expect(facts(wide.root)).toEqual([true, 'desktop', 'true']);
+});

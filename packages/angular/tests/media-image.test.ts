@@ -78,3 +78,17 @@ test('image src change resets error state', async () => {
   expect(root.querySelector('img')!.getAttribute('data-krds-state')).toBe('loaded');
   expect(root.querySelector('[data-krds-part="description"]')).toBeNull();
 });
+
+test('image rejects a meaningful image without alternative text and accepts a decorative one (KRDS component_04_08 L1067)', () => {
+  for (const alt of [undefined, '', '   ']) {
+    const fixture = TestBed.createComponent(Image);
+    fixture.componentRef.setInput('src', 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+    if (alt !== undefined) fixture.componentRef.setInput('alt', alt);
+    expect(() => fixture.detectChanges()).toThrow(TypeError);
+  }
+  const fixture = TestBed.createComponent(Image);
+  fixture.componentRef.setInput('src', 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+  fixture.componentRef.setInput('decorative', true);
+  fixture.detectChanges();
+  expect((fixture.nativeElement as HTMLElement).querySelector('img')!.getAttribute('alt')).toBe('');
+});

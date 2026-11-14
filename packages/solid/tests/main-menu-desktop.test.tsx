@@ -155,3 +155,24 @@ test('desktop viewport bounds resources release on close and disposal', async ()
   await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
   expect(nav.style.getPropertyValue('--krds-main-menu-available-height')).toBe(''); nav.remove();
 });
+
+test('Escape collapses every expanded level at once and focuses the first-level trigger', async () => {
+  const deep = [{ id: 'services', label: 'Services', children: [{ id: 'civil', label: 'Civil', children: [{ id: 'issue', label: 'Issue', children: [{ id: 'copy', label: 'Copy', href: '#copy' }] }] }] }, { id: 'legal', label: 'Legal', children: [{ id: 'rights', label: 'Rights', href: '#rights' }] }];
+  const requests: (string | null)[] = [];
+  const { host } = mount(() => <MainMenu items={deep} onExpandedChange={({ id }) => requests.push(id)}/>);
+  const button = (label: string) => host.querySelector<HTMLButtonElement>(`button[aria-label="${label}"]`)!;
+  button('Services').click(); await flush();
+  button('Civil').click(); await flush();
+  // The third level opens a drill-down context two steps below the first-level trigger.
+  button('Issue').click(); await flush();
+  const leaf = host.querySelector<HTMLAnchorElement>('a[href="#copy"]')!;
+  expect(leaf.closest('[hidden]')).toBeNull(); leaf.focus(); requests.length = 0;
+  leaf.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })); await flush();
+  expect(requests).toEqual([null]);
+  expect(host.querySelector(`${part('trigger')}[aria-expanded="true"]`)).toBeNull();
+  expect(button('Services').getAttribute('aria-expanded')).toBe('false');
+  expect(document.activeElement).toBe(button('Services'));
+  // Reopening starts from the first level again; the lower levels did not stay expanded.
+  button('Services').click(); await flush();
+  expect(button('Civil').getAttribute('aria-expanded')).toBe('false');
+});

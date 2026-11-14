@@ -24,7 +24,7 @@
 [data-krds-component="pagination"][data-krds-part="go"], [data-krds-component="pagination"][data-krds-part="load-more"] { min-block-size: var(--krds-size-height-6); padding: var(--krds-padding-3) var(--krds-padding-5); border: var(--krds-number-1) solid var(--krds-light-color-button-secondary-border); border-radius: var(--krds-radius-medium1); background: var(--krds-light-color-button-secondary-fill); color: inherit; font: inherit; cursor: pointer; }
 [data-krds-component="pagination"][data-krds-part="total"], [data-krds-component="pagination"][data-krds-part="count"] { font-variant-numeric: tabular-nums; }
 @media (max-width: 767px) { [data-krds-component="pagination"][data-krds-part="root"] { gap: var(--krds-gap-7) var(--krds-gap-3); margin-block-start: var(--krds-mobile-gap-layout-h2-h3); } }
-@media (forced-colors: active) { [data-krds-component="pagination"][data-krds-part="link"]:is([aria-current="true"], [aria-current="page"], [data-krds-state~="current"]) { background: Canvas; color: CanvasText; border: var(--krds-number-2) solid Highlight; } [data-krds-component="pagination"][data-krds-part="previous"]::before, [data-krds-component="pagination"][data-krds-part="next"]::after { background-color: LinkText; } }
+@media (forced-colors: active) { [data-krds-component="pagination"][data-krds-part="link"]:is([aria-current="true"], [aria-current="page"], [data-krds-state~="current"]) { background: Canvas; color: CanvasText; border: var(--krds-number-2) solid Highlight; } [data-krds-component="pagination"][data-krds-part="previous"]::before, [data-krds-component="pagination"][data-krds-part="next"]::after { background-color: LinkText; } [data-krds-component="pagination"]:is([data-krds-part="previous"], [data-krds-part="next"]):is([aria-disabled="true"], [data-krds-state~="disabled"]) { color: GrayText; } [data-krds-component="pagination"]:is([data-krds-part="previous"], [data-krds-part="next"]):is([aria-disabled="true"], [data-krds-state~="disabled"])::before, [data-krds-component="pagination"]:is([data-krds-part="previous"], [data-krds-part="next"]):is([aria-disabled="true"], [data-krds-state~="disabled"])::after { background-color: GrayText; } }
 
 /* Keep DOM/focus order previous → numbers → next, while the narrow visual
  * navigation row precedes the number row (frozen 7481–7491: wrap, full-width links, next ordered first). */
@@ -40,4 +40,6 @@
     scroll-padding-inline: var(--krds-number-4);
   }
   [data-krds-component="pagination"][data-krds-part="list"] > li { flex: none; }
+  /* Direct-page input, total, go and error follow the number row, matching the DOM order. */
+  [data-krds-component="pagination"][data-krds-part="root"]:not([data-krds-variant="load-more"]) > :not([data-krds-part="previous"], [data-krds-part="next"], [data-krds-part="list"]) { order: 3; }
 }

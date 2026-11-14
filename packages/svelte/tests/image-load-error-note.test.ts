@@ -15,3 +15,11 @@ test('Image without a load failure renders no description part', async () => {
   const host = document.createElement('div'); document.body.append(host); const instance = mount(Image, { target: host, props: { src: 'data:image/gif;base64,R0lGODlhAQABAAAAACw=', alt: '예제 그림' } }); await tick(); cleanup.push(() => { unmount(instance); host.remove(); });
   expect(host.querySelector('[data-krds-part="description"]')).toBeNull();
 });
+test('Image rejects a meaningful image without alternative text and accepts a decorative one (KRDS component_04_08 L1067)', async () => {
+  for (const alt of ['', '   ']) {
+    const host = document.createElement('div'); document.body.append(host); cleanup.push(() => host.remove());
+    expect(() => mount(Image, { target: host, props: { src: 'missing.png', alt } })).toThrow(TypeError);
+  }
+  const host = document.createElement('div'); document.body.append(host); const instance = mount(Image, { target: host, props: { src: 'missing.png', alt: '', decorative: true } }); await tick(); cleanup.push(() => { unmount(instance); host.remove(); });
+  expect(host.querySelector('img')!.getAttribute('alt')).toBe('');
+});

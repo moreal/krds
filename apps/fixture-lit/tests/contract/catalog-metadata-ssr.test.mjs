@@ -86,7 +86,7 @@ for (const engine of ['chromium', 'webkit']) {
       assert.equal(before.unregistered, true);
       assert.notEqual(before.triggerDisplay, 'inline-block', 'component CSS must select the raw SSR trigger (not the browser default button box)');
       assert.equal(before.spinnerDisplay, 'inline-flex', 'component CSS must select the raw SSR state');
-      assert.equal(before.previousState, null, 'the first page renders no previous link');
+      assert.equal(before.previousState, 'disabled', 'the first page keeps a disabled previous link');
       assert.equal(before.nextState, '');
       assert.equal(before.checked, true);
       assert.equal(before.value, '김');

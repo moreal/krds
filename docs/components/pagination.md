@@ -23,7 +23,7 @@ title: 'Pagination'
 | `pageCount` **필수** | `number` | — | 전체 페이지 수입니다. |
 | `hrefForPage` **필수** | `(page: number) => string` | — | 페이지 번호를 받아 그 페이지의 주소를 돌려줍니다. 번호와 이전·다음 링크의 `href`로 쓰입니다. |
 | `onPageChange` | `(detail: {page: number}) => void` | — | 사용자가 번호, 이전·다음, 이동 버튼으로 다른 페이지를 요청하면 `{page}`를 받아 불립니다. `page`를 바깥에서 바꾸는 것으로는 불리지 않습니다. |
-| `variant` | `'number-links' \| 'direct-page' \| 'load-more'` | `"number-links"` | `number-links`는 번호 링크 목록, `direct-page`는 페이지 번호 입력란과 이동 버튼, `load-more`는 더 보기 버튼을 보여 줍니다. |
+| `variant` | `'number-links' \| 'direct-page' \| 'load-more'` | `"number-links"` | `number-links`는 번호 링크 목록, `direct-page`는 번호 링크 목록에 더해 페이지 번호 입력란과 이동 버튼, `load-more`는 더 보기 버튼을 보여 줍니다. |
 | `loadMore` | `{shown: number; total: number; pending: boolean; firstNewItemId?: string; onLoadMore: () => void}` | — | `load-more`에서 쓰는 설정입니다. `shown`과 `total`은 표시된 항목 수와 전체 항목 수, `pending`은 불러오는 중인지, `onLoadMore`는 버튼을 눌렀을 때 불리는 콜백, `firstNewItemId`는 새로 추가된 첫 항목의 `id`입니다. |
 
 모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
@@ -54,7 +54,7 @@ export interface PaginationContract {
 
 | 키 | 동작 |
 | --- | --- |
-| `Tab` / `Shift+Tab` | `number-links`에서는 이전, 번호 링크, 다음 순으로, `direct-page`에서는 이전, 페이지 입력란, 이동 버튼, 다음 순으로 이동합니다. 현재 페이지 번호는 건너뜁니다. |
+| `Tab` / `Shift+Tab` | 이전, 번호 링크, 다음 순으로 이동하고, `direct-page`에서는 이어서 페이지 입력란, 이동 버튼으로 이동합니다. 현재 페이지 번호와 비활성 상태인 이전·다음은 건너뜁니다. |
 | `Enter` | 초점이 있는 링크의 페이지로 이동합니다. 페이지 입력란에서는 입력한 번호로 이동합니다. |
 | `Enter` / `Space` | 이동 버튼이나 더 보기 버튼을 실행합니다. |
 
@@ -62,7 +62,7 @@ export interface PaginationContract {
 
 - 전체를 이름이 있는 `nav` 영역으로 감싸고 번호를 목록으로 전달합니다.
 - 현재 페이지 번호는 링크가 아니며 `aria-current`로 현재 위치임을 알립니다. 색만으로 구분하지 않습니다.
-- 화면 너비와 상관없이 이전, 번호 목록(또는 페이지 입력란, 전체 페이지 수, 이동 버튼), 다음 순으로 읽습니다. 첫 페이지에서는 이전 링크가, 마지막 페이지에서는 다음 링크가 나타나지 않습니다.
+- 화면 너비와 상관없이 이전, 번호 목록, 다음, 페이지 입력란, 전체 페이지 수, 이동 버튼 순으로 읽습니다. 첫 페이지의 이전과 마지막 페이지의 다음은 비활성 상태로 남아 누를 수 없고 초점도 받지 않습니다.
 - 페이지 입력란에는 보이는 레이블이 있고, 범위를 벗어난 번호를 넣으면 이동하지 않고 오류 문구를 알려 줍니다.
 - 더 보기로 항목이 추가되면 `firstNewItemId`가 가리키는 첫 새 항목으로 스크롤하고 초점을 옮깁니다. 추가한 첫 항목에 그 `id`를 붙여 둡니다.
 

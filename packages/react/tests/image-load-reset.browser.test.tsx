@@ -25,3 +25,14 @@ test('Image returns to loading when src changes after a failed load', async () =
   expect(note()).toBeNull(); expect(state()).toBe('');
   await expect.poll(state).toBe('loaded'); expect(note()).toBeNull();
 });
+test('Image rejects a meaningful image without alternative text and accepts a decorative one (KRDS component_04_08 L1067)', async () => {
+  const mount = () => { const host = document.createElement('div'); document.body.append(host); const root = createRoot(host, { onUncaughtError: () => {} }); cleanup.push(() => { root.unmount(); host.remove(); }); return { host, root }; };
+  for (const alt of ['', '   ']) {
+    const { host, root } = mount();
+    await expect(act(async () => root.render(<Image src={valid} alt={alt} />))).rejects.toBeInstanceOf(TypeError);
+    expect(host.querySelector('img')).toBeNull();
+  }
+  const { host, root } = mount();
+  await act(async () => root.render(<Image src={valid} alt="" decorative />));
+  expect(host.querySelector('img')!.getAttribute('alt')).toBe('');
+});

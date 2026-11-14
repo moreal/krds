@@ -58,6 +58,7 @@ watch(() => p.loadMore?.shown, async (value, old) => {
 <nav data-krds-component="pagination" data-krds-part="root" data-krds-state="" :data-krds-variant="variant??'number-links'" :aria-label="variant==='load-more'?'결과 더보기':'페이지 이동'">
 <template v-if="variant!=='load-more'">
 <a v-if="state.value.value>1" data-krds-component="pagination" data-krds-part="previous" data-krds-state="" :href="hrefForPage(state.value.value-1)" rel="prev">이전</a>
+<a v-else data-krds-component="pagination" data-krds-part="previous" data-krds-state="disabled" role="link" aria-disabled="true">이전</a>
 <ol data-krds-component="pagination" data-krds-part="list" data-krds-state="">
 <li v-for="page in pages" :key="page" data-krds-component="pagination" data-krds-part="item" data-krds-state="">
 <span v-if="typeof page==='string'" data-krds-component="pagination" data-krds-part="ellipsis" data-krds-state="">…</span>
@@ -65,6 +66,7 @@ watch(() => p.loadMore?.shown, async (value, old) => {
 </li>
 </ol>
 <a v-if="state.value.value<pageCount" data-krds-component="pagination" data-krds-part="next" data-krds-state="" :href="hrefForPage(state.value.value+1)" rel="next">다음</a>
+<a v-else data-krds-component="pagination" data-krds-part="next" data-krds-state="disabled" role="link" aria-disabled="true">다음</a>
 <template v-if="variant==='direct-page'">
 <label :for="inputId">페이지</label><input :id="inputId" ref="input" v-model="draft" data-krds-component="pagination" data-krds-part="input" :data-krds-state="invalid?'invalid':''" inputmode="numeric" type="text" :aria-invalid="invalid||undefined" :aria-describedby="invalid?errorId:undefined" @keydown.enter="enter"/>
 <span data-krds-component="pagination" data-krds-part="total" data-krds-state="">/ {{pageCount}}</span><button type="button" data-krds-component="pagination" data-krds-part="go" data-krds-state="" @click="go">이동</button>

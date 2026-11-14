@@ -32,7 +32,8 @@ export class TutorialPanel extends KrdsElement {
     } | null = null;
     readonly surface = new SurfaceController(this, { open: () => this.committedOpen, modal: () => this.narrow, onClose: () => this.show(false), preferredReturn: () => this.renderRoot.querySelector('[part="opener"]'), fallback: () => target(this, this.fallbackFocusId), suppressEntryFocus: () => this.exposurePending || this.coordinatedStop });
     constructor() { super(); this.tasks = []; this.activeTaskId = null; this.activeStepId = null; this.startActionId = ''; this.fallbackFocusId = ''; this.narrow = false; this.expandedTask = null; this.coordinatedStop = false; }
-    get committedOpen() { return this.openState.read(this.open, this.defaultOpen, () => true); }
+    /** KRDS component_08_02 L964-965: a narrow screen starts with only the opener; a wide screen (and server markup) starts open. */
+    get committedOpen() { return this.openState.read(this.open, this.defaultOpen, () => !(this.media?.matches ?? false)); }
     get committedRunning() { return this.runningState.read(this.running, this.defaultRunning, () => false); }
     get committedPanel() { return this.panelState.read(this.activePanel, this.defaultActivePanel, () => 'tutorial'); }
     private resize = () => { this.narrow = this.media?.matches ?? false; };

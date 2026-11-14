@@ -1,7 +1,11 @@
-import { useId, useRef, useLayoutEffect, type ReactNode } from 'react';
+import { useId, useRef, useLayoutEffect, useSyncExternalStore, type ReactNode } from 'react';
 import type { TutorialPanelContract, TutorialStopDetails } from '@unofficial-krds/contracts';
 import { part, useValue, focusSafe } from '../../catalog-utils.js';
 import { NativeLayer, useNarrow } from '../../native-layer.js';
+const narrowQuery = '(max-width: 767px)';
+const noSubscription = () => () => { };
+const narrowAtMount = () => window.matchMedia(narrowQuery).matches;
+const wideOnServer = () => false;
 export interface TutorialPanelProps extends TutorialPanelContract {
     helpContent?: ReactNode;
     delegateRestoration?: boolean; startActionVisible?:boolean;
@@ -10,7 +14,9 @@ export interface TutorialPanelProps extends TutorialPanelContract {
 export function TutorialPanel({ tasks, activeTaskId, activeStepId, running, defaultRunning, open, defaultOpen, activePanel, defaultActivePanel, onOpenChange, onTaskChange, onStepChange, onActivePanelChange, onStop, onStart, startActionId, fallbackFocusId, helpContent, children, delegateRestoration=false, startActionVisible=true }: TutorialPanelProps) {
     const id = useId();
     const narrow = useNarrow();
-    const visible = useValue(open, defaultOpen, true, 'TutorialPanel.open');
+    // KRDS component_08_02 L964-965: a narrow screen starts with only the opener. Server markup and the hydration pass assume a wide screen.
+    const startsNarrow = useSyncExternalStore(noSubscription, narrowAtMount, wideOnServer);
+    const visible = useValue(open, defaultOpen, !startsNarrow, 'TutorialPanel.open');
     const progress = useValue(running, defaultRunning, false, 'TutorialPanel.running');
     const tab = useValue(activePanel, defaultActivePanel, 'tutorial', 'TutorialPanel.tab');
     const opener = useRef<HTMLButtonElement>(null);
@@ -44,6 +50,10 @@ export function TutorialPanel({ tasks, activeTaskId, activeStepId, running, defa
         previous.current = progress.current;
         previousVisibility.current = visible.current;
     }, [progress.current, visible.current, tab.current, narrow]);
+    useLayoutEffect(() => {
+        // Hydrated wide markup on a narrow screen: fold the implicit default before paint, without reporting a user open change.
+        if (open === undefined && defaultOpen === undefined && visible.initial && narrowAtMount()) { previousVisibility.current = false; visible.commit(false); }
+    }, []);
     useLayoutEffect(() => {
         const savedOpener = opener.current;
         const doc = savedOpener?.ownerDocument;

@@ -32,7 +32,9 @@ export class SurfaceController implements ReactiveController {
         modal: () => boolean;
         onClose: () => void;
         preferredReturn?: () => HTMLElement | null;
-        fallback?: () => HTMLElement | null; initialFocus?: () => HTMLElement | null | undefined; suppressEntryFocus?: () => boolean;
+        fallback?: () => HTMLElement | null;
+        /** Tried only when the element that opened the surface can no longer take focus. */
+        openerFallback?: () => HTMLElement | null; initialFocus?: () => HTMLElement | null | undefined; suppressEntryFocus?: () => boolean;
     }) { host.addController(this); }
     hostUpdated() {
         const dialog = this.host.renderRoot.querySelector('dialog');
@@ -89,7 +91,7 @@ export class SurfaceController implements ReactiveController {
             else this.dialog.close();
         }
         this.active = false;
-        if (restore) restoreModalAware(this.host, [this.options.preferredReturn?.() ?? null, this.options.fallback?.() ?? null, this.opener]);
+        if (restore) restoreModalAware(this.host, [this.options.preferredReturn?.() ?? null, this.options.fallback?.() ?? null, this.opener, this.options.openerFallback?.() ?? null]);
         this.opener = null;
     }
     hostDisconnected() { if (this.active)

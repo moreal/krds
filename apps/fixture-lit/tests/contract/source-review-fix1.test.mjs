@@ -139,7 +139,9 @@ for (const engine of ['chromium', 'webkit']) for (const id of ['tooltip', 'conte
    window.removeBoundaryHelp = () => help.remove();
    window.boundaryFallbackFocused = () => boundary.activeElement === boundary.getElementById('owned-fallback') && document.activeElement !== duplicate;
   }, id);
-  await page.getByRole('button', {name: '도움말 열기', exact: true}).click();
+  // A tooltip opens on focus; a mouse click on its touch-toggle trigger would hover it open and then toggle it shut.
+  if (id === 'tooltip') await page.getByRole('button', {name: '도움말 열기', exact: true}).focus();
+  else await page.getByRole('button', {name: '도움말 열기', exact: true}).click();
   await page.evaluate(() => window.removeBoundaryHelp());
   assert.equal(await page.evaluate(() => window.boundaryFallbackFocused()), true, JSON.stringify(await page.evaluate(() => window.removalBlur)));
  }));

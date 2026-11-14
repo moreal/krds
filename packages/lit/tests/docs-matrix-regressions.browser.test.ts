@@ -82,3 +82,21 @@ test('Carousel autoplay advances after connect under real timers without any int
   // The visible position lives in the Shadow DOM, so a light-DOM innerText observer cannot see it.
   expect(document.body.innerText).not.toMatch(/\d \/ 3/);
 });
+
+test('BottomSheet returns focus to the control that opened it and uses returnFocusId only when that control is gone', async () => {
+  const opener = document.createElement('button'); opener.type = 'button'; opener.textContent = '열기';
+  const fallback = document.createElement('button'); fallback.type = 'button'; fallback.id = 'sheet-return-fallback'; fallback.textContent = '대체';
+  const sheet = document.createElement('krds-bottom-sheet') as Host;
+  Object.assign(sheet, { open: false, title: '지역 선택', returnFocusId: fallback.id });
+  document.body.append(opener, fallback, sheet);
+  cleanup.push(() => { opener.remove(); fallback.remove(); sheet.remove(); });
+  await sheet.updateComplete;
+  opener.focus(); sheet.open = true; await sheet.updateComplete; await frame();
+  expect(deepActive()?.tagName, 'focus enters the sheet').toBe('DIALOG');
+  sheet.open = false; await sheet.updateComplete; await frame();
+  expect(deepActive(), 'the opener wins over returnFocusId').toBe(opener);
+  sheet.open = true; await sheet.updateComplete; await frame();
+  opener.remove();
+  sheet.open = false; await sheet.updateComplete; await frame();
+  expect(deepActive(), 'returnFocusId is the fallback for a removed opener').toBe(fallback);
+});
