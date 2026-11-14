@@ -45,11 +45,11 @@ function input() {
 useNativeReset(control, state.reset, sync);
 </script>
 <template>
-<div data-krds-part="root" :data-krds-state="disabled?'disabled':''" data-krds-component="range-slider">
-<label :for="id" data-krds-part="label" data-krds-component="range-slider" data-krds-state="">{{label}}</label>
-<output :for="id" data-krds-part="output" data-krds-component="range-slider" data-krds-state="">{{valueText?valueText(state.value.value):state.value.value}}</output>
-<span data-krds-part="minimum" data-krds-component="range-slider" data-krds-state="">{{min}}</span>
-<input ref="control" :id="id" type="range" data-krds-part="control" :data-krds-state="disabled?'disabled':''" :min="min" :max="max" :step="step" :value="state.value.value" :name="name" :form="form" :disabled="disabled" :aria-valuetext="valueText?.(state.value.value)" @input="input" data-krds-component="range-slider"/>
-<span data-krds-part="maximum" data-krds-component="range-slider" data-krds-state="">{{max}}</span>
+<div data-krds-component="range-slider" data-krds-part="root" :data-krds-state="disabled?'disabled':''">
+<label :for="id" data-krds-component="range-slider" data-krds-part="label" data-krds-state="">{{label}}</label>
+<input ref="control" data-krds-component="range-slider" data-krds-part="control" data-krds-state="" type="range" :id="id" :name="name" :form="form" :min="min" :max="max" :step="step" :value="state.value.value" :disabled="disabled" :aria-valuetext="valueText?.(state.value.value)" @input="input"/>
+<output :for="id" data-krds-component="range-slider" data-krds-part="output" data-krds-state="">{{valueText?valueText(state.value.value):state.value.value}}</output>
+<span data-krds-component="range-slider" data-krds-part="minimum" data-krds-state="">{{min}}</span>
+<span data-krds-component="range-slider" data-krds-part="maximum" data-krds-state="">{{max}}</span>
 </div>
 </template>

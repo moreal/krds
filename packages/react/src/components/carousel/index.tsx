@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import type { CarouselContract } from '@unofficial-krds/contracts';
-import { part, states, useValue, unique } from '../../catalog-utils.js';
+import { part, useValue, unique } from '../../catalog-utils.js';
 export interface CarouselProps extends CarouselContract {
     label?: string;
     content?: Readonly<Record<string, ReactNode>>;
@@ -12,7 +12,7 @@ export function Carousel({ items, index, defaultIndex, onIndexChange, layout = '
     unique(items.map(i => i.id), 'Carousel');
     if (!items.length || !Number.isInteger(slide.current) || slide.current < 0 || slide.current >= items.length || !Number.isFinite(intervalMs) || intervalMs <= 0)
         throw new RangeError('Invalid Carousel items, index or interval.');
-    const root = useRef<HTMLElement>(null);
+    const root = useRef<HTMLDivElement>(null);
     const playButton = useRef<HTMLButtonElement>(null);
     const [hover, setHover] = useState(false);
     const [stopped, setStopped] = useState(false);
@@ -41,18 +41,18 @@ export function Carousel({ items, index, defaultIndex, onIndexChange, layout = '
     useEffect(() => { if (!permitted)
         return; const timer = setInterval(() => { if (latest.current.permitted)
         moveRef.current(latest.current.slide.current + 1, 'timer'); }, intervalMs); return () => clearInterval(timer); }, [permitted, intervalMs, items.length, slide.current]);
-    return <section {...part('carousel', 'root', states('active', permitted ? 'playing' : 'paused'))} data-krds-layout={layout} data-krds-indicator={narrow ? 'fraction' : 'dots'} aria-label={label} aria-roledescription="캐러셀" ref={root} onPointerEnter={() => setHover(true)} onPointerLeave={() => setHover(false)} onFocusCapture={e => { if (!e.currentTarget.contains(e.relatedTarget as Node))
+    return <div {...part('carousel', 'root', permitted ? 'playing' : 'paused')} role="region" aria-roledescription="캐러셀" aria-label={label} data-krds-layout={layout} ref={root} onPointerEnter={() => setHover(true)} onPointerLeave={() => setHover(false)} onFocusCapture={e => { if (!e.currentTarget.contains(e.relatedTarget as Node))
         setStopped(true); }} onPointerDown={e => { if (e.pointerType === 'touch')
         start.current = { x: e.clientX, y: e.clientY }; }} onPointerUp={e => { const point = start.current; start.current = undefined; if (point && Math.abs(e.clientX - point.x) > 50 && Math.abs(e.clientX - point.x) > Math.abs(e.clientY - point.y))
-        move(slide.current + (e.clientX < point.x ? 1 : -1), 'swipe'); }} onPointerCancel={() => { start.current = undefined; }}>{items.length > 1 && <button {...part('carousel', 'play-pause', permitted ? 'playing' : 'paused')} ref={playButton} type="button" onClick={() => { const next = !permitted; if (next)
+        move(slide.current + (e.clientX < point.x ? 1 : -1), 'swipe'); }} onPointerCancel={() => { start.current = undefined; }}>{items.length > 1 && <button {...part('carousel', 'play-pause')} ref={playButton} type="button" onClick={() => { const next = !permitted; if (next)
         setStopped(false);
     else
         setStopped(true); if (next !== intent.current) {
         intent.commit(next);
         onPlayingChange?.({ playing: next, reason: next ? 'play' : 'stop' });
-    } }}>{permitted ? '정지' : '재생'}</button>}{items.length>1&&intent.current&&!permitted&&<button {...part('carousel','stop-intent','paused')} type="button" onClick={()=>{setStopped(true);intent.commit(false);onPlayingChange?.({playing:false,reason:'stop'});}}>자동 재생 중지</button>}<div {...part('carousel', 'viewport', permitted ? 'playing' : 'paused')}>{items.map((item, i) => <div {...part('carousel', 'slide', i === slide.current ? 'active' : 'hidden')} key={item.id} id={`${id}-${i}`} role="group" aria-roledescription="슬라이드" aria-label={`${i + 1} / ${items.length}: ${item.label}`} hidden={i !== slide.current} inert={i !== slide.current}>{content?.[item.id] ?? item.content}</div>)}</div>{items.length > 1 && <><button {...part('carousel', 'previous', !loop && slide.current === 0 ? 'disabled' : '')} type="button" disabled={!loop && slide.current === 0} onClick={() => move(slide.current - 1, 'previous')}>이전 슬라이드</button><span {...part('carousel', 'position')} aria-live={permitted ? 'off' : 'polite'}>{slide.current + 1} / {items.length}</span>{!narrow && <div {...part('carousel', 'indicators')}>{items.map((item, i) => <button {...part('carousel', 'indicator', i === slide.current ? 'active' : '')} type="button" key={item.id} aria-label={`${i + 1}번 슬라이드`} aria-current={i === slide.current ? 'true' : undefined} onClick={() => move(i, 'indicator')} onKeyDown={e => { if (e.nativeEvent.isComposing)
+    } }}>{permitted ? '정지' : '재생'}</button>}{items.length>1&&intent.current&&!permitted&&<button {...part('carousel','stop-intent','paused')} type="button" onClick={()=>{setStopped(true);intent.commit(false);onPlayingChange?.({playing:false,reason:'stop'});}}>자동 재생 중지</button>}<div {...part('carousel', 'viewport')}>{items.map((item, i) => <section {...part('carousel', 'slide', i === slide.current ? 'active' : 'hidden')} key={item.id} id={`${id}-${i}`} role="group" aria-roledescription="슬라이드" aria-label={`${i + 1} / ${items.length}: ${item.label}`} hidden={i !== slide.current} inert={i !== slide.current}><h3>{item.label}</h3>{content?.[item.id] ?? <p>{item.content}</p>}</section>)}</div>{items.length > 1 && <><button {...part('carousel', 'previous')} type="button" disabled={!loop && slide.current === 0} onClick={() => move(slide.current - 1, 'previous')}>이전 슬라이드</button><div {...part('carousel', 'indicators')} hidden={narrow}>{items.map((item, i) => <button {...part('carousel', 'indicator', i === slide.current ? 'active' : '')} type="button" key={item.id} aria-label={`${i + 1} ${item.label} 슬라이드`} aria-current={i === slide.current ? 'true' : undefined} onClick={() => move(i, 'indicator')} onKeyDown={e => { if (e.nativeEvent.isComposing)
         return; if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
         e.preventDefault();
         move(slide.current + (e.key === 'ArrowLeft' ? -1 : 1), 'indicator');
-    } }}>●</button>)}</div>}<button {...part('carousel', 'next', !loop && slide.current === items.length - 1 ? 'disabled' : '')} type="button" disabled={!loop && slide.current === items.length - 1} onClick={() => move(slide.current + 1, 'next')}>다음 슬라이드</button></>}</section>;
+    } }}>{i + 1}</button>)}</div><span {...part('carousel', 'position')} hidden={!narrow}>{slide.current + 1} / {items.length}</span><button {...part('carousel', 'next')} type="button" disabled={!loop && slide.current === items.length - 1} onClick={() => move(slide.current + 1, 'next')}>다음 슬라이드</button></>}</div>;
 }

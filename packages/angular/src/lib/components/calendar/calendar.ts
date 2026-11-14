@@ -3,13 +3,13 @@ import { addDays, addMonths, calendarMonthGrid, formatIsoDate, parseIsoDate, wee
 import { oneOf, checkBounds, checkDate, composing, ControlMode, dateFields, emptyDate, KRDS_ENVIRONMENT, same, type DateValue, type Locale } from '../../internal/behavior';
 import { calendarTranslations, interpolate, type CalendarTranslations } from '../../internal/translations';
 @Component({ selector: 'krds-calendar', standalone: true, host: { '[attr.id]': 'null' }, changeDetection: ChangeDetectionStrategy.OnPush,
-    template: `<div #root role="group" data-krds-component="calendar" data-krds-part="root" [attr.aria-label]="label || null" [attr.data-krds-state]="disabled ? 'disabled' : ''">
-    <header data-krds-component="calendar" data-krds-part="header">
-      <button type="button" data-krds-component="calendar" data-krds-part="previous" [disabled]="disabled || !canNavigate(-1)" [attr.aria-label]="t().previousMonth" (click)="navigate(-1)">{{t().previousMonth}}</button>
-      <h3 data-krds-component="calendar" data-krds-part="heading" [id]="id + '-heading'" aria-live="polite">{{heading()}}</h3>
-      <button type="button" data-krds-component="calendar" data-krds-part="next" [disabled]="disabled || !canNavigate(1)" [attr.aria-label]="t().nextMonth" (click)="navigate(1)">{{t().nextMonth}}</button>
-    </header>
-    <div data-krds-component="calendar" data-krds-internal="table-scroll"><table data-krds-component="calendar" data-krds-part="table" [attr.aria-labelledby]="id + '-heading'">
+    template: `<div #root role="group" data-krds-component="calendar" data-krds-part="root" [attr.aria-label]="label || null">
+    <div data-krds-component="calendar" data-krds-part="header">
+      <button type="button" data-krds-component="calendar" data-krds-part="previous" [disabled]="disabled || !canNavigate(-1)" [attr.aria-label]="t().previousMonth" (click)="navigate(-1)">‹</button>
+      <h2 data-krds-component="calendar" data-krds-part="heading" [id]="id + '-heading'" aria-live="polite" aria-atomic="true">{{heading()}}</h2>
+      <button type="button" data-krds-component="calendar" data-krds-part="next" [disabled]="disabled || !canNavigate(1)" [attr.aria-label]="t().nextMonth" (click)="navigate(1)">›</button>
+    </div>
+    <div data-krds-component="calendar" data-krds-internal="table-scroll" role="region" [attr.aria-labelledby]="id + '-heading'" tabindex="0"><table data-krds-component="calendar" data-krds-part="table" [attr.aria-labelledby]="id + '-heading'">
       <thead><tr>@for (name of t().weekdays; track $index; let index = $index) { <th scope="col" data-krds-component="calendar" data-krds-part="weekday" [attr.aria-label]="name">{{t().weekdayShort[index]}}</th> }</tr></thead>
       <tbody>@for (week of weeks(); track $index) { <tr>@for (day of week; track $index) {
         <td data-krds-component="calendar" data-krds-part="cell">@if (day) {
@@ -17,12 +17,12 @@ import { calendarTranslations, interpolate, type CalendarTranslations } from '..
         }</td>
       }</tr> }</tbody>
     </table></div>
-    <footer data-krds-component="calendar" data-krds-part="footer">
+    <div data-krds-component="calendar" data-krds-part="footer">
       @if (today) { <button type="button" data-krds-component="calendar" data-krds-part="today" [disabled]="unavailable(today)" (click)="goToday()">{{t().today}}</button> }
       @if (!required) { <button type="button" data-krds-component="calendar" data-krds-part="clear" [disabled]="disabled" (click)="clear()">{{t().clear}}</button> }
       <button type="button" data-krds-component="calendar" data-krds-part="cancel" [disabled]="disabled" (click)="cancel()">{{t().cancel}}</button>
       <button type="button" data-krds-component="calendar" data-krds-part="confirm" [disabled]="!canConfirm()" (click)="confirm()">{{t().confirm}}</button>
-    </footer>
+    </div>
   </div>`,
 })
 export class Calendar implements OnInit, OnChanges {

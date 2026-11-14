@@ -24,7 +24,7 @@ test('review 3: SSR applies explicit aria-label to the actual tablist and Calend
   const tabs = output(html`<krds-tabs aria-label="방문 작업" .items=${items}></krds-tabs>`);
   const calendar = output(html`<krds-calendar aria-label="방문 날짜"></krds-calendar>`);
   assert.match(tabs, /role="tablist"[^>]*aria-label="방문 작업"/);
-  assert.match(calendar, /<section\b[^>]*aria-label="방문 날짜"/);
+  assert.match(calendar, /<div\b[^>]*data-krds-part="root"[^>]*role="group"[^>]*aria-label="방문 날짜"/);
 });
 
 test('review 3: SSR resolves external labelledby through supplied plain-text reference context', () => {
@@ -32,9 +32,9 @@ test('review 3: SSR resolves external labelledby through supplied plain-text ref
   const tabs = output(html`<h2 id="trip-task">방문 일정</h2><krds-tabs aria-labelledby="trip-task" .labelReferences=${labelReferences} .items=${items}></krds-tabs>`);
   const calendar = output(html`<h2 id="trip-task">방문 일정</h2><krds-calendar aria-labelledby="trip-task" .labelReferences=${labelReferences}></krds-calendar>`);
   assert.match(tabs, /role="tablist"[^>]*aria-label="방문 일정"/);
-  assert.match(calendar, /<section\b[^>]*aria-label="방문 일정"/);
+  assert.match(calendar, /<div\b[^>]*data-krds-part="root"[^>]*role="group"[^>]*aria-label="방문 일정"/);
   assert.doesNotMatch(tabs, /role="tablist"[^>]*aria-labelledby="trip-task"/);
-  assert.doesNotMatch(calendar, /<section\b[^>]*aria-labelledby="trip-task"/);
+  assert.doesNotMatch(calendar, /<div\b[^>]*data-krds-part="root"[^>]*aria-labelledby="trip-task"/);
 });
 
 test('review 3: empty or unresolved SSR naming references are configuration errors', () => {

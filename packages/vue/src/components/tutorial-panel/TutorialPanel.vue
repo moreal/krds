@@ -91,16 +91,21 @@ const visibleTasks = computed(() => viewTask.value ? [viewTask.value] : p.tasks)
 <button ref="opener" :id="openerId" type="button" data-krds-part="opener" :aria-expanded="state.value.value" @click="state.request(true)" data-krds-component="tutorial-panel" data-krds-state="">튜토리얼 열기</button>
 <Teleport to="body" :disabled="!layer.narrow.value">
 <div v-if="state.value.value" ref="portal">
-<div ref="dialog" tabindex="-1" :role="layer.narrow.value?'dialog':'complementary'" :aria-modal="layer.narrow.value?'true':undefined" :aria-labelledby="`${id}-title`" data-krds-part="root" data-krds-component="tutorial-panel" :data-krds-state="`${state.value.value?'open':'closed'} ${running.value.value?'running':'idle'}`">
-<header data-krds-part="header" data-krds-component="tutorial-panel" data-krds-state="">
+<component :is="layer.narrow.value?'div':'aside'" :id="id" ref="dialog" tabindex="-1" :role="layer.narrow.value?'dialog':'complementary'" :aria-modal="layer.narrow.value?'true':undefined" :aria-labelledby="`${id}-title`" data-krds-part="root" data-krds-component="tutorial-panel" :data-krds-layout="layer.narrow.value?'narrow-modal':'desktop'" :data-krds-state="`${state.value.value?'open':'closed'} ${running.value.value?'running':'idle'}`">
+<div data-krds-part="header" data-krds-component="tutorial-panel" data-krds-state="">
 <h2 :id="`${id}-title`" data-krds-part="title" data-krds-component="tutorial-panel" data-krds-state="">따라하기</h2>
-<div role="tablist" data-krds-part="tabs" data-krds-component="tutorial-panel" data-krds-state="">
-<button role="tab" type="button" data-krds-component="tutorial-panel" data-krds-part="tab" :data-krds-state="active.value.value==='help'?'selected':''" :aria-selected="active.value.value==='help'" @click="active.request('help')">도움말</button>
-<button role="tab" type="button" data-krds-component="tutorial-panel" data-krds-part="tab" :data-krds-state="active.value.value==='tutorial'?'selected':''" :aria-selected="active.value.value==='tutorial'" @click="active.request('tutorial')">튜토리얼</button>
-</div>
 <button type="button" data-krds-part="close" @click="state.request(false)" data-krds-component="tutorial-panel" data-krds-state="">튜토리얼 닫기</button>
-</header>
-<div :hidden="active.value.value!=='tutorial'">
+</div>
+<div role="tablist" aria-label="지원 패널" data-krds-part="tabs" data-krds-component="tutorial-panel" data-krds-state="">
+<button :id="`${id}-help-tab`" role="tab" type="button" data-krds-component="tutorial-panel" data-krds-part="tab" :data-krds-state="active.value.value==='help'?'selected':''" :aria-controls="`${id}-help`" :aria-selected="active.value.value==='help'" @click="active.request('help')">도움말</button>
+<button :id="`${id}-tutorial-tab`" role="tab" type="button" data-krds-component="tutorial-panel" data-krds-part="tab" :data-krds-state="active.value.value==='tutorial'?'selected':''" :aria-controls="`${id}-tutorial`" :aria-selected="active.value.value==='tutorial'" @click="active.request('tutorial')">튜토리얼</button>
+</div>
+<section :id="`${id}-help`" role="tabpanel" :aria-labelledby="`${id}-help-tab`" :hidden="active.value.value!=='help'">
+<slot name="help">
+<p>진행 중에도 도움말을 확인할 수 있습니다.</p>
+</slot>
+</section>
+<section :id="`${id}-tutorial`" role="tabpanel" :aria-labelledby="`${id}-tutorial-tab`" :hidden="active.value.value!=='tutorial'">
 <button v-if="startActionPresent!==false" :id="startActionId" type="button" data-krds-component="tutorial-panel" data-krds-part="start" data-krds-state="" @click="start">따라하기 시작</button>
 <button v-if="viewTask" type="button" data-krds-part="back" @click="emit('taskChange',{id:null})" data-krds-component="tutorial-panel" data-krds-state="">작업 목록</button>
 <ul data-krds-part="task-list" data-krds-component="tutorial-panel" data-krds-state="">
@@ -108,7 +113,7 @@ const visibleTasks = computed(() => viewTask.value ? [viewTask.value] : p.tasks)
 <details :open="item.id===activeTaskId">
 <summary data-krds-component="tutorial-panel" data-krds-part="task-toggle" data-krds-state="">{{item.title}}</summary>
 <ol data-krds-part="step-list" data-krds-component="tutorial-panel" data-krds-state="">
-<li v-for="step in item.steps" :key="step.id">
+<li v-for="step in item.steps" :key="step.id" :data-krds-state="activeStepId===step.id?'active-step':''">
 <button type="button" data-krds-component="tutorial-panel" data-krds-part="step" :data-krds-state="activeStepId===step.id?'current':''" :aria-current="activeStepId===step.id?'step':undefined" @click="emit('taskChange',{id:item.id});emit('stepChange',{id:step.id})">{{step.title}}</button>
 <p>{{step.instruction}}</p>
 </li>
@@ -116,14 +121,9 @@ const visibleTasks = computed(() => viewTask.value ? [viewTask.value] : p.tasks)
 </details>
 </li>
 </ul>
-</div>
-<div :hidden="active.value.value!=='help'">
-<slot name="help">
-<p>진행 중에도 도움말을 확인할 수 있습니다.</p>
-</slot>
-</div>
+</section>
 <button v-if="running.value.value" type="button" data-krds-part="stop" @click="stop" data-krds-component="tutorial-panel" data-krds-state="">따라하기 중지</button>
-</div>
+</component>
 </div>
 </Teleport>
 </div>

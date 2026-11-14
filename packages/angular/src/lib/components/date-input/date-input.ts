@@ -4,32 +4,25 @@ import { parseIsoDate, type ValueChangeDetails } from '@unofficial-krds/contract
 import { oneOf, checkBounds, checkDate, composing, ControlMode, dateFields, emptyDate, KRDS_ENVIRONMENT, same, type DateValue, type Locale } from '../../internal/behavior';
 import { dateTranslations, interpolate, type DateInputTranslations, type CalendarTranslations } from '../../internal/translations';
 import { Calendar } from '../calendar/calendar';
-import { Modal } from '../modal/modal';
-@Component({ selector: 'krds-date-input', standalone: true, host: { '[attr.id]': 'null' }, imports: [Calendar, Modal], changeDetection: ChangeDetectionStrategy.OnPush,
+import { NgTemplateOutlet } from '@angular/common';
+import { NativeLayer } from '../../internal/native-layer';
+@Component({ selector: 'krds-date-input', standalone: true, host: { '[attr.id]': 'null' }, imports: [Calendar, NgTemplateOutlet, NativeLayer], changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => DateInput), multi: true }, { provide: NG_VALIDATORS, useExisting: forwardRef(() => DateInput), multi: true }],
-    template: `<div #root data-krds-component="date-input" data-krds-part="root" [attr.data-krds-state]="state()" (focusout)="groupBlur($event)">
-    <fieldset [attr.aria-labelledby]="mode === 'range' ? id + '-legend' : null" style="border:0;padding:0;margin:0;min-width:0">
-      @if (mode === 'range') { <legend data-krds-component="date-input" data-krds-part="label" [id]="id + '-legend'">{{label}}</legend> }
-      <label data-krds-component="date-input" data-krds-part="label" [for]="id">{{mode === 'range' ? t().startLabel : label}}</label>
-      <input #start type="text" inputmode="numeric" placeholder="YYYY-MM-DD" data-krds-component="date-input" [attr.data-krds-part]="mode === 'single' ? 'control' : 'start-input'" [id]="id" [value]="raw()[0]" [disabled]="isDisabled()" [required]="required" [attr.form]="form || null" [attr.autocomplete]="autocomplete || null" [attr.aria-describedby]="describedBy()" [attr.aria-invalid]="fieldInvalid(0) ? 'true' : null" [attr.data-krds-state]="fieldState(0)" (invalid)="announceInvalidDraft()" (input)="edit($event, 0)" (keydown)="keydown($event)" (compositionstart)="beginComposition()" (compositionend)="endComposition($event, 0)" />
-      @if (mode === 'range') {
-        <label data-krds-component="date-input" data-krds-part="label" [for]="id + '-end'">{{t().endLabel}}</label>
-        <input #end type="text" inputmode="numeric" placeholder="YYYY-MM-DD" data-krds-component="date-input" data-krds-part="end-input" [id]="id + '-end'" [value]="raw()[1]" [disabled]="isDisabled()" [required]="required" [attr.form]="form || null" [attr.autocomplete]="autocomplete || null" [attr.aria-describedby]="describedBy()" [attr.aria-invalid]="fieldInvalid(1) ? 'true' : null" [attr.data-krds-state]="fieldState(1)" (invalid)="announceInvalidDraft()" (input)="edit($event, 1)" (keydown)="keydown($event)" (compositionstart)="beginComposition()" (compositionend)="endComposition($event, 1)" />
-      }
-      @if (withCalendar) { <button type="button" data-krds-component="date-input" data-krds-part="trigger" [id]="id + '-trigger'" [disabled]="isDisabled()" aria-haspopup="dialog" [attr.aria-expanded]="popup()" [attr.aria-controls]="popup() ? id + '-popup' : null" [attr.aria-label]="mode === 'range' ? label + ': ' + t().openCalendar : t().openCalendar" [attr.data-krds-state]="popup() ? 'open' : 'closed'" (click)="openCalendar()">{{t().openCalendar}}</button> }
-    </fieldset>
-    <p data-krds-component="date-input" data-krds-part="hint" [id]="id + '-hint'">{{hint || t().formatHint}}</p>
-    @if (message()) { <p data-krds-component="date-input" data-krds-part="error" [id]="id + '-error'">{{message()}}</p> }
-    <span role="status" aria-live="polite" class="krds-angular-status">{{announcement()}}</span>
-    @if (name) {
-      <input type="hidden" [name]="mode === 'single' ? name : name + '.start'" [value]="fields()[0]" [disabled]="isDisabled()" [attr.form]="form || null" />
-      @if (mode === 'range') { <input type="hidden" [name]="name + '.end'" [value]="fields()[1]" [disabled]="isDisabled()" [attr.form]="form || null" /> }
+    template: `@if (mode === 'range') {<fieldset #root data-krds-component="date-input" data-krds-part="root" [attr.data-krds-state]="state()" (focusout)="groupBlur($event)"><legend data-krds-component="date-input" data-krds-part="label" [id]="id + '-label'">{{label}}</legend><ng-container [ngTemplateOutlet]="contents" /></fieldset>} @else {<div #root data-krds-component="date-input" data-krds-part="root" [attr.data-krds-state]="state()" (focusout)="groupBlur($event)"><label data-krds-component="date-input" data-krds-part="label" [for]="id">{{label}}</label><ng-container [ngTemplateOutlet]="contents" /></div>}
+  <ng-template #contents>
+    @if (mode === 'range') { <label data-krds-component="date-input" data-krds-part="label" [for]="id">{{t().startLabel}}</label> }
+    <input #start type="text" inputmode="numeric" placeholder="YYYY-MM-DD" data-krds-component="date-input" [attr.data-krds-part]="mode === 'single' ? 'control' : 'start-input'" [id]="id" [value]="raw()[0]" [disabled]="isDisabled()" [required]="required" [attr.form]="form || null" [attr.autocomplete]="autocomplete || null" [attr.aria-describedby]="describedBy()" [attr.aria-invalid]="fieldInvalid(0) ? 'true' : null" [attr.data-krds-state]="fieldState(0)" (invalid)="announceInvalidDraft()" (input)="edit($event, 0)" (keydown)="keydown($event)" (compositionstart)="beginComposition()" (compositionend)="endComposition($event, 0)" />
+    @if (mode === 'range') {
+      <label data-krds-component="date-input" data-krds-part="label" [for]="id + '-end'">{{t().endLabel}}</label>
+      <input #end type="text" inputmode="numeric" placeholder="YYYY-MM-DD" data-krds-component="date-input" data-krds-part="end-input" [id]="id + '-end'" [value]="raw()[1]" [disabled]="isDisabled()" [required]="required" [attr.form]="form || null" [attr.autocomplete]="autocomplete || null" [attr.aria-describedby]="describedBy()" [attr.aria-invalid]="fieldInvalid(1) ? 'true' : null" [attr.data-krds-state]="fieldState(1)" (invalid)="announceInvalidDraft()" (input)="edit($event, 1)" (keydown)="keydown($event)" (compositionstart)="beginComposition()" (compositionend)="endComposition($event, 1)" />
     }
-    <krds-modal #popupModal [id]="id + '-popup'" [title]="t().calendarTitle" [open]="popup()" [returnFocusId]="id + '-trigger'" (openChange)="popup.set($event.open)">
-      @if (popup()) { <div data-krds-component="date-input" data-krds-part="popup" data-krds-state="open" class="krds-angular-popup-content"><krds-calendar [id]="id + '-calendar'" [label]="t().calendarTitle" [mode]="mode" [value]="current()" [min]="min" [max]="max" [required]="required" [locale]="locale" [translations]="calendarTranslations" [referenceDate]="referenceDate" [today]="today" (confirmed)="confirmCalendar($event.value)" (canceled)="closeCalendar()" /></div> }
-    </krds-modal>
-  </div>`,
-    styles: [`.krds-angular-popup-content { position:static; inline-size:auto; max-inline-size:100%; max-block-size:none; padding:0; margin:0; overflow:visible; border:0; border-radius:0; background:transparent; color:inherit; } fieldset { display:flex; flex-wrap:wrap; align-items:center; gap:var(--krds-gap-2); max-inline-size:100%; } input[type="text"] { max-inline-size:100%; } label { flex-basis:100%; } .krds-angular-status { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }`],
+    @if (withCalendar) { <button type="button" data-krds-component="date-input" data-krds-part="trigger" [id]="id + '-trigger'" [disabled]="isDisabled()" aria-haspopup="dialog" [attr.aria-expanded]="popup()" [attr.aria-controls]="id + '-popup'" [attr.aria-label]="mode === 'range' ? null : t().openCalendar" [attr.aria-labelledby]="mode === 'range' ? id + '-label ' + id + '-trigger-label' : null" [attr.data-krds-state]="popup() ? 'open' : 'closed'" (click)="openCalendar()"><span [id]="id + '-trigger-label'">{{t().openCalendar}}</span></button> }
+    <span data-krds-component="date-input" data-krds-part="hint" [id]="id + '-hint'">{{hint || t().formatHint}}</span>
+    <span data-krds-component="date-input" data-krds-part="error" [id]="id + '-error'" role="status" aria-live="polite" aria-atomic="true">{{message()}}</span>
+    <input type="hidden" [attr.name]="name ? (mode === 'single' ? name : name + '.start') : null" [value]="fields()[0]" [disabled]="isDisabled()" [attr.form]="form || null" />
+    @if (mode === 'range') { <input type="hidden" [attr.name]="name ? name + '.end' : null" [value]="fields()[1]" [disabled]="isDisabled()" [attr.form]="form || null" /> }
+    @if (popup()) { <dialog [krdsLayer]="true" [layerReturnId]="id + '-trigger'" (layerClose)="closeCalendar()" tabindex="-1" [id]="id + '-popup'" [attr.aria-labelledby]="id + '-popup-title'" data-krds-component="date-input" data-krds-part="popup" data-krds-state="open"><h2 [id]="id + '-popup-title'">{{t().calendarTitle}}</h2><krds-calendar [id]="id + '-calendar'" [label]="t().calendarTitle" [mode]="mode" [value]="current()" [min]="min" [max]="max" [required]="required" [locale]="locale" [translations]="calendarTranslations" [referenceDate]="referenceDate" [today]="today" (confirmed)="confirmCalendar($event.value)" (canceled)="closeCalendar()" /><button type="button" (click)="closeCalendar()">{{locale === 'en-US' ? 'Close' : '닫기'}}</button></dialog> }
+  </ng-template>`,
 })
 export class DateInput implements OnInit, OnChanges, OnDestroy, ControlValueAccessor, Validator {
     @Input({ required: true })
@@ -76,8 +69,6 @@ export class DateInput implements OnInit, OnChanges, OnDestroy, ControlValueAcce
     withCalendar = true;
     @Output()
     readonly valueChange = new EventEmitter<ValueChangeDetails<DateValue>>();
-    @ViewChild('popupModal')
-    popupModal?: Modal;
     @ViewChild('root')
     root?: ElementRef<HTMLElement>;
     @ViewChild('start')
@@ -292,9 +283,7 @@ export class DateInput implements OnInit, OnChanges, OnDestroy, ControlValueAcce
         return this.id + '-calendar-date-' + day;
     }
     openCalendar(): void { if (!this.isDisabled() && !this.isComposing) {
-        const opener = this.root?.nativeElement.querySelector<HTMLElement>('[data-krds-part="trigger"]');
-        if (opener && this.popupModal)
-            this.popupModal.openFrom(opener);
+        this.popup.set(true);
     } }
     closeCalendar(): void { this.popup.set(false); }
     confirmCalendar(value: DateValue): void { if (!this.isDisabled()) {

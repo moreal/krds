@@ -58,15 +58,12 @@ async function change() {
         applySelection(node);
 }
 </script>
-<div dir={provider.direction} data-krds-component="native-select" data-krds-part="root" data-krds-state={[disabled?'disabled':'',invalid?'invalid':''].join(' ')}>
- {#if label}
-<label for={id} data-krds-component="native-select" data-krds-part="label">{label}</label>{/if}
- <select bind:this={control!} {id} {name} {form} {required} {disabled} aria-label={ariaLabel} aria-labelledby={labelledby} aria-invalid={invalid||undefined} aria-describedby={[hint?`${id}-hint`:'',error?`${id}-error`:''].filter(Boolean).join(' ')||undefined} onchange={change} data-krds-component="native-select" data-krds-part="control" data-krds-size={size} data-krds-state={[disabled?'disabled':'',invalid?'invalid':''].join(' ')}>
+<div dir={provider.direction} data-krds-component="native-select" data-krds-part="root" data-krds-state={[disabled&&'disabled',invalid&&'invalid'].filter(Boolean).join(' ')}>
+ {#if label}<label for={id} data-krds-component="native-select" data-krds-part="label" data-krds-state="">{label}</label>{/if}
+ <select bind:this={control!} {id} {name} {form} {required} {disabled} aria-label={ariaLabel} aria-labelledby={labelledby} aria-invalid={invalid?'true':undefined} aria-describedby={[hint?`${id}-hint`:'',error?`${id}-error`:''].filter(Boolean).join(' ')||undefined} onchange={change} data-krds-component="native-select" data-krds-part="control" data-krds-state={[disabled&&'disabled',invalid&&'invalid'].filter(Boolean).join(' ')} data-krds-size={size}>
  {#each options as option(option.value)}
-<option value={option.value} disabled={option.disabled} selected={option.value===current&&(value!==undefined||hasSelection)}>{option.label}</option>{/each}
+<option value={option.value} selected={option.value===current&&(value!==undefined||hasSelection)} disabled={option.disabled}>{option.label}</option>{/each}
  </select>
- {#if hint}
-<p id={`${id}-hint`} data-krds-component="native-select" data-krds-part="hint">{hint}</p>{/if}
- {#if error}
-<p id={`${id}-error`} data-krds-component="native-select" data-krds-part="error">{error}</p>{/if}
+ {#if hint}<div id={`${id}-hint`} data-krds-component="native-select" data-krds-part="hint" data-krds-state="">{hint}</div>{/if}
+ {#if error}<div id={`${id}-error`} data-krds-component="native-select" data-krds-part="error" data-krds-state="">{error}</div>{/if}
 </div>

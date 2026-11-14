@@ -5,7 +5,8 @@ import type { ValueChangeDetails } from '@unofficial-krds/contracts';
 import { attrs, controlMode, copyValue, dateConfig, emptyValue, endpoints, sameValue, states, textFor, validateValue, type DateValue, type Locale } from '../../internal/behavior';
 import { initializeKeyboardBoundary, preventDateEnter } from '../../internal/event-props';
 import { Calendar, type CalendarTranslations } from '../calendar';
-import { Modal } from '../modal';
+import { registerModalLayer } from '../../internal/modal-service';
+import { restore } from '../../internal/catalog';
 import { dateFields, dateTranslations, mirrorValidity, readDraft, sameDraft, validateDraft, type DateInputTranslations, type Validation } from './model';
 export type { DateInputTranslations } from './model';
 export interface DateInputProps {
@@ -149,6 +150,31 @@ export const DateInput = component$<DateInputProps>((props) => {
         return commitValue(result.value!, raw, editRevision.value);
     });
     const close = $(async () => { open.value = false; });
+    // The native modal dialog owns the top layer, focus containment and Escape; the shared layer stack keeps an
+    // ancestor Modal from handling the same keys and restores the opener once the popup has left the document.
+    useVisibleTask$(({ track, cleanup }) => {
+        if (!track(() => open.value))
+            return;
+        const dialog = document.getElementById(`${id}-popup`) as HTMLDialogElement | null;
+        if (!dialog)
+            return;
+        if (!dialog.open)
+            dialog.showModal();
+        const layer = registerModalLayer(dialog, dialog), fallbackId = props.returnFocusId;
+        const cancel = (event: Event) => { event.preventDefault(); if (!composing.value) open.value = false; };
+        const closed = () => { if (open.value) open.value = false; };
+        dialog.addEventListener('cancel', cancel);
+        dialog.addEventListener('close', closed);
+        cleanup(() => {
+            dialog.removeEventListener('cancel', cancel);
+            dialog.removeEventListener('close', closed);
+            layer.dispose();
+            if (dialog.isConnected && dialog.open)
+                dialog.close();
+            // The calendar trigger is the popup's only opener; returnFocusId is the host fallback when it is unavailable.
+            queueMicrotask(() => restore(`${id}-trigger`, fallbackId));
+        });
+    }, { strategy: 'document-ready' });
     // Native form events need synchronous validity/default handling. This task installs only
     // form listeners; text commits, popup actions and parent callbacks remain QRLs.
     useVisibleTask$(({ track, cleanup }) => {
@@ -205,7 +231,9 @@ export const DateInput = component$<DateInputProps>((props) => {
             return;
         open.value = true;
         await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
-        const popup = document.getElementById(`${id}-popup`);
+        const popup = document.getElementById(`${id}-popup`) as HTMLDialogElement | null;
+        if (popup && !popup.open)
+            popup.showModal();
         const target = popup?.querySelector<HTMLElement>('[data-krds-part="day"][aria-pressed="true"]:not(:disabled)') ?? popup?.querySelector<HTMLElement>('[data-krds-part="day"]:not([data-krds-state~="outside-month"]):not(:disabled)') ?? popup?.querySelector<HTMLElement>('[data-krds-part="previous"]:not(:disabled),[data-krds-part="next"]:not(:disabled)');
         target?.focus();
     });
@@ -223,12 +251,14 @@ export const DateInput = component$<DateInputProps>((props) => {
   {range && <><label for={`${id}-end`} {...attrs('date-input', 'label')}>{t.value.endLabel}</label>{field(1)}</>}
   {props.withCalendar !== false && <button id={`${id}-trigger`} type="button" aria-label={range ? undefined : t.value.openCalendar} aria-labelledby={range ? `${id}-label ${id}-trigger-label` : undefined} aria-haspopup="dialog" aria-expanded={open.value} aria-controls={`${id}-popup`} disabled={props.disabled} {...attrs('date-input', 'trigger', open.value ? 'open' : 'closed')} onClick$={openPopup}><span id={`${id}-trigger-label`}>{t.value.openCalendar}</span></button>}
   <span id={`${id}-hint`} {...attrs('date-input', 'hint')}>{props.hint ?? t.value.formatHint}</span>
-  <span id={`${id}-error`} role="status" aria-live="polite" aria-atomic="true" {...attrs('date-input', 'error', invalid ? 'invalid' : '')}>{errorText}</span>
+  <span id={`${id}-error`} role="status" aria-live="polite" aria-atomic="true" {...attrs('date-input', 'error')}>{errorText}</span>
   <input type="hidden" name={props.name ? range ? `${props.name}.start` : props.name : undefined} value={endpoints(committed.value)[0] ?? ''} disabled={props.disabled} {...{ form: props.form }}/>
   {range && <input type="hidden" name={props.name ? `${props.name}.end` : undefined} value={endpoints(committed.value)[1] ?? ''} disabled={props.disabled} {...{ form: props.form }}/>}
-  <Modal id={`${id}-popup`} title={t.value.calendarTitle} open={open.value} onOpenChange$={close} returnFocusId={props.returnFocusId ?? `${id}-trigger`} locale={props.locale ?? environment.locale}>
-   {open.value && <Calendar mode={range ? 'range' : 'single'} value={committed.value} label={t.value.calendarTitle} min={props.min} max={props.max} disabled={props.disabled} required={props.required} locale={props.locale ?? environment.locale} referenceDate={props.referenceDate} today={props.today} translations={{ startLabel: t.value.startLabel, endLabel: t.value.endLabel, ...props.calendarTranslations }} onConfirm$={async ({ value }) => { await commitValue(value); await close(); }} onCancel$={close}/>}
-  </Modal>
+  {open.value && <dialog id={`${id}-popup`} aria-modal="true" aria-labelledby={`${id}-popup-title`} tabIndex={-1} {...attrs('date-input', 'popup', 'open')}>
+   <h2 id={`${id}-popup-title`}>{t.value.calendarTitle}</h2>
+   <Calendar mode={range ? 'range' : 'single'} value={committed.value} label={t.value.calendarTitle} min={props.min} max={props.max} disabled={props.disabled} required={props.required} locale={props.locale ?? environment.locale} referenceDate={props.referenceDate} today={props.today} translations={{ startLabel: t.value.startLabel, endLabel: t.value.endLabel, ...props.calendarTranslations }} onConfirm$={async ({ value }) => { await commitValue(value); await close(); }} onCancel$={close}/>
+   <button type="button" onClick$={close}>{(props.locale ?? environment.locale) === 'ko-KR' ? '닫기' : 'Close'}</button>
+  </dialog>}
  </>;
     return range ? <fieldset dir={environment.direction} {...attrs('date-input', 'root', states(props.disabled && 'disabled', invalid && 'invalid'))} onFocusOut$={focusout}><legend id={`${id}-label`} {...attrs('date-input', 'label')}>{props.label}</legend>{contents}</fieldset> : <div dir={environment.direction} {...attrs('date-input', 'root', states(props.disabled && 'disabled', invalid && 'invalid'))} onFocusOut$={focusout}><label for={id} {...attrs('date-input', 'label')}>{props.label}</label>{contents}</div>;
 });

@@ -1,6 +1,7 @@
-import { useId, useRef, useState, useEffect, useLayoutEffect } from 'react';
+import { useId, useRef, useState, useEffect, useLayoutEffect, type MouseEvent } from 'react';
 import type { PaginationContract } from '@unofficial-krds/contracts';
-import { part, states, useValue, useFormReset, usable } from '../../catalog-utils.js';
+import { part, useValue, useFormReset, usable } from '../../catalog-utils.js';
+import { useNarrow } from '../../native-layer.js';
 export type PaginationProps = PaginationContract;
 export function Pagination({ page, defaultPage, pageCount, hrefForPage, onPageChange, variant = 'number-links', loadMore }: PaginationProps) {
     const id = useId();
@@ -75,19 +76,34 @@ export function Pagination({ page, defaultPage, pageCount, hrefForPage, onPageCh
     useEffect(() => () => temporaryTabIndex.current?.(), []);
     const request = (next: number) => { if (next === state.current || next < 1 || next > pageCount)
         return; state.commit(next); onPageChange?.({ page: next }); };
-    const nums = [...new Set([1, ...Array.from({ length: Math.min(7, pageCount) }, (_, i) => Math.min(Math.max(1, state.current - 3), Math.max(1, pageCount - 6)) + i), pageCount])];
+    const narrow = useNarrow();
+    // Page window shared by every renderer: first and last stay visible, each gap is its own list item.
+    const numbers: (number | 'start-gap' | 'end-gap')[] = (() => {
+        const budget = narrow ? 7 : 11;
+        if (pageCount <= budget) return Array.from({ length: pageCount }, (_, index) => index + 1);
+        const radius = narrow ? 1 : 3;
+        let first = Math.max(2, state.current - radius), last = Math.min(pageCount - 1, state.current + radius);
+        const size = () => 2 + last - first + 1 + Number(first > 2) + Number(last < pageCount - 1);
+        while (size() < budget) {
+            if (first > 2) first--;
+            else if (last < pageCount - 1) last++;
+            else break;
+        }
+        return [1, ...(first > 2 ? ['start-gap' as const] : []), ...Array.from({ length: last - first + 1 }, (_, index) => first + index), ...(last < pageCount - 1 ? ['end-gap' as const] : []), pageCount];
+    })();
+    const plain = (e: MouseEvent) => !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0;
     if (variant === 'load-more') {
         if (!loadMore)
             throw new TypeError('load-more requires host loading state.');
-        return <nav {...part('pagination', 'root', loadMore.pending ? 'pending' : '')} data-krds-variant={variant} aria-label="결과 더보기"><span {...part('pagination', 'count', loadMore.pending ? 'pending' : '')}>{loadMore.shown} / {loadMore.total}</span><button {...part('pagination', 'load-more', states(loadMore.pending && 'pending', (loadMore.pending || loadMore.shown >= loadMore.total) && 'disabled'))} type="button" disabled={loadMore.pending || loadMore.shown >= loadMore.total} onClick={event => {
+        return <nav {...part('pagination', 'root')} data-krds-variant={variant} aria-label="결과 더보기"><p {...part('pagination', 'count')} role="status">{loadMore.shown} / {loadMore.total}</p><button {...part('pagination', 'load-more', loadMore.pending ? 'pending' : '')} type="button" disabled={loadMore.pending || loadMore.shown >= loadMore.total} onClick={event => {
             loadOrigin.current = event.currentTarget.ownerDocument.activeElement === event.currentTarget ? event.currentTarget : null;
             loadFocusAbandoned.current = false;
             loadMore.onLoadMore();
-        }}>{loadMore.pending ? '불러오는 중' : '더 보기'}</button></nav>;
+        }}>더 보기</button></nav>;
     }
-    return <nav {...part('pagination', 'root', states('current', invalid && 'invalid'))} data-krds-variant={variant} aria-label="페이지 이동"><a {...part('pagination', 'previous', state.current === 1 ? 'disabled' : '')} href={state.current === 1 ? undefined : hrefForPage(state.current - 1)} aria-disabled={state.current === 1 || undefined} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey&&e.button===0)request(state.current-1);}}>이전</a><ul {...part('pagination', 'list')}>{nums.map((n, i) => <li {...part('pagination', 'item', n === state.current ? 'current' : '')} key={n}>{i > 0 && n > nums[i - 1] + 1 && <span {...part('pagination', 'ellipsis')}>…</span>}<a {...part('pagination', 'link', n === state.current ? 'current' : '')} href={n === state.current ? undefined : hrefForPage(n)} aria-current={n === state.current ? 'true' : undefined} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey&&e.button===0)request(n);}}>{n}</a></li>)}</ul><a {...part('pagination', 'next', state.current === pageCount ? 'disabled' : '')} href={state.current === pageCount ? undefined : hrefForPage(state.current + 1)} aria-disabled={state.current === pageCount || undefined} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey&&e.button===0)request(state.current+1);}}>다음</a>{variant === 'direct-page' && <div><label htmlFor={id}>페이지 번호</label><input {...part('pagination', 'input', invalid ? 'invalid' : '')} id={id} ref={directInput} value={draft} inputMode="numeric" aria-invalid={invalid || undefined} aria-describedby={invalid ? `${id}-error` : undefined} onChange={e => setDraft(e.currentTarget.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.nativeEvent.isComposing)
-        e.preventDefault(); }}/><span {...part('pagination', 'total')}>전체 {pageCount}페이지</span><button {...part('pagination', 'go')} type="button" onClick={() => { const next = Number(draft); if (!/^\d+$/.test(draft) || !Number.isInteger(next) || next < 1 || next > pageCount) {
+    return <nav {...part('pagination', 'root')} data-krds-variant={variant} aria-label="페이지 이동">{state.current > 1 && <a {...part('pagination', 'previous')} href={hrefForPage(state.current - 1)} rel="prev" onClick={e => { if (plain(e)) request(state.current - 1); }}>이전</a>}{variant === 'direct-page' ? <><label htmlFor={id}>페이지</label><input {...part('pagination', 'input', invalid ? 'invalid' : '')} id={id} ref={directInput} type="text" value={draft} inputMode="numeric" aria-invalid={invalid || undefined} aria-describedby={invalid ? `${id}-error` : undefined} onChange={e => setDraft(e.currentTarget.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.nativeEvent.isComposing)
+        e.preventDefault(); }}/><span {...part('pagination', 'total')}>/ {pageCount}</span><button {...part('pagination', 'go')} type="button" onClick={() => { const next = Number(draft); if (!/^\d+$/.test(draft) || !Number.isInteger(next) || next < 1 || next > pageCount) {
         setInvalid(true);
         return;
-    } setInvalid(false); request(next); }}>이동</button>{invalid && <p id={`${id}-error`}>1에서 {pageCount} 사이 페이지를 입력하세요.</p>}</div>}</nav>;
+    } setInvalid(false); request(next); }}>이동</button>{invalid && <p id={`${id}-error`} role="status">1부터 {pageCount} 사이의 페이지를 입력하세요.</p>}</> : <ol {...part('pagination', 'list')}>{numbers.map(n => <li {...part('pagination', 'item')} key={n}>{typeof n === 'number' ? <a {...part('pagination', 'link', n === state.current ? 'current' : '')} href={n === state.current ? undefined : hrefForPage(n)} aria-current={n === state.current ? 'page' : undefined} tabIndex={n === state.current ? -1 : undefined} onClick={e => { if (plain(e)) request(n); }}>{n}</a> : <span {...part('pagination', 'ellipsis')}>…</span>}</li>)}</ol>}{state.current < pageCount && <a {...part('pagination', 'next')} href={hrefForPage(state.current + 1)} rel="next" onClick={e => { if (plain(e)) request(state.current + 1); }}>다음</a>}</nav>;
 }

@@ -45,9 +45,9 @@ test('FileUpload keeps one keyboard/AT file control: the visible picker opens th
     const facts = await root.evaluate(node => {
       const input = node.querySelector('[data-krds-part="file-input"]'), picker = node.querySelector('[data-krds-part="picker"]');
       const tabbable = [...node.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')].filter(element => element.tabIndex >= 0 && !element.disabled && !element.closest('[hidden]'));
-      return { type: input.type, tabIndex: input.tabIndex, hidden: input.getAttribute('aria-hidden'), onlyPicker: tabbable.length === 1 && tabbable[0] === picker, pickerText: picker.textContent, name: picker.getAttribute('aria-labelledby').split(' ').map(id => document.getElementById(id)?.textContent), described: picker.getAttribute('aria-describedby').split(' ').map(id => document.getElementById(id)?.textContent), help: node.querySelector('[data-krds-part="help"]').textContent };
+      return { type: input.type, tabIndex: input.tabIndex, hidden: input.getAttribute('aria-hidden'), onlyPicker: tabbable.length === 1 && tabbable[0] === picker, pickerText: picker.textContent, pickerNamed: picker.hasAttribute('aria-labelledby') || picker.hasAttribute('aria-label'), label: (label => ({ tag: label.localName, text: label.textContent, names: node.getAttribute('aria-labelledby') === label.id }))(node.querySelector('[data-krds-part="label"]')), role: node.getAttribute('role'), described: picker.getAttribute('aria-describedby').split(' ').map(id => document.getElementById(id)?.textContent), help: node.querySelector('[data-krds-part="help"]').textContent };
     });
-    assert.deepEqual(facts, { type: 'file', tabIndex: -1, hidden: 'true', onlyPicker: true, pickerText: '파일 선택', name: ['파일 선택', '첨부 서류'], described: [facts.help], help: facts.help });
+    assert.deepEqual(facts, { type: 'file', tabIndex: -1, hidden: 'true', onlyPicker: true, pickerText: '파일 선택', pickerNamed: false, label: { tag: 'p', text: '첨부 서류', names: true }, role: 'group', described: [facts.help], help: facts.help });
     await page.getByRole('button', { name: 'Before', exact: true }).focus();
     await page.keyboard.press('Tab');
     assert.equal(await page.evaluate(() => document.activeElement?.getAttribute('data-krds-part')), 'picker');

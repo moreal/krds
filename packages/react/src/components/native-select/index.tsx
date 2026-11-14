@@ -29,15 +29,15 @@ export function NativeSelect({ options, value, defaultValue, label, hint, error,
     const reset = (event: Event) => { queueMicrotask(() => { if (event.defaultPrevented) return; const next = controlled ? latest.current : initial.current; if (!controlled) setLocal(next); apply(next); }); };
     form.addEventListener('reset', reset); return () => form.removeEventListener('reset', reset);
   });
-  const state = [native.disabled && 'disabled', invalid && 'invalid'].filter(Boolean).join(' ') || undefined;
+  const state = [native.disabled && 'disabled', invalid && 'invalid'].filter(Boolean).join(' ');
   const describedBy = [native['aria-describedby'], hint != null && `${id}-hint`, error != null && `${id}-error`].filter(Boolean).join(' ') || undefined;
   return <div data-krds-component="native-select" data-krds-part="root" data-krds-state={state}>
-    {label != null && <label htmlFor={id} data-krds-component="native-select" data-krds-part="label">{label}</label>}
+    {label != null && <label htmlFor={id} data-krds-component="native-select" data-krds-part="label" data-krds-state="">{label}</label>}
     <select {...native} id={id} ref={control} value={current} aria-invalid={invalid || undefined} aria-describedby={describedBy} data-krds-component="native-select" data-krds-part="control" data-krds-size={size} data-krds-state={state} onChange={event => {
       const next = event.currentTarget.value; if (next !== current) { if (!controlled) setLocal(next); onValueChange?.({ value: next }); }
       if (controlled) apply(latest.current);
     }}>{options.map(option => <option key={option.value} value={option.value} disabled={option.disabled}>{option.label}</option>)}</select>
-    {hint != null && <div id={`${id}-hint`} data-krds-component="native-select" data-krds-part="hint">{hint}</div>}
-    {error != null && <div id={`${id}-error`} data-krds-component="native-select" data-krds-part="error">{error}</div>}
+    {hint != null && <div id={`${id}-hint`} data-krds-component="native-select" data-krds-part="hint" data-krds-state="">{hint}</div>}
+    {error != null && <div id={`${id}-error`} data-krds-component="native-select" data-krds-part="error" data-krds-state="">{error}</div>}
   </div>;
 }

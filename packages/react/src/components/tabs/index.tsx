@@ -20,10 +20,10 @@ export function Tabs(props: TabsProps) {
       panel.tabIndex = first?.matches('a[href],button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled),[tabindex="0"]') ? -1 : 0;
     });
   });
-  return <div ref={root} data-krds-component="tabs" data-krds-part="root">
+  return <div ref={root} data-krds-component="tabs" data-krds-part="root" data-krds-state="">
     {props.label != null && <div id={`${id}-label`}>{props.label}</div>}
-    <div role="tablist" aria-label={props['aria-label']} aria-labelledby={props['aria-labelledby'] ?? (props.label != null ? `${id}-label` : undefined)} aria-orientation={orientation} data-krds-component="tabs" data-krds-part="list" data-krds-orientation={orientation}>
-      {props.items.map((item, index) => <button key={item.value} id={item.id ?? `${id}-tab-${index}`} type="button" role="tab" disabled={item.disabled} tabIndex={item.disabled ? -1 : 0} aria-selected={selected === item.value} aria-controls={`${id}-panel-${index}`} data-krds-component="tabs" data-krds-part="trigger" data-krds-state={[selected === item.value && 'selected', item.disabled && 'disabled'].filter(Boolean).join(' ') || undefined}
+    <div role="tablist" aria-label={props['aria-label']} aria-labelledby={props['aria-labelledby'] ?? (props.label != null ? `${id}-label` : undefined)} aria-orientation={orientation} data-krds-component="tabs" data-krds-part="list" data-krds-state="" data-krds-orientation={orientation}>
+      {props.items.map((item, index) => <button key={item.value} id={item.id ?? `${id}-tab-${index}`} type="button" role="tab" disabled={item.disabled} tabIndex={item.disabled ? -1 : 0} aria-selected={selected === item.value} aria-controls={`${id}-panel-${index}`} data-krds-component="tabs" data-krds-part="trigger" data-krds-state={[selected === item.value && 'selected', item.disabled && 'disabled'].filter(Boolean).join(' ')}
         onFocus={() => { if (automatic) { focusRequest.current = item.value; select(item.value); } }}
         onBlur={() => { focusRequest.current = null; }}
         onPointerDown={() => { focusRequest.current = null; }}

@@ -61,12 +61,15 @@ export class Carousel extends KrdsElement {
     };
     private measure = () => {
         if (!this.isConnected) return;
-        const list = this.renderRoot.querySelector<HTMLElement>('[part="list"]');
+        const list = this.renderRoot.querySelector<HTMLElement>('[part="viewport"]');
         if (!list?.clientWidth) return;
         const rootFont = Number.parseFloat(getComputedStyle(this.ownerDocument.documentElement).fontSize) || 16;
-        const gap = Number.parseFloat(getComputedStyle(list).columnGap) || 0;
-        const card = Math.min(24 * rootFont, list.clientWidth);
-        const next = Math.max(1, Math.floor((list.clientWidth + gap) / (card + gap)));
+        const listStyle = getComputedStyle(list);
+        const gap = Number.parseFloat(listStyle.columnGap) || 0;
+        const width = list.clientWidth - (Number.parseFloat(listStyle.paddingInlineStart) || 0) - (Number.parseFloat(listStyle.paddingInlineEnd) || 0);
+        if (width <= 0) return;
+        const card = Math.min(24 * rootFont, width);
+        const next = Math.max(1, Math.floor((width + gap) / (card + gap)));
         if (next === this.capacity) return;
         for (let active = deepActive(this.ownerDocument); active && active !== this; active = composedParent(active)) {
             if (active instanceof HTMLElement && active.dataset.krdsComponent === 'carousel' && active.dataset.krdsPart === 'slide' && !this.visible(next).has(Number(active.dataset.index))) this.restoreVisibleFocus = true;
@@ -127,22 +130,18 @@ export class Carousel extends KrdsElement {
         unique(this.items.map(item => item.id));
         if (!this.label || !['single', 'multiple'].includes(this.layout) || !Number.isFinite(this.intervalMs) || this.intervalMs < 100) throw new TypeError('Invalid carousel configuration');
         const index = this.committedIndex; const playing = this.advancing; const visible = this.visible();
-        // Keep navigation stationary while focus/hover conditionally exposes Stop.
-        const playbackStyle = 'display:flex;flex-direction:column;align-items:flex-start;gap:var(--krds-gap-5);' + (this.playingIntent ? 'min-block-size:calc(6em + var(--krds-padding-3) * 4 + var(--krds-gap-5));' : '');
-        return html`<section data-krds-component="carousel" data-krds-part="root" data-krds-state=${playing ? 'playing' : 'paused'} part="root" data-krds-layout=${this.layout} role="region" aria-roledescription="캐러셀" aria-label=${this.explicitName ?? this.label} @keydown=${(event: KeyboardEvent) => {
+        return html`<div data-krds-component="carousel" data-krds-part="root" data-krds-state=${playing ? 'playing' : 'paused'} part="root" data-krds-layout=${this.layout} role="region" aria-roledescription="캐러셀" aria-label=${this.explicitName ?? this.label} @keydown=${(event: KeyboardEvent) => {
             const editable = event.composedPath().some(node => node instanceof HTMLElement && (node.matches('input,textarea,select') || node.isContentEditable));
             if (!event.defaultPrevented && !event.isComposing && event.keyCode !== 229 && !editable && ['ArrowLeft', 'ArrowRight'].includes(event.key)) { event.preventDefault(); this.navigate(this.committedIndex + (event.key === 'ArrowRight' ? 1 : -1), event.key === 'ArrowRight' ? 'next' : 'previous'); }
         }} @focusin=${() => { if (deepActive(this.ownerDocument) !== this.renderRoot.querySelector('[part="stop-intent"]')) this.pendingStopFocus = false; this.stop(false); }} @pointerenter=${() => { this.hovered = true; this.requestUpdate(); }} @pointerleave=${() => { this.hovered = false; this.requestUpdate(); }}>
-            ${this.items.length > 1 ? html`<div style=${playbackStyle}><button data-krds-component="carousel" data-krds-part="play-pause" data-krds-state=${playing ? 'playing' : 'paused'} part="play-pause" type="button" @click=${() => playing ? this.stop(true) : this.play()}>${playing ? '정지' : '재생'}</button>${this.playingIntent && !playing ? html`<button data-krds-component="carousel" data-krds-part="stop-intent" data-krds-state="paused" part="stop-intent" type="button" @click=${() => this.stop(true)}>자동 재생 중지</button>` : ''}</div>` : ''}
-            <div data-krds-component="carousel" data-krds-part="viewport" data-krds-state=${playing ? 'playing' : 'paused'} part="viewport" style="touch-action:pan-y" @pointerdown=${(event: PointerEvent) => { if (event.isPrimary && event.button === 0) { this.activePointer = event.pointerId; this.startX = event.clientX; this.startY = event.clientY; } }} @pointercancel=${() => { this.activePointer = null; }} @pointerup=${(event: PointerEvent) => {
+            ${this.items.length > 1 ? html`<button data-krds-component="carousel" data-krds-part="play-pause" data-krds-state="" part="play-pause" type="button" @click=${() => playing ? this.stop(true) : this.play()}>${playing ? '정지' : '재생'}</button>${this.playingIntent && !playing ? html`<button data-krds-component="carousel" data-krds-part="stop-intent" data-krds-state="paused" part="stop-intent" type="button" @click=${() => this.stop(true)}>자동 재생 중지</button>` : ''}` : ''}
+            <div data-krds-component="carousel" data-krds-part="viewport" data-krds-state="" part="viewport" style=${this.layout === 'multiple' ? 'touch-action:pan-y;display:flex;gap:var(--krds-gap-5)' : 'touch-action:pan-y'} @pointerdown=${(event: PointerEvent) => { if (event.isPrimary && event.button === 0) { this.activePointer = event.pointerId; this.startX = event.clientX; this.startY = event.clientY; } }} @pointercancel=${() => { this.activePointer = null; }} @pointerup=${(event: PointerEvent) => {
                 if (event.pointerId !== this.activePointer) return;
                 this.activePointer = null;
                 const horizontal = event.clientX - this.startX; const vertical = event.clientY - this.startY;
                 if (Math.abs(horizontal) > 40 && Math.abs(horizontal) > Math.abs(vertical)) this.navigate(index + (horizontal < 0 ? 1 : -1), 'swipe');
-            }}><div data-krds-component="carousel" data-krds-part="list" data-krds-state="" part="list">${this.items.map((item, position) => html`<div data-krds-component="carousel" data-krds-part="slide" data-krds-state=${visible.has(position) ? position === index ? 'active' : 'primary' : 'hidden'} part="slide" data-index=${position} role="group" aria-roledescription="슬라이드" aria-label=${`${position + 1} / ${this.items.length}: ${item.label}`} aria-current=${ifDefined(position === index ? 'true' : undefined)} ?hidden=${!visible.has(position)} ?inert=${!visible.has(position)}><h3>${item.label}</h3><p>${item.content}</p><slot name=${item.id}></slot></div>`)}</div></div>
-            ${this.items.length > 1 ? html`<button data-krds-component="carousel" data-krds-part="previous" data-krds-state=${!this.loop && index === 0 ? 'disabled' : ''} part="previous" type="button" ?disabled=${!this.loop && index === 0} @click=${() => this.navigate(index - 1, 'previous')}>이전 슬라이드</button><button data-krds-component="carousel" data-krds-part="next" data-krds-state=${!this.loop && index === this.items.length - 1 ? 'disabled' : ''} part="next" type="button" ?disabled=${!this.loop && index === this.items.length - 1} @click=${() => this.navigate(index + 1, 'next')}>다음 슬라이드</button>
-                ${this.narrowIndicators ? html`<p data-krds-component="carousel" data-krds-part="position" data-krds-state="" part="position">${index + 1} / ${this.items.length}</p>` : html`<div data-krds-component="carousel" data-krds-part="indicators" data-krds-state="" part="indicators">${this.items.map((item, position) => html`<button data-krds-component="carousel" data-krds-part="indicator" data-krds-state=${position === index ? 'active' : ''} part="indicator" type="button" aria-label=${`${position + 1} 번 ${item.label}`} aria-pressed=${position === index} @click=${() => this.navigate(position, 'indicator')}>${position + 1}</button>`)}</div>`}
-            ` : ''}
-        </section>`;
+            }}>${this.items.map((item, position) => html`<section data-krds-component="carousel" data-krds-part="slide" data-krds-state=${visible.has(position) ? position === index ? 'active' : '' : 'hidden'} part="slide" data-index=${position} role="group" aria-roledescription="슬라이드" aria-label=${`${position + 1} / ${this.items.length}: ${item.label}`} ?hidden=${!visible.has(position)} ?inert=${!visible.has(position)}><h3>${item.label}</h3><p>${item.content}</p><slot name=${item.id}></slot></section>`)}</div>
+            ${this.items.length > 1 ? html`<button data-krds-component="carousel" data-krds-part="previous" data-krds-state="" part="previous" type="button" ?disabled=${!this.loop && index === 0} @click=${() => this.navigate(index - 1, 'previous')}>이전 슬라이드</button><div data-krds-component="carousel" data-krds-part="indicators" data-krds-state="" part="indicators" ?hidden=${this.narrowIndicators}>${this.items.map((item, position) => html`<button data-krds-component="carousel" data-krds-part="indicator" data-krds-state=${position === index ? 'active' : ''} part="indicator" type="button" aria-label=${`${position + 1} ${item.label} 슬라이드`} aria-current=${ifDefined(position === index ? 'true' : undefined)} @click=${() => this.navigate(position, 'indicator')}>${position + 1}</button>`)}</div><span data-krds-component="carousel" data-krds-part="position" data-krds-state="" part="position" ?hidden=${!this.narrowIndicators}>${index + 1} / ${this.items.length}</span><button data-krds-component="carousel" data-krds-part="next" data-krds-state="" part="next" type="button" ?disabled=${!this.loop && index === this.items.length - 1} @click=${() => this.navigate(index + 1, 'next')}>다음 슬라이드</button>` : ''}
+        </div>`;
     }
 }

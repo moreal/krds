@@ -27,7 +27,7 @@ export class BackButton extends KrdsElement {
   override render() {
     if (this.dirty && !this.requestConfirmation) throw new TypeError('Dirty back needs a confirmation driver');
     const disabled = !this.canGoBack && !this.fallbackHref;
-    const state = this.pending ? 'pending-confirmation' : disabled ? 'disabled' : '';
-    return html`${!this.canGoBack && this.fallbackHref ? html`<a data-krds-component="back-button" data-krds-part="root" data-krds-state=${state} part="root" href=${this.fallbackHref} aria-disabled=${ifDefined(this.pending ? 'true' : undefined)} @click=${this.activate}>${this.label}</a>` : html`<button data-krds-component="back-button" data-krds-part="root" data-krds-state=${state} part="root" type="button" ?disabled=${disabled || this.pending} @click=${this.activate}>${this.label}</button>`}${this.failure ? html`<p role="status">${this.failure}</p>` : ''}`;
+    const state = this.pending ? 'pending-confirmation' : '';
+    return html`${!this.canGoBack && this.fallbackHref ? html`<a data-krds-component="back-button" data-krds-part="root" data-krds-state=${state} part="root" href=${this.fallbackHref} aria-busy=${ifDefined(this.pending ? 'true' : undefined)} @click=${this.activate}>${this.label}</a>` : html`<button data-krds-component="back-button" data-krds-part="root" data-krds-state=${state} part="root" type="button" ?disabled=${disabled || this.pending} aria-busy=${ifDefined(this.pending ? 'true' : undefined)} @click=${this.activate}><span data-krds-component="back-button" data-krds-part="icon" data-krds-state="" part="icon" aria-hidden="true">←</span><span data-krds-component="back-button" data-krds-part="label" data-krds-state="" part="label">${this.label}</span></button>`}${this.failure ? html`<p role="status">${this.failure}</p>` : ''}`;
   }
 }

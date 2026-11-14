@@ -6,4 +6,4 @@ import { owned, control, resetField, ignoredKey } from './catalog-state.svelte.j
 let p: MastheadContract  = $props();
 
 </script>
-<div {...owned('masthead','root')}><p {...owned('masthead','text')}>{p.governmentService?'이 누리집은 대한민국 공식 전자정부 누리집입니다.':'비공식 독립 로컬 예제'}</p></div>
+{#if p.governmentService}<div {...owned('masthead','root')}><p {...owned('masthead','text')}>이 누리집은 대한민국 공식 전자정부 누리집입니다.</p></div>{/if}

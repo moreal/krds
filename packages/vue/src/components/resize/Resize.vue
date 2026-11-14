@@ -50,12 +50,10 @@ onMounted(() => document.addEventListener('pointerdown', outside));
 onUnmounted(() => document.removeEventListener('pointerdown', outside));
 </script>
 <template>
-<div ref="root" data-krds-part="root" :data-krds-state="open.value.value?'open':'closed'" @keydown="key" data-krds-component="resize">
-<button ref="trigger" type="button" data-krds-part="trigger" :aria-expanded="open.value.value" :aria-controls="id" @click="open.request(!open.value.value)" data-krds-component="resize" data-krds-state="">화면 크기 {{levels.find(x=>x.id===state.value.value)?.label}}</button>
-<ul ref="list" :id="id" :style="listStyle" data-krds-part="list" :hidden="!open.value.value" data-krds-component="resize" data-krds-state="">
-<li v-for="level in levels" :key="level.id">
-<button type="button" data-krds-part="option" :aria-pressed="level.id===state.value.value" :data-krds-state="level.id===state.value.value?'selected':''" @click="choose(level.id)" data-krds-component="resize">{{level.label}}</button>
-</li>
-</ul>
+<div ref="root" data-krds-component="resize" data-krds-part="root" data-krds-state="" @keydown="key">
+<button ref="trigger" type="button" data-krds-component="resize" data-krds-part="trigger" data-krds-state="" :aria-expanded="open.value.value" :aria-controls="id" @click="open.request(!open.value.value)">화면 크기 <span data-krds-component="resize" data-krds-part="current" data-krds-state="">{{levels.find(x=>x.id===state.value.value)?.label}}</span></button>
+<div ref="list" :id="id" :style="listStyle" data-krds-component="resize" data-krds-part="list" data-krds-state="" :hidden="!open.value.value">
+<button v-for="level in levels" :key="level.id" type="button" data-krds-component="resize" data-krds-part="option" :data-krds-state="level.id===state.value.value?'selected':''" :aria-pressed="level.id===state.value.value" @click="choose(level.id)">{{level.label}}</button>
+</div>
 </div>
 </template>

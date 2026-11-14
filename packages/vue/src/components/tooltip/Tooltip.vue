@@ -94,10 +94,10 @@ onUnmounted(() => {
 });
 </script>
 <template>
-<span ref="root" data-krds-part="root" :data-krds-state="`${state.value.value?'open':'closed'} ${suppressed?'suppressed':''}`" :data-krds-placement="placement??'bottom'" @pointerenter="show" @pointerleave="pointerLeave" data-krds-component="tooltip">
-<button ref="trigger" :id="triggerId" type="button" data-krds-part="trigger" :aria-label="relationship==='label'?undefined:triggerLabel" :aria-labelledby="relationship==='label'?textId:undefined" :aria-describedby="relationship==='label'?undefined:textId" @pointerdown="touching=$event.pointerType==='touch'" @focus="focus" @blur="blur" @click="touchToggle&&state.request(!state.value.value);touching=false" data-krds-component="tooltip" data-krds-state="">
-<slot>{{relationship==='label'?'ⓘ':triggerLabel}}</slot>
+<span ref="root" data-krds-part="root" :data-krds-state="suppressed?'suppressed':state.value.value?'open':'closed'" @pointerenter="show" @pointerleave="pointerLeave" data-krds-component="tooltip">
+<button ref="trigger" :id="triggerId" type="button" tabindex="0" data-krds-part="trigger" :aria-label="relationship==='label'?undefined:triggerLabel" :aria-labelledby="relationship==='label'?textId:undefined" :aria-describedby="relationship==='label'?undefined:textId" @pointerdown="touching=$event.pointerType==='touch'" @focus="focus" @blur="blur" @click="touchToggle&&state.request(!state.value.value);touching=false" data-krds-component="tooltip" data-krds-state="">
+<slot>ⓘ</slot>
 </button>
-<span ref="popup" :id="textId" :data-krds-placement="position.placement.value" data-krds-part="popup" :data-krds-state="state.value.value?'open':'closed'" :role="state.value.value?'tooltip':undefined" :style="state.value.value?position.style.value:{position:'absolute',width:'1px',height:'1px',clipPath:'inset(50%)',overflow:'hidden',whiteSpace:'nowrap',display:'inline-block'}" data-krds-component="tooltip">{{text}}</span>
+<span ref="popup" :id="textId" role="tooltip" :hidden="!state.value.value&&relationship!=='label'" :data-krds-placement="position.placement.value" data-krds-part="popup" :data-krds-state="state.value.value?'open':'closed'" :style="state.value.value?position.style.value:{position:'absolute',width:'1px',height:'1px',clipPath:'inset(50%)',overflow:'hidden',whiteSpace:'nowrap',display:relationship==='label'?'inline-block':undefined}" data-krds-component="tooltip">{{text}}</span>
 </span>
 </template>

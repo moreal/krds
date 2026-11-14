@@ -19,7 +19,7 @@ test('FileUpload: native file input is visually hidden but stays labelled, focus
  const pickerBox=picker.getBoundingClientRect();expect(pickerBox.width).toBeGreaterThan(1);expect(pickerBox.height).toBeGreaterThan(1);
  expect(document.elementFromPoint(pickerBox.left+pickerBox.width/2,pickerBox.top+pickerBox.height/2)).toBe(picker);
  // Accessibility and form participation are preserved.
- expect(input.labels?.[0]?.textContent).toBe('첨부 파일');expect(input.form).toBe(form);
+ const group=picker.closest<HTMLElement>('[data-krds-component="file-upload"][data-krds-part="root"]')!;expect(group.getAttribute('role')).toBe('group');expect(document.getElementById(group.getAttribute('aria-labelledby')!)?.textContent?.trim()).toBe('첨부 파일');expect(picker.hasAttribute('aria-labelledby')).toBe(false);expect(picker.textContent?.trim()).toBe('파일 선택');expect(input.form).toBe(form);
  expect(getComputedStyle(input).display).not.toBe('none');expect(getComputedStyle(input).visibility).toBe('visible');
  input.focus();expect(document.activeElement).toBe(input);
 });

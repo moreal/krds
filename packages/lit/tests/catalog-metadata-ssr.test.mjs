@@ -36,8 +36,9 @@ for (const [id, properties] of recipes.filter(([id]) => !excluded.has(id))) {
 test('SSR preserves selected dynamic state and dynamic pagination part names', async () => {
   const output = [...render(html`<krds-accordion .items=${[{ id: 'a', title: '안내', content: '내용' }]} .defaultOpenIds=${['a']}></krds-accordion><krds-spinner label="처리 중" .completionMessage=${'처리 완료'} .pending=${true} .value=${40}></krds-spinner><krds-pagination .pageCount=${3} .defaultPage=${1} .hrefForPage=${page => `#page-${page}`}></krds-pagination>`)].join('');
   if (evidenceDirectory) await writeFile(join(evidenceDirectory, 'dynamic-states.html'), output);
-  assert.match(output, /<button[^>]*data-krds-component="accordion"[^>]*data-krds-part="trigger"[^>]*data-krds-state="open"[^>]*aria-expanded="true"/);
-  assert.match(output, /<progress[^>]*data-krds-component="spinner"[^>]*data-krds-part="indicator"[^>]*data-krds-state="pending determinate"/);
-  assert.match(output, /<a[^>]*data-krds-component="pagination"[^>]*data-krds-part="previous"[^>]*data-krds-state="disabled"[^>]*part="previous"/);
+  assert.match(output, /<section[^>]*data-krds-component="accordion"[^>]*data-krds-part="item"[^>]*data-krds-state="open"/);
+  assert.match(output, /<button[^>]*data-krds-component="accordion"[^>]*data-krds-part="trigger"[^>]*aria-expanded="true"/);
+  assert.match(output, /<progress[^>]*data-krds-component="spinner"[^>]*data-krds-part="indicator"[^>]*data-krds-state="determinate"/);
+  assert.doesNotMatch(output, /<a[^>]*data-krds-component="pagination"[^>]*data-krds-part="previous"/, 'the first page has no previous link');
   assert.match(output, /<a[^>]*data-krds-component="pagination"[^>]*data-krds-part="next"[^>]*data-krds-state=""[^>]*part="next"/);
 });

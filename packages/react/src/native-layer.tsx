@@ -4,17 +4,18 @@ import { focusSafe, focusSelector, usable } from './catalog-utils.js';
 import { acquireDocumentLayer, offerDocumentEscape } from './document-layer.js';
 export function useNarrow() { const [narrow, setNarrow] = useState(false); useEffect(() => { const media = window.matchMedia('(max-width: 767px)'); const update = () => setNarrow(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []); return narrow; }
 /** Native isolation/trapping primitive. Composition owns return focus after release. */
-export function NativeLayer({ open, titleId, descriptionId, children, onEscape, onOutside, onReleased, component, initialFocusId, ownsSurface = false }: {
-    /** The hosted root renders its own shared surface (background, padding, sizing); the layer then adds only dialog semantics. */
-    ownsSurface?: boolean;
+export function NativeLayer({ open, titleId, label, descriptionId, children, onEscape, onOutside, onReleased, initialFocusId, surface = 'bare' }: {
+    /** 'bare' adds dialog semantics to the one hosted native element; 'modal' emits the public Modal root, backdrop and content around the children. */
+    surface?: 'bare' | 'modal';
     open: boolean;
-    titleId: string;
+    titleId?: string;
+    /** Names the dialog directly when no visible title element labels it. */
+    label?: string;
     descriptionId?: string;
     children: ReactNode;
     onEscape: () => void;
     onOutside?: () => void;
     onReleased?: () => void;
-    component: string;
     initialFocusId?: string;
 }) {
     const [portal, setPortal] = useState<HTMLElement>();
@@ -31,6 +32,8 @@ export function NativeLayer({ open, titleId, descriptionId, children, onEscape, 
         portal.style.position = 'fixed';
         portal.style.inset = '0';
         portal.style.zIndex = String(1000 + registration.depth);
+        if (surface === 'modal') { portal.dataset.krdsComponent = 'modal'; portal.dataset.krdsPart = 'root'; portal.dataset.krdsState = 'open'; }
+        const releaseSurface = () => { portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index'); delete portal.dataset.krdsComponent; delete portal.dataset.krdsPart; delete portal.dataset.krdsState; };
         const top = registration.top;
         const nodes = () => [...dialog.querySelectorAll<HTMLElement>(focusSelector)].filter(n => usable(n) && n.tabIndex >= 0);
         try {
@@ -41,7 +44,7 @@ export function NativeLayer({ open, titleId, descriptionId, children, onEscape, 
             } else dialog.focus();
         } catch (error) {
             registration.release();
-            portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index');
+            releaseSurface();
             throw error;
         }
         const key = (e: KeyboardEvent) => { if (!top() || e.defaultPrevented || e.isComposing || e.keyCode === 229)
@@ -66,17 +69,17 @@ export function NativeLayer({ open, titleId, descriptionId, children, onEscape, 
             dialog.focus(); };
         doc.addEventListener('keydown', key);
         doc.addEventListener('focusin', focus);
-        return () => { doc.removeEventListener('keydown', key); doc.removeEventListener('focusin', focus); const wasTop = top(); registration.release(); portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index'); if (wasTop)
+        return () => { doc.removeEventListener('keydown', key); doc.removeEventListener('focusin', focus); const wasTop = top(); registration.release(); releaseSurface(); if (wasTop)
             current.current.onReleased?.(); };
     }, [open, portal]);
-    const dialogAttributes = { role: 'dialog', 'aria-modal': true as const, 'aria-labelledby': titleId, 'aria-describedby': descriptionId, tabIndex: -1, style: { background: 'Canvas', color: 'CanvasText', padding: '1rem', maxHeight: '90dvh', overflow: 'auto', maxWidth: 'min(48rem,100%)' }, ref: (node: HTMLDivElement | null) => { ref.current = node; const original = isValidElement(children) ? (children.props as {
-            ref?: Ref<HTMLDivElement>;
-        }).ref : undefined; if (typeof original === 'function')
-            original(node);
-        else if (original)
-            original.current = node; } };
-    const { style: layerSurface, ...dialogSemantics } = dialogAttributes;
-    const dialog = isValidElement(children) && typeof children.type === 'string' ? cloneElement(children as ReactElement<Record<string, unknown>>, ownsSurface ? dialogSemantics : dialogAttributes) : <div {...dialogSemantics} style={layerSurface} data-krds-component={component} data-krds-part="content">{children}</div>;
-    return open && portal ? createPortal(<div style={{ position: 'fixed', inset: 0, zIndex: 1200, background: 'rgb(0 0 0 / .4)', display: 'grid', placeItems: 'center' }} {...(component==='bottom-sheet'?{'data-krds-component':component,'data-krds-part':'backdrop','data-krds-state':'open'}:{})} onClick={e => { if (e.target === e.currentTarget)
-        current.current.onOutside?.(); }}>{dialog}</div>, portal) : null;
+    const attach = (node: HTMLDivElement | null) => { ref.current = node; const original = surface === 'bare' && isValidElement(children) ? (children.props as { ref?: Ref<HTMLDivElement> }).ref : undefined; if (typeof original === 'function')
+        original(node);
+    else if (original)
+        original.current = node; };
+    const semantics = { role: 'dialog', 'aria-modal': true as const, 'aria-label': label, 'aria-labelledby': label === undefined ? titleId : undefined, 'aria-describedby': descriptionId, tabIndex: -1, ref: attach };
+    if (!open || !portal) return null;
+    // The shared stylesheet owns every surface; the layer adds dialog semantics only.
+    if (surface === 'modal') return createPortal(<><div data-krds-component="modal" data-krds-part="backdrop" data-krds-state="open" onClick={() => current.current.onOutside?.()}/><div {...semantics} data-krds-component="modal" data-krds-part="content" data-krds-state="open">{children}</div></>, portal);
+    if (!isValidElement(children) || typeof children.type !== 'string') throw new TypeError('NativeLayer hosts one native element.');
+    return createPortal(cloneElement(children as ReactElement<Record<string, unknown>>, semantics), portal);
 }

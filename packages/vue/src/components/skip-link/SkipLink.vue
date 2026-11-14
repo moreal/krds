@@ -7,10 +7,10 @@ if (p.links.length > 3)
 function activate(e: MouseEvent, id: string) { e.preventDefault(); focusDestination(id); }
 </script>
 <template>
-<nav aria-label="바로가기" data-krds-part="root" :data-krds-visibility="visibility??'focus-revealed'" data-krds-component="skip-link" data-krds-state="">
-<ul data-krds-part="list" data-krds-component="skip-link" data-krds-state="">
-<li v-for="link in links" :key="link.id">
-<a data-krds-part="link" :href="`#${link.targetId}`" @click="activate($event,link.targetId)" data-krds-component="skip-link" data-krds-state="">{{link.label}}</a>
+<nav data-krds-component="skip-link" data-krds-part="root" data-krds-state="" :data-krds-visibility="visibility??'focus-revealed'" aria-label="건너뛰기">
+<ul data-krds-component="skip-link" data-krds-part="list" data-krds-state="">
+<li v-for="link in links" :key="link.id" data-krds-component="skip-link" data-krds-part="item" data-krds-state="">
+<a data-krds-component="skip-link" data-krds-part="link" data-krds-state="" :href="`#${link.targetId}`" @click="activate($event,link.targetId)">{{link.label}}</a>
 </li>
 </ul>
 </nav>

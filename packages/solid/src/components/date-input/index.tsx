@@ -168,7 +168,7 @@ export function DateInput(props: DateInputProps): JSX.Element {
     <Show when={range}><label for={`${id}-end`} {...attr('label')}>{translations().endLabel}</label>{input(1)}</Show>
     <Show when={props.withCalendar !== false}><button ref={trigger} type="button" aria-label={range ? undefined : translations().openCalendar} aria-labelledby={range ? `${id}-label ${id}-trigger-label` : undefined} aria-haspopup="dialog" aria-expanded={open()} aria-controls={`${id}-popup`} disabled={props.disabled} {...attr('trigger',open() ? 'open':'closed')} onClick={openPopup}><span id={`${id}-trigger-label`}>{translations().openCalendar}</span></button></Show>
     <span id={`${id}-hint`} {...attr('hint')}>{props.hint ?? translations().formatHint}</span>
-    <span id={`${id}-error`} role="status" aria-live="polite" aria-atomic="true" {...attr('error',invalid() ? 'invalid':'')}>{error()?.message || externalError()}</span>
+    <span id={`${id}-error`} role="status" aria-live="polite" aria-atomic="true" {...attr('error')}>{error()?.message || externalError()}</span>
     <input type="hidden" name={props.name ? range ? `${props.name}.start` : props.name : undefined} value={endpoints(committed())[0] ?? ''} disabled={props.disabled} form={props.form}/>
     <Show when={range}><input type="hidden" name={props.name ? `${props.name}.end` : undefined} value={endpoints(committed())[1] ?? ''} disabled={props.disabled} form={props.form}/></Show>
     {popup()}

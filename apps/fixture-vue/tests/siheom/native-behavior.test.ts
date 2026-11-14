@@ -80,7 +80,7 @@ test('Calendar range, clear, cancel, keyboard bounds and disabled controls remai
   screen.getByRole('button',{name:'2024년 2월 12일 월요일'}).click();await settle();screen.getByRole('button',{name:'확인'}).click();await settle();expect(events).toEqual([{value:{start:'2024-02-12',end:'2024-02-20'}}]);
   const leap=screen.getByRole('button',{name:'2024년 2월 29일 목요일'});leap.focus();await fireEvent.keyDown(leap,{key:'ArrowRight'});expect(document.activeElement).toBe(leap);expect(events).toHaveLength(1);
   screen.getByRole('button',{name:'지우기'}).click();screen.getByRole('button',{name:'취소'}).click();await settle();expect(events).toHaveLength(1);
-  await view.rerender({disabled:true});await settle();expect(Array.from(document.querySelectorAll('section[data-krds-component="calendar"] button')).every(el=>(el as HTMLButtonElement).disabled)).toBe(true);expect(confirmations).toHaveLength(1);
+  await view.rerender({disabled:true});await settle();expect(Array.from(document.querySelectorAll('[data-krds-component="calendar"][data-krds-part="root"] button')).every(el=>(el as HTMLButtonElement).disabled)).toBe(true);expect(confirmations).toHaveLength(1);
 });
 
 test('DateInput range groups, popup cancel/confirm and invalid draft submission preserve committed values', async () => {

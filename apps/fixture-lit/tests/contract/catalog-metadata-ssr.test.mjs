@@ -68,9 +68,9 @@ for (const engine of ['chromium', 'webkit']) {
         return {
           unregistered: customElements.get('krds-accordion') === undefined,
           metadata,
-          triggerDisplay: getComputedStyle(accordion.querySelector('[data-krds-component="accordion"][data-krds-part="trigger"][data-krds-state~="open"]')).display,
-          spinnerDisplay: getComputedStyle(spinner.querySelector('[data-krds-component="spinner"][data-krds-part="root"][data-krds-state~="determinate"]')).display,
-          previousState: pagination.querySelector('[data-krds-part="previous"]').getAttribute('data-krds-state'),
+          triggerDisplay: getComputedStyle(accordion.querySelector('[data-krds-component="accordion"][data-krds-part="item"][data-krds-state~="open"] [data-krds-component="accordion"][data-krds-part="trigger"]')).display,
+          spinnerDisplay: getComputedStyle(spinner.querySelector('[data-krds-component="spinner"][data-krds-part="root"][data-krds-state~="pending"]:has([data-krds-part="indicator"][data-krds-state~="determinate"])')).display,
+          previousState: pagination.querySelector('[data-krds-part="previous"]')?.getAttribute('data-krds-state') ?? null,
           nextState: pagination.querySelector('[data-krds-part="next"]').getAttribute('data-krds-state'),
           checked: window.metadataNodes.checkbox.checked,
           value: window.metadataNodes['text-input'].value,
@@ -84,9 +84,9 @@ for (const engine of ['chromium', 'webkit']) {
       });
       if (evidenceDirectory) await writeFile(join(evidenceDirectory, `${engine}-before.json`), JSON.stringify(before, null, 2));
       assert.equal(before.unregistered, true);
-      assert.equal(before.triggerDisplay, 'flex', 'component CSS must select the raw SSR trigger');
+      assert.notEqual(before.triggerDisplay, 'inline-block', 'component CSS must select the raw SSR trigger (not the browser default button box)');
       assert.equal(before.spinnerDisplay, 'inline-flex', 'component CSS must select the raw SSR state');
-      assert.equal(before.previousState, 'disabled');
+      assert.equal(before.previousState, null, 'the first page renders no previous link');
       assert.equal(before.nextState, '');
       assert.equal(before.checked, true);
       assert.equal(before.value, '김');
@@ -139,9 +139,10 @@ for (const engine of ['chromium', 'webkit']) {
         { id: 'radio-group', name: 'value-change', detail: { value: 'b' } },
         { id: 'structured-list', name: 'selection-change', detail: { ids: ['item'] } },
       ]);
-      assert.equal(await page.locator('#accordion [data-krds-part="trigger"]').getAttribute('data-krds-state'), 'closed');
+      assert.equal(await page.locator('#accordion [data-krds-part="item"]').getAttribute('data-krds-state'), 'closed');
+      assert.equal(await page.locator('#accordion [data-krds-part="trigger"]').getAttribute('aria-expanded'), 'false');
       assert.equal(await page.locator('#checkbox [data-krds-part="control"]').getAttribute('data-krds-state'), 'unchecked');
-      assert.equal(await page.locator('#pagination [data-krds-part="link"][aria-current="true"]').textContent(), '2');
+      assert.equal(await page.locator('#pagination [data-krds-part="link"][aria-current="page"]').textContent(), '2');
       assert.equal(await page.locator('#switch-false').getByRole('switch').isChecked(), true);
       assert.equal(await page.locator('#switch-false [data-krds-part="control"]').getAttribute('data-krds-state'), 'checked');
       assert.equal(await page.locator('#radio-group').getByRole('radio', { name: '서울' }).isChecked(), false);

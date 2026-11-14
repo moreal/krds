@@ -19,7 +19,9 @@ test('FileUpload keeps one keyboard/AT file control: the visible picker opens th
   const picker = root.querySelector<HTMLButtonElement>('[data-krds-part="picker"]')!;
   expect([input.type, input.tabIndex, input.getAttribute('aria-hidden')]).toEqual(['file', -1, 'true']);
   expect(tabbable(root)).toEqual([picker]);
-  expect(text(picker.getAttribute('aria-labelledby'))).toEqual(['파일 선택', '첨부 서류']);
+  expect([picker.getAttribute('aria-labelledby'), picker.getAttribute('aria-label'), picker.textContent]).toEqual([null, null, '파일 선택']);
+  const label = root.querySelector<HTMLElement>('[data-krds-part="label"]')!;
+  expect([label.tagName, root.getAttribute('role'), root.getAttribute('aria-labelledby'), label.textContent]).toEqual(['P', 'group', label.id, '첨부 서류']);
   expect(text(picker.getAttribute('aria-describedby'))).toEqual([root.querySelector('[data-krds-part="help"]')!.textContent]);
   host.querySelector('button')!.focus(); await userEvent.tab();
   expect(document.activeElement).toBe(picker);

@@ -290,7 +290,7 @@ try {
             const axe = await new AxeBuilder({ page }).analyze();
             await writeFile(join(directory, `${pattern}-${mode}-axe.json`), JSON.stringify(axe, null, 2));
             const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
-            const radioLayout = pattern === 'consent-confirmation' ? await page.locator('krds-radio-group label').evaluateAll(labels => labels.map(label => { const input = label.querySelector('input').getBoundingClientRect(); const text = label.lastElementChild.getBoundingClientRect(); return { input: { x: input.x, y: input.y, width: input.width, height: input.height }, text: { x: text.x, y: text.y, width: text.width, height: text.height }, aligned: text.y < input.bottom && input.y < text.bottom && text.x >= input.x }; })) : [];
+            const radioLayout = pattern === 'consent-confirmation' ? await page.locator('krds-radio-group [data-krds-part="item"]').evaluateAll(items => items.map(item => { const input = item.querySelector('input').getBoundingClientRect(); const text = item.querySelector('label').getBoundingClientRect(); return { input: { x: input.x, y: input.y, width: input.width, height: input.height }, text: { x: text.x, y: text.y, width: text.width, height: text.height }, aligned: text.y < input.bottom && input.y < text.bottom && text.x >= input.x }; })) : [];
             visual.push({ pattern, mode, overflow, radioLayout, violations: axe.violations.map(item => ({ id: item.id, impact: item.impact, nodes: item.nodes.length })) });
         }
         await context.close();

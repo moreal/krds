@@ -118,7 +118,7 @@ test('Image: an error that fires before resumption is still recorded, keeping al
     assert.equal(await page.evaluate(() => window.__krdsImageErrorBeforeLoader), true, 'the native error preceded qwikloader\'s error listener');
     const image = page.locator('img[data-krds-component="image"]').first(), figure = page.locator('figure[data-krds-component="image"]').first();
     await poll(() => image.getAttribute('data-krds-state'), 'error', 'image records the early error');
-    await poll(() => figure.getAttribute('data-krds-state'), 'error', 'figure records the early error');
+    await poll(() => figure.getAttribute('data-krds-state'), '', 'the figure wrapper carries no state token (shared DOM contract): the image part records the error');
     assert.equal(await image.getAttribute('alt'), '불러오지 못한 안내 이미지');
     assert.deepEqual([await image.getAttribute('width'), await image.getAttribute('height')], ['320', '180']);
     // KRDS error alternative (same description part and text as the React, Vue and Angular adapters); a loaded image has none.
@@ -334,7 +334,7 @@ test('latent: InPageNavigation disclosure toggle label follows every toggle afte
 test('latent: MainMenu drill title follows every drill after resume', async () => {
   const { page, errors, close } = await openNarrow('latent-menu');
   try {
-    const menu = page.locator('[data-krds-component="main-menu"][data-krds-part="mobile-content"]'), title = part(page, 'main-menu', 'submenu-title');
+    const menu = page.locator('[data-krds-component="main-menu"][data-krds-part="mobile-content"]'), title = menu.locator('h3[data-krds-part="submenu-title"][tabindex="-1"]');
     // Each drill round trip = four host re-renders with a changing title; afterwards the menu must be quiescent (no re-render loop).
     const mutations = () => page.evaluate(() => new Promise(done => { let count = 0; const observer = new MutationObserver(records => count += records.length); observer.observe(document.body, { subtree: true, childList: true, attributes: true, characterData: true }); setTimeout(() => { observer.disconnect(); done(count); }, 1000); }));
     const top = menu.locator('[data-krds-part="trigger"]').filter({ hasText: /^신청/ });
@@ -347,8 +347,8 @@ test('latent: MainMenu drill title follows every drill after resume', async () =
       await menu.getByRole('button', { name: /^새 신청/ }).click();
       await menu.getByRole('button', { name: new RegExp(`^${round === 1 ? '서류' : '문의'} 안내`) }).click();
       await poll(() => title.textContent(), round === 1 ? '서류 안내' : '문의 안내', `round ${round}: drilled title`);
-      for (const label of ['새 신청', '신청']) { await menu.getByRole('button', { name: '상위 메뉴', exact: true }).click(); await poll(() => title.textContent(), label, `round ${round}: title after back to ${label}`); }
-      await menu.getByRole('button', { name: '상위 메뉴', exact: true }).click();
+      for (const label of ['새 신청', '신청']) { await menu.getByRole('button', { name: '이전 메뉴', exact: true }).click(); await poll(() => title.textContent(), label, `round ${round}: title after back to ${label}`); }
+      await menu.getByRole('button', { name: '이전 메뉴', exact: true }).click();
       await poll(() => title.count(), 0, `round ${round}: drill cleared`);
       assert.equal(await mutations(), 0, `round ${round}: no DOM churn after the drill round trip`);
     }

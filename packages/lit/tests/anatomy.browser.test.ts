@@ -22,7 +22,9 @@ test('FileUpload keeps one keyboard/AT file control in real Shadow DOM: the visi
   expect([input.type, input.tabIndex, input.getAttribute('aria-hidden'), input.hasAttribute('style')]).toEqual(['file', -1, 'true', false]);
   expect(getComputedStyle(input).clipPath).not.toBe('none');
   expect(tabbable(root)).toEqual([picker]);
-  expect(text(root, picker.getAttribute('aria-labelledby'))).toEqual(['파일 선택', '첨부 서류']);
+  const group = root.querySelector<HTMLElement>('[data-krds-part="root"]')!; const label = root.querySelector<HTMLElement>('[data-krds-part="label"]')!;
+  expect([label.localName, group.getAttribute('role'), text(root, group.getAttribute('aria-labelledby'))]).toEqual(['p', 'group', ['첨부 서류']]);
+  expect([picker.getAttribute('aria-labelledby'), picker.getAttribute('aria-label'), picker.textContent!.trim()]).toEqual([null, null, '파일 선택']);
   expect(text(root, picker.getAttribute('aria-describedby'))).toEqual([root.querySelector('[data-krds-part="help"]')!.textContent!.trim()]);
   before.focus(); await userEvent.tab();
   expect(root.activeElement).toBe(picker);
@@ -34,11 +36,13 @@ test('FileUpload keeps one keyboard/AT file control in real Shadow DOM: the visi
   expect(host.isConnected).toBe(true);
 });
 
-test('FileUpload routes a host aria-label (no visible label) to the picker name, not the hidden input', async () => {
+test('FileUpload routes a host aria-label (no visible label) to the group name, not the picker or the hidden input', async () => {
   const { root } = await mount('krds-file-upload', { name: 'documents', files: [] }, { 'aria-label': '증빙 서류' });
   const input = root.querySelector<HTMLInputElement>('[data-krds-part="file-input"]')!;
   const picker = root.querySelector<HTMLButtonElement>('[data-krds-part="picker"]')!;
-  expect(picker.getAttribute('aria-label')).toBe('파일 선택 증빙 서류');
+  const group = root.querySelector<HTMLElement>('[data-krds-part="root"]')!;
+  expect([group.getAttribute('role'), group.getAttribute('aria-label'), group.getAttribute('aria-labelledby')]).toEqual(['group', '증빙 서류', null]);
+  expect([picker.getAttribute('aria-label'), picker.getAttribute('aria-labelledby')]).toEqual([null, null]);
   expect(input.getAttribute('aria-label')).toBeNull();
   expect(input.ariaLabelledByElements ?? null).toBeNull();
 });
@@ -49,18 +53,19 @@ test('TutorialPanel inner controls carry shared tab/start/step parts', async () 
   expect(part('tab').map(tab => tab.getAttribute('role'))).toEqual(['tab', 'tab']);
   expect(part('tab').map(tab => [tab.getAttribute('aria-selected'), tab.getAttribute('data-krds-state')]).every(([selected, state]) => (selected === 'true') === (state === 'selected'))).toBe(true);
   expect(part('start').map(node => [node.tagName, node.id])).toEqual([['BUTTON', 'tutorial-start']]);
-  expect(part('task-toggle').map(node => [node.tagName, node.getAttribute('aria-expanded'), root.getElementById(node.getAttribute('aria-controls')!)?.getAttribute('data-krds-part')]), 'each task has a native disclosure for its step list').toEqual([['BUTTON', 'true', 'step-list']]);
+  expect(part('task-toggle').map(node => [node.tagName, node.parentElement?.tagName, (node.parentElement as HTMLDetailsElement).open, node.nextElementSibling?.getAttribute('data-krds-part')]), 'each task has a native disclosure for its step list').toEqual([['SUMMARY', 'DETAILS', true, 'step-list']]);
   const [header] = part('header');
-  expect(['title', 'tabs', 'close'].map(name => part(name)[0]?.closest('[data-krds-part="header"]') === header)).toEqual([true, true, true]);
+  expect(['title', 'close'].map(name => part(name)[0]?.parentElement === header), 'the header holds the title and close').toEqual([true, true]);
+  expect(part('tabs')[0]?.previousElementSibling, 'the tablist follows the header').toBe(header);
   expect(part('title')[0]?.textContent?.trim()).toBe('따라하기');
   expect(part('tabs')[0]?.getAttribute('aria-label')).toBe('지원 패널');
-  expect(part('step').map(node => [node.tagName, node.getAttribute('data-krds-state'), node.getAttribute('aria-current')])).toEqual([['BUTTON', '', 'false'], ['BUTTON', 'current', 'step']]);
+  expect(part('step').map(node => [node.tagName, node.getAttribute('data-krds-state'), node.getAttribute('aria-current')])).toEqual([['BUTTON', '', null], ['BUTTON', 'current', 'step']]);
 });
 
 const multiTasks = [...tasks, { id: 'review', title: '신청 내역 확인', steps: [{ id: 'open', title: '내역 열기', targetId: 'history', instruction: '내역을 여세요' }] }];
 
 test('TutorialPanel overview lists every task without back; the task view lists only the active task and back requests the overview', async () => {
-  const listed = (root: ShadowRoot) => [...root.querySelectorAll('[data-krds-part="task-list"] > [data-krds-part="task"] > [data-krds-part="task-toggle"]')].map(node => node.textContent?.trim());
+  const listed = (root: ShadowRoot) => [...root.querySelectorAll('[data-krds-part="task-list"] > [data-krds-part="task"] > details > [data-krds-part="task-toggle"]')].map(node => node.textContent?.trim());
   const back = (root: ShadowRoot) => [...root.querySelectorAll<HTMLButtonElement>('[data-krds-component="tutorial-panel"][data-krds-part="back"]')];
   const overview = await mount('krds-tutorial-panel', { tasks: multiTasks, activeTaskId: null, activeStepId: null, startActionId: 'tutorial-start', defaultOpen: true });
   expect(listed(overview.root), 'overview lists all tasks').toEqual(['예제 신청하기', '신청 내역 확인']);
@@ -86,6 +91,6 @@ test('TutorialPanel root is the panel surface: a right-anchored full-height dial
   const box = panel.getBoundingClientRect(), style = getComputedStyle(panel);
   expect({ right: Math.round(box.right), top: Math.round(box.top), height: Math.round(box.height), marginLeft: style.marginLeft, borderTop: style.borderTopWidth }).toEqual({ right: document.documentElement.clientWidth, top: 0, height: innerHeight, marginLeft: '0px', borderTop: '0px' });
   expect(Math.round(box.width)).toBe(Math.round(parseFloat(getComputedStyle(document.documentElement).fontSize) * 39));
-  const toggles = [...root.querySelectorAll<HTMLButtonElement>('[data-krds-part="task-toggle"]')];
-  expect(toggles.map(node => node.getAttribute('aria-expanded')), 'nothing auto-expands on the overview').toEqual(['false', 'false']);
+  const toggles = [...root.querySelectorAll<HTMLElement>('[data-krds-part="task-toggle"]')];
+  expect(toggles.map(node => (node.parentElement as HTMLDetailsElement).open), 'nothing auto-expands on the overview').toEqual([false, false]);
 });

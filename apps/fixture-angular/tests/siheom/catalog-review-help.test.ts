@@ -6,7 +6,7 @@ import {expect,test} from 'vitest';
 @Component({standalone:true,imports:[HelpPanel],template:`<krds-help-panel id="default-help" [topics]="topics"/>`})
 class DefaultHelp{readonly topics=[{id:'a',title:'주제',content:'설명',relatedLinks:[]}];}
 test('S4 default help is open wide and opener-only at the actual narrow viewport',async()=>{
- await render(DefaultHelp);const opener=screen.getByRole('button',{name:'도움말 패널 열기'});expect(opener).toHaveAttribute('aria-expanded',matchMedia('(max-width:767px)').matches?'false':'true');
+ await render(DefaultHelp);const opener=screen.getByRole('button',{name:'도움말 열기'});expect(opener).toHaveAttribute('aria-expanded',matchMedia('(max-width:767px)').matches?'false':'true');
 });
 @Component({standalone:true,imports:[HelpPanel],template:`<div id="topic-ancestor" tabindex="-1"><button id="topic-icon" [disabled]="blocked()" (click)="topic.set('b');open.set(true)">문맥 도움말</button></div><button id="help-fallback" [disabled]="blocked()">대체 도움말 초점</button>
 <krds-help-panel id="other-help" [open]="otherOpen" [topics]="topics"/>

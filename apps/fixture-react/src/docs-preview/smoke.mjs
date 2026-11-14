@@ -33,7 +33,8 @@ try {
   assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
   await trigger.click();
   assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
-  assert.equal(await page.getByRole('region', {name:'신청 방법'}).innerText(), '온라인 신청서를 작성한 후 제출해 주세요.');
+  // The accordion panel is a plain owned part (no region role); it is the one the opened trigger controls.
+  assert.equal(await page.locator('[data-krds-component="accordion"][data-krds-part="panel"]:not([hidden])').innerText(), '온라인 신청서를 작성한 후 제출해 주세요.');
   await trigger.click();
   assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
   assert.deepEqual(errors, []);

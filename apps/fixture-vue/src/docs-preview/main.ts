@@ -1,4 +1,6 @@
 import { createApp, onMounted, onUnmounted, h, ref } from 'vue';
+import '@unofficial-krds/styles/reset.css';
+import '@unofficial-krds/styles/fonts.css';
 import '@unofficial-krds/styles/all.css';
 import './preview.css';
 import { createPreviewHost } from '../../../../tools/docs-previews/host';

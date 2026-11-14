@@ -46,7 +46,7 @@ test('image failing src yields error state, keeps alt and reserved box', async (
   const img = root.querySelector('img')!;
   await tick(); fixture.detectChanges();
   expect(img.getAttribute('data-krds-state')).toBe('error');
-  expect(root.querySelector('figure')!.getAttribute('data-krds-state')).toBe('error');
+  expect(root.querySelector('figure')!.getAttribute('data-krds-state'), 'the state lives on the image root only').toBeNull();
   expect(img.getAttribute('alt')).toBe('대체 설명');
   expect(img.getAttribute('width')).toBe('320');
   expect(img.getAttribute('height')).toBe('180');

@@ -8,10 +8,10 @@ const server = await serveProduction(resolve('dist')); const browser = await chr
 const results = [];
 const context = await browser.newContext();
 try { const page = await context.newPage(); await page.goto(`${server.origin}/iframe.html?id=krds-step-indicator--sequential&viewMode=story`, { waitUntil: 'networkidle' }); await page.waitForSelector('krds-step-indicator');
-  await page.locator('krds-step-indicator').evaluate(async host => { await host.updateComplete; window.replayOriginalSheets = [...host.shadowRoot.adoptedStyleSheets]; const sheet = new CSSStyleSheet(); sheet.replaceSync( '[data-krds-component="step-indicator"][data-krds-part="item"][data-krds-state~="blocked"] { color: var(--krds-light-color-text-disabled); }'); host.shadowRoot.adoptedStyleSheets = [...window.replayOriginalSheets, sheet]; });
+  await page.locator('krds-step-indicator').evaluate(async host => { await host.updateComplete; window.replayOriginalSheets = [...host.shadowRoot.adoptedStyleSheets]; const sheet = new CSSStyleSheet(); sheet.replaceSync( '[data-krds-component="step-indicator"][data-krds-part="item"][data-krds-state~="pending"] { color: var(--krds-light-color-text-disabled); }'); host.shadowRoot.adoptedStyleSheets = [...window.replayOriginalSheets, sheet]; });
   for (const phase of ['reproduced-old-rule-red', 'current-without-override-green']) {
     if (phase.startsWith('current')) await page.locator('krds-step-indicator').evaluate(host => { host.shadowRoot.adoptedStyleSheets = window.replayOriginalSheets; });
-    const computed = await page.locator('krds-step-indicator').evaluate(host => [...host.shadowRoot.querySelectorAll('[data-krds-state~="blocked"] span')].map(element => ({ text: element.textContent, color: getComputedStyle(element).color, opacity: getComputedStyle(element).opacity, fontSize: getComputedStyle(element).fontSize })));
+    const computed = await page.locator('krds-step-indicator').evaluate(host => [...host.shadowRoot.querySelectorAll('[data-krds-state~="pending"] span')].map(element => ({ text: element.textContent, color: getComputedStyle(element).color, opacity: getComputedStyle(element).opacity, fontSize: getComputedStyle(element).fontSize })));
     if (phase.startsWith('reproduced') && computed.some(item => item.color !== 'rgb(138, 148, 158)')) throw new Error('Exact old rule did not win the replay cascade');
     const axe = await new AxeBuilder({ page }).include('#storybook-root').analyze();
     await page.screenshot({ path: resolve(directory, `${phase}.png`), fullPage: true });

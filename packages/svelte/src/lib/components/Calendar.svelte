@@ -169,34 +169,12 @@ function cancel() {
     onCancel?.();
 }
 </script>
-<section dir={provider.direction} lang={(locale??provider.locale??'ko-KR').slice(0,2)} bind:this={root!} aria-label={ariaLabel??label} aria-labelledby={labelledby} data-krds-component="calendar" data-krds-part="root">
- <div data-krds-component="calendar" data-krds-part="header">
-  <button type="button" disabled={!canMonth(-1)} onclick={()=>navigate(-1)} data-krds-component="calendar" data-krds-part="previous">{t.previousMonth}</button>
-  <h2 id={`${id}-heading`} aria-live="polite" data-krds-component="calendar" data-krds-part="heading">{replace(t.monthLabel,view)}</h2>
-  <button type="button" disabled={!canMonth(1)} onclick={()=>navigate(1)} data-krds-component="calendar" data-krds-part="next">{t.nextMonth}</button>
+<div dir={provider.direction} lang={(locale??provider.locale??'ko-KR').slice(0,2)} bind:this={root!} {id} role="group" aria-label={ariaLabel} aria-labelledby={labelledby??(label?`${id}-label`:undefined)} data-krds-component="calendar" data-krds-part="root" data-krds-state="">
+ {#if label}<div id={`${id}-label`}>{label}</div>{/if}
+ <div data-krds-component="calendar" data-krds-part="header" data-krds-state=""><button type="button" data-krds-component="calendar" data-krds-part="previous" data-krds-state={canMonth(-1)?'':'disabled'} aria-label={t.previousMonth} disabled={!canMonth(-1)} onclick={()=>navigate(-1)}>‹</button><h2 id={`${id}-heading`} aria-live="polite" aria-atomic="true" data-krds-component="calendar" data-krds-part="heading" data-krds-state="">{replace(t.monthLabel,view)}</h2><button type="button" data-krds-component="calendar" data-krds-part="next" data-krds-state={canMonth(1)?'':'disabled'} aria-label={t.nextMonth} disabled={!canMonth(1)} onclick={()=>navigate(1)}>›</button></div>
+ <!-- svelte-ignore a11y_no_noninteractive_tabindex (The named table scroll region receives native keyboard scroll focus.) -->
+ <div data-krds-component="calendar" data-krds-internal="table-scroll" role="region" aria-labelledby={`${id}-heading`} tabindex="0">
+ <table aria-labelledby={`${id}-heading`} data-krds-component="calendar" data-krds-part="table" data-krds-state=""><thead><tr>{#each t.weekdays as day}<th scope="col" aria-label={day} data-krds-component="calendar" data-krds-part="weekday" data-krds-state="">{(locale??provider.locale??'ko-KR')==='ko-KR'?day.slice(0,1):day.slice(0,3)}</th>{/each}</tr></thead><tbody>{#each [0,1,2,3,4,5] as row}<tr>{#each grid.slice(row*7,row*7+7) as date}<td data-krds-component="calendar" data-krds-part="cell" data-krds-state="">{#if date}<button type="button" data-date={date} data-krds-component="calendar" data-krds-part="day" data-krds-state={dayState(date)} aria-label={name(date)} aria-current={date===today?'date':undefined} aria-pressed={selected(date)} disabled={!enabled(date)} onkeydown={event=>key(event,date)} onclick={()=>select(date)}>{replace(t.visibleDayLabel,date)}</button>{/if}</td>{/each}</tr>{/each}</tbody></table>
  </div>
- <div data-krds-component="calendar" data-krds-internal="table-scroll">
-<table aria-labelledby={`${id}-heading`} data-krds-component="calendar" data-krds-part="table">
-  <thead>
-<tr>{#each t.weekdays as day,index}
-<th scope="col" aria-label={day} data-krds-component="calendar" data-krds-part="weekday">{(locale??provider.locale??'ko-KR')==='ko-KR'?day.slice(0,1):day.slice(0,3)}</th>{/each}
-</tr>
-</thead>
-  <tbody>{#each [0,1,2,3,4,5] as row}
-<tr>{#each grid.slice(row*7,row*7+7) as date}
-<td data-krds-component="calendar" data-krds-part="cell">{#if date}
-<button type="button" data-date={date} disabled={!enabled(date)} aria-label={name(date)} aria-current={date===today?'date':undefined} aria-pressed={selected(date)} data-krds-component="calendar" data-krds-part="day" data-krds-state={dayState(date)} onclick={()=>select(date)} onkeydown={event=>key(event,date)}>{replace(t.visibleDayLabel,date)}</button>{/if}
-</td>{/each}
-</tr>{/each}
-</tbody>
- </table>
+ <div data-krds-component="calendar" data-krds-part="footer" data-krds-state="">{#if today}<button type="button" data-krds-component="calendar" data-krds-part="today" data-krds-state={enabled(today)?'':'disabled'} disabled={!enabled(today)} onclick={()=>today&&focus(today)}>{t.today}</button>{/if}{#if !required}<button type="button" data-krds-component="calendar" data-krds-part="clear" data-krds-state={disabled?'disabled':''} {disabled} onclick={()=>{if(!disabled)tentative=empty(mode);}}>{t.clear}</button>{/if}<button type="button" data-krds-component="calendar" data-krds-part="cancel" data-krds-state={disabled?'disabled':''} {disabled} onclick={cancel}>{t.cancel}</button><button type="button" data-krds-component="calendar" data-krds-part="confirm" data-krds-state={disabled||!valid?'disabled':''} disabled={disabled||!valid} onclick={confirm}>{t.confirm}</button></div>
 </div>
- <div data-krds-component="calendar" data-krds-part="footer">
-  {#if today}
-<button type="button" disabled={!enabled(today)} onclick={()=>today&&focus(today)} data-krds-component="calendar" data-krds-part="today">{t.today}</button>{/if}
-  {#if !required}
-<button type="button" {disabled} onclick={()=>{if(!disabled)tentative=empty(mode);}} data-krds-component="calendar" data-krds-part="clear">{t.clear}</button>{/if}
-  <button type="button" {disabled} onclick={cancel} data-krds-component="calendar" data-krds-part="cancel">{t.cancel}</button>
-  <button type="button" disabled={disabled||!valid} onclick={confirm} data-krds-component="calendar" data-krds-part="confirm">{t.confirm}</button>
- </div>
-</section>

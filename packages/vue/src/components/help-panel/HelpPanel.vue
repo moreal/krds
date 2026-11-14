@@ -41,6 +41,20 @@ onMounted(() => {
         state.commit(!matchMedia('(max-width: 767px)').matches);
 });
 const layer = useLayer(state.value, portal, dialog, () => state.request(false), returned);
+// The surface is an aside on wide layouts and a div dialog on narrow ones;
+// keep the focused descendant across that element replacement.
+watch(layer.narrow, () => {
+    const previous = dialog.value, active = document.activeElement;
+    if (!previous || !active || active === previous || !previous.contains(active))
+        return;
+    const index = Array.from(previous.querySelectorAll('*')).indexOf(active);
+    void nextTick(() => {
+        const next = dialog.value;
+        if (!next || next === previous || active.isConnected)
+            return;
+        next.querySelectorAll<HTMLElement>('*')[index]?.focus();
+    });
+}, { flush: 'pre' });
 function choose(key: string, event?: Event) {
     const source = event?.currentTarget;
     if (source instanceof HTMLElement && !dialog.value?.contains(source)) {
@@ -53,38 +67,44 @@ function choose(key: string, event?: Event) {
     state.request(true);
     void nextTick(() => dialog.value?.focus());
 }
+function back() {
+    selected.request(null);
+    void nextTick(() => dialog.value?.focus());
+}
 </script>
 <template>
 <div data-krds-host-shell="help-panel" :data-krds-state="state.value.value?'open':'closed'" :data-krds-mode="mode??'help'">
-<button ref="opener" :id="openerId??`${id}-opener`" v-if="!hideOpener" type="button" data-krds-part="opener" :aria-expanded="state.value.value" @click="state.request(true)" data-krds-component="help-panel" data-krds-state="">도움말 열기</button>
-<div v-if="!layer.narrow.value||!state.value.value">
-<button v-for="item in topics" :key="item.id" type="button" data-krds-part="topic-trigger" :data-krds-state="selected.value.value===item.id?'active-topic':''" @click="choose(item.id,$event)" data-krds-component="help-panel">{{item.title}} 도움말</button>
-</div>
+<button ref="opener" :id="openerId??`${id}-opener`" v-if="!hideOpener" type="button" data-krds-part="opener" :aria-expanded="state.value.value" :aria-controls="id" @click="state.request(true)" data-krds-component="help-panel" data-krds-state="">도움말 열기</button>
+<template v-if="!hideTopicTriggers">
+<button v-for="item in topics" :key="item.id" type="button" data-krds-part="topic-trigger" data-krds-state="" @click="choose(item.id,$event)" data-krds-component="help-panel">{{item.title}} 도움말</button>
+</template>
 <Teleport to="body" :disabled="!layer.narrow.value">
 <div v-if="state.value.value" ref="portal">
-<div ref="dialog" :id="id" tabindex="-1" :role="layer.narrow.value?'dialog':'complementary'" :aria-modal="layer.narrow.value?'true':undefined" aria-label="도움말" data-krds-part="root" data-krds-component="help-panel" data-krds-state="">
-<header data-krds-part="header" data-krds-component="help-panel" data-krds-state="">
-<h2 data-krds-part="title" data-krds-component="help-panel" data-krds-state="">도움말</h2>
+<component :is="layer.narrow.value?'div':'aside'" ref="dialog" :id="id" tabindex="-1" :role="layer.narrow.value?'dialog':'complementary'" :aria-modal="layer.narrow.value?'true':undefined" :aria-labelledby="`${id}-title`" data-krds-part="root" data-krds-component="help-panel" :data-krds-state="layer.narrow.value?'open modal':'open'" :data-krds-layout="layer.narrow.value?'narrow-modal':'desktop'">
+<div data-krds-part="header" data-krds-component="help-panel" data-krds-state="">
+<h2 :id="`${id}-title`" data-krds-part="title" data-krds-component="help-panel" data-krds-state="">도움말</h2>
 <slot name="tabs"/>
 <button type="button" data-krds-part="close" @click="state.request(false)" data-krds-component="help-panel" data-krds-state="">도움말 닫기</button>
-</header>
-<section data-krds-part="body" :data-krds-state="topic?'active-topic':''" data-krds-component="help-panel">
-<div>
-<button v-for="item in topics" :key="item.id" type="button" @click="choose(item.id,$event)">{{item.title}}</button>
-<button v-for="item in topics" v-if="layer.narrow.value" :key="`${item.id}-context`" type="button" @click="choose(item.id,$event)">{{item.title}} 도움말</button>
 </div>
-<h3 v-if="topic">{{topic.title}}</h3>
-<p>{{topic?.content??'항목 옆의 도움말을 선택하세요.'}}</p>
-<slot :topic="topic"/>
-</section>
-<footer data-krds-part="related" data-krds-component="help-panel" data-krds-state="">
-<ul v-if="topic">
+<div data-krds-part="body" data-krds-state="" data-krds-component="help-panel">
+<article v-if="topic">
+<h3>{{topic.title}}</h3>
+<p>{{topic.content}}</p>
+<ul data-krds-part="related" data-krds-component="help-panel" data-krds-state="">
 <li v-for="link in topic.relatedLinks" :key="link.href">
 <a :href="link.href" target="_blank" rel="noopener noreferrer">{{link.label}} (새 창)</a>
 </li>
 </ul>
-</footer>
+<button type="button" @click="back">목록으로</button>
+</article>
+<ul v-else>
+<li v-for="item in topics" :key="item.id">
+<button type="button" @click="choose(item.id,$event)">{{item.title}}</button>
+</li>
+</ul>
+<slot :topic="topic"/>
 </div>
+</component>
 </div>
 </Teleport>
 </div>

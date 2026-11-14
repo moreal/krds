@@ -11,11 +11,11 @@ import {ControlMode} from '../../internal/behavior';
  // registrations use the option-aware implementation without mutating a directive.
  {provide:RequiredValidator,useExisting:forwardRef(()=>RadioGroup)},
 ],template:`
-<fieldset data-krds-component="radio-group" data-krds-part="root" [disabled]="isDisabled()" [attr.data-krds-state]="state()" [attr.data-krds-size]="size" [attr.data-krds-appearance]="appearance" (focusin)="enter($event)" (focusout)="leave($event)">
+<fieldset data-krds-component="radio-group" data-krds-part="root" [disabled]="isDisabled()" [attr.data-krds-state]="state()" [attr.aria-describedby]="description()" [attr.data-krds-size]="size" [attr.data-krds-appearance]="appearance" (focusin)="enter($event)" (focusout)="leave($event)">
  <legend data-krds-component="radio-group" data-krds-part="legend">{{label}}</legend>
  @for(option of options;track option.value;let i=$index){<div data-krds-component="radio-group" data-krds-part="item">
-  <input data-krds-component="radio-group" data-krds-part="control" type="radio" tabindex="0" [id]="optionId(option,i)" [attr.name]="name||null" [value]="option.value" [checked]="current()===option.value" [disabled]="!!option.disabled||isDisabled()" [required]="required" [attr.aria-describedby]="description()" [attr.aria-invalid]="invalid?'true':null" (change)="request(option.value)" (keydown)="key($event,i)" (blur)="onTouched()"/>
-  <label data-krds-component="radio-group" data-krds-part="label" [for]="optionId(option,i)">{{option.label}}</label>
+  <input data-krds-component="radio-group" data-krds-part="control" type="radio" tabindex="0" [id]="optionId(option,i)" [attr.name]="name||null" [value]="option.value" [checked]="current()===option.value" [disabled]="!!option.disabled||isDisabled()" [required]="required" (change)="request(option.value)" (keydown)="key($event,i)" (blur)="onTouched()"/>
+  <label data-krds-component="radio-group" data-krds-part="label" [for]="optionId(option,i)">{{option.label}}<span data-krds-component="radio-group" data-krds-part="indicator" aria-hidden="true"></span></label>
  </div>}
 </fieldset>`})
 export class RadioGroup extends RequiredValidator implements OnInit,OnDestroy,ControlValueAccessor {
@@ -36,7 +36,7 @@ export class RadioGroup extends RequiredValidator implements OnInit,OnDestroy,Co
  current():string|null{return this.forms?this.local():this.value===undefined?this.local():this.value;}
  isDisabled():boolean{return this.disabled||this.formDisabled();}
  state():string{return [this.isDisabled()&&'disabled',this.invalid&&'invalid'].filter(Boolean).join(' ');}
- description():string|null{return [this.helpId,this.errorId].filter(Boolean).join(' ')||null;}
+ description():string|null{return [this.helpId,this.invalid?this.errorId:''].filter(Boolean).join(' ')||null;}
  optionId(option:RadioGroupOption,index:number):string{return option.id??this.id+'-'+index;}
  private check():void{
   if(new Set(this.options.map(option=>option.value)).size!==this.options.length)throw new TypeError('Duplicate radio values.');

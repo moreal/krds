@@ -1,6 +1,6 @@
 export const recipes = [
   ['masthead', { governmentService: true }, '공식 전자정부'],
-  ['identifier', { institutionName: '시험 기관', logo: { src: '/logo.svg', alt: '시험 기관' }, relationshipText: '운영 기관' }, '시험 기관'],
+  ['identifier', { institutionName: '시험 기관', logo: { src: '/logo.svg', alt: '시험 기관' }, relationshipText: '운영 기관' }, '운영 기관'],
   ['header', { home: { label: '홈', href: '#home', logo: { src: '/logo.svg', alt: '서비스' } }, utilityItems: [], mainNavigation: [{ id: 'route', label: '신청', href: '#apply' }] }, '신청'],
   ['footer', { serviceLogo: { src: '/logo.svg', alt: '서비스' }, contacts: [{ label: '전화', text: '02-123', href: 'tel:02123' }], utilityLinks: [], privacyPolicy: { label: '개인정보 처리방침', href: '#privacy' }, policyLinks: [], copyrightText: '독립 예제' }, '개인정보 처리방침'],
   ['skip-link', { links: [{ id: 'main-skip', label: '본문 바로가기', targetId: 'target' }], visibility: 'visible' }, '본문 바로가기'],
@@ -31,7 +31,7 @@ export const recipes = [
   ['tutorial-panel', { tasks: [{ id: 'a', title: '신청 방법', steps: [{ id: 'step', title: '입력', targetId: 'target', instruction: '대상을 입력하세요' }] }], activeTaskId: 'a', activeStepId: 'step', startActionId: 'tour-start' }, '신청 방법'],
   ['contextual-help', { title: '기관 안내', content: '기관을 선택하세요', triggerLabel: '기관 도움말' }, '기관 도움말'],
   ['coach-mark', { steps: [{ id: 'step', title: '입력', targetId: 'target', instruction: '대상을 입력하세요' }], boundaries: [{ targetId: 'target', insertionBoundaryId: 'tour-boundary' }], startActionId: 'tour-start' }, null],
-  ['tooltip', { text: '보충 설명', triggerLabel: '정보', triggerId: 'info-trigger', textId: 'info-tip' }, '정보'],
+  ['tooltip', { text: '보충 설명', triggerLabel: '정보', triggerId: 'info-trigger', textId: 'info-tip' }, '보충 설명'],
   ['tts', { summary: '로컬 안내', state: 'idle', label: '안내 듣기' }, '안내 듣기'],
   ['textarea', { label: '신청 사유', name: 'reason', defaultValue: '기본', maxLength: 20 }, '신청 사유'],
   ['text-input', { label: '성명', name: 'person', defaultValue: '김', autocomplete: 'name' }, '성명'],

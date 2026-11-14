@@ -3,7 +3,6 @@ import { computed, onUnmounted } from 'vue';
 import type { TTSContract } from '@unofficial-krds/contracts';
 const p = defineProps<TTSContract>();
 const playLabel = computed(() => `${p.label} ${p.state === 'paused' || p.state === 'error' ? '다시 재생' : '재생'}`);
-const hiddenLabel = { position: 'absolute', width: '1px', height: '1px', padding: '0', margin: '-1px', overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap' } as const;
 const emit = defineEmits<{
     request: [
         detail: {
@@ -20,16 +19,21 @@ onUnmounted(() => {
 });
 </script>
 <template>
-<div data-krds-part="root" :data-krds-state="state" :data-krds-size="size??'small'" :data-krds-icon-only="iconOnly||undefined" data-krds-component="tts">
-<span :style="iconOnly?hiddenLabel:undefined" data-krds-part="label" data-krds-component="tts" data-krds-state="">{{label}}</span>
+<div data-krds-part="root" :data-krds-state="state" :data-krds-size="size??'small'" data-krds-component="tts">
 <button type="button" :aria-label="playLabel" data-krds-part="play" :disabled="state==='unsupported'||state==='playing'" @click="request(state==='paused'?'resume':'play')" data-krds-component="tts" data-krds-state="">
-<svg v-if="iconOnly" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
-<path d="M5 8h4l5-4v16l-5-4H5zM17 8q4 4 0 8" fill="none" stroke="currentColor" stroke-width="2"/>
-</svg>
-<span v-else>{{playLabel}}</span>
+<span v-if="iconOnly" aria-hidden="true">▶</span>
+<span v-else data-krds-part="label" data-krds-component="tts" data-krds-state="">{{playLabel}}</span>
 </button>
-<button type="button" :aria-label="`${label} 일시정지`" data-krds-part="pause" :disabled="state!=='playing'" @click="request('pause')" data-krds-component="tts" data-krds-state="">{{label}} 일시정지</button>
-<button type="button" :aria-label="`${label} 중지`" data-krds-part="stop" :disabled="!['playing','paused'].includes(state)" @click="request('stop')" data-krds-component="tts" data-krds-state="">{{label}} 중지</button>
-<p data-krds-part="status" :data-krds-state="state" data-krds-component="tts">{{state==='unsupported'?'읽어주기를 지원하지 않습니다.':state==='error'?'읽어주기에 실패했습니다.':state==='playing'?'재생 중':state==='paused'?'일시 정지됨':'대기 중'}}</p>
+<template v-if="state==='playing'||state==='paused'">
+<button type="button" :aria-label="`${label} 일시정지`" data-krds-part="pause" :disabled="state==='paused'" @click="request('pause')" data-krds-component="tts" data-krds-state="">
+<span v-if="iconOnly" aria-hidden="true">Ⅱ</span>
+<template v-else>{{label}} 일시정지</template>
+</button>
+<button type="button" :aria-label="`${label} 중지`" data-krds-part="stop" @click="request('stop')" data-krds-component="tts" data-krds-state="">
+<span v-if="iconOnly" aria-hidden="true">■</span>
+<template v-else>{{label}} 중지</template>
+</button>
+</template>
+<span data-krds-part="status" role="status" data-krds-state="" data-krds-component="tts">{{state==='unsupported'?'음성 읽기를 지원하지 않습니다.':state==='error'?'읽기에 실패했습니다. 다시 시도하세요.':state==='playing'?'읽는 중':state==='paused'?'일시정지':''}}</span>
 </div>
 </template>

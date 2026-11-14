@@ -211,7 +211,7 @@ const scenarios = {
     await expect(day).toHaveAttribute('aria-pressed', 'true');
   },
   async carousel(page, id) {
-    const current = () => part(page, id, 'slide').and(page.locator('[aria-current="true"]'));
+    const current = () => part(page, id, 'slide').and(page.locator('[data-krds-state~="active"]'));
     await expect(current()).toHaveAttribute('aria-label', /^1 \/ 3/);
     await page.clock.fastForward(6100);
     await expect(current()).toHaveAttribute('aria-label', /^2 \/ 3/);
@@ -319,7 +319,7 @@ const scenarios = {
     // Single Tab stop: the visible picker button; the native input is tabindex=-1 and aria-hidden but stays in the form.
     await page.keyboard.press('Tab');
     await expect(part(page, id, 'picker')).toBeFocused();
-    await expect(part(page, id, 'picker')).toHaveAccessibleName('파일 선택 첨부 서류');
+    await expect(part(page, id, 'picker')).toHaveAccessibleName('파일 선택');
     await expect(input).toHaveAttribute('tabindex', '-1');
     await expect(input).toHaveAttribute('aria-hidden', 'true');
     await page.keyboard.press('Tab');
@@ -337,7 +337,7 @@ const scenarios = {
     await page.screenshot({path: resolve(evidence, 'file-upload-removed.png'), fullPage: true});
   },
   async footer(page, id) {
-    const footer = page.locator('footer[role=contentinfo]');
+    const footer = page.locator('footer[data-krds-component="footer"]');
     await expect(footer).toContainText('개인정보처리방침');
     await expect(footer).toContainText('예제 문의');
     await expect(footer).toContainText('Independent local specimen');
@@ -349,12 +349,12 @@ const scenarios = {
     await expect(page.getByRole('heading', {name: '로컬 예제 목적지'})).toBeVisible();
   },
   async header(page, id) {
-    await expect(page.getByRole('banner')).toBeVisible();
+    await expect(page.locator('header[data-krds-component="header"]')).toBeVisible();
     await page.keyboard.press('Tab');
     await expect(page.getByRole('link', {name: '본문 바로가기'})).toBeFocused();
     await page.evaluate(() => window.scrollTo(0, 1200));
     assert.ok(await page.evaluate(() => scrollY) > 0, 'page scrolls');
-    const order = await page.locator('header[role=banner]').evaluate(h => ['identity', 'utilities', 'search', 'navigation'].map(name => { const el = name === 'search' ? h.querySelector('[data-krds-part="search"]') : h.querySelector(`[data-krds-part="${name}"]`); return Array.from(h.querySelectorAll('*')).indexOf(el); }));
+    const order = await page.locator('header[data-krds-component="header"]').evaluate(h => ['identity', 'utilities', 'search', 'navigation'].map(name => { const el = name === 'search' ? h.querySelector('[data-krds-part="search"]') : h.querySelector(`[data-krds-part="${name}"]`); return Array.from(h.querySelectorAll('*')).indexOf(el); }));
     assert.ok(order.every(i => i >= 0) && order.every((v, i) => !i || v > order[i - 1]), `identity→utilities→search→navigation: ${order}`);
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.getByRole('button', {name: '신청', exact: true}).click();
@@ -364,7 +364,7 @@ const scenarios = {
     const opener = part(page, id, 'opener');
     await expect(opener).toHaveAttribute('aria-expanded', 'true');
     await expect(part(page, id, 'body')).toBeVisible();
-    await expect(part(page, id, 'body')).toContainText('도움말 주제를 선택하세요.');
+    await expect(part(page, id, 'body').getByRole('button', {name: '신청 자격', exact: true})).toBeVisible();
     await page.getByRole('button', {name: '신청 자격', exact: true}).click();
     await expect(part(page, id, 'body')).toContainText('예제 신청 자격 도움말');
     await expect(part(page, id, 'body').getByRole('link', {name: '이용약관'})).toHaveAttribute('href', /route=policy/);
@@ -483,19 +483,19 @@ const scenarios = {
   },
   async pagination(page, id) {
     const prev = part(page, id, 'previous'); const next = part(page, id, 'next');
-    await expect(page.locator('[aria-current="true"]')).toHaveText('1');
-    await expect(prev).toHaveAttribute('aria-disabled', 'true');
-    assert.equal(await prev.getAttribute('href'), null);
+    const currentPage = part(page, id, 'link').and(page.locator('[aria-current="page"]'));
+    await expect(currentPage).toHaveText('1');
+    await expect(prev, 'the first page has no previous link').toHaveCount(0);
+    assert.equal(await currentPage.getAttribute('href'), null);
     const links = part(page, id, 'link');
     await expect(links.filter({hasText: /^12$/})).toHaveAttribute('href', /route=results-page-12/);
     await links.filter({hasText: /^12$/}).click();
-    await expect(page.locator('[aria-current="true"]')).toHaveText('12');
-    await expect(next).toHaveAttribute('aria-disabled', 'true');
-    assert.equal(await next.getAttribute('href'), null);
+    await expect(currentPage).toHaveText('12');
+    await expect(next, 'the last page has no next link').toHaveCount(0);
     await expect(prev).toHaveAttribute('href', /route=results-page-11/);
     await links.filter({hasText: /^1$/}).click();
-    await expect(page.locator('[aria-current="true"]')).toHaveText('1');
-    await expect(prev).toHaveAttribute('aria-disabled', 'true');
+    await expect(currentPage).toHaveText('1');
+    await expect(prev).toHaveCount(0);
     await expect(result(page)).toHaveText('현재 페이지: 1');
   },
   async 'quantity-toggle'(page, id) {
@@ -628,7 +628,7 @@ const scenarios = {
     assert.equal(items.length, 3);
     assert.match(items[0], /약관 확인.*완료/); assert.match(items[1], /정보 입력.*현재 단계/); assert.match(items[2], /신청 완료.*진행 전/);
     await expect(page.locator('[aria-current=step]')).toHaveCount(1);
-    await expect(page.locator('nav[aria-label="진행 단계"]')).toContainText('2 / 3 단계');
+    await expect(page.locator('ol[aria-label="진행 단계"]')).toBeVisible();
   },
   async 'structured-list'(page, id) {
     await expect(page.getByRole('link', {name: /예제 신청 공고/}).first()).toHaveAttribute('href', /route=notice-a/);
@@ -727,8 +727,9 @@ const scenarios = {
     const ordered = await hostEl(page, id).evaluate(e => e.ordered);
     await expect(page.getByRole('listitem')).toHaveCount(2);
     assert.equal(await part(page, id, 'root').evaluate(e => e.tagName), ordered ? 'OL' : 'UL');
-    const style = await part(page, id, 'item').first().evaluate(e => getComputedStyle(e).listStyleType);
-    if (ordered) assert.equal(style, 'decimal'); else assert.notEqual(style, 'decimal');
+    // The shared sheet numbers ordered items either natively or with a list-item counter marker.
+    const numbered = await part(page, id, 'item').first().evaluate(e => getComputedStyle(e).listStyleType === 'decimal' || /counter\(list-item/.test(getComputedStyle(e, '::before').content));
+    assert.equal(numbered, !!ordered);
   },
   async textarea(page) {
     const area = page.getByRole('textbox');

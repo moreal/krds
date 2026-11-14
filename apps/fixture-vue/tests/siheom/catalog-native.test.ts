@@ -37,7 +37,7 @@ test('table uses native row and column header relationships', async () => {
 });
 test('tooltip label exists before opening and hover Escape focuses the trigger without reopening', async () => {
  render((catalog as any).Tooltip,{props:{text:'Save',relationship:'label',triggerId:'save-tooltip',textId:'save-label'}});
- const trigger=screen.getByRole('button',{name:'Save'}); trigger.parentElement!.dispatchEvent(new PointerEvent('pointerenter')); await nextTick(); expect(screen.getByRole('tooltip')).toBeTruthy(); document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true})); await expect.poll(()=>document.activeElement).toBe(trigger); expect(screen.queryByRole('tooltip')).toBeNull();
+ const trigger=screen.getByRole('button',{name:'Save'}); trigger.parentElement!.dispatchEvent(new PointerEvent('pointerenter')); await nextTick(); expect(screen.getByRole('tooltip')).toBeTruthy(); document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true})); await expect.poll(()=>document.activeElement).toBe(trigger); expect(document.getElementById('save-label')!.getAttribute('data-krds-state')).toBe('closed');
 });
 test('carousel keeps hidden slides out of the accessibility tree and navigation stops playback intent', async () => {
  const events:unknown[]=[];render((catalog as any).Carousel,{props:{items:[{id:'a',label:'First',content:'First content'},{id:'b',label:'Second',content:'Second content'}],onIndexChange:(e:unknown)=>events.push(e)}});
@@ -55,7 +55,7 @@ test('favicon inserts actual document head links and removes only its own nodes'
 });
 test('controlled carousel exposes a distinct trusted Stop intent command while actual movement is inhibited', async()=>{
  const events:unknown[]=[];render(catalog.Carousel,{props:{items:[{id:'a',label:'First',content:'First'},{id:'b',label:'Second',content:'Second'}],playing:true,index:0,onPlayingChange:(e:unknown)=>events.push(e)}});
- screen.getByRole('button',{name:'다음 슬라이드'}).focus();await nextTick();expect(screen.getByRole('button',{name:'재생'})).toBeTruthy();screen.getByRole('button',{name:'자동 재생 중지'}).click();await nextTick();expect(events).toEqual([{playing:false,reason:'stop'}]);expect(screen.getByText('First').closest('[hidden]')).toBeNull();
+ screen.getByRole('button',{name:'다음 슬라이드'}).focus();await nextTick();expect(screen.getByRole('button',{name:'재생'})).toBeTruthy();screen.getByRole('button',{name:'자동 재생 중지'}).click();await nextTick();expect(events).toEqual([{playing:false,reason:'stop'}]);expect(screen.getAllByText('First')[0]!.closest('[hidden]')).toBeNull();
 });
 test('Tutorial Start is one atomic request and repeated Start while running is a no-op',async()=>{
  const events:unknown[]=[];render(catalog.TutorialPanel,{props:{defaultOpen:true,defaultRunning:false,activeTaskId:'apply',activeStepId:'one',startActionId:'start-once',tasks:[{id:'apply',title:'Apply',steps:[{id:'one',title:'Name',targetId:'name',instruction:'Type name'}]}],onStart:(e:unknown)=>events.push(e)}});
@@ -71,10 +71,10 @@ test('Toast timeout requests dismissal once and leaves rejected host-owned conte
 });
 
 test('speech custom labels name retry and icon controls without losing their functional name',async()=>{
- const events:unknown[]=[];render(catalog.TTS,{props:{summary:'Help summary',locale:'ko-KR',state:'error',label:'신청 도움말',iconOnly:true,onRequest:(e:unknown)=>events.push(e)}});const retry=screen.getByRole('button',{name:'신청 도움말 다시 재생'});expect(retry.querySelector('svg[aria-hidden=true]')).toBeTruthy();retry.click();expect(events).toEqual([{action:'play',summary:'Help summary',locale:'ko-KR'}]);
+ const events:unknown[]=[];render(catalog.TTS,{props:{summary:'Help summary',locale:'ko-KR',state:'error',label:'신청 도움말',iconOnly:true,onRequest:(e:unknown)=>events.push(e)}});const retry=screen.getByRole('button',{name:'신청 도움말 다시 재생'});expect(retry.querySelector('span[aria-hidden=true]')?.textContent).toBe('▶');retry.click();expect(events).toEqual([{action:'play',summary:'Help summary',locale:'ko-KR'}]);
 });
 test('public input status and size and explicit navigation underline are honored',()=>{
- render(catalog.TextInput,{props:{label:'Success',status:'success',size:'large'}});const input=screen.getByRole('textbox');expect(input.getAttribute('data-krds-size')).toBe('large');expect(input.getAttribute('data-krds-state')).toContain('success');expect(input.parentElement?.getAttribute('data-krds-status')).toBe('success');render(catalog.Link,{props:{href:'/local/help',label:'Help',underline:false}});expect((screen.getByRole('link',{name:'Help'}) as HTMLElement).style.textDecorationLine).toBe('none');
+ render(catalog.TextInput,{props:{label:'Success',status:'success',size:'large'}});const input=screen.getByRole('textbox');expect(input.hasAttribute('data-krds-size')).toBe(false);expect(input.parentElement?.getAttribute('data-krds-size')).toBe('large');expect(input.parentElement?.getAttribute('data-krds-status')).toBe('success');render(catalog.Link,{props:{href:'/local/help',label:'Help',underline:false}});expect((screen.getByRole('link',{name:'Help'}) as HTMLElement).style.textDecorationLine).toBe('none');
 });
 test('quantity commands retain a custom purpose in their accessible names',()=>{
  render(catalog.QuantityToggle,{props:{label:'방문 인원',defaultValue:2}});expect(screen.getByRole('button',{name:'방문 인원 늘리기'})).toBeTruthy();expect(screen.getByRole('button',{name:'방문 인원 줄이기'})).toBeTruthy();

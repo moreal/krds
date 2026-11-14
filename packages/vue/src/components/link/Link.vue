@@ -16,8 +16,7 @@ function activate(event: MouseEvent) {
 }
 </script>
 <template>
-<a :style="{textDecorationLine:underline===false?'none':'underline'}" data-krds-part="root" :href="disabled?undefined:href" :aria-disabled="disabled||undefined" :target="target" :rel="target==='_blank'?[rel,'noopener noreferrer'].filter(Boolean).join(' '):rel" :data-krds-state="[disabled?'disabled':'',target==='_blank'?'external':''].filter(Boolean).join(' ')" :data-krds-appearance="appearance??'basic'" :data-krds-size="size??'medium'" @click="activate" data-krds-component="link">
-<slot>{{label}}</slot>
-<span v-if="target==='_blank'" data-krds-part="icon" data-krds-component="link" data-krds-state=""> (새 창)</span>
+<a :style="{textDecoration:underline===false?'none':undefined}" data-krds-part="root" :href="disabled?undefined:href" :aria-disabled="disabled?'true':undefined" :role="disabled?'link':undefined" :target="disabled?undefined:target" :rel="target==='_blank'?[rel,'noopener noreferrer'].filter(Boolean).join(' '):rel" :data-krds-state="disabled?'disabled':target==='_blank'?'external':''" :data-krds-appearance="appearance??'basic'" :data-krds-size="size??'medium'" @click="activate" data-krds-component="link">
+<span data-krds-part="label" data-krds-component="link" data-krds-state=""><slot>{{label}}</slot></span><span v-if="target==='_blank'" data-krds-part="icon" data-krds-component="link" data-krds-state=""> (새 창)</span>
 </a>
 </template>

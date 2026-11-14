@@ -59,11 +59,11 @@ watchEffect(() => {
 useNativeReset(control, state.reset, sync);
 </script>
 <template>
-<fieldset ref="root" data-krds-part="root" :disabled="disabled" :data-krds-state="[disabled?'disabled':'',invalid?'invalid':''].join(' ')" :data-krds-appearance="appearance??'default'" :data-krds-size="size??'medium'" :aria-describedby="[helpId,errorId].filter(Boolean).join(' ')||undefined" data-krds-component="radio-group">
-<legend data-krds-part="legend" data-krds-component="radio-group" data-krds-state="">{{label}}</legend>
-<div v-for="(option,index) in options" :key="option.value" data-krds-part="item" :data-krds-state="`${state.value.value===option.value?'checked':'unchecked'} ${option.disabled?'disabled':''}`" data-krds-component="radio-group">
-<input :ref="el=>{if(index===0)control=el as HTMLInputElement}" :id="option.id??`${id}-${index}`" type="radio" data-krds-part="control" :data-krds-state="state.value.value===option.value?'checked':'unchecked'" :name="name??id" :form="form" :value="option.value" :checked="state.value.value===option.value" :disabled="disabled||option.disabled" :required="required" :aria-invalid="invalid||undefined" @change="select(option.value)" @keydown="key($event,index)" data-krds-component="radio-group"/>
-<label :for="option.id??`${id}-${index}`" data-krds-part="label" data-krds-component="radio-group" data-krds-state="">{{option.label}}</label>
+<fieldset :id="p.id" ref="root" data-krds-component="radio-group" data-krds-part="root" :data-krds-state="invalid?'invalid':''" :disabled="disabled" :aria-describedby="[helpId,invalid?errorId:undefined].filter(Boolean).join(' ')||undefined" :data-krds-appearance="appearance??'default'" :data-krds-size="size??'medium'">
+<legend data-krds-component="radio-group" data-krds-part="legend" data-krds-state="">{{label}}</legend>
+<div v-for="(option,index) in options" :key="option.value" data-krds-component="radio-group" data-krds-part="item" :data-krds-state="`${state.value.value===option.value?'checked':'unchecked'}${disabled||option.disabled?' disabled':''}`">
+<input :ref="el=>{if(index===0)control=el as HTMLInputElement}" :id="option.id??`${id}-${index}`" data-krds-component="radio-group" data-krds-part="control" data-krds-state="" type="radio" :name="name??id" :form="form" :value="option.value" :checked="state.value.value===option.value" :disabled="disabled||option.disabled" :required="required" tabindex="0" @change="select(option.value)" @keydown="key($event,index)"/>
+<label :for="option.id??`${id}-${index}`" data-krds-component="radio-group" data-krds-part="label" data-krds-state="">{{option.label}}<span data-krds-component="radio-group" data-krds-part="indicator" data-krds-state="" aria-hidden="true"></span></label>
 </div>
 <slot name="help"/>
 <slot name="error"/>

@@ -76,17 +76,17 @@ onUnmounted(() => {
 });
 </script>
 <template>
-<div data-krds-component="native-select" data-krds-part="root" :dir="context.direction.value" :data-krds-state="[disabled?'disabled':'',invalid?'invalid':''].filter(Boolean).join(' ')" :data-krds-size="size">
-<label v-if="label||$slots.label" :for="id" data-krds-component="native-select" data-krds-part="label">
+<div data-krds-component="native-select" data-krds-part="root" :dir="context.direction.value" :data-krds-state="[disabled?'disabled':'',invalid?'invalid':''].filter(Boolean).join(' ')">
+<label v-if="label||$slots.label" :for="id" data-krds-component="native-select" data-krds-part="label" data-krds-state="">
 <slot name="label">{{label}}</slot>
 </label>
-<select v-bind="$attrs" :id="id" ref="control" data-krds-component="native-select" data-krds-part="control" :data-krds-size="size" :value="value" :name="name" :form="p.form" :required="required" :disabled="disabled" :aria-invalid="invalid||undefined" :aria-describedby="[hint||$slots.hint?`${id}-hint`:'',error||$slots.error?`${id}-error`:'',$attrs['aria-describedby']].filter(Boolean).join(' ')||undefined" @change="change">
+<select v-bind="$attrs" :id="id" ref="control" data-krds-component="native-select" data-krds-part="control" :data-krds-state="[disabled?'disabled':'',invalid?'invalid':''].filter(Boolean).join(' ')" :data-krds-size="size" :value="value" :name="name" :form="p.form" :required="required" :disabled="disabled" :aria-invalid="invalid||undefined" :aria-describedby="[hint||$slots.hint?`${id}-hint`:'',error||$slots.error?`${id}-error`:'',$attrs['aria-describedby']].filter(Boolean).join(' ')||undefined" @change="change">
 <option v-for="option in options" :key="option.value" :value="option.value" :disabled="option.disabled" :selected="option.value===value">{{option.label}}</option>
 </select>
-<div v-if="hint||$slots.hint" :id="`${id}-hint`" data-krds-component="native-select" data-krds-part="hint">
+<div v-if="hint||$slots.hint" :id="`${id}-hint`" data-krds-component="native-select" data-krds-part="hint" data-krds-state="">
 <slot name="hint">{{hint}}</slot>
 </div>
-<div v-if="error||$slots.error" :id="`${id}-error`" data-krds-component="native-select" data-krds-part="error">
+<div v-if="error||$slots.error" :id="`${id}-error`" data-krds-component="native-select" data-krds-part="error" data-krds-state="">
 <slot name="error">{{error}}</slot>
 </div>
 </div>

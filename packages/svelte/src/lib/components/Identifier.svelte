@@ -6,4 +6,4 @@ import { owned, control, resetField, ignoredKey } from './catalog-state.svelte.j
 let p: IdentifierContract  = $props();
 
 </script>
-<section {...owned('identifier','root',p.theme??'light')}><img {...owned('identifier','logo')} src={p.logo.src} alt={p.logo.alt}/><p {...owned('identifier','text')}>{p.institutionName} {p.relationshipText}</p></section>
+<section {...owned('identifier','root',p.theme??'light')} data-krds-theme={p.theme??'light'} aria-label={p.institutionName}><img {...owned('identifier','logo')} src={p.logo.src} alt={p.logo.alt}/><p {...owned('identifier','text')}>{p.relationshipText}</p></section>

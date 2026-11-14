@@ -1,6 +1,6 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import type { InPageNavigationContract, InPageSection } from '@unofficial-krds/contracts';
-import { part, states } from '../../catalog-utils.js';
+import { part } from '../../catalog-utils.js';
 import { useNarrow } from '../../native-layer.js';
 export type InPageNavigationProps = InPageNavigationContract;
 export function InPageNavigation({ sections, title = '이 페이지의 구성', activeId, onActiveChange, narrowMode = 'inline' }: InPageNavigationProps) {
@@ -49,9 +49,9 @@ export function InPageNavigation({ sections, title = '이 페이지의 구성', 
             setLocal(targetId);
         onActiveChange?.({ id: targetId, reason: 'activation' });
     } };
-    const list = (rows: readonly InPageSection[], depth = 0) => <ul {...part('in-page-navigation', 'list', expanded ? 'expanded' : 'collapsed')}>{rows.map(section => <li {...part('in-page-navigation', 'item', current === section.id ? 'active' : '')} key={section.id}><a {...part('in-page-navigation', 'link', current === section.id ? 'active' : '')} href={`#${section.id}`} aria-current={current === section.id ? 'location' : undefined} onClick={e => { e.preventDefault(); activate(section.id, e.detail === 0, e.currentTarget); }} onKeyDown={e => { if (e.key === ' ' && !e.nativeEvent.isComposing) {
+    const rowsOf = (rows: readonly InPageSection[], depth = 0): ReactNode => rows.map(section => <li {...part('in-page-navigation', 'item')} key={section.id}><a {...part('in-page-navigation', 'link', current === section.id ? 'active' : '')} href={`#${section.id}`} aria-current={current === section.id ? 'location' : undefined} onClick={e => { e.preventDefault(); activate(section.id, e.detail === 0, e.currentTarget); }} onKeyDown={e => { if (e.key === ' ' && !e.nativeEvent.isComposing) {
         e.preventDefault();
         activate(section.id, true, e.currentTarget);
-    } }}>{section.label}{current === section.id && <span {...part('in-page-navigation', 'indicator', 'active')} aria-hidden="true"> ●</span>}</a>{section.children && depth < 2 ? list(section.children, depth + 1) : null}</li>)}</ul>;
-    return <nav {...part('in-page-navigation', 'root', states(current !== undefined && 'active', expanded ? 'expanded' : 'collapsed'))} data-krds-layout={narrow ? narrowMode === 'disclosure' ? 'mobile-disclosure' : 'mobile-inline' : 'desktop-side'} aria-label={title}><h2 {...part('in-page-navigation', 'title')}>{title}</h2>{narrow && narrowMode === 'disclosure' && <button {...part('in-page-navigation', 'disclosure-trigger', expanded ? 'expanded' : 'collapsed')} type="button" aria-controls={id} aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>구성 {expanded ? '접기' : '펼치기'}</button>}<div id={id} hidden={narrow && narrowMode === 'disclosure' && !expanded}>{list(sections)}</div></nav>;
+    } }}>{section.label}</a>{section.children?.length && depth < 2 ? <ul>{rowsOf(section.children, depth + 1)}</ul> : null}</li>);
+    return <nav {...part('in-page-navigation', 'root')} data-krds-layout={narrow ? narrowMode === 'disclosure' ? 'mobile-disclosure' : 'mobile-inline' : 'desktop-side'} aria-label={title}><h2 {...part('in-page-navigation', 'title')}>{title}</h2>{narrow && narrowMode === 'disclosure' && <button {...part('in-page-navigation', 'disclosure-trigger')} type="button" aria-controls={id} aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>구성 {expanded ? '접기' : '펼치기'}</button>}<ul {...part('in-page-navigation', 'list')} id={id} hidden={narrow && narrowMode === 'disclosure' && !expanded}>{rowsOf(sections)}</ul></nav>;
 }

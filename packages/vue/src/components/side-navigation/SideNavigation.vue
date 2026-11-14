@@ -38,22 +38,27 @@ watch(state.value, (ids, old) => {
 </script>
 <template>
 <nav data-krds-component="side-navigation" data-krds-part="root" data-krds-state="" :aria-label="title??'사이드 메뉴'">
-<button v-if="context.length" type="button" @click="back">이전 메뉴</button>
+<h2 v-if="scope||title" ref="heading" tabindex="-1" data-krds-component="side-navigation" data-krds-part="header" data-krds-state="">{{scope?.label??title}}</h2>
+<button v-if="context.length" type="button" data-krds-component="side-navigation" data-krds-part="parent-link" data-krds-state="" @click="back">상위 메뉴</button>
 <a v-else-if="parentLink" data-krds-component="side-navigation" data-krds-part="parent-link" data-krds-state="" :href="parentLink.href" :target="parentLink.target" :rel="parentLink.target==='_blank'?[parentLink.rel,'noopener noreferrer'].filter(Boolean).join(' '):parentLink.rel">{{parentLink.label}}<span v-if="parentLink.target==='_blank'"> (새 창)</span>
 </a>
-<h2 v-if="scope||title" ref="heading" tabindex="-1" data-krds-component="side-navigation" data-krds-part="header" data-krds-state="">{{scope?.label??title}}</h2>
 <ul data-krds-component="side-navigation" data-krds-part="list" data-krds-state="">
-<li v-for="item in items" :key="item.id" data-krds-component="side-navigation" data-krds-part="item" data-krds-state="">
-<a v-if="item.href" data-krds-component="side-navigation" data-krds-part="link" data-krds-state="" :href="item.href" :aria-current="item.id===currentId?'page':undefined">{{item.label}}</a>
-<button v-if="item.children?.length" :id="`${id}-${item.id}`" type="button" data-krds-component="side-navigation" data-krds-part="trigger" data-krds-state="" :aria-expanded="state.value.value.includes(item.id)" :aria-controls="`${id}-${item.id}-children`" :aria-label="item.children?.some(child=>child.children?.length)?`${item.label} ${state.value.value.includes(item.id)?'접기':'펼치기'}`:item.label" @click="toggle(item.id)">{{item.label}}<span data-krds-component="side-navigation" data-krds-part="indicator" data-krds-state="" aria-hidden="true"></span></button>
-<span v-else-if="!item.href">{{item.label}}</span>
-<ul v-if="item.children?.length" :id="`${id}-${item.id}-children`" :hidden="!state.value.value.includes(item.id)" data-krds-component="side-navigation" data-krds-part="submenu" :data-krds-state="state.value.value.includes(item.id)?'expanded':'collapsed'">
-<li v-for="child in item.children" :key="child.id" data-krds-component="side-navigation" data-krds-part="item" data-krds-state="">
-<a v-if="child.href" data-krds-component="side-navigation" data-krds-part="link" data-krds-state="" :href="child.href" :aria-current="child.id===currentId?'page':undefined">{{child.label}}</a>
-<button v-if="child.children?.length" :id="`${id}-${child.id}-drill`" type="button" data-krds-component="side-navigation" data-krds-part="trigger" data-krds-state="" @click="drill(child)">{{child.label}} 하위 메뉴</button>
-<span v-else-if="!child.href">{{child.label}}</span>
+<li v-for="item in items" :key="item.id" data-krds-component="side-navigation" data-krds-part="item" :data-krds-state="item.children?.length&&state.value.value.includes(item.id)?'expanded':'collapsed'">
+<a v-if="item.href" data-krds-component="side-navigation" data-krds-part="link" :data-krds-state="item.id===currentId?'current':''" :href="item.href" :aria-current="item.id===currentId?'page':undefined">{{item.label}}</a>
+<span v-else-if="!item.children?.length">{{item.label}}</span>
+<template v-if="item.children?.length">
+<button :id="`${id}-${item.id}`" type="button" data-krds-component="side-navigation" data-krds-part="trigger" data-krds-state="" :aria-expanded="state.value.value.includes(item.id)" :aria-controls="`${id}-${item.id}-children`" @click="toggle(item.id)">{{item.label}} {{state.value.value.includes(item.id)?'접기':'펼치기'}}<span data-krds-component="side-navigation" data-krds-part="indicator" data-krds-state="" aria-hidden="true"></span></button>
+<ul :id="`${id}-${item.id}-children`" :hidden="!state.value.value.includes(item.id)" data-krds-component="side-navigation" data-krds-part="submenu" data-krds-state="">
+<li v-for="child in item.children" :key="child.id" data-krds-component="side-navigation" data-krds-part="item" data-krds-state="collapsed">
+<a v-if="child.href" data-krds-component="side-navigation" data-krds-part="link" :data-krds-state="child.id===currentId?'current':''" :href="child.href" :aria-current="child.id===currentId?'page':undefined">{{child.label}}</a>
+<span v-else-if="!child.children?.length">{{child.label}}</span>
+<template v-if="child.children?.length">
+<button :id="`${id}-${child.id}-drill`" type="button" data-krds-component="side-navigation" data-krds-part="trigger" data-krds-state="" aria-expanded="false" :aria-controls="`${id}-${child.id}-children`" @click="drill(child)">{{child.label}} 펼치기<span data-krds-component="side-navigation" data-krds-part="indicator" data-krds-state="" aria-hidden="true"></span></button>
+<ul :id="`${id}-${child.id}-children`" hidden data-krds-component="side-navigation" data-krds-part="submenu" data-krds-state=""></ul>
+</template>
 </li>
 </ul>
+</template>
 </li>
 </ul>
 </nav>

@@ -27,9 +27,9 @@ watch(state.value, (open) => {
 </script>
 <template>
 <div data-krds-part="root" :data-krds-state="state.value.value?'open':'closed'" data-krds-component="disclosure">
-<button ref="trigger" type="button" :aria-label="label" data-krds-part="trigger" :data-krds-state="state.value.value?'open':'closed'" :aria-expanded="state.value.value" :aria-controls="contentId" @click="state.request(!state.value.value)" data-krds-component="disclosure">{{label}}<span data-krds-part="icon" aria-hidden="true" data-krds-component="disclosure" data-krds-state="">{{state.value.value?'−':'+'}}</span>
+<button ref="trigger" type="button" data-krds-part="trigger" data-krds-state="" :aria-expanded="state.value.value" :aria-controls="contentId" @click="state.request(!state.value.value)" data-krds-component="disclosure"><span>{{label}}</span><span data-krds-part="icon" aria-hidden="true" data-krds-component="disclosure" data-krds-state="">{{state.value.value?'−':'+'}}</span>
 </button>
-<div ref="panel" :id="contentId" data-krds-part="content" :data-krds-state="state.value.value?'open':'closed'" :hidden="!state.value.value" data-krds-component="disclosure">
+<div ref="panel" :id="contentId" data-krds-part="content" data-krds-state="" :hidden="!state.value.value" data-krds-component="disclosure">
 <slot>{{content}}</slot>
 </div>
 </div>

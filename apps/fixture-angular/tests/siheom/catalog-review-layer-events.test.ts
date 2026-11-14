@@ -2,11 +2,13 @@ import {Component,signal} from '@angular/core';
 import {render,screen,waitFor} from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import {Header,Modal,Pagination} from '@unofficial-krds/angular';
-import {expect,test} from 'vitest';
+import {afterEach,expect,test} from 'vitest';
+import {page} from 'vitest/browser';
+afterEach(async()=>{await page.viewport(1280,800);});
 @Component({standalone:true,imports:[Header],template:`<krds-header [home]="home" [mainNavigation]="navigation" [mobileOpen]="open()" (mobileOpenChange)="requests.push($event.open);open.set($event.open)"/>`})
 class HeaderHarness{readonly open=signal(false);readonly requests:boolean[]=[];readonly home={href:'/local/home',label:'홈',logo:{src:'/local-assets/specimen-logo.svg',alt:'예제'}};readonly navigation=[{id:'first',label:'첫 메뉴',children:[{id:'leaf',label:'실제 경로',href:'/local/leaf'}]}];}
 test('S3 official native document Escape closes controlled Header layer once and removes its actual isolation',async()=>{
- const view=await render(HeaderHarness);const instance=view.fixture.componentInstance;const user=userEvent.setup();const opener=screen.getByRole('button',{name:'전체 메뉴'});await user.click(opener);expect(screen.getByRole('dialog',{name:'전체 메뉴'})).toBeVisible();await user.keyboard('{Escape}');await waitFor(()=>expect(document.querySelector('[data-krds-native-layer]')).toBeNull());expect(instance.requests).toEqual([true,false]);expect(opener).toHaveFocus();await user.click(opener);expect(screen.getByRole('dialog',{name:'전체 메뉴'})).toBeVisible();
+ await page.viewport(390,800);const view=await render(HeaderHarness);const instance=view.fixture.componentInstance;const user=userEvent.setup();const opener=screen.getByRole('button',{name:'전체 메뉴'});await user.click(opener);expect(screen.getByRole('dialog',{name:'주요 메뉴'})).toBeVisible();await user.keyboard('{Escape}');await waitFor(()=>expect(document.querySelector('[data-krds-native-layer]')).toBeNull());expect(instance.requests).toEqual([true,false]);await waitFor(()=>expect(opener).toHaveFocus());await user.click(opener);expect(screen.getByRole('dialog',{name:'주요 메뉴'})).toBeVisible();
 });
 @Component({standalone:true,imports:[Modal],template:`<krds-modal id="disabled-focus-modal" title="처리 확인" [open]="true"><button [disabled]="pending()" (click)="pending.set(true)">처리 시작</button><button>취소</button></krds-modal>`})
 class DisabledModal{readonly pending=signal(false);}

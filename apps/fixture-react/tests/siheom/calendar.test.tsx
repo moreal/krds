@@ -259,7 +259,7 @@ test.each(['single', 'range'] as const)('review1 DateInput popup revalidates a %
     ? <DateInput label="Bounded date" value={null} max={max} referenceDate="2024-02-15" onValueChange={detail => changes.push(detail)} />
     : <DateInput mode="range" label="Bounded dates" value={{ start: null, end: null }} max={max} referenceDate="2024-02-15" onValueChange={detail => changes.push(detail)} />;
   const mounted = render(input());
-  await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
+  await userEvent.click(screen.getByRole('button', { name: /달력 열기$/ }));
   await userEvent.click(screen.getByRole('button', { name: '2024년 2월 10일 토요일' }));
   if (mode === 'range') await userEvent.click(screen.getByRole('button', { name: '2024년 2월 20일 화요일' }));
   mounted.rerender(input('2024-02-05'));
@@ -350,7 +350,7 @@ test.each(['single', 'range'] as const)('review2 a new %s popup Confirm retries 
     ? <DateInput label="Retry date" value={parent as string} onValueChange={detail => changes.push(detail)} />
     : <DateInput mode="range" label="Retry range" value={parent as { start: string; end: string }} onValueChange={detail => changes.push(detail)} />);
   for (let attempt = 1; attempt <= 2; attempt++) {
-    await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
+    await userEvent.click(screen.getByRole('button', { name: /달력 열기$/ }));
     if (mode === 'single') {
       await userEvent.click(screen.getByRole('button', { name: '2024년 2월 29일 목요일' }));
     } else {
@@ -381,7 +381,7 @@ test.each(['single', 'range'] as const)('review2 confirming authoritative %s par
     submissions.push({ blocked: event.defaultPrevented, data: [...new FormData(form)] });
     event.preventDefault();
   });
-  await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
+  await userEvent.click(screen.getByRole('button', { name: /달력 열기$/ }));
   if (mode === 'single') {
     await userEvent.click(screen.getByRole('button', { name: '2024년 2월 29일 목요일' }));
   } else {
@@ -391,7 +391,7 @@ test.each(['single', 'range'] as const)('review2 confirming authoritative %s par
   await userEvent.click(screen.getByRole('button', { name: '확인' }));
   expect(changes).toEqual([{ value: requested }]);
   // Reopening initializes the popup from authoritative A, not rejected B.
-  await userEvent.click(screen.getByRole('button', { name: '달력 열기' }));
+  await userEvent.click(screen.getByRole('button', { name: /달력 열기$/ }));
   await userEvent.click(screen.getByRole('button', { name: '확인' }));
   expect(screen.queryByRole('dialog')).toBeNull();
   expect(changes).toEqual([{ value: requested }]);

@@ -99,7 +99,7 @@ for (const engine of ['chromium', 'webkit']) {
         }
       });
       for (const kind of ['tabs', 'calendar']) for (const mode of ['label', 'labelledby', 'shadow-labelledby']) {
-        const role = kind === 'tabs' ? 'tablist' : 'region';
+        const role = kind === 'tabs' ? 'tablist' : 'group';
         await page.getByRole(role, { name: `${kind} ${mode}`, exact: true }).waitFor({ timeout: 1000 });
       }
       await page.evaluate(() => {
@@ -108,7 +108,7 @@ for (const engine of ['chromium', 'webkit']) {
         }
       });
       for (const kind of ['tabs', 'calendar']) for (const mode of ['labelledby', 'shadow-labelledby']) {
-        await page.getByRole(kind === 'tabs' ? 'tablist' : 'region', { name: `${kind} ${mode} 갱신`, exact: true }).waitFor({ timeout: 1000 });
+        await page.getByRole(kind === 'tabs' ? 'tablist' : 'group', { name: `${kind} ${mode} 갱신`, exact: true }).waitFor({ timeout: 1000 });
       }
       const rejected = await page.evaluate(async () => {
         const results = [];

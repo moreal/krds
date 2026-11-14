@@ -77,3 +77,5 @@ export function usable(element: Element | null): element is HTMLElement {
     return style?.visibility !== 'hidden' && style?.visibility !== 'collapse' && (element as HTMLElement).getClientRects().length > 0;
 }
 export function focusables(root: HTMLElement): HTMLElement[] { return [...root.querySelectorAll<HTMLElement>(focusSelector)].filter(usable); }
+/** New-window links always carry noopener noreferrer, matching the shared link contract. */
+export function safeRel(target?: string, rel?: string): string | null { return target === '_blank' ? [...new Set(`${rel ?? ''} noopener noreferrer`.trim().split(/\s+/))].join(' ') : rel || null; }

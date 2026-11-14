@@ -13,6 +13,6 @@ export function TTS(props: TTSProps) {
       <button type="button" {...owned('tts', 'pause')} aria-label={`${props.label} 일시정지`} disabled={props.state === 'paused'} onClick={() => request('pause')}><Show when={!props.iconOnly} fallback={<span aria-hidden="true">Ⅱ</span>}>{props.label} 일시정지</Show></button>
       <button type="button" {...owned('tts', 'stop')} aria-label={`${props.label} 중지`} onClick={() => request('stop')}><Show when={!props.iconOnly} fallback={<span aria-hidden="true">■</span>}>{props.label} 중지</Show></button>
     </Show>
-    <span {...owned('tts', 'status')}>{props.state === 'unsupported' ? '음성 읽기를 지원하지 않습니다.' : props.state === 'error' ? '읽기에 실패했습니다. 다시 시도하세요.' : props.state === 'playing' ? '읽는 중' : props.state === 'paused' ? '일시정지' : ''}</span>
+    <span {...owned('tts', 'status')} role="status">{props.state === 'unsupported' ? '음성 읽기를 지원하지 않습니다.' : props.state === 'error' ? '읽기에 실패했습니다. 다시 시도하세요.' : props.state === 'playing' ? '읽는 중' : props.state === 'paused' ? '일시정지' : ''}</span>
   </div>;
 }

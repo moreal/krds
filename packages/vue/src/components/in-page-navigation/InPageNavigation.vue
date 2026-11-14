@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue';
+import { ref, useId, onMounted, onUnmounted, watch, nextTick } from 'vue';
 import type { InPageNavigationContract } from '@unofficial-krds/contracts';
 import { focusDestination } from '../catalog-state';
 const p = defineProps<InPageNavigationContract>();
@@ -11,6 +11,7 @@ const emit = defineEmits<{
         }
     ];
 }>();
+const uid = useId();
 const current = ref(p.activeId ?? p.sections[0]?.id);
 const narrow = ref(false), expanded = ref(true);
 let disclosureInitialized = false;
@@ -99,17 +100,17 @@ function activate(e: MouseEvent | KeyboardEvent, id: string) {
 }
 </script>
 <template>
-<nav data-krds-part="root" :aria-label="title??'이 페이지의 구성'" data-krds-component="in-page-navigation" data-krds-state="">
+<nav data-krds-part="root" :aria-label="title??'이 페이지의 구성'" :data-krds-layout="narrow?narrowMode==='disclosure'?'mobile-disclosure':'mobile-inline':'desktop-side'" data-krds-component="in-page-navigation" data-krds-state="">
 <h2 data-krds-part="title" data-krds-component="in-page-navigation" data-krds-state="">{{title??'이 페이지의 구성'}}</h2>
-<button v-if="narrowMode==='disclosure'&&narrow" type="button" data-krds-part="disclosure-trigger" :aria-expanded="expanded" @click="expanded=!expanded" data-krds-component="in-page-navigation" data-krds-state="">구성 {{expanded?'접기':'펼치기'}}</button>
-<ul data-krds-part="list" :hidden="narrowMode==='disclosure'&&narrow&&!expanded" data-krds-component="in-page-navigation" data-krds-state="">
+<button v-if="narrowMode==='disclosure'&&narrow" type="button" data-krds-part="disclosure-trigger" :aria-expanded="expanded" :aria-controls="uid" @click="expanded=!expanded" data-krds-component="in-page-navigation" data-krds-state="">{{expanded?'구성 접기':'구성 펼치기'}}</button>
+<ul :id="uid" data-krds-part="list" :hidden="narrowMode==='disclosure'&&narrow&&!expanded" data-krds-component="in-page-navigation" data-krds-state="">
 <li v-for="section in sections" :key="section.id" data-krds-part="item" data-krds-component="in-page-navigation" data-krds-state="">
 <a data-krds-part="link" :href="`#${section.id}`" :aria-current="section.id===(activeId??current)?'location':undefined" :data-krds-state="section.id===(activeId??current)?'active':''" @click="activate($event,section.id)" @keydown="activate($event,section.id)" data-krds-component="in-page-navigation">{{section.label}}</a>
-<ul v-if="section.children">
-<li v-for="child in section.children" :key="child.id">
-<a data-krds-part="link" :href="`#${child.id}`" :aria-current="child.id===(activeId??current)?'location':undefined" @click="activate($event,child.id)" @keydown="activate($event,child.id)" data-krds-component="in-page-navigation" data-krds-state="">{{child.label}}</a>
+<ul v-if="section.children?.length">
+<li v-for="child in section.children" :key="child.id" data-krds-part="item" data-krds-component="in-page-navigation" data-krds-state="">
+<a data-krds-part="link" :href="`#${child.id}`" :aria-current="child.id===(activeId??current)?'location':undefined" :data-krds-state="child.id===(activeId??current)?'active':''" @click="activate($event,child.id)" @keydown="activate($event,child.id)" data-krds-component="in-page-navigation">{{child.label}}</a>
 <ul v-if="child.children?.length">
-<li v-for="grandchild in child.children" :key="grandchild.id">
+<li v-for="grandchild in child.children" :key="grandchild.id" data-krds-part="item" data-krds-component="in-page-navigation" data-krds-state="">
 <a data-krds-part="link" :href="`#${grandchild.id}`" :aria-current="grandchild.id===(activeId??current)?'location':undefined" :data-krds-state="grandchild.id===(activeId??current)?'active':''" @click="activate($event,grandchild.id)" @keydown="activate($event,grandchild.id)" data-krds-component="in-page-navigation">{{grandchild.label}}</a>
 </li>
 </ul>

@@ -101,8 +101,8 @@ export const FileUpload = component$<FileUploadProps>(props => {
         element.addEventListener('drop', drop);
         cleanup(() => { alive.value=false;revision.value++;selectionOwner.value++;selecting.value=false;selections.value?.splice(0);chooser.removeEventListener('change', change); element.removeEventListener('drop', drop); });
     }, { strategy: 'document-ready' });
-    return <div ref={root} {...owned('file-upload', 'root', props.disabled ? 'disabled' : drag.value ? 'drag-over' : '')} data-krds-variant={props.variant ?? 'dropzone'}>
-        <h3 id={`${uid}-label`} {...owned('file-upload', 'label')}>{props.label}</h3>
+    return <div ref={root} {...owned('file-upload', 'root', props.disabled ? 'disabled' : drag.value ? 'drag-over' : '')} data-krds-variant={props.variant ?? 'dropzone'} role="group" aria-labelledby={`${uid}-label`}>
+        <p id={`${uid}-label`} {...owned('file-upload', 'label')}>{props.label}</p>
         {props.description && <p id={`${uid}-description`} {...owned('file-upload', 'description')}>{props.description}</p>}
         <p id={`${uid}-help`} {...owned('file-upload', 'help')}>{props.accept ?? '모든 형식'}{props.maxBytes ? ` / 최대 ${props.maxBytes}바이트` : ''}{props.maxFiles ? ` / 최대 ${props.maxFiles}개` : ''}</p>
         <input ref={input} id={uid} {...owned('file-upload', 'file-input')} type="file" data-krds-name={props.name} tabIndex={-1} aria-hidden="true" multiple={props.multiple} accept={props.accept} disabled={props.disabled} onChange$={async (event, element) => {
@@ -111,7 +111,7 @@ export const FileUpload = component$<FileUploadProps>(props => {
             element.value = '';
             await select(files, 'picker');
         }}/>
-        <button type="button" {...owned('file-upload', 'picker')} id={`${uid}-picker`} aria-labelledby={`${uid}-picker ${uid}-label`} aria-describedby={`${props.description ? `${uid}-description ` : ''}${uid}-help${errors.value.length ? ` ${uid}-errors` : ''}`} disabled={props.disabled} onClick$={() => input.value?.click()}>파일 선택</button>
+        <button type="button" {...owned('file-upload', 'picker')} id={`${uid}-picker`} aria-describedby={`${props.description ? `${uid}-description ` : ''}${uid}-help${errors.value.length ? ` ${uid}-errors` : ''}`} disabled={props.disabled} onClick$={() => input.value?.click()}>파일 선택</button>
         {props.variant !== 'button' && <div {...owned('file-upload', 'dropzone')} preventdefault:dragover preventdefault:drop onDragOver$={() => { if (!props.disabled) drag.value = true; }} onDragLeave$={() => drag.value = false} onDrop$={async event => {
             if (!firstDelivery(delivered, event)) return;
             drag.value = false;
@@ -119,11 +119,11 @@ export const FileUpload = component$<FileUploadProps>(props => {
         }}>파일을 끌어 놓거나 파일 선택을 이용하세요.</div>}
         <p {...owned('file-upload', 'count')}>{props.files.length}{props.maxFiles ? ` / ${props.maxFiles}` : ''}개</p>
         <ul {...owned('file-upload', 'list')}>{props.files.map(record => <li key={record.id} {...owned('file-upload', 'item', record.status)}>
-            <span {...owned('file-upload', 'filename')}>{record.file?.name}</span><span {...owned('file-upload', 'size')}>{record.file?.size} 바이트</span>
+            <span id={`${record.id}-name`} {...owned('file-upload', 'filename')}>{record.file?.name}</span><span {...owned('file-upload', 'size')}>{record.file?.size} 바이트</span>
             <span {...owned('file-upload', 'status')}>{{ staged: '선택됨', uploading: '업로드 중', success: '완료', error: '오류' }[record.status]}</span>
             {record.status === 'uploading' && <progress {...owned('file-upload', 'progress')} max={100} value={record.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={record.progress} aria-label={`${record.file?.name} 진행률`}/>}
             {record.error && <p {...owned('file-upload', 'error')}>{record.error}</p>}
-            <button type="button" {...owned('file-upload', 'remove')} data-file-id={record.id} aria-label={`${record.file?.name} 삭제`} disabled={props.disabled} onClick$={async (_, element) => {
+            <button type="button" {...owned('file-upload', 'remove')} data-file-id={record.id} aria-label={`${record.file?.name} 삭제`} aria-describedby={`${record.id}-name`} disabled={props.disabled} onClick$={async (_, element) => {
                 const id = element.dataset.fileId!, index = props.files.findIndex(file => file.id === id), version = revision.value;
                 if (props.disabled || index < 0) return;
                 removing.value = { id, index };

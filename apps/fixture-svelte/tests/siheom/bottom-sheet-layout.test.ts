@@ -8,7 +8,8 @@ test('BottomSheet: open sheet anchors to the viewport bottom with a clickable cl
  const changed=vi.fn(),host=document.createElement('div');document.body.append(host);
  const app=mount(BottomSheet,{target:host,props:{title:'지역 선택',description:'예제 지역을 선택하세요',defaultOpen:true,onOpenChange:changed}});
  cleanup.push(async()=>{await unmount(app);host.remove();});await tick();
- const content=host.querySelector<HTMLElement>('[data-krds-component="bottom-sheet"][data-krds-part="content"]')!;
+ // The sheet composes the public Modal: the Modal content is the fixed bottom-anchored surface.
+ const content=host.querySelector<HTMLElement>('[data-krds-component="modal"][data-krds-part="content"]:has([data-krds-component="bottom-sheet"][data-krds-part="root"])')!;
  const close=host.querySelector<HTMLButtonElement>('[data-krds-component="bottom-sheet"][data-krds-part="close"]')!;
  expect(content).not.toBeNull();expect(close).not.toBeNull();
  // No ancestor of the sheet's fixed layers may establish a containing block for fixed descendants.
@@ -21,7 +22,7 @@ test('BottomSheet: open sheet anchors to the viewport bottom with a clickable cl
  const x=box.left+box.width/2,y=box.top+box.height/2;
  expect(document.elementFromPoint(x,y)).toBe(close);
  const handle=host.querySelector<HTMLElement>('[data-krds-component="bottom-sheet"][data-krds-part="handle"]')!;
- expect(handle.getAttribute('aria-hidden')).toBe('true');expect(handle.hasAttribute('role')).toBe(false);
+ expect(handle.tagName).toBe('BUTTON');expect(handle.getAttribute('aria-label')).toBe('시트 닫기');expect(handle.hasAttribute('role')).toBe(false);
  expect(getComputedStyle(handle).touchAction).toBe('none');
  close.click();await tick();
  expect(changed).toHaveBeenCalledExactlyOnceWith({open:false,reason:'close'});

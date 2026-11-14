@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch, nextTick, onMounted, onUnmounted } from 'vue';
+import { computed, ref, useId, watch, nextTick, onMounted, onUnmounted } from 'vue';
 import type { CoachMarkContract, TutorialStopDetails } from '@unofficial-krds/contracts';
 import { useOwned, restoreStop } from '../catalog-state';
 const p = withDefaults(defineProps<CoachMarkContract & {
@@ -27,6 +27,10 @@ const step = useOwned(() => p.stepId, () => p.defaultStepId, p.steps[0]?.id ?? '
 const current = computed(() => p.steps.find(x => x.id === step.value.value));
 const boundary = ref<HTMLElement>(), target = ref<HTMLElement>(), missing = ref(false), pending = ref(false), heading = ref<HTMLElement>();
 const rect = ref({ left: 0, top: 0, width: 0, height: 0 });
+defineOptions({ inheritAttrs: false });
+const uid = useId();
+const ready = computed(() => !!target.value && !!boundary.value);
+const titleId = computed(() => current.value ? `${current.value.id}-coach-title` : `${uid}-coach-title`);
 let observer: MutationObserver | undefined;
 let resize: ResizeObserver | undefined;
 let generation = 0;
@@ -176,27 +180,19 @@ onMounted(() => { mounted = true; saved = document.activeElement instanceof HTML
 onUnmounted(() => { mounted = false; observer?.disconnect(); unbind(); document.removeEventListener('keydown', key); window.removeEventListener('scroll', measure, true); window.removeEventListener('resize', measure); });
 </script>
 <template>
-<div v-if="state.value.value">
-<div v-if="target" data-krds-part="spotlight" data-krds-state="open" aria-hidden="true" :style="{position:'fixed',pointerEvents:'none',left:`${rect.left}px`,top:`${rect.top}px`,width:`${rect.width}px`,height:`${rect.height}px`,outline:'3px solid currentColor'}" data-krds-component="coach-mark"/>
-<div v-if="missing" data-krds-component="coach-mark" data-krds-part="root" data-krds-state="missing-target">
-<section data-krds-part="popover" data-krds-state="missing-target" role="region" aria-label="따라하기 대상 없음" data-krds-component="coach-mark">
-<h3 data-krds-component="coach-mark" data-krds-part="title" data-krds-state="">{{current?.title}}</h3>
-<p data-krds-component="coach-mark" data-krds-part="instruction" data-krds-state="">대상을 찾을 수 없습니다.</p>
-<button type="button" data-krds-component="coach-mark" data-krds-part="next" data-krds-state="" disabled>다음</button>
+<Teleport v-if="state.value.value&&(ready||missing)" :to="boundary" :disabled="!boundary">
+<div v-bind="$attrs" data-krds-component="coach-mark" data-krds-part="root" :data-krds-state="!ready?'open missing-target':pending?'open waiting':'open current-step'">
+<div v-if="target" data-krds-part="spotlight" data-krds-state="" aria-hidden="true" :style="{left:`${rect.left}px`,top:`${rect.top}px`,width:`${rect.width}px`,height:`${rect.height}px`}" data-krds-component="coach-mark"/>
+<div data-krds-component="coach-mark" data-krds-part="popover" :data-krds-state="!ready?'missing-target':pending?'waiting':''" role="region" :aria-labelledby="titleId">
+<h3 :id="titleId" ref="heading" tabindex="-1" data-krds-part="title" data-krds-component="coach-mark" data-krds-state="">{{current?.title}}</h3>
+<p data-krds-part="instruction" data-krds-component="coach-mark" data-krds-state="">{{ready?current?.instruction:'대상을 찾을 수 없습니다. 따라하기를 중지하거나 화면을 확인하세요.'}}</p>
+<p data-krds-part="position" data-krds-component="coach-mark" data-krds-state="">{{steps.findIndex(x=>x.id===current?.id)+1}} / {{steps.length}}</p>
+<div data-krds-part="actions" data-krds-component="coach-mark" data-krds-state="">
 <button type="button" data-krds-part="stop" @click="stop('stop')" data-krds-component="coach-mark" data-krds-state="">그만보기</button>
-</section>
+<button type="button" data-krds-part="previous" :hidden="steps[0]?.id===current?.id" :disabled="!ready" @click="previous" data-krds-component="coach-mark" data-krds-state="">이전</button>
+<button type="button" data-krds-part="next" :disabled="current?.requiresAction||pending||!ready" @click="advance('next')" data-krds-component="coach-mark" data-krds-state="">{{steps.length===1?'확인':steps.at(-1)?.id===current?.id?'마치기':'다음'}}</button>
 </div>
-<Teleport v-if="boundary&&current" :to="boundary">
-<div data-krds-component="coach-mark" data-krds-part="root" :data-krds-state="pending?'waiting':'open'">
-<section data-krds-component="coach-mark" data-krds-part="popover" data-krds-state="open" role="region" :aria-labelledby="`${current.id}-coach-title`">
-<h3 :id="`${current.id}-coach-title`" ref="heading" tabindex="-1" data-krds-part="title" data-krds-component="coach-mark" data-krds-state="">{{current.title}}</h3>
-<p data-krds-part="instruction" data-krds-component="coach-mark" data-krds-state="">{{current.instruction}}</p>
-<span data-krds-part="position" data-krds-component="coach-mark" data-krds-state="">{{steps.findIndex(x=>x.id===current?.id)+1}} / {{steps.length}}</span>
-<button type="button" data-krds-part="stop" @click="stop('stop')" data-krds-component="coach-mark" data-krds-state="">그만보기</button>
-<button v-if="steps[0]?.id!==current.id" type="button" data-krds-part="previous" @click="previous" data-krds-component="coach-mark" data-krds-state="">이전</button>
-<button type="button" data-krds-part="next" :disabled="current.requiresAction||pending" @click="advance('next')" data-krds-component="coach-mark" data-krds-state="">{{steps.length===1?'확인':steps.at(-1)?.id===current.id?'마치기':'다음'}}</button>
-</section>
+</div>
 </div>
 </Teleport>
-</div>
 </template>

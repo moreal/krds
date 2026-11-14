@@ -31,7 +31,7 @@ export function Modal(props: ModalProps) {
   const currentProps = useRef(props); currentProps.current = props; const generatedId = useId(); const id = props.id ?? generatedId;
   const request = (next: boolean) => { if (activeOpen.current === next) return; if (!controlled) setLocal(next); props.onOpenChange?.({ open: next }); };
   const requestRef = useRef(request); requestRef.current = request;
-  useLayoutEffect(() => { const doc = env.getDocument(); if (!doc) return; const node = doc.createElement('div'); node.dataset.krdsComponent = 'modal'; node.dataset.krdsPart = 'root'; node.dir = env.direction; node.lang = locale; doc.body.append(node); setPortal(node);
+  useLayoutEffect(() => { const doc = env.getDocument(); if (!doc) return; const node = doc.createElement('div'); node.dir = env.direction; node.lang = locale; doc.body.append(node); setPortal(node);
     const rememberOpeningControl = (event: MouseEvent) => {
       if (activeOpen.current) return;
       const target = event.target instanceof (doc.defaultView?.Element ?? Element) ? event.target.closest(focusableSelector) : null;
@@ -50,7 +50,9 @@ export function Modal(props: ModalProps) {
     const opener = noOpeningAction ? null : gestureOpener.current ?? (doc.activeElement instanceof (doc.defaultView?.HTMLElement ?? HTMLElement) && doc.activeElement !== doc.body ? doc.activeElement : null);
     const ancestors: HTMLElement[] = []; for (let node = opener?.parentElement; node; node = node.parentElement) ancestors.push(node);
     const registration = acquireDocumentLayer(doc, dialog, portal);
-    portal.style.position = 'fixed'; portal.style.inset = '0'; portal.style.zIndex = String(1000 + registration.depth); portal.dataset.krdsState = 'open';
+    portal.style.position = 'fixed'; portal.style.inset = '0'; portal.style.zIndex = String(1000 + registration.depth); portal.dataset.krdsComponent = 'modal'; portal.dataset.krdsPart = 'root'; portal.dataset.krdsState = 'open';
+    // A closed Modal owns no public part: the root exists only while the layer is open.
+    const releaseSurface = () => { portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index'); delete portal.dataset.krdsComponent; delete portal.dataset.krdsPart; delete portal.dataset.krdsState; };
     try {
     const first = focusables(dialog)[0];
     if (props.showCloseButton === false && !focusables(dialog).some(node => node.matches('button,[role="button"]'))) throw new TypeError('A modal needs an enabled close action.');
@@ -58,7 +60,7 @@ export function Modal(props: ModalProps) {
     else if (props.onEntryFocus) props.onEntryFocus(dialog); else dialog.focus();
     } catch (error) {
       const wasTop = registration.top(); registration.release();
-      portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index'); portal.dataset.krdsState = 'closed';
+      releaseSurface();
       if (wasTop) restoreFocus(doc, opener, ancestors, props.returnFocusId);
       throw error;
     }
@@ -80,14 +82,14 @@ export function Modal(props: ModalProps) {
       doc.removeEventListener('pointerdown', pointerDown, true); doc.removeEventListener('pointerup', pointerUp, true); doc.removeEventListener('pointercancel', cancelPointer, true); doc.removeEventListener('lostpointercapture', cancelPointer, true); doc.defaultView?.removeEventListener('blur', cancelPointer);
       doc.removeEventListener('keydown', key); doc.removeEventListener('focusin', focus);
       const wasTop = registration.top(); registration.release();
-      portal.style.removeProperty('position'); portal.style.removeProperty('inset'); portal.style.removeProperty('z-index'); portal.dataset.krdsState = 'closed';
+      releaseSurface();
       if (wasTop) restoreFocus(doc, opener, ancestors, currentProps.current.returnFocusId);
     };
   }, [open, portal]);
-  const attrs = (part: string) => ({ 'data-krds-component': 'modal', 'data-krds-part': part, 'data-krds-state': open ? 'open' : 'closed' });
-  return <>{props.trigger != null && <span {...attrs('trigger')} onClick={event => { const target = event.target instanceof HTMLElement ? event.target.closest<HTMLElement>(focusableSelector) : null; target?.focus({ preventScroll: true }); request(true); }}>{props.trigger}</span>}{open && portal && createPortal(<>
-    <div {...attrs('backdrop')} />
-    <div {...attrs('content')} {...props.contentAttributes} id={id} ref={content} role="dialog" aria-modal="true" aria-labelledby={props.titleId ?? `${id}-title`} aria-describedby={props.description != null ? props.descriptionId ?? `${id}-description` : undefined} tabIndex={-1}>
+  const attrs = (part: string, state = '') => ({ 'data-krds-component': 'modal', 'data-krds-part': part, 'data-krds-state': state });
+  return <>{props.trigger != null && <span {...attrs('trigger', open ? 'open' : 'closed')} onClick={event => { const target = event.target instanceof HTMLElement ? event.target.closest<HTMLElement>(focusableSelector) : null; target?.focus({ preventScroll: true }); request(true); }}>{props.trigger}</span>}{open && portal && createPortal(<>
+    <div {...attrs('backdrop', 'open')} />
+    <div {...attrs('content', 'open')} {...props.contentAttributes} id={id} ref={content} role="dialog" aria-modal="true" aria-labelledby={props.titleId ?? `${id}-title`} aria-describedby={props.description != null ? props.descriptionId ?? `${id}-description` : undefined} tabIndex={-1}>
       <h2 {...attrs('title')} id={props.titleId ?? `${id}-title`}>{props.title}</h2>
       {props.description != null && <div {...attrs('description')} id={props.descriptionId ?? `${id}-description`}>{props.description}</div>}
       <div {...attrs('body')}>{props.children}</div>

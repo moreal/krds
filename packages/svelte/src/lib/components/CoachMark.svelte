@@ -11,7 +11,7 @@ const signature=$derived(JSON.stringify([p.steps.map(step=>[step.id,step.targetI
 const open=control(()=>p.open,untrack(()=>p.defaultOpen),false,open=>p.onOpenChange?.({open}));
 let reason:'previous'|'next'|'target-action'='next';
 const step=control(()=>p.stepId,untrack(()=>p.defaultStepId),untrack(()=>p.steps[0]?.id??''),id=>p.onStepChange?.({id,reason}));
-let positioned=$state(false),missing=$state(false),rect=$state({left:0,top:0,width:0,height:0});
+let positioned=$state(false),missing=$state(false),pendingAction=$state(false),rect=$state({left:0,top:0,width:0,height:0});
 const committedOpen=$derived(open.value),committedStep=$derived(step.value);
 const currentIndex=$derived(p.steps.findIndex(item=>item.id===committedStep));
 const current=$derived(p.steps.find(item=>item.id===committedStep));
@@ -33,7 +33,7 @@ $effect(()=>{
  // Validate before taking a document owner. Every later acquisition also has exception-safe cleanup.
  untrack(()=>{for(const item of p.steps)if(item.requiresAction&&!p.onTargetAction)throw new TypeError('Action-gated coach requires host verifier');});
  const release=claimCoach(document,owner);
- const resources:(()=>void)[]=[release];let active=true,pending=false;
+ const resources:(()=>void)[]=[release,()=>{pendingAction=false;}];let active=true,pending=false;pendingAction=false;
  let timer:ReturnType<typeof setTimeout>|undefined;
  function cleanup(){
   active=false;const failures:unknown[]=[];
@@ -55,19 +55,19 @@ $effect(()=>{
    get panel(){return(p.panelId?document.getElementById(p.panelId):null)??document.getElementById(p.startActionId)?.closest<HTMLElement>('[data-krds-component="tutorial-panel"][data-krds-part="root"]')??null;},
    get anchor(){return{...rect,targetId:current?.targetId};},get current(){return current??selected;},
    get index(){return currentIndex;},get total(){return p.steps.length;},
-   get waiting(){return Boolean(current?.requiresAction);},get missing(){return missing;},
+   get waiting(){return Boolean(current?.requiresAction);},get pending(){return pendingAction;},get missing(){return missing;},
    previous:()=>advance(-1,'previous'),next:()=>{if(!current?.requiresAction&&!missing)advance(1,'next');},stop:()=>stop()
   }}));
   resources.push(()=>{void unmount(app);});
   const action=(event:Event)=>{
    if(!current?.requiresAction||pending||(event as InputEvent).isComposing)return;
-   pending=true;timer=setTimeout(async()=>{
+   pending=true;pendingAction=true;timer=setTimeout(async()=>{
     timer=undefined;await tick();
     try{
      if(!active||!open.value||step.value!==stepId||missing)return;
      const valid=await p.onTargetAction?.({stepId,targetId});
      if(active&&open.value&&step.value===stepId&&valid&&!missing&&target?.isConnected&&document.getElementById(targetId)===target)advance(1,'target-action');
-    }catch{/* A declined or rejected host verifier never advances. */}finally{pending=false;}
+    }catch{/* A declined or rejected host verifier never advances. */}finally{pending=false;if(active)pendingAction=false;}
    },0);
   };
   const observer=new MutationObserver(()=>{if(active&&(!boundary.isConnected||target&&!target.isConnected)){missing=true;if(!boundary.isConnected)positioned=false;}});
@@ -85,4 +85,4 @@ onMount(()=>{
  document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);
 });
 </script>
-<div style={!missing?`position:fixed;pointer-events:none;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px`:undefined} {...owned('coach-mark','root',open.value?'open':'closed',missing&&'missing-target')}>{#if open.value&&missing&&!positioned}<section {...owned('coach-mark','popover','open','missing-target')}><h3 {...owned('coach-mark','title')}>{current?.title??'안내'}</h3><p {...owned('coach-mark','instruction')}>대상을 찾을 수 없습니다.</p><button type="button" {...owned('coach-mark','stop')} onclick={()=>stop()}>그만보기</button><button type="button" disabled {...owned('coach-mark','next')}>다음</button></section>{:else if open.value&&!missing}<div aria-hidden="true" {...owned('coach-mark','spotlight','open','current-step')} style={`position:fixed;pointer-events:none;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;border:3px solid Highlight;z-index:30`}></div>{/if}</div>
+{#if open.value&&missing&&!positioned}<CoachPopover floating={false} suppressEntry current={current??{title:'안내',instruction:''}} index={currentIndex} total={p.steps.length} waiting={Boolean(current?.requiresAction)} missing previous={()=>advance(-1,'previous')} next={()=>{}} stop={()=>stop()}/>{/if}

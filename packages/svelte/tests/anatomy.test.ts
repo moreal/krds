@@ -21,8 +21,10 @@ test('FileUpload keeps one keyboard/AT file control: the visible picker opens th
   expect(input.getAttribute('aria-hidden')).toBe('true');
   expect(tabbable(root)).toEqual([picker]);
   expect(picker.textContent).toBe('파일 선택');
-    expect(text(picker.getAttribute('aria-labelledby')), 'picker name is its text plus the field label').toEqual(['파일 선택', '첨부 서류']);
-    expect(text(picker.getAttribute('aria-describedby'))).toEqual([root.querySelector('[data-krds-part="description"]')!.textContent!.trim()]);
+    expect(picker.hasAttribute('aria-labelledby') || picker.hasAttribute('aria-label'), 'picker name is exactly its own visible text').toBe(false);
+    const label = root.querySelector<HTMLElement>('[data-krds-part="label"]')!;
+    expect([label.tagName, label.textContent, root.getAttribute('role'), root.getAttribute('aria-labelledby')], 'the group is named by its paragraph label').toEqual(['P', '첨부 서류', 'group', label.id]);
+    expect(text(picker.getAttribute('aria-describedby'))).toEqual([root.querySelector('[data-krds-part="help"]')!.textContent!.trim()]);
   before.focus(); await userEvent.tab();
   expect(document.activeElement).toBe(picker);
   let opened = 0; input.click = () => { opened++; };
@@ -37,9 +39,9 @@ test('TutorialPanel inner controls carry shared tab/start/step parts', async () 
   const part = (name: string) => [...document.querySelectorAll<HTMLElement>(`[data-krds-component="tutorial-panel"][data-krds-part="${name}"]`)];
   expect(part('tab').map(tab => [tab.getAttribute('role'), tab.getAttribute('data-krds-state')])).toEqual([['tab', ''], ['tab', 'selected']]);
   expect(part('start').map(node => [node.tagName, node.id])).toEqual([['BUTTON', 'tutorial-start']]);
-  const toggle = part('task-toggle')[0]!; const controlled = document.getElementById(toggle.getAttribute('aria-controls')!);
-  expect([controlled?.getAttribute('data-krds-part'), controlled?.hidden]).toEqual(['step-list', false]);
-  expect(part('task-toggle').map(node => [node.tagName, node.tagName === 'SUMMARY' ? String((node.parentElement as HTMLDetailsElement).open) : node.getAttribute('aria-expanded'), node.textContent?.includes('예제 신청하기')])).toEqual([['BUTTON', 'true', true]]);
+  const toggle = part('task-toggle')[0]!; const controlled = toggle.parentElement!.querySelector<HTMLElement>(':scope > ol');
+  expect([toggle.parentElement!.tagName, controlled?.getAttribute('data-krds-part'), controlled?.checkVisibility()]).toEqual(['DETAILS', 'step-list', true]);
+  expect(part('task-toggle').map(node => [node.tagName, String((node.parentElement as HTMLDetailsElement).open), node.textContent?.includes('예제 신청하기')])).toEqual([['SUMMARY', 'true', true]]);
   expect(part('step').map(node => [node.tagName, node.getAttribute('data-krds-state'), node.getAttribute('aria-current')])).toEqual([['BUTTON', '', null], ['BUTTON', 'current', 'step']]);
 });
 
@@ -57,7 +59,7 @@ test('TutorialPanel renders parted header/title/task-list with no unparted headi
   const header = tutorialPart('header');
   expect(header.length).toBe(1);
   expect(tutorialPart('title').map(node => [node.tagName, node.closest('[data-krds-part="header"]') === header[0]])).toEqual([['H2', true]]);
-  expect(tutorialPart('tabs')[0]?.closest('[data-krds-part="header"]')).toBe(header[0]);
+  expect(tutorialPart('tabs')[0]?.previousElementSibling, 'the tablist follows the header').toBe(header[0]);
   expect(tutorialPart('close')[0]?.closest('[data-krds-part="header"]')).toBe(header[0]);
   expect([...host.querySelectorAll('h2')].filter(node => !node.hasAttribute('data-krds-part')), 'no stray unparted heading').toEqual([]);
   expect(tutorialPart('task-list').map(node => node.tagName)).toEqual(['UL']);
@@ -67,12 +69,13 @@ test('TutorialPanel renders parted header/title/task-list with no unparted headi
 test('TutorialPanel overview lists every task collapsed without back; the task view lists only the active task and back requests the overview', async () => {
   await mountTutorial({ activeTaskId: null, activeStepId: null });
   expect(listedTasks(), 'overview lists all tasks').toEqual(['예제 신청하기', '신청 내역 확인']);
-  expect(tutorialPart('task-toggle').map(node => node.getAttribute('aria-expanded')), 'no task auto-expands on the overview').toEqual(['false', 'false']);
+  const expandedTasks = () => tutorialPart('task-toggle').map(node => (node.parentElement as HTMLDetailsElement).open);
+  expect(expandedTasks(), 'no task auto-expands on the overview').toEqual([false, false]);
   expect(tutorialPart('back'), 'no back on the overview').toEqual([]);
   for (const callback of cleanup.splice(0)) await callback();
   await mountTutorial({ activeTaskId: 'apply', activeStepId: null });
   expect(listedTasks(), 'a selected task without a step stays on the overview').toEqual(['예제 신청하기', '신청 내역 확인']);
-  expect(tutorialPart('task-toggle').map(node => node.getAttribute('aria-expanded'))).toEqual(['true', 'false']);
+  expect(expandedTasks()).toEqual([true, false]);
   expect(tutorialPart('back')).toEqual([]);
   for (const callback of cleanup.splice(0)) await callback();
   const changes: ({ id: string | null })[] = [];
@@ -83,11 +86,11 @@ test('TutorialPanel overview lists every task collapsed without back; the task v
   expect(changes).toEqual([{ id: null }]);
 });
 
-test('BottomSheet handle is a decorative CSS-drawn bar with no text content', async () => {
+test('BottomSheet handle is a named close button drawn as a CSS bar with no text content', async () => {
   const { BottomSheet } = await import('../src/lib/index');
   const host = document.createElement('div'); document.body.append(host);
   const app = mount(BottomSheet, { target: host, props: { title: '지역 선택', defaultOpen: true } as never });
   cleanup.push(async () => { await unmount(app); host.remove(); }); await tick();
   const handle = document.querySelector<HTMLElement>('[data-krds-component="bottom-sheet"][data-krds-part="handle"]')!;
-  expect([handle.getAttribute('aria-hidden'), handle.textContent]).toEqual(['true', '']);
+  expect([handle.tagName, handle.getAttribute('aria-label'), handle.textContent]).toEqual(['BUTTON', '시트 닫기', '']);
 });

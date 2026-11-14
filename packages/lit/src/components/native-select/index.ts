@@ -55,10 +55,10 @@ export class NativeSelect extends KrdsElement {
         if (!this.label && !this.explicitName)
             throw new TypeError('Select needs a label');
         const state = [this.formControl.disabled ? 'disabled' : '', this.invalid ? 'invalid' : ''].filter(Boolean).join(' ');
-        return html `<div data-krds-component="native-select" data-krds-part="root" part="root" data-krds-state=${state} data-krds-size=${this.size}>
+        return html `<div data-krds-component="native-select" data-krds-part="root" part="root" data-krds-state=${state}>
       ${this.label ? html `<label data-krds-component="native-select" data-krds-part="label" part="label" data-krds-state="" for="control">${this.label}</label>` : ''}
       <select data-krds-component="native-select" data-krds-part="control" part="control" data-krds-state=${state} id="control" data-krds-size=${this.size} .value=${live(this.committedValue)} ?disabled=${this.formControl.disabled} ?required=${this.required} aria-label=${ifDefined(this.explicitName)} aria-invalid=${ifDefined(this.invalid ? 'true' : undefined)} aria-describedby=${ifDefined([this.hint ? 'hint' : '', this.error ? 'error' : ''].filter(Boolean).join(' ') || undefined)} @change=${this.change}>${this.options.map(option => html `<option value=${option.value} ?selected=${option.value === this.committedValue} ?disabled=${option.disabled}>${option.label}</option>`)}</select>
-      ${this.hint ? html `<p data-krds-component="native-select" data-krds-part="hint" part="hint" data-krds-state="" id="hint">${this.hint}</p>` : ''}${this.error ? html `<p data-krds-component="native-select" data-krds-part="error" part="error" data-krds-state="" id="error">${this.error}</p>` : ''}
+      ${this.hint ? html `<div data-krds-component="native-select" data-krds-part="hint" part="hint" data-krds-state="" id="hint">${this.hint}</div>` : ''}${this.error ? html `<div data-krds-component="native-select" data-krds-part="error" part="error" data-krds-state="" id="error">${this.error}</div>` : ''}
     </div>`;
     }
 }

@@ -10,7 +10,8 @@ for (const {id,state} of cases) test(`${id} renders its native semantic content 
  const Component=ReactCatalog[names[id]];
  assert.equal(typeof Component,'function', `${names[id]} is a native public component`);
  const markup=renderToString(h(Component,id==='pagination'?{...state,hrefForPage:p=>`/local/results?page=${p}`}:state));
- assert.ok(markup.length>0 || ['favicon','coach-mark','toast','snackbar'].includes(id));
+ // Portalled layers have no server markup; a BottomSheet without a trigger slot emits nothing outside its layer.
+ assert.ok(markup.length>0 || ['favicon','coach-mark','toast','snackbar','bottom-sheet'].includes(id));
  if(markup) assert.ok(!markup.includes('[object Object]'),'native content does not stringify records');
 });
 

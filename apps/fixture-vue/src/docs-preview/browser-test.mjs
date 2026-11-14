@@ -89,7 +89,7 @@ const scenarios = {
     await expect.poll(() => media.evaluate(e => e.paused)).toBe(true);
     await expect(page.getByText('약 2초 동안 일정한 높이의 예제 신호음이 들립니다.', { exact: true })).toBeVisible();
     await expect(media).toHaveAccessibleDescription('약 2초 동안 일정한 높이의 예제 신호음이 들립니다.');
-    await expect(page.getByRole('region', { name: '대본' })).toContainText("약 2초");
+    await expect(page.locator('[data-krds-component="accessible-media"][data-krds-part="transcript"]')).toContainText("약 2초");
     await shot('static-media');
   },
   accordion: async ({ page, part }) => {
@@ -105,7 +105,8 @@ const scenarios = {
     await expect(trigger).toHaveAttribute('aria-expanded', 'true');
     const panelId = await trigger.getAttribute('aria-controls');
     await expect(page.locator(`#${panelId}`)).toBeVisible();
-    await expect(page.locator(`#${panelId}`)).toHaveAttribute('aria-labelledby', await trigger.getAttribute('id'));
+    assert.equal(await page.locator(`#${panelId}`).getAttribute('aria-labelledby'), null, 'panel is a plain region-less container named only through aria-controls');
+    assert.equal(await page.locator(`#${panelId}`).getAttribute('role'), null);
     assert.equal(await trigger.evaluate(e => e.parentElement.tagName), 'H3', 'trigger sits inside a heading');
   },
   'back-button': async ({ page }) => {
@@ -270,7 +271,7 @@ const scenarios = {
     const picker = part('picker');
     await page.keyboard.press('Tab');
     await expect(picker).toBeFocused();
-    await expect(picker).toHaveAccessibleName('파일 선택 첨부 서류');
+    await expect(picker).toHaveAccessibleName('파일 선택');
     await expect(input).toHaveAttribute('tabindex', '-1');
     await expect(input).toHaveAttribute('aria-hidden', 'true');
     await input.setInputFiles({ name: 'proof.txt', mimeType: 'text/plain', buffer: Buffer.from('independent local example') });
@@ -313,7 +314,7 @@ const scenarios = {
   'help-panel': async ({ page, part }) => {
     const panel = page.getByRole('complementary', { name: '도움말' });
     await expect(panel).toBeVisible();
-    await expect(panel).toContainText('항목 옆의 도움말을 선택하세요.');
+    await expect(panel.getByRole('button', { name: '신청 자격', exact: true })).toBeVisible();
     await page.getByRole('button', { name: '신청 자격 도움말' }).click();
     await expect(panel).toContainText('예제 신청 자격을 확인하세요.');
     await expect(panel.getByRole('link', { name: '상세 요건' })).toHaveAttribute('href', '#local-eligibility');
@@ -429,16 +430,16 @@ const scenarios = {
   pagination: async ({ page, part }) => {
     const nav = page.getByRole('navigation', { name: '페이지 이동' });
     await expect(nav.locator('[aria-current=page]')).toHaveText('1');
-    assert.equal(await part('previous').getAttribute('aria-disabled'), 'true');
-    assert.equal(await part('previous').getAttribute('href'), null);
+    assert.equal(await part('previous').count(), 0, 'no previous link on the first page');
+    await expect(part('next')).toHaveAttribute('rel', 'next');
     await part('link').filter({ hasText: /^12$/ }).click();
     await expect(nav.locator('[aria-current=page]')).toHaveText('12');
     await expect(page.locator('p[role=status]')).toHaveText('현재 12쪽');
-    assert.equal(await part('next').getAttribute('aria-disabled'), 'true');
-    assert.equal(await part('next').getAttribute('href'), null);
+    assert.equal(await part('next').count(), 0, 'no next link on the last page');
+    await expect(part('previous')).toHaveAttribute('rel', 'prev');
     await part('link').filter({ hasText: /^1$/ }).click();
     await expect(nav.locator('[aria-current=page]')).toHaveText('1');
-    assert.equal(await part('previous').getAttribute('aria-disabled'), 'true');
+    assert.equal(await part('previous').count(), 0);
     await shot_nav(page, 'pagination');
   },
   'quantity-toggle': async ({ page, part }) => {
@@ -718,12 +719,13 @@ const scenarios = {
     await expect(page.getByRole('note')).toContainText('시뮬레이션');
     await part('play').click();
     await expect(page.locator('p[role=status]')).toHaveText('요청 상태: playing');
-    await expect(part('status')).not.toHaveText('대기 중');
+    await expect(part('status')).toHaveText('읽는 중');
     await part('pause').click();
     await expect(page.locator('p[role=status]')).toHaveText('요청 상태: paused');
     await part('stop').click();
     await expect(page.locator('p[role=status]')).toHaveText('요청 상태: idle');
-    await expect(part('status')).toHaveText('대기 중');
+    await expect(part('status')).toHaveText('');
+    await expect(part('pause')).toHaveCount(0);
     await expect(page.getByRole('note')).toContainText('시뮬레이션');
   },
   'tutorial-panel': async ({ page, part, shot }) => {

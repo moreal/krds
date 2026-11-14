@@ -25,7 +25,7 @@ function assertCounts(label: string) {
 }
 function assertClean(label: string, narrow: boolean) {
   assertCounts(label);
-  expect(q('dialog[data-krds-part=root]').length, `${label}: dialogs`).toBe(narrow ? 2 : 0);
+  expect(q('[role="dialog"][data-krds-part=root]').length, `${label}: dialogs`).toBe(narrow ? 2 : 0);
   // Active task/step survive the layout swap.
   expect(document.querySelector('[data-krds-part="step"][aria-current="step"]'), `${label}: active step`).not.toBeNull();
   if (!narrow) {
@@ -54,7 +54,7 @@ test('tutorial and help panels keep exactly one clean layout across repeated bre
       const narrow = i % 2 === 0;
       await page.viewport(narrow ? 500 : 1000, 800);
       assertCounts(`flip ${i} immediately`);
-      await vi.waitFor(() => { fixture.detectChanges(); expect(q('dialog[data-krds-part=root]').length > 0).toBe(narrow); });
+      await vi.waitFor(() => { fixture.detectChanges(); expect(q('[role="dialog"][data-krds-part=root]').length > 0).toBe(narrow); });
       assertClean(`flip ${i} settled`, narrow);
     }
   } finally { media.removeEventListener('change', stall); }
@@ -71,7 +71,7 @@ test('main menu mobile dialog opens and closes repeatedly without orphans or lef
     expect(q('[data-krds-part="mobile-content"]').length).toBe(1);
     trigger().click();
     await vi.waitFor(() => { fixture.detectChanges(); expect(document.querySelector('[data-krds-native-layer]')).toBeNull(); });
-    expect(q('[data-krds-part="mobile-content"]').length).toBe(1);
+    expect(q('[data-krds-part="mobile-content"]').length, 'the closed mobile content is not rendered').toBe(0);
     expect(comments().length).toBe(0);
     expect(document.body.style.overflow).not.toBe('hidden');
   }

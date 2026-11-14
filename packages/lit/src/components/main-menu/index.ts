@@ -84,22 +84,25 @@ export class MainMenu extends KrdsElement {
         }
         this.requestUpdate();
     };
-    private list(items: readonly NavigationItem[], depth = 0): TemplateResult {
+    /** One li[item] per entry: optional link, then the branch trigger and its ul[submenu] headed by an unparted li with the submenu title. */
+    private entries(items: readonly NavigationItem[]): TemplateResult[] {
         unique(items.map(item => item.id));
-        return html`<ul data-krds-component="main-menu" data-krds-part=${depth ? 'submenu' : 'list'} data-krds-state="" part=${depth ? 'submenu' : 'list'}>
-            ${items.filter(item => !this.committedQuery || item.children?.length || item.label.includes(this.committedQuery)).map(item => {
-                const open = this.containsBranch(item, this.committedExpanded);
-                return html`<li data-krds-component="main-menu" data-krds-part="item" data-krds-state=${`${open ? 'expanded' : 'collapsed'} ${this.currentId === item.id ? 'current' : ''}`} part="item">
-                    ${item.children?.length ? html`<button data-krds-component="main-menu" data-krds-part="trigger" data-krds-state=${open ? 'expanded' : 'collapsed'} part="trigger" id=${`trigger-${item.id}`} type="button" aria-controls=${`submenu-${item.id}`} aria-expanded=${open} aria-current=${ifDefined(this.containsBranch(item, this.currentId) ? 'true' : undefined)} @click=${() => {
-                        this.branchReturn = undefined;
-                        this.expand(open ? null : item.id);
-                    }}>${item.label}<span data-krds-component="main-menu" data-krds-part="indicator" data-krds-state="" part="indicator" aria-hidden="true"></span></button>
-                    <div id=${`submenu-${item.id}`} ?hidden=${!open}>${item.description ? html`<p data-krds-component="main-menu" data-krds-part="description" data-krds-state="" part="description">${item.description}</p>` : ''}${this.list(item.children, depth + 1)}</div>`
-                    : item.href ? html`<a data-krds-component="main-menu" data-krds-part="link" data-krds-state=${this.currentId === item.id ? 'current' : ''} part="link" href=${item.href} aria-current=${ifDefined(this.currentId === item.id ? 'page' : undefined)}>${item.label}</a>` : html`<span>${item.label}</span>`}
-                </li>`;
-            })}
-        </ul>`;
+        return items.filter(item => !this.committedQuery || item.children?.length || item.label.includes(this.committedQuery)).map(item => {
+            const open = this.containsBranch(item, this.committedExpanded);
+            const state = open ? 'expanded' : 'collapsed';
+            const branch = !!item.children?.length;
+            return html`<li data-krds-component="main-menu" data-krds-part="item" data-krds-state=${state} part="item">
+                ${item.href ? html`<a data-krds-component="main-menu" data-krds-part="link" data-krds-state=${this.currentId === item.id ? 'current' : ''} part="link" href=${item.href} aria-current=${ifDefined(this.currentId === item.id ? 'page' : undefined)}>${item.label}</a>` : branch ? '' : html`<span>${item.label}</span>`}
+                ${!branch && item.description ? html`<p data-krds-component="main-menu" data-krds-part="description" data-krds-state="" part="description">${item.description}</p>` : ''}
+                ${branch ? html`<button data-krds-component="main-menu" data-krds-part="trigger" data-krds-state=${state} part="trigger" id=${`trigger-${item.id}`} type="button" aria-current=${ifDefined(this.containsBranch(item, this.currentId) ? 'true' : undefined)} aria-label=${item.label} aria-controls=${`submenu-${item.id}`} aria-expanded=${open} @click=${() => {
+                    this.branchReturn = undefined;
+                    this.expand(open ? null : item.id);
+                }}>${item.label}<span data-krds-component="main-menu" data-krds-part="indicator" data-krds-state="" part="indicator" aria-hidden="true"></span></button>
+                <ul id=${`submenu-${item.id}`} data-krds-component="main-menu" data-krds-part="submenu" data-krds-state=${state} part="submenu" ?hidden=${!open}><li><h3 data-krds-component="main-menu" data-krds-part="submenu-title" data-krds-state="" part="submenu-title">${item.label}</h3>${item.description ? html`<p data-krds-component="main-menu" data-krds-part="description" data-krds-state="" part="description">${item.description}</p>` : ''}</li>${this.entries(item.children!)}</ul>` : ''}
+            </li>`;
+        });
     }
+    private list() { return html`<ul data-krds-component="main-menu" data-krds-part="list" data-krds-state="" part="list">${this.entries(this.items)}</ul>`; }
     private escape = (event: KeyboardEvent) => {
         if (event.key !== 'Escape' || event.defaultPrevented || event.isComposing || event.keyCode === 229) return;
         if (this.committedExpanded) {
@@ -154,18 +157,14 @@ export class MainMenu extends KrdsElement {
     }
     private content() {
         const path = this.mobileVariant === 'drilldown' ? this.path(this.items, this.committedExpanded) : [];
-        return html`<div ?hidden=${!this.narrow || !this.committedMobile}>
-            <button data-krds-component="main-menu" data-krds-part="close" data-krds-state="" part="close" type="button" @click=${() => this.showMobile(false)}>메뉴 닫기</button>
-            ${path.length ? html`<button data-krds-component="main-menu" data-krds-part="back" data-krds-state="" part="back" type="button" @click=${() => this.collapse(path.at(-2) ?? null, path.at(-1)!)}>이전 메뉴</button>` : ''}
-            <label>메뉴 검색<input data-krds-component="main-menu" data-krds-part="search" data-krds-state="" part="search" type="search" .value=${live(this.queryComposing ? this.queryDraft : this.committedQuery)} @input=${this.editQuery} @compositionstart=${(event: Event) => { this.queryComposing = true; this.queryDraft = (event.currentTarget as HTMLInputElement).value; }} @compositionend=${(event: Event) => { this.queryComposing = false; this.editQuery(event); }}></label>
-        </div>${this.list(this.items)}`;
+        return html`<button data-krds-component="main-menu" data-krds-part="close" data-krds-state="" part="close" type="button" @click=${() => this.showMobile(false)}>메뉴 닫기</button><button data-krds-component="main-menu" data-krds-part="back" data-krds-state="" part="back" type="button" ?hidden=${!path.length} @click=${() => { if (path.length) this.collapse(path.at(-2) ?? null, path.at(-1)!); }}>이전 메뉴</button><label>메뉴 검색<input data-krds-component="main-menu" data-krds-part="search" data-krds-state="" part="search" type="search" .value=${live(this.queryComposing ? this.queryDraft : this.committedQuery)} @input=${this.editQuery} @compositionstart=${(event: Event) => { this.queryComposing = true; this.queryDraft = (event.currentTarget as HTMLInputElement).value; }} @compositionend=${(event: Event) => { this.queryComposing = false; this.editQuery(event); }}></label>${this.list()}`;
     }
     override render() {
         validateTree(this.items);
         if (!['simple', 'sections', 'drilldown'].includes(this.mobileVariant)) throw new TypeError('Invalid mobile menu variant');
-        return html`<nav data-krds-component="main-menu" data-krds-part="root" data-krds-state=${this.committedMobile ? 'mobile-open' : ''} part="root" aria-label=${this.label || '메인 메뉴'} data-krds-layout=${this.narrow ? 'mobile' : 'desktop'} data-krds-variant=${this.mobileVariant}>
+        return html`<nav data-krds-component="main-menu" data-krds-part="root" data-krds-state="" part="root" aria-label=${this.label || '메인 메뉴'} data-krds-layout=${this.narrow ? 'mobile' : 'desktop'} data-krds-variant=${this.mobileVariant} @keydown=${this.narrow ? undefined : this.escape}>
             <button data-krds-component="main-menu" data-krds-part="mobile-trigger" data-krds-state="" part="mobile-trigger" data-mobile-trigger id=${this.mobileTriggerId} type="button" ?hidden=${!this.narrow} aria-controls="mobile" aria-expanded=${this.committedMobile} @click=${() => this.showMobile(!this.committedMobile)}>${this.mobileTriggerLabel}</button>
-            ${this.narrow ? html`<dialog data-krds-component="main-menu" data-krds-part="mobile-content" data-krds-state=${this.committedMobile ? 'mobile-open' : ''} part="mobile-content" id="mobile" aria-label=${this.label || '메인 메뉴'} tabindex="-1" style="margin:0;max-inline-size:none;max-block-size:none;inline-size:100%;block-size:100dvh" @keydown=${this.escape}>${this.content()}</dialog>` : html`<div data-krds-component="main-menu" data-krds-part="mobile-content" data-krds-state="" part="mobile-content" id="mobile" style="position:static;inset:auto;z-index:auto;overflow:visible;padding:0" @keydown=${this.escape}>${this.content()}</div>`}
+            ${this.narrow ? html`<dialog data-krds-component="main-menu" data-krds-part="mobile-content" data-krds-state=${this.committedMobile ? 'mobile-open' : ''} part="mobile-content" id="mobile" aria-label=${this.label || '메인 메뉴'} tabindex="-1" style="margin:0;max-inline-size:none;max-block-size:none;inline-size:100%;block-size:100dvh" @keydown=${this.escape}>${this.content()}</dialog>` : this.list()}
         </nav>`;
     }
 }

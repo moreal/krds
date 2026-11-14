@@ -5,16 +5,17 @@ import type { OpenChangeDetails } from '@unofficial-krds/contracts';
 import {ModalLayer} from '../../internal/modal-stack';
 @Component({ selector: 'krds-modal', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
     template: `@if (isOpen()) {
-    <div #backdrop data-krds-component="modal" data-krds-part="backdrop" data-krds-state="open" [attr.dir]="environment.direction" (pointerdown)="outsideStart($event)" (pointerup)="outsideEnd($event)">
-      <section #content role="dialog" aria-modal="true" tabindex="-1" data-krds-component="modal" data-krds-part="content" data-krds-state="open" [id]="id" [attr.aria-labelledby]="id + '-title'" [attr.aria-describedby]="description ? id + '-description' : null">
+    <div #root data-krds-component="modal" data-krds-part="root" data-krds-state="open" [attr.dir]="environment.direction" [attr.lang]="environment.locale.slice(0, 2)" style="position:fixed;inset:0">
+      <div #backdrop data-krds-component="modal" data-krds-part="backdrop" data-krds-state="open" (pointerdown)="outsideStart($event)" (pointerup)="outsideEnd($event)"></div>
+      <div #content role="dialog" aria-modal="true" tabindex="-1" data-krds-component="modal" data-krds-part="content" data-krds-state="open" [id]="id" [attr.aria-labelledby]="id + '-title'" [attr.aria-describedby]="description ? id + '-description' : null">
         <h2 data-krds-component="modal" data-krds-part="title" [id]="id + '-title'">{{title}}</h2>
-        @if (description) { <p data-krds-component="modal" data-krds-part="description" [id]="id + '-description'">{{description}}</p> }
+        @if (description) { <div data-krds-component="modal" data-krds-part="description" [id]="id + '-description'">{{description}}</div> }
         <div data-krds-component="modal" data-krds-part="body"><ng-content /></div>
-        <div data-krds-component="modal" data-krds-part="actions"><ng-content select="[krdsModalActions]" /></div>
-        @if (showCloseButton) { <button type="button" data-krds-component="modal" data-krds-part="close" (click)="request(false)" [attr.aria-label]="closeLabel || (environment.locale === 'en-US' ? 'Close' : '닫기')">{{closeLabel || (environment.locale === 'en-US' ? 'Close' : '닫기')}}</button> }
-      </section>
+        <div #actions data-krds-component="modal" data-krds-part="actions"><ng-content select="[krdsModalActions]" /></div>
+        @if (showCloseButton) { <button type="button" data-krds-component="modal" data-krds-part="close" (click)="request(false)" [attr.aria-label]="closeLabel || (environment.locale === 'en-US' ? 'Close' : '닫기')"><span aria-hidden="true">×</span></button> }
+      </div>
     </div>
-  }`, host: { '[attr.id]': 'null', 'data-krds-component': 'modal', 'data-krds-part': 'root', '[attr.data-krds-state]': 'isOpen() ? "open" : "closed"' },
+  }`, host: { '[attr.id]': 'null' },
 })
 export class Modal implements OnInit, OnChanges, OnDestroy {
     @Input({ required: true })
@@ -43,6 +44,10 @@ export class Modal implements OnInit, OnChanges, OnDestroy {
     backdrop?: ElementRef<HTMLElement>;
     @ViewChild('content')
     content?: ElementRef<HTMLElement>;
+    @ViewChild('root')
+    root?: ElementRef<HTMLElement>;
+    @ViewChild('actions')
+    actions?: ElementRef<HTMLElement>;
     readonly environment = inject(KRDS_ENVIRONMENT);
     private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
     private readonly local = signal(false);
@@ -77,13 +82,22 @@ export class Modal implements OnInit, OnChanges, OnDestroy {
         this.local.set(open); this.openChange.emit({ open }); }
     private top(): boolean { return this.layer?.isTop() ?? false; }
     private sync(): void {
-        if (this.isOpen() && !this.actual && this.content && this.backdrop)
+        this.reconcileActions();
+        if (this.isOpen() && !this.actual && this.content && this.root)
             this.enter();
         else if (!this.isOpen() && this.actual)
             this.leave();
         if (this.actual) { this.inheritTheme(); const active=this.environment.document.activeElement;if(this.top()&&(!usable(active)||!this.content?.nativeElement.contains(active)))this.content?.nativeElement.focus(); }
         else if (!this.isOpen()) { this.requestedOpener = null; this.requestedAncestors = []; }
         this.initialEntry = false;
+    }
+    /** The actions part exists only while actions are projected, like every other renderer's optional actions. */
+    private reconcileActions(): void {
+        const actions = this.actions?.nativeElement, content = this.content?.nativeElement;
+        if (!actions || !content) return;
+        const filled = Array.from(actions.childNodes).some(node => node.nodeType === 1 || node.nodeType === 3 && !!node.textContent?.trim());
+        if (filled && actions.parentNode !== content) content.insertBefore(actions, content.querySelector(':scope > [data-krds-part="close"]'));
+        else if (!filled && actions.parentNode) actions.parentNode.removeChild(actions);
     }
     private inheritTheme(): void {
         const style = this.environment.document.defaultView?.getComputedStyle(this.host.nativeElement);
@@ -92,7 +106,7 @@ export class Modal implements OnInit, OnChanges, OnDestroy {
     private enter(): void {
         const document = this.environment.document;
         const content = this.content!.nativeElement;
-        const portal = this.backdrop!.nativeElement;
+        const portal = this.root!.nativeElement;
         const active = document.activeElement as HTMLElement | null;
         // Keep the opening action's ancestry even if Angular removes its trigger before rendering the dialog.
         if (this.requestedOpener) {

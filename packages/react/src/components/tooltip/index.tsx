@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, cloneElement, isValidElement, type ReactElement } from 'react';
 import { registerDocumentEscapeOwner } from '../../document-layer.js';
 import type { TooltipContract } from '@unofficial-krds/contracts';
-import { part, states, useValue, focusSafe, usable } from '../../catalog-utils.js';
+import { part, useValue, focusSafe, usable } from '../../catalog-utils.js';
 export interface TooltipProps extends TooltipContract {
     children?: ReactNode;
 }
@@ -108,12 +108,12 @@ export function Tooltip({ open, defaultOpen, onOpenChange, text, relationship = 
         }
     };
     const triggerAttributes = {
-        ...part('tooltip', 'trigger', states(state.current ? 'open' : 'closed', suppressed && 'suppressed')),
+        ...part('tooltip', 'trigger'),
         id: triggerId,
         ...association,
         onClick: activate,
     };
-    return <span {...part('tooltip', 'root', states(state.current ? 'open' : 'closed', suppressed && 'suppressed', placement))} data-krds-relationship={relationship} data-krds-placement={placement} ref={root} onKeyDown={dismiss} onPointerDownCapture={e=>{touch.current=e.pointerType==='touch';}} onPointerEnter={e=>{if(e.pointerType!=='touch')request(true);}} onPointerLeave={e=>{if(e.pointerType!=='touch')request(false);}} onFocusCapture={() => { if(touch.current)return; if (suppression.current && departed.current) {
+    return <span {...part('tooltip', 'root', suppressed ? 'suppressed' : state.current ? 'open' : 'closed')} ref={root} onKeyDown={dismiss} onPointerDownCapture={e=>{touch.current=e.pointerType==='touch';}} onPointerEnter={e=>{if(e.pointerType!=='touch')request(true);}} onPointerLeave={e=>{if(e.pointerType!=='touch')request(false);}} onFocusCapture={() => { if(touch.current)return; if (suppression.current && departed.current) {
         suppression.current = false;
         departed.current = false;
         setSuppressed(false);
@@ -123,5 +123,5 @@ export function Tooltip({ open, defaultOpen, onOpenChange, text, relationship = 
             tabIntent.current = false;
             request(false);
         }
-    }}>{child ? cloneElement(child, triggerAttributes) : <button {...triggerAttributes} ref={trigger as React.Ref<HTMLButtonElement>} type="button">{triggerLabel ?? '도움말'}</button>}<span {...part('tooltip', 'popup', states(state.current ? 'open' : 'closed', suppressed && 'suppressed', placement))} ref={popup} id={textId} role="tooltip" style={state.current ? { position: 'fixed', zIndex: 1300, maxWidth: 'min(22rem,calc(100vw - 16px))', ...position } : { position: 'absolute', width: 1, height: 1, overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}>{text}</span></span>;
+    }}>{child ? cloneElement(child, triggerAttributes) : <button {...triggerAttributes} ref={trigger as React.Ref<HTMLButtonElement>} type="button" tabIndex={0}>ⓘ</button>}<span {...part('tooltip', 'popup', state.current ? 'open' : 'closed')} data-krds-placement={placement} ref={popup} id={textId} role="tooltip" hidden={!state.current && relationship !== 'label'} style={state.current ? { position: 'fixed', maxWidth: 'min(24rem, calc(100vw - 2rem))', ...position } : { display: relationship === 'label' ? 'inline-block' : undefined, position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap' }}>{text}</span></span>;
 }

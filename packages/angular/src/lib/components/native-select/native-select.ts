@@ -12,8 +12,8 @@ import { oneOf, ControlMode, unique } from '../../internal/behavior';
       (input)="nativeInput()" (change)="choose($event)" (blur)="onTouched()">
       @for (option of options; track option.value) { <option [value]="option.value" [attr.selected]="!absent() && option.value === current() ? '' : null" [disabled]="!!option.disabled">{{option.label}}</option> }
     </select>
-    @if (hint) { <p data-krds-component="native-select" data-krds-part="hint" [id]="id + '-hint'">{{hint}}</p> }
-    @if (error) { <p data-krds-component="native-select" data-krds-part="error" [id]="id + '-error'">{{error}}</p> }
+    @if (hint) { <div data-krds-component="native-select" data-krds-part="hint" [id]="id + '-hint'">{{hint}}</div> }
+    @if (error) { <div data-krds-component="native-select" data-krds-part="error" [id]="id + '-error'">{{error}}</div> }
   </div>`,
 })
 export class NativeSelect implements OnInit, OnChanges, OnDestroy, ControlValueAccessor, Validator {

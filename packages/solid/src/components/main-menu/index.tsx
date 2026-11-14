@@ -168,7 +168,7 @@ export function MainMenu(props: MainMenuProps) {
   return <nav ref={root} {...owned('main-menu')} aria-label={props.label ?? '메인 메뉴'} data-krds-layout={narrow() ? 'mobile' : 'desktop'} onKeyDown={escape}>
     <button id={props.mobileTriggerId} ref={trigger} type="button" {...owned('main-menu', 'mobile-trigger')} hidden={!narrow() || Boolean(props.mobileTriggerRef)} aria-expanded={mobile.read()} aria-controls={`${uid}-mobile`} onClick={() => mobile.request(!mobile.read())}>{props.mobileTriggerLabel ?? '전체 메뉴'}</button>
     <Show when={narrow()} fallback={<>{searchField}<Show when={contextId()}><BackControl/></Show>{menuList}</>}>
-      <Show when={mobile.read()}><Portal><div ref={setPanel} id={`${uid}-mobile`} {...owned('main-menu', 'mobile-content', 'open')} role="dialog" aria-modal="true" aria-label={props.label ?? '메인 메뉴'} tabIndex={-1} onKeyDown={escape}>
+      <Show when={mobile.read()}><Portal><div ref={setPanel} id={`${uid}-mobile`} {...owned('main-menu', 'mobile-content', 'mobile-open')} role="dialog" aria-modal="true" aria-label={props.label ?? '메인 메뉴'} tabIndex={-1} onKeyDown={escape}>
         <button type="button" {...owned('main-menu', 'close')} onClick={() => mobile.request(false)}>메뉴 닫기</button><BackControl/>{searchField}{menuList}
       </div></Portal></Show>
     </Show>

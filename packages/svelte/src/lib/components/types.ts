@@ -46,8 +46,12 @@ export interface ModalProps {
     defaultOpen?: boolean;
     onOpenChange?: (details: OpenChangeDetails) => void;
     title: string;
+    /** Id of the element naming the dialog; defaults to the Modal's own title. */
+    titleId?: string;
     id?: string;
     description?: string;
+    /** Id of the element describing the dialog; defaults to the Modal's own description. */
+    descriptionId?: string;
     children?: Snippet<[
         ModalContentContext
     ]>;

@@ -21,8 +21,8 @@ export function TextList(props: TextListProps) {
       </Show>
       <Show when={item.children?.length}><Items items={item.children!} level={p.level + 1} /></Show>
     </li>}</For>;
-    return <Show when={props.ordered} fallback={<ul role="list" {...owned('text-list', p.level === 1 ? 'root' : 'list')} data-krds-ordering="unordered" data-krds-marker={props.marker ?? 'dot'}>{contents()}</ul>}>
-      <ol role="list" start={p.level === 1 ? props.start : undefined} {...owned('text-list', p.level === 1 ? 'root' : 'list')} data-krds-ordering="ordered">{contents()}</ol>
+    return <Show when={props.ordered} fallback={<ul role="list" {...owned('text-list', p.level === 1 ? 'root' : 'nested-list')} data-krds-ordering="unordered" data-krds-marker={props.marker ?? 'dot'}>{contents()}</ul>}>
+      <ol role="list" start={p.level === 1 ? props.start : undefined} {...owned('text-list', p.level === 1 ? 'root' : 'nested-list')} data-krds-ordering="ordered">{contents()}</ol>
     </Show>;
   }
   return <Items items={props.items} level={1} />;

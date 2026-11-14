@@ -4,15 +4,18 @@ import {OwnedState} from '../../internal/catalog-state';
 import {NativeLayer} from '../../internal/native-layer';
 export type BottomSheetChange={open:false;reason:'close'|'escape'|'outside'|'drag'};
 @Component({selector:'krds-bottom-sheet',standalone:true,imports:[NativeLayer],changeDetection:ChangeDetectionStrategy.OnPush,template:`
-<dialog #dialog [krdsLayer]="isOpen()" layerRootComponent="bottom-sheet" [layerReturnId]="returnFocusId" [layerInitialId]="initialFocusId" [layerDismissOnOutside]="dismissOnOutside" (layerOutside)="close('outside')" (layerClose)="close('escape')" tabindex="-1" data-krds-component="bottom-sheet" data-krds-part="content" [attr.data-krds-state]="isOpen()?'open':'closed'" [attr.aria-labelledby]="id+'-title'" [attr.aria-describedby]="description?id+'-description':null" >
+@if(isOpen()){<div #dialog [krdsLayer]="true" layerShell="modal" [layerOpenerOnCreate]="rendered" [layerReturnId]="returnFocusId" [layerInitialId]="initialFocusId" [layerDismissOnOutside]="dismissOnOutside" (layerOutside)="close('outside')" (layerClose)="close('escape')" role="dialog" tabindex="-1" data-krds-component="modal" data-krds-part="content" data-krds-state="open" [attr.aria-labelledby]="id+'-title'" [attr.aria-describedby]="description?id+'-description':null">
+ <div data-krds-component="modal" data-krds-part="body"><div data-krds-component="bottom-sheet" data-krds-part="root" data-krds-state="open">
  <button type="button" data-krds-component="bottom-sheet" data-krds-part="handle" aria-label="시트 닫기" (pointerdown)="dragStart($event)" (pointerup)="dragEnd($event)" (click)="handleClick($event)" (pointercancel)="cancelDrag()"></button>
- <header data-krds-component="bottom-sheet" data-krds-part="header"><h2 data-krds-component="bottom-sheet" data-krds-part="title" [id]="id+'-title'">{{title}}</h2><button type="button" data-krds-component="bottom-sheet" data-krds-part="close" (click)="close('close')">닫기</button></header>
+ <div data-krds-component="bottom-sheet" data-krds-part="header"><h2 data-krds-component="bottom-sheet" data-krds-part="title" [id]="id+'-title'">{{title}}</h2><button type="button" data-krds-component="bottom-sheet" data-krds-part="close" (click)="close('close')">닫기</button></div>
  @if(description){<p [id]="id+'-description'">{{description}}</p>}
  <div data-krds-component="bottom-sheet" data-krds-part="body"><ng-content/></div>
-</dialog>`})
+ </div></div>
+ <div data-krds-component="modal" data-krds-part="actions"><div data-krds-component="bottom-sheet" data-krds-part="actions"></div></div>
+</div>}`})
 export class BottomSheet implements OnInit,OnChanges {
  @Input() id=inject(CatalogIds).allocate('sheet');@Input() open:boolean|undefined;@Input() defaultOpen:boolean|undefined;@Input() title='';@Input() description='';@Input() initialFocusId='';@Input() returnFocusId='';@Input({transform:booleanAttribute}) dismissOnOutside=false;
- @Output() readonly openChange=new EventEmitter<BottomSheetChange>();@Output() readonly cancel=new EventEmitter<void>();@ViewChild('dialog') dialog?:ElementRef<HTMLDialogElement>;private readonly state=new OwnedState<boolean>();private dragY:number|null=null;private suppressHandleClick=false;private pendingCancel=false;constructor(){afterEveryRender(()=>{if(this.pendingCancel&&!this.isOpen()){this.pendingCancel=false;this.cancel.emit();}});}
+ @Output() readonly openChange=new EventEmitter<BottomSheetChange>();@Output() readonly cancel=new EventEmitter<void>();@ViewChild('dialog') dialog?:ElementRef<HTMLElement>;rendered=false;private readonly state=new OwnedState<boolean>();private dragY:number|null=null;private suppressHandleClick=false;private pendingCancel=false;constructor(){afterEveryRender(()=>{this.rendered=true;if(this.pendingCancel&&!this.isOpen()){this.pendingCancel=false;this.cancel.emit();}});}
  ngOnInit():void{this.check();}ngOnChanges():void{this.check();}private check():void{this.state.initialize(this.open,this.defaultOpen,false);}isOpen():boolean{return this.state.current(this.open);}
  close(reason:'close'|'escape'|'outside'|'drag'):void{if(!this.isOpen())return;this.pendingCancel=true;this.state.request(this.open,false,()=>this.openChange.emit({open:false,reason}));}
 

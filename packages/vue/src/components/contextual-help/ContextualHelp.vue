@@ -22,7 +22,7 @@ watch(state.value, async (open, old) => {
     await nextTick();
     if (open) {
         if (popover.value)
-            focusables(popover.value)[0]?.focus();
+            (focusables(popover.value)[0] ?? popover.value).focus();
     }
     else if (old) {
         await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
@@ -49,14 +49,14 @@ onUnmounted(() => {
 });
 </script>
 <template>
-<span ref="root" data-krds-part="root" :data-krds-state="state.value.value?'open':'closed'" :data-krds-variant="variant??'information'" :data-krds-placement="placement??'bottom-start'" @keydown="key" data-krds-component="contextual-help">
-<button ref="trigger" type="button" data-krds-part="trigger" :aria-label="triggerLabel" :aria-expanded="state.value.value" :aria-controls="id" @click="state.request(!state.value.value)" data-krds-component="contextual-help" data-krds-state="">{{variant==='help'?'?':'i'}}</button>
-<section v-if="state.value.value" ref="popover" :style="position.style.value" :data-krds-placement="position.placement.value" :id="id" data-krds-part="popover" data-krds-state="open" role="region" :aria-labelledby="`${id}-title`" data-krds-component="contextual-help">
+<div ref="root" data-krds-part="root" :data-krds-state="state.value.value?'open':'closed'" :data-krds-variant="variant??'help'" @keydown="key" data-krds-component="contextual-help">
+<button ref="trigger" type="button" data-krds-part="trigger" :aria-expanded="state.value.value" :aria-controls="id" :aria-describedby="relatedId" @click="state.request(!state.value.value)" data-krds-component="contextual-help" data-krds-state="">{{triggerLabel}}</button>
+<div v-if="state.value.value" ref="popover" :style="position.style.value" :data-krds-placement="position.placement.value" :id="id" data-krds-part="popover" data-krds-state="open" role="region" :aria-labelledby="`${id}-title`" tabindex="-1" data-krds-component="contextual-help">
 <h3 :id="`${id}-title`" data-krds-part="title" data-krds-component="contextual-help" data-krds-state="">{{title}}</h3>
 <div data-krds-part="body" data-krds-component="contextual-help" data-krds-state="">
 <slot>{{content}}</slot>
 </div>
-<button type="button" data-krds-part="close" @click="state.request(false)" data-krds-component="contextual-help" data-krds-state="">도움말 닫기</button>
-</section>
-</span>
+<button type="button" data-krds-part="close" @click="state.request(false)" data-krds-component="contextual-help" data-krds-state="">닫기</button>
+</div>
+</div>
 </template>

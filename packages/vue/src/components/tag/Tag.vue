@@ -21,7 +21,7 @@ const emit = defineEmits<{
     clear: [
     ];
 }>();
-const root = ref<HTMLElement>(), active = ref(p.items.find(x => !x.disabled)?.id);
+const root = ref<HTMLElement>(), list = ref<HTMLElement>(), active = ref(p.items.find(x => !x.disabled)?.id);
 let pending: {
     id: string;
     index: number;
@@ -42,10 +42,10 @@ function key(e: KeyboardEvent) {
     if (e.isComposing || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key))
         return;
     e.preventDefault();
-    const list = targets(), i = list.indexOf(document.activeElement as HTMLElement);
-    const next = e.key === 'Home' ? 0 : e.key === 'End' ? list.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + list.length) % list.length;
-    active.value = list[next]?.dataset.tagAction;
-    list[next]?.focus();
+    const controls = targets(), i = controls.indexOf(document.activeElement as HTMLElement);
+    const next = e.key === 'Home' ? 0 : e.key === 'End' ? controls.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + controls.length) % controls.length;
+    active.value = controls[next]?.dataset.tagAction;
+    controls[next]?.focus();
 }
 function activate(id: string) {
     const item = p.items.find(x => x.id === id);
@@ -77,19 +77,19 @@ watch(() => p.items, async (items) => {
     if (target)
         target.focus();
     else
-        root.value?.focus();
+        list.value?.focus();
 });
 </script>
 <template>
-<div ref="root" data-krds-part="root" :data-krds-mode="mode??'static'" role="group" aria-label="태그" tabindex="-1" @keydown="key" data-krds-component="tag" data-krds-state="">
-<ul data-krds-part="list" data-krds-component="tag" data-krds-state="">
+<div ref="root" data-krds-part="root" :data-krds-mode="mode??'static'" :role="mode&&mode!=='static'?'group':undefined" :aria-label="mode&&mode!=='static'?'옵션 태그':undefined" data-krds-component="tag" data-krds-state="">
+<ul ref="list" tabindex="-1" data-krds-part="list" @keydown="key" data-krds-component="tag" data-krds-state="">
 <li v-for="item in items" :key="item.id" data-krds-part="item" :data-krds-state="selectedIds?.includes(item.id)?'selected':''" data-krds-component="tag">
-<a v-if="mode==='link'" data-krds-part="label" :data-tag-action="item.id" :href="item.disabled?undefined:item.href" :tabindex="active===item.id?0:-1" :aria-disabled="item.disabled||undefined" data-krds-component="tag" data-krds-state="">{{item.label}}</a>
+<a v-if="mode==='link'" :data-tag-action="item.id" :href="item.disabled?undefined:item.href" :tabindex="!item.disabled&&active===item.id?0:-1" :aria-disabled="item.disabled||undefined">{{item.label}}</a>
 <template v-else-if="mode==='removable'">
 <span data-krds-part="label" data-krds-component="tag" data-krds-state="">{{item.label}}</span>
-<button type="button" data-krds-part="remove" :data-tag-action="item.id" :disabled="item.disabled" :tabindex="active===item.id?0:-1" :aria-label="`${item.label} 옵션 삭제`" @keydown="activationDown" @keyup="activationUp($event,item.id)" @click="activate(item.id)" data-krds-component="tag" data-krds-state="">×</button>
+<button type="button" data-krds-part="remove" :data-tag-action="item.id" :disabled="item.disabled" :tabindex="!item.disabled&&active===item.id?0:-1" :aria-label="`${item.label} 옵션 삭제`" @keydown="activationDown" @keyup="activationUp($event,item.id)" @click="activate(item.id)" data-krds-component="tag" data-krds-state="">×</button>
 </template>
-<button v-else-if="mode==='toggle'||mode==='add-filter'" type="button" data-krds-part="label" :data-tag-action="item.id" :disabled="item.disabled" :tabindex="active===item.id?0:-1" :aria-pressed="mode==='toggle'?Boolean(selectedIds?.includes(item.id)):undefined" :aria-label="mode==='add-filter'?`${item.label} 필터 옵션 추가`:item.label" @keydown="activationDown" @keyup="activationUp($event,item.id)" @click="activate(item.id)" data-krds-component="tag" data-krds-state="">{{item.label}}</button>
+<button v-else-if="mode==='toggle'||mode==='add-filter'" type="button" data-krds-part="label" :data-tag-action="item.id" :disabled="item.disabled" :tabindex="!item.disabled&&active===item.id?0:-1" :aria-pressed="mode==='toggle'?Boolean(selectedIds?.includes(item.id)):undefined" :aria-label="mode==='add-filter'?`${item.label} 필터 옵션 추가`:undefined" @keydown="activationDown" @keyup="activationUp($event,item.id)" @click="activate(item.id)" data-krds-component="tag" data-krds-state="">{{item.label}}</button>
 <span v-else data-krds-part="label" data-krds-component="tag" data-krds-state="">{{item.label}}</span>
 </li>
 </ul>

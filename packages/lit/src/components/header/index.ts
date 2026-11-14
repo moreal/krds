@@ -39,16 +39,16 @@ export class Header extends KrdsElement {
     override render() {
         if (!this.home?.href || !this.home.logo?.alt || !['horizontal', 'vertical'].includes(this.actionLayout) || !this.mobileTriggerId.trim() || !this.mobileTriggerLabel.trim() || !this.navigationLabel.trim()) throw new TypeError('Header requires home logo, named controls and action layout');
         unique(this.utilityItems.map(item => item.id)); const collapsed = this.utilityItems.length >= 5;
-        return html`<header role="banner" data-krds-component="header" data-krds-part="root" data-krds-state=${this.sticky ? 'sticky' : ''} part="root" data-krds-action-layout=${this.actionLayout}>
+        return html`<header data-krds-component="header" data-krds-part="root" data-krds-state=${this.sticky ? 'sticky' : ''} part="root" data-krds-action-layout=${this.actionLayout}>
           <a data-krds-component="header" data-krds-part="identity" data-krds-state="" part="identity" href=${this.home.href} aria-label=${this.home.label}><img src=${this.home.logo.src} alt=${this.home.logo.alt}></a>
-          <div role="group" data-krds-component="header" data-krds-part="utilities" data-krds-state=${this.utilitiesOpen ? 'expanded' : 'collapsed'} part="utilities" aria-label="보조 메뉴">
-            ${collapsed ? html`<button data-krds-component="header" data-krds-part="utility-trigger" data-krds-state="" part="utility-trigger" type="button" aria-expanded=${this.utilitiesOpen} aria-controls="utilities" @click=${() => { this.utilitiesOpen = !this.utilitiesOpen; }}>보조 메뉴</button>` : ''}
+          <div data-krds-component="header" data-krds-part="utilities" data-krds-state="" part="utilities">
+            ${collapsed ? html`<button data-krds-component="header" data-krds-part="utility-trigger" data-krds-state=${this.utilitiesOpen ? 'expanded' : 'collapsed'} part="utility-trigger" type="button" aria-expanded=${this.utilitiesOpen} aria-controls="utilities" @click=${() => { this.utilitiesOpen = !this.utilitiesOpen; }}>보조 메뉴</button>` : ''}
             <ul id="utilities" ?hidden=${collapsed && !this.utilitiesOpen}>${this.utilityItems.map(item => html`<li><a href=${item.href}>${item.label}</a></li>`)}</ul>
           </div>
           <div data-krds-component="header" data-krds-part="actions" data-krds-state="" part="actions">${this.search ? html`<button data-krds-component="header" data-krds-part="search" data-krds-state="" part="search" type="button" @click=${() => { this.search?.onRequest(); this.emit('search-request', {}); }}>${this.search.label}</button>` : ''}
-            <button data-krds-component="header" data-krds-part="mobile-trigger" data-krds-state=${this.committedMobile ? 'expanded' : 'collapsed'} part="mobile-trigger" id=${this.mobileTriggerId} type="button" ?hidden=${!this.narrow} aria-controls=${ifDefined(this.narrow ? 'header-mobile-navigation' : undefined)} aria-expanded=${this.committedMobile} @click=${() => this.showMobile(!this.committedMobile)}>${this.mobileTriggerLabel}</button>
+            ${this.mainNavigation.length ? html`<button data-krds-component="header" data-krds-part="mobile-trigger" data-krds-state=${this.committedMobile ? 'expanded' : 'collapsed'} part="mobile-trigger" id=${this.mobileTriggerId} type="button" ?hidden=${!this.narrow} aria-controls=${ifDefined(this.narrow ? 'header-mobile-navigation' : undefined)} aria-expanded=${this.committedMobile} @click=${() => this.showMobile(!this.committedMobile)}>${this.mobileTriggerLabel}</button>` : ''}
           </div>
-          <div data-krds-component="header" data-krds-part="navigation" data-krds-state="" part="navigation">${this.narrow ? html`<dialog id="header-mobile-navigation" aria-label=${this.navigationLabel} tabindex="-1"><button type="button" @click=${() => this.showMobile(false)}>메뉴 닫기</button>${this.menu()}</dialog>` : this.menu()}</div>
+          ${this.mainNavigation.length ? html`<div data-krds-component="header" data-krds-part="navigation" data-krds-state="" part="navigation">${this.narrow ? html`<dialog id="header-mobile-navigation" aria-label=${this.navigationLabel} tabindex="-1"><button type="button" @click=${() => this.showMobile(false)}>메뉴 닫기</button>${this.menu()}</dialog>` : this.menu()}</div>` : ''}
         </header>`;
     }
 }

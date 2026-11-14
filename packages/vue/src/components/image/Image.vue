@@ -8,9 +8,9 @@ if (p.decorative && p.alt !== '')
     throw new TypeError('Decorative image requires empty alt');
 </script>
 <template>
-<figure data-krds-part="figure" :data-krds-state="state" data-krds-component="image">
-<img :data-krds-state="state" data-krds-part="root" :src="src" :alt="alt" :width="width" :height="height" :srcset="srcset" :sizes="sizes" :loading="loading" :aria-describedby="descriptionId" @load="state='loaded'" @error="state='error'" data-krds-component="image"/>
+<figure data-krds-part="figure" data-krds-state="" data-krds-component="image">
+<img :data-krds-state="state" data-krds-part="root" :src="src" :alt="alt" :width="width" :height="height" :srcset="srcset" :sizes="sizes" :loading="loading??'lazy'" :aria-describedby="descriptionId" @load="state='loaded'" @error="state='error'" data-krds-component="image"/>
 <figcaption v-if="caption" data-krds-part="caption" data-krds-component="image" data-krds-state="">{{caption}}</figcaption>
-<p v-if="state==='error'" data-krds-part="description" data-krds-component="image" data-krds-state="">이미지를 불러올 수 없습니다.</p>
+<span v-if="state==='error'" data-krds-part="description" data-krds-component="image" data-krds-state="">이미지를 불러올 수 없습니다.</span>
 </figure>
 </template>

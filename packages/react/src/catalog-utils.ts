@@ -13,10 +13,10 @@ export function useValue<T>(value: T | undefined, baseline: T | undefined, fallb
             setLocal(next); }, reset: () => { if (!controlled)
             setLocal(initial.current); } };
 }
-export function useFormReset<T extends HTMLInputElement | HTMLTextAreaElement | HTMLFieldSetElement>(ref: RefObject<T | null>, reset: () => void, reconcile: () => void) {
+export function useFormReset<T extends HTMLElement>(ref: RefObject<T | null>, reset: () => void, reconcile: () => void) {
     const latest = useRef({reset,reconcile}); latest.current={reset,reconcile};
     useLayoutEffect(()=>{
-        const form=ref.current?.form;if(!form)return;
+        const node=ref.current;const form=node?('form' in node?(node as unknown as HTMLInputElement).form:node.closest('form')):null;if(!form)return;
         const pending=new Set<ReturnType<typeof setTimeout>>();
         const handle=(event:Event)=>{
             // A native listener can precede React's delegated reset listener.
@@ -30,6 +30,8 @@ export function useFormReset<T extends HTMLInputElement | HTMLTextAreaElement | 
 }
 export function unique(ids: readonly string[], name: string) { if (new Set(ids).size !== ids.length)
     throw new TypeError(`${name} IDs must be unique.`); }
+/** New-window links never expose their opener. */
+export function safeRel(target?: string, rel?: string) { return target === '_blank' ? [...new Set(`${rel ?? ''} noopener noreferrer`.trim().split(/\s+/))].join(' ') : rel; }
 export function described(help?: string, error?: string) { return [help, error].filter(Boolean).join(' ') || undefined; }
 export const focusSelector = 'button:not(:disabled),input:not(:disabled):not([type="hidden"]),textarea:not(:disabled),select:not(:disabled),a[href],[tabindex]';
 export function usable(node: Element | null | undefined): node is HTMLElement { return !!node && 'focus' in node && node.isConnected && !node.closest('[hidden],[inert]') && !node.matches(':disabled,[aria-disabled="true"]') && node.getClientRects().length > 0 && node.ownerDocument.defaultView?.getComputedStyle(node).visibility !== 'hidden'; }

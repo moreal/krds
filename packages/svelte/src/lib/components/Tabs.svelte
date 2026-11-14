@@ -72,10 +72,11 @@ function key(event: KeyboardEvent, index: number) {
     }
 }
 </script>
-<div dir={provider.direction} bind:this={root!} data-krds-component="tabs" data-krds-part="root">
- <div role="tablist" aria-label={ariaLabel??label} aria-labelledby={labelledby} aria-orientation={orientation} data-krds-component="tabs" data-krds-part="list">
+<div {id} dir={provider.direction} bind:this={root!} data-krds-component="tabs" data-krds-part="root" data-krds-state="">
+ {#if label?.trim()}<div id={`${id}-label`}>{label}</div>{/if}
+ <div role="tablist" aria-label={ariaLabel?.trim()||undefined} aria-labelledby={labelledby?.trim()||(label?.trim()?`${id}-label`:undefined)} aria-orientation={orientation} data-krds-component="tabs" data-krds-part="list" data-krds-state="" data-krds-orientation={orientation}>
  {#each items as item,index(item.value)}
-<button type="button" role="tab" id={`${id}-tab-${index}`} aria-controls={`${id}-panel-${index}`} aria-selected={selected===item.value} disabled={item.disabled} tabindex={item.disabled?-1:0} onpointerdown={()=>{pointerGesture=item.value;paired=undefined;}} onpointercancel={()=>{pointerGesture=undefined;paired=undefined;}} onfocus={()=>focus(item.value)} onblur={()=>{paired=undefined;}} onclick={()=>click(item.value)} onkeydown={event=>key(event,index)} data-krds-component="tabs" data-krds-part="trigger" data-krds-state={[selected===item.value?'selected':'',item.disabled?'disabled':''].join(' ')}>{item.label}</button>{/each}
+<button type="button" role="tab" id={`${id}-tab-${index}`} disabled={item.disabled} tabindex={item.disabled?-1:0} aria-selected={selected===item.value} aria-controls={`${id}-panel-${index}`} onpointerdown={()=>{pointerGesture=item.value;paired=undefined;}} onpointercancel={()=>{pointerGesture=undefined;paired=undefined;}} onfocus={()=>focus(item.value)} onblur={()=>{paired=undefined;}} onclick={()=>click(item.value)} onkeydown={event=>key(event,index)} data-krds-component="tabs" data-krds-part="trigger" data-krds-state={[selected===item.value&&'selected',item.disabled&&'disabled'].filter(Boolean).join(' ')}>{item.label}</button>{/each}
  </div>
  {#each items as item,index(item.value)}
 <div role="tabpanel" id={`${id}-panel-${index}`} aria-labelledby={`${id}-tab-${index}`} hidden={selected!==item.value} data-krds-component="tabs" data-krds-part="panel" data-krds-state={selected===item.value?'active':'inactive'}>{#if item.panel}{@render item.panel()}{:else}{item.content??''}{/if}

@@ -9,7 +9,6 @@ export interface TabItem {
     panel?: string | TemplateRef<unknown>;
 }
 @Component({ selector: 'krds-tabs', standalone: true, host: { '[attr.id]': 'null' }, imports: [NgTemplateOutlet], changeDetection: ChangeDetectionStrategy.OnPush,
-    styles: ['[data-krds-component="tabs"][data-krds-part="list"] { padding: var(--krds-number-3); scroll-padding: var(--krds-number-3); }'],
     template: `<div #root data-krds-component="tabs" data-krds-part="root">
     <div role="tablist" data-krds-component="tabs" data-krds-part="list" [attr.aria-label]="label || null" [attr.aria-labelledby]="ariaLabelledby || null" [attr.aria-orientation]="orientation" [attr.data-krds-orientation]="orientation">
       @for (item of items; track item.value; let index = $index) {
@@ -56,7 +55,7 @@ export class Tabs implements OnInit, OnChanges {
             if (!root) return;
             for (const panel of root.querySelectorAll<HTMLElement>('[role="tabpanel"]')) {
                 const firstContent = Array.from(panel.childNodes).find(node => node.nodeType === 1 || node.nodeType === 3 && !!node.textContent?.trim());
-                panel.tabIndex = firstContent?.nodeType === 1 && focusables(panel).includes(firstContent as HTMLElement) ? -1 : 0;
+                if (firstContent?.nodeType === 1 && focusables(panel).includes(firstContent as HTMLElement)) panel.removeAttribute('tabindex'); else panel.tabIndex = 0;
             }
             // Keep the focused label visible after Angular has finished rendering the focus gesture.
             const focused = this.pendingVisibility;

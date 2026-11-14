@@ -85,7 +85,7 @@ export const Calendar = component$<CalendarProps>((props) => {
     const grid = calendarMonthGrid(month.value), parts = parseIsoDate(month.value)!, heading = interpolate(t.value.monthLabel, { ...parts, monthName: t.value.months[parts.month - 1] });
     const previous = monthTarget(month.value, -1, config.value.min, config.value.max), next = monthTarget(month.value, 1, config.value.min, config.value.max);
     const dayOptions = { draft: draft.value, range, month: month.value, today: props.today, disabled: props.disabled, min: config.value.min, max: config.value.max };
-    return <div id={id} dir={environment.direction} role="group" aria-label={props['aria-label']} aria-labelledby={props['aria-labelledby'] ?? (props.label ? `${id}-label` : undefined)} {...attrs('calendar', 'root', props.disabled ? 'disabled' : '')}>
+    return <div id={id} dir={environment.direction} role="group" aria-label={props['aria-label']} aria-labelledby={props['aria-labelledby'] ?? (props.label ? `${id}-label` : undefined)} {...attrs('calendar', 'root')}>
   {props.label && <div id={`${id}-label`}>{props.label}</div>}
   <div {...attrs('calendar', 'header')}>
    <button type="button" tabIndex={0} aria-label={t.value.previousMonth} disabled={props.disabled || !previous} {...attrs('calendar', 'previous', props.disabled || !previous ? 'disabled' : '')} onClick$={() => {
@@ -106,15 +106,15 @@ export const Calendar = component$<CalendarProps>((props) => {
    </table>
   </div>
   <div {...attrs('calendar', 'footer')}>
-   {props.today && <button type="button" tabIndex={0} {...attrs('calendar', 'today')} disabled={props.disabled || props.today < config.value.min || props.today > config.value.max} onClick$={() => {
+   {props.today && <button type="button" tabIndex={0} {...attrs('calendar', 'today', props.disabled || props.today < config.value.min || props.today > config.value.max ? 'disabled' : '')} disabled={props.disabled || props.today < config.value.min || props.today > config.value.max} onClick$={() => {
                 if (!props.disabled && props.today && props.today >= config.value.min && props.today <= config.value.max)
                     return focusDate(props.today);
             }}>{t.value.today}</button>}
-   {!props.required && <button type="button" tabIndex={0} {...attrs('calendar', 'clear')} disabled={props.disabled} onClick$={() => {
+   {!props.required && <button type="button" tabIndex={0} {...attrs('calendar', 'clear', props.disabled ? 'disabled' : '')} disabled={props.disabled} onClick$={() => {
                 if (!props.disabled)
                     draft.value = emptyValue(range);
             }}>{t.value.clear}</button>}
-   <button type="button" tabIndex={0} {...attrs('calendar', 'cancel')} disabled={props.disabled} onClick$={async () => {
+   <button type="button" tabIndex={0} {...attrs('calendar', 'cancel', props.disabled ? 'disabled' : '')} disabled={props.disabled} onClick$={async () => {
             if (props.disabled)
                 return;
             draft.value = copyValue(committed.value);

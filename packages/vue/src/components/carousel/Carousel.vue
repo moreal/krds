@@ -126,23 +126,21 @@ onMounted(() => { mounted.value = true; hidden.value = document.hidden; motionMe
 onUnmounted(() => { mounted.value = false; gesture = undefined; cleanup(); motionMedia?.removeEventListener('change', motion); widthMedia?.removeEventListener('change', width); document.removeEventListener('visibilitychange', visibility); });
 </script>
 <template>
-<section ref="root" role="region" aria-roledescription="캐러셀" aria-label="주요 소식" data-krds-component="carousel" data-krds-part="root" :data-krds-state="canAdvance?'playing':'paused'" :data-krds-layout="layout??'single'" @pointerenter="hover=true" @pointerleave="hover=false" @focusin="focus">
-<button v-if="items.length>1" type="button" data-krds-component="carousel" data-krds-part="play-pause" :data-krds-state="canAdvance?'playing':'paused'" @click="toggle">{{canAdvance?'정지':'재생'}}</button>
+<div ref="root" role="region" aria-roledescription="캐러셀" aria-label="슬라이드" data-krds-component="carousel" data-krds-part="root" :data-krds-state="canAdvance?'playing':'paused'" :data-krds-layout="layout??'single'" @pointerenter="hover=true" @pointerleave="hover=false" @focusin="focus">
+<button v-if="items.length>1" type="button" data-krds-component="carousel" data-krds-part="play-pause" data-krds-state="" @click="toggle">{{canAdvance?'정지':'재생'}}</button>
 <button v-if="items.length>1&&playing.value.value&&!canAdvance" type="button" data-krds-component="carousel" data-krds-part="stop-intent" data-krds-state="paused" @click="stopIntent">자동 재생 중지</button>
-<div data-krds-component="carousel" data-krds-part="viewport" :data-krds-state="canAdvance?'playing':'paused'" style="touch-action:pan-y" @pointerdown="down" @pointermove="move" @pointerup="up" @pointercancel="gesture=undefined">
-<div data-krds-component="carousel" data-krds-part="list" data-krds-state="" :style="{display:'grid',gridTemplateColumns:`repeat(${Math.max(1,visibleCount)},minmax(0,1fr))`}">
-<div v-for="(item,i) in items" :id="`${id}-${item.id}`" :key="item.id" data-krds-component="carousel" data-krds-part="slide" :data-slide-id="item.id" :data-slide-index="i" :data-krds-state="visibleIds.includes(item.id)?'active':'hidden'" role="group" aria-roledescription="슬라이드" :aria-label="`${i+1} / ${items.length}: ${item.label}`" :hidden="!visibleIds.includes(item.id)" :inert="!visibleIds.includes(item.id)">
-<slot :name="item.id">{{item.content}}</slot>
-</div>
-</div>
+<div data-krds-component="carousel" data-krds-part="viewport" data-krds-state="" :style="visibleCount>1?{touchAction:'pan-y',display:'grid',gap:'var(--krds-gap-5)',gridTemplateColumns:`repeat(${visibleCount},minmax(0,1fr))`}:{touchAction:'pan-y'}" @pointerdown="down" @pointermove="move" @pointerup="up" @pointercancel="gesture=undefined">
+<section v-for="(item,i) in items" :id="`${id}-${item.id}`" :key="item.id" data-krds-component="carousel" data-krds-part="slide" :data-slide-id="item.id" :data-slide-index="i" :data-krds-state="visibleIds.includes(item.id)?'active':'hidden'" role="group" aria-roledescription="슬라이드" :aria-label="`${i+1} / ${items.length}: ${item.label}`" :hidden="!visibleIds.includes(item.id)" :inert="!visibleIds.includes(item.id)">
+<slot :name="item.id"><h3>{{item.label}}</h3><p>{{item.content}}</p></slot>
+</section>
 </div>
 <template v-if="items.length>1">
-<button type="button" data-krds-component="carousel" data-krds-part="previous" data-krds-state="" aria-label="이전 슬라이드" :disabled="!loop&&activeIndex===0" @click="requestIndex(activeIndex-1,'previous')">이전</button>
-<div v-if="!fraction" data-krds-component="carousel" data-krds-part="indicators" data-krds-state="">
-<button v-for="(item,i) in items" :key="item.id" type="button" data-krds-component="carousel" data-krds-part="indicator" :data-krds-state="i===activeIndex?'active':''" :aria-label="`슬라이드 ${i+1}`" :aria-current="i===activeIndex?'true':undefined" @click="requestIndex(i,'indicator')" @keydown="['ArrowLeft','ArrowRight'].includes($event.key)&&!$event.isComposing&&requestIndex(activeIndex+($event.key==='ArrowRight'?1:-1),'indicator')">{{i+1}}</button>
+<button type="button" data-krds-component="carousel" data-krds-part="previous" data-krds-state="" :disabled="!loop&&activeIndex===0" @click="requestIndex(activeIndex-1,'previous')">이전 슬라이드</button>
+<div :hidden="fraction" data-krds-component="carousel" data-krds-part="indicators" data-krds-state="">
+<button v-for="(item,i) in items" :key="item.id" type="button" data-krds-component="carousel" data-krds-part="indicator" :data-krds-state="i===activeIndex?'active':''" :aria-label="`${i+1} ${item.label} 슬라이드`" :aria-current="i===activeIndex?'true':undefined" @click="requestIndex(i,'indicator')" @keydown="['ArrowLeft','ArrowRight'].includes($event.key)&&!$event.isComposing&&requestIndex(activeIndex+($event.key==='ArrowRight'?1:-1),'indicator')">{{i+1}}</button>
 </div>
-<span v-else data-krds-component="carousel" data-krds-part="position" data-krds-state="">{{activeIndex+1}} / {{items.length}}</span>
-<button type="button" data-krds-component="carousel" data-krds-part="next" data-krds-state="" aria-label="다음 슬라이드" :disabled="!loop&&activeIndex===items.length-1" @click="requestIndex(activeIndex+1,'next')">다음</button>
+<span :hidden="!fraction" data-krds-component="carousel" data-krds-part="position" data-krds-state="">{{activeIndex+1}} / {{items.length}}</span>
+<button type="button" data-krds-component="carousel" data-krds-part="next" data-krds-state="" :disabled="!loop&&activeIndex===items.length-1" @click="requestIndex(activeIndex+1,'next')">다음 슬라이드</button>
 </template>
-</section>
+</div>
 </template>

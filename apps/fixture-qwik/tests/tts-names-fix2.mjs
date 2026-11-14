@@ -34,7 +34,7 @@ try{
     const response=await ssr.goto(server.origin+'/source-contracts.html?case=options');
     assert.equal(response.headers()['x-krds-render'],'production-qwik-ssr');
     const button=ssr.getByRole('button',{name:'문서 읽기 재생',exact:true});
-    await expect(button).toBeVisible();assert.equal(await button.innerText(),'');await expect(button.locator('svg[aria-hidden="true"]')).toHaveCount(1);
+    await expect(button).toBeVisible();assert.equal(await button.innerText(),'▶');await expect(button.locator('span[aria-hidden="true"]')).toHaveCount(1);
   });
   await page.goto(server.origin+'/__fixture/tts?case=outcome-06');
   await expect(page.getByRole('status',{name:'Fixture health',exact:true})).toHaveText('ready');
@@ -46,7 +46,7 @@ try{
   await patch({label:'문서 읽기',summary:'이 문서의 목적과 이용 순서',locale:'ko-KR',iconOnly:true,state:'idle',size:'xsmall'});
   await check('supplied-idle-icon-only-name-no-prop-callback',async()=>{
     const button=page.getByRole('button',{name:'문서 읽기 재생',exact:true});
-    await expect(button).toBeEnabled();assert.equal(await button.innerText(),'');await expect(button.locator('svg[aria-hidden="true"]')).toHaveCount(1);
+    await expect(button).toBeEnabled();assert.equal(await button.innerText(),'▶');await expect(button.locator('span[aria-hidden="true"]')).toHaveCount(1);
     await expect(part('root')).toHaveAttribute('data-krds-size','xsmall');assert.deepEqual(await events(),[]);
   });
   await patch({state:'unsupported'});

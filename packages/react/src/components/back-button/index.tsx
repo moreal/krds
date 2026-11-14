@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import type { BackButtonContract } from '@unofficial-krds/contracts';
-import { part, states } from '../../catalog-utils.js';
+import { part } from '../../catalog-utils.js';
 export type BackButtonProps = BackButtonContract;
 export function BackButton({label='뒤로가기',canGoBack,fallbackHref,dirty=false,onBackRequest,requestConfirmation}:BackButtonProps) {
   const [pending,setPending]=useState(false);
@@ -28,7 +28,8 @@ export function BackButton({label='뒤로가기',canGoBack,fallbackHref,dirty=fa
     }
   };
   const labelContent=<><span {...part('back-button','icon')} aria-hidden="true">←</span><span {...part('back-button','label')}>{label}</span></>;
-  return !canGoBack&&fallbackHref&&!dirty
-    ? <a {...part('back-button','root')} href={fallbackHref}>{labelContent}</a>
-    : <button {...part('back-button','root',states(disabled&&'disabled',pending&&'pending-confirmation'))} type="button" disabled={disabled} aria-busy={pending||undefined} onClick={()=>void activate()}>{labelContent}</button>;
+  // A fallback destination stays a native link; dirty activation is held for the host confirmation.
+  return !canGoBack&&fallbackHref
+    ? <a {...part('back-button','root',pending?'pending-confirmation':'')} href={fallbackHref} aria-busy={pending||undefined} onClick={event=>{if(!dirty)return;event.preventDefault();void activate();}}>{label}</a>
+    : <button {...part('back-button','root',pending?'pending-confirmation':'')} type="button" disabled={disabled} aria-busy={pending||undefined} onClick={()=>void activate()}>{labelContent}</button>;
 }

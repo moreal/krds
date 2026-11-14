@@ -20,6 +20,6 @@ useNotificationLife(() => p.message ? JSON.stringify([p.message.id, p.message.te
 </script>
 <template>
 <div v-if="message" data-krds-part="root" :data-krds-state="`open ${message.tone}`" :data-krds-tone="message.tone" data-krds-component="toast">
-<p data-krds-part="message" :data-krds-state="message.tone" role="status" aria-live="polite" data-krds-component="toast">{{message.text}}</p>
+<span data-krds-part="message" data-krds-state="" role="status" aria-live="polite" aria-atomic="true" data-krds-component="toast">{{message.text}}</span>
 </div>
 </template>

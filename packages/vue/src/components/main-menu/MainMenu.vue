@@ -44,12 +44,14 @@ const path = computed(() => findPath(p.items, expanded.value.value));
 const context = computed(() => {
     let items = p.items;
     let label: string | undefined;
+    let description: string | undefined;
     for (const ancestorId of path.value.slice(0, -2)) {
         const ancestor = items.find(item => item.id === ancestorId);
         label = ancestor?.label;
+        description = ancestor?.description;
         items = ancestor?.children ?? [];
     }
-    return { items, label };
+    return { items, label, description };
 });
 watch(() => context.value.items, () => {
     if (typeof document === 'undefined')
@@ -113,24 +115,29 @@ watch(expanded.value, value => {
 }, { flush: 'pre' });
 </script>
 <template>
-<nav ref="root" data-krds-component="main-menu" data-krds-part="root" :data-krds-state="expanded.value.value?'expanded':'collapsed'" :aria-label="label??'메인 메뉴'" @keydown="close">
-<template v-if="showMobile">
-<slot name="mobile-trigger" :open="mobile.value.value" :open-menu="()=>mobile.request(true)">
-<button :id="mobileTriggerId" type="button" data-krds-component="main-menu" data-krds-part="mobile-trigger" :data-krds-state="mobile.value.value?'expanded':'collapsed'" :aria-expanded="mobile.value.value" @click="mobile.request(true)">{{mobileTriggerLabel??'전체 메뉴'}}</button>
-</slot>
+<nav ref="root" data-krds-component="main-menu" data-krds-part="root" data-krds-state="" :aria-label="label??'메인 메뉴'" :data-krds-layout="narrow?'mobile':'desktop'" @keydown="close">
+<template v-if="$slots['mobile-trigger']">
+<slot v-if="showMobile" name="mobile-trigger" :open="mobile.value.value" :open-menu="()=>mobile.request(true)"/>
 </template>
-<button v-if="!showMobile&&context.label" type="button" data-krds-component="main-menu" data-krds-part="back" data-krds-state="" @click="mobileBack">이전 메뉴</button>
-<p v-if="!showMobile&&context.label">{{context.label}} 하위 메뉴</p>
-<ul v-if="!showMobile" data-krds-component="main-menu" data-krds-part="list" data-krds-state="">
+<button v-else :id="mobileTriggerId" type="button" data-krds-component="main-menu" data-krds-part="mobile-trigger" data-krds-state="" :hidden="!showMobile" :aria-expanded="mobile.value.value" :aria-controls="`${id}-mobile`" @click="mobile.request(true)">{{mobileTriggerLabel??'전체 메뉴'}}</button>
+<template v-if="!showMobile">
+<label v-if="query!==undefined">메뉴 검색<input type="search" data-krds-component="main-menu" data-krds-part="search" data-krds-state="" :value="query" @input="emit('queryChange',{value:($event.target as HTMLInputElement).value})"/>
+</label>
+<button v-if="context.label" type="button" data-krds-component="main-menu" data-krds-part="back" data-krds-state="" @click="mobileBack">이전 메뉴</button>
+<h3 v-if="context.label" data-krds-component="main-menu" data-krds-part="submenu-title" data-krds-state="">{{context.label}}</h3>
+<p v-if="context.label&&context.description" data-krds-component="main-menu" data-krds-part="description" data-krds-state="">{{context.description}}</p>
+<ul data-krds-component="main-menu" data-krds-part="list" data-krds-state="">
 <MainMenuBranch v-for="item in context.items" :key="item.id" :item="item" :current-id="currentId" :path="path" :prefix="id" @toggle="toggle"/>
 </ul>
+</template>
 <Modal :open="mobile.value.value" title="전체 메뉴" @open-change="mobile.request($event.open)">
-<div data-krds-component="main-menu" data-krds-part="mobile-content" data-krds-state="mobile-open">
-<label v-if="query!==undefined">메뉴 검색<input :value="query" @input="emit('queryChange',{value:($event.target as HTMLInputElement).value})"/>
+<div :id="`${id}-mobile`" data-krds-component="main-menu" data-krds-part="mobile-content" data-krds-state="mobile-open">
+<button type="button" data-krds-component="main-menu" data-krds-part="back" data-krds-state="" :hidden="!expanded.value.value" @click="mobileBack">이전 메뉴</button>
+<label v-if="query!==undefined">메뉴 검색<input type="search" data-krds-component="main-menu" data-krds-part="search" data-krds-state="" :value="query" @input="emit('queryChange',{value:($event.target as HTMLInputElement).value})"/>
 </label>
-<button v-if="expanded.value.value" type="button" data-krds-component="main-menu" data-krds-part="back" data-krds-state="" @click="mobileBack">이전 메뉴</button>
-<p v-if="context.label">{{context.label}} 하위 메뉴</p>
-<ul>
+<h3 v-if="context.label" data-krds-component="main-menu" data-krds-part="submenu-title" data-krds-state="">{{context.label}}</h3>
+<p v-if="context.label&&context.description" data-krds-component="main-menu" data-krds-part="description" data-krds-state="">{{context.description}}</p>
+<ul data-krds-component="main-menu" data-krds-part="list" data-krds-state="">
 <MainMenuBranch v-for="item in context.items" :key="item.id" :item="item" :current-id="currentId" :path="path" :prefix="id" @toggle="toggle"/>
 </ul>
 </div>

@@ -5,6 +5,7 @@ import type { FileUploadContract, FileRecord, FileValidationFailure } from '@uno
 const p = defineProps<FileUploadContract & {
     form?: string;
     variant?: 'button' | 'dropzone';
+    description?: string;
 }>();
 const emit = defineEmits<{
     filesChange: [
@@ -103,7 +104,7 @@ watch(() => p.files, async (files, old) => {
     if (target)
         root.value?.querySelector<HTMLButtonElement>(`[data-file-id="${target.id}"]`)?.focus();
     else
-        input.value?.focus();
+        root.value?.querySelector<HTMLButtonElement>('[data-krds-part="picker"]')?.focus();
 });
 onMounted(() => { document.addEventListener('reset', reset, true); });
 onUnmounted(() => {
@@ -115,27 +116,26 @@ onUnmounted(() => {
 });
 </script>
 <template>
-<section ref="root" data-krds-part="root" :data-krds-state="disabled?'disabled':drag?'drag-over':''" data-krds-component="file-upload">
-<label :id="`${id}-label`" :for="id" data-krds-part="label" data-krds-component="file-upload" data-krds-state="">{{label}}</label>
-<p :id="`${id}-description`" data-krds-part="description" data-krds-component="file-upload" data-krds-state="">{{accept?`파일 형식: ${accept}`:''}} {{maxBytes?`최대 ${maxBytes} 바이트`:''}} {{maxFiles?`최대 ${maxFiles}개`:''}}</p>
-<div data-krds-part="dropzone" :data-krds-state="drag?'drag-over':''" @dragover.prevent="!disabled&&(drag=true)" @dragleave="drag=false" @drop="drop" data-krds-component="file-upload">
+<div ref="root" role="group" :aria-labelledby="`${id}-label`" data-krds-part="root" :data-krds-state="disabled?'disabled':drag?'drag-over':''" :data-krds-variant="variant??'dropzone'" data-krds-component="file-upload">
+<p :id="`${id}-label`" data-krds-part="label" data-krds-component="file-upload" data-krds-state="">{{label}}</p>
+<p v-if="description" :id="`${id}-description`" data-krds-part="description" data-krds-component="file-upload" data-krds-state="">{{description}}</p>
+<p :id="`${id}-help`" data-krds-part="help" data-krds-component="file-upload" data-krds-state="">{{accept??'모든 형식'}}{{maxBytes?` / 최대 ${maxBytes}바이트`:''}}{{maxFiles?` / 최대 ${maxFiles}개`:''}}</p>
 <input ref="input" :id="id" type="file" data-krds-part="file-input" :name="name" :form="form" :multiple="multiple" :accept="accept" :disabled="disabled" tabindex="-1" aria-hidden="true" @change="choose" data-krds-component="file-upload" data-krds-state=""/>
-<button type="button" data-krds-component="file-upload" data-krds-part="picker" data-krds-state="" :disabled="disabled" :id="`${id}-picker`" :aria-labelledby="`${id}-picker ${id}-label`" :aria-describedby="`${id}-description${errors.length?` ${id}-errors`:''}`" @click="input?.click()">파일 선택</button>
-<span v-if="variant==='dropzone'">여기에 파일을 끌어 놓거나 파일을 선택하세요.</span>
-</div>
-<p data-krds-part="count" data-krds-component="file-upload" data-krds-state="">{{files.length}}개 파일</p>
+<button type="button" data-krds-component="file-upload" data-krds-part="picker" data-krds-state="" :disabled="disabled" :id="`${id}-picker`" :aria-describedby="`${description?`${id}-description `:''}${id}-help${errors.length?` ${id}-errors`:''}`" @click="input?.click()">파일 선택</button>
+<div v-if="variant!=='button'" data-krds-part="dropzone" data-krds-state="" @dragover.prevent="!disabled&&(drag=true)" @dragleave="drag=false" @drop="drop" data-krds-component="file-upload">파일을 끌어 놓거나 파일 선택을 이용하세요.</div>
+<p data-krds-part="count" data-krds-component="file-upload" data-krds-state="">{{files.length}}{{maxFiles?` / ${maxFiles}`:''}}개</p>
 <ul data-krds-part="list" data-krds-component="file-upload" data-krds-state="">
 <li v-for="record in files" :key="record.id" data-krds-part="item" :data-krds-state="record.status" data-krds-component="file-upload">
 <span :id="`${id}-${record.id}`" data-krds-part="filename" data-krds-component="file-upload" data-krds-state="">{{record.file.name}}</span>
 <span data-krds-part="size" data-krds-component="file-upload" data-krds-state="">{{record.file.size}} 바이트</span>
-<span data-krds-part="status" :data-krds-state="record.status" data-krds-component="file-upload">{{record.status==='uploading'?'업로드 중':record.status==='success'?'완료':record.status==='error'?'오류':'대기'}}</span>
-<progress v-if="record.status==='uploading'" data-krds-part="progress" :max="100" :value="record.progress" :aria-valuenow="record.progress" :aria-label="`${record.file.name} 업로드 진행률`" data-krds-component="file-upload" data-krds-state=""/>
+<span data-krds-part="status" data-krds-state="" data-krds-component="file-upload">{{record.status==='uploading'?'업로드 중':record.status==='success'?'완료':record.status==='error'?'오류':'선택됨'}}</span>
+<progress v-if="record.status==='uploading'" data-krds-part="progress" max="100" :value="record.progress" aria-valuemin="0" aria-valuemax="100" :aria-valuenow="record.progress" :aria-label="`${record.file.name} 진행률`" data-krds-component="file-upload" data-krds-state=""/>
 <p v-if="record.error" data-krds-part="error" data-krds-component="file-upload" data-krds-state="">{{record.error}}</p>
 <button type="button" data-krds-part="remove" :data-file-id="record.id" :disabled="disabled" :aria-label="`${record.file.name} 삭제`" :aria-describedby="`${id}-${record.id}`" @click="remove(record.id)" data-krds-component="file-upload" data-krds-state="">삭제</button>
 </li>
 </ul>
-<div v-if="errors.length" :id="`${id}-errors`" data-krds-part="error" role="status" data-krds-component="file-upload" data-krds-state="">
-<p v-for="error in errors" :key="error">{{error}}</p>
+<div v-if="errors.length" :id="`${id}-errors`">
+<p v-for="error in errors" :key="error" role="alert" data-krds-part="error" data-krds-component="file-upload" data-krds-state="">{{error}}</p>
 </div>
-</section>
+</div>
 </template>

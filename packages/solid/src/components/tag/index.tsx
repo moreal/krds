@@ -48,7 +48,7 @@ export function Tag(props: TagProps) {
     event.preventDefault();
     if (!ignored && target === event.currentTarget) target.click();
   };
-  return <div role={props.mode&&props.mode!=='static'?'group':undefined} {...owned('tag')} data-krds-mode={props.mode ?? 'static'}>
+  return <div role={props.mode&&props.mode!=='static'?'group':undefined} aria-label={props.mode&&props.mode!=='static'?'옵션 태그':undefined} {...owned('tag')} data-krds-mode={props.mode ?? 'static'}>
     <ul ref={list} tabIndex={-1} {...owned('tag', 'list')} onKeyDown={event => {
       if (ignoredKey(event) || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
       const controls = [...list.querySelectorAll<HTMLElement>('button:not(:disabled),a[href]')];

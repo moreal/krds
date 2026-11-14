@@ -15,7 +15,9 @@ const p = withDefaults(defineProps<{
     orientation?: 'horizontal' | 'vertical';
 }>(), { activationMode: 'manual', orientation: 'horizontal' });
 controlContract(() => ({ value: p.value, modelValue: p.modelValue, defaultValue: p.defaultValue }));
+defineOptions({ inheritAttrs: false });
 const attrs = useAttrs();
+const rootAttrs = computed(() => { const { 'aria-label': _label, 'aria-labelledby': _labelledby, ...rest } = attrs; return rest; });
 if (!p.label && !attrs['aria-label'] && !attrs['aria-labelledby']) throw new TypeError('Tablist needs a label.');
 const emit = defineEmits<{
     'update:modelValue': [
@@ -63,14 +65,15 @@ else {
 } }
 </script>
 <template>
-<div ref="root" data-krds-component="tabs" data-krds-part="root" :dir="context.direction.value">
-<div role="tablist" data-krds-component="tabs" data-krds-part="list" :aria-label="label??($attrs['aria-label'] as string|undefined)" :aria-labelledby="$attrs['aria-labelledby'] as string|undefined" :aria-orientation="orientation">
+<div v-bind="rootAttrs" :id="id" ref="root" data-krds-component="tabs" data-krds-part="root" data-krds-state="" :dir="context.direction.value">
+<div v-if="label" :id="`${id}-label`">{{label}}</div>
+<div role="tablist" data-krds-component="tabs" data-krds-part="list" data-krds-state="" :data-krds-orientation="orientation" :aria-label="($attrs['aria-label'] as string|undefined)" :aria-labelledby="($attrs['aria-labelledby'] as string|undefined)??(label?`${id}-label`:undefined)" :aria-orientation="orientation">
 <button v-for="(item,index) in items" :id="tabId(index)" :key="item.value" type="button" role="tab" data-krds-component="tabs" data-krds-part="trigger" :data-krds-state="[value===item.value?'selected':'',item.disabled?'disabled':''].filter(Boolean).join(' ')" :disabled="item.disabled" :tabindex="item.disabled?-1:0" :aria-selected="value===item.value" :aria-controls="panelId(index)" @pointerdown="pointer" @focus="focus(item.value)" @click="click(item.value)" @keydown="key($event,index)">
 <slot name="label" :item="item">{{item.label}}</slot>
 </button>
 </div>
-<section v-for="(item,index) in items" :id="panelId(index)" :key="item.value" :ref="(el)=>{if(el)panels[index]=el as HTMLElement}" role="tabpanel" data-krds-component="tabs" data-krds-part="panel" :data-krds-state="value===item.value?'active':'inactive'" :aria-labelledby="tabId(index)" :hidden="value!==item.value" tabindex="0">
+<div v-for="(item,index) in items" :id="panelId(index)" :key="item.value" :ref="(el)=>{if(el)panels[index]=el as HTMLElement}" role="tabpanel" data-krds-component="tabs" data-krds-part="panel" :data-krds-state="value===item.value?'active':'inactive'" :aria-labelledby="tabId(index)" :hidden="value!==item.value" tabindex="0">
 <slot :name="item.value" :item="item" />
-</section>
+</div>
 </div>
 </template>

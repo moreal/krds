@@ -3,7 +3,7 @@ import type { BackButtonContract } from '@unofficial-krds/contracts';
 import { owned, states, safeRel, useField, useReset, useNarrow, usable, focusTarget, restore, ignoredKey, type NativeContract } from '../../internal/catalog';
 import { Modal } from '../modal';
 export type BackButtonProps = NativeContract<BackButtonContract>;
-export const BackButton = component$<BackButtonProps>((props) => { const pending = useSignal(false), confirm = useSignal(false); return <>{!props.canGoBack && props.fallbackHref ? <a {...owned('back-button')} href={props.fallbackHref}>{props.label ?? '뒤로가기'}</a> : <button type="button" {...owned('back-button', 'root', pending.value ? 'pending-confirmation' : '')} disabled={pending.value || !props.canGoBack} onClick$={async () => { if (pending.value)
+export const BackButton = component$<BackButtonProps>((props) => { const pending = useSignal(false), confirm = useSignal(false); return <>{!props.canGoBack && props.fallbackHref ? <a {...owned('back-button')} href={props.fallbackHref}>{props.label ?? '뒤로가기'}</a> : <button type="button" {...owned('back-button', 'root', pending.value ? 'pending-confirmation' : '')} disabled={pending.value || !props.canGoBack} aria-busy={pending.value || undefined} onClick$={async () => { if (pending.value)
     return; if (props.dirty) {
     if (!props.requestConfirmation$) {
         confirm.value = true;

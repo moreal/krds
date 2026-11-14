@@ -31,10 +31,10 @@ test('Quantity boundary remains focused while blocked action emits nothing',asyn
  const request=vi.fn();render(<K.QuantityToggle label="수량" defaultValue={0} min={0} max={10} onValueChange={request}/>);const minus=screen.getByRole('button',{name:'수량 줄이기'});await userEvent.click(minus);expect(minus).toHaveFocus();expect(minus).toHaveAttribute('aria-disabled','true');expect(request).not.toHaveBeenCalled();
 });
 test('FileUpload passes real native Files and clears only ephemeral chooser',async()=>{
- const changed=vi.fn();const file=new File(['A'],'local.txt',{type:'text/plain'});render(<K.FileUpload files={[]} name="documents" label="첨부" accept=".txt" onFilesChange={changed}/>);const input=screen.getByLabelText('첨부',{selector:'input'}) as HTMLInputElement;await userEvent.upload(input,file);expect(input.value).toBe('');expect(changed.mock.calls[0][0].value[0].file).toBe(file);expect(changed.mock.calls[0][0].reason).toBe('picker');expect(changed).toHaveBeenCalledTimes(1);
+ const changed=vi.fn();const file=new File(['A'],'local.txt',{type:'text/plain'});render(<K.FileUpload files={[]} name="documents" label="첨부" accept=".txt" onFilesChange={changed}/>);const input=document.querySelector('[data-krds-component="file-upload"][data-krds-part="file-input"]') as HTMLInputElement;expect(screen.getByRole('heading',{name:'첨부'})).toBeVisible();await userEvent.upload(input,file);expect(input.value).toBe('');expect(changed.mock.calls[0][0].value[0].file).toBe(file);expect(changed.mock.calls[0][0].reason).toBe('picker');expect(changed).toHaveBeenCalledTimes(1);
 });
 test('Tooltip hover never steals focus and accepted Escape suppresses induced trigger focus',async()=>{
- render(<><button>다음 작업</button><K.Tooltip text="추가 정보" triggerLabel="안내" triggerId="test-trigger" textId="test-tooltip"/></>);await userEvent.click(screen.getByText('다음 작업'));await userEvent.hover(screen.getByRole('button',{name:'안내'}));expect(screen.getByText('다음 작업')).toHaveFocus();await userEvent.keyboard('{Escape}');await waitFor(()=>expect(screen.getByRole('button',{name:'안내'})).toHaveFocus());expect(document.getElementById('test-tooltip')).toHaveAttribute('data-krds-state',expect.stringContaining('suppressed'));
+ render(<><button>다음 작업</button><K.Tooltip text="추가 정보" triggerLabel="안내" triggerId="test-trigger" textId="test-tooltip"/></>);await userEvent.click(screen.getByText('다음 작업'));await userEvent.hover(screen.getByRole('button',{name:'안내'}));expect(screen.getByText('다음 작업')).toHaveFocus();await userEvent.keyboard('{Escape}');await waitFor(()=>expect(screen.getByRole('button',{name:'안내'})).toHaveFocus());expect(document.getElementById('test-tooltip')!.closest('[data-krds-component="tooltip"][data-krds-part="root"]')).toHaveAttribute('data-krds-state',expect.stringContaining('suppressed'));
 });
 test('Native table retains caption and column/row header relationships',()=>{
  render(<K.Table caption="신청 내역" columns={[{id:'name',label:'이름',kind:'text'},{id:'count',label:'수량',kind:'number'}]} rowHeaderColumnId="name" rows={[{id:'a',cells:{name:'가',count:2}}]}/>);const table=screen.getByRole('table',{name:'신청 내역'});expect(table.querySelector('th[scope="row"]')).toHaveTextContent('가');const cell=screen.getByRole('cell',{name:'2'});expect(cell.getAttribute('headers')?.split(' ')).toHaveLength(2);
@@ -76,7 +76,7 @@ test('SideNavigation expansion control includes its visible action in the access
 
 test('Table only exposes a named tabbable scroll region when content actually overflows',async()=>{
  render(<K.Table layout="narrow-scroll" caption="짧은 내역" columns={[{id:'name',label:'이름',kind:'text'}]} rows={[{id:'a',cells:{name:'가'}}]}/>);
- await waitFor(()=>expect(document.querySelector('[data-krds-component="table"][data-krds-part="scroll-region"]')).not.toHaveAttribute('tabindex'));expect(screen.queryByRole('button',{name:'오른쪽 보기'})).toBeNull();
+ await waitFor(()=>expect(document.querySelector('[data-krds-component="table"][data-krds-part="scroll-region"]')).not.toHaveAttribute('tabindex'));expect(screen.queryByRole('button',{name:'표 오른쪽으로 이동'})).toBeNull();
 });
 
 test('StepIndicator renders a fully completed process without inventing a current step',()=>{
@@ -91,7 +91,7 @@ test('Header default navigation forwards public current identity and navigation 
 });
 
 test('Snackbar renders its configured information icon as a decorative native graphic',()=>{
- render(<K.Snackbar message={{id:'message',title:'저장 완료',text:'예제 신청 저장',icon:'information'}} onDismiss={()=>{}}/>);expect(document.querySelector('[data-krds-component="snackbar"][data-krds-part="icon"] svg')).not.toBeNull();expect(screen.getByRole('status')).toHaveTextContent('저장 완료');
+ render(<K.Snackbar message={{id:'message',title:'저장 완료',text:'예제 신청 저장',icon:'information'}} onDismiss={()=>{}}/>);const icon=document.querySelector('[data-krds-component="snackbar"][data-krds-part="icon"]')!;expect(icon).toHaveAttribute('aria-hidden','true');expect(icon).toHaveTextContent('information');expect(screen.getByRole('status')).toContainElement(icon as HTMLElement);expect(screen.getByRole('status')).toHaveTextContent('저장 완료');
 });
 
 test('ContextualHelp end placement aligns the native popover with its actual trigger edge',async()=>{

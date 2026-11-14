@@ -75,7 +75,7 @@ test('Carousel autoplay advances after connect under real timers without any int
   let callbacks = 0; carousel.addEventListener('playing-change', () => { callbacks++; });
   document.body.append(carousel); cleanup.push(() => carousel.remove());
   await carousel.updateComplete;
-  const current = () => carousel.shadowRoot!.querySelector('[aria-current="true"]')!.getAttribute('aria-label');
+  const current = () => carousel.shadowRoot!.querySelector('[data-krds-part="slide"][data-krds-state~="active"]')!.getAttribute('aria-label');
   expect(current()).toMatch(/^1 \/ 3/);
   await expect.poll(current, { timeout: 2000 }).toMatch(/^2 \/ 3/);
   expect(callbacks).toBe(0);

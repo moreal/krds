@@ -21,7 +21,8 @@ const emit = defineEmits<{
 const state = useOwned(() => p.modelValue ?? p.checked, () => p.defaultChecked, false, value => { emit('update:modelValue', value); emit('checkedChange', { checked: value }); });
 const control = ref<HTMLInputElement>();
 const id = p.id ?? useId();
-const tokens = computed(() => [p.indeterminate ? 'mixed' : state.value.value ? 'checked' : 'unchecked', p.disabled ? 'disabled' : '', p.invalid ? 'invalid' : ''].filter(Boolean).join(' '));
+const mark = computed(() => p.indeterminate ? 'mixed' : state.value.value ? 'checked' : 'unchecked');
+const tokens = computed(() => p.disabled ? 'disabled' : mark.value);
 function sync() {
     if (control.value) {
         control.value.defaultChecked = state.controlled ? state.value.value : state.baseline;
@@ -40,11 +41,8 @@ useNativeReset(control, state.reset, sync);
 </script>
 <template>
 <div data-krds-part="root" :data-krds-state="tokens" :data-krds-appearance="appearance??'default'" :data-krds-size="size??'medium'" data-krds-component="checkbox">
-<input :id="id" ref="control" type="checkbox" data-krds-part="control" :data-krds-state="tokens" :checked="state.value.value" :name="name" :form="form" :value="value??'on'" :disabled="disabled" :required="required" :aria-invalid="invalid||undefined" :aria-describedby="[helpId,errorId].filter(Boolean).join(' ')||undefined" @change="change" data-krds-component="checkbox"/>
-<span data-krds-part="indicator" :data-krds-state="tokens" aria-hidden="true" data-krds-component="checkbox">{{indeterminate?'−':state.value.value?'✓':''}}</span>
-<label :for="id" data-krds-part="label" data-krds-component="checkbox" data-krds-state="">
-<slot>{{label}}</slot>
-</label>
+<input :id="id" ref="control" type="checkbox" data-krds-part="control" data-krds-state="" :checked="state.value.value" :name="name" :form="form" :value="value??'on'" :disabled="disabled" :required="required" :aria-invalid="invalid||undefined" :aria-describedby="[helpId,invalid?errorId:undefined].filter(Boolean).join(' ')||undefined" @change="change" data-krds-component="checkbox"/>
+<label :for="id" data-krds-part="label" data-krds-component="checkbox" data-krds-state=""><slot>{{label}}</slot><span data-krds-part="indicator" :data-krds-state="mark" aria-hidden="true" data-krds-component="checkbox"></span></label>
 <slot name="help"/>
 <slot name="error"/>
 </div>

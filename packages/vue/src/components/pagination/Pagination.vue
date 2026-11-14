@@ -12,7 +12,7 @@ const emit = defineEmits<{
 }>();
 const state = useOwned(() => p.page, () => p.defaultPage, 1, page => emit('pageChange', { page }));
 const draft = ref(String(state.value.value)), invalid = ref(false), input = ref<HTMLInputElement>();
-const errorId = `${useId()}-pagination-error`, narrow = ref(false);
+const uid = useId(), errorId = `${uid}-pagination-error`, inputId = `${uid}-pagination-input`, narrow = ref(false);
 let media: MediaQueryList | undefined;
 function responsive() { narrow.value = media?.matches ?? false; }
 onMounted(() => { media = matchMedia('(max-width: 767px)'); responsive(); media.addEventListener('change', responsive); });
@@ -55,27 +55,24 @@ watch(() => p.loadMore?.shown, async (value, old) => {
 });
 </script>
 <template>
-<nav :aria-label="variant==='load-more'?'결과 더보기':'페이지 이동'" data-krds-part="root" :data-krds-variant="variant??'number-links'" data-krds-component="pagination" data-krds-state="">
+<nav data-krds-component="pagination" data-krds-part="root" data-krds-state="" :data-krds-variant="variant??'number-links'" :aria-label="variant==='load-more'?'결과 더보기':'페이지 이동'">
 <template v-if="variant!=='load-more'">
-<a data-krds-part="previous" :href="state.value.value>1?hrefForPage(state.value.value-1):undefined" :aria-disabled="state.value.value===1||undefined" data-krds-component="pagination" data-krds-state="">이전</a>
-<ul data-krds-part="list" data-krds-component="pagination" data-krds-state="">
-<li v-for="page in pages" :key="page" data-krds-part="item" :data-krds-state="page===state.value.value?'current':''" data-krds-component="pagination">
-<span v-if="typeof page==='string'" aria-label="중간 페이지 생략">…</span>
-<a v-else data-krds-part="link" :href="page===state.value.value?undefined:hrefForPage(page)" :aria-current="page===state.value.value?'page':undefined" data-krds-component="pagination" data-krds-state="">{{page}}</a>
+<a v-if="state.value.value>1" data-krds-component="pagination" data-krds-part="previous" data-krds-state="" :href="hrefForPage(state.value.value-1)" rel="prev">이전</a>
+<ol data-krds-component="pagination" data-krds-part="list" data-krds-state="">
+<li v-for="page in pages" :key="page" data-krds-component="pagination" data-krds-part="item" data-krds-state="">
+<span v-if="typeof page==='string'" data-krds-component="pagination" data-krds-part="ellipsis" data-krds-state="">…</span>
+<a v-else data-krds-component="pagination" data-krds-part="link" :data-krds-state="page===state.value.value?'current':''" :href="page===state.value.value?undefined:hrefForPage(page)" :tabindex="page===state.value.value?-1:undefined" :aria-current="page===state.value.value?'page':undefined">{{page}}</a>
 </li>
-</ul>
-<a data-krds-part="next" :href="state.value.value<pageCount?hrefForPage(state.value.value+1):undefined" :aria-disabled="state.value.value===pageCount||undefined" data-krds-component="pagination" data-krds-state="">다음</a>
+</ol>
+<a v-if="state.value.value<pageCount" data-krds-component="pagination" data-krds-part="next" data-krds-state="" :href="hrefForPage(state.value.value+1)" rel="next">다음</a>
 <template v-if="variant==='direct-page'">
-<label>이동할 페이지<input ref="input" v-model="draft" data-krds-part="input" inputmode="numeric" :aria-invalid="invalid||undefined" :aria-describedby="errorId" @keydown.enter="enter" data-krds-component="pagination" data-krds-state=""/>
-</label>
-<span data-krds-part="count" data-krds-component="pagination" data-krds-state="">/ {{pageCount}}</span>
-<button data-krds-part="go" type="button" @click="go" data-krds-component="pagination" data-krds-state="">이동</button>
-<p v-if="invalid" :id="errorId" data-krds-part="total" data-krds-component="pagination" data-krds-state="">1에서 {{pageCount}} 사이의 페이지를 입력하세요.</p>
+<label :for="inputId">페이지</label><input :id="inputId" ref="input" v-model="draft" data-krds-component="pagination" data-krds-part="input" :data-krds-state="invalid?'invalid':''" inputmode="numeric" type="text" :aria-invalid="invalid||undefined" :aria-describedby="invalid?errorId:undefined" @keydown.enter="enter"/>
+<span data-krds-component="pagination" data-krds-part="total" data-krds-state="">/ {{pageCount}}</span><button type="button" data-krds-component="pagination" data-krds-part="go" data-krds-state="" @click="go">이동</button>
+<p v-if="invalid" :id="errorId" role="status">1부터 {{pageCount}} 사이의 페이지를 입력하세요.</p>
 </template>
 </template>
 <template v-else-if="loadMore">
-<button data-krds-part="load-more" type="button" :disabled="loadMore.pending||loadMore.shown>=loadMore.total" @click="loadMore.onLoadMore()" data-krds-component="pagination" data-krds-state="">{{loadMore.pending?'불러오는 중':'더 보기'}}</button>
-<span data-krds-part="count" role="status" data-krds-component="pagination" data-krds-state="">{{loadMore.shown}} / {{loadMore.total}}</span>
+<p data-krds-component="pagination" data-krds-part="count" data-krds-state="" role="status">{{loadMore.shown}} / {{loadMore.total}}</p><button type="button" data-krds-component="pagination" data-krds-part="load-more" :data-krds-state="loadMore.pending?'pending':''" :disabled="loadMore.pending||loadMore.shown>=loadMore.total" @click="loadMore.onLoadMore()">더 보기</button>
 </template>
 </nav>
 </template>

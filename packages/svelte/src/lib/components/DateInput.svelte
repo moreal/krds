@@ -27,9 +27,10 @@ let localFields = $state<FieldErrors>(['', '']);
 let announcement = $state('');
 let composing = $state(false);
 let opened = $state(false);
-let root = $state<HTMLFieldSetElement>()!;
-let first = $state<HTMLInputElement>()!;
-let second = $state<HTMLInputElement>()!;
+let root = $state<HTMLElement>()!;
+let refs = $state<(HTMLInputElement|undefined)[]>([]);
+let first = $derived(refs[0]!);
+let second = $derived(refs[1]);
 let popup = $state<HTMLDialogElement>()!;
 let opener = $state<HTMLButtonElement>()!;
 let t = $derived(dateDictionary(locale ?? provider.locale ?? 'ko-KR', translations));
@@ -218,27 +219,10 @@ function popupKey(event: KeyboardEvent) {
     }
 }
 </script>
-<fieldset dir={provider.direction} bind:this={root!} data-krds-component="date-input" data-krds-part="root" data-krds-state={[disabled?'disabled':'',isInvalid?'invalid':''].join(' ')} onfocusout={blur}>
- <legend id={`${id}-label`} data-krds-component="date-input" data-krds-part="label">{label}</legend>
- <label for={id} class:visually-hidden={mode==='single'}>{mode==='range'?t.startLabel:label}</label>
- <input bind:this={first!} {id} type="text" inputmode="numeric" {form} {autocomplete} placeholder="YYYY-MM-DD" {required} {disabled} value={draft[0]} aria-describedby={`${id}-hint${message?` ${id}-error`:''}`} aria-invalid={firstInvalid||undefined} data-krds-component="date-input" data-krds-part={mode==='single'?'control':'start-input'} data-krds-state={[disabled?'disabled':'',firstInvalid?'invalid':''].join(' ')} oninput={event=>input(event,0)} onkeydown={key} oncompositionstart={()=>{composing=true;}} oncompositionend={event=>{draft[0]=event.currentTarget.value;composing=false;}} oninvalid={()=>showValidation(validation())} />
- {#if mode==='range'}
-<label for={`${id}-end`}>{t.endLabel}</label>
-<input bind:this={second!} id={`${id}-end`} type="text" inputmode="numeric" {form} {autocomplete} placeholder="YYYY-MM-DD" {required} {disabled} value={draft[1]} aria-describedby={`${id}-hint${message?` ${id}-error`:''}`} aria-invalid={secondInvalid||undefined} data-krds-component="date-input" data-krds-part="end-input" data-krds-state={[disabled?'disabled':'',secondInvalid?'invalid':''].join(' ')} oninput={event=>input(event,1)} onkeydown={key} oncompositionstart={()=>{composing=true;}} oncompositionend={event=>{draft[1]=event.currentTarget.value;composing=false;}} oninvalid={()=>showValidation(validation())} />{/if}
- {#if name}
-<input type="hidden" name={mode==='range'?`${name}.start`:name} {form} {disabled} value={texts(committed)[0]} />{#if mode==='range'}
-<input type="hidden" name={`${name}.end`} {form} {disabled} value={texts(committed)[1]} />{/if}{/if}
- {#if withCalendar}
-<button bind:this={opener!} type="button" {disabled} aria-haspopup="dialog" aria-expanded={opened} aria-controls={`${id}-popup`} aria-labelledby={mode==='range'?`${id}-label ${id}-open-label`:undefined} data-krds-component="date-input" data-krds-part="trigger" data-krds-state={opened?'open':'closed'} onclick={()=>{if(!disabled&&!composing)opened=true;}}><span id={`${id}-open-label`}>{t.openCalendar}</span></button>{/if}
- <p id={`${id}-hint`} data-krds-component="date-input" data-krds-part="hint">{hint??t.formatHint}</p>
- {#if message}
-<p id={`${id}-error`} data-krds-component="date-input" data-krds-part="error">{message}</p>{/if}
- <span aria-live="polite" role="status" class="visually-hidden">{announcement}</span>
- {#if opened}
-<dialog dir={provider.direction} lang={(locale??provider.locale??'ko-KR').slice(0,2)} bind:this={popup!} id={`${id}-popup`} tabindex="-1" aria-modal="true" aria-labelledby={`${id}-popup-title`} data-krds-component="date-input" data-krds-part="popup" data-krds-state="open" onkeydown={popupKey} oncancel={event=>event.preventDefault()}>
+{#snippet field(index:0|1)}<input bind:this={refs[index]} id={index===0?id:`${id}-end`} type="text" inputmode="numeric" {autocomplete} placeholder="YYYY-MM-DD" {form} {required} {disabled} value={draft[index]} aria-describedby={`${id}-hint${isInvalid?` ${id}-error`:''}`} aria-invalid={(index===0?firstInvalid:secondInvalid)?'true':undefined} data-krds-component="date-input" data-krds-part={mode==='single'?'control':index===0?'start-input':'end-input'} data-krds-state={[disabled&&'disabled',(index===0?firstInvalid:secondInvalid)&&'invalid'].filter(Boolean).join(' ')} oninput={event=>input(event,index)} onkeydown={key} oncompositionstart={()=>{composing=true;}} oncompositionend={event=>{draft[index]=event.currentTarget.value;composing=false;}} oninvalid={()=>showValidation(validation())} />{/snippet}
+{#snippet contents()}{#if mode==='range'}<label for={id} data-krds-component="date-input" data-krds-part="label" data-krds-state="">{t.startLabel}</label>{/if}{@render field(0)}{#if mode==='range'}<label for={`${id}-end`} data-krds-component="date-input" data-krds-part="label" data-krds-state="">{t.endLabel}</label>{@render field(1)}{/if}{#if withCalendar}<button bind:this={opener!} type="button" aria-label={mode==='range'?undefined:t.openCalendar} aria-labelledby={mode==='range'?`${id}-label ${id}-open-label`:undefined} aria-haspopup="dialog" aria-expanded={opened} aria-controls={`${id}-popup`} {disabled} data-krds-component="date-input" data-krds-part="trigger" data-krds-state={opened?'open':'closed'} onclick={()=>{if(!disabled&&!composing)opened=true;}}><span id={`${id}-open-label`}>{t.openCalendar}</span></button>{/if}<span id={`${id}-hint`} data-krds-component="date-input" data-krds-part="hint" data-krds-state="">{hint??t.formatHint}</span><span id={`${id}-error`} role="status" aria-live="polite" aria-atomic="true" data-krds-component="date-input" data-krds-part="error" data-krds-state="">{message}</span><input type="hidden" name={name?mode==='range'?`${name}.start`:name:undefined} value={texts(committed)[0]} {disabled} {form} />{#if mode==='range'}<input type="hidden" name={name?`${name}.end`:undefined} value={texts(committed)[1]} {disabled} {form} />{/if}{#if opened}<dialog dir={provider.direction} lang={(locale??provider.locale??'ko-KR').slice(0,2)} bind:this={popup!} id={`${id}-popup`} aria-modal="true" aria-labelledby={`${id}-popup-title`} tabindex="-1" data-krds-component="date-input" data-krds-part="popup" data-krds-state="open" onkeydown={popupKey} oncancel={event=>event.preventDefault()}>
 <h2 id={`${id}-popup-title`}>{t.calendarTitle}</h2>
 <Calendar {mode} value={committed} {min} {max} {disabled} {required} locale={locale??provider.locale} {referenceDate} {today} label={t.calendarTitle} onConfirm={({value:next})=>{commit(next);opened=false;}} onCancel={()=>{opened=false;}}/>
 <button type="button" onclick={()=>{opened=false;}}>{(locale??provider.locale)==='en-US'?'Close':'닫기'}</button>
-</dialog>{/if}
-</fieldset>
-<style>.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+</dialog>{/if}{/snippet}
+{#if mode==='range'}<fieldset dir={provider.direction} bind:this={root!} data-krds-component="date-input" data-krds-part="root" data-krds-state={[disabled&&'disabled',isInvalid&&'invalid'].filter(Boolean).join(' ')} onfocusout={blur}><legend id={`${id}-label`} data-krds-component="date-input" data-krds-part="label" data-krds-state="">{label}</legend>{@render contents()}</fieldset>{:else}<div dir={provider.direction} bind:this={root!} data-krds-component="date-input" data-krds-part="root" data-krds-state={[disabled&&'disabled',isInvalid&&'invalid'].filter(Boolean).join(' ')} onfocusout={blur}><label for={id} data-krds-component="date-input" data-krds-part="label" data-krds-state="">{label}</label>{@render contents()}</div>{/if}

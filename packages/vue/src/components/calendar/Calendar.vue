@@ -112,33 +112,34 @@ function today() { if (p.today && !unavailable(p.today))
 defineExpose({ focusInitial: async () => { await nextTick(); const selected = root.value?.querySelector<HTMLElement>('button[data-date][aria-pressed="true"]:not(:disabled)'); const first = root.value?.querySelector<HTMLElement>('button[data-date]:not([data-krds-state*="outside-month"]):not(:disabled)'); (selected ?? first ?? root.value?.querySelector<HTMLElement>('button:not(:disabled)'))?.focus(); } });
 </script>
 <template>
-<section :id="id" ref="root" data-krds-component="calendar" data-krds-part="root" :aria-label="label" :dir="context.direction.value">
-<header data-krds-component="calendar" data-krds-part="header">
-<button type="button" data-krds-component="calendar" data-krds-part="previous" :disabled="disabled||!canMonth(-1)" :aria-label="words.previousMonth" @click="moveMonth(-1)">‹</button>
-<h2 :id="`${id}-heading`" data-krds-component="calendar" data-krds-part="heading" aria-live="polite">{{heading}}</h2>
-<button type="button" data-krds-component="calendar" data-krds-part="next" :disabled="disabled||!canMonth(1)" :aria-label="words.nextMonth" @click="moveMonth(1)">›</button>
-</header>
-<div data-krds-component="calendar" data-krds-internal="table-scroll">
-<table data-krds-component="calendar" data-krds-part="table" :aria-labelledby="`${id}-heading`">
+<div :id="id" ref="root" role="group" data-krds-component="calendar" data-krds-part="root" data-krds-state="" :aria-labelledby="label?`${id}-label`:undefined" :dir="context.direction.value">
+<div v-if="label" :id="`${id}-label`">{{label}}</div>
+<div data-krds-component="calendar" data-krds-part="header" data-krds-state="">
+<button type="button" data-krds-component="calendar" data-krds-part="previous" :data-krds-state="disabled||!canMonth(-1)?'disabled':''" :disabled="disabled||!canMonth(-1)" :aria-label="words.previousMonth" @click="moveMonth(-1)">‹</button>
+<h2 :id="`${id}-heading`" data-krds-component="calendar" data-krds-part="heading" data-krds-state="" aria-live="polite" aria-atomic="true">{{heading}}</h2>
+<button type="button" data-krds-component="calendar" data-krds-part="next" :data-krds-state="disabled||!canMonth(1)?'disabled':''" :disabled="disabled||!canMonth(1)" :aria-label="words.nextMonth" @click="moveMonth(1)">›</button>
+</div>
+<div data-krds-component="calendar" data-krds-internal="table-scroll" role="region" :aria-labelledby="`${id}-heading`" tabindex="0">
+<table data-krds-component="calendar" data-krds-part="table" data-krds-state="" :aria-labelledby="`${id}-heading`">
 <thead>
 <tr>
-<th v-for="(day,index) in words.weekdayLabels" :key="index" scope="col" data-krds-component="calendar" data-krds-part="weekday" :aria-label="words.weekdays[index]">{{day}}</th>
+<th v-for="(day,index) in words.weekdayLabels" :key="index" scope="col" data-krds-component="calendar" data-krds-part="weekday" data-krds-state="" :aria-label="words.weekdays[index]">{{day}}</th>
 </tr>
 </thead>
 <tbody>
 <tr v-for="(week,index) in rows" :key="index">
-<td v-for="(day,column) in week" :key="column" data-krds-component="calendar" data-krds-part="cell">
+<td v-for="(day,column) in week" :key="column" data-krds-component="calendar" data-krds-part="cell" data-krds-state="">
 <button v-if="day" type="button" data-krds-component="calendar" data-krds-part="day" :data-date="day" :data-krds-state="state(day)" :disabled="unavailable(day)" :aria-label="name(day)" :aria-current="day===p.today?'date':undefined" :aria-pressed="selected(day)" @click="choose(day)" @keydown="key($event,day)">{{interpolate(words.visibleDayLabel,fields(day))}}</button>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<footer data-krds-component="calendar" data-krds-part="footer">
-<button v-if="p.today" type="button" data-krds-component="calendar" data-krds-part="today" :disabled="disabled||unavailable(p.today)" @click="today">{{words.today}}</button>
-<button v-if="!required" type="button" data-krds-component="calendar" data-krds-part="clear" :disabled="disabled" @click="tentative=empty(range)">{{words.clear}}</button>
-<button type="button" data-krds-component="calendar" data-krds-part="cancel" :disabled="disabled" @click="cancel">{{words.cancel}}</button>
-<button type="button" data-krds-component="calendar" data-krds-part="confirm" :disabled="!complete" @click="confirm">{{words.confirm}}</button>
-</footer>
-</section>
+<div data-krds-component="calendar" data-krds-part="footer" data-krds-state="">
+<button v-if="p.today" type="button" data-krds-component="calendar" data-krds-part="today" :data-krds-state="unavailable(p.today)?'disabled':''" :disabled="unavailable(p.today)" @click="today">{{words.today}}</button>
+<button v-if="!required" type="button" data-krds-component="calendar" data-krds-part="clear" :data-krds-state="disabled?'disabled':''" :disabled="disabled" @click="tentative=empty(range)">{{words.clear}}</button>
+<button type="button" data-krds-component="calendar" data-krds-part="cancel" :data-krds-state="disabled?'disabled':''" :disabled="disabled" @click="cancel">{{words.cancel}}</button>
+<button type="button" data-krds-component="calendar" data-krds-part="confirm" :data-krds-state="!complete?'disabled':''" :disabled="!complete" @click="confirm">{{words.confirm}}</button>
+</div>
+</div>
 </template>

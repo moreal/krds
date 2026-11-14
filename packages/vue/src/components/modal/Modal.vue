@@ -109,6 +109,8 @@ onUnmounted(() => {
   cleanup();
 });
 let pointer = false;
+// The backdrop is a sibling of the dialog: any press that starts elsewhere cancels a pending backdrop gesture.
+function resetPointer() { pointer = false; }
 function down(e: PointerEvent) { pointer = e.target === e.currentTarget && e.button === 0 && e.isPrimary; }
 function up(e: PointerEvent) { const dismiss = pointer && e.target === e.currentTarget && e.button === 0 && e.isPrimary; pointer = false; if (dismiss && p.closeOnOutsideClick)
     request(false); }
@@ -117,23 +119,22 @@ defineExpose({ open: () => request(true), close: () => request(false) });
 <template>
 <slot name="trigger" :open="()=>request(true)" :is-open="actual" />
 <Teleport v-if="actual" :to="context.document()?.body??'body'">
-<div ref="portal" data-krds-component="modal" data-krds-part="root" data-krds-state="open" :dir="context.direction.value">
-<div data-krds-component="modal" data-krds-part="backdrop" data-krds-state="open" @pointerdown="down" @pointerup="up">
-<section :id="id" ref="dialog" role="dialog" aria-modal="true" tabindex="-1" data-krds-component="modal" data-krds-part="content" data-krds-state="open" :aria-labelledby="titleId??`${id}-title`" :aria-describedby="description||$slots.description?descriptionId??`${id}-description`:undefined">
-<h2 :id="titleId??`${id}-title`" data-krds-component="modal" data-krds-part="title">
+<div ref="portal" data-krds-component="modal" data-krds-part="root" data-krds-state="open" :dir="context.direction.value" :lang="context.locale.value.slice(0,2)" style="position:fixed;inset:0;z-index:1000" @pointerdown.capture="resetPointer">
+<div data-krds-component="modal" data-krds-part="backdrop" data-krds-state="open" @pointerdown="down" @pointerup="up"></div>
+<div :id="id" ref="dialog" role="dialog" aria-modal="true" :aria-labelledby="titleId??`${id}-title`" :aria-describedby="description||$slots.description?descriptionId??`${id}-description`:undefined" tabindex="-1" data-krds-component="modal" data-krds-part="content" data-krds-state="open">
+<h2 :id="titleId??`${id}-title`" data-krds-component="modal" data-krds-part="title" data-krds-state="">
 <slot name="title">{{title}}</slot>
 </h2>
-<div v-if="description||$slots.description" :id="descriptionId??`${id}-description`" data-krds-component="modal" data-krds-part="description">
+<div v-if="description||$slots.description" :id="descriptionId??`${id}-description`" data-krds-component="modal" data-krds-part="description" data-krds-state="">
 <slot name="description">{{description}}</slot>
 </div>
-<div data-krds-component="modal" data-krds-part="body">
+<div data-krds-component="modal" data-krds-part="body" data-krds-state="">
 <slot :close="()=>request(false)" />
 </div>
-<div v-if="$slots.actions" data-krds-component="modal" data-krds-part="actions">
+<div v-if="$slots.actions" data-krds-component="modal" data-krds-part="actions" data-krds-state="">
 <slot name="actions" :close="()=>request(false)" />
 </div>
-<button v-if="showCloseButton" type="button" data-krds-component="modal" data-krds-part="close" :aria-label="closeLabel??(context.locale.value==='en-US'?'Close':'닫기')" @click="request(false)"><span aria-hidden="true">×</span></button>
-</section>
+<button v-if="showCloseButton" type="button" :aria-label="closeLabel??(context.locale.value==='en-US'?'Close':'닫기')" data-krds-component="modal" data-krds-part="close" data-krds-state="" @click="request(false)"><span aria-hidden="true">×</span></button>
 </div>
 </div>
 </Teleport>

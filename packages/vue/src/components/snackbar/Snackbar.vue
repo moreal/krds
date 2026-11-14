@@ -53,15 +53,15 @@ onUnmounted(() => {
 });
 </script>
 <template>
-<div v-if="message" ref="root" data-krds-part="root" :data-krds-state="`open ${message.actionPending?'action-pending':''} ${message.error?'error':''}`" @pointerenter="hover=true" @pointerleave="hover=false" @focusin="focused=true" @focusout="focused=Boolean($event.relatedTarget&&root?.contains($event.relatedTarget as Node))" data-krds-component="snackbar">
-<div data-krds-part="message" role="status" aria-live="polite" data-krds-component="snackbar" data-krds-state="">
-<span v-if="message.icon" data-krds-part="icon" aria-hidden="true" data-krds-component="snackbar" data-krds-state="">{{message.icon}}</span>
-<strong data-krds-part="title" data-krds-component="snackbar" data-krds-state="">{{message.title}}</strong>
-<p>{{message.text}}</p>
+<div v-if="message" ref="root" data-krds-component="snackbar" data-krds-part="root" :data-krds-state="message.actionPending?'open action-pending':message.error?'open error':'open'" @pointerenter="hover=true" @pointerleave="hover=false" @focusin="focused=true" @focusout="focused=Boolean($event.relatedTarget&&root?.contains($event.relatedTarget as Node))">
+<div role="status" aria-live="polite" aria-atomic="true">
+<span v-if="message.icon" data-krds-component="snackbar" data-krds-part="icon" data-krds-state="" aria-hidden="true">{{message.icon}}</span>
+<strong data-krds-component="snackbar" data-krds-part="title" data-krds-state="">{{message.title}}</strong>
+<p data-krds-component="snackbar" data-krds-part="message" data-krds-state="">{{message.text}}</p>
 <p v-if="message.error">{{message.error}}</p>
 </div>
-<a v-if="action?.kind==='link'" data-krds-part="action" :href="action.href" :target="action.target" :rel="action.target==='_blank'?[action.rel,'noopener noreferrer'].filter(Boolean).join(' '):action.rel" :aria-description="action.target==='_blank'?'새 창에서 열기':undefined" data-krds-component="snackbar" data-krds-state="">{{action.label}}</a>
-<button v-else-if="action" data-krds-part="action" type="button" :disabled="message.actionPending" @click="requestAction()" data-krds-component="snackbar" data-krds-state="">{{p.action?.label}}</button>
-<button data-krds-part="close" type="button" aria-label="알림 닫기" @click="close" data-krds-component="snackbar" data-krds-state="">닫기</button>
+<a v-if="action?.kind==='link'" data-krds-component="snackbar" data-krds-part="action" data-krds-state="" :href="action.href" :target="action.target" :rel="action.target==='_blank'?[action.rel,'noopener noreferrer'].filter(Boolean).join(' '):action.rel">{{action.label}}{{action.target==='_blank'?' (새 창)':''}}</a>
+<button v-else-if="action" type="button" data-krds-component="snackbar" data-krds-part="action" data-krds-state="" :disabled="message.actionPending" @click="requestAction()">{{p.action?.label}}</button>
+<button type="button" data-krds-component="snackbar" data-krds-part="close" data-krds-state="" aria-label="알림 닫기" @click="close">닫기</button>
 </div>
 </template>

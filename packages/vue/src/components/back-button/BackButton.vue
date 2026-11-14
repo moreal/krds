@@ -54,6 +54,6 @@ async function fallback(event: MouseEvent) {
 }
 </script>
 <template>
-<a v-if="!canGoBack&&fallbackHref" data-krds-part="root" :href="fallbackHref" @click="fallback" :aria-disabled="pending||undefined" :data-krds-state="pending?'pending-confirmation':''" data-krds-component="back-button">{{label??'뒤로가기'}}</a>
-<button v-else type="button" data-krds-part="root" :data-krds-state="pending?'pending-confirmation':!canGoBack?'disabled':''" :disabled="!canGoBack" :aria-disabled="pending||undefined" @click="activate" data-krds-component="back-button">{{label??'뒤로가기'}}</button>
+<a v-if="!canGoBack&&fallbackHref" data-krds-part="root" :href="fallbackHref" @click="fallback" :aria-busy="pending||undefined" :data-krds-state="pending?'pending-confirmation':''" data-krds-component="back-button">{{label??'뒤로가기'}}</a>
+<button v-else type="button" data-krds-part="root" :data-krds-state="pending?'pending-confirmation':''" :disabled="!canGoBack" :aria-busy="pending||undefined" @click="activate" data-krds-component="back-button"><span data-krds-part="icon" aria-hidden="true" data-krds-component="back-button" data-krds-state="">←</span><span data-krds-part="label" data-krds-component="back-button" data-krds-state="">{{label??'뒤로가기'}}</span></button>
 </template>

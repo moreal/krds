@@ -6,4 +6,4 @@ import { owned, control, resetField, ignoredKey } from './catalog-state.svelte.j
 let p: BadgeContract  = $props();
 $effect(()=>{if(p.tone&&!['secondary','gray','point','danger','warning','success','information','disabled'].includes(p.tone))throw new TypeError('Unsupported badge tone');});
 </script>
-<span data-krds-size={p.size??'medium'} {...owned('badge','root',p.appearance??'outline',p.tone??'information',p.size??'medium',p.numeric&&'numeric')}>{p.label}</span>
+<span {...owned('badge','root',p.numeric&&'numeric')} data-krds-appearance={p.appearance??'outline'} data-krds-tone={p.tone??'secondary'} data-krds-size={p.size??'medium'}><span {...owned('badge','label')}>{p.label}</span></span>

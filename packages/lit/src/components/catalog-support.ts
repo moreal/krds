@@ -25,6 +25,8 @@ export function focusTarget(element: HTMLElement | null) {
     element.scrollIntoView({ block: 'nearest' });
     return true;
 }
+/** New-window links always carry noopener/noreferrer alongside the host rel. */
+export function safeRel(target?: string, rel?: string): string | undefined { return target === '_blank' ? [...new Set(`${rel ?? ''} noopener noreferrer`.trim().split(/\s+/))].join(' ') : rel || undefined; }
 export function integer(value: number, min: number, max: number, name: string) {
     if (!Number.isInteger(value) || value < min || value > max)
         throw new RangeError(`Invalid ${name}`);

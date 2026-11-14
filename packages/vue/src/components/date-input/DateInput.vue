@@ -61,13 +61,14 @@ const raw = ref<[
     string
 ]>(['', '']);
 const error = ref('');
-const announced = ref('');
+// Field index the current draft error belongs to; undefined marks every field.
+const errorField = ref<number | undefined>();
 const composing = ref(false);
 const popup = ref(false);
 const root = ref<HTMLElement>();
 const fields = ref<HTMLInputElement[]>([]);
 const calendar = ref<InstanceType<typeof Calendar>>();
-function display() { const [a, b] = ends(committed.value); raw.value = [a ?? '', b ?? '']; error.value = ''; announced.value = ''; validity(); }
+function display() { const [a, b] = ends(committed.value); raw.value = [a ?? '', b ?? '']; error.value = ''; errorField.value = undefined; validity(); }
 watch(committed, display, { deep: true, immediate: true });
 watch(() => p.mode, () => { if (p.mode !== firstMode)
     throw new TypeError('DateInput mode is immutable'); });
@@ -104,9 +105,7 @@ function notify(value: DateValue) { if (equal(value, committed.value))
     return; if (!controlled.value)
     local.value = copy(value); emit('update:modelValue', copy(value)); emit('valueChange', { value: copy(value) }); }
 async function commit() { if (p.disabled || composing.value)
-    return false; const result = parsed(); error.value = result.error; if (result.error) {
-    if (announced.value !== result.error)
-        announced.value = result.error;
+    return false; const result = parsed(); error.value = result.error; errorField.value = result.index; if (result.error) {
     validity();
     return false;
 } const next = result.value!; notify(next); await nextTick(); const accepted = equal(next, committed.value); display(); return accepted; }
@@ -140,7 +139,7 @@ function submit(event: Event) {
   if (result.error || result.value === undefined) {
     event.preventDefault();
     error.value = result.error;
-    announced.value = result.error;
+    errorField.value = result.index;
     validity();
     fields.value[result.index ?? 0]?.reportValidity();
     return;
@@ -157,7 +156,7 @@ function submit(event: Event) {
 function beforeInvalid() { if (!composing.value) {
     const result = parsed();
     error.value = result.error;
-    announced.value = result.error;
+    errorField.value = result.index;
 } }
 let ownerDocument: Document | null = null;
 onMounted(() => {
@@ -173,40 +172,36 @@ onUnmounted(() => {
   for (const timer of pendingResets) clearTimeout(timer);
   pendingResets.clear();
 });
-const described = computed(() => `${id}-hint${error.value || p.error || slots.error ? ` ${id}-error` : ''}`);
-const bad = computed(() => !!error.value || !!p.error || !!slots.error || p.invalid);
+const bad = computed(() => !!error.value || !!p.error || !!slots.error || !!p.invalid);
+const described = computed(() => `${id}-hint${bad.value ? ` ${id}-error` : ''}`);
+function fieldBad(index: number) { return !!p.invalid || !!p.error || !!slots.error || !!error.value && (errorField.value === undefined || errorField.value === index); }
 const canonical = computed(() => ends(committed.value));
 </script>
 <template>
-<div ref="root" data-krds-component="date-input" data-krds-part="root" :dir="context.direction.value" :data-krds-state="[disabled?'disabled':'',bad?'invalid':''].filter(Boolean).join(' ')" @focusout="blur">
-<component :is="range?'fieldset':'div'" :disabled="range?disabled:undefined" style="border:0;padding:0;margin:0;min-width:0;width:100%">
-<legend v-if="range" data-krds-component="date-input" data-krds-part="label">
+<component :is="range?'fieldset':'div'" ref="root" data-krds-component="date-input" data-krds-part="root" :dir="context.direction.value" :data-krds-state="[disabled?'disabled':'',bad?'invalid':''].filter(Boolean).join(' ')" @focusout="blur">
+<legend v-if="range" :id="`${id}-label`" data-krds-component="date-input" data-krds-part="label" data-krds-state="">
 <slot name="label">{{label}}</slot>
 </legend>
-<label v-else :for="`${id}-input`" data-krds-component="date-input" data-krds-part="label">
+<label v-else :for="`${id}-input`" data-krds-component="date-input" data-krds-part="label" data-krds-state="">
 <slot name="label">{{label}}</slot>
 </label>
-<div style="display:flex;flex-wrap:wrap;gap:var(--krds-gap-2);align-items:end">
-<div v-for="index in range?[0,1]:[0]" :key="index" style="display:grid;grid-template-columns:minmax(0,1fr);min-inline-size:0;max-inline-size:100%;gap:var(--krds-gap-2)">
-<label v-if="range" :for="`${id}-${index}`">{{index===0?words.startLabel:words.endLabel}}</label>
-<input :id="range?`${id}-${index}`:`${id}-input`" :ref="(el)=>{if(el)fields[index]=el as HTMLInputElement}" type="text" inputmode="numeric" :data-krds-state="[disabled?'disabled':'',bad?'invalid':''].filter(Boolean).join(' ')" data-krds-component="date-input" :data-krds-part="range?(index===0?'start-input':'end-input'):'control'" :value="raw[index]" :form="p.form" :autocomplete="autocomplete" :required="required" :disabled="disabled" placeholder="YYYY-MM-DD" :aria-describedby="described" :aria-invalid="bad||undefined" @input="change(index,$event)" @keydown="key" @compositionstart="composing=true" @compositionend="compositionEnd(index,$event)" @invalid="beforeInvalid" />
-</div>
-<button v-if="withCalendar" :id="`${id}-trigger`" type="button" data-krds-component="date-input" data-krds-part="trigger" :data-krds-state="popup?'open':'closed'" :disabled="disabled" aria-haspopup="dialog" :aria-expanded="popup" :aria-controls="`${id}-popup`" :aria-label="range&&label?`${label} ${words.openCalendar}`:words.openCalendar" @click="open">{{words.openCalendar}}</button>
-</div>
-</component>
+<template v-for="index in range?[0,1]:[0]" :key="index">
+<label v-if="range" :for="`${id}-${index}`" data-krds-component="date-input" data-krds-part="label" data-krds-state="">{{index===0?words.startLabel:words.endLabel}}</label>
+<input :id="range?`${id}-${index}`:`${id}-input`" :ref="(el)=>{if(el)fields[index]=el as HTMLInputElement}" type="text" inputmode="numeric" :data-krds-state="[disabled?'disabled':'',fieldBad(index)?'invalid':''].filter(Boolean).join(' ')" data-krds-component="date-input" :data-krds-part="range?(index===0?'start-input':'end-input'):'control'" :value="raw[index]" :form="p.form" :autocomplete="autocomplete" :required="required" :disabled="disabled" placeholder="YYYY-MM-DD" :aria-describedby="described" :aria-invalid="fieldBad(index)?'true':undefined" @input="change(index,$event)" @keydown="key" @compositionstart="composing=true" @compositionend="compositionEnd(index,$event)" @invalid="beforeInvalid" />
+</template>
+<button v-if="withCalendar" :id="`${id}-trigger`" type="button" data-krds-component="date-input" data-krds-part="trigger" :data-krds-state="popup?'open':'closed'" :disabled="disabled" aria-haspopup="dialog" :aria-expanded="popup" :aria-controls="`${id}-popup`" :aria-label="range?undefined:words.openCalendar" :aria-labelledby="range?`${id}-label ${id}-trigger-label`:undefined" @click="open"><span :id="`${id}-trigger-label`">{{words.openCalendar}}</span></button>
+<span :id="`${id}-hint`" data-krds-component="date-input" data-krds-part="hint" data-krds-state="">
+<slot name="hint">{{hint??words.formatHint}}</slot>
+</span>
+<span :id="`${id}-error`" role="status" aria-live="polite" aria-atomic="true" data-krds-component="date-input" data-krds-part="error" data-krds-state="">
+<slot name="error">{{error||p.error}}</slot>
+</span>
 <template v-if="name">
 <input :ref="(el)=>{if(el)canonicalInputs[0]=el as HTMLInputElement}" type="hidden" :name="range?`${name}.start`:name" :value="canonical[0]??''" :form="p.form" :disabled="disabled" />
 <input v-if="range" :ref="(el)=>{if(el)canonicalInputs[1]=el as HTMLInputElement}" type="hidden" :name="`${name}.end`" :value="canonical[1]??''" :form="p.form" :disabled="disabled" />
 </template>
-<div :id="`${id}-hint`" data-krds-component="date-input" data-krds-part="hint">
-<slot name="hint">{{hint??words.formatHint}}</slot>
-</div>
-<div v-if="error||p.error||$slots.error" :id="`${id}-error`" data-krds-component="date-input" data-krds-part="error">
-<slot name="error">{{error||p.error}}</slot>
-</div>
-<div role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">{{announced}}</div>
 <Modal :id="`${id}-popup`" :open="popup" :title="words.calendarTitle" :return-focus-id="`${id}-trigger`" @open-change="popup=$event.open">
 <Calendar ref="calendar" :mode="mode" :value="committed" :required="required" :disabled="disabled" :min="min" :max="max" :locale="locale" :translations="calendarTranslations" :reference-date="referenceDate" :today="today" @confirm="confirmed" @cancel="popup=false" />
 </Modal>
-</div>
+</component>
 </template>

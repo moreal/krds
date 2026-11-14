@@ -6,4 +6,4 @@ import { owned, control, resetField, ignoredKey } from './catalog-state.svelte.j
 let p: CriticalAlertContract  = $props();
 
 </script>
-<header {...owned('critical-alert','root',p.urgency)}><span aria-hidden="true" {...owned('critical-alert','icon')}>!</span><h1 {...owned('critical-alert','label',p.urgency)}>{p.label}</h1><p {...owned('critical-alert','message')}>{p.message}</p>{#if p.details}<a {...owned('critical-alert','details')} href={p.details.href}>{p.details.label}</a>{/if}</header>
+<section {...owned('critical-alert','root')} data-krds-urgency={p.urgency} role="banner" aria-label={p.label}><span {...owned('critical-alert','icon')} aria-hidden="true">!</span><strong {...owned('critical-alert','label')}>{p.label}</strong><p {...owned('critical-alert','message')}>{p.message}</p>{#if p.details}<a {...owned('critical-alert','link')} href={p.details.href} title={p.details.destinationTitle}>{p.details.label}</a>{/if}</section>

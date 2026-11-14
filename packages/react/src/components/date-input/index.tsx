@@ -5,7 +5,6 @@ import { parseIsoDate } from '@unofficial-krds/contracts';
 import { useKrdsEnvironment, type KrdsLocale } from '../../providers/index.js';
 import { Calendar, type CalendarTranslations } from '../calendar/index.js';
 import { clone, configuration, dictionary, empty, equal, notify, pair, text, validate, type DateModeProps, type DateValue } from '../calendar/model.js';
-import { Modal } from '../modal/index.js';
 export interface DateInputTranslations { startLabel: string; endLabel: string; formatHint: string; openCalendar: string; calendarTitle: string; requiredError: string; formatError: string; incompleteRangeError: string; orderError: string; minError: string; maxError: string; }
 export type DateInputProps = DateModeProps & { label: ReactNode; id?: string; name?: string; required?: boolean; disabled?: boolean; form?: string; autoComplete?: string; min?: string; max?: string; referenceDate?: string; today?: string; locale?: KrdsLocale; translations?: Partial<DateInputTranslations>; calendarTranslations?: Partial<CalendarTranslations>; withCalendar?: boolean; hint?: ReactNode; error?: ReactNode; invalid?: boolean; };
 function translations(locale: KrdsLocale, overrides?: Partial<DateInputTranslations>) {
@@ -48,6 +47,23 @@ export function DateInput(props: DateInputProps) {
   useLayoutEffect(() => { if (key !== previous.current) { previous.current = key; replace(committed); } });
   useLayoutEffect(() => { validity(raw.current); });
   useLayoutEffect(() => { if (props.disabled) setOpen(false); }, [props.disabled]);
+  // The calendar popup is a native modal dialog: the platform owns the top layer, isolation and the focus trap.
+  const popup = useRef<HTMLDialogElement>(null); const popupShown = useRef(false);
+  useLayoutEffect(() => {
+    const dialog = popup.current; const shownNow = open && !props.disabled;
+    if (shownNow && dialog) {
+      if (!dialog.open) dialog.showModal();
+      if (!popupShown.current) {
+        const selected = dialog.querySelector<HTMLButtonElement>('button[data-date][aria-pressed="true"]:not(:disabled)');
+        const first = dialog.querySelector<HTMLButtonElement>('button[data-date]:not(:disabled):not([data-krds-state~="outside-month"])');
+        (selected ?? first ?? dialog.querySelector<HTMLButtonElement>('button:not(:disabled)') ?? dialog).focus();
+      }
+    } else if (popupShown.current) {
+      const doc = root.current?.ownerDocument; const trigger = doc?.getElementById(`${id}-trigger`);
+      if (trigger && !trigger.matches(':disabled')) trigger.focus();
+    }
+    popupShown.current = shownNow;
+  }, [open, props.disabled]);
   const commitValue = (next: DateValue): boolean => {
     if (controlled) {
       if (!equal(next, current.current) && (!pending.current || !equal(next, pending.current.value))) {
@@ -91,34 +107,41 @@ export function DateInput(props: DateInputProps) {
     return () => { form.removeEventListener('reset', reset); form.removeEventListener('submit', submit, true); };
   });
   const invalid = !!error || !!props.invalid || props.error != null; const describedBy = `${id}-hint${invalid ? ` ${id}-error` : ''}`;
-  const attrs = (part: string) => ({ 'data-krds-component': 'date-input', 'data-krds-part': part });
-  const field = (index: number) => <input {...attrs(range ? index ? 'end-input' : 'start-input' : 'control')} ref={node => { inputs.current[index] = node; }} id={`${id}-${index}`} type="text" inputMode="numeric" placeholder="YYYY-MM-DD" autoComplete={props.autoComplete} form={props.form} required={props.required} disabled={props.disabled} value={draft[index]} aria-describedby={describedBy} aria-invalid={invalid || undefined} data-krds-state={[invalid && 'invalid', props.disabled && 'disabled'].filter(Boolean).join(' ') || undefined}
+  const attrs = (part: string, state = '') => ({ 'data-krds-component': 'date-input', 'data-krds-part': part, 'data-krds-state': state });
+  const token = [props.disabled && 'disabled', invalid && 'invalid'].filter(Boolean).join(' ');
+  const Root = (range ? 'fieldset' : 'div') as 'fieldset';
+  const shown = open && !props.disabled;
+  const field = (index: number) => <input {...attrs(range ? index ? 'end-input' : 'start-input' : 'control')} ref={node => { inputs.current[index] = node; }} id={`${id}-${index}`} type="text" inputMode="numeric" placeholder="YYYY-MM-DD" autoComplete={props.autoComplete} form={props.form} required={props.required} disabled={props.disabled} value={draft[index]} aria-describedby={describedBy} aria-invalid={invalid || undefined} data-krds-state={token}
     onChange={event => { pending.current = null; const next = [...raw.current] as [string, string]; next[index] = event.currentTarget.value; raw.current = next; setDraft(next); validity(next); }}
     onCompositionStart={() => { pending.current = null; composing.current = true; inputs.current.forEach(input => input?.setCustomValidity('')); }}
     onCompositionEnd={event => { composing.current = false; const next = [...raw.current] as [string, string]; next[index] = event.currentTarget.value; raw.current = next; setDraft(next); }}
     onInvalid={() => { if (!composing.current) setError(validation(raw.current).error); }}
     onKeyDown={event => { if (event.key === 'Enter' && !composing.current && !event.nativeEvent.isComposing && event.keyCode !== 229) { event.preventDefault(); commit(); } }} />;
   const dateMode = range ? { mode: 'range' as const, value: committed as { start: string | null; end: string | null } } : { mode: 'single' as const, value: committed as string | null };
-  return <fieldset {...attrs('root')} ref={root} dir={env.direction} lang={locale} disabled={props.disabled} onBlur={event => { if (composing.current || open) return; const next = event.relatedTarget as Node | null; if (!next || !root.current?.contains(next)) commit(); }}>
-    {range ? <legend {...attrs('label')}>{props.label}</legend> : <label {...attrs('label')} htmlFor={`${id}-0`}>{props.label}</label>}
-    {range && <label htmlFor={`${id}-0`}>{t.startLabel}</label>}{field(0)}
-    {range && <><label htmlFor={`${id}-1`}>{t.endLabel}</label>{field(1)}</>}
-    {props.name && (range ? [0, 1] : [0]).map(index => <input key={index} type="hidden" name={range ? `${props.name}.${index ? 'end' : 'start'}` : props.name} value={pair(committed)[index] ?? ''} disabled={props.disabled} form={props.form} />)}
-    {props.withCalendar !== false && <button {...attrs('trigger')} id={`${id}-trigger`} type="button" disabled={props.disabled} aria-haspopup="dialog" aria-expanded={open} aria-controls={`${id}-popup`} onPointerDown={event => event.preventDefault()} onClick={() => { if (!props.disabled && !composing.current) { inputs.current[0]?.ownerDocument.getElementById(`${id}-trigger`)?.focus(); setOpen(true); } }}>{t.openCalendar}</button>}
-    <div {...attrs('hint')} id={`${id}-hint`}>{props.hint ?? t.formatHint}</div>
-    <div {...attrs('error')} id={`${id}-error`} role="status" aria-live="polite">{error || props.error}</div>
-    <Modal locale={locale} contentAttributes={{ 'data-krds-component': 'date-input', 'data-krds-part': 'popup', style: { height: 'fit-content' } }} open={open && !props.disabled} id={`${id}-popup`} title={t.calendarTitle} returnFocusId={`${id}-trigger`} onOpenChange={({ open }) => setOpen(open)} onEntryFocus={dialog => {
-      const selected = dialog.querySelector<HTMLButtonElement>('button[data-date][aria-pressed="true"]:not(:disabled)');
-      const first = dialog.querySelector<HTMLButtonElement>('button[data-date]:not(:disabled):not([data-krds-state~="outside-month"])');
-      (selected ?? first ?? dialog.querySelector<HTMLButtonElement>('button:not(:disabled)') ?? dialog).focus();
+  return <Root {...attrs('root', token)} ref={root} dir={env.direction} lang={locale} disabled={range ? props.disabled : undefined} onBlur={event => { if (composing.current || open) return; const next = event.relatedTarget as Node | null; if (!next || !root.current?.contains(next)) commit(); }}>
+    {range ? <legend {...attrs('label')} id={`${id}-label`}>{props.label}</legend> : <label {...attrs('label')} htmlFor={`${id}-0`}>{props.label}</label>}
+    {range && <label {...attrs('label')} htmlFor={`${id}-0`}>{t.startLabel}</label>}{field(0)}
+    {range && <><label {...attrs('label')} htmlFor={`${id}-1`}>{t.endLabel}</label>{field(1)}</>}
+    {props.withCalendar !== false && <button {...attrs('trigger', open ? 'open' : 'closed')} id={`${id}-trigger`} type="button" disabled={props.disabled} aria-label={range ? undefined : t.openCalendar} aria-labelledby={range ? `${id}-label ${id}-trigger-label` : undefined} aria-haspopup="dialog" aria-expanded={open} aria-controls={`${id}-popup`} onPointerDown={event => event.preventDefault()} onClick={() => { if (!props.disabled && !composing.current) { inputs.current[0]?.ownerDocument.getElementById(`${id}-trigger`)?.focus(); setOpen(true); } }}><span id={`${id}-trigger-label`}>{t.openCalendar}</span></button>}
+    <span {...attrs('hint')} id={`${id}-hint`}>{props.hint ?? t.formatHint}</span>
+    <span {...attrs('error')} id={`${id}-error`} role="status" aria-live="polite" aria-atomic="true">{error || props.error}</span>
+    <input type="hidden" name={props.name ? range ? `${props.name}.start` : props.name : undefined} value={pair(committed)[0] ?? ''} disabled={props.disabled} form={props.form} />
+    {range && <input type="hidden" name={props.name ? `${props.name}.end` : undefined} value={pair(committed)[1] ?? ''} disabled={props.disabled} form={props.form} />}
+    {shown && <dialog {...attrs('popup', 'open')} ref={popup} id={`${id}-popup`} aria-modal="true" aria-labelledby={`${id}-popup-title`} tabIndex={-1} onCancel={event => { event.preventDefault(); if (!composing.current) setOpen(false); }} onClose={() => setOpen(false)} onKeyDown={event => {
+      // The native popup owns Escape; an enclosing layer must not also process it.
+      if (event.key !== 'Escape' || event.defaultPrevented) return;
+      event.preventDefault(); event.stopPropagation();
+      if (!composing.current && !event.nativeEvent.isComposing && event.keyCode !== 229) setOpen(false);
     }}>
-      {open && <Calendar {...dateMode} min={props.min} max={props.max} referenceDate={props.referenceDate} today={props.today} locale={locale} translations={{ ...props.calendarTranslations, startLabel: t.startLabel, endLabel: t.endLabel }} required={props.required} onConfirm={({ value }) => {
+      <h2 id={`${id}-popup-title`}>{t.calendarTitle}</h2>
+      <Calendar {...dateMode} label={t.calendarTitle} min={props.min} max={props.max} referenceDate={props.referenceDate} today={props.today} locale={locale} translations={{ ...props.calendarTranslations, startLabel: t.startLabel, endLabel: t.endLabel }} required={props.required} onConfirm={({ value }) => {
         // Confirm is a new deliberate action, unlike a following blur/submit phase.
         // It supersedes an earlier rejected intent, including a retry of that value.
         pending.current = null;
         commitValue(value);
         setOpen(false);
-      }} onCancel={() => setOpen(false)} />}
-    </Modal>
-  </fieldset>;
+      }} onCancel={() => setOpen(false)} />
+      <button type="button" onClick={() => setOpen(false)}>{locale === 'en-US' ? 'Close' : '닫기'}</button>
+    </dialog>}
+  </Root>;
 }
