@@ -9,6 +9,8 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 test('Tooltip with touchToggle still opens on mouse hover and on keyboard focus, and a touch tap toggles it', async () => {
   const tooltip = document.createElement('krds-tooltip') as Host;
   Object.assign(tooltip, { touchToggle: true, text: '설명', triggerLabel: '정보', triggerId: 'touch-hover-trigger', textId: 'touch-hover-text' });
+  // Kept away from where earlier test files left the real pointer, so only the dispatched pointer events count.
+  Object.assign(tooltip.style, { position: 'fixed', right: '0', bottom: '0' });
   document.body.append(tooltip); cleanup.push(() => tooltip.remove());
   await tooltip.updateComplete;
   const root = tooltip.shadowRoot!.querySelector<HTMLElement>('[data-krds-part="root"]')!, trigger = tooltip.shadowRoot!.querySelector('button')!, popup = tooltip.shadowRoot!.querySelector<HTMLElement>('[role="tooltip"]')!;
