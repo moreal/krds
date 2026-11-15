@@ -1,4 +1,4 @@
-import {catalogBrowserRuntime} from './catalog-browser-runtime.mjs';
+import {catalogBrowserRuntime,requiresNativeVisibility} from './catalog-browser-runtime.mjs';
 import {createComponentEventEvidence} from './catalog-event-evidence.mjs';
 import {attachComponentEventEvidence} from './catalog-evidence-attachment.mjs';
 import {installCatalogExposureTracking,pauseClockNow,clockManagedDriver} from './catalog-timing.mjs';
@@ -11,7 +11,9 @@ const framework=process.env.KRDS_FRAMEWORK as FrameworkId;
 const origin=process.env.KRDS_FIXTURE_ORIGIN!;
 if(!framework || !origin || process.env.KRDS_TEST_MODE!=='catalog') throw new Error('Use explicit test:contract --catalog with a selected native built fixture');
 const manifest=JSON.parse(readFileSync(new URL('../../catalog/full-catalog-scenarios.json',import.meta.url),'utf8'));
-const cases=manifest.cases.filter((item:{componentId:string;caseId:string})=>(!process.env.KRDS_COMPONENT || item.componentId===process.env.KRDS_COMPONENT)&&(!process.env.KRDS_CASE || item.caseId===process.env.KRDS_CASE));
+const cases=manifest.cases.filter((item:{componentId:string;caseId:string})=>(!process.env.KRDS_COMPONENT || item.componentId===process.env.KRDS_COMPONENT)&&(!process.env.KRDS_CASE || item.caseId===process.env.KRDS_CASE)
+  // These open a visible browser window to observe real document visibility. Everyday CI (--automated) has no display and must not take a developer's focus, so it leaves them to the strict run.
+  &&!(process.env.KRDS_SKIP_NATIVE_VISIBILITY==='1'&&requiresNativeVisibility(item)));
 if(!cases.length)throw new Error('No required catalog scenarios selected');
 for(const fixture of cases) test.describe(fixture.expectedOutcome,()=>{
   if(fixture.componentId==='tooltip' && fixture.caseId==='outcome-05') test.use({hasTouch:true});

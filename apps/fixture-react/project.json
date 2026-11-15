@@ -53,7 +53,7 @@
     "contract": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/yarn.mjs test:contract --framework react"
+        "command": "node tools/yarn.mjs test:contract --framework react && node tools/yarn.mjs test:contract --framework react --catalog --automated"
       },
       "cache": false,
       "dependsOn": [

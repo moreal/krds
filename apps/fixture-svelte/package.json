@@ -8,7 +8,7 @@
     "lint": "node ../../tools/check-workspace.mjs",
     "typecheck": "svelte-check --tsconfig ./tsconfig.json",
     "build:local": "vite build",
-    "contract": "node ../../tools/yarn.mjs test:contract --framework svelte",
+    "contract": "node ../../tools/yarn.mjs test:contract --framework svelte && node ../../tools/yarn.mjs test:contract --framework svelte --catalog --automated",
     "siheom": "node ../../tools/yarn.mjs test:siheom --framework svelte",
     "siheom:local": "vitest run --config vitest.config.ts",
     "docs-preview:local": "vite build --config vite.docs-preview.config.ts"

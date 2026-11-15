@@ -22,3 +22,7 @@
 [data-krds-component="language-switcher"][data-krds-part="option"] a { color: inherit; text-decoration: none; }
 /* Text language names remain visible; no national flags or synthesized destinations. */
 [data-krds-component="language-switcher"][data-krds-part="list"][data-krds-state~="closed"] { display: none; }
+/* Two-language link type (component_10_01 L905): there is no trigger, so the links are the control itself and stay in the
+ * flow instead of taking the dropdown box, which is end-aligned to a root that has no width without a trigger. */
+[data-krds-component="language-switcher"][data-krds-part="root"]:not(:has([data-krds-part="trigger"])) [data-krds-part="list"] { position: static; flex-direction: row; align-items: center; gap: var(--krds-gap-2); min-inline-size: 0; max-block-size: none; overflow: visible; margin: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+[data-krds-component="language-switcher"][data-krds-part="root"]:not(:has([data-krds-part="trigger"])) [data-krds-part="option"] { inline-size: auto; min-block-size: 0; padding: var(--krds-number-2) var(--krds-padding-1); background: none; font-size: var(--krds-pc-font-size-label-medium); }

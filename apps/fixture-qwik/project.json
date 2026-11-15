@@ -58,7 +58,7 @@
     "contract": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/yarn.mjs test:contract --framework qwik"
+        "command": "node tools/yarn.mjs test:contract --framework qwik && node tools/yarn.mjs test:contract --framework qwik --catalog --automated"
       },
       "cache": false,
       "dependsOn": [

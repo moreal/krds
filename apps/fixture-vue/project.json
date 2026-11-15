@@ -48,7 +48,7 @@
     "contract": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/yarn.mjs test:contract --framework vue"
+        "command": "node tools/yarn.mjs test:contract --framework vue && node tools/yarn.mjs test:contract --framework vue --catalog --automated"
       },
       "cache": false,
       "dependsOn": [

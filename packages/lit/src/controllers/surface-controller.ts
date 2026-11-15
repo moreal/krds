@@ -44,7 +44,9 @@ export class SurfaceController implements ReactiveController {
             this.close(!open);
         this.dialog = dialog;
         if (open && dialog && !this.active) {
-            this.opener = deepActive(this.host.ownerDocument) as HTMLElement | null;
+            // With nothing focused the active element is the body: no control opened the surface, so the fallbacks decide.
+            const active = deepActive(this.host.ownerDocument);
+            this.opener = active instanceof HTMLElement && active !== this.host.ownerDocument.body ? active : null;
             this.modal = modal;
             this.active = true;
             const preferred = this.options.preferredReturn?.();

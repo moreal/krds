@@ -6,6 +6,8 @@ export function selectOptions(args, kind) {
     const arg=args[index];
     if (arg==='--probe') options.probe=true;
     else if (arg==='--catalog' && ['contract','story'].includes(kind)) options.catalog=true;
+    // Everyday CI: scenarios that need a person's eyes are reported but do not fail the run. Release evidence never passes this.
+    else if (arg==='--automated' && kind==='contract') options.automated=true;
     else if (arg==='--case' && ['contract','story'].includes(kind)) {
       const value=args[++index]; if (!value || value.startsWith('--')) throw new Error('Missing value for --case'); options.caseId=value;
     }
@@ -28,5 +30,6 @@ export function selectOptions(args, kind) {
   if (options.probe && options.component && options.component!=='__probe') throw new Error('--probe cannot select canonical components');
   if(options.catalog && options.probe) throw new Error('--catalog cannot select probes');
   if(options.caseId && !options.catalog) throw new Error('--case requires explicit --catalog mode');
+  if(options.automated && !options.catalog) throw new Error('--automated requires explicit --catalog mode');
   return options;
 }

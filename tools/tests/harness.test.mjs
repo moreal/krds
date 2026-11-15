@@ -11,6 +11,9 @@ test('CLI selects exactly requested frameworks and rejects empty/unsupported sel
   assert.equal(cli.selectOptions(['--all-stable'],'story').frameworks.length,7);
   assert.equal(cli.selectOptions(['--supported'],'siheom').frameworks.length,6);
   assert.throws(()=>cli.selectOptions(['--framework','bogus'],'contract'), /Unknown framework/);
+  assert.equal(cli.selectOptions(['--framework','react','--catalog','--automated'],'contract').automated,true);
+  assert.throws(()=>cli.selectOptions(['--framework','react','--automated'],'contract'), /--automated requires explicit --catalog mode/);
+  assert.throws(()=>cli.selectOptions(['--framework','react','--catalog','--automated'],'story'), /Unknown option/);
   assert.throws(()=>cli.selectOptions([],'contract'), /Select/);
   assert.throws(()=>cli.selectOptions(['--framework','lit'],'siheom'), /unsupported/);
   assert.throws(()=>cli.selectOptions(['--framework','react','--wat'],'contract'), /Unknown option/);

@@ -48,7 +48,7 @@
     "contract": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node tools/yarn.mjs test:contract --framework solid"
+        "command": "node tools/yarn.mjs test:contract --framework solid && node tools/yarn.mjs test:contract --framework solid --catalog --automated"
       },
       "cache": false,
       "dependsOn": [
