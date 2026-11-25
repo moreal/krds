@@ -47,6 +47,22 @@ test('FileUpload routes a host aria-label (no visible label) to the group name, 
   expect(input.ariaLabelledByElements ?? null).toBeNull();
 });
 
+// Each record as [element, enclosing list, error text, remove name, elements after an HTML parse of the record].
+const fileRecords = (root: ParentNode) => [...root.querySelectorAll<HTMLElement>('[data-krds-component="file-upload"][data-krds-part="item"]')].map(item => { const parsed = document.createElement('div'); parsed.innerHTML = item.outerHTML; return [item.tagName, item.closest('ul, ol')?.tagName ?? null, item.querySelector('[data-krds-part="error"]')?.textContent ?? null, item.querySelector('[data-krds-part="remove"]')?.getAttribute('aria-label'), parsed.childElementCount]; });
+const a = new File(['a'], 'a.txt', { type: 'text/plain' }), b = new File(['b'], 'b.txt', { type: 'text/plain' });
+test('FileUpload groups a single file record in a paragraph and multiple records in a list (component_09_04 L1150-1151)', async () => {
+  const single = await mount('krds-file-upload', { label: '첨부 서류', name: 'one', files: [{ id: 'a', file: a, status: 'error', error: '전송 실패' }] });
+  const multiple = await mount('krds-file-upload', { label: '첨부 서류', name: 'many', multiple: true, files: [{ id: 'a', file: a, status: 'staged' }, { id: 'b', file: b, status: 'staged' }] });
+  expect(fileRecords(single.root)).toEqual([['P', null, '전송 실패', 'a.txt 삭제', 1]]);
+  expect(fileRecords(multiple.root)).toEqual([['LI', 'UL', null, 'a.txt 삭제', 1], ['LI', 'UL', null, 'b.txt 삭제', 1]]);
+});
+
+test('FileUpload counter shows the uploaded count against the maxFiles total (component_09_04 L894)', async () => {
+  const limited = await mount('krds-file-upload', { label: '첨부 서류', name: 'limited', multiple: true, maxFiles: 3, files: [{ id: 'a', file: a, status: 'staged' }] });
+  const open = await mount('krds-file-upload', { label: '첨부 서류', name: 'open', multiple: true, files: [{ id: 'a', file: a, status: 'staged' }] });
+  expect([limited.root, open.root].map(root => root.querySelector('[data-krds-part="count"]')?.textContent)).toEqual(['1 / 3개', '1개']);
+});
+
 test('TutorialPanel inner controls carry shared tab/start/step parts', async () => {
   const { root } = await mount('krds-tutorial-panel', { tasks, activeTaskId: 'apply', activeStepId: 'two', startActionId: 'tutorial-start', defaultOpen: true });
   const part = (name: string) => [...root.querySelectorAll<HTMLElement>(`[data-krds-component="tutorial-panel"][data-krds-part="${name}"]`)];

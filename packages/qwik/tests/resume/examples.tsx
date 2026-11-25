@@ -14,6 +14,7 @@ import { Toast } from '../../src/components/toast';
 import { Snackbar } from '../../src/components/snackbar';
 import { Tooltip } from '../../src/components/tooltip';
 import { MainMenu } from '../../src/components/main-menu';
+import { LanguageSwitcher } from '../../src/components/language-switcher';
 
 /** Local-only resumability fixtures: SSR-rendered, paused, then resumed by qwikloader in a real browser. */
 const items = [{ id: 'a', label: '신청 안내', content: '첫 번째 신청 안내' }, { id: 'b', label: '서류 안내', content: '두 번째 서류 안내' }, { id: 'c', label: '문의 안내', content: '세 번째 문의 안내' }];
@@ -21,6 +22,8 @@ export const CarouselResume = component$(() => {
   const requests = useSignal(0);
   return <><Carousel items={items} defaultIndex={0} layout="single" autoplay={true} intervalMs={6000} loop={false} onPlayingChange$={() => { requests.value++; }}/><p id="requests">{requests.value}</p></>;
 });
+const fourItems = [...items, { id: 'd', label: '결과 안내', content: '네 번째 결과 안내' }];
+export const CarouselMultipleResume = component$(() => <Carousel items={fourItems} defaultIndex={0} layout="multiple" loop={false}/>);
 
 const tasks = [{ id: 'apply', title: '신청하기', steps: [{ id: 'name', title: '신청인 이름', instruction: '이름을 입력하세요', targetId: 'applicant-name' }, { id: 'save', title: '신청 저장', instruction: '저장을 누르세요', targetId: 'save-application' }] }];
 export const TutorialPanelResume = component$(() => {
@@ -87,6 +90,8 @@ export const LatentNavResume = component$(() => <>
   <section id="overview"><h2>개요</h2></section><section id="details"><h2>세부</h2></section>
 </>);
 export const LatentMenuResume = component$(() => <MainMenu items={[{ id: 'apply', label: '신청', children: [{ id: 'apply-new', label: '새 신청', children: [{ id: 'docs', label: '서류 안내', children: [{ id: 'docs-a', label: '서류 가', href: '#a' }] }, { id: 'contact', label: '문의 안내', children: [{ id: 'contact-a', label: '문의 가', href: '#c' }] }] }] }, { id: 'help', label: '도움', href: '#help' }]} defaultExpandedId={null} defaultMobileOpen={true}/>);
+const languages = [{ locale: 'ko', nativeLabel: '한국어', translatedLabel: '한국어', href: '#ko' }, { locale: 'en', nativeLabel: 'English', translatedLabel: '영어', href: '#en' }];
+export const LanguageResume = component$(() => <><LanguageSwitcher currentLocale="ko" options={languages}/><LanguageSwitcher currentLocale="ko" options={[...languages, { locale: 'ja', nativeLabel: '日本語', translatedLabel: '일본어', href: '#ja' }]}/></>);
 
 /** Controlled fields whose host also writes values from outside, and can lock (reject every request). */
 export const HostDrivenResume = component$(() => {
@@ -143,6 +148,19 @@ export const SnackbarInlineResume = component$(() => {
   return <>
     <button id="snackbar-next" type="button" onClick$={() => { step.value++; }}>알림 바꾸기</button>
     <Snackbar message={{ id: 'inline', title: inlineTexts[step.value % 3], text: `본문 ${step.value % 3}` }} durationMs={null} onDismiss$={() => {}}/>
+  </>;
+});
+
+/** Timed Toast and Snackbar whose host sets a non-finite duration after resume (NaN cannot cross serialization). */
+export const NotificationDurationResume = component$(() => {
+  const duration = useSignal(600000), toasts = useSignal(0), snackbars = useSignal(0);
+  return <>
+    <button id="duration-nan" type="button" onClick$={() => { duration.value = Number.NaN; }}>NaN</button>
+    <button id="duration-infinity" type="button" onClick$={() => { duration.value = Number.POSITIVE_INFINITY; }}>Infinity</button>
+    <Toast message={{ id: 'duration', text: '시간 안내', tone: 'information', persistentResultId: 'duration-result' }} durationMs={duration.value} onDismiss$={() => { toasts.value++; }}/>
+    <Snackbar message={{ id: 'duration', title: '시간 안내', text: '시간 본문' }} durationMs={duration.value} onDismiss$={() => { snackbars.value++; }}/>
+    <p id="duration-result">결과</p>
+    <p id="duration-dismissals">{`${toasts.value}|${snackbars.value}`}</p>
   </>;
 });
 

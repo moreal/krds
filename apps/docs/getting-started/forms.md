@@ -1,8 +1,8 @@
 # 폼과 제어 상태 {#forms-and-controlled-state}
 
-컴포넌트는 각 프레임워크의 방식 그대로 씁니다. props, 이벤트, 폼 연동 방법은 프레임워크마다 다릅니다. 값과 변경 콜백의 뜻은 모든 프레임워크에서 같습니다. 이 글은 그 공통 규칙을 설명합니다.
+값과 변경 콜백의 뜻은 모든 프레임워크에서 같습니다. 콜백을 받는 문법만 프레임워크를 따릅니다. 문법은 [프레임워크별 콘텐츠와 이벤트](../compatibility/#native-content-and-event-transport)에 있습니다.
 
-## 상태 소유자는 하나만 {#pick-one-state-owner}
+## 제어와 비제어 중 하나만 {#pick-one-state-owner}
 
 상태는 부모가 관리하거나(제어) 컴포넌트가 관리합니다(비제어). 둘 중 하나만 고릅니다.
 
@@ -11,7 +11,7 @@
 - 제어 값과 기본값을 함께 넘기지 않습니다.
 - 마운트한 뒤에는 제어와 비제어를 바꾸지 않습니다.
 
-변경 콜백은 값을 바꿔 달라는 요청입니다. 제어 상태에서는 부모가 요청을 받아들이지 않을 수 있고, 그러면 화면도 바뀌지 않습니다.
+변경 콜백은 값을 바꿔 달라는 요청입니다. 제어 상태에서 부모가 요청을 받아들이지 않으면 화면도 바뀌지 않습니다.
 
 변경 콜백은 사용자가 값을 바꿀 때만 호출됩니다. 다음 경우에는 호출되지 않습니다.
 
@@ -22,31 +22,31 @@
 
 폼을 리셋하면 비제어 컴포넌트는 처음 값으로 돌아갑니다. 제어 컴포넌트는 부모의 값을 그대로 따릅니다. 리셋이 취소되면 아무것도 바뀌지 않습니다.
 
-## 실제 값 제출 {#submit-real-values}
+## 폼 제출 값 {#submit-real-values}
 
-[버튼(Button)](../components/button)의 기본값은 `type="button"`입니다. 폼을 제출하거나 리셋하는 버튼에는 `submit`이나 `reset`을 직접 지정합니다.
+[Button](../components/button)의 기본값은 `type="button"`입니다. 폼을 제출하거나 리셋하는 버튼에는 `submit`이나 `reset`을 직접 지정합니다.
 
 - 이름이 있는 제출 버튼은 네이티브 폼과 같은 방식으로 동작합니다.
 - 비활성 버튼은 아무것도 제출하지 않고 동작 콜백도 실행하지 않습니다.
 - 중복 제출 방지는 애플리케이션이 처리합니다.
 
-[셀렉트(NativeSelect)](../components/native-select)는 네이티브 select/option을 씁니다. 제출되는 값은 option의 문자열 값입니다. 화면에 보이는 레이블은 제출 데이터가 아닙니다.
+[Select](../components/native-select)(`NativeSelect`)는 네이티브 `<select>`와 `<option>`을 씁니다. 제출되는 값은 option의 문자열 값입니다. 화면에 보이는 레이블은 제출 데이터가 아닙니다.
 
-프레임워크에 따라 더 확인할 것이 있습니다.
+프레임워크에 따라 더 알아 둘 것이 있습니다.
 
-- **Lit**: Shadow DOM 안의 input은 바깥 폼에 자동으로 참여하지 않습니다. 폼에 넣을 컴포넌트가 폼 연관 커스텀 엘리먼트(`ElementInternals`)를 어떻게 지원하는지 먼저 확인합니다.
-- **Angular**: 폼 컨트롤은 문서화된 CVA 경로로 연결합니다. touched, disabled, reset은 Angular 폼의 동작을 그대로 따릅니다.
+- **Lit**: Button과 입력 컨트롤(`NativeSelect`, `DateInput`, `RadioGroup`, `Checkbox`, `Switch`, `TextInput`, `Textarea`, `RangeSlider`, `QuantityToggle`, `FileUpload`)은 폼 연관 커스텀 요소입니다. `name`을 주면 바깥 `<form>`에 값이 들어갑니다.
+- **Angular**: 입력 컨트롤은 `ControlValueAccessor`를 구현합니다. `formControl`이나 `ngModel`로 연결하고, `@unofficial-krds/angular/forms`에서 한꺼번에 가져올 수 있습니다. touched, disabled, reset은 Angular 폼의 동작을 그대로 따릅니다.
 
 ## 날짜 초안 보존 {#preserve-a-date-draft}
 
-[날짜 입력 필드(DateInput)](../components/date-input)는 사용자가 입력 중인 텍스트와 확정된 날짜 값을 따로 보관합니다.
+[Date input](../components/date-input)은 사용자가 입력 중인 텍스트와 확정된 날짜 값을 따로 보관합니다.
 
 - 잘못된 텍스트도 지우지 않으므로 사용자가 이어서 고칠 수 있습니다.
 - IME 조합 중에는 값을 확정하지 않습니다.
 - 날짜 범위는 `.start`와 `.end` 항목을 각각 한 번씩 제출합니다.
 - 화면에 보이는 검증 상태와 확정된 값은 서로 다른 상태입니다.
 
-[달력(Calendar)](../components/calendar)에서 고른 날짜는 임시 선택입니다. 확인을 누르면 바뀐 값을 확정하고, 취소를 누르면 임시 선택을 버립니다. Calendar만으로는 폼 값이 생기지 않고 모달처럼 동작하지도 않습니다. 팝업으로 여는 동작은 DateInput이 담당합니다.
+[Calendar](../components/calendar)에서 고른 날짜는 임시 선택입니다. 확인을 누르면 바뀐 값을 확정하고, 취소를 누르면 임시 선택을 버립니다. Calendar만으로는 폼 값이 생기지 않고 모달처럼 동작하지도 않습니다. 팝업으로 여는 동작은 Date input이 담당합니다.
 
 ## 내용과 오류 {#content-and-errors}
 
@@ -56,4 +56,4 @@
 - 잘못된 입력을 색상만으로 표시하지 않습니다.
 - 네이티브 이벤트와 같은 일을 하는 이벤트를 따로 만들어 중복시키지 않습니다. Enter나 Space로 활성화하면 알림은 한 번만 갑니다.
 
-정확한 이벤트, 기본값, 구조, 키보드 규칙은 각 [컴포넌트 참조](../components/)에서 확인합니다.
+정확한 이벤트, 기본값, 구조, 키보드 규칙은 각 [컴포넌트 페이지](../components/)에 있습니다.

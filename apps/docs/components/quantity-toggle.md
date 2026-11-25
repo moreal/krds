@@ -6,6 +6,8 @@ title: 'Quantity toggle'
 
 **수량 토글** — 버튼으로 수량을 하나씩 늘리거나 줄이게 합니다.
 
+`QuantityToggle` · `@unofficial-krds/<프레임워크>/quantity-toggle` · CSS `@unofficial-krds/styles/quantity-toggle.css`
+
 ## 사용법 {#usage}
 
 - 증명서 발급 부수나 관람 인원처럼 대부분의 사용자가 비슷한 값을 고르는 수량을, 키보드 입력 없이 버튼으로 조정하게 할 때 씁니다.
@@ -33,37 +35,13 @@ title: 'Quantity toggle'
 | `step` | `number` | `1` | 버튼을 한 번 누를 때 바뀌는 크기입니다. `min`부터 `max`까지 `step` 간격으로 나눈 값이 11개를 넘을 수 없습니다. |
 | `unit` | `string` | — | 수량 뒤에 붙여 보여 줄 단위입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface QuantityToggleContract extends ControlledValue<number>, FieldContract {
-    min?: number;
-    max?: number;
-    step?: number;
-    unit?: string;
-}
-
-export interface ControlledValue<T> {
-    value?: T;
-    defaultValue?: T;
-    onValueChange?: (detail: ValueChangeDetails<T>) => void;
-}
-
 export interface ValueChangeDetails<T> {
     value: T;
-}
-
-export interface FieldContract {
-    id?: string;
-    name?: string;
-    label: string;
-    disabled?: boolean;
-    required?: boolean;
-    invalid?: boolean;
-    helpId?: string;
-    errorId?: string;
 }
 ```
 
@@ -90,7 +68,7 @@ export interface FieldContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/quantity-toggle.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -108,5 +86,4 @@ export interface FieldContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_04.html)
-- [상세 명세](/sources/specs/components/quantity-toggle.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

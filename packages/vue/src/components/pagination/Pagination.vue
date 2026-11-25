@@ -62,7 +62,7 @@ watch(() => p.loadMore?.shown, async (value, old) => {
 <ol data-krds-component="pagination" data-krds-part="list" data-krds-state="">
 <li v-for="page in pages" :key="page" data-krds-component="pagination" data-krds-part="item" data-krds-state="">
 <span v-if="typeof page==='string'" data-krds-component="pagination" data-krds-part="ellipsis" data-krds-state="">…</span>
-<a v-else data-krds-component="pagination" data-krds-part="link" :data-krds-state="page===state.value.value?'current':''" :href="page===state.value.value?undefined:hrefForPage(page)" :tabindex="page===state.value.value?-1:undefined" :aria-current="page===state.value.value?'page':undefined">{{page}}</a>
+<a v-else data-krds-component="pagination" data-krds-part="link" :data-krds-state="page===state.value.value?'current':''" :href="page===state.value.value?undefined:hrefForPage(page)" :tabindex="page===state.value.value?-1:undefined" :aria-current="page===state.value.value?'page':undefined" :aria-label="page===state.value.value?undefined:page===pageCount?`마지막 페이지, ${page}`:`페이지 ${page}`">{{page}}</a>
 </li>
 </ol>
 <a v-if="state.value.value<pageCount" data-krds-component="pagination" data-krds-part="next" data-krds-state="" :href="hrefForPage(state.value.value+1)" rel="next">다음</a>

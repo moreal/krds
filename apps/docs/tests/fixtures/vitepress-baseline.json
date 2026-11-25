@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "producer": "pre-migration VitePress 1.6.4 dist at 5c8633289609c843e25cd2badd9e67efa1112bcf",
   "recordedAt": "2026-11-01",
-  "pagesNote": "Page paths and heading IDs were revised on 2026-11-15: one example page per framework, and component pages without the repeated example and transport sections.",
+  "pagesNote": "Page paths and heading IDs were revised on 2026-11-15: one example page per framework, and component pages without the repeated example and transport sections. Revised on 2026-11-25: the contributor testing page left the site, and the installation page became a step-by-step guide with CSS and locale steps.",
   "pages": [
     {
       "path": "404.html",
@@ -739,9 +739,10 @@
       "headingIds": [
         "로컬에서-시작하기",
         "도구와-의존성-설치",
+        "로컬-패키지-파일-검사",
+        "import-css",
         "vue-컴포넌트로-첫-화면-만들기",
-        "문서와-로컬-미리보기",
-        "로컬-패키지-파일-검사"
+        "set-the-locale"
       ]
     },
     {
@@ -769,15 +770,6 @@
         "customize-tokens-at-the-application-boundary",
         "load-fonts-only-when-wanted",
         "lit-shadow-dom"
-      ]
-    },
-    {
-      "path": "getting-started/testing.html",
-      "headingIds": [
-        "stories-and-behavior-tests",
-        "keep-stories-deterministic",
-        "read-raw-results",
-        "parallel-native-ci"
       ]
     },
     {

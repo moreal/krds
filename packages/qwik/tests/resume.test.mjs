@@ -38,8 +38,8 @@ before(async () => {
 });
 after(async () => { await browser?.close(); await new Promise(done => server ? server.close(done) : done()); if (out) await rm(out, { recursive: true, force: true }); });
 
-async function open(id, { clock = false, reducedMotion = 'reduce' } = {}) {
-  const context = await browser.newContext({ locale: 'ko-KR', reducedMotion, viewport: { width: 1000, height: 800 } }), page = await context.newPage(), errors = [];
+async function open(id, { clock = false, reducedMotion = 'reduce', width = 1000 } = {}) {
+  const context = await browser.newContext({ locale: 'ko-KR', reducedMotion, viewport: { width, height: 800 } }), page = await context.newPage(), errors = [];
   page.on('pageerror', error => errors.push(String(error))); page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   if (clock) await page.clock.install();
   const response = await page.goto(`${origin}/${id}.html`);
@@ -74,6 +74,21 @@ test('Carousel: after a timer advance, focus entry pauses with a 재생 label, l
     await poll(position, '3 / 3', 'position keeps updating after resumed advance');
     await new Promise(done => setTimeout(done, 100));
     assert.equal(await requests(), '0', 'still no same-intent callback after resumed advancement');
+    assert.deepEqual(errors, []);
+  } finally { await close(); }
+});
+
+// KRDS component_04_09 L951: the multiple layout shows two or more whole items; L1232-1234: the rest stay hidden and inert.
+test('Carousel: the multiple layout keeps two slides exposed from the first to the last position', async () => {
+  const { page, errors, close } = await open('carousel-multiple', { width: 1280 });
+  try {
+    const exposure = () => page.locator('[data-krds-component="carousel"][data-krds-part="slide"]').evaluateAll(slides => slides.map(slide => !slide.hidden && !slide.inert ? 'on' : slide.hidden && slide.inert ? 'off' : 'partial').join(' '));
+    await poll(exposure, 'on on off off', 'first position after resume');
+    const next = page.getByRole('button', { name: '다음 슬라이드', exact: true });
+    await next.click();
+    await poll(exposure, 'off on on off', 'second position');
+    await next.click(); await next.click();
+    await poll(exposure, 'off off on on', 'last position keeps a partner slide');
     assert.deepEqual(errors, []);
   } finally { await close(); }
 });
@@ -355,6 +370,31 @@ test('latent: MainMenu drill title follows every drill after resume', async () =
     assert.deepEqual(errors, []);
   } finally { await close(); }
 });
+// KRDS component_03_02 L1303–1306: clicking the screen outside the menu collapses an open desktop dropdown.
+test('MainMenu: a desktop dropdown closes on a click outside the menu and stays open for a click inside it', async () => {
+  const { page, errors, close } = await open('latent-menu');
+  try {
+    const nav = page.locator('[data-krds-component="main-menu"][data-krds-part="root"]'), top = nav.getByRole('button', { name: '신청', exact: true }), inner = nav.getByRole('button', { name: '새 신청', exact: true });
+    await top.click();
+    await poll(() => top.getAttribute('aria-expanded'), 'true', 'opened');
+    await inner.click();
+    await poll(() => inner.getAttribute('aria-expanded'), 'true', 'inner branch opened');
+    assert.equal(await top.getAttribute('aria-expanded'), 'true', 'a click inside keeps the dropdown open');
+    await page.mouse.click(990, 790);
+    await poll(() => top.getAttribute('aria-expanded'), 'false', 'a click outside closes the dropdown');
+    assert.deepEqual(errors, []);
+  } finally { await close(); }
+});
+// KRDS component_10_01 L920–921, L934–935: two languages link only to the other one; the dropdown trigger leads with a globe.
+test('LanguageSwitcher: two languages link only to the other language and the dropdown trigger leads with a decorative globe', async () => {
+  const { page, errors, close } = await open('language');
+  try {
+    const roots = page.locator('[data-krds-component="language-switcher"][data-krds-part="root"]');
+    assert.deepEqual(await roots.nth(0).locator('a').evaluateAll(links => links.map(link => [link.textContent, link.lang])), [['English', 'en']]);
+    assert.deepEqual(await roots.nth(1).locator('[data-krds-part="trigger"]').evaluate(node => { const globe = node.firstElementChild; return [globe?.getAttribute('data-krds-part'), globe?.getAttribute('aria-hidden'), node.textContent]; }), ['globe', 'true', '언어: 한국어']);
+    assert.deepEqual(errors, []);
+  } finally { await close(); }
+});
 
 const field = (page, name, label) => page.locator(`[data-krds-component="${name}"][data-krds-part="root"]`).filter({ hasText: label }).locator('[data-krds-part="control"]');
 const hostState = page => page.locator('#host-state').textContent();
@@ -502,6 +542,19 @@ test('Snackbar: an inline object literal message updates without errors', async 
     assert.deepEqual(errors, []);
   } finally { await close(); }
 });
+
+for (const value of ['nan', 'infinity']) {
+  test(`Toast and Snackbar: a ${value} duration set after resume is rejected instead of dismissing at once`, async () => {
+    const { page, errors, close } = await open('notification-duration');
+    try {
+      await poll(() => part(page, 'snackbar', 'root').count(), 1, 'snackbar shown');
+      await page.locator(`#duration-${value}`).click();
+      await new Promise(done => setTimeout(done, 300));
+      assert.equal(await page.locator('#duration-dismissals').textContent(), '0|0', 'neither message is dismissed');
+      assert.ok(errors.some(error => error.includes('RangeError')), `a RangeError is reported: ${errors.join(' / ')}`);
+    } finally { await close(); }
+  });
+}
 
 for (const [engine, launcher, tab, back] of [['chromium', null, 'Tab', 'Shift+Tab'], ['webkit', webkit, 'Alt+Tab', 'Alt+Shift+Tab']]) {
   test(`Tooltip (${engine}): after an Escape dismissal, keyboard departure and re-entry reopen it`, async () => {

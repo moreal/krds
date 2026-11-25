@@ -8,8 +8,9 @@
 [data-krds-component="breadcrumb"][data-krds-part="link"], [data-krds-component="breadcrumb"][data-krds-part="home"] { display: inline-flex; align-items: center; gap: var(--krds-gap-2); padding: 0 var(--krds-padding-2); border-radius: var(--krds-radius-medium2); background: var(--krds-light-color-action-secondary); color: inherit; text-decoration: underline; text-underline-offset: .3rem; }
 [data-krds-component="breadcrumb"][data-krds-part="link"]:hover, [data-krds-component="breadcrumb"][data-krds-part="home"]:hover { background: var(--krds-light-color-action-secondary-hover); }
 [data-krds-component="breadcrumb"][data-krds-part="link"]:active, [data-krds-component="breadcrumb"][data-krds-part="home"]:active { background: var(--krds-light-color-action-secondary-pressed); }
-[data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"] { text-decoration: none; }
-[data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"]:hover, [data-krds-component="breadcrumb"][data-krds-part="link"][aria-current="page"]:active { background: var(--krds-light-color-action-secondary); }
+/* Official guide: a path item that is not a link (the current page, or an ancestor with no href) drops the underline and the hover effect. */
+[data-krds-component="breadcrumb"][data-krds-part="link"]:not(a) { text-decoration: none; }
+[data-krds-component="breadcrumb"][data-krds-part="link"]:not(a):hover, [data-krds-component="breadcrumb"][data-krds-part="link"]:not(a):active { background: var(--krds-light-color-action-secondary); }
 /* Frozen li:not(:last-child)::after (7564–7585): a small icon box (size-height-2) masked with ico_angle rotated -90deg. The asset is not copied: the separator's own glyph is hidden and the shared clip-path chevron fills the box. */
 [data-krds-component="breadcrumb"][data-krds-part="separator"] { flex: none; display: inline-block; inline-size: var(--krds-size-height-2); block-size: var(--krds-size-height-2); overflow: hidden; font-size: 0; background-color: currentColor; clip-path: polygon(18% 36%, 26% 28%, 50% 52%, 74% 28%, 82% 36%, 50% 68%); forced-color-adjust: none; transform: rotate(-90deg); }
 @media (forced-colors: active) { [data-krds-component="breadcrumb"][data-krds-part="separator"] { background-color: CanvasText; } }

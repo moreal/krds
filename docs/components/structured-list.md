@@ -6,6 +6,8 @@ title: 'Structured list'
 
 **구조화 목록** — 제목, 설명, 상태 같은 정보를 일정한 구조의 항목으로 나열합니다.
 
+`StructuredList` · `@unofficial-krds/<프레임워크>/structured-list` · CSS `@unofficial-krds/styles/structured-list.css`
+
 ## 사용법 {#usage}
 
 - 게시물이나 서비스 목록처럼 같은 구조를 가진 여러 항목을 보여 주면서, 항목별 이동 링크와 정렬, 선택 같은 기능을 함께 제공할 때 씁니다.
@@ -23,35 +25,11 @@ title: 'Structured list'
 | `selection` | `{ids: readonly string[]; onChange: (detail: {ids: readonly string[]}) => void}` | — | 넘기면 항목마다 선택 체크박스를 표시합니다. `ids`는 현재 선택된 항목이고, 사용자가 체크박스를 바꾸면 `onChange`가 새 `ids` 배열을 받아 불립니다. |
 | `sort` | `{key: string; direction: 'ascending' \| 'descending'; onChange: (detail: {key: string; direction: 'ascending' \| 'descending'}) => void}` | — | 넘기면 도구 막대에 현재 방향을 보여 주는 정렬 버튼을 표시합니다. `key`와 `direction`은 현재 정렬 상태이고, 버튼을 누르면 `onChange`가 같은 `key`와 반대 방향의 `direction`을 받아 불립니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface StructuredListContract {
-    items: readonly StructuredListItem[];
-    variant?: 'list' | 'table';
-    toolbar?: readonly {
-        id: string;
-        label: string;
-        disabled?: boolean;
-    }[];
-    selection?: {
-        ids: readonly string[];
-        onChange: (detail: {
-            ids: readonly string[];
-        }) => void;
-    };
-    sort?: {
-        key: string;
-        direction: 'ascending' | 'descending';
-        onChange: (detail: {
-            key: string;
-            direction: 'ascending' | 'descending';
-        }) => void;
-    };
-}
-
 /** Text is plain data. Rich native content uses adapter-owned slots keyed by item ID. */
 export interface StructuredListItem {
     id: string;
@@ -97,7 +75,7 @@ export interface LogoData {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/structured-list.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -122,5 +100,4 @@ export interface LogoData {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_01.html)
-- [상세 명세](/sources/specs/components/structured-list.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

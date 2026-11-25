@@ -39,7 +39,7 @@ export function TutorialPanel(props:TutorialPanelProps){
   </>;return <Dynamic component={narrow()?'div':'aside'} ref={setPanel} id={uid} {...owned('tutorial-panel','root',presentRunning()?'open running':'open idle')} data-krds-layout={narrow()?'narrow-modal':'desktop'} role={narrow()?'dialog':'complementary'} aria-modal={narrow()?'true':undefined} aria-labelledby={`${uid}-title`} tabIndex={-1}>{content}</Dynamic>;}
  return <TutorialCoordinator.Provider value={{requestStop:stop}}>
   <button ref={opener} type="button" {...owned('tutorial-panel','opener')} aria-expanded={open.read()} onClick={()=>open.request(!open.read())}>튜토리얼 열기</button>
-  <Show when={open.read()}><Portal><PanelSurface/></Portal></Show>
+  <Show when={open.read()}><Show when={narrow()} fallback={<PanelSurface/>}><Portal><PanelSurface/></Portal></Show></Show>
   {props.children}
  </TutorialCoordinator.Provider>;
 }

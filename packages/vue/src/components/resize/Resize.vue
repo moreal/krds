@@ -16,7 +16,9 @@ const emit = defineEmits<{
         }
     ];
 }>();
-const levels = computed(() => p.levels ?? [90, 100, 110, 130, 150].map(percent => ({ id: String(percent), label: `${percent}%`, percent })));
+// KRDS component_10_02 L896-905: the official five scales, each with its descriptive wording (L918).
+const defaults = [{ id: '90', label: '작게 90%', percent: 90 }, { id: '100', label: '보통 100%', percent: 100 }, { id: '110', label: '조금 크게 110%', percent: 110 }, { id: '130', label: '크게 130%', percent: 130 }, { id: '150', label: '가장 크게 150%', percent: 150 }];
+const levels = computed(() => p.levels ?? defaults);
 const state = useOwned(() => p.value, () => p.defaultValue, '100', value => emit('valueChange', { value }));
 const open = useOwned(() => p.open, () => p.defaultOpen, false, value => emit('openChange', { open: value }));
 const root = ref<HTMLElement>(), trigger = ref<HTMLButtonElement>(), list = ref<HTMLElement>(), id = useId();

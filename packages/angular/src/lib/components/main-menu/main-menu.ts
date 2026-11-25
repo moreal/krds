@@ -27,10 +27,14 @@ export class MainMenu implements OnInit,OnChanges,OnDestroy{
   if(this.pendingCollapse&&expanded===null){this.pendingCollapse=false;this.childrenOpen.set([]);}
   if(this.pendingParent&&expanded===null){if(!leavingContext){const target=this.document.getElementById(this.mobileTriggerId+'-trigger-'+this.pendingParent);this.pendingParent=null;if(usable(target))target.focus();}}
   else if(this.priorExpanded&&expanded!==this.priorExpanded&&this.focused&&!usable(this.focused)){const target=this.document.getElementById(this.mobileTriggerId+'-trigger-'+this.priorExpanded);if(usable(target))target.focus();}
-  this.priorExpanded=expanded;this.capture();});}
+  this.priorExpanded=expanded;this.capture();this.listenOutside(!this.narrow()&&expanded!==null);});}
  private capture():void{const active=this.document.activeElement as HTMLElement|null;if(active&&(this.element.contains(active)||this.layer?.element.contains(active)))this.focused=active;else if(usable(active)&&active!==this.document.body)this.focused=null;}
  ngOnInit():void{this.check();}ngOnChanges():void{this.capture();this.check();}private check():void{this.expandedState.initialize(this.expandedId,this.defaultExpandedId,null);this.mobileState.initialize(this.mobileOpen,this.defaultMobileOpen,false);}
- ngOnDestroy():void{this.media?.removeEventListener('change',this.resize);}
+ ngOnDestroy():void{this.media?.removeEventListener('change',this.resize);this.listenOutside(false);}
+ /** A desktop dropdown closes on a press outside the menu (component_03_02 L1303–1306). */
+ private outsideListening=false;
+ private readonly outside=(event:Event)=>{if(!this.element.contains(event.target as Node))this.expandedState.request(this.expandedId,null,id=>this.expandedChange.emit({id}));};
+ private listenOutside(listen:boolean):void{if(listen===this.outsideListening)return;this.outsideListening=listen;if(listen)this.document.addEventListener('pointerdown',this.outside);else this.document.removeEventListener('pointerdown',this.outside);}
  expanded():string|null{return this.expandedState.current(this.expandedId);}mobile():boolean{return this.mobileState.current(this.mobileOpen);}
  private find(id:string|null,nodes:readonly NavigationItem[]=this.items):NavigationItem|null{for(const item of nodes){if(item.id===id)return item;const child=this.find(id,item.children??[]);if(child)return child;}return null;}
  context():NavigationItem|null{return this.contextId()===null?null:this.find(this.contextId());}

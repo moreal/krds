@@ -1,4 +1,4 @@
-import { component$, useSignal } from '@builder.io/qwik';
+import { component$, noSerialize, useSignal } from '@builder.io/qwik';
 import { FileUpload } from '../../src/components/file-upload';
 import { TutorialPanel } from '../../src/components/tutorial-panel';
 import { BottomSheet } from '../../src/components/bottom-sheet';
@@ -8,6 +8,15 @@ import { BackButton } from '../../src/components/back-button';
 /** Local-only anatomy fixtures: no API, CDN or external assets. */
 const tasks = [{ id: 'apply', title: '예제 신청하기', steps: [{ id: 'one', title: '이름 입력', targetId: 'applicant-name', instruction: '이름을 입력하세요' }, { id: 'two', title: '신청 저장', targetId: 'save-application', instruction: '저장하세요' }] }];
 export const FileUploadAnatomy = component$(() => <FileUpload label="첨부 서류" name="documents" files={[]} accept=".txt" onFilesChange$={() => {}}/>);
+/** Server-rendered File records; the File handle stays on the server (`noSerialize`), the record markup is what the browser parses. */
+const fileRecord = (id: string, extra: { status: 'staged' | 'error'; error?: string }) => ({ id, file: noSerialize(new File([id], `${id}.txt`, { type: 'text/plain' }))!, ...extra });
+export const FileUploadSingleRecordAnatomy = component$(() => <FileUpload label="첨부 서류" name="one" files={[fileRecord('a', { status: 'error', error: '전송 실패' })]} onFilesChange$={() => {}}/>);
+/** Host-controlled single uploader: a picked file is committed and rendered by the resumed client. */
+export const FileUploadPickedAnatomy = component$(() => {
+  const files = useSignal<{ id: string; file: File; status: 'staged' }[]>([]);
+  return <FileUpload label="첨부 서류" name="picked" files={files.value} onFilesChange$={detail => { files.value = detail.value as typeof files.value; }}/>;
+});
+export const FileUploadMultipleRecordsAnatomy = component$(() => <FileUpload label="첨부 서류" name="many" multiple files={[fileRecord('a', { status: 'staged' }), fileRecord('b', { status: 'staged' })]} onFilesChange$={() => {}}/>);
 export const TutorialPanelAnatomy = component$(() => <TutorialPanel tasks={tasks} activeTaskId="apply" activeStepId="two" defaultRunning={false} defaultOpen={true} defaultActivePanel="tutorial" startActionId="tutorial-start"/>);
 const multiTasks = [...tasks, { id: 'review', title: '신청 내역 확인', steps: [{ id: 'open', title: '내역 열기', targetId: 'history', instruction: '내역을 여세요' }] }];
 export const TutorialOverviewAnatomy = component$(() => <TutorialPanel tasks={multiTasks} activeTaskId={null} activeStepId={null} defaultRunning={false} defaultOpen={true} defaultActivePanel="tutorial" startActionId="overview-start"/>);

@@ -2,15 +2,15 @@
 
 서버 렌더링 지원 범위는 프레임워크마다 다릅니다. 브라우저용 빌드가 된다고 서버 import, 하이드레이션, resume까지 되는 것은 아닙니다. 배포 전에 쓰려는 프레임워크의 [호환성 안내](../compatibility/)를 읽습니다.
 
-## 문서가 생긴 뒤에 참조하기 {#resolve-the-document-when-it-exists}
+## 브라우저 객체는 마운트 뒤에 읽기 {#resolve-the-document-when-it-exists}
 
 - 모듈을 import하는 시점에 `window`, `document`, 레이아웃, 초점을 읽지 않습니다.
-- 문서가 필요하면 어댑터의 provider와 수명 주기 안에서 참조합니다.
+- iframe처럼 다른 문서에 렌더링하면 그 문서를 지정합니다. 프레임워크별 방법은 [로케일과 날짜 값](./locale-dates)에 있습니다.
 - 서버에서 렌더링할 때 ID, 로케일, 날짜 기준을 고정합니다. 그래야 첫 클라이언트 렌더링이 서버 결과와 어긋나지 않습니다.
 
-## 다이얼로그는 오버레이 이상입니다 {#a-dialog-is-more-than-an-overlay}
+## 모달이 갖추는 동작 {#a-dialog-is-more-than-an-overlay}
 
-열린 [모달(Modal)](../components/modal)은 다음을 갖춥니다.
+열린 [Modal](../components/modal)은 다음을 갖춥니다.
 
 - 접근 가능한 이름
 - 올바른 초기 초점
@@ -18,7 +18,7 @@
 - 초점 가두기와 배경 격리
 - 스크롤 상태 보존
 
-닫히거나 언마운트되면 초점은 모달을 연 요소로 돌아갑니다. 그 요소를 쓸 수 없으면 문서화된 대체 위치로 갑니다. 중첩된 모달이 닫힐 때는 그 모달이 건 inert와 스크롤 효과를 모두 풉니다.
+닫히거나 언마운트되면 초점은 모달을 연 요소로 돌아갑니다. 그 요소를 쓸 수 없으면 `returnFocusId`가 가리키는 요소로 갑니다. 중첩된 모달이 닫힐 때는 그 모달이 건 inert와 스크롤 효과를 모두 풉니다.
 
 포털 컨테이너에는 토큰 테마를 직접 적용합니다. 포털은 프레임워크 컨텍스트를 이어받아도 DOM에서는 여는 요소의 테마 범위 밖에 렌더링될 수 있습니다.
 
@@ -32,8 +32,8 @@
 
 ## 프레임워크 경계 {#framework-boundaries}
 
-- **Angular**: 공식 CLI/ng-packagr로 만든 부분 APF 패키지입니다. 실제 Angular 앱에서 컴파일과 SSR을 확인합니다.
+- **Angular**: 패키지는 Angular Package Format입니다. 실제 Angular 앱에서 컴파일과 SSR을 확인합니다.
 - **Lit**: Shadow DOM 밖의 ID로는 안쪽 컨트롤에 레이블을 붙일 수 없습니다. 하이드레이션도 따로 확인합니다.
-- **Solid**: Solid 1과 Solid 2 RC는 렌더러와 컴파일러가 분리되어 있습니다. 섞어 쓰지 않습니다.
+- **Solid**: Solid 1과 Solid 2는 렌더러와 컴파일러가 다릅니다. 한 앱에서 섞어 쓰지 않습니다.
 - **Svelte**: 패키지는 Svelte 소스를 담고 있습니다. 앱이 쓰는 Svelte 컴파일러로 컴파일합니다.
-- **Qwik**: 프로덕션 SSR은 resume을 위해 상태와 이벤트 참조를 직렬화합니다. 빌드한 서버 앱에서 첫 click, input, key 이벤트가 동작하는지 테스트합니다. Storybook이나 정적 HTML로는 resume을 확인할 수 없습니다. 모든 위젯을 eager로 불러오는 것은 해결책이 아닙니다.
+- **Qwik**: 프로덕션 SSR은 resume을 위해 상태와 이벤트 참조를 직렬화합니다. 빌드한 서버 앱에서 첫 click, input, key 이벤트가 동작하는지 테스트합니다. Storybook이나 정적 HTML로는 resume을 확인할 수 없습니다.

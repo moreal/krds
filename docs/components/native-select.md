@@ -6,6 +6,8 @@ title: 'Select'
 
 **셀렉트** — 펼침 목록에서 하나를 고르게 합니다.
 
+`NativeSelect` · `@unofficial-krds/<프레임워크>/native-select` · CSS `@unofficial-krds/styles/native-select.css`
+
 ## 사용법 {#usage}
 
 - 여러 선택지 가운데 하나를 고르게 할 때 씁니다. 브라우저와 운영체제가 제공하는 기본 선택 목록을 그대로 씁니다.
@@ -31,7 +33,7 @@ title: 'Select'
 | `required` | `boolean` | `false` | 필수 항목으로 만듭니다. 빈 값이 선택된 채로는 폼이 제출되지 않습니다. |
 | `disabled` | `boolean` | `false` | `true`이면 조작할 수 없고 폼 제출 값에서도 빠집니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -55,7 +57,7 @@ title: 'Select'
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/native-select.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -73,5 +75,4 @@ title: 'Select'
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_06_03.html)
-- [상세 명세](/sources/specs/components/native-select.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

@@ -39,6 +39,19 @@ test('FileUpload keeps one keyboard/AT file control: the visible picker opens th
   } finally { fixture.destroy(); (fixture.nativeElement as HTMLElement).remove(); before.remove(); }
 });
 
+// Each record as [element, enclosing list, error text, remove name, elements after an HTML parse of the record].
+const fileRecords = (root: ParentNode) => [...root.querySelectorAll<HTMLElement>('[data-krds-component="file-upload"][data-krds-part="item"]')].map(item => { const parsed = document.createElement('div'); parsed.innerHTML = item.outerHTML; return [item.tagName, item.closest('ul, ol')?.tagName ?? null, item.querySelector('[data-krds-part="error"]')?.textContent ?? null, item.querySelector('[data-krds-part="remove"]')?.getAttribute('aria-label'), parsed.childElementCount]; });
+test('FileUpload groups a single file record in a paragraph and multiple records in a list (component_09_04 L1150-1151)', async () => {
+  const a = new File(['a'], 'a.txt', { type: 'text/plain' }), b = new File(['b'], 'b.txt', { type: 'text/plain' });
+  const render = (inputs: Record<string, unknown>) => { const fixture = TestBed.createComponent(FileUpload); for (const [name, value] of Object.entries({ label: '첨부 서류', ...inputs })) fixture.componentRef.setInput(name, value); fixture.detectChanges(); document.body.append(fixture.nativeElement); return fixture; };
+  const single = render({ name: 'one', files: [{ id: 'a', file: a, status: 'error', error: '전송 실패' }] });
+  const multiple = render({ name: 'many', multiple: true, files: [{ id: 'a', file: a, status: 'staged' }, { id: 'b', file: b, status: 'staged' }] });
+  try {
+    expect(fileRecords(single.nativeElement)).toEqual([['P', null, '전송 실패', 'a.txt 삭제', 1]]);
+    expect(fileRecords(multiple.nativeElement)).toEqual([['LI', 'UL', null, 'a.txt 삭제', 1], ['LI', 'UL', null, 'b.txt 삭제', 1]]);
+  } finally { for (const fixture of [single, multiple]) { fixture.destroy(); (fixture.nativeElement as HTMLElement).remove(); } }
+});
+
 test('TutorialPanel inner controls carry shared tab/start/step parts', async () => {
   await page.viewport(1280, 800);
   const fixture = TestBed.createComponent(TutorialPanel);

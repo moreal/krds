@@ -6,6 +6,8 @@ title: 'Bottom sheet'
 
 **바텀시트** — 화면 아래에서 올라오는 패널에 보조 내용이나 선택지를 담습니다.
 
+`BottomSheet` · `@unofficial-krds/<프레임워크>/bottom-sheet` · CSS `@unofficial-krds/styles/bottom-sheet.css`
+
 ## 사용법 {#usage}
 
 - 현재 화면을 유지한 채 부가 정보나 세부 옵션을 잠깐 보여 주고 선택을 받을 때 씁니다.
@@ -27,25 +29,11 @@ title: 'Bottom sheet'
 | `returnFocusId` | `string` | — | 시트가 닫힌 뒤 시트를 연 요소로 초점을 돌려보낼 수 없을 때 대신 초점을 받을 요소의 `id`입니다. |
 | `dismissOnOutside` | `boolean` | `false` | `true`로 두면 시트 바깥을 눌러도 닫힙니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface BottomSheetContract {
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (detail: OpenChangeDetails & {
-        reason: 'close' | 'escape' | 'outside' | 'drag';
-    }) => void;
-    title: string;
-    description?: string;
-    onCancel?: () => void;
-    initialFocusId?: string;
-    returnFocusId?: string;
-    dismissOnOutside?: boolean;
-}
-
 export interface OpenChangeDetails {
     open: boolean;
 }
@@ -76,7 +64,7 @@ export interface OpenChangeDetails {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/bottom-sheet.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -97,5 +85,4 @@ export interface OpenChangeDetails {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_03.html)
-- [상세 명세](/sources/specs/components/bottom-sheet.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

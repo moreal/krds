@@ -82,6 +82,7 @@ export function parseDocument(markdown, sourcePath) {
  const outputPath=sourcePath.replace(/\.md$/,'.html');const route=docUrl('/'+outputPath,sourcePath);
  return {sourcePath,outputPath,route,title,lang:'ko-KR',blocks:parsed,headings,breadcrumbs:[],currentId:sourcePath};
 }
+const readingOrder={'getting-started':['getting-started/installation.md','getting-started/styling.md','getting-started/forms.md','getting-started/locale-dates.md','getting-started/ssr-portals.md']};
 /** Explicit section destinations, with historical checkpoints retained as children. */
 export function buildNavigation(pages) {
  const sections=[['getting-started','빠른 시작','getting-started/installation.md'],['components','컴포넌트','components/index.md'],['patterns','패턴','patterns/index.md'],['compatibility','호환성','compatibility/index.md'],['legal','출처와 권리','legal/index.md']];
@@ -89,7 +90,9 @@ export function buildNavigation(pages) {
   const members=pages.filter(page=>page.sourcePath?.startsWith(section+'/'));
   const first=members.find(page=>page.sourcePath===landing);
   if(!first)throw new Error(`Missing navigation landing page: ${landing}`);
-  const ordered=[first,...members.filter(page=>page!==first)];
+  // Reading order: the landing page, then a deliberate order where one is set, otherwise by the title the reader sees.
+  const rank=page=>{const index=(readingOrder[section]??[]).indexOf(page.sourcePath);return index<0?Infinity:index;};
+  const ordered=[first,...members.filter(page=>page!==first).sort((x,y)=>rank(x)-rank(y)||x.title.localeCompare(y.title,'en'))];
   if(ordered.length===1)return {id:first.currentId,label,href:first.route};
   return {id:section,label,href:first.route,children:ordered.map(page=>({id:page.currentId,label:page.title,href:page.route}))};
  });
@@ -101,7 +104,7 @@ export async function buildPages(root) {
  pages.push({sourcePath:null,outputPath:'404.html',route:'/krds/404.html',title:'페이지를 찾을 수 없습니다',lang:'ko-KR',blocks:[{type:'paragraph',children:[{type:'text',value:'요청한 페이지를 찾을 수 없습니다.'}]}],headings:[],breadcrumbs:[],currentId:'404'});
  pages.sort((a,b)=>a.outputPath.localeCompare(b.outputPath,'en'));
  const navigation=buildNavigation(pages);
- for(const page of pages){const section=page.sourcePath?.split('/')[0];const siblings=pages.filter(p=>p.sourcePath&&p.sourcePath.split('/')[0]===section);const index=siblings.indexOf(page);const nav=p=>({id:p.currentId,label:p.title,href:p.route});const group=navigation.find(item=>item.children?.some(child=>child.id===page.currentId));page.breadcrumbs=[{id:'home',label:'홈',href:'/krds/'},...(group?[{id:group.id,label:group.label,href:group.href}]:[])];if(index>0)page.previous=nav(siblings[index-1]);if(index>=0&&index<siblings.length-1)page.next=nav(siblings[index+1]);}
+ for(const page of pages){const group=navigation.find(item=>item.children?.some(child=>child.id===page.currentId));const siblings=group?.children??[];const index=siblings.findIndex(child=>child.id===page.currentId);const nav=p=>p;page.breadcrumbs=[{id:'home',label:'홈',href:'/krds/'},...(group?[{id:group.id,label:group.label,href:group.href}]:[])];if(index>0)page.previous=nav(siblings[index-1]);if(index>=0&&index<siblings.length-1)page.next=nav(siblings[index+1]);}
  return pages;
 }
 /** @returns {import('../src/content.ts').SearchRecord[]} */

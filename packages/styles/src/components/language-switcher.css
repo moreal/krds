@@ -17,6 +17,13 @@
 
 /* Frozen 11761–11763, 11785–11787: 20rem minimum menu width. Icons follow the 2.0rem medium icon size. */
 [data-krds-component="language-switcher"][data-krds-part="globe"], [data-krds-component="language-switcher"][data-krds-part="external-icon"] { flex: none; inline-size: var(--krds-size-height-3); block-size: var(--krds-size-height-3); }
+/* Dropdown globe (component_10_01 L920–921). The ico-global asset is not copied: an independently drawn ring with an
+ * equator and a meridian ellipse fills the icon box in the trigger's text color. */
+[data-krds-component="language-switcher"][data-krds-part="globe"] { position: relative; display: inline-block; forced-color-adjust: none; }
+[data-krds-component="language-switcher"][data-krds-part="globe"]::before, [data-krds-component="language-switcher"][data-krds-part="globe"]::after { content: ""; position: absolute; box-sizing: border-box; border: .15rem solid currentColor; border-radius: 50%; }
+[data-krds-component="language-switcher"][data-krds-part="globe"]::before { inset: .15rem; background: linear-gradient(currentColor, currentColor) center / 100% .15rem no-repeat; }
+[data-krds-component="language-switcher"][data-krds-part="globe"]::after { inset-block: .15rem; inset-inline: .6rem; }
+@media (forced-colors: active) { [data-krds-component="language-switcher"][data-krds-part="globe"]::before, [data-krds-component="language-switcher"][data-krds-part="globe"]::after { border-color: ButtonText; } [data-krds-component="language-switcher"][data-krds-part="globe"]::before { background-image: linear-gradient(ButtonText, ButtonText); } }
 [data-krds-component="language-switcher"][data-krds-part="current"] { font-weight: inherit; }
 /* A renderer may put the anchor inside the option row. */
 [data-krds-component="language-switcher"][data-krds-part="option"] a { color: inherit; text-decoration: none; }

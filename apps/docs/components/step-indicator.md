@@ -6,6 +6,8 @@ title: 'Step indicator'
 
 **단계 표시기** — 여러 단계로 이루어진 절차에서 현재 위치와 남은 단계를 보여 줍니다.
 
+`StepIndicator` · `@unofficial-krds/<프레임워크>/step-indicator` · CSS `@unofficial-krds/styles/step-indicator.css`
+
 ## 사용법 {#usage}
 
 - 여러 단계로 된 절차에서 사용자가 지나온 단계, 지금 단계, 남은 단계를 보여 줄 때 씁니다.
@@ -22,25 +24,7 @@ title: 'Step indicator'
 | `mode` | `'sequential' \| 'adaptive'` | `"sequential"` | `sequential`은 순서대로 진행하는 절차로, `href`가 있는 완료 단계만 링크가 됩니다. `adaptive`는 `href`가 있는 단계라면 상태와 관계없이 링크가 됩니다. |
 | `onStepRequest` | `(detail: {id: string}) => void` | — | 사용자가 링크로 표시된 단계를 누르면 불리고, 그 단계의 `id`를 받습니다. 넘기면 링크의 기본 이동을 막으므로, 단계 이동을 직접 처리할 때만 넘깁니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface StepIndicatorContract {
-    steps: readonly {
-        id: string;
-        label: string;
-        status: 'pending' | 'current' | 'complete';
-        href?: string;
-        optional?: boolean;
-    }[];
-    mode?: 'sequential' | 'adaptive';
-    onStepRequest?: (detail: {
-        id: string;
-    }) => void;
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -59,12 +43,13 @@ export interface StepIndicatorContract {
 ## 알아 둘 점 {#notes}
 
 - 각 단계의 `status`와 다음 단계로 넘어갈 수 있는지는 쓰는 쪽에서 정해 `steps`로 넘깁니다. 단계를 누르는 것만으로 그 단계의 입력이 끝난 것으로 처리되지는 않습니다.
-- 화면이 좁으면 단계 사이 간격을 줄이고, 한 줄에 다 들어가지 않는 단계는 다음 줄로 넘깁니다.
+- 화면이 좁으면 단계 레이블을 숨기고 '3단계 중 2단계'처럼 전체 단계 수와 현재 단계를 보여 줍니다. 화면 낭독기에는 모든 단계가 그대로 전달됩니다.
+- 좁은 화면에서 이동할 수 있는 단계는 그 단계의 원이 링크나 버튼이 되므로, 초점이 보이지 않는 곳에 놓이지 않습니다.
 - 단계가 3개보다 적거나 7개보다 많으면 오류를 냅니다.
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/step-indicator.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -84,5 +69,4 @@ export interface StepIndicatorContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_07_01.html)
-- [상세 명세](/sources/specs/components/step-indicator.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

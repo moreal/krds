@@ -6,10 +6,12 @@ title: 'Language switcher'
 
 **언어 변경** — 서비스를 다른 언어로 바꿔 보게 합니다.
 
+`LanguageSwitcher` · `@unofficial-krds/<프레임워크>/language-switcher` · CSS `@unofficial-krds/styles/language-switcher.css`
+
 ## 사용법 {#usage}
 
 - 서비스를 여러 언어로 제공할 때 표시 언어를 바꾸게 하려고 씁니다.
-- `options`가 두 개 이하면 드롭다운 없이 링크를 바로 보여 주고, 세 개 이상이면 드롭다운으로 묶습니다.
+- `options`가 두 개면 드롭다운 없이 현재 언어가 아닌 다른 언어의 링크 하나만 보여 주고, 세 개 이상이면 드롭다운으로 묶습니다.
 - 언어 이름은 그 언어로 적습니다. 한국어 화면에서는 'English', 영어 화면에서는 '한국어'처럼 표시합니다.
 - 국기나 `EN` 같은 언어 코드를 레이블로 쓰지 않습니다. 국가명은 국가에 따라 서비스가 달라질 때만 보조 정보로 덧붙입니다.
 - 전체 번역이 아닌 별도의 외국어 서비스로 연결하는 항목은 `separateService`를 `true`로 두어 새 창으로 엽니다.
@@ -25,26 +27,11 @@ title: 'Language switcher'
 | `options` **필수** | `readonly LanguageOption[]` | — | 선택할 수 있는 언어 목록입니다. 항목마다 `locale`, 그 언어로 적은 이름 `nativeLabel`, 현재 언어로 옮긴 이름 `translatedLabel`, 이동할 `href`를 넘깁니다. `separateService`가 `true`인 항목은 새 창으로 열고 '(새 창)'을 함께 표시합니다. |
 | `onLocaleRequest` | `(detail: {locale: string; href: string}) => void` | — | 넘기면 사용자가 언어를 골랐을 때 링크로 이동하는 대신 이 콜백을 부르고 `{locale, href}`를 넘깁니다. 페이지 이동 없이 앱에서 언어를 바꿀 때 씁니다. 새 창으로 여는 항목에서는 불리지 않습니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface LanguageSwitcherContract extends ControlledOpen {
-    currentLocale: string;
-    options: readonly LanguageOption[];
-    onLocaleRequest?: (detail: {
-        locale: string;
-        href: string;
-    }) => void;
-}
-
-export interface ControlledOpen {
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (detail: OpenChangeDetails) => void;
-}
-
 export interface OpenChangeDetails {
     open: boolean;
 }
@@ -71,6 +58,7 @@ export interface LanguageOption {
 
 - 각 선택지에 그 언어의 `lang`을 지정해 화면 낭독기가 알맞은 발음으로 읽습니다.
 - 전체를 '언어 선택'이라는 이름의 `nav` 영역으로 표시하고, 드롭다운 버튼에는 현재 언어 이름을 함께 보여 줍니다.
+- 드롭다운 버튼의 레이블 왼쪽에 지구본 아이콘을 표시해 언어를 바꾸는 버튼임을 알립니다. 아이콘은 장식이므로 화면 낭독기에서 숨깁니다.
 - 선택지마다 `translatedLabel`을 설명으로 연결하고, 새 창으로 열리는 선택지에는 '(새 창)'을 덧붙여 이동 방식을 미리 알립니다.
 - `nativeLabel`에는 언어 코드가 아닌 언어 이름을 그대로 적습니다.
 
@@ -83,7 +71,7 @@ export interface LanguageOption {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/language-switcher.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -102,5 +90,4 @@ export interface LanguageOption {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_10_01.html)
-- [상세 명세](/sources/specs/components/language-switcher.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

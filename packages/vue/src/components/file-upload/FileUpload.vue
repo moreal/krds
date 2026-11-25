@@ -124,16 +124,17 @@ onUnmounted(() => {
 <button type="button" data-krds-component="file-upload" data-krds-part="picker" data-krds-state="" :disabled="disabled" :id="`${id}-picker`" :aria-describedby="`${description?`${id}-description `:''}${id}-help${errors.length?` ${id}-errors`:''}`" @click="input?.click()">파일 선택</button>
 <div v-if="variant!=='button'" data-krds-part="dropzone" data-krds-state="" @dragover.prevent="!disabled&&(drag=true)" @dragleave="drag=false" @drop="drop" data-krds-component="file-upload">파일을 끌어 놓거나 파일 선택을 이용하세요.</div>
 <p data-krds-part="count" data-krds-component="file-upload" data-krds-state="">{{files.length}}{{maxFiles?` / ${maxFiles}`:''}}개</p>
-<ul data-krds-part="list" data-krds-component="file-upload" data-krds-state="">
-<li v-for="record in files" :key="record.id" data-krds-part="item" :data-krds-state="record.status" data-krds-component="file-upload">
+<!-- KRDS groups a single file record in a paragraph and multiple records in a list. -->
+<component :is="multiple?'ul':'div'" data-krds-part="list" data-krds-component="file-upload" data-krds-state="">
+<component :is="multiple?'li':'p'" v-for="record in files" :key="record.id" data-krds-part="item" :data-krds-state="record.status" data-krds-component="file-upload">
 <span :id="`${id}-${record.id}`" data-krds-part="filename" data-krds-component="file-upload" data-krds-state="">{{record.file.name}}</span>
 <span data-krds-part="size" data-krds-component="file-upload" data-krds-state="">{{record.file.size}} 바이트</span>
 <span data-krds-part="status" data-krds-state="" data-krds-component="file-upload">{{record.status==='uploading'?'업로드 중':record.status==='success'?'완료':record.status==='error'?'오류':'선택됨'}}</span>
 <progress v-if="record.status==='uploading'" data-krds-part="progress" max="100" :value="record.progress" aria-valuemin="0" aria-valuemax="100" :aria-valuenow="record.progress" :aria-label="`${record.file.name} 진행률`" data-krds-component="file-upload" data-krds-state=""/>
-<p v-if="record.error" data-krds-part="error" data-krds-component="file-upload" data-krds-state="">{{record.error}}</p>
+<span v-if="record.error" data-krds-part="error" data-krds-component="file-upload" data-krds-state="">{{record.error}}</span>
 <button type="button" data-krds-part="remove" :data-file-id="record.id" :disabled="disabled" :aria-label="`${record.file.name} 삭제`" :aria-describedby="`${id}-${record.id}`" @click="remove(record.id)" data-krds-component="file-upload" data-krds-state="">삭제</button>
-</li>
-</ul>
+</component>
+</component>
 <div v-if="errors.length" :id="`${id}-errors`">
 <p v-for="error in errors" :key="error" role="alert" data-krds-part="error" data-krds-component="file-upload" data-krds-state="">{{error}}</p>
 </div>

@@ -2,9 +2,11 @@ import {$,component$,useComputed$,useId,useSignal,useVisibleTask$}from '@builder
 import type{ResizeContract}from '@unofficial-krds/contracts';
 import{owned,useField,ignoredKey,type NativeContract}from '../../internal/catalog';
 export type ResizeProps=NativeContract<ResizeContract>;
+// KRDS component_10_02 L896-905: the official five scales, each with its descriptive wording (L918).
+const defaults=[{id:'90',label:'작게 90%',percent:90},{id:'100',label:'보통 100%',percent:100},{id:'110',label:'조금 크게 110%',percent:110},{id:'130',label:'크게 130%',percent:130},{id:'150',label:'가장 크게 150%',percent:150}];
 export const Resize=component$<ResizeProps>(props=>{
  const id=useId(),value=useField<string>(props,'value','defaultValue','100'),open=useField<boolean>(props,'open','defaultOpen',false),trigger=useSignal<HTMLButtonElement>(),root=useSignal<HTMLDivElement>(),seen=useSignal<string[]>([]);
- const levels=useComputed$(()=>props.levels??[90,100,110,130,150].map(percent=>({id:String(percent),label:`${percent}%`,percent})));
+ const levels=useComputed$(()=>props.levels??defaults);
  const change=$(async(next:string)=>{await value.request(next,()=>props.onValueChange$?.({value:next}));});
  const show=$(async(next:boolean,returnFocus=true)=>{await open.request(next,()=>props.onOpenChange$?.({open:next}));if(!open.value.value&&returnFocus)trigger.value?.focus();});
  const keyAction=$(async(key:string,token:string)=>{

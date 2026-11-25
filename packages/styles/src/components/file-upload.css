@@ -19,9 +19,9 @@
 [data-krds-component="file-upload"][data-krds-part="file-input"] { position: absolute !important; inline-size: 1px !important; block-size: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; font: inherit; }
 /* Frozen 2966–2969 (.file-list .total). */
 [data-krds-component="file-upload"][data-krds-part="count"] { margin: 0; padding: .3rem 0; font-weight: 700; font-variant-numeric: tabular-nums; }
-/* Frozen 2973–2999 (.upload-list, li, li.is-error). */
+/* Frozen 2973–2999 (.upload-list, li, li.is-error). A single file record is a p instead of an li (component_09_04 L1150-1151), so the item drops paragraph margins. */
 [data-krds-component="file-upload"][data-krds-part="list"] { display: flex; flex-direction: column; gap: var(--krds-gap-5); inline-size: 100%; padding: 0; margin: 0; list-style: none; }
-[data-krds-component="file-upload"][data-krds-part="item"] { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--krds-gap-5); row-gap: var(--krds-gap-3); padding: var(--krds-padding-6); border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-divider-gray-light); border-radius: var(--krds-radius-medium4); color: var(--krds-light-color-text-bolder); }
+[data-krds-component="file-upload"][data-krds-part="item"] { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--krds-gap-5); row-gap: var(--krds-gap-3); margin: 0; padding: var(--krds-padding-6); border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-divider-gray-light); border-radius: var(--krds-radius-medium4); color: var(--krds-light-color-text-bolder); }
 [data-krds-component="file-upload"][data-krds-part="item"][data-krds-state~="error"] { border: var(--krds-light-border-width-variable-medium) solid var(--krds-light-color-border-danger); background: var(--krds-light-color-surface-danger-subtler); }
 /* Frozen 3010–3022 (.file-name): takes the free width on one line. */
 [data-krds-component="file-upload"][data-krds-part="filename"] { flex: 1 1 12em; min-inline-size: 0; max-inline-size: 100%; overflow: hidden; white-space: nowrap; overflow-wrap: normal; text-overflow: ellipsis; }

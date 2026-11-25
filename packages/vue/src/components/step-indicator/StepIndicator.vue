@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import type { StepIndicatorContract } from '@unofficial-krds/contracts';
 const p = defineProps<StepIndicatorContract>();
+const current = computed(() => p.steps.findIndex(step => step.status === 'current') + 1);
 const emit = defineEmits<{
     stepRequest: [
         detail: {
@@ -10,7 +12,8 @@ const emit = defineEmits<{
 }>();
 </script>
 <template>
-<ol data-krds-component="step-indicator" data-krds-part="root" data-krds-state="" aria-label="진행 단계" :data-krds-mode="mode??'sequential'">
+<div data-krds-component="step-indicator" data-krds-part="root" data-krds-state="" :data-krds-mode="mode??'sequential'">
+<ol data-krds-component="step-indicator" data-krds-part="list" data-krds-state="" aria-label="진행 단계">
 <li v-for="(step,index) in steps" :key="step.id" data-krds-component="step-indicator" data-krds-part="item" :data-krds-state="step.status" :aria-current="step.status==='current'?'step':undefined">
 <span data-krds-component="step-indicator" data-krds-part="number" data-krds-state="">{{index+1}}</span>
 <a v-if="step.href&&(mode==='adaptive'||step.status==='complete')" data-krds-component="step-indicator" data-krds-part="label" data-krds-state="" :href="step.href">{{step.label}}</a>
@@ -19,4 +22,6 @@ const emit = defineEmits<{
 <span data-krds-component="step-indicator" :data-krds-part="step.status==='complete'?'complete-indicator':'current-indicator'" data-krds-state="">{{step.status==='complete'?'완료':step.status==='current'?'현재 단계':'예정'}}</span>
 </li>
 </ol>
+<p v-if="current>0" data-krds-component="step-indicator" data-krds-internal="summary">{{`${steps.length}단계 중 ${current}단계`}}</p>
+</div>
 </template>

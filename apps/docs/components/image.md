@@ -6,6 +6,8 @@ title: 'Image'
 
 **이미지** — 이미지를 대체 텍스트, 캡션과 함께 보여 줍니다.
 
+`Image` · `@unofficial-krds/<프레임워크>/image` · CSS `@unofficial-krds/styles/image.css`
+
 ## 사용법 {#usage}
 
 - 의료 정보, 서비스 이용 방법, 시설 위치처럼 글보다 그림이 정보를 더 잘 전달할 때 씁니다. 브랜드 인상을 주기 위한 장식 용도로도 쓸 수 있습니다.
@@ -28,24 +30,7 @@ title: 'Image'
 | `caption` | `string` | — | 이미지 아래에 표시할 캡션입니다. 넘기면 `figcaption`으로 표시합니다. |
 | `descriptionId` | `string` | — | 이미지를 자세히 설명하는 요소의 `id`입니다. 도표처럼 복잡한 이미지의 긴 설명을 이미지와 연결합니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface ImageContract {
-    src: string;
-    alt: string;
-    width?: number;
-    height?: number;
-    srcset?: string;
-    sizes?: string;
-    loading?: 'eager' | 'lazy';
-    decorative?: boolean;
-    caption?: string;
-    descriptionId?: string;
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 접근성 {#accessibility}
 
@@ -63,7 +48,7 @@ export interface ImageContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/image.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -79,5 +64,4 @@ export interface ImageContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_08.html)
-- [상세 명세](/sources/specs/components/image.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

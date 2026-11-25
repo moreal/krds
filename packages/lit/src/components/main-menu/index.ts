@@ -35,7 +35,7 @@ export class MainMenu extends KrdsElement {
     private queryComposing = false;
     private queryDraft = '';
     private branchReturn?: { expected: string | null; triggerId: string; initiator: Element | null };
-    private desktopBounds?: () => void;
+    private releaseDesktop?: () => void;
     readonly surface = new SurfaceController(this, {
         open: () => this.narrow && this.committedMobile,
         modal: () => true,
@@ -120,13 +120,13 @@ export class MainMenu extends KrdsElement {
     }
     override disconnectedCallback() {
         this.media?.removeEventListener('change', this.resize);
-        this.desktopBounds?.(); this.desktopBounds = undefined;
+        this.releaseDesktop?.(); this.releaseDesktop = undefined;
         this.branchReturn = undefined; super.disconnectedCallback();
     }
     override updated() {
         if (this.narrow || !this.committedExpanded) {
-            this.desktopBounds?.(); this.desktopBounds = undefined;
-        } else if (!this.desktopBounds) {
+            this.releaseDesktop?.(); this.releaseDesktop = undefined;
+        } else if (!this.releaseDesktop) {
             const root = this.renderRoot.querySelector<HTMLElement>('nav')!, window = this.ownerDocument.defaultView!;
             const bounds = () => {
                 const viewport = window.visualViewport;
@@ -134,12 +134,16 @@ export class MainMenu extends KrdsElement {
                 root.style.setProperty('--krds-main-menu-available-height', `${Math.max(0, bottom - root.getBoundingClientRect().bottom)}px`);
             };
             bounds();
+            // A desktop dropdown closes on a press outside the menu (component_03_02 L1303–1306).
+            const outside = (event: PointerEvent) => { if (!event.composedPath().includes(this)) this.expand(null); };
+            this.ownerDocument.addEventListener('pointerdown', outside);
             const observer = new ResizeObserver(bounds); observer.observe(root);
             window.addEventListener('resize', bounds);
             this.ownerDocument.addEventListener('scroll', bounds, true);
             window.visualViewport?.addEventListener('resize', bounds);
             window.visualViewport?.addEventListener('scroll', bounds);
-            this.desktopBounds = () => {
+            this.releaseDesktop = () => {
+                this.ownerDocument.removeEventListener('pointerdown', outside);
                 observer.disconnect(); root.style.removeProperty('--krds-main-menu-available-height');
                 window.removeEventListener('resize', bounds);
                 this.ownerDocument.removeEventListener('scroll', bounds, true);

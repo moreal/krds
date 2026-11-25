@@ -63,7 +63,8 @@ export async function usableFocus(page){expect(await page.evaluate(()=>{
 })).toBe(true);}
 export async function noInteractive(container){await expect(container.locator('a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])')).toHaveCount(0);}
 export async function insideViewport(page,locator){const bounds=await locator.boundingBox();expect(bounds).not.toBeNull();const size=page.viewportSize();expect(bounds.x).toBeGreaterThanOrEqual(0);expect(bounds.y).toBeGreaterThanOrEqual(0);expect(bounds.x+bounds.width).toBeLessThanOrEqual(size.width+1);expect(bounds.y+bounds.height).toBeLessThanOrEqual(size.height+1);}
-export async function noHorizontalOverflow(page){expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);}
+// Polled: a renderer shortens its content a frame or two after the viewport narrows, and a lasting overflow still fails at the timeout.
+export async function noHorizontalOverflow(page){await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);}
 export async function nativeReset(page){await role(page,'button','초기화').click();await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
 export async function hiddenDocument(page,run){
   const other=await page.context().newPage();let session,windowId,originalBounds;

@@ -2,11 +2,14 @@
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
 /* The slides come first and the controls share one centred row beneath them (frozen 6973–6984 .swiper-indicator, 0.8rem gap). */
 [data-krds-component="carousel"][data-krds-part="root"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--krds-gap-5) var(--krds-gap-3); }
-[data-krds-component="carousel"][data-krds-part="viewport"] { order: -1; flex: 0 0 100%; max-inline-size: 100%; overflow: auto; padding: var(--krds-padding-2); }
+/* Vertical page panning stays with the browser; horizontal swipes reach the renderer (official L1061, L1303). */
+[data-krds-component="carousel"][data-krds-part="viewport"] { order: -1; flex: 0 0 100%; max-inline-size: 100%; overflow: auto; padding: var(--krds-padding-2); touch-action: pan-y pinch-zoom; }
 [data-krds-component="carousel"][data-krds-part="list"] { display: flex; gap: var(--krds-gap-5); margin: 0; padding: 0; list-style: none; }
 [data-krds-component="carousel"][data-krds-part="slide"] { flex: 0 0 100%; min-inline-size: 0; }
 [data-krds-component="carousel"][data-krds-part="slide"][hidden], [data-krds-component="carousel"][data-krds-part="slide"][data-krds-state~="hidden"] { display: none !important; }
 [data-krds-component="carousel"][data-krds-part="root"][data-krds-layout="multiple"] [data-krds-component="carousel"][data-krds-part="slide"] { flex-basis: min(24rem, 100%); }
+/* Multiple layout (official L951): the slides the renderer leaves visible share one row in equal columns. */
+[data-krds-component="carousel"][data-krds-part="root"][data-krds-layout="multiple"] [data-krds-component="carousel"][data-krds-part="viewport"], [data-krds-component="carousel"][data-krds-part="root"][data-krds-layout="multiple"] [data-krds-component="carousel"][data-krds-part="list"] { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--krds-gap-5); }
 /* Frozen 7042–7065 [class^=swiper-button-]: 4.0rem round control, light border, white action fill.
  * The official controls are icon-only image masks; ours keep their text label, so the width may grow into a pill. */
 [data-krds-component="carousel"][data-krds-part="previous"], [data-krds-component="carousel"][data-krds-part="next"], [data-krds-component="carousel"][data-krds-part="play-pause"], [data-krds-component="carousel"][data-krds-part="stop-intent"] { display: inline-flex; align-items: center; justify-content: center; flex: none; min-inline-size: var(--krds-size-height-6); block-size: var(--krds-size-height-6); padding: 0 var(--krds-padding-5); border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-border-gray-light); border-radius: var(--krds-radius-max); background: var(--krds-light-color-action-white); color: var(--krds-light-color-text-basic); font: inherit; font-size: var(--krds-pc-font-size-label-small); cursor: pointer; }

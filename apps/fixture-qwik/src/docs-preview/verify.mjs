@@ -140,8 +140,8 @@ const scenarios = {
   async tag(page) { const c = page.getByRole('button', { name: '서울', exact: true }); await c.click(); await expect(c).toHaveAttribute('aria-pressed', 'true'); await expect(status(page)).toHaveText('선택 지역: 서울'); await c.press('ArrowRight'); await expect(page.getByRole('button', { name: '부산', exact: true })).toBeFocused(); },
   async resize(page) {
     const c = part(page, 'resize', 'trigger'), scaled = page.locator('section.preview-scaled'); const base = await scaled.evaluate(e => parseFloat(getComputedStyle(e).fontSize));
-    await c.focus(); await c.press('ArrowDown'); await expect(part(page, 'resize', 'current')).toHaveText('110%'); await expect.poll(() => scaled.evaluate(e => parseFloat(getComputedStyle(e).fontSize))).toBeCloseTo(base * 1.1, 0);
-    await c.click(); await expect(part(page, 'resize', 'list')).toBeVisible(); await part(page, 'resize', 'list').getByRole('button', { name: '130%' }).click(); await expect(part(page, 'resize', 'current')).toHaveText('130%');
+    await c.focus(); await c.press('ArrowDown'); await expect(part(page, 'resize', 'current')).toHaveText('조금 크게 110%'); await expect.poll(() => scaled.evaluate(e => parseFloat(getComputedStyle(e).fontSize))).toBeCloseTo(base * 1.1, 0);
+    await c.click(); await expect(part(page, 'resize', 'list')).toBeVisible(); await part(page, 'resize', 'list').getByRole('button', { name: '크게 130%', exact: true }).click(); await expect(part(page, 'resize', 'current')).toHaveText('크게 130%');
     await expect.poll(() => scaled.evaluate(e => parseFloat(getComputedStyle(e).fontSize))).toBeCloseTo(base * 1.3, 0); await scaled.getByRole('button', { name: '작업' }).focus(); await expect(scaled.getByRole('button', { name: '작업' })).toBeFocused();
   },
   async tts(page) {
@@ -206,9 +206,10 @@ const scenarios = {
     await links.filter({ hasText: /^1$/ }).click(); await expect(current).toHaveText('1'); await expect(status(page)).toHaveText('현재 페이지: 1'); await expect(prior).toHaveCount(0);
   },
   async 'language-switcher'(page) {
-    const ko = page.getByRole('link', { name: '한국어' }), en = page.getByRole('link', { name: 'English' }); await expect(ko).toHaveAttribute('aria-current', 'true');
-    await en.focus(); await en.press('Enter'); await expect(page.locator('p[lang=en]')).toHaveText('English example'); await expect(en).toHaveAttribute('aria-current', 'true');
-    await ko.focus(); await ko.press('Enter'); await expect(page.locator('p[lang=ko]')).toHaveText('한국어 예제'); await expect(ko).toHaveAttribute('aria-current', 'true'); // reverse page shows 한국어
+    // Two languages link only to the other one (component_10_01 L934–935): the Korean page shows English, the English page shows 한국어.
+    const ko = page.getByRole('link', { name: '한국어' }), en = page.getByRole('link', { name: 'English' }); await expect(ko).toHaveCount(0);
+    await en.focus(); await en.press('Enter'); await expect(page.locator('p[lang=en]')).toHaveText('English example'); await expect(en).toHaveCount(0);
+    await ko.focus(); await ko.press('Enter'); await expect(page.locator('p[lang=ko]')).toHaveText('한국어 예제'); await expect(ko).toHaveCount(0);
   },
   async carousel(page) {
     const position = part(page, 'carousel', 'position'); await page.clock.fastForward(6100); await expect(position).toHaveText(/2\s*\/\s*3/);

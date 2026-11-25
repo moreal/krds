@@ -4,7 +4,6 @@ import { resolve, relative, dirname } from 'node:path';
 import { validateRegistry } from '../../../tools/docs-previews/contract.mjs';
 import { buildPages, buildSearchRecords, buildNavigation } from './content.mjs';
 import { demoFiles } from './demo-files.mjs';
-import { moveNativeAvailabilityLast } from './demo-placement.mjs';
 const site=resolve(import.meta.dirname,'..');
 const routesDirectory=resolve(site,'src/pages'); const generatedDirectory=resolve(site,'src/generated');
 const pages=await buildPages(site);
@@ -25,10 +24,6 @@ for(const page of pages){
  const title=page.blocks.findIndex(block=>block.type==='heading'&&block.level===1);
  const summary=page.blocks[title+1]?.type==='paragraph'?1:0;
  page.blocks.splice(title+1+summary,0,{type:'demo',componentId});
- // Availability is historical evidence; preserve its IDs while placing it below API.
- page.blocks=moveNativeAvailabilityLast(page.blocks,block=>block.type==='heading'?{id:block.id,level:block.level}:null);
- const finalHeadingOrder=new Map(page.blocks.flatMap((block,index)=>block.type==='heading'?[[block.id,index]]:[]));
- page.headings.sort((a,b)=>finalHeadingOrder.get(a.id)-finalHeadingOrder.get(b.id));
 }
 
 const routes=pages.map(page=>({sourcePath:page.sourcePath,outputPath:page.outputPath,title:page.title}));

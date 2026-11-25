@@ -6,6 +6,8 @@ title: 'Carousel'
 
 **캐러셀** — 여러 콘텐츠를 한 자리에서 차례로 넘겨 보여 줍니다.
 
+`Carousel` · `@unofficial-krds/<프레임워크>/carousel` · CSS `@unofficial-krds/styles/carousel.css`
+
 ## 사용법 {#usage}
 
 - 관련 있는 콘텐츠 여러 개를 한 영역에서 넘겨 보게 할 때 씁니다.
@@ -22,7 +24,7 @@ title: 'Carousel'
 | `index` | `number` | — | 현재 슬라이드의 순번을 직접 제어합니다. 넘기면 `onIndexChange`에서 받은 값으로 갱신해야 합니다. |
 | `defaultIndex` | `number` | `0` | 처음에 보여 줄 슬라이드의 순번입니다. 상태를 직접 제어하지 않을 때 씁니다. |
 | `onIndexChange` | `(detail: {index: number; reason: 'previous' \| 'next' \| 'indicator' \| 'swipe' \| 'timer'}) => void` | — | 슬라이드를 바꾸려 할 때 불립니다. 옮겨 갈 `index`와 `reason`을 받습니다. `reason`은 이전·다음 버튼이면 `previous`·`next`, 위치 표시를 누르면 `indicator`, 밀어서 넘기면 `swipe`, 자동 재생이면 `timer`입니다. |
-| `layout` | `'single' \| 'multiple'` | `"single"` | 한 번에 슬라이드 하나만 보여 줄지(`single`) 여러 개를 나란히 보여 줄지(`multiple`) 정합니다. |
+| `layout` | `'single' \| 'multiple'` | `"single"` | 한 번에 슬라이드 하나만 보여 줄지(`single`) 두 개 이상을 나란히 보여 줄지(`multiple`) 정합니다. `multiple`이어도 좁은 화면에서는 하나만 보여 줍니다. |
 | `autoplay` | `boolean` | `false` | 처음부터 자동으로 넘기기 시작할지 정합니다. 처음 한 번만 읽습니다. |
 | `intervalMs` | `number` | `6000` | 자동 재생에서 다음 슬라이드로 넘어가기까지의 시간(밀리초)입니다. |
 | `playing` | `boolean` | — | 자동 재생 여부를 직접 제어합니다. `true`여도 사용자가 정지했거나 캐러셀 위에 포인터나 초점이 있으면 넘어가지 않습니다. |
@@ -30,35 +32,7 @@ title: 'Carousel'
 | `onPlayingChange` | `(detail: {playing: boolean; reason: 'play' \| 'stop' \| 'navigation'}) => void` | — | 사용자가 자동 재생을 켜거나 끄려 할 때 불립니다. 바뀔 `playing` 값과 `reason`을 받습니다. `reason`은 재생 버튼이면 `play`, 정지 버튼이면 `stop`, 슬라이드를 직접 넘겨 멈춘 경우 `navigation`입니다. |
 | `loop` | `boolean` | `false` | `true`로 두면 마지막 슬라이드 다음에 첫 슬라이드로 이어집니다. `false`이면 자동 재생도 마지막 슬라이드에서 멈춥니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface CarouselContract {
-    items: readonly {
-        id: string;
-        label: string;
-        content: string;
-    }[];
-    index?: number;
-    defaultIndex?: number;
-    onIndexChange?: (detail: {
-        index: number;
-        reason: 'previous' | 'next' | 'indicator' | 'swipe' | 'timer';
-    }) => void;
-    layout?: 'single' | 'multiple';
-    autoplay?: boolean;
-    intervalMs?: number;
-    playing?: boolean;
-    defaultPlaying?: boolean;
-    onPlayingChange?: (detail: {
-        playing: boolean;
-        reason: 'play' | 'stop' | 'navigation';
-    }) => void;
-    loop?: boolean;
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -72,7 +46,7 @@ export interface CarouselContract {
 
 - 자동 재생을 쓸 수 있는 캐러셀에서는 정지·재생 버튼이 가장 먼저 초점을 받습니다.
 - 키보드 초점이 들어오거나 사용자가 슬라이드를 직접 넘기면 자동 재생이 멈추고, 재생 버튼을 누르기 전에는 다시 시작하지 않습니다. 포인터를 올려 둔 동안에도 멈춥니다.
-- 현재 슬라이드가 아닌 슬라이드는 초점을 받지 않고 화면 낭독기도 읽지 않습니다. 슬라이드 안에 초점이 있는 채로 넘어가면 초점은 정지·재생 버튼으로 옮겨집니다.
+- 화면에 보이지 않는 슬라이드는 초점을 받지 않고 화면 낭독기도 읽지 않습니다. 초점이 있던 슬라이드가 가려지면 초점은 정지·재생 버튼으로 옮겨집니다.
 - 밀어서 넘기는 동작 없이도 버튼만으로 모든 슬라이드에 갈 수 있습니다.
 - 동작 줄이기 설정을 켠 사용자에게는 자동 재생과 슬라이드 애니메이션을 쓰지 않습니다. 브라우저 탭이 가려져 있는 동안에도 넘어가지 않습니다.
 - 슬라이드마다 배경색이나 테두리로 경계를 분명히 하고, 이동 버튼과 위치 표시가 슬라이드 내용을 가리지 않게 합니다.
@@ -87,7 +61,7 @@ export interface CarouselContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/carousel.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -110,5 +84,4 @@ export interface CarouselContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_09.html)
-- [상세 명세](/sources/specs/components/carousel.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

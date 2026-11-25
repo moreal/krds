@@ -6,6 +6,8 @@ title: 'Footer'
 
 **푸터** — 기관 연락처, 관련 링크, 저작권 고지를 담는 페이지 하단 영역입니다.
 
+`Footer` · `@unofficial-krds/<프레임워크>/footer` · CSS `@unofficial-krds/styles/footer.css`
+
 ## 사용법 {#usage}
 
 - 서비스 운영 주체, 연락처, 정책 링크, 저작권 정보를 페이지 맨 아래에 모아 보여 줄 때 씁니다. 모든 페이지에서 같은 위치에 둡니다.
@@ -26,25 +28,11 @@ title: 'Footer'
 | `copyrightText` **필수** | `string` | — | 저작권 문구입니다. 기본 문구가 없으므로 서비스에 맞는 문구를 직접 넘깁니다. |
 | `institution` | `IdentifierContract` | — | 운영기관 정보입니다. 넘기면 푸터의 마지막 영역에 운영기관 식별자(`Identifier`)를 표시합니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface FooterContract {
-    serviceLogo: LogoData;
-    contacts: readonly {
-        label: string;
-        href?: string;
-        text: string;
-    }[];
-    utilityLinks: readonly LinkData[];
-    privacyPolicy: LinkData;
-    policyLinks: readonly LinkData[];
-    copyrightText: string;
-    institution?: IdentifierContract;
-}
-
 export interface LogoData {
     src: string;
     alt: string;
@@ -88,7 +76,7 @@ export interface IdentifierContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/footer.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -108,5 +96,4 @@ export interface IdentifierContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_02_04.html)
-- [상세 명세](/sources/specs/components/footer.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

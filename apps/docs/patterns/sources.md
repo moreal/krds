@@ -6,7 +6,7 @@
 
 참조한 원본은 두 가지입니다.
 
-- 컴포넌트 기준선은 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`입니다. `upstream/krds/manifest.json` (checkout reference; [frozen component source records](/sources/catalog/components.json.txt))에 기록되어 있습니다.
+- 컴포넌트 기준선은 `krds-web-2026-10-30-kit-1.1.0-d6bb184c823e`입니다. [컴포넌트 출처 기록](/sources/catalog/components.json.txt)에 기록되어 있습니다.
 - 패턴 가이드 페이지 8개는 컴포넌트 기준선과 별도로 받아 보존했습니다. 그래서 키트 1.1.0 시점의 웹사이트와 내용이 다를 수 있습니다. 원본 URL, 받은 시각, 크기, SHA-256은 [`evidence/sources.json`](/sources/docs/patterns/evidence/sources.json.txt)에 있습니다.
 
 보존한 HTML은 참고 자료입니다. 그 안의 스크립트나 원격 자산을 예시에서 실행하거나 렌더링하지 않습니다. 예시는 원본 KRDS JavaScript를 복사하지 않았고 공식 이미지, 글꼴, 로고도 쓰지 않습니다.
@@ -28,27 +28,27 @@
 
 서비스 레이아웃 예시는 다음 컴포넌트 명세를 따릅니다. 각 명세에 원본 URL, 날짜, 해시가 있습니다.
 
-- [헤더(Header)](/sources/specs/components/header.md.txt)
-- [사이드 메뉴(SideNavigation)](/sources/specs/components/side-navigation.md.txt)
-- [푸터(Footer)](/sources/specs/components/footer.md.txt)
-- [건너뛰기 링크(SkipLink)](/sources/specs/components/skip-link.md.txt)
-- [메인 메뉴(MainMenu)](/sources/specs/components/main-menu.md.txt)
-- [공식 배너(Masthead)](/sources/specs/components/masthead.md.txt)
-- [운영기관 식별자(Identifier)](/sources/specs/components/identifier.md.txt)
+- [Header](/sources/specs/components/header.md.txt)
+- [Side navigation](/sources/specs/components/side-navigation.md.txt)
+- [Footer](/sources/specs/components/footer.md.txt)
+- [Skip link](/sources/specs/components/skip-link.md.txt)
+- [Main menu](/sources/specs/components/main-menu.md.txt)
+- [Masthead](/sources/specs/components/masthead.md.txt)
+- [Identifier](/sources/specs/components/identifier.md.txt)
 
 예시는 정부 서비스가 아닙니다. 그래서 공식 기관임을 나타내는 문구를 이 프로젝트의 것처럼 표시하지 않습니다.
 
 폼, 검색, 확인 예시는 다음 컴포넌트 명세도 따릅니다.
 
-- [버튼(Button)](/sources/specs/components/button.md.txt)
-- [셀렉트(NativeSelect)](/sources/specs/components/native-select.md.txt)
-- [텍스트 입력 필드(TextInput)](/sources/specs/components/text-input.md.txt)
-- [텍스트 영역(Textarea)](/sources/specs/components/textarea.md.txt)
-- [라디오 버튼(RadioGroup)](/sources/specs/components/radio-group.md.txt)
-- [모달(Modal)](/sources/specs/components/modal.md.txt)
-- [구조화 목록(StructuredList)](/sources/specs/components/structured-list.md.txt)
-- [페이지네이션(Pagination)](/sources/specs/components/pagination.md.txt)
-- [스피너(Spinner)](/sources/specs/components/spinner.md.txt)
+- [Button](/sources/specs/components/button.md.txt)
+- [Select](/sources/specs/components/native-select.md.txt) (`NativeSelect`)
+- [Text input](/sources/specs/components/text-input.md.txt)
+- [Textarea](/sources/specs/components/textarea.md.txt)
+- [Radio button](/sources/specs/components/radio-group.md.txt) (`RadioGroup`)
+- [Modal](/sources/specs/components/modal.md.txt)
+- [Structured list](/sources/specs/components/structured-list.md.txt)
+- [Pagination](/sources/specs/components/pagination.md.txt)
+- [Spinner](/sources/specs/components/spinner.md.txt)
 
 ## 보충 소스 해시 {#supplemental-source-hashes}
 

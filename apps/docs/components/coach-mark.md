@@ -6,6 +6,8 @@ title: 'Coach mark'
 
 **코치마크** — 화면의 특정 요소를 짚어 가며 새 기능이나 사용법을 안내합니다.
 
+`CoachMark` · `@unofficial-krds/<프레임워크>/coach-mark` · CSS `@unofficial-krds/styles/coach-mark.css`
+
 ## 사용법 {#usage}
 
 - 과업의 단계를 순서대로 따라 하게 안내하거나, 화면에서 쓸 수 있는 기능을 훑어 보여 줄 때 씁니다.
@@ -31,32 +33,11 @@ title: 'Coach mark'
 | `startActionId` **필수** | `string` | — | 따라하기를 시작하는 버튼의 `id`입니다. 사용자가 코치마크를 닫으면 이 버튼으로 초점을 돌려줍니다. |
 | `fallbackFocusId` | `string` | — | 시작 버튼이 사라졌거나 쓸 수 없을 때 대신 초점을 받을 요소의 `id`입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface CoachMarkContract extends ControlledOpen {
-    onTargetAction?: (detail: CoachMarkTargetActionDetails) => boolean | Promise<boolean>;
-    steps: readonly CoachMarkStep[];
-    boundaries: readonly CoachMarkBoundary[];
-    stepId?: string;
-    defaultStepId?: string;
-    onStepChange?: (detail: {
-        id: string;
-        reason: 'previous' | 'next' | 'target-action';
-    }) => void;
-    onStop?: (detail: TutorialStopDetails) => void;
-    startActionId: string;
-    fallbackFocusId?: string;
-}
-
-export interface ControlledOpen {
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (detail: OpenChangeDetails) => void;
-}
-
 export interface OpenChangeDetails {
     open: boolean;
 }
@@ -116,7 +97,7 @@ export interface TutorialStopDetails {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/coach-mark.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -138,5 +119,4 @@ export interface TutorialStopDetails {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_04.html)
-- [상세 명세](/sources/specs/components/coach-mark.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

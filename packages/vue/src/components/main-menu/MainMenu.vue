@@ -103,6 +103,17 @@ function mobileBack() {
     pendingReturn = { expected: next, triggerId: `${id}-${previous}`, initiator: document.activeElement };
     expanded.request(next);
 }
+// A desktop dropdown closes on a press outside the menu (component_03_02 L1303–1306).
+watch(() => !showMobile.value && expanded.value.value !== null && root.value, (nav, _, onCleanup) => {
+    if (!nav)
+        return;
+    const outside = (e: PointerEvent) => {
+        if (!nav.contains(e.target as Node))
+            expanded.request(null);
+    };
+    nav.ownerDocument.addEventListener('pointerdown', outside);
+    onCleanup(() => nav.ownerDocument.removeEventListener('pointerdown', outside));
+}, { immediate: true });
 watch(expanded.value, value => {
     const request = pendingReturn;
     pendingReturn = undefined;

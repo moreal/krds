@@ -6,6 +6,8 @@ title: 'Help panel'
 
 **도움 패널** — 작업 화면을 벗어나지 않고 옆 패널에서 자세한 도움말을 읽게 합니다.
 
+`HelpPanel` · `@unofficial-krds/<프레임워크>/help-panel` · CSS `@unofficial-krds/styles/help-panel.css`
+
 ## 사용법 {#usage}
 
 - 입력 항목이나 섹션에 대한 자세한 도움말을 본문 옆 패널에서 보여 줄 때 씁니다. 도움말 아이콘 버튼은 설명할 항목이나 레이블 바로 옆에 둡니다.
@@ -28,28 +30,11 @@ title: 'Help panel'
 | `mode` | `'help' \| 'tutorial'` | — | 따라하기 패널과 함께 쓸 때 어느 쪽을 보여 줄지 정합니다. `help` 또는 `tutorial`입니다. |
 | `fallbackFocusId` | `string` | — | 패널을 닫을 때 패널 열기 버튼으로 초점을 돌릴 수 없으면 대신 초점을 받을 요소의 `id`입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface HelpPanelContract extends ControlledOpen {
-    topics: readonly HelpTopic[];
-    selectedTopicId?: string | null;
-    defaultSelectedTopicId?: string | null;
-    onTopicChange?: (detail: {
-        id: string | null;
-    }) => void;
-    mode?: 'help' | 'tutorial';
-    fallbackFocusId?: string;
-}
-
-export interface ControlledOpen {
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (detail: OpenChangeDetails) => void;
-}
-
 export interface OpenChangeDetails {
     open: boolean;
 }
@@ -95,7 +80,7 @@ export interface LinkData {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/help-panel.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -116,5 +101,4 @@ export interface LinkData {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_01.html)
-- [상세 명세](/sources/specs/components/help-panel.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

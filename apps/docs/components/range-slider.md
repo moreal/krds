@@ -6,6 +6,8 @@ title: 'Range slider'
 
 **범위슬라이드** — 막대를 움직여 범위 안의 값을 고르게 합니다.
 
+`RangeSlider` · `@unofficial-krds/<프레임워크>/range-slider` · CSS `@unofficial-krds/styles/range-slider.css`
+
 ## 사용법 {#usage}
 
 - 볼륨, 밝기, 글자 크기, 선호도처럼 정확한 수치보다 범위 안에서의 상대적인 값을 고르게 할 때 씁니다.
@@ -33,37 +35,13 @@ title: 'Range slider'
 | `step` | `number` | `10` | 한 단계의 크기입니다. 값은 `min`에서 `step` 간격으로만 고를 수 있습니다. |
 | `valueText` | `(value: number) => string` | — | 값을 받아 표시할 문구를 돌려줍니다. 단위를 붙일 때 쓰며, 화면에 보이는 현재 값과 화면 낭독기가 읽는 값에 함께 적용됩니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface RangeSliderContract extends ControlledValue<number>, FieldContract {
-    min?: number;
-    max?: number;
-    step?: number;
-    valueText?: (value: number) => string;
-}
-
-export interface ControlledValue<T> {
-    value?: T;
-    defaultValue?: T;
-    onValueChange?: (detail: ValueChangeDetails<T>) => void;
-}
-
 export interface ValueChangeDetails<T> {
     value: T;
-}
-
-export interface FieldContract {
-    id?: string;
-    name?: string;
-    label: string;
-    disabled?: boolean;
-    required?: boolean;
-    invalid?: boolean;
-    helpId?: string;
-    errorId?: string;
 }
 ```
 
@@ -90,7 +68,7 @@ export interface FieldContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/range-slider.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -111,5 +89,4 @@ export interface FieldContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_01.html)
-- [상세 명세](/sources/specs/components/range-slider.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

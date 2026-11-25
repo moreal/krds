@@ -6,6 +6,8 @@ title: 'Favicon'
 
 **파비콘** — 브라우저 탭과 즐겨찾기에 표시되는 서비스 아이콘입니다.
 
+`Favicon` · `@unofficial-krds/<프레임워크>/favicon` · CSS `@unofficial-krds/styles/favicon.css`
+
 ## 사용법 {#usage}
 
 - 브라우저 탭, 즐겨찾기, 모바일 홈 화면에서 기관이나 서비스를 알아볼 수 있도록 파비콘을 문서 `head`에 등록할 때 씁니다. 화면에 보이는 요소는 렌더링하지 않습니다.
@@ -21,17 +23,11 @@ title: 'Favicon'
 | `dark` | `IconAsset` | — | 어두운 테마에서 쓸 아이콘입니다. 넘기면 브라우저의 색상 테마에 따라 `light`와 바꿔 씁니다. |
 | `touchIcon` | `IconAsset` | — | 모바일 홈 화면에 추가할 때 쓰는 아이콘입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface FaviconContract {
-    light: IconAsset;
-    dark?: IconAsset;
-    touchIcon?: IconAsset;
-}
-
 export interface IconAsset {
     href: string;
     type: string;
@@ -50,5 +46,4 @@ export interface IconAsset {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_14.html)
-- [상세 명세](/sources/specs/components/favicon.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

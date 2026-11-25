@@ -6,6 +6,8 @@ title: 'Back button'
 
 **뒤로가기 버튼** — 이전 화면으로 돌아가게 합니다.
 
+`BackButton` · `@unofficial-krds/<프레임워크>/back-button` · CSS `@unofficial-krds/styles/back-button.css`
+
 ## 사용법 {#usage}
 
 - 이전 화면이나 상위 화면으로 돌아가는 버튼이 필요할 때 씁니다. 상단 바 왼쪽, 화면 제목 옆에 둡니다.
@@ -24,22 +26,7 @@ title: 'Back button'
 | `onBackRequest` **필수** | `(detail: {reason: 'activate' \| 'confirmed'}) => void` | — | 뒤로 가야 할 때 한 번 불립니다. 여기서 실제 화면 이동을 처리합니다. `reason`은 바로 누른 경우 `activate`, 확인을 거친 경우 `confirmed`입니다. `fallbackHref` 링크로 표시될 때는 확인을 거친 경우에만 불립니다. |
 | `requestConfirmation` | `() => boolean \| Promise<boolean>` | — | `dirty`일 때 버튼을 누르면 불립니다. 확인 창을 띄운 뒤 계속 진행하려면 `true`, 머물려면 `false`를 돌려줍니다. `Promise`도 돌려줄 수 있습니다. `dirty`를 쓸 때는 함께 넘깁니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface BackButtonContract {
-    label?: string;
-    canGoBack: boolean;
-    fallbackHref?: string;
-    dirty?: boolean;
-    onBackRequest: (detail: {
-        reason: 'activate' | 'confirmed';
-    }) => void;
-    requestConfirmation?: () => boolean | Promise<boolean>;
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -62,7 +49,7 @@ export interface BackButtonContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/back-button.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -77,5 +64,4 @@ export interface BackButtonContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_02.html)
-- [상세 명세](/sources/specs/components/back-button.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

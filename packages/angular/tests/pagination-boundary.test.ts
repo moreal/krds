@@ -24,3 +24,12 @@ test(title, () => {
     finally { fixture.destroy(); (fixture.nativeElement as HTMLElement).remove(); }
   }
 });
+// KRDS component_03_06 L1290-1291: a number link is named "페이지 N", the last one "마지막 페이지, N"; the visible text stays the number.
+const names = (root: ParentNode) => [...root.querySelectorAll<HTMLElement>('[data-krds-component="pagination"][data-krds-part="link"][href]')].map(link => [link.textContent, link.getAttribute('aria-label')]);
+test('Pagination names number links as pages and the last one as the last page', () => {
+  for (const [page, expected] of [[1, [['2', '페이지 2'], ['3', '마지막 페이지, 3']]], [3, [['1', '페이지 1'], ['2', '페이지 2']]]] as const) {
+    const fixture = mount(page);
+    try { expect(names(fixture.nativeElement as HTMLElement)).toEqual(expected); }
+    finally { fixture.destroy(); (fixture.nativeElement as HTMLElement).remove(); }
+  }
+});

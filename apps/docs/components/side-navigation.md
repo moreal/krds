@@ -6,6 +6,8 @@ title: 'Side navigation'
 
 **사이드 메뉴** — 같은 묶음 안의 하위 페이지를 옆에서 오갈 수 있게 합니다.
 
+`SideNavigation` · `@unofficial-krds/<프레임워크>/side-navigation` · CSS `@unofficial-krds/styles/side-navigation.css`
+
 ## 사용법 {#usage}
 
 - 메인 메뉴에서 고른 메뉴 아래에 화면이 많아, 본문 옆에서 세로 목록으로 훑어보고 이동하게 할 때 씁니다.
@@ -25,23 +27,11 @@ title: 'Side navigation'
 | `title` | `string` | — | 메뉴 위에 보여 줄 제목입니다. 내비게이션 영역의 이름으로도 쓰이며, 주지 않으면 이름은 “사이드 메뉴”입니다. |
 | `parentLink` | `LinkData` | — | 헤더에 두는 상위 메뉴로 가는 링크입니다. `label`과 `href`를 가집니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface SideNavigationContract {
-    items: readonly NavigationItem[];
-    currentId?: string;
-    expandedIds?: readonly string[];
-    defaultExpandedIds?: readonly string[];
-    onExpandedChange?: (detail: {
-        ids: readonly string[];
-    }) => void;
-    title?: string;
-    parentLink?: LinkData;
-}
-
 export interface NavigationItem {
     id: string;
     label: string;
@@ -83,7 +73,7 @@ export interface LinkData {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/side-navigation.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -104,5 +94,4 @@ export interface LinkData {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_04.html)
-- [상세 명세](/sources/specs/components/side-navigation.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

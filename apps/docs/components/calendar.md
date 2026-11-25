@@ -6,6 +6,8 @@ title: 'Calendar'
 
 **달력** — 달력에서 날짜나 기간을 고르게 합니다.
 
+`Calendar` · `@unofficial-krds/<프레임워크>/calendar` · CSS `@unofficial-krds/styles/calendar.css`
+
 ## 사용법 {#usage}
 
 - 달력에서 날짜 하나 또는 기간을 고르게 할 때 씁니다.
@@ -33,7 +35,7 @@ title: 'Calendar'
 | `referenceDate` | `string` | `"2000-01-01"` | 선택된 날짜가 없을 때 처음 보여 줄 달을 정하는 날짜입니다. 이 날짜가 선택되지는 않습니다. |
 | `today` | `string` | — | 오늘 날짜입니다. 넘기면 그 날짜를 강조하고 오늘 버튼을 표시합니다. 오늘 버튼은 그 날짜로 이동할 뿐 선택하지는 않습니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -64,7 +66,7 @@ title: 'Calendar'
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/calendar.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -90,5 +92,4 @@ title: 'Calendar'
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_03.html)
-- [상세 명세](/sources/specs/components/calendar.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

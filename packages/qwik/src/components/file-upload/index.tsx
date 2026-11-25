@@ -101,6 +101,8 @@ export const FileUpload = component$<FileUploadProps>(props => {
         element.addEventListener('drop', drop);
         cleanup(() => { alive.value=false;revision.value++;selectionOwner.value++;selecting.value=false;selections.value?.splice(0);chooser.removeEventListener('change', change); element.removeEventListener('drop', drop); });
     }, { strategy: 'document-ready' });
+    // KRDS groups a single file record in a paragraph and multiple records in a list.
+    const List = props.multiple ? 'ul' : 'div', Item = props.multiple ? 'li' : 'p';
     return <div ref={root} {...owned('file-upload', 'root', props.disabled ? 'disabled' : drag.value ? 'drag-over' : '')} data-krds-variant={props.variant ?? 'dropzone'} role="group" aria-labelledby={`${uid}-label`}>
         <p id={`${uid}-label`} {...owned('file-upload', 'label')}>{props.label}</p>
         {props.description && <p id={`${uid}-description`} {...owned('file-upload', 'description')}>{props.description}</p>}
@@ -118,11 +120,11 @@ export const FileUpload = component$<FileUploadProps>(props => {
             await select(Array.from(event.dataTransfer?.files ?? []), 'drop');
         }}>파일을 끌어 놓거나 파일 선택을 이용하세요.</div>}
         <p {...owned('file-upload', 'count')}>{props.files.length}{props.maxFiles ? ` / ${props.maxFiles}` : ''}개</p>
-        <ul {...owned('file-upload', 'list')}>{props.files.map(record => <li key={record.id} {...owned('file-upload', 'item', record.status)}>
+        <List {...owned('file-upload', 'list')}>{props.files.map(record => <Item key={record.id} {...owned('file-upload', 'item', record.status)}>
             <span id={`${record.id}-name`} {...owned('file-upload', 'filename')}>{record.file?.name}</span><span {...owned('file-upload', 'size')}>{record.file?.size} 바이트</span>
             <span {...owned('file-upload', 'status')}>{{ staged: '선택됨', uploading: '업로드 중', success: '완료', error: '오류' }[record.status]}</span>
             {record.status === 'uploading' && <progress {...owned('file-upload', 'progress')} max={100} value={record.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={record.progress} aria-label={`${record.file?.name} 진행률`}/>}
-            {record.error && <p {...owned('file-upload', 'error')}>{record.error}</p>}
+            {record.error && <span {...owned('file-upload', 'error')}>{record.error}</span>}
             <button type="button" {...owned('file-upload', 'remove')} data-file-id={record.id} aria-label={`${record.file?.name} 삭제`} aria-describedby={`${record.id}-name`} disabled={props.disabled} onClick$={async (_, element) => {
                 const id = element.dataset.fileId!, index = props.files.findIndex(file => file.id === id), version = revision.value;
                 if (props.disabled || index < 0) return;
@@ -131,7 +133,7 @@ export const FileUpload = component$<FileUploadProps>(props => {
                 await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
                 if (version === revision.value && root.value?.isConnected && props.files.some(file => file.id === id)) removing.value = undefined;
             }}>삭제</button>
-        </li>)}</ul>
+        </Item>)}</List>
         {errors.value.length > 0 && <div id={`${uid}-errors`}>{errors.value.map((error, index) => <p key={index} role="alert" {...owned('file-upload', 'error')}>{error.name}: {error.message}</p>)}</div>}
     </div>;
 });

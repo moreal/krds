@@ -6,6 +6,8 @@ title: 'Disclosure'
 
 **디스클로저** — 덜 중요한 보충 내용을 접어 두었다가 필요할 때 펼쳐 보여 줍니다.
 
+`Disclosure` · `@unofficial-krds/<프레임워크>/disclosure` · CSS `@unofficial-krds/styles/disclosure.css`
+
 ## 사용법 {#usage}
 
 - 여러 섹션으로 이루어진 화면에서 부가 안내나 이미지 설명 같은 보충 정보를 접어 둘 때 씁니다.
@@ -24,22 +26,11 @@ title: 'Disclosure'
 | `label` **필수** | `string` | — | 버튼에 보이는 텍스트입니다. 펼쳤을 때 나올 내용을 짐작할 수 있게 씁니다. |
 | `contentId` **필수** | `string` | — | 펼쳐지는 콘텐츠 영역의 `id`입니다. 버튼과 콘텐츠를 연결하는 데 씁니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface DisclosureContract extends ControlledOpen {
-    label: string;
-    contentId: string;
-}
-
-export interface ControlledOpen {
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (detail: OpenChangeDetails) => void;
-}
-
 export interface OpenChangeDetails {
     open: boolean;
 }
@@ -65,7 +56,7 @@ export interface OpenChangeDetails {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/disclosure.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -81,5 +72,4 @@ export interface OpenChangeDetails {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_04.html)
-- [상세 명세](/sources/specs/components/disclosure.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

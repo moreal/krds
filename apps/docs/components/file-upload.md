@@ -6,6 +6,8 @@ title: 'File upload'
 
 **파일 업로드** — 파일을 고르고 올리기 전에 목록으로 확인하게 합니다.
 
+`FileUpload` · `@unofficial-krds/<프레임워크>/file-upload` · CSS `@unofficial-krds/styles/file-upload.css`
+
 ## 사용법 {#usage}
 
 - 신청서의 첨부 서류처럼 사용자가 파일을 골라 폼과 함께 제출해야 할 때 씁니다. 첨부가 꼭 필요한 경우에만 요구합니다.
@@ -29,31 +31,11 @@ title: 'File upload'
 | `onFilesChange` **필수** | `(detail: {value: readonly FileRecord[]; reason: 'picker' \| 'drop' \| 'remove'; addedIds: readonly string[]; removedIds: readonly string[]}) => void` | — | 사용자가 파일을 추가하거나 삭제하려 할 때 한 번 불립니다. 바뀐 뒤의 전체 목록 `value`, 원인 `reason`(`picker`, `drop`, `remove`), `addedIds`, `removedIds`를 받습니다. 받은 `value`를 `files`로 다시 넘겨야 화면에 반영됩니다. |
 | `onFilesRejected` | `(detail: {rejected: readonly FileValidationFailure[]}) => void` | — | 형식, 크기, 개수 제한에 걸려 받지 못한 파일이 있을 때 불립니다. `rejected`의 각 항목은 `file`, `code`(`accept`, `max-files`, `max-bytes`), `message`를 가집니다. 거부 사유는 파일 목록 아래에도 오류 문구로 표시됩니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface FileUploadContract {
-    files: readonly FileRecord[];
-    name: string;
-    label: string;
-    multiple?: boolean;
-    accept?: string;
-    maxFiles?: number;
-    maxBytes?: number;
-    disabled?: boolean;
-    onFilesChange: (detail: {
-        value: readonly FileRecord[];
-        reason: 'picker' | 'drop' | 'remove';
-        addedIds: readonly string[];
-        removedIds: readonly string[];
-    }) => void;
-    onFilesRejected?: (detail: {
-        rejected: readonly FileValidationFailure[];
-    }) => void;
-}
-
 /** File is browser-native data; no Event, renderer or machine crosses the contract. */
 export interface FileRecord {
     id: string;
@@ -80,7 +62,7 @@ export interface FileValidationFailure {
 ## 접근성 {#accessibility}
 
 - 파일 선택은 `button`으로 제공하므로 끌어다 놓기 없이 클릭이나 키보드만으로도 파일을 고를 수 있습니다. 업로드 영역 전체는 `label`을 이름으로 가진 그룹으로 묶입니다.
-- 첨부된 파일은 `ul`과 `li` 목록으로 묶고, 삭제 버튼 이름에 파일 이름을 넣어 어떤 파일을 지우는지 알려 줍니다.
+- 단일 업로드에서는 파일 항목을 `p`로, `multiple`에서는 `ul`과 `li` 목록으로 묶고, 삭제 버튼 이름에 파일 이름을 넣어 어떤 파일을 지우는지 알려 줍니다.
 - 긴 파일 이름은 화면에서 한 줄로 줄여 보여 주지만 화면 낭독기에는 전체 이름을 전달합니다.
 - 파일을 삭제하면 초점이 앞 파일의 삭제 버튼으로, 없으면 다음 파일의 삭제 버튼으로, 그것도 없으면 파일 선택 버튼으로 옮겨 갑니다.
 - 파일 상태는 선택됨, 업로드 중, 완료, 오류 텍스트로 보여 주고, 업로드 중에는 진행률 막대를 함께 표시합니다. 오류는 `error`에 구체적인 이유를 담아 넘깁니다.
@@ -95,7 +77,7 @@ export interface FileValidationFailure {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/file-upload.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -123,5 +105,4 @@ export interface FileValidationFailure {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_04.html)
-- [상세 명세](/sources/specs/components/file-upload.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

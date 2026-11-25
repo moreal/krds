@@ -6,6 +6,8 @@ title: 'Resize'
 
 **화면 크기 조정** — 화면의 글자와 요소 크기를 사용자가 조절하게 합니다.
 
+`Resize` · `@unofficial-krds/<프레임워크>/resize` · CSS `@unofficial-krds/styles/resize.css`
+
 ## 사용법 {#usage}
 
 - 사용자가 읽기 편한 배율로 화면 크기를 바꿀 수 있게 할 때 씁니다. 버튼을 누르면 배율 목록이 펼쳐지고 현재 선택한 배율을 함께 보여 줍니다.
@@ -23,35 +25,15 @@ title: 'Resize'
 | `open` | `boolean` | — | 옵션 목록의 열림 상태를 직접 제어합니다. `defaultOpen`과 함께 쓸 수 없습니다. |
 | `defaultOpen` | `boolean` | `false` | 직접 제어하지 않을 때 처음 열림 상태입니다. |
 | `onOpenChange` | `(detail: OpenChangeDetails) => void` | — | 사용자가 목록을 열거나 닫으려 할 때 `{open}`을 받아 불립니다. |
-| `levels` | `readonly {id: string; label: string; percent: number}[]` | 90%, 100%, 110%, 130%, 150%의 5단계 | 선택할 수 있는 단계 목록입니다. 각 항목은 `id`, 화면에 보일 `label`, 배율 `percent`를 가집니다. |
+| `levels` | `readonly {id: string; label: string; percent: number}[]` | 작게 90%, 보통 100%, 조금 크게 110%, 크게 130%, 가장 크게 150%의 5단계 | 선택할 수 있는 단계 목록입니다. 각 항목은 `id`, 화면에 보일 `label`, 배율 `percent`를 가집니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface ResizeContract extends ControlledValue<string>, ControlledOpen {
-    levels?: readonly {
-        id: string;
-        label: string;
-        percent: number;
-    }[];
-}
-
-export interface ControlledValue<T> {
-    value?: T;
-    defaultValue?: T;
-    onValueChange?: (detail: ValueChangeDetails<T>) => void;
-}
-
 export interface ValueChangeDetails<T> {
     value: T;
-}
-
-export interface ControlledOpen {
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (detail: OpenChangeDetails) => void;
 }
 
 export interface OpenChangeDetails {
@@ -83,7 +65,7 @@ export interface OpenChangeDetails {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/resize.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -101,5 +83,4 @@ export interface OpenChangeDetails {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_10_02.html)
-- [상세 명세](/sources/specs/components/resize.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

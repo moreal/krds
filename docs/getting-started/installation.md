@@ -1,40 +1,81 @@
-# 로컬에서 시작하기
+# 설치하기 {#로컬에서-시작하기}
 
-Unofficial KRDS는 KRDS를 여러 프레임워크의 컴포넌트로 구현한 비공식 독립 프로젝트입니다. 패키지 이름은 `@unofficial-krds`로 시작하고 현재 버전은 `0.1.0`입니다.
+Unofficial KRDS는 KRDS를 React, Vue, Svelte, Angular, Lit, Qwik, Solid 컴포넌트로 구현한 비공식 프로젝트입니다. 공식 KRDS가 아닙니다.
 
-아직 npm에 게시하지 않았습니다. [저장소](https://github.com/moreal/krds)를 내려받아 빌드해서 씁니다.
+패키지는 아직 npm에 게시하지 않았습니다. 저장소에서 패키지를 빌드하고 tarball로 묶어 앱에 설치합니다.
 
-## 도구와 의존성 설치
+## 패키지 빌드하기 {#도구와-의존성-설치}
 
-Node **24.18.0**과 Yarn **4.14.1**을 씁니다. Yarn은 저장소에 들어 있으므로 따로 설치하지 않습니다.
+Node 24.18.0이 필요합니다. Yarn 4.14.1은 저장소에 들어 있으므로 따로 설치하지 않습니다.
 
-1. Node 24.18.0을 설치합니다.
-2. 저장소 루트에서 아래 명령을 실행합니다.
+[저장소](https://github.com/moreal/krds)를 내려받고 루트에서 다음 명령을 실행합니다. 이 예시는 React 패키지를 빌드합니다.
 
 ```sh
-node tools/yarn.mjs --version
 node tools/yarn.mjs install --immutable
+node tools/yarn.mjs nx run krds-react:build
 ```
 
-`node tools/yarn.mjs`는 저장소가 지정한 Yarn을 실행합니다. 전역 도구는 바꾸지 않습니다. 정확한 버전은 `compatibility/toolchain.json`에 있습니다.
+`react` 자리에 `vue`, `svelte`, `angular`, `lit`, `qwik`, `solid`, `solid-next` 중 하나를 넣습니다. 공유 패키지 `contracts`, `tokens`, `styles`도 함께 빌드됩니다.
 
-설치는 Yarn으로만 합니다. lockfile은 `yarn.lock` 하나입니다. `.yarnrc.yml`의 `nodeLinker: pnpm`은 Yarn이 패키지를 연결하는 방식일 뿐이므로 `pnpm install`은 쓰지 않습니다.
+## 앱에 설치하기 {#로컬-패키지-파일-검사}
 
-## Vue 컴포넌트로 첫 화면 만들기
-
-아래는 Vue 예시입니다. 다른 프레임워크에도 각자의 패키지와 예제 앱이 있습니다. 프레임워크별 지원 버전은 [호환성 기록](../compatibility/)에서 확인하세요.
-
-먼저 Vue 패키지와 Vue 예제 앱을 빌드합니다.
+프레임워크 패키지와 공유 패키지 세 개를 tarball로 묶습니다. 저장소 루트에서 실행합니다.
 
 ```sh
-node tools/yarn.mjs nx run krds-vue:build
-node tools/yarn.mjs workspace @unofficial-krds/fixture-vue typecheck
-node tools/yarn.mjs workspace @unofficial-krds/fixture-vue build:local
+mkdir -p /tmp/krds
+for name in contracts tokens styles react; do
+	node tools/yarn.mjs workspace @unofficial-krds/$name pack --out /tmp/krds/$name.tgz
+done
 ```
 
-Nx가 공유 패키지(contracts, tokens, styles)를 먼저 빌드합니다. 결과물은 각 워크스페이스의 `dist/`에 생깁니다.
+앱 디렉터리에서 네 파일을 한 번에 설치합니다. npm 예시입니다.
 
-이제 같은 저장소 안에서 이 패키지를 의존성으로 선언한 Vue 앱이라면 다음처럼 쓸 수 있습니다.
+```sh
+npm install /tmp/krds/contracts.tgz /tmp/krds/tokens.tgz /tmp/krds/styles.tgz /tmp/krds/react.tgz
+```
+
+앱에는 프레임워크 런타임도 있어야 합니다. 필요한 버전은 [프레임워크 호환성](../compatibility/)의 피어 의존성 열에 있습니다.
+
+## CSS 가져오기 {#import-css}
+
+쓰는 컴포넌트마다 CSS 파일을 가져옵니다. 파일 이름은 컴포넌트 페이지 맨 위에 있습니다.
+
+```ts
+import '@unofficial-krds/styles/button.css';
+import '@unofficial-krds/styles/switch.css';
+```
+
+컴포넌트를 많이 쓰면 `@unofficial-krds/styles/all.css` 하나만 가져옵니다. 개별 파일과 `all.css`를 함께 가져오지 않습니다.
+
+`@unofficial-krds/styles/reset.css`는 KRDS가 전제하는 루트 글자 크기(62.5%)를 포함한 전역 스타일입니다. 새 앱이면 함께 가져옵니다. 기존 앱이면 [CSS, 토큰, 선택형 글꼴](./styling)을 먼저 읽습니다.
+
+Lit은 컴포넌트 CSS가 각 요소의 Shadow DOM에 이미 들어 있습니다. 문서에 `@unofficial-krds/tokens/tokens.css`만 한 번 가져옵니다.
+
+## 첫 컴포넌트 렌더링하기 {#vue-컴포넌트로-첫-화면-만들기}
+
+[Toggle switch](../components/switch)를 켜야 [Button](../components/button)을 누를 수 있는 예시입니다. 컴포넌트는 `@unofficial-krds/<프레임워크>/<컴포넌트 id>` 경로에서 가져옵니다.
+
+**React**
+
+```tsx
+import { useState } from 'react';
+import { Button } from '@unofficial-krds/react/button';
+import { Switch } from '@unofficial-krds/react/switch';
+import '@unofficial-krds/styles/button.css';
+import '@unofficial-krds/styles/switch.css';
+
+export function Notifications() {
+	const [enabled, setEnabled] = useState(false);
+	return (
+		<>
+			<Switch label="알림 받기" checked={enabled} onCheckedChange={({ checked }) => setEnabled(checked)} />
+			<Button disabled={!enabled}>계속하기</Button>
+		</>
+	);
+}
+```
+
+**Vue**. Vue와 Svelte는 컴포넌트 경로에서 default export로 가져옵니다.
 
 ```vue
 <script setup lang="ts">
@@ -43,50 +84,132 @@ import Button from '@unofficial-krds/vue/button';
 import Switch from '@unofficial-krds/vue/switch';
 import '@unofficial-krds/styles/button.css';
 import '@unofficial-krds/styles/switch.css';
+
 const enabled = ref(false);
 </script>
 
 <template>
-  <Switch id="example-notifications" v-model="enabled" label="알림 받기" />
-  <Button :disabled="!enabled">계속하기</Button>
+	<Switch label="알림 받기" v-model="enabled" />
+	<Button :disabled="!enabled">계속하기</Button>
 </template>
 ```
 
-스타일은 쓰는 컴포넌트마다 직접 import합니다. 전역 reset과 글꼴은 자동으로 적용되지 않습니다.
+**Svelte**
 
-KRDS 토큰은 rem 단위입니다. 기존 앱에 넣을 때는 앱의 기본 글자 크기와 맞는지 확인하고 [CSS·토큰·글꼴 안내](./styling)를 따르세요. 참고로 이 문서 사이트는 reset과 KRDS 스타일을 전체에 적용했습니다. root는 10px, 본문은 16px이고 medium Button은 48px입니다. 밝은 테마와 forced-colors를 지원합니다.
+```svelte
+<script lang="ts">
+	import Button from '@unofficial-krds/svelte/button';
+	import Switch from '@unofficial-krds/svelte/switch';
+	import '@unofficial-krds/styles/button.css';
+	import '@unofficial-krds/styles/switch.css';
 
-다음에 볼 문서는 두 가지입니다.
+	let enabled = $state(false);
+</script>
 
-- [컴포넌트 문서](../components/): 컴포넌트별 속성, 키보드 조작, 프레임워크별 예제 코드
-- [프레임워크 호환성](../compatibility/): 프레임워크별 패키지와 지원 버전
-
-## 문서와 로컬 미리보기
-
-이 문서 사이트를 로컬에서 빌드해 띄울 수 있습니다.
-
-```sh
-node tools/yarn.mjs nx run krds-docs:build
-node tools/yarn.mjs workspace @unofficial-krds/docs typecheck
-node tools/yarn.mjs workspace @unofficial-krds/docs test
-node tools/yarn.mjs exec node apps/docs/scripts/serve.mjs
+<Switch label="알림 받기" checked={enabled} onCheckedChange={({ checked }) => (enabled = checked)} />
+<Button disabled={!enabled}>계속하기</Button>
 ```
 
-서버가 뜨면 `http://127.0.0.1:49100/krds/`를 여세요. 하위 페이지는 `.html` 주소를 쓰므로 주소로 바로 들어가거나 새로고침해도 됩니다.
+**Angular**. Button은 네이티브 `<button>`에 붙이는 `krdsButton` 속성입니다. CSS는 앱의 `styles.css`에서 `@import`로 가져옵니다.
 
-예제 앱과 Storybook은 공개 사이트에 올리지 않습니다. 각각 빌드한 뒤 로컬 서버의 `/krds/native/fixture-vue/`, `/krds/native/storybook-vue/` 같은 경로에서 봅니다. 빌드하지 않은 경로는 404로 표시됩니다.
+```ts
+import { Component, signal } from '@angular/core';
+import { Button } from '@unofficial-krds/angular/button';
+import { Switch } from '@unofficial-krds/angular/switch';
 
-## 로컬 패키지 파일 검사
-
-저장소 밖의 앱에서 써 보려면 패키지를 tarball로 만듭니다. 필요한 패키지를 빌드한 뒤 실행합니다.
-
-```sh
-node tools/yarn.mjs workspace @unofficial-krds/vue pack --out /tmp/krds-vue-local.tgz
+@Component({
+	selector: 'app-notifications',
+	imports: [Button, Switch],
+	template: `
+		<krds-switch label="알림 받기" [checked]="enabled()" (checkedChange)="enabled.set($event.checked)" />
+		<button krdsButton type="button" [disabled]="!enabled()">계속하기</button>
+	`,
+})
+export class Notifications {
+	readonly enabled = signal(false);
+}
 ```
 
-tarball에서 `package.json`, 공개 `dist/` export, 라이선스와 출처 파일을 확인하세요.
+**Lit**. 요소를 쓰기 전에 `registerKrdsElements`로 한 번 등록합니다. 이벤트 값은 `event.detail`에 있습니다.
 
-독립 앱에 설치할 때는 두 가지가 더 필요합니다.
+```ts
+import '@unofficial-krds/tokens/tokens.css';
+import { registerKrdsElements } from '@unofficial-krds/lit/register';
 
-- 그 패키지가 의존하는 다른 `@unofficial-krds` 패키지의 tarball
-- [호환성 기록](../compatibility/)에 적힌 정확한 프레임워크 버전
+registerKrdsElements(customElements);
+
+const toggle = document.querySelector('krds-switch')!;
+const button = document.querySelector('krds-button')!;
+toggle.addEventListener('checked-change', event => {
+	button.disabled = !(event as CustomEvent<{ checked: boolean }>).detail.checked;
+});
+```
+
+```html
+<krds-switch label="알림 받기"></krds-switch>
+<krds-button disabled>계속하기</krds-button>
+```
+
+**Qwik**. 콜백 이름 끝에 `$`가 붙습니다.
+
+```tsx
+import { component$, useSignal } from '@builder.io/qwik';
+import { Button } from '@unofficial-krds/qwik/button';
+import { Switch } from '@unofficial-krds/qwik/switch';
+import '@unofficial-krds/styles/button.css';
+import '@unofficial-krds/styles/switch.css';
+
+export const Notifications = component$(() => {
+	const enabled = useSignal(false);
+	return (
+		<>
+			<Switch label="알림 받기" checked={enabled.value} onCheckedChange$={({ checked }) => { enabled.value = checked; }} />
+			<Button disabled={!enabled.value}>계속하기</Button>
+		</>
+	);
+});
+```
+
+**Solid**
+
+```tsx
+import { createSignal } from 'solid-js';
+import { Button } from '@unofficial-krds/solid/button';
+import { Switch } from '@unofficial-krds/solid/switch';
+import '@unofficial-krds/styles/button.css';
+import '@unofficial-krds/styles/switch.css';
+
+export function Notifications() {
+	const [enabled, setEnabled] = createSignal(false);
+	return (
+		<>
+			<Switch label="알림 받기" checked={enabled()} onCheckedChange={({ checked }) => setEnabled(checked)} />
+			<Button disabled={!enabled()}>계속하기</Button>
+		</>
+	);
+}
+```
+
+Solid 2 미리보기 패키지 `@unofficial-krds/solid-next`에는 Toggle switch가 없습니다. 제공하는 컴포넌트는 [프레임워크 호환성](../compatibility/)에 있습니다.
+
+프레임워크마다 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크별 콘텐츠와 이벤트](../compatibility/#native-content-and-event-transport)에 정리되어 있습니다.
+
+## 로케일 바꾸기 {#set-the-locale}
+
+기본 로케일은 `ko-KR`, 글 방향은 `ltr`입니다. 영어(`en-US`)나 오른쪽에서 왼쪽(`rtl`)이 필요하면 다음과 같이 지정합니다.
+
+| 프레임워크 | 지정 방법 |
+| --- | --- |
+| React, Vue, Svelte, Qwik, Solid | 앱을 `<KrdsProvider locale="en-US">`로 감쌉니다. `KrdsProvider`는 패키지 루트에서 가져옵니다. |
+| Angular | `providers`에 `provideKrds({ locale: 'en-US' })`를 넣습니다. |
+| Lit | 요소마다 `locale="en-US"`와 `dir="rtl"` 속성을 씁니다. |
+
+```tsx
+import { KrdsProvider } from '@unofficial-krds/react';
+
+<KrdsProvider locale="en-US" direction="ltr">
+	<App />
+</KrdsProvider>;
+```
+
+날짜 값과 문서 지정은 [로케일과 날짜 값](./locale-dates)에 있습니다. 컴포넌트별 속성과 키보드 동작은 [컴포넌트 목록](../components/)에서 찾습니다.

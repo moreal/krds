@@ -150,6 +150,12 @@ test('three real list levels inside Shadow DOM remain required and malformed or 
  await check('text-list',2,'<list-host></list-host>',setup,['shallow','malformed'],/toBe|toHaveCount/);
 });
 
+test('marker-reset text lists state both the list role and every listitem role',async()=>{
+ const markup='<ul data-krds-component="text-list" data-krds-part="root" role="list" style="list-style:none"><li role="listitem">신청 조건 확인</li><li role="listitem">제출 서류 준비</li></ul>';
+ function setup(){if(window.__mode==='no-list')document.querySelector('ul').removeAttribute('role');if(window.__mode==='no-listitem')document.querySelector('li').removeAttribute('role');}
+ await check('text-list',3,markup,setup,['no-list','no-listitem'],/toHaveAttribute|toEqual/);
+});
+
 test('every declared native Badge sample preserves its full long label and size state without clipping or callback',async()=>{
  function setup(){const container=document.querySelector('section');for(const size of ['medium','small','medium','large']){const badge=document.createElement('span');badge.dataset.krdsComponent='badge';badge.dataset.krdsPart='root';badge.dataset.krdsSize=window.__mode==='wrong-size'?'medium':size;badge.style.cssText='display:inline-block;max-width:100%;overflow-wrap:anywhere';badge.textContent=window.__state.label;container.append(badge);}if(window.__mode==='missing-sample')container.lastElementChild.remove();window.__patch=patch=>{if(!patch.label)return;for(const badge of container.children){if(window.__mode!=='no-op')badge.textContent=patch.label;}if(window.__mode==='clipped'){container.lastElementChild.style.cssText='display:inline-block;width:4px;white-space:nowrap';}};}
  await check('badge',3,'<section></section>',setup,['wrong-size','missing-sample','no-op','clipped'],/toEqual|toHaveCount|toHaveText|toBe/);

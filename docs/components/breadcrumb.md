@@ -6,6 +6,8 @@ title: 'Breadcrumb'
 
 **브레드크럼** — 현재 페이지가 사이트 구조에서 어디에 있는지 경로로 보여 줍니다.
 
+`Breadcrumb` · `@unofficial-krds/<프레임워크>/breadcrumb` · CSS `@unofficial-krds/styles/breadcrumb.css`
+
 ## 사용법 {#usage}
 
 - 현재 페이지가 사이트 계층에서 어디에 있는지 보여 주고, 상위 페이지로 돌아갈 수 있게 할 때 씁니다.
@@ -24,26 +26,11 @@ title: 'Breadcrumb'
 | `omitCurrent` | `boolean` | `true` | 현재 페이지를 생략하고 바로 위 상위 페이지를 마지막 항목으로 둡니다. `false`로 두면 `currentItem`을 마지막에 링크가 아닌 텍스트로 표시합니다. |
 | `maxVisible` | `number` | `4` | 홈과 상위 페이지를 합쳐 한 줄에 보여 줄 항목 수입니다. 경로가 이보다 길면 홈 다음의 항목부터 줄임표로 접습니다. `2`보다 작게 줄일 수 없고, 좁은 화면에서는 값과 상관없이 `2`가 됩니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface BreadcrumbContract {
-    items: readonly {
-        id: string;
-        label: string;
-        href?: string;
-    }[];
-    home: LinkData;
-    currentItem?: {
-        id: string;
-        label: string;
-    };
-    omitCurrent?: boolean;
-    maxVisible?: number;
-}
-
 export interface LinkData {
     id?: string;
     label: string;
@@ -77,7 +64,7 @@ export interface LinkData {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/breadcrumb.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -96,5 +83,4 @@ export interface LinkData {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_03.html)
-- [상세 명세](/sources/specs/components/breadcrumb.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

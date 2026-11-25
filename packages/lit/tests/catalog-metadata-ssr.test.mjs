@@ -24,7 +24,8 @@ for (const [id, properties] of recipes.filter(([id]) => !excluded.has(id))) {
     const nativeMarkup = output.replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, '');
     const ownedTags = [...nativeMarkup.matchAll(new RegExp(`<[^!][^>]*\\bdata-krds-component="${id}"[^>]*>`, 'g'))].map(match => match[0]);
     assert.ok(ownedTags.some(tag => /\bdata-krds-part="root"/.test(tag)), `${id} root must match its component/part CSS selector before hydration`);
-    for (const tag of ownedTags) {
+    // Layout-only wrappers carry data-krds-internal instead of a public part, the same hook the styles validator accepts.
+    for (const tag of ownedTags.filter(tag => !/\bdata-krds-internal="/.test(tag))) {
       const part = tag.match(/\bdata-krds-part="([^"]+)"/)?.[1];
       assert.ok(part, `${id} owned element needs one part token`);
       assert.match(tag, /\bdata-krds-state="[^"]*"/, `${id}/${part} must serialize even an empty state set`);

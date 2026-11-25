@@ -4410,28 +4410,28 @@
   ],
   "distributedSources": [
     {
-      "sourcePath": "compliance/project-identity.json",
-      "outputPath": "sources/compliance/project-identity.json.txt",
-      "bytes": 3810,
-      "sha256": "86f3ab0ab47256b53932e92ca3a63b92d39ed80d6aee4f58f73bf57661035054"
-    },
-    {
       "sourcePath": "LICENSES/MIT.txt",
       "outputPath": "sources/LICENSES/MIT.txt.txt",
       "bytes": 1090,
       "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
     },
     {
+      "sourcePath": "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+      "outputPath": "sources/LICENSES/Pretendard-GOV-OFL-1.1.txt.txt",
+      "bytes": 4820,
+      "sha256": "e84395ff7ecbbaa72c7ac59a03266bebd9f489d2270d6943b08d6a60d7fc91ba"
+    },
+    {
+      "sourcePath": "compliance/project-identity.json",
+      "outputPath": "sources/compliance/project-identity.json.txt",
+      "bytes": 3810,
+      "sha256": "86f3ab0ab47256b53932e92ca3a63b92d39ed80d6aee4f58f73bf57661035054"
+    },
+    {
       "sourcePath": "compliance/license-policy.json",
       "outputPath": "sources/compliance/license-policy.json.txt",
       "bytes": 211171,
       "sha256": "b503c300f40a756698b61bac0c99b32ceb2e2526e7ca397e82398fae83377843"
-    },
-    {
-      "sourcePath": "compliance/provenance.json",
-      "outputPath": "sources/compliance/provenance.json.txt",
-      "bytes": 2056645,
-      "sha256": "6f715991a3f6d705755ac2aaf066fb1ed723be6c9c78099de80c01e0d8ddba4c"
     },
     {
       "sourcePath": "LICENSES/KRDS-copyright-en.html",
@@ -4446,10 +4446,10 @@
       "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
     },
     {
-      "sourcePath": "LICENSES/Pretendard-GOV-OFL-1.1.txt",
-      "outputPath": "sources/LICENSES/Pretendard-GOV-OFL-1.1.txt.txt",
-      "bytes": 4820,
-      "sha256": "e84395ff7ecbbaa72c7ac59a03266bebd9f489d2270d6943b08d6a60d7fc91ba"
+      "sourcePath": "compliance/provenance.json",
+      "outputPath": "sources/compliance/provenance.json.txt",
+      "bytes": 2056645,
+      "sha256": "6f715991a3f6d705755ac2aaf066fb1ed723be6c9c78099de80c01e0d8ddba4c"
     },
     {
       "sourcePath": "compliance/provenance-asset-sources.json",
@@ -5318,8 +5318,8 @@
     {
       "sourcePath": "packages/qwik/package.json",
       "outputPath": "sources/packages/qwik/package.json.txt",
-      "bytes": 13107,
-      "sha256": "f5a753695e37c6a4e38c13b7e856639e17a27dd6ad47642c37a12e1b3eec8cdc"
+      "bytes": 13184,
+      "sha256": "34acf81579b6ba97961c3d7a819f82ac813285f1364c93ee5b32e23fa34c19f0"
     },
     {
       "sourcePath": "docs/compatibility/qwik.md",
@@ -9909,8 +9909,8 @@
     },
     {
       "path": "packages/contracts/src/full-catalog.ts",
-      "bytes": 57571,
-      "sha256": "034735ce0f9a056dfd3893b987b5eec1eaa3a365a682fba7a6b969ada2e6f2c4"
+      "bytes": 57605,
+      "sha256": "9e94c3e37ab85612b5b34e794c1a145ebf6182cd1ba7b6233df138c88c65a8e5"
     },
     {
       "path": "packages/contracts/src/types.ts",
@@ -9949,8 +9949,8 @@
     },
     {
       "path": "packages/qwik/package.json",
-      "bytes": 13107,
-      "sha256": "f5a753695e37c6a4e38c13b7e856639e17a27dd6ad47642c37a12e1b3eec8cdc"
+      "bytes": 13184,
+      "sha256": "34acf81579b6ba97961c3d7a819f82ac813285f1364c93ee5b32e23fa34c19f0"
     },
     {
       "path": "packages/angular/package.json",
@@ -9964,38 +9964,33 @@
     },
     {
       "path": "docs/getting-started/forms.md",
-      "bytes": 4131,
-      "sha256": "b0b2853946c6c15974ca08965193bfdf34f2986d4217d79164823bc4ec408c8b"
+      "bytes": 4252,
+      "sha256": "67971c6fbc674001bc4a8ae0b8b18ac0dc4519cbc7faea690aa026a0da8710c4"
     },
     {
       "path": "docs/getting-started/installation.md",
-      "bytes": 4465,
-      "sha256": "ee52542f652093764899a5ebe80a2285300970fb49ff18c0ff6eae0e2aefa423"
+      "bytes": 8225,
+      "sha256": "5a9eef22683c0f67c9e040b5c858bf10a3accab836debb88b9fc6a10b39e5c61"
     },
     {
       "path": "docs/getting-started/locale-dates.md",
-      "bytes": 2183,
-      "sha256": "9da6d6824b826a67513669be689919442d8a32dacaf0d2b8c301ce751b3ba673"
+      "bytes": 2871,
+      "sha256": "8ec76b9d1a570cfd8e93b1e5b8d4e859708158d4a89dae8610e2f15d42cad356"
     },
     {
       "path": "docs/getting-started/ssr-portals.md",
-      "bytes": 2843,
-      "sha256": "4b4ac89c2cc80dc87fda13b49352b13890837cdb54e800a0253fa8ddfd8fa283"
+      "bytes": 2820,
+      "sha256": "4e6ad6bb952e397e595d2e578d9e87c5593c0899e9bf9e7a61f0daa6ba2901da"
     },
     {
       "path": "docs/getting-started/styling.md",
-      "bytes": 3921,
-      "sha256": "25139c90aad4888c4ea4cfea22a098f48919c9bd72ba16ffcbeaefba269360d3"
-    },
-    {
-      "path": "docs/getting-started/testing.md",
-      "bytes": 4099,
-      "sha256": "a698cf2add69619d1553cc393f289b2f04e870f4b4d2829419df1dadb445266a"
+      "bytes": 3770,
+      "sha256": "31faaaebdb938d166a94b2d89c00ecf6058ebaa0d9370e141e967cde9775cf02"
     },
     {
       "path": "docs/legal/index.md",
-      "bytes": 5957,
-      "sha256": "530218487fe2837d6a3dbbf24f2c624222dd4fe3ad19c81aee5f04c5ad7be666"
+      "bytes": 4483,
+      "sha256": "be0ebf063a6951a34e468a0cfb883489d95ff4afc0802b37da279cb06a75b841"
     },
     {
       "path": "docs/patterns/README.md",
@@ -10009,8 +10004,8 @@
     },
     {
       "path": "docs/patterns/sources.md",
-      "bytes": 7219,
-      "sha256": "9cc57b745c3d8052272496306245a2e5fc2c0e896364ae20843513b29e3b1b4e"
+      "bytes": 7006,
+      "sha256": "2eccc036bb927c21477bc5a1b64e83f3a32b32600a7035a3e216254e0989a333"
     },
     {
       "path": "apps/docs/example-evidence.json",
@@ -10659,8 +10654,8 @@
     },
     {
       "path": "catalog/component-guides/main-menu.json",
-      "bytes": 5263,
-      "sha256": "29b9b65301e2326f715dcec1843dfdf6960fb6e0715818ca4001e72d53e92b4a"
+      "bytes": 5386,
+      "sha256": "c1a9b4df7aae7d6a8ff3e7ad1c9ed3e7141465c0c2e311d681666c2adc0b4b15"
     },
     {
       "path": "upstream/krds/raw/components/component_03_03.html",
@@ -10719,8 +10714,8 @@
     },
     {
       "path": "catalog/component-guides/pagination.json",
-      "bytes": 4762,
-      "sha256": "6a8c82bcb6a863090470c89a379ca7eebf0a98d8950e8a3c9eaca2db698d196b"
+      "bytes": 4927,
+      "sha256": "1e9da16e03e7aca6f727db5c160c3901f5fbe608538530b319561f4d46459e51"
     },
     {
       "path": "upstream/krds/raw/components/component_04_01.html",
@@ -10824,8 +10819,8 @@
     },
     {
       "path": "catalog/component-guides/accordion.json",
-      "bytes": 3088,
-      "sha256": "8d7ea80c14f2c6a168f6a6dc328422d497afe439e71206a156e443f8f84bf302"
+      "bytes": 3259,
+      "sha256": "5d2dc2e66630052a89fd1ba8e81a9b1f65b9a626ede93647ead6d620d96cbeef"
     },
     {
       "path": "upstream/krds/raw/components/component_04_08.html",
@@ -10854,8 +10849,8 @@
     },
     {
       "path": "catalog/component-guides/carousel.json",
-      "bytes": 5402,
-      "sha256": "1571137f439963fe8218481155af7a70f64bc2f92633dae51e731eea81f54a21"
+      "bytes": 5463,
+      "sha256": "65146d00a7d2a4a0c75048c8937f139304fd572a9365f6c87ac561b7c5614273"
     },
     {
       "path": "upstream/krds/raw/components/component_04_10.html",
@@ -10899,8 +10894,8 @@
     },
     {
       "path": "catalog/component-guides/text-list.json",
-      "bytes": 1951,
-      "sha256": "d2ff3664638f6250c2ff8c282c48870185b5a66df5faa9798d5ee5c72e4dd22a"
+      "bytes": 1982,
+      "sha256": "4c0a91d078264164cc46e3519578bc567bf2770f8b4e421ac2785c86681a2a10"
     },
     {
       "path": "upstream/krds/raw/components/component_04_14.html",
@@ -10959,8 +10954,8 @@
     },
     {
       "path": "catalog/component-guides/fab.json",
-      "bytes": 3424,
-      "sha256": "a73a48b11635823c44d3bc7702bd4e69f7e1b91a0e480ae7d0327aa970b4423f"
+      "bytes": 3504,
+      "sha256": "f512b697964404526eea76a698893abcb4a646616d76cb332b65fbba6f4498d1"
     },
     {
       "path": "upstream/krds/raw/components/component_06_01.html",
@@ -11019,8 +11014,8 @@
     },
     {
       "path": "catalog/component-guides/tag.json",
-      "bytes": 4517,
-      "sha256": "9d01a974b1c972d04fe6837b697075c4c4b6db8c18601308c5ec5a5219ec6ff4"
+      "bytes": 4585,
+      "sha256": "afaa937f83b35fa99344c35425286fe09ebdfc69efa344bd933c89448357f994"
     },
     {
       "path": "upstream/krds/raw/components/component_06_07.html",
@@ -11049,8 +11044,8 @@
     },
     {
       "path": "catalog/component-guides/step-indicator.json",
-      "bytes": 3235,
-      "sha256": "bf7cc9ceebd7473187ae2b64b9793dd9dc116fd0175536b637cc591df1da3350"
+      "bytes": 3476,
+      "sha256": "04499ee5938c76d5b60db27c631b95ac0fceeeaf4421c31b980e0df5e4db8f41"
     },
     {
       "path": "upstream/krds/raw/components/component_07_02.html",
@@ -11214,8 +11209,8 @@
     },
     {
       "path": "catalog/component-guides/file-upload.json",
-      "bytes": 5111,
-      "sha256": "605f02b9819efc42cf9aa757ce4fc509cac602f33abbe4f3734687f692697041"
+      "bytes": 5162,
+      "sha256": "b0c33e5fd8a3e339a72c636ff3f036db89eacb2d3867d28127820a833a6a69c5"
     },
     {
       "path": "upstream/krds/raw/components/component_10_01.html",
@@ -11229,8 +11224,8 @@
     },
     {
       "path": "catalog/component-guides/language-switcher.json",
-      "bytes": 3835,
-      "sha256": "2d30c69cee31b0c681ea2cafed9f4187298d521358be8ae1d4c2a9a50b9acf76"
+      "bytes": 4065,
+      "sha256": "5389be67a7d0a354f53dee568574d74528518e91e63af7c47b6df9b189fc0c02"
     },
     {
       "path": "upstream/krds/raw/components/component_10_02.html",
@@ -11244,8 +11239,8 @@
     },
     {
       "path": "catalog/component-guides/resize.json",
-      "bytes": 3821,
-      "sha256": "cef5cfeeee3b2fc820fda46d29f4f16c38729ba56c21d9cf5f2e7de3f3d566b6"
+      "bytes": 3870,
+      "sha256": "73a497881d715df41b10cf607b0364167dfeba6dce466319301213ab74152b72"
     },
     {
       "path": "upstream/krds/raw/components/component_11_01.html",
@@ -11364,8 +11359,8 @@
     },
     {
       "path": "catalog/component-guides/snackbar.json",
-      "bytes": 4582,
-      "sha256": "9b8df362bc9165828d7d8f4ae53bd232b6b88aa0d72b0ca09b935f06c467ea9a"
+      "bytes": 4652,
+      "sha256": "23c50360a86eaa917473d423a41cef33ed2e68dbba3f25933a46e1eaab2ca581"
     },
     {
       "path": "upstream/krds/raw/components/component_12_07.html",
@@ -11383,14 +11378,14 @@
       "sha256": "b45ad6251079932ad321a1548c7544151c7524bd70097364772e6efdacb1dae9"
     },
     {
+      "path": "docs/compatibility/framework-usage.md",
+      "bytes": 3794,
+      "sha256": "82061fce66349f11132837c88b0cd936f0aec9a7616cb26808a977bfd3cd8db7"
+    },
+    {
       "path": "apps/docs/artifact-checkpoint.json",
       "bytes": 11325,
       "sha256": "a81678d8973d4754840c87ee2de95b65fb622b7885d9a38497bedaaba1d3952b"
-    },
-    {
-      "path": "compliance/project-identity.json",
-      "bytes": 3810,
-      "sha256": "86f3ab0ab47256b53932e92ca3a63b92d39ed80d6aee4f58f73bf57661035054"
     },
     {
       "path": "LICENSES/MIT.txt",
@@ -11398,14 +11393,19 @@
       "sha256": "72dc9d2e9640b32083b77b78da03a71243155e62a870ac5c3061e6d91e22dc6e"
     },
     {
+      "path": "LICENSES/Pretendard-GOV-OFL-1.1.txt",
+      "bytes": 4820,
+      "sha256": "e84395ff7ecbbaa72c7ac59a03266bebd9f489d2270d6943b08d6a60d7fc91ba"
+    },
+    {
+      "path": "compliance/project-identity.json",
+      "bytes": 3810,
+      "sha256": "86f3ab0ab47256b53932e92ca3a63b92d39ed80d6aee4f58f73bf57661035054"
+    },
+    {
       "path": "compliance/license-policy.json",
       "bytes": 211171,
       "sha256": "b503c300f40a756698b61bac0c99b32ceb2e2526e7ca397e82398fae83377843"
-    },
-    {
-      "path": "compliance/provenance.json",
-      "bytes": 2056645,
-      "sha256": "6f715991a3f6d705755ac2aaf066fb1ed723be6c9c78099de80c01e0d8ddba4c"
     },
     {
       "path": "LICENSES/KRDS-copyright-en.html",
@@ -11418,9 +11418,9 @@
       "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f"
     },
     {
-      "path": "LICENSES/Pretendard-GOV-OFL-1.1.txt",
-      "bytes": 4820,
-      "sha256": "e84395ff7ecbbaa72c7ac59a03266bebd9f489d2270d6943b08d6a60d7fc91ba"
+      "path": "compliance/provenance.json",
+      "bytes": 2056645,
+      "sha256": "6f715991a3f6d705755ac2aaf066fb1ed723be6c9c78099de80c01e0d8ddba4c"
     },
     {
       "path": "compliance/provenance-asset-sources.json",

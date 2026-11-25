@@ -6,6 +6,8 @@ title: 'Skip link'
 
 **건너뛰기 링크** — 키보드 사용자가 반복되는 영역을 지나 본문으로 바로 이동하게 합니다.
 
+`SkipLink` · `@unofficial-krds/<프레임워크>/skip-link` · CSS `@unofficial-krds/styles/skip-link.css`
+
 ## 사용법 {#usage}
 
 - 키보드나 화면 낭독기 사용자가 헤더와 메뉴처럼 페이지마다 반복되는 영역을 건너뛰고 본문으로 바로 갈 수 있게 할 때 씁니다. 반복 영역이 있는 모든 페이지에 둡니다.
@@ -21,20 +23,7 @@ title: 'Skip link'
 | `links` **필수** | `readonly {id: string; label: string; targetId: string}[]` | — | 건너뛰기 링크 목록입니다. 각 항목의 `label`은 링크 문구이고, `targetId`는 같은 문서 안에서 이동할 요소의 `id`입니다. |
 | `visibility` | `'focus-revealed' \| 'visible'` | `"focus-revealed"` | `focus-revealed`는 평소에는 숨겨 두었다가 키보드 초점을 받을 때 링크를 보여 줍니다. `visible`은 링크를 항상 보여 줍니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface SkipLinkContract {
-    links: readonly {
-        id: string;
-        label: string;
-        targetId: string;
-    }[];
-    visibility?: 'focus-revealed' | 'visible';
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -59,7 +48,7 @@ export interface SkipLinkContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/skip-link.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -75,5 +64,4 @@ export interface SkipLinkContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_01.html)
-- [상세 명세](/sources/specs/components/skip-link.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

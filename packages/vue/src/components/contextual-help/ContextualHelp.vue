@@ -40,10 +40,12 @@ function outside(e: PointerEvent) {
     if (!root.value?.contains(e.target as Node))
         state.request(false);
 }
-onMounted(() => { mounted = true; document.addEventListener('pointerdown', outside); });
+// KRDS component_08_03 L1288-1294: Esc hides the help wherever focus is. The root listener still claims it first from inside.
+onMounted(() => { mounted = true; document.addEventListener('pointerdown', outside); document.addEventListener('keydown', key); });
 onUnmounted(() => {
     mounted = false;
     document.removeEventListener('pointerdown', outside);
+    document.removeEventListener('keydown', key);
     if (state.value.value)
         restore(document, trigger.value ?? null, p.fallbackFocusId);
 });

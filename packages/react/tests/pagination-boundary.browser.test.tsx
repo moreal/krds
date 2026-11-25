@@ -20,3 +20,9 @@ test(title, async () => {
   expect(facts(await mount(1))).toEqual(first);
   expect(facts(await mount(3))).toEqual(last);
 });
+// KRDS component_03_06 L1290-1291: a number link is named "페이지 N", the last one "마지막 페이지, N"; the visible text stays the number.
+const names = (root: ParentNode) => [...root.querySelectorAll<HTMLElement>('[data-krds-component="pagination"][data-krds-part="link"][href]')].map(link => [link.textContent, link.getAttribute('aria-label')]);
+test('Pagination names number links as pages and the last one as the last page', async () => {
+  expect(names(await mount(1))).toEqual([['2', '페이지 2'], ['3', '마지막 페이지, 3']]);
+  expect(names(await mount(3))).toEqual([['1', '페이지 1'], ['2', '페이지 2']]);
+});

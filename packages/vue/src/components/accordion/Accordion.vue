@@ -26,10 +26,10 @@ watch(state.value, (ids, old) => {
 <template>
 <div ref="root" data-krds-part="root" :data-krds-variant="variant??'default'" data-krds-component="accordion" data-krds-state="">
 <section v-for="item in items" :key="item.id" data-krds-part="item" :data-krds-state="state.value.value.includes(item.id)?'open':'closed'" data-krds-component="accordion">
-<h3 data-krds-part="heading" data-krds-component="accordion" data-krds-state="">
+<component :is="`h${headingLevel??3}`" data-krds-part="heading" data-krds-component="accordion" data-krds-state="">
 <button :id="`${id}-${item.id}-trigger`" type="button" data-krds-part="trigger" data-krds-state="" :aria-expanded="state.value.value.includes(item.id)" :aria-controls="`${id}-${item.id}-panel`" @click="toggle(item.id)" data-krds-component="accordion">{{item.title}}<span data-krds-part="icon" aria-hidden="true" data-krds-component="accordion" data-krds-state="">{{state.value.value.includes(item.id)?'−':'+'}}</span>
 </button>
-</h3>
+</component>
 <div :id="`${id}-${item.id}-panel`" data-krds-part="panel" data-krds-state="" :hidden="!state.value.value.includes(item.id)" data-krds-component="accordion">
 <slot :name="item.id">{{item.content}}</slot>
 </div>

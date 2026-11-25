@@ -6,6 +6,8 @@ title: 'Table'
 
 **표** — 행과 열로 정리한 데이터를 비교하기 쉽게 보여 줍니다.
 
+`Table` · `@unofficial-krds/<프레임워크>/table` · CSS `@unofficial-krds/styles/table.css`
+
 ## 사용법 {#usage}
 
 - 통계 데이터나 게시물 목록처럼 행과 열로 정리되는 데이터를 비교해 볼 수 있게 할 때 씁니다.
@@ -25,29 +27,11 @@ title: 'Table'
 | `sort` | `{columnId: string; direction: 'ascending' \| 'descending'}` | — | 현재 정렬 기준 열과 방향입니다. 해당 열 헤더에 정렬 방향을 표시합니다. 생략하면 어느 열도 정렬된 상태로 표시하지 않습니다. |
 | `onSortChange` | `(detail: {columnId: string; direction: 'ascending' \| 'descending'}) => void` | — | 사용자가 열 헤더의 정렬 버튼을 누르면 불리고, 요청한 `columnId`와 `direction`을 받습니다. 지금 오름차순으로 정렬된 열을 누르면 `descending`을, 그 밖에는 `ascending`을 요청합니다. 넘기지 않으면 정렬 버튼이 생기지 않습니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface TableContract {
-    rowHeaderColumnId?: string;
-    caption: string;
-    columns: readonly TableColumn[];
-    rows: readonly {
-        id: string;
-        cells: Readonly<Record<string, string | number | null>>;
-    }[];
-    sort?: {
-        columnId: string;
-        direction: 'ascending' | 'descending';
-    };
-    onSortChange?: (detail: {
-        columnId: string;
-        direction: 'ascending' | 'descending';
-    }) => void;
-}
-
 export interface TableColumn {
     id: string;
     label: string;
@@ -82,7 +66,7 @@ export interface TableColumn {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/table.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -105,5 +89,4 @@ export interface TableColumn {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_11.html)
-- [상세 명세](/sources/specs/components/table.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

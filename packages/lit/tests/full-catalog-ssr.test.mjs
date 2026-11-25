@@ -81,3 +81,12 @@ test('F10: autoplay permission serializes without browser globals and stays trut
   assert.match(output, /data-krds-state="paused"/);
   assert.match(output, /자동 재생 중지/);
 });
+
+test('Expandable FAB trigger shows + while collapsed and X while expanded under one name (KRDS component_05_03 L875-876)', () => {
+  const actions = [{ id: 'new', label: '새 신청' }];
+  const trigger = expanded => [...render(html`<krds-fab .label=${'신청 작업'} .icon=${'plus'} .actions=${actions} .defaultExpanded=${expanded}></krds-fab>`)].join('').match(/<button[^>]*data-krds-part="trigger"[\s\S]*?<\/button>/u)[0];
+  const collapsed = trigger(false), expanded = trigger(true);
+  assert.match(collapsed, /aria-expanded="false"/u); assert.match(collapsed, /d="M12 4v16M4 12h16"/u); assert.doesNotMatch(collapsed, /M6 6l12 12/u);
+  assert.match(expanded, /aria-expanded="true"/u); assert.match(expanded, /d="M6 6l12 12M18 6L6 18"/u); assert.doesNotMatch(expanded, /M12 4v16/u);
+  assert.match(expanded, /data-krds-part="label"[^>]*>(?:<!--[^>]*-->)*신청 작업/u);
+});

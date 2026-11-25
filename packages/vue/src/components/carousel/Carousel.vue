@@ -122,7 +122,7 @@ watch(canAdvance, active => {
                 requestIndex(activeIndex.value + 1, 'timer');
         }, p.intervalMs ?? 6000);
 });
-onMounted(() => { mounted.value = true; hidden.value = document.hidden; motionMedia = matchMedia('(prefers-reduced-motion: reduce)'); widthMedia = matchMedia('(max-width: 1023px)'); motion(); width(); motionMedia.addEventListener('change', motion); widthMedia.addEventListener('change', width); document.addEventListener('visibilitychange', visibility); });
+onMounted(() => { mounted.value = true; hidden.value = document.hidden; motionMedia = matchMedia('(prefers-reduced-motion: reduce)'); widthMedia = matchMedia('(max-width: 1022px)'); motion(); width(); motionMedia.addEventListener('change', motion); widthMedia.addEventListener('change', width); document.addEventListener('visibilitychange', visibility); });
 onUnmounted(() => { mounted.value = false; gesture = undefined; cleanup(); motionMedia?.removeEventListener('change', motion); widthMedia?.removeEventListener('change', width); document.removeEventListener('visibilitychange', visibility); });
 </script>
 <template>

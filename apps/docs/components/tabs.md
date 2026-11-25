@@ -6,6 +6,8 @@ title: 'Tab'
 
 **탭** — 관련된 콘텐츠를 탭으로 나누어 한 번에 하나씩 보여 줍니다.
 
+`Tabs` · `@unofficial-krds/<프레임워크>/tabs` · CSS `@unofficial-krds/styles/tabs.css`
+
 ## 사용법 {#usage}
 
 - 한 페이지 안에서 관련된 콘텐츠를 여러 패널로 나누고, 한 번에 하나씩 전환해 보여 줄 때 씁니다.
@@ -24,7 +26,7 @@ title: 'Tab'
 | `activationMode` | `'manual' \| 'automatic'` | `"manual"` | `manual`은 탭에 초점이 가도 선택되지 않고 `Enter`, `Space`, 클릭으로 선택합니다. `automatic`은 탭에 초점이 가면 바로 선택합니다. |
 | `orientation` | `'horizontal' \| 'vertical'` | `"horizontal"` | 탭을 놓는 방향입니다. 방향키 이동도 이 방향을 따릅니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -54,7 +56,7 @@ title: 'Tab'
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/tabs.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -71,5 +73,4 @@ title: 'Tab'
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_10.html)
-- [상세 명세](/sources/specs/components/tabs.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

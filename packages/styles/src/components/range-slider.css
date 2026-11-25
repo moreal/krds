@@ -2,7 +2,9 @@
  * Native state, visibility, focus management and host effects remain renderer responsibilities. */
 [data-krds-component="range-slider"][data-krds-part="root"] { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--krds-gap-4); }
 [data-krds-component="range-slider"][data-krds-part="label"] { font-weight: 700; }
-[data-krds-component="range-slider"][data-krds-part="output"] { justify-self: end; font-variant-numeric: tabular-nums; font-weight: 700; }
+/* Guide (component_12_01.html L942–943): the selected value sits above the handle or at the slider's end, never below the track.
+ * The output follows the control in every renderer's DOM, so it is placed explicitly at the end of the label row, above the track's end. */
+[data-krds-component="range-slider"][data-krds-part="output"] { grid-row: 1; grid-column: 2; justify-self: end; font-variant-numeric: tabular-nums; font-weight: 700; }
 [data-krds-component="range-slider"][data-krds-part="control"] { grid-column: 1 / -1; inline-size: 100%; min-block-size: var(--krds-size-height-7); margin: 0; accent-color: var(--krds-light-color-element-primary); cursor: pointer; }
 [data-krds-component="range-slider"][data-krds-part="control"]:disabled { accent-color: var(--krds-light-color-element-disabled-dark); cursor: not-allowed; }
 [data-krds-component="range-slider"][data-krds-part="track"], [data-krds-component="range-slider"][data-krds-part="range"], [data-krds-component="range-slider"][data-krds-part="thumb"] { pointer-events: none; }

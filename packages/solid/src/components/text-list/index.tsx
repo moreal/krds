@@ -15,7 +15,7 @@ export function TextList(props: TextListProps) {
     validate(props.items, 1);
   });
   function Items(p: { items: readonly TextListItem[]; level: number }) {
-    const contents = () => <For each={p.items}>{item => <li {...owned('text-list', 'item', `level-${p.level}`)}>
+    const contents = () => <For each={p.items}>{item => <li role="listitem" {...owned('text-list', 'item', `level-${p.level}`)}>
       <Show when={props.renderItem} fallback={<span {...owned('text-list', 'content')}>{item.content}</span>}>
         <div {...owned('text-list', 'content')}>{props.renderItem?.(item)}</div>
       </Show>

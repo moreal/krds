@@ -28,27 +28,27 @@
 
 서비스 레이아웃 예시는 다음 컴포넌트 명세를 따릅니다. 각 명세에 원본 URL, 날짜, 해시가 있습니다.
 
-- [헤더(Header)](../../specs/components/header.md)
-- [사이드 메뉴(SideNavigation)](../../specs/components/side-navigation.md)
-- [푸터(Footer)](../../specs/components/footer.md)
-- [건너뛰기 링크(SkipLink)](../../specs/components/skip-link.md)
-- [메인 메뉴(MainMenu)](../../specs/components/main-menu.md)
-- [공식 배너(Masthead)](../../specs/components/masthead.md)
-- [운영기관 식별자(Identifier)](../../specs/components/identifier.md)
+- [Header](../../specs/components/header.md)
+- [Side navigation](../../specs/components/side-navigation.md)
+- [Footer](../../specs/components/footer.md)
+- [Skip link](../../specs/components/skip-link.md)
+- [Main menu](../../specs/components/main-menu.md)
+- [Masthead](../../specs/components/masthead.md)
+- [Identifier](../../specs/components/identifier.md)
 
 예시는 정부 서비스가 아닙니다. 그래서 공식 기관임을 나타내는 문구를 이 프로젝트의 것처럼 표시하지 않습니다.
 
 폼, 검색, 확인 예시는 다음 컴포넌트 명세도 따릅니다.
 
-- [버튼(Button)](../../specs/components/button.md)
-- [셀렉트(NativeSelect)](../../specs/components/native-select.md)
-- [텍스트 입력 필드(TextInput)](../../specs/components/text-input.md)
-- [텍스트 영역(Textarea)](../../specs/components/textarea.md)
-- [라디오 버튼(RadioGroup)](../../specs/components/radio-group.md)
-- [모달(Modal)](../../specs/components/modal.md)
-- [구조화 목록(StructuredList)](../../specs/components/structured-list.md)
-- [페이지네이션(Pagination)](../../specs/components/pagination.md)
-- [스피너(Spinner)](../../specs/components/spinner.md)
+- [Button](../../specs/components/button.md)
+- [Select](../../specs/components/native-select.md) (`NativeSelect`)
+- [Text input](../../specs/components/text-input.md)
+- [Textarea](../../specs/components/textarea.md)
+- [Radio button](../../specs/components/radio-group.md) (`RadioGroup`)
+- [Modal](../../specs/components/modal.md)
+- [Structured list](../../specs/components/structured-list.md)
+- [Pagination](../../specs/components/pagination.md)
+- [Spinner](../../specs/components/spinner.md)
 
 ## 보충 소스 해시 {#supplemental-source-hashes}
 

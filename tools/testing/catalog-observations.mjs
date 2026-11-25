@@ -154,7 +154,7 @@ const observers={
   },
   async pagination(page,driver,{initialState:s}) {
     const nav=role(page,'navigation','페이지 이동');await native(nav,'nav');const current=nav.locator('[aria-current="true"],[aria-current="page"]');await expect(current).toHaveCount(1);await expect(current).not.toHaveAttribute('href',/.+/);
-    const last=nav.getByRole('link',{name:String(s.pageCount),exact:true});await anchor(last,s.hrefTemplate.replace('{page}',String(s.pageCount)));
+    const last=nav.getByRole('link',{name:`마지막 페이지, ${s.pageCount}`,exact:true});await anchor(last,s.hrefTemplate.replace('{page}',String(s.pageCount)));
     await modifiedNavigation(page,last,s.hrefTemplate.replace('{page}',String(s.pageCount)));await quiet(driver);
   },
   async 'structured-list'(page,driver,{initialState:s}) {

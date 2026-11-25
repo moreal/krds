@@ -2,7 +2,6 @@ import { useId, useLayoutEffect, useRef, type ReactNode } from 'react';
 import type { AccordionContract } from '@unofficial-krds/contracts';
 import { part, useValue, unique } from '../../catalog-utils.js';
 export interface AccordionProps extends AccordionContract {
-    headingLevel?: 2 | 3 | 4 | 5 | 6;
     content?: Readonly<Record<string, ReactNode>>;
 }
 export function Accordion({ items, openIds, defaultOpenIds, onOpenChange, multiple = true, variant = 'default', headingLevel = 3, content }: AccordionProps) { const state = useValue<readonly string[]>(openIds, defaultOpenIds, [], 'Accordion'); unique(items.map(i => i.id), 'Accordion'); if (state.current.some(id => !items.some(i => i.id === id)) || !multiple && state.current.length > 1)

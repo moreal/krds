@@ -6,6 +6,8 @@ title: 'Snackbar'
 
 **스낵바** — 동작 결과를 알리면서 되돌리기 같은 후속 동작을 함께 제공합니다.
 
+`Snackbar` · `@unofficial-krds/<프레임워크>/snackbar` · CSS `@unofficial-krds/styles/snackbar.css`
+
 ## 사용법 {#usage}
 
 - 사용자 행동의 결과를 짧게 알리면서 되돌리기, 재시도, 목록으로 이동처럼 바로 할 수 있는 조치를 함께 줄 때 씁니다.
@@ -22,31 +24,14 @@ title: 'Snackbar'
 | `action` | `SnackbarAction` | — | 메시지 뒤에 두는 텍스트 동작 하나입니다. `kind`가 `button`이면 버튼으로, `link`이면 `href`를 가진 실제 링크로 표시합니다. |
 | `onAction` | `(detail: {id: string; generation: number; actionId: string}) => void` | — | 버튼 동작을 누를 때마다 한 번 불립니다. 메시지 `id`, `generation`, 동작의 `actionId`를 받습니다. 동작을 눌러도 스낵바는 저절로 닫히지 않습니다. |
 | `onDismiss` **필수** | `(detail: {id: string; reason: 'close' \| 'timeout'; generation: number}) => void` | — | 사용자가 닫기 버튼을 누르거나 표시 시간이 끝나면 불립니다. 메시지 `id`, `generation`, 그리고 `reason`으로 `close` 또는 `timeout`을 받습니다. 여기서 `message`를 `null`이나 다음 메시지로 바꿔야 실제로 닫힙니다. |
-| `durationMs` | `number \| null` | `null` | 자동으로 닫기를 요청할 때까지의 시간(밀리초)입니다. `null`이면 타이머 없이 사용자가 닫을 때까지 남습니다. |
+| `durationMs` | `number \| null` | `null` | 자동으로 닫기를 요청할 때까지의 시간(밀리초)입니다. `null`이면 타이머 없이 사용자가 닫을 때까지 남습니다. 숫자를 넘길 때는 0보다 큰 유한한 값이어야 합니다. |
 | `fallbackFocusId` | `string` | — | 스낵바 안에 초점이 있는 채로 닫혔는데 원래 초점이 있던 요소를 쓸 수 없을 때, 대신 초점을 받을 요소의 `id`입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface SnackbarContract {
-    message: SnackbarMessage | null;
-    action?: SnackbarAction;
-    onAction?: (detail: {
-        id: string;
-        generation: number;
-        actionId: string;
-    }) => void;
-    onDismiss: (detail: {
-        id: string;
-        reason: 'close' | 'timeout';
-        generation: number;
-    }) => void;
-    durationMs?: number | null;
-    fallbackFocusId?: string;
-}
-
 export interface SnackbarMessage {
     id: string;
     title: string;
@@ -95,7 +80,7 @@ export type SnackbarAction = {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/snackbar.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -113,5 +98,4 @@ export type SnackbarAction = {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_12_06.html)
-- [상세 명세](/sources/specs/components/snackbar.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

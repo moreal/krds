@@ -41,9 +41,9 @@ export function FAB(props: FABProps) {
       onClick={() => props.actions?.length ? expanded.request(!expanded.read()) : props.onAction?.()}
     >
       <span aria-hidden="true" {...owned('fab', 'icon')}>
-        <Show when={props.icon === 'plus' || props.icon === 'add'} fallback={props.icon}>
+        <Show when={(props.actions?.length && expanded.read()) || props.icon === 'plus' || props.icon === 'add'} fallback={props.icon}>
           <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" tabIndex={-1}>
-            <path d="M12 4v16M4 12h16"/>
+            <path d={props.actions?.length && expanded.read() ? 'M6 6l12 12M18 6L6 18' : 'M12 4v16M4 12h16'}/>
           </svg>
         </Show>
       </span>

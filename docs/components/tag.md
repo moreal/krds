@@ -6,6 +6,8 @@ title: 'Tag'
 
 **태그** — 항목을 분류하는 키워드를 보여 주고, 필요하면 선택하거나 지울 수 있게 합니다.
 
+`Tag` · `@unofficial-krds/<프레임워크>/tag` · CSS `@unofficial-krds/styles/tag.css`
+
 ## 사용법 {#usage}
 
 - 필터링·정렬에서 사용자가 고른 조건을 보여 주고, 조건을 켜고 끄거나 삭제하게 할 때 씁니다.
@@ -20,40 +22,14 @@ title: 'Tag'
 | --- | --- | --- | --- |
 | `items` **필수** | `readonly {id: string; label: string; href?: string; disabled?: boolean}[]` | — | 표시할 태그 목록입니다. 항목마다 `id`와 `label`을 주고, `link` 모드에서는 `href`로 이동할 주소를 지정합니다. `disabled`인 항목은 누를 수 없고 화살표 키 이동에서도 건너뜁니다. |
 | `mode` | `'static' \| 'toggle' \| 'removable' \| 'add-filter' \| 'link'` | `"static"` | 그룹 전체의 동작을 정합니다. `static`은 누를 수 없는 레이블, `toggle`은 선택을 켜고 끄는 버튼, `removable`은 삭제 버튼이 붙은 태그, `add-filter`는 누르면 필터 조건으로 추가되는 태그, `link`는 링크입니다. |
-| `selectedIds` | `readonly string[]` | `[]` | 선택된 태그의 `id` 목록입니다. `toggle` 모드에서 눌린 상태로 표시합니다. |
+| `selectedIds` | `readonly string[]` | `[]` | 선택된 태그의 `id` 목록입니다. `toggle` 모드에서 눌린 상태로 표시하며, 선택된 태그는 레이블 앞에 체크 아이콘이 붙습니다. |
 | `onSelectionChange` | `(detail: {ids: readonly string[]}) => void` | — | `toggle` 모드에서 태그를 눌러 선택을 바꾸려 할 때 불립니다. 바뀐 뒤의 선택 목록을 `ids`로 받습니다. |
 | `onRemove` | `(detail: {id: string}) => void` | — | `removable` 모드에서 태그를 삭제하려 할 때 불립니다. 삭제할 태그의 `id`를 받으며, 실제로 `items`에서 빼는 일은 직접 처리합니다. |
 | `onAdd` | `(detail: {id: string}) => void` | — | `add-filter` 모드에서 태그를 눌러 필터 조건으로 추가하려 할 때 불립니다. 해당 태그의 `id`를 받습니다. |
 | `onClear` | `() => void` | — | 전체 삭제 버튼을 눌렀을 때 불립니다. 이 콜백을 주면 `toggle`, `removable`, `add-filter` 모드에서 태그가 하나 이상 있을 때 전체 삭제 버튼이 나타납니다. |
 | `appliedBarId` | `string` | — | 적용된 필터를 보여 주는 막대 요소의 `id`입니다. `add-filter` 모드에서 필터를 추가하면 초점이 이 요소로 이동합니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface TagContract {
-    items: readonly {
-        id: string;
-        label: string;
-        href?: string;
-        disabled?: boolean;
-    }[];
-    mode?: 'static' | 'toggle' | 'removable' | 'add-filter' | 'link';
-    selectedIds?: readonly string[];
-    onSelectionChange?: (detail: {
-        ids: readonly string[];
-    }) => void;
-    onRemove?: (detail: {
-        id: string;
-    }) => void;
-    onAdd?: (detail: {
-        id: string;
-    }) => void;
-    onClear?: () => void;
-    appliedBarId?: string;
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -79,7 +55,7 @@ export interface TagContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/tag.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -99,5 +75,4 @@ export interface TagContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_06_04.html)
-- [상세 명세](/sources/specs/components/tag.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

@@ -59,6 +59,21 @@ test('FileUpload keeps one keyboard/AT file control: the visible picker opens th
   } finally { await close(); }
 });
 
+// Each server-rendered record as [element, enclosing list, error text, remove name, elements after an HTML parse of the record].
+const fileRecords = page => page.evaluate(() => [...document.querySelectorAll('[data-krds-component="file-upload"][data-krds-part="item"]')].map(item => { const parsed = document.createElement('div'); parsed.innerHTML = item.outerHTML; return [item.tagName, item.closest('ul, ol')?.tagName ?? null, item.querySelector('[data-krds-part="error"]')?.textContent ?? null, item.querySelector('[data-krds-part="remove"]')?.getAttribute('aria-label'), parsed.childElementCount]; }));
+test('FileUpload groups a single file record in a paragraph and multiple records in a list (component_09_04 L1150-1151)', async () => {
+  for (const [id, expected] of [['file-upload-single-record', [['P', null, '전송 실패', 'a.txt 삭제', 1]]], ['file-upload-multiple-records', [['LI', 'UL', null, 'a.txt 삭제', 1], ['LI', 'UL', null, 'b.txt 삭제', 1]]]]) {
+    const { page, close } = await open(id);
+    try { assert.deepEqual(await fileRecords(page), expected, id); } finally { await close(); }
+  }
+  const { page, close } = await open('file-upload-picked');
+  try {
+    await page.locator('[data-krds-part="file-input"]').setInputFiles({ name: 'picked.txt', mimeType: 'text/plain', buffer: Buffer.from('picked') });
+    await page.waitForSelector('[data-krds-component="file-upload"][data-krds-part="item"]');
+    assert.deepEqual(await fileRecords(page), [['P', null, null, 'picked.txt 삭제', 1]], 'resumed client render of a picked file');
+  } finally { await close(); }
+});
+
 test('TutorialPanel inner controls carry shared tab/start/step parts', async () => {
   const { page, close } = await open('tutorial-panel');
   try {

@@ -89,6 +89,7 @@ export function Tooltip({ open, defaultOpen, onOpenChange, text, relationship = 
     if (children && (!child || typeof child.type !== 'string' || !['button', 'a', 'input', 'select', 'textarea'].includes(child.type) || child.type === 'a' && typeof child.props.href !== 'string' || child.type === 'input' && child.props.type === 'hidden' || child.props.hidden === true || child.props.disabled === true || typeof child.props.tabIndex === 'number' && child.props.tabIndex < 0)) {
         throw new TypeError('Tooltip requires an enabled keyboard-operable native child control.');
     }
+    if (!child && relationship !== 'label' && !triggerLabel?.trim()) throw new TypeError('Description tooltip needs triggerLabel to name its default trigger.');
     const childProps = child?.props ?? {};
     const descriptions = typeof childProps['aria-describedby'] === 'string' ? childProps['aria-describedby'].split(/\s+/).filter(Boolean) : [];
     const labels = typeof childProps['aria-labelledby'] === 'string' ? childProps['aria-labelledby'].split(/\s+/).filter(Boolean) : [];

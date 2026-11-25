@@ -1,7 +1,22 @@
 # @unofficial-krds/assets
 
-Eight unmodified generic KRDS SVG icons are available as local files through `@unofficial-krds/assets/icons/*.svg` or as URLs through `krdsIconUrls`. No remote fetch is required. Provide accessible labels in the consuming control; decorative images should have empty alternative text.
+Eight unmodified generic KRDS SVG icons as local files. This is an unofficial, independent project.
 
-Institution logos, service names, official government banners and third-party brand marks are not bundled. Consumers supply their own identity and verify their rights. `InstitutionIdentity` describes optional consumer-provided identity without inventing an institution.
+## Install
 
-The icons retain the recorded KRDS KOGL Type 1 conditions. See LICENSE.md, ATTRIBUTION.md, THIRD-PARTY-NOTICES.md, provenance.json and LICENSES/. Preserve these notices when redistributing the icons. Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under LICENSES/MIT.txt; the original material keeps its own terms. Publication is not authorized.
+The package is not published to npm yet. Build and pack it in the [repository](https://github.com/moreal/krds), then install the tarball in your app.
+
+```bash
+node tools/yarn.mjs nx run krds-assets:build
+node tools/yarn.mjs workspace @unofficial-krds/assets pack --out /tmp/krds/assets.tgz
+```
+
+## Use
+
+Import an icon file from `@unofficial-krds/assets/icons/<name>.svg`, or use the URLs in `krdsIconUrls` from the package root. Give the icon an accessible label in the control that uses it. A decorative icon gets empty alternative text.
+
+Institution logos, service names, government banners and other brand marks are not included. Supply your own and check that you may use them.
+
+## License
+
+The icons keep the KRDS KOGL Type 1 conditions. Keep [LICENSE.md](LICENSE.md), [ATTRIBUTION.md](ATTRIBUTION.md) and `LICENSES/` with any icon you redistribute. Code written for this project is MIT licensed, Copyright (c) 2026 Lee Dogeon. This is not an official KRDS or government distribution.

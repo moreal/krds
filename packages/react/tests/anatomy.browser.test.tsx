@@ -32,6 +32,16 @@ test('FileUpload keeps one keyboard/AT file control: the visible picker opens th
   expect(document.activeElement?.textContent).toBe('After upload');
 });
 
+// Each record as [element, enclosing list, error text, remove name, elements after an HTML parse of the record].
+const fileRecords = (root: ParentNode) => [...root.querySelectorAll<HTMLElement>('[data-krds-component="file-upload"][data-krds-part="item"]')].map(item => { const parsed = document.createElement('div'); parsed.innerHTML = item.outerHTML; return [item.tagName, item.closest('ul, ol')?.tagName ?? null, item.querySelector('[data-krds-part="error"]')?.textContent ?? null, item.querySelector('[data-krds-part="remove"]')?.getAttribute('aria-label'), parsed.childElementCount]; });
+test('FileUpload groups a single file record in a paragraph and multiple records in a list (component_09_04 L1150-1151)', async () => {
+  const a = new File(['a'], 'a.txt', { type: 'text/plain' }), b = new File(['b'], 'b.txt', { type: 'text/plain' });
+  const single = await mount(<FileUpload label="첨부 서류" name="one" files={[{ id: 'a', file: a, status: 'error', error: '전송 실패' }]} onFilesChange={() => {}}/>);
+  const multiple = await mount(<FileUpload label="첨부 서류" name="many" multiple files={[{ id: 'a', file: a, status: 'staged' }, { id: 'b', file: b, status: 'staged' }]} onFilesChange={() => {}}/>);
+  expect(fileRecords(single)).toEqual([['P', null, '전송 실패', 'a.txt 삭제', 1]]);
+  expect(fileRecords(multiple)).toEqual([['LI', 'UL', null, 'a.txt 삭제', 1], ['LI', 'UL', null, 'b.txt 삭제', 1]]);
+});
+
 test('TutorialPanel inner controls carry shared tab/start/step parts', async () => {
   await mount(<TutorialPanel tasks={tasks} activeTaskId="apply" activeStepId="two" defaultRunning={false} defaultOpen={true} defaultActivePanel="tutorial" startActionId="tutorial-start"/>);
   const part = (name: string) => [...document.querySelectorAll<HTMLElement>(`[data-krds-component="tutorial-panel"][data-krds-part="${name}"]`)];

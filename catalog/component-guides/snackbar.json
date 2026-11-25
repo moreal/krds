@@ -30,7 +30,7 @@
     {
       "name": "durationMs",
       "default": "`null`",
-      "description": "자동으로 닫기를 요청할 때까지의 시간(밀리초)입니다. `null`이면 타이머 없이 사용자가 닫을 때까지 남습니다."
+      "description": "자동으로 닫기를 요청할 때까지의 시간(밀리초)입니다. `null`이면 타이머 없이 사용자가 닫을 때까지 남습니다. 숫자를 넘길 때는 0보다 큰 유한한 값이어야 합니다."
     },
     {
       "name": "fallbackFocusId",

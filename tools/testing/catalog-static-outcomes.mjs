@@ -73,7 +73,7 @@ export const staticOutcomes={
   },
   'text-list':{
     2:async(p,d,{initialState:s})=>{const r=await ownedList(p,'text-list',s.ordered?'ol':'ul');expect(await r.evaluate(node=>{const nested=[...node.querySelectorAll('ul,ol')];return nested.length>=2&&nested.every(list=>list.parentElement.tagName==='LI')&&nested.some(list=>list.parentElement?.closest('ul,ol')?.parentElement?.closest('ul,ol'));})).toBe(true);},
-    3:async(p,d,{initialState:s})=>{const r=await ownedList(p,'text-list',s.ordered?'ol':'ul');expect(await r.evaluate(node=>['UL','OL'].includes(node.tagName))).toBe(true);if(await r.evaluate(node=>getComputedStyle(node).listStyleType==='none'))await expect(r).toHaveAttribute('role','list');await expect(r.getByRole('listitem')).not.toHaveCount(0);},
+    3:async(p,d,{initialState:s})=>{const r=await ownedList(p,'text-list',s.ordered?'ol':'ul');expect(await r.evaluate(node=>['UL','OL'].includes(node.tagName))).toBe(true);if(await r.evaluate(node=>getComputedStyle(node).listStyleType==='none')){await expect(r).toHaveAttribute('role','list');expect(await r.locator(':scope > li').evaluateAll(items=>items.map(item=>item.getAttribute('role')))).toEqual(s.items.map(()=>'listitem'));}await expect(r.getByRole('listitem')).not.toHaveCount(0);},
     4:async(p,d)=>{await d.setState({items:[{id:'long',content:'긴 예제 문장 '.repeat(30)}]});await p.setViewportSize({width:360,height:800});const item=root(p,'text-list').locator('li');expect(await item.evaluate(node=>node.scrollWidth<=node.clientWidth+1)).toBe(true);await noHorizontalOverflow(p);},
     5:async(p)=>{await expect(root(p,'text-list')).not.toHaveAttribute('tabindex','0');await noInteractive(root(p,'text-list'));},
   },

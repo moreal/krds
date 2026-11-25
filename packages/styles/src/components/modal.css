@@ -3,8 +3,12 @@
 [data-krds-component="modal"][data-krds-part="backdrop"] { position: fixed; inset: 0; background: var(--krds-light-color-background-dim); }
 /* KRDS frozen component.css lines 1731-1746 (.modal-content position relative: the containing block of .btn-close; here the fixed content box is that positioned containing block)
  * and 1754-1761 (.modal-header padding-top number-17 reserves the close row): the content reserves a top row as tall as the close inset plus the sized close control,
- * so the title and body never underlap the absolute close. */
+ * so the title and body never underlap the absolute close.
+ * The content box is the scroll container, so PageDown and the arrow keys scroll a long modal from the dialog's initial focus in every engine.
+ * The actions clearance (content padding, actions padding, a sized button and the fade) is the block-end scroll padding: page steps and a focused
+ * control stay clear of the sticky actions. The block-start scroll padding keeps a focus ring inside the scrollport. */
 [data-krds-component="modal"][data-krds-part="content"] {
+  --krds-modal-actions-clearance: calc(var(--krds-padding-10) + var(--krds-padding-6) + var(--krds-size-height-7) + var(--krds-number-12));
   position: fixed;
   inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
@@ -12,6 +16,7 @@
   max-block-size: calc(100dvh - var(--krds-gap-5));
   overflow: auto;
   overscroll-behavior: contain;
+  scroll-padding-block: var(--krds-number-3) var(--krds-modal-actions-clearance);
   padding: var(--krds-padding-10);
   padding-block-start: calc(var(--krds-gap-7) + var(--krds-size-height-7) + var(--krds-gap-3));
   border: var(--krds-number-1) solid var(--krds-light-color-border-gray);
@@ -25,7 +30,40 @@
 [data-krds-component="modal"][data-krds-part="title"] { margin-block: 0 var(--krds-padding-6); font-size: var(--krds-pc-font-size-heading-medium); font-weight: 700; }
 [data-krds-component="modal"][data-krds-part="description"] { margin-block: 0 var(--krds-gap-5); }
 [data-krds-component="modal"][data-krds-part="body"] { min-inline-size: 0; padding-block-end: var(--krds-padding-3); }
-[data-krds-component="modal"][data-krds-part="actions"] { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--krds-gap-3); padding-block-start: var(--krds-padding-6); }
+/* Guide (component_04_05.html L997-1004): when the content needs a scrollbar, the footer with the actions stays visible at the bottom of the modal.
+ * The actions stick to the bottom of the content's scrollport. A sticky box stops at the content padding edge, so a downward shadow in the surface
+ * colour covers that padding while text scrolls under it; a shadow adds no scrollable overflow, so the layout without overflow is unchanged. */
+[data-krds-component="modal"][data-krds-part="actions"] {
+  position: sticky;
+  inset-block-end: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--krds-gap-3);
+  padding-block-start: var(--krds-padding-6);
+  background: var(--krds-light-color-surface-white-subtler);
+  box-shadow: 0 var(--krds-padding-10) 0 0 var(--krds-light-color-surface-white-subtler);
+}
+/* Guide L997-1000: a fade at the bottom of the scrolling content cues more to read; the frozen kit has none. It sits above the actions, follows the
+ * content's scroll position and clears at the end. With no overflow the scroll timeline is inactive and the fade stays hidden; a browser without
+ * scroll timelines ends the zero-length animation at opacity 0 and keeps only the scrollbar. */
+[data-krds-component="modal"][data-krds-part="actions"]::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 100%;
+  block-size: var(--krds-number-12);
+  background: linear-gradient(transparent, var(--krds-light-color-surface-white-subtler));
+  pointer-events: none;
+  opacity: 0;
+  animation: krds-modal-scroll-cue linear both;
+  animation-timeline: scroll(nearest block);
+}
+@keyframes krds-modal-scroll-cue { from, 90% { opacity: 1; } to { opacity: 0; } }
+/* A control in the sticky actions is always in view: its negative scroll margin cancels the clearance, so focusing it never scrolls the content. */
+[data-krds-component="modal"][data-krds-part="actions"] * { scroll-margin-block-end: calc(-1 * var(--krds-modal-actions-clearance)); }
 [data-krds-component="modal"][data-krds-part="actions"] > * { min-inline-size: 7.8rem; }
 /* KRDS frozen component.css lines 1818-1823 (.btn-close absolute at top/right --krds-modal--btn-close-position gap-7, z-index above the content) and 1934-1937 (mobile gap-6):
  * the close stays after the actions in DOM order but is placed at the content's top inline-end corner; it remains a visibly bordered, labelled control. */
@@ -61,4 +99,8 @@
 @media (forced-colors: active) {
   [data-krds-component="modal"][data-krds-part="content"] { background: Canvas; color: CanvasText; }
   [data-krds-component="modal"][data-krds-part="close"] { border-color: ButtonText; }
+  /* Forced colours drop box shadows; this one only covers the content padding under the actions, so keep it in Canvas. */
+  [data-krds-component="modal"][data-krds-part="actions"] { forced-color-adjust: none; background: Canvas; box-shadow: 0 var(--krds-padding-10) 0 0 Canvas; }
+  [data-krds-component="modal"][data-krds-part="actions"] > * { forced-color-adjust: auto; }
+  [data-krds-component="modal"][data-krds-part="actions"]::before { background: linear-gradient(transparent, Canvas); }
 }

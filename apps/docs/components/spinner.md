@@ -6,6 +6,8 @@ title: 'Spinner'
 
 **스피너** — 처리가 진행 중임을 알립니다.
 
+`Spinner` · `@unofficial-krds/<프레임워크>/spinner` · CSS `@unofficial-krds/styles/spinner.css`
+
 ## 사용법 {#usage}
 
 - 페이지나 영역 전체가 새로 로딩될 때, 또는 버튼이나 검색 필드 같은 일부 요소에서 처리가 진행 중일 때 대기 상태를 알리는 데 씁니다.
@@ -24,19 +26,11 @@ title: 'Spinner'
 | `completionMessage` **필수** | `string` | — | 로딩이 끝났을 때 화면 낭독기에 알리는 문구입니다. |
 | `size` | `Size` | `"medium"` | 스피너 크기입니다. `small`, `medium`, `large` 가운데 고릅니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface SpinnerContract {
-    pending: boolean;
-    value?: number;
-    label: string;
-    completionMessage: string;
-    size?: Size;
-}
-
 export type Size = 'small' | 'medium' | 'large';
 ```
 
@@ -57,7 +51,7 @@ export type Size = 'small' | 'medium' | 'large';
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/spinner.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -74,5 +68,4 @@ export type Size = 'small' | 'medium' | 'large';
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_07_02.html)
-- [상세 명세](/sources/specs/components/spinner.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

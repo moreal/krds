@@ -6,6 +6,8 @@ title: 'Date input'
 
 **날짜 입력 필드** — 연, 월, 일을 직접 입력하거나 달력에서 골라 날짜를 넣게 합니다.
 
+`DateInput` · `@unofficial-krds/<프레임워크>/date-input` · CSS `@unofficial-krds/styles/date-input.css`
+
 ## 사용법 {#usage}
 
 - 날짜 하나 또는 시작일과 종료일로 된 기간을 입력받을 때 씁니다.
@@ -44,7 +46,7 @@ title: 'Date input'
 | `class` | `string` | — | 가장 바깥 요소에 붙일 클래스입니다. |
 | `style` | `JSX.CSSProperties \| string` | — | 가장 바깥 요소에 적용할 인라인 스타일입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -73,7 +75,7 @@ title: 'Date input'
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/date-input.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -94,5 +96,4 @@ title: 'Date input'
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_01.html)
-- [상세 명세](/sources/specs/components/date-input.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

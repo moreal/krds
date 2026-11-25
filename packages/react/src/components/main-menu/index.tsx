@@ -1,4 +1,4 @@
-import { useId, useRef, useLayoutEffect, type ReactNode, type RefObject } from 'react';
+import { useId, useRef, useEffect, useLayoutEffect, type ReactNode, type RefObject } from 'react';
 import type { MainMenuContract, NavigationItem } from '@unofficial-krds/contracts';
 import { part, useValue, unique, focusSafe, usable } from '../../catalog-utils.js';
 import { NativeLayer, useNarrow } from '../../native-layer.js';
@@ -36,6 +36,16 @@ export function MainMenu({ items, currentId, expandedId, defaultExpandedId, onEx
         expanded.commit(next);
         onExpandedChange?.({ id: next });
     };
+    const latestRequest = useRef(requestExpanded);
+    latestRequest.current = requestExpanded;
+    // A desktop dropdown closes on a press outside the menu (component_03_02 L1303–1306).
+    useEffect(() => {
+        const nav = root.current;
+        if (narrow || !expanded.current || !nav) return;
+        const outside = (event: PointerEvent) => { if (!nav.contains(event.target as Node)) latestRequest.current(null); };
+        nav.ownerDocument.addEventListener('pointerdown', outside);
+        return () => nav.ownerDocument.removeEventListener('pointerdown', outside);
+    }, [narrow, expanded.current]);
     useLayoutEffect(() => {
         const pending = pendingFocus.current;
         if (!pending || pending.next !== expanded.current) return;

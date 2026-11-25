@@ -6,6 +6,8 @@ title: 'Text input'
 
 **텍스트 입력 필드** — 한 줄의 글이나 값을 입력받습니다.
 
+`TextInput` · `@unofficial-krds/<프레임워크>/text-input` · CSS `@unofficial-krds/styles/text-input.css`
+
 ## 사용법 {#usage}
 
 - 이름, 전화번호처럼 한 줄로 끝나는 텍스트를 입력받을 때 씁니다.
@@ -40,46 +42,13 @@ title: 'Text input'
 | `size` | `Size` | `"medium"` | 입력의 크기입니다. `small`, `medium`, `large` 중 하나입니다. |
 | `iconAction` | `{label: string; onAction: () => void}` | — | 입력 안에 아이콘 버튼을 추가합니다. `label`은 버튼의 접근 가능한 이름이고, `onAction`은 버튼을 누를 때 불립니다. 이 버튼은 폼을 제출하지 않으며 `disabled`이면 함께 비활성화됩니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface TextInputContract extends ControlledValue<string>, FieldContract {
-    type?: 'text' | 'email' | 'tel' | 'url' | 'password' | 'search';
-    autocomplete?: string;
-    inputMode?: string;
-    readOnly?: boolean;
-    minLength?: number;
-    maxLength?: number;
-    pattern?: string;
-    status?: 'default' | 'error' | 'success';
-    size?: Size;
-    iconAction?: {
-        label: string;
-        onAction: () => void;
-    };
-}
-
-export interface ControlledValue<T> {
-    value?: T;
-    defaultValue?: T;
-    onValueChange?: (detail: ValueChangeDetails<T>) => void;
-}
-
 export interface ValueChangeDetails<T> {
     value: T;
-}
-
-export interface FieldContract {
-    id?: string;
-    name?: string;
-    label: string;
-    disabled?: boolean;
-    required?: boolean;
-    invalid?: boolean;
-    helpId?: string;
-    errorId?: string;
 }
 
 export type Size = 'small' | 'medium' | 'large';
@@ -108,7 +77,7 @@ export type Size = 'small' | 'medium' | 'large';
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/text-input.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -126,5 +95,4 @@ export type Size = 'small' | 'medium' | 'large';
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_09_03.html)
-- [상세 명세](/sources/specs/components/text-input.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

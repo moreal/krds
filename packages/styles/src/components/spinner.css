@@ -21,26 +21,22 @@
 [data-krds-component="spinner"][data-krds-part="indicator"]:is(circle,path) { stroke: var(--krds-light-color-element-primary); stroke-width: 2; fill: none; transform-origin: center; }
 @media (forced-colors: active) { [data-krds-component="spinner"][data-krds-part="indicator"]:is(circle,path) { stroke: CanvasText; } }
 
-/* An indeterminate native progress element is drawn as the same ring: its inner bar is cleared. */
-progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"]::-webkit-progress-bar { background: transparent; }
-progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"]::-webkit-progress-value { background: transparent; }
-progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="indeterminate"]::-moz-progress-bar { background: transparent; }
-[data-krds-component="spinner"][data-krds-part="track"]:has(> progress[data-krds-state~="determinate"]) { inline-size: auto; block-size: auto; }
-/* A determinate native progress element keeps its own fill, which carries the numeric value;
- * the ring's rotation and border must not apply to that native control. */
+/* A native progress element is drawn as a ring in both states: its inner bar is cleared and it keeps its progressbar semantics. */
+progress[data-krds-component="spinner"][data-krds-part="indicator"]::-webkit-progress-bar { background: transparent; }
+progress[data-krds-component="spinner"][data-krds-part="indicator"]::-webkit-progress-value { background: transparent; }
+progress[data-krds-component="spinner"][data-krds-part="indicator"]::-moz-progress-bar { background: transparent; }
+/* Guide (component_07_02.html L901, L1111): the determinate indicator fills the donut path from 0° to 360°, starting at 0° and running clockwise,
+ * in proportion to the actual progress. The frozen kit draws only the indeterminate ring (2520–2529), so this ring follows the guide:
+ * the same 2.0rem circle with a medium-width path, the primary arc from the top clockwise over the disabled-light track.
+ * Renderers pass the native value as --krds-spinner-value (0..100); CSS cannot read the value attribute as a number in every engine. */
 progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="determinate"] {
-  appearance: auto;
-  inline-size: 12em;
-  max-inline-size: 100%;
-  block-size: 1em;
+  --krds-spinner-value: 0;
   border: 0;
-  border-radius: 0;
-  overflow: visible;
-  background: initial;
-  color: inherit;
-  accent-color: var(--krds-light-color-element-primary);
+  background: conic-gradient(var(--krds-light-color-element-primary) calc(var(--krds-spinner-value) * 1%), var(--krds-light-color-element-disabled-light) 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - var(--krds-light-border-width-variable-medium)), #000 calc(100% - var(--krds-light-border-width-variable-medium)));
   transform: none;
   animation: none;
 }
-/* A determinate native progress bar keeps its value semantics and takes the KRDS primary color. */
-progress[data-krds-component="spinner"][data-krds-part="indicator"] { accent-color: var(--krds-light-color-element-primary); }
+@media (forced-colors: active) {
+  progress[data-krds-component="spinner"][data-krds-part="indicator"][data-krds-state~="determinate"] { forced-color-adjust: none; background: conic-gradient(CanvasText calc(var(--krds-spinner-value) * 1%), GrayText 0); }
+}

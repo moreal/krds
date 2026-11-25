@@ -216,3 +216,26 @@ test('tutorial panel provenance says the header reserves the top row and anchors
   assert.doesNotMatch(summary, /close control sits absolutely in a reserved top row of the panel/u);
   assert.match(summary, /the header reserves the top row and the close is absolutely positioned within the header/u);
 });
+test('a selected tag shows a decorative leading check, not colour alone (KRDS component_06_04 L907-909, L1132-1133)', () => {
+  const ast = postcss.parse(read('./components/tag.css'));
+  const rules = ast.nodes.filter(node => node.type === 'rule');
+  const decls = node => Object.fromEntries(node.nodes.filter(child => child.type === 'decl').map(child => [child.prop, child.value]));
+  const coloured = rules.find(node => decls(node)['border-color'] === 'var(--krds-light-color-border-primary)');
+  assert.ok(coloured, 'the selected item rule recolours the border');
+  // Every selector that draws the selected colours also draws the check, so no selected tag relies on colour alone.
+  const checks = coloured.selectors.map(selector => `${selector}::before`);
+  const check = rules.find(node => checks.every(selector => node.selectors.includes(selector)));
+  assert.ok(check, `one rule draws ${checks.join(', ')}`);
+  const glyph = decls(check);
+  assert.equal(glyph.content, '""', 'the check is decorative and adds no accessible text');
+  assert.equal(glyph['inline-size'], 'var(--krds-size-height-2)');
+  assert.equal(glyph['block-size'], 'var(--krds-size-height-2)');
+  assert.equal(glyph['background-color'], 'currentColor');
+  assert.match(glyph['clip-path'] ?? '', /^polygon\(/u, 'the glyph is drawn without a copied asset');
+  assert.equal(glyph['forced-color-adjust'], 'none');
+  assert.ok(!rules.some(node => node.selectors.some(selector => selector.endsWith('::before') && !checks.includes(selector))), 'an unselected tag draws no check');
+  const forced = ast.nodes.find(node => node.type === 'atrule' && node.params === '(forced-colors: active)');
+  const forcedCheck = forced?.nodes.find(node => node.type === 'rule' && checks.every(selector => node.selectors.includes(selector)));
+  assert.ok(forcedCheck, 'forced colors keep the check visible');
+  assert.equal(decls(forcedCheck)['background-color'], 'CanvasText');
+});

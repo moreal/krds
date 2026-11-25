@@ -33,6 +33,22 @@ test('Expanded FAB owns a real backdrop that closes and restores its trigger', a
   expect(host.querySelector('[data-krds-part="overlay"]')).toBeNull();
 });
 
+test('Expandable FAB trigger shows + while collapsed and X while expanded, keeping its name (KRDS component_05_03 L875-876)', () => {
+  const host = document.createElement('div');
+  document.body.append(host);
+  const dispose = render(() => <><FAB label="신청 작업" icon="plus" actions={[{ id: 'new', label: '새 신청', onAction() {} }]}/><FAB label="아이콘 작업" icon="plus" showLabel={false} defaultExpanded actions={[{ id: 'new', label: '새 신청', onAction() {} }]}/></>, host);
+  cleanups.push(() => { dispose(); host.remove(); });
+  const [trigger, iconOnly] = host.querySelectorAll<HTMLButtonElement>('[data-krds-part="trigger"]');
+  const glyph = (button: Element) => button.querySelector('[data-krds-part="icon"] svg path')?.getAttribute('d');
+  const plus = 'M12 4v16M4 12h16', close = 'M6 6l12 12M18 6L6 18';
+  expect([trigger!.getAttribute('aria-expanded'), glyph(trigger!), trigger!.textContent]).toEqual(['false', plus, '신청 작업']);
+  trigger!.click();
+  expect([trigger!.getAttribute('aria-expanded'), glyph(trigger!), trigger!.textContent]).toEqual(['true', close, '신청 작업']);
+  trigger!.click();
+  expect([trigger!.getAttribute('aria-expanded'), glyph(trigger!)]).toEqual(['false', plus]);
+  expect([iconOnly!.getAttribute('aria-expanded'), glyph(iconOnly!), iconOnly!.getAttribute('aria-label')]).toEqual(['true', close, '아이콘 작업']);
+});
+
 test('Icon-only FAB keeps its required accessible name while hiding only the visual label', () => {
   const host = document.createElement('div');
   document.body.append(host);

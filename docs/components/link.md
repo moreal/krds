@@ -6,6 +6,8 @@ title: 'Link'
 
 **링크** — 다른 페이지나 위치로 이동하게 합니다.
 
+`Link` · `@unofficial-krds/<프레임워크>/link` · CSS `@unofficial-krds/styles/link.css`
+
 ## 사용법 {#usage}
 
 - 다른 서비스, 같은 서비스의 다른 화면, 같은 화면의 다른 섹션으로 이동할 때 씁니다.
@@ -27,22 +29,11 @@ title: 'Link'
 | `size` | `Size` | `"medium"` | 글자 크기입니다. `small`, `medium`, `large` 가운데 고릅니다. 문장 안에 넣는 링크는 주변 글자와 같은 크기로 맞춥니다. |
 | `underline` | `boolean` | `true` | 밑줄 표시 여부입니다. 메뉴처럼 링크임이 분명한 곳에서만 `false`로 둡니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface LinkContract {
-    href: string;
-    label: string;
-    target?: string;
-    rel?: string;
-    disabled?: boolean;
-    appearance?: 'basic' | 'emphasis';
-    size?: Size;
-    underline?: boolean;
-}
-
 export type Size = 'small' | 'medium' | 'large';
 ```
 
@@ -69,7 +60,7 @@ export type Size = 'small' | 'medium' | 'large';
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/link.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -84,5 +75,4 @@ export type Size = 'small' | 'medium' | 'large';
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_05_01.html)
-- [상세 명세](/sources/specs/components/link.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

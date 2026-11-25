@@ -14,8 +14,8 @@ export function notificationLifetime(signature: Accessor<string | null>, duratio
     createEffect(() => { const next = signature(); if (next === previous)
         return; previous = next; setRecord({ generation: ++serial, remaining: untrack(duration) ?? 0, consumed: false }); });
     createEffect(() => { const current = record(); const key = signature(); const delay = duration(); if (!key || delay === null || current.consumed || !visible() || paused())
-        return; if (delay <= 0)
-        throw new TypeError('Notification duration must be positive'); const started = performance.now(); const timer = setTimeout(() => { if (current.generation !== serial || current.consumed)
+        return; if (!Number.isFinite(delay) || delay <= 0)
+        throw new RangeError('Notification duration must be positive'); const started = performance.now(); const timer = setTimeout(() => { if (current.generation !== serial || current.consumed)
         return; current.consumed = true; timeout(current.generation); }, current.remaining); onCleanup(() => { clearTimeout(timer); current.remaining = Math.max(0, current.remaining - (performance.now() - started)); }); });
     return () => record().generation;
 }

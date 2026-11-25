@@ -362,7 +362,8 @@ const scenarios = {
     await english.focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('p[lang=en]')).toHaveText('English example');
-    await expect(page.getByRole('link', { name: /English/ })).toHaveAttribute('aria-current', 'true');
+    // Two languages link only to the other one (component_10_01 L934–935): the English page shows 한국어 alone.
+    await expect(page.getByRole('link', { name: /English/ })).toHaveCount(0);
     const korean = page.getByRole('link', { name: '한국어', exact: true });
     await korean.focus();
     await page.keyboard.press('Enter');
@@ -528,7 +529,7 @@ const scenarios = {
     const bottoms = await part('option').evaluateAll(els => els.map(e => Math.ceil(e.getBoundingClientRect().bottom + scrollY)));
     assert.ok(bottoms.length === 5 && bottoms.every(b => b <= reported), `all options within reported frame height ${reported}: ${bottoms}`);
     await part('option').filter({ hasText: '150%' }).click();
-    await expect(trigger).toHaveText('화면 크기 150%');
+    await expect(trigger).toHaveText('화면 크기 가장 크게 150%');
     await expect(content).toHaveCSS('font-size', '24px');
     await page.keyboard.press('Tab');
     await expect(content.getByRole('button', { name: '작업' })).toBeFocused();

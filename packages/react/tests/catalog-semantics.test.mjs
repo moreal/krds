@@ -16,3 +16,13 @@ for (const {id,state} of cases) test(`${id} renders its native semantic content 
 });
 
 test("Masthead false emits no official sentence or banner, including unsupported legacy flags",()=>{assert.equal(renderToString(h(ReactCatalog.Masthead,{governmentService:false})),"");assert.equal(renderToString(h(ReactCatalog.Masthead,{governmentService:false,specimen:true})),"");});
+
+test('Expandable FAB trigger shows + while collapsed and X while expanded under one name (KRDS component_05_03 L875-876)',()=>{
+ const actions=[{id:'new',label:'새 신청',onAction(){}}];
+ const trigger=props=>renderToString(h(ReactCatalog.FAB,{label:'신청 작업',icon:'plus',actions,...props})).match(/<button[^>]*data-krds-part="trigger"[\s\S]*?<\/button>/u)[0];
+ const collapsed=trigger({}),expanded=trigger({defaultExpanded:true}),iconOnly=trigger({defaultExpanded:true,showLabel:false});
+ assert.match(collapsed,/aria-expanded="false"/u);assert.match(collapsed,/d="M12 4v16M4 12h16"/u);assert.doesNotMatch(collapsed,/M6 6l12 12/u);
+ assert.match(expanded,/aria-expanded="true"/u);assert.match(expanded,/d="M6 6l12 12M18 6L6 18"/u);assert.doesNotMatch(expanded,/M12 4v16/u);
+ assert.match(expanded,/data-krds-part="label"[^>]*>신청 작업</u);
+ assert.match(iconOnly,/aria-label="신청 작업"/u);assert.match(iconOnly,/d="M6 6l12 12M18 6L6 18"/u);
+});

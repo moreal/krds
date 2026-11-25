@@ -40,7 +40,7 @@ test('fenced native source remains inert and duplicate Korean/code headings matc
 test('all real documents parse once with baseline heading parity and deterministic search records',async()=>{
  const {buildPages,buildSearchRecords}=await api(); const pages=await buildPages(site);
  const baseline=JSON.parse(await readFile(resolve(site,'tests/fixtures/vitepress-baseline.json'),'utf8'));
- assert.equal(pages.length,68);
+ assert.equal(pages.length,67);
  for(const before of baseline.pages.filter(x=>x.path!=='_legal/index.html')){
   const page=pages.find(x=>x.outputPath===before.path);assert.ok(page,before.path);
   assert.deepEqual(page.headings.map(x=>x.id),before.headingIds,before.path);

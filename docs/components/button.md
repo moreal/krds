@@ -6,6 +6,8 @@ title: 'Button'
 
 **버튼** — 제출, 저장, 취소 같은 동작을 실행합니다.
 
+`Button` · `@unofficial-krds/<프레임워크>/button` · CSS `@unofficial-krds/styles/button.css`
+
 ## 사용법 {#usage}
 
 - 제출, 저장, 열기처럼 사용자가 동작을 실행하게 할 때 씁니다.
@@ -25,7 +27,7 @@ title: 'Button'
 | `children` | `JSX.Element` | — | 버튼의 레이블입니다. 이 내용이 버튼의 접근 가능한 이름이 됩니다. |
 | `onClick` | `JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>` | — | 버튼을 클릭하거나 `Enter`, `Space`로 실행할 때 한 번 불립니다. 브라우저의 클릭 이벤트를 받습니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -50,7 +52,7 @@ title: 'Button'
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/button.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -65,5 +67,4 @@ title: 'Button'
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_05_02.html)
-- [상세 명세](/sources/specs/components/button.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

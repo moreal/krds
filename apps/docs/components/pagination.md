@@ -6,6 +6,8 @@ title: 'Pagination'
 
 **페이지네이션** — 여러 페이지로 나뉜 목록에서 페이지를 옮겨 다니게 합니다.
 
+`Pagination` · `@unofficial-krds/<프레임워크>/pagination` · CSS `@unofficial-krds/styles/pagination.css`
+
 ## 사용법 {#usage}
 
 - 긴 목록을 여러 화면으로 나누어 탐색하게 할 때 씁니다. 한 화면에 모두 보여 주면 목록 높이가 화면의 2배를 넘거나 항목이 20개를 넘을 때 검토합니다.
@@ -26,29 +28,7 @@ title: 'Pagination'
 | `variant` | `'number-links' \| 'direct-page' \| 'load-more'` | `"number-links"` | `number-links`는 번호 링크 목록, `direct-page`는 번호 링크 목록에 더해 페이지 번호 입력란과 이동 버튼, `load-more`는 더 보기 버튼을 보여 줍니다. |
 | `loadMore` | `{shown: number; total: number; pending: boolean; firstNewItemId?: string; onLoadMore: () => void}` | — | `load-more`에서 쓰는 설정입니다. `shown`과 `total`은 표시된 항목 수와 전체 항목 수, `pending`은 불러오는 중인지, `onLoadMore`는 버튼을 눌렀을 때 불리는 콜백, `firstNewItemId`는 새로 추가된 첫 항목의 `id`입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface PaginationContract {
-    page?: number;
-    defaultPage?: number;
-    pageCount: number;
-    hrefForPage: (page: number) => string;
-    onPageChange?: (detail: {
-        page: number;
-    }) => void;
-    variant?: 'number-links' | 'direct-page' | 'load-more';
-    loadMore?: {
-        shown: number;
-        total: number;
-        pending: boolean;
-        firstNewItemId?: string;
-        onLoadMore: () => void;
-    };
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -62,6 +42,7 @@ export interface PaginationContract {
 
 - 전체를 이름이 있는 `nav` 영역으로 감싸고 번호를 목록으로 전달합니다.
 - 현재 페이지 번호는 링크가 아니며 `aria-current`로 현재 위치임을 알립니다. 색만으로 구분하지 않습니다.
+- 번호 링크는 화면에 숫자만 보이고, 화면 낭독기에는 '페이지 3'처럼, 마지막 번호는 '마지막 페이지, 12'처럼 읽힙니다.
 - 화면 너비와 상관없이 이전, 번호 목록, 다음, 페이지 입력란, 전체 페이지 수, 이동 버튼 순으로 읽습니다. 첫 페이지의 이전과 마지막 페이지의 다음은 비활성 상태로 남아 누를 수 없고 초점도 받지 않습니다.
 - 페이지 입력란에는 보이는 레이블이 있고, 범위를 벗어난 번호를 넣으면 이동하지 않고 오류 문구를 알려 줍니다.
 - 더 보기로 항목이 추가되면 `firstNewItemId`가 가리키는 첫 새 항목으로 스크롤하고 초점을 옮깁니다. 추가한 첫 항목에 그 `id`를 붙여 둡니다.
@@ -76,7 +57,7 @@ export interface PaginationContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/pagination.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -100,5 +81,4 @@ export interface PaginationContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_03_06.html)
-- [상세 명세](/sources/specs/components/pagination.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

@@ -6,6 +6,8 @@ title: 'Visually hidden'
 
 **숨긴 콘텐츠** — 화면에는 보이지 않지만 스크린 리더는 읽는 텍스트를 넣습니다.
 
+`VisuallyHidden` · `@unofficial-krds/<프레임워크>/visually-hidden` · CSS `@unofficial-krds/styles/visually-hidden.css`
+
 ## 사용법 {#usage}
 
 - 화면에는 보이지 않지만 화면 낭독기 사용자에게 필요한 설명을 전달할 때 씁니다. 텍스트가 아닌 콘텐츠의 복잡한 설명, 조작 방법 안내, 상태 변화 알림이 해당합니다.
@@ -22,18 +24,7 @@ title: 'Visually hidden'
 | `content` | `string` | — | 화면 낭독기에 전달할 텍스트입니다. |
 | `variant` | `'text' \| 'interactive-overlay' \| 'aria-association'` | `"text"` | 숨기는 방식입니다. `text`는 텍스트를 화면에서만 감추고, `interactive-overlay`는 실제 컨트롤을 눈에 보이는 대체 요소 위에 같은 크기로 투명하게 겹치며, `aria-association`은 다른 요소가 `id`로 참조할 텍스트를 둡니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface VisuallyHiddenContract {
-    id?: string;
-    lang?: string;
-    content?: string;
-    variant?: 'text' | 'interactive-overlay' | 'aria-association';
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 접근성 {#accessibility}
 
@@ -51,7 +42,7 @@ export interface VisuallyHiddenContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/visually-hidden.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -66,5 +57,4 @@ export interface VisuallyHiddenContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_11_02.html)
-- [상세 명세](/sources/specs/components/visually-hidden.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

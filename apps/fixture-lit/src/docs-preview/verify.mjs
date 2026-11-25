@@ -315,7 +315,7 @@ const scenarios = {
   },
   async 'file-upload'(page, id) {
     const input = page.locator('input[type=file]');
-    await expect(part(page, id, 'count')).toContainText('0개 파일');
+    await expect(part(page, id, 'count')).toContainText('0 / 3개');
     // Single Tab stop: the visible picker button; the native input is tabindex=-1 and aria-hidden but stays in the form.
     await page.keyboard.press('Tab');
     await expect(part(page, id, 'picker')).toBeFocused();
@@ -332,7 +332,7 @@ const scenarios = {
     await page.screenshot({path: resolve(evidence, 'file-upload-selected.png'), fullPage: true});
     await page.getByRole('button', {name: /삭제|제거/}).click();
     await expect(part(page, id, 'list')).not.toContainText('proof.txt');
-    await expect(part(page, id, 'count')).toContainText('0개 파일');
+    await expect(part(page, id, 'count')).toContainText('0 / 3개');
     await expect(input).toHaveValue('');
     await page.screenshot({path: resolve(evidence, 'file-upload-removed.png'), fullPage: true});
   },

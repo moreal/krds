@@ -32,7 +32,7 @@ import fontBold from '@unofficial-krds/fonts/fonts/PretendardGOV-Bold.woff2?url'
 interface Props { page: DocPage; }
 const { page } = Astro.props;
 const title = page.sourcePath === 'index.md' ? `${branding.name} — 익숙한 디자인을, 나의 프레임워크로.` : `${page.title} | ${branding.name}`;
-const description = '각 프레임워크의 고유 렌더러로 구현하는 비공식 KRDS 컴포넌트. API, 출처와 지원 기록을 확인하세요.';
+const description = '대한민국 정부 디자인 시스템(KRDS)을 React, Vue, Svelte, Angular, Lit, Qwik, Solid 컴포넌트로 쓰는 방법을 안내하는 비공식 문서입니다.';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(branding.social, Astro.site);
 ---

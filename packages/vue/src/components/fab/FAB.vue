@@ -44,7 +44,10 @@ function key(e: KeyboardEvent) {
 <div v-if="actions?.length&&state.value.value" data-krds-part="overlay" aria-hidden="true" @click="collapse" data-krds-component="fab" data-krds-state="expanded"/>
 <button ref="trigger" :aria-label="showLabel===false?label:undefined" type="button" data-krds-part="trigger" :disabled="disabled" :aria-expanded="actions?.length?state.value.value:undefined" :aria-controls="actions?.length?id:undefined" @click="activate" data-krds-component="fab" data-krds-state="">
 <span data-krds-component="fab" data-krds-part="icon" data-krds-state="" aria-hidden="true">
-<slot name="icon">
+<svg v-if="actions?.length&&state.value.value" viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" tabindex="-1">
+<path d="M6 6l12 12M18 6L6 18"/>
+</svg>
+<slot v-else name="icon">
 <svg v-if="icon==='plus'||icon==='add'" viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" tabindex="-1">
 <path d="M12 4v16M4 12h16"/>
 </svg>

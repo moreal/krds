@@ -1,59 +1,37 @@
 # @unofficial-krds/solid
 
-Native Solid 1 components, compositions, assets and host integrations. The54 public entries render through Solid and native HTML. Solid2RC has a separate package. Full-catalog source availability is separate from completed behavioral, visual, content and device verification.
+Solid 1 components for the 54 web components of KRDS, the Korean government design system. This is an unofficial, independent project. For Solid 2, see `@unofficial-krds/solid-next`.
 
-Import from `@unofficial-krds/solid`, or from the individual `/button`, `/native-select`,
-`/modal`, `/tabs`, `/date-input`, `/calendar` and `/provider` entries. Public props use
-native Solid content and semantic plain-value callbacks; no Ark implementation types
-are part of this API.
+## Install
 
-Styles are explicit imports. Choose individual component CSS or `all.css`:
+The package is not published to npm yet. Build and pack it in the [repository](https://github.com/moreal/krds), then install the tarballs in your app.
 
-```tsx
-import '@unofficial-krds/styles/reset.css';
-import '@unofficial-krds/styles/fonts.css';
-import '@unofficial-krds/styles/all.css';
-import { Button, DateInput, KrdsProvider } from '@unofficial-krds/solid';
-
-function VisitDateExample() {
-  return <KrdsProvider locale="ko-KR"><form>
-    <DateInput label="방문일" name="visitDate" defaultValue="2024-02-29" referenceDate="2024-02-01" />
-    <Button type="submit">신청</Button><Button type="reset">초기화</Button>
-  </form></KrdsProvider>;
-}
+```bash
+node tools/yarn.mjs install --immutable && node tools/yarn.mjs nx run krds-solid:build
+mkdir -p /tmp/krds && for name in contracts tokens styles solid; do node tools/yarn.mjs workspace @unofficial-krds/$name pack --out /tmp/krds/$name.tgz; done
+# in your app
+npm install /tmp/krds/{contracts,tokens,styles,solid}.tgz
 ```
 
-`reset.css` opts into the KRDS root rem scale. `fonts.css` selects locally installed
-fonts and system fallbacks; it downloads no font. Component imports add no global CSS.
-`KrdsProvider` supplies reactive locale, direction and an optional owner document without
-wrapper DOM or mutation of the document language.
+Peer dependency: `solid-js@^1.9.18`.
 
-Use `value`/`open` for controlled state and `defaultValue`/`defaultOpen` for uncontrolled
-state. They are mutually exclusive, and mode stays fixed after mount. A callback requests
-a change; a controlled parent may decline it, preserving the displayed committed value.
-Prop updates and form reset emit no semantic change events.
+## Use
+
+Import each component from `@unofficial-krds/solid/<id>` or from the package root. Import its CSS from `@unofficial-krds/styles/<id>.css`, or import `@unofficial-krds/styles/all.css` once.
 
 ```tsx
-import { createSignal } from 'solid-js';
-import { NativeSelect } from '@unofficial-krds/solid';
+import { Checkbox } from '@unofficial-krds/solid/checkbox';
+import '@unofficial-krds/styles/checkbox.css';
 
-function ControlledRegionExample() {
-  const [region, setRegion] = createSignal('seoul');
-  return <NativeSelect label="지역" name="region" value={region()}
-    options={[{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }]}
-    onValueChange={({ value }) => setRegion(value)} />;
-}
+export const Consent = () => (
+	<Checkbox label="I agree" name="consent" onCheckedChange={({ checked }) => console.log(checked)} />
+);
 ```
 
-Tabs default to manual activation and preserve sequential access to every enabled tab.
-Modal restores a usable opener before a configured fallback. DateInput uses strict
-date-only `YYYY-MM-DD` strings, separate text drafts, native form validation and tentative
-calendar selection. Calendar has no form value or implicit modal; Confirm commits its
-tentative selection. Range values are `{ start: string | null, end: string | null }`.
+- Content goes in `children` and JSX props. Callbacks use the names in the props tables, such as `onCheckedChange`.
+- `Switch` has the same name as the `solid-js` control-flow component. Import one of them under another name if you use both.
+- To change the locale, wrap the app in `KrdsProvider` (`locale`, `direction`, `ownerDocument`). Import it from the root or `@unofficial-krds/solid/provider`.
+- Do not use this package and `@unofficial-krds/solid-next` in the same app.
+- Each component has a guide in the [component guides](https://moreal.github.io/krds/components/) (in Korean).
 
-The repository's `apps/fixture-solid/src/examples.tsx` compiles examples for all six public
-components. `apps/fixture-solid/src/catalog-examples.tsx` adds typed examples for all48 additional public entries. The full native inventory and host boundaries are documented in `docs/compatibility/solid.md`. Component specifications live in `specs/components/`; the native fixture and
-Storybook demonstrate their local state without APIs or external assets. Pilot verification
-does not establish full catalog, screen-reader, release or independent-install acceptance.
-
-Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+**License.** Code written for this project is MIT licensed, Copyright (c) 2026 Lee Dogeon. KRDS material and fonts keep their original terms. See [LICENSE.md](LICENSE.md) and [ATTRIBUTION.md](ATTRIBUTION.md). This is not an official KRDS or government distribution.

@@ -2,6 +2,8 @@ import { html } from 'lit';
 import type { ResizeContract } from '@unofficial-krds/contracts';
 import { KrdsElement, ValueState, unique } from '../base.js';
 import { target } from '../catalog-support.js';
+// KRDS component_10_02 L896-905: the official five scales, each with its descriptive wording (L918).
+const defaults = [{ id: '90', label: '작게 90%', percent: 90 }, { id: '100', label: '보통 100%', percent: 100 }, { id: '110', label: '조금 크게 110%', percent: 110 }, { id: '130', label: '크게 130%', percent: 130 }, { id: '150', label: '가장 크게 150%', percent: 150 }];
 export class Resize extends KrdsElement {
     static override properties = { levels: { attribute: false }, value: { type: String }, defaultValue: { type: String, attribute: 'default-value' }, open: { type: Boolean }, defaultOpen: { type: Boolean, attribute: 'default-open' }, scaleTargetId: { type: String, attribute: 'scale-target-id' } };
     declare levels: NonNullable<ResizeContract['levels']>;
@@ -14,7 +16,7 @@ export class Resize extends KrdsElement {
     private disclosure = new ValueState<boolean>();
     private scaled: HTMLElement | null = null;
     private priorSize = '';
-    constructor() { super(); this.levels = [{ id: '90', label: '작게', percent: 90 }, { id: '100', label: '기본', percent: 100 }, { id: '110', label: '조금 크게', percent: 110 }, { id: '130', label: '크게', percent: 130 }, { id: '150', label: '아주 크게', percent: 150 }]; this.scaleTargetId = ''; }
+    constructor() { super(); this.levels = defaults; this.scaleTargetId = ''; }
     get committedValue() { const value = this.selection.read(this.value, this.defaultValue, () => this.levels.find(level => level.percent === 100)?.id ?? this.levels[0]!.id); if (!this.levels.some(level => level.id === value))
         throw new TypeError('Unknown resize value'); return value; }
     get committedOpen() { return this.disclosure.read(this.open, this.defaultOpen, () => false); }

@@ -6,6 +6,8 @@ title: 'FAB'
 
 **플로팅 버튼** — 화면 위에 떠서 가장 중요한 동작을 언제나 실행할 수 있게 합니다.
 
+`FAB` · `@unofficial-krds/<프레임워크>/fab` · CSS `@unofficial-krds/styles/fab.css`
+
 ## 사용법 {#usage}
 
 - 화면에서 사용자가 반복해서 수행하는 주요 동작이 하나 있을 때, 어디서든 바로 실행할 수 있게 띄워 둘 때 씁니다.
@@ -18,7 +20,7 @@ title: 'FAB'
 | 이름 | 타입 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | `label` **필수** | `string` | — | 버튼의 이름입니다. 레이블을 숨겨도 화면 낭독기에는 이 이름이 전달됩니다. |
-| `icon` **필수** | `string` | — | 버튼에 표시할 아이콘입니다. `plus`나 `add`를 넘기면 더하기 아이콘을 그리고, 그 밖의 문자열은 글자 그대로 표시합니다. |
+| `icon` **필수** | `string` | — | 버튼에 표시할 아이콘입니다. `plus`나 `add`를 넘기면 더하기 아이콘을 그리고, 그 밖의 문자열은 글자 그대로 표시합니다. 확장형이 펼쳐져 있는 동안에는 닫기(X) 아이콘을 그립니다. |
 | `showLabel` | `boolean` | `true` | `false`이면 `label`을 화면에 보이지 않게 하고 아이콘만 표시합니다. |
 | `disabled` | `boolean` | `false` | `true`이면 버튼과 펼쳐진 동작을 모두 누를 수 없습니다. |
 | `onAction` | `() => void` | — | `actions`가 없을 때 버튼을 누르면 불립니다. 인자는 없습니다. |
@@ -27,29 +29,7 @@ title: 'FAB'
 | `onExpandedChange` | `(detail: {expanded: boolean}) => void` | — | 사용자가 확장형 버튼을 펼치거나 접으려 할 때 불리며 `{expanded}`를 받습니다. |
 | `actions` | `readonly {id: string; label: string; onAction: () => void}[]` | — | 넘기면 확장형이 됩니다. 펼쳤을 때 나오는 동작 목록이며, 각 항목은 `id`, `label`과 눌렀을 때 불리는 `onAction`을 가집니다. 4개 이상 넘기면 오류가 납니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface FABContract {
-    label: string;
-    icon: string;
-    showLabel?: boolean;
-    disabled?: boolean;
-    onAction?: () => void;
-    expanded?: boolean;
-    defaultExpanded?: boolean;
-    onExpandedChange?: (detail: {
-        expanded: boolean;
-    }) => void;
-    actions?: readonly {
-        id: string;
-        label: string;
-        onAction: () => void;
-    }[];
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -75,7 +55,7 @@ export interface FABContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/fab.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -94,5 +74,4 @@ export interface FABContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_05_03.html)
-- [상세 명세](/sources/specs/components/fab.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

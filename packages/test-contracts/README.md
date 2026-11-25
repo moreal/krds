@@ -1,23 +1,24 @@
-# Private native test contracts
+# @unofficial-krds/test-contracts
 
-Built exports provide semantic types, JSON state fixtures, the fixture-only control bridge and required pilot scenario IDs. Build with `node tools/yarn.mjs workspace @unofficial-krds/test-contracts build:local`. Consumers import the package exports, never source aliases.
+Internal, private package for this repository's tests. It is never packed or installed in an app.
 
-Every native fixture implements `/fixtures/<componentId>?case=<caseId>` and installs `createFixtureBridge(framework, initialState)` from `@unofficial-krds/test-contracts/driver`. Subscribe within the native renderer, dispose on unmount, and record serializable events. The bridge merges semantic state patches and waits two animation frames for native rendering. `createFixtureDriver(page, origin)` verifies protocol and native framework before controlling the app.
+It provides the shared test data that every native fixture and story uses:
 
-Shared `StoryStateCase` records from `/fixtures` contain serializable data; native story code maps them to framework inputs/slots and local callbacks. `pilotScenarios` from `/scenarios` lists required canonical observations. No runtime renderer, provider, callback, QRL or DI object belongs in these records.
+- `@unofficial-krds/test-contracts/fixtures`: serializable story states for each component.
+- `@unofficial-krds/test-contracts/scenarios`: the scenarios that the contract and catalog runners check.
+- `@unofficial-krds/test-contracts/driver`: `createFixtureBridge(framework, initialState)` for a fixture app, and `createFixtureDriver(page, origin)` for Playwright.
+- `@unofficial-krds/test-contracts/patterns`: data for the pattern examples.
 
-`__probe/native-state` and `infrastructure-native-probe--*` are test-only bootstrap probes. Common runners select them only with `--probe`; default canonical cases fail if missing and probes never award implementation coverage.
+Each fixture app serves `/fixtures/<componentId>?case=<caseId>` and installs the bridge. The records hold plain data only. Each framework maps them to its own inputs, slots and callbacks.
 
-- `node tools/yarn.mjs test:contract --framework react --probe`
-- `node tools/yarn.mjs test:contract --all-stable`
-- `node tools/yarn.mjs test:stories --all-stable --probe`
-- `node tools/yarn.mjs test:siheom --supported --probe`
-- `node tools/yarn.mjs test:harness`
+Build the package, then the apps you test, before you run a runner. Runners read each app's `dist/` and do not build it.
 
-Runners consume production outputs in each selected app's `dist/`, allocate unique loopback ports and save unique reports under `test-results/t05/`. Run builds before invoking runners; runners never call Nx recursively. Browser binaries are pinned by Playwright 1.64.1 and stored in `/private/tmp/krds-playwright-1.64.1`. Native browser execution and localhost listening may require the host's approved execution path.
+```sh
+node tools/yarn.mjs workspace @unofficial-krds/test-contracts build:local
+node tools/yarn.mjs test:contract --framework react
+node tools/yarn.mjs test:stories --framework react
+node tools/yarn.mjs test:siheom --framework react
+node tools/yarn.mjs test:harness
+```
 
-Story verification installs a strict production-asset request allowlist before iframe navigation. It blocks and fails external/API requests, WebSocket/EventSource and service-worker attempts even if the story is visible. The shared negative fixture proves blocking before sending. Axe 4.14.0 findings are recorded separately from native rendering; neither probe nor automated axe results imply KRDS or accessibility certification.
-
-T10 exports `fullCatalogStoryCases` (344) and `fullCatalogScenarios` (315) separately from the ten `pilotScenarios` and six `storyStateCases`. All added data is staged: concrete component props, local host setup, environment, semantic expectations, action sequences and postconditions. It never changes default pilot selection or asserts execution/coverage. Catalog JSON and package exports contain the same data.
-
-Native fixture hosts materialize serialized file descriptors as actual immutable `File` objects, wire local callbacks, and provide real locally bundled media/identity assets. Descriptors do not prove file existence, semantic media equivalence, rights or native behavior. Native implementation, actual observations, framework-specific checks and independent acceptance remain required. Full story tracking lives in `catalog/full-catalog-story-coverage.json`; Solid 2 Storybook remains an unsupported candidate rather than an invented upstream integration.
+[CONTRIBUTING.md](../../CONTRIBUTING.md) explains the three kinds of tests.

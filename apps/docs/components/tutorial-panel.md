@@ -6,6 +6,8 @@ title: 'Tutorial panel'
 
 **따라하기 패널** — 작업을 단계별로 따라 할 수 있게 옆 패널에서 안내합니다.
 
+`TutorialPanel` · `@unofficial-krds/<프레임워크>/tutorial-panel` · CSS `@unofficial-krds/styles/tutorial-panel.css`
+
 ## 사용법 {#usage}
 
 - 여러 세부 단계를 거치거나 복잡한 입력이 필요한 과업을, 화면을 따라가며 단계별로 안내할 때 씁니다.
@@ -36,42 +38,11 @@ title: 'Tutorial panel'
 | `startActionId` **필수** | `string` | — | 따라하기 시작 버튼의 `id`입니다. 따라하기를 중단하면 초점이 이 버튼으로 돌아갑니다. |
 | `fallbackFocusId` | `string` | — | 중단한 뒤 시작 버튼이 화면에 없거나 쓸 수 없을 때 대신 초점을 받을 요소의 `id`입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface TutorialPanelContract extends ControlledOpen {
-    onStart?: (detail: TutorialStartDetails) => void;
-    tasks: readonly {
-        id: string;
-        title: string;
-        steps: readonly TutorialStep[];
-    }[];
-    activeTaskId: string | null;
-    activeStepId: string | null;
-    running?: boolean;
-    defaultRunning?: boolean;
-    activePanel?: 'help' | 'tutorial';
-    defaultActivePanel?: 'help' | 'tutorial';
-    onTaskChange?: (detail: {
-        id: string | null;
-    }) => void;
-    onStepChange?: (detail: {
-        id: string | null;
-    }) => void;
-    onActivePanelChange?: (detail: ValueChangeDetails<'help' | 'tutorial'>) => void;
-    onStop?: (detail: TutorialStopDetails) => void;
-    startActionId: string;
-    fallbackFocusId?: string;
-}
-
-export interface ControlledOpen {
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (detail: OpenChangeDetails) => void;
-}
-
 export interface OpenChangeDetails {
     open: boolean;
 }
@@ -129,7 +100,7 @@ export interface TutorialStopDetails {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/tutorial-panel.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -156,5 +127,4 @@ export interface TutorialStopDetails {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_08_02.html)
-- [상세 명세](/sources/specs/components/tutorial-panel.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

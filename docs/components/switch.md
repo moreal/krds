@@ -6,6 +6,8 @@ title: 'Toggle switch'
 
 **토글 스위치** — 설정 하나를 켜거나 끕니다.
 
+`Switch` · `@unofficial-krds/<프레임워크>/switch` · CSS `@unofficial-krds/styles/switch.css`
+
 ## 사용법 {#usage}
 
 - 알림 표시 여부처럼 켜짐과 꺼짐 두 상태뿐인 설정을 바꾸고, 그 결과가 즉시 반영될 때 씁니다.
@@ -32,32 +34,7 @@ title: 'Toggle switch'
 | `value` | `string` | `"on"` | 켜져 있을 때 폼으로 제출되는 값입니다. |
 | `size` | `'medium' \| 'large'` | `"medium"` | 스위치 크기입니다. `medium` 또는 `large`입니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
-
-표에 나온 타입의 정의입니다.
-
-```ts
-export interface SwitchContract extends FieldContract {
-    checked?: boolean;
-    defaultChecked?: boolean;
-    onCheckedChange?: (detail: {
-        checked: boolean;
-    }) => void;
-    value?: string;
-    size?: 'medium' | 'large';
-}
-
-export interface FieldContract {
-    id?: string;
-    name?: string;
-    label: string;
-    disabled?: boolean;
-    required?: boolean;
-    invalid?: boolean;
-    helpId?: string;
-    errorId?: string;
-}
-```
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/README.md#native-content-and-event-transport).
 
 ## 키보드 조작 {#keyboard}
 
@@ -83,7 +60,7 @@ export interface FieldContract {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/switch.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -102,5 +79,4 @@ export interface FieldContract {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_06_07.html)
-- [상세 명세](/sources/specs/components/switch.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/index.md)를 따릅니다.

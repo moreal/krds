@@ -6,6 +6,8 @@ title: 'Text list'
 
 **텍스트 목록** — 관련된 내용을 순서가 있거나 없는 목록으로 나열합니다.
 
+`TextList` · `@unofficial-krds/<프레임워크>/text-list` · CSS `@unofficial-krds/styles/text-list.css`
+
 ## 사용법 {#usage}
 
 - 서로 관련된 짧은 텍스트 항목을 나열할 때 씁니다.
@@ -22,17 +24,11 @@ title: 'Text list'
 | `marker` | `'dot' \| 'dash' \| 'hollow'` | `"dot"` | 순서 없는 목록의 글머리 기호 모양입니다. `dot`, `dash`, `hollow` 중 하나이며 순서 있는 목록에서는 쓰이지 않습니다. |
 | `items` **필수** | `readonly TextListItem[]` | — | 목록 항목입니다. 항목마다 `id`와 `content`를 주고, `children`에 하위 항목을 넣으면 중첩 목록이 됩니다. 3수준을 넘게 중첩하면 오류가 납니다. |
 
-모든 프레임워크가 같은 속성 이름과 타입을 씁니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
+속성 이름은 프레임워크 공통입니다. 콘텐츠와 이벤트를 넘기는 문법은 [프레임워크마다 다릅니다](../compatibility/#native-content-and-event-transport).
 
-표에 나온 타입의 정의입니다.
+표에 나온 타입입니다.
 
 ```ts
-export interface TextListContract {
-    ordered?: boolean;
-    marker?: 'dot' | 'dash' | 'hollow';
-    items: readonly TextListItem[];
-}
-
 export interface TextListItem {
     id: string;
     content: string;
@@ -43,7 +39,7 @@ export interface TextListItem {
 ## 접근성 {#accessibility}
 
 - 순서 없는 목록은 `ul`, 순서 있는 목록은 `ol`로 표시해 화면 낭독기가 목록과 항목 수를 알려 줍니다.
-- 글머리 기호 모양을 바꿔도 모바일 화면 낭독기가 목록으로 인식하도록 목록에 `role="list"`를 함께 붙입니다.
+- 글머리 기호 모양을 바꿔도 모바일 화면 낭독기가 목록으로 인식하도록 목록에 `role="list"`, 항목에 `role="listitem"`을 함께 붙입니다.
 - 목록과 항목은 초점을 받지 않습니다.
 
 ## 알아 둘 점 {#notes}
@@ -53,7 +49,7 @@ export interface TextListItem {
 
 ## 스타일링 {#styling}
 
-각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
+`@unofficial-krds/styles/text-list.css`를 가져옵니다. 각 부분에는 `data-krds-part` 속성이 붙어 있어 CSS 선택자로 고를 수 있습니다. 상태는 `data-krds-state`에 공백으로 구분해 담깁니다.
 
 | 파트 | 상태 값 |
 | --- | --- |
@@ -70,5 +66,4 @@ export interface TextListItem {
 ## 참고 {#references}
 
 - [KRDS 공식 안내](https://www.krds.go.kr/html/site/component/component_04_13.html)
-- [상세 명세](/sources/specs/components/text-list.md.txt)
 - KRDS에서 가져온 내용의 이용 조건은 [출처와 권리](../legal/)를 따릅니다.

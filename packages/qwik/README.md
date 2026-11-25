@@ -1,41 +1,38 @@
 # @unofficial-krds/qwik
 
-Native Qwik pilot components: `Button`, `NativeSelect`, `Modal`, `Tabs`, `Calendar`, and `DateInput`, plus `KrdsProvider`. The selected runtime and optimizer are Qwik 1.20.3 with Vite 7.3.1. This pilot does not establish complete KRDS catalog coverage or release readiness.
+Qwik components for the 54 web components of KRDS, the Korean government design system. This is an unofficial, independent project.
 
-Import styles explicitly:
+## Install
 
-```tsx
-import { component$, useSignal } from '@builder.io/qwik';
-import { NativeSelect } from '@unofficial-krds/qwik';
-import '@unofficial-krds/styles/all.css';
+The package is not published to npm yet. Build and pack it in the [repository](https://github.com/moreal/krds), then install the tarballs in your app.
 
-export default component$(() => {
-  const region = useSignal('seoul');
-  return <NativeSelect label="지역" value={region.value}
-    options={[{ value: 'seoul', label: '서울' }, { value: 'busan', label: '부산' }]}
-    onValueChange$={({ value }) => { region.value = value; }} />;
-});
+```bash
+node tools/yarn.mjs install --immutable && node tools/yarn.mjs nx run krds-qwik:build
+mkdir -p /tmp/krds && for name in contracts tokens styles qwik; do node tools/yarn.mjs workspace @unofficial-krds/$name pack --out /tmp/krds/$name.tgz; done
+# in your app
+npm install /tmp/krds/{contracts,tokens,styles,qwik}.tgz
 ```
 
-Semantic callbacks use Qwik QRL props (`onValueChange$`, `onOpenChange$`, `onConfirm$`, `onCancel$`). Button retains native `onClick$`. Props remain authoritative for controlled inputs. Dates use strict ASCII Gregorian ISO strings; reference dates are explicit. All enabled tabs and dates remain sequential keyboard stops.
+Peer dependency: `@builder.io/qwik@^1.20.3`.
 
-Use `KrdsProvider` to supply `locale="en-US"` or `direction="rtl"`; Korean and LTR are the defaults. Each browser resource uses its owning element's document. No DOM access occurs at import. Modal document isolation, select reconciliation, tab panel inspection, and DateInput native form listeners are reconstructed client resources. State and QRL captures contain plain semantic values; modal services are excluded using `noSerialize`.
+## Use
 
-The production consumer in `apps/fixture-qwik` resolves this package's built `dist/index.qwik.mjs`. Its `resume.html` is actual paused SSR with independent cold first-event tests, resource timing and Chrome precise execution coverage. Storybook is a separate client-rendered state presentation. Test commands and limits are recorded in `docs/compatibility/qwik.md` and the T07Q report.
+Import each component from `@unofficial-krds/qwik/<id>` or from the package root. Import its CSS from `@unofficial-krds/styles/<id>.css`, or import `@unofficial-krds/styles/all.css` once.
 
-Independent project code is copyright (c) 2026 Lee Dogeon <dev.moreal@gmail.com> under the MIT grant in LICENSES/MIT.txt. KRDS and third-party materials retain their separate recorded terms. Publication is not authorized.
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Checkbox } from '@unofficial-krds/qwik/checkbox';
+import '@unofficial-krds/styles/checkbox.css';
 
+export const Consent = component$(() => (
+	<Checkbox label="I agree" name="consent" onCheckedChange$={({ checked }) => console.log(checked)} />
+));
+```
 
-T10 adds native sources for the full catalog. Each component has its own Qwik `component$` renderer, semantic markup and QRL handlers. Import from `@unofficial-krds/qwik` or a named component subpath. Top-level semantic callback props use QRL names such as `onValueChange$`, `onOpenChange$`, and `onStop$`; callbacks nested in plain configuration must be explicitly wrapped with Qwik `$()`. Native child content uses Qwik slots.
+- A callback in the props tables takes a `$` suffix: `onCheckedChange` is `onCheckedChange$`. A callback inside a config object keeps its name, such as `loadMore.onLoadMore`, but you wrap the function in `$()`.
+- Content goes in the component's children.
+- To change the locale, wrap the app in `KrdsProvider` (`locale`, `direction`) from the package root.
+- Test production SSR in a built server app. Storybook and static HTML do not show whether the first events work after resume.
+- Each component has a guide in the [component guides](https://moreal.github.io/krds/components/) (in Korean).
 
-Controlled props remain authoritative; defaults are captured once. Ordinary reset restores uncontrolled defaults without a change request, and canceled reset is inert. Files belong to the browser: put actual File handles behind `noSerialize`, retain plain descriptor metadata separately, and use `appendCommittedFiles` when constructing FormData from the host's committed set. Upload, speech, locale, history and media-content accuracy remain explicit host integrations.
-
-The 54 standalone public examples live in `apps/fixture-qwik/src/catalog-examples.tsx` and compile under `apps/fixture-qwik/tsconfig.examples.json`. Full catalog behavior, manual accessibility/media review and release acceptance remain separately gated; source availability is not verified coverage. Publication, pushing and tagging are unauthorized.
-
-`CoachMark` owns the step/open state and provides native context. Place a `CoachMarkOutlet` inside each registered insertion boundary immediately after its unchanged target, as children of that controller. The outlet is exported from the root and `coach-mark` subpath and adds no catalog component ID. The same native surface exists at that position in SSR and resumes there; targets and Qwik DOM ranges are never reparented. Missing or removed outlets suspend advancement. For a TutorialPanel composition, the native `targets` named slot can hold the controller outside the panel chrome while retaining the Tutorial coordinator. See `CoachMarkExample` for the complete public composition.
-
-Nested callbacks retain their semantic names and require QRL values: `search.onRequest`, `selection.onChange`, `sort.onChange`, `loadMore.onLoadMore`, `actions[].onAction`, `iconAction.onAction`, and `menuAction.onRequest`. Their public types reject ordinary function closures. Native JSX content and browser `File` values are excluded from recursive callback transport mapping.
-
-The FileUpload chooser is intentionally unnamed (`data-krds-name` records the semantic field name). Only the host's committed records become successful file entries. `appendCommittedFiles(data, name, files, disabled)` appends without deleting existing same-name fields. Invoke it once per uploader when constructing the submission, or once per uploader in a native `formdata` listener. A submission using that listener must consume `new FormData(form)` directly rather than appending the same committed files again. This preserves ordinary fields and other uploaders sharing a name; disabled uploaders append nothing.
-
-Keep each Coach target and its after-target outlet in a stable keyed native DOM group when projecting them through the controller's slot. The public example uses this structure so receiving-parent updates preserve the actual input and its composing draft in selected Qwik 1.20.3. The compatibility report records the separate plain-framework conditional-Fragment limitation and the strict native-group identity/IME proof.
+**License.** Code written for this project is MIT licensed, Copyright (c) 2026 Lee Dogeon. KRDS material and fonts keep their original terms. See [LICENSE.md](LICENSE.md) and [ATTRIBUTION.md](ATTRIBUTION.md). This is not an official KRDS or government distribution.
